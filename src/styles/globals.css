@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --badge-counter-text: #71717a;
+    --badge-counter-bg: #a1a1aa1f;
+    --badge-new-text: #057a55;
+    --badge-new-bg: #0e9f6e1f;
+    --badge-soon-text: #047481;
+    --badge-soon-bg: #16bdca1f;
+    --badge-suspended-text: #e02424;
+    --badge-suspended-bg: #f980801f;
+    --badge-upgrade-text: #fafafa;
+    --badge-upgrade-bg: #0e9f6e;
+  }
+
+  .classic-purple-dark {
+    --badge-counter-text: #e4e4e7;
+    --badge-counter-bg: #f4f4f51f;
+    --badge-new-text: #31c48d;
+    --badge-new-bg: #84e1bc1f;
+    --badge-soon-text: #16bdca;
+    --badge-soon-bg: #7edce21f;
+    --badge-suspended-text: #f05252;
+    --badge-suspended-bg: #f980801f;
+    --badge-upgrade-text: #fafafa;
+    --badge-upgrade-bg: #0e9f6e;
+  }
+}
