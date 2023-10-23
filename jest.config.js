@@ -9,11 +9,7 @@ const customJestConfig = {
   testEnvironment: "jest-environment-jsdom",
   testPathIgnorePatterns: ["/node_modules/", "/.next/"],
   collectCoverage: true,
-  collectCoverageFrom: [
-    "src/components/**/*.ts(x)?",
-    "src/templates/**/*.ts(x)?",
-    "!src/**/stories.tsx",
-  ],
+  collectCoverageFrom: ["src/components/**/*.tsx"],
   modulePaths: ["<rootDir>/src/"],
 };
 
