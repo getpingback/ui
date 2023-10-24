@@ -2,8 +2,8 @@ import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import postcss from "rollup-plugin-postcss";
-// import terser from "@rollup/plugin-terser";
 import dts from "rollup-plugin-dts";
+import copy from "rollup-plugin-copy";
 
 import packageJson from "./package.json" assert { type: "json" };
 
@@ -35,8 +35,19 @@ const rollupConfig = [
           insertAt: "top",
         },
       }),
+      copy({
+        targets: [
+          {
+            src: "./tailwind.config.js",
+            dest: "./dist",
+          },
+          {
+            src: "./src/styles/globals.css",
+            dest: "./dist",
+          },
+        ],
+      }),
       typescript({ tsconfig: "./tsconfig.json" }),
-      // terser(),
     ],
   },
   {

@@ -2,6 +2,7 @@ const config = {
   content: [
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/stories/**/*.{js,ts,jsx,tsx}",
+    "./node_modules/@getpingback/ui/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     screens: {
