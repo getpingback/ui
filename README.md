@@ -4,42 +4,50 @@
 <div align="center">Pingback UI React library</div>
 <br />
 <div align="center">
-<a href="https://github.com/getpingback/ui">Github</a> 
+<a href="https://stash-ui.com">Docs</a> 
 <span> · </span>
 <a href="https://pingback.com/">Pingback</a>
 </div>
 
-## Install
+**An open-source UI component library for building modern web applications. Designed and powered by [Pingback](https://pingback.com/).**
 
-#### With yarn
+---
 
-```sh
-yarn add @getpingback/ui
-```
+## Documentation
 
-#### With npm
+For full documentation, visit [stash-ui.com](https://stash-ui.com).
 
-```sh
-npm install @getpingback/ui
-```
+## Releases
 
-## Getting started
+For changelog, visit [stash-ui.com/?path=/docs/overview-changelog--docs](https://stash-ui.com/?path=/docs/overview-changelog--docs).
 
-Import the component and just use it.
+## Contributing
 
-```jsx
-import { Badge } from "@getpingback/ui";
-
-const App = () => {
-  return <Badge>Badge Component</Badge>;
-};
-```
+Please follow our [contributing guidelines](https://stash-ui.com/?path=/docs/development-contributing--docs).
 
 ## Authors
 
 - Pedro Ladeira ([@pedrooladeira](https://twitter.com/pedrooladeira))
 - Jéssica Martins ([@jess_bmartins](https://twitter.com/jess_bmartins))
 - Rachel Andrade ([@rchldesigner](https://twitter.com/rchldesigner))
+
+---
+
+## Community
+
+### Newsroom
+
+We are always posting about our latest news and updates on our Newsroom. Check it out!
+
+[Visit Pingback Newsroom](https://pingback.com/newsroom)
+
+### Twitter
+
+To receive updates about our Engineering team, follow along on Twitter.
+
+[Follow Pingback on Twitter](https://twitter.com/pingbackoficial)
+
+---
 
 ## License
 
