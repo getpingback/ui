@@ -17,7 +17,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "serve-storybook": "serve storybook-static",
-    "rollup": "rollup -c"
+    "rollup": "rollup -c",
+    "prepare": "husky install"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.0",
@@ -32,10 +33,13 @@
     "jackspeak": "2.1.1"
   },
   "devDependencies": {
+    "@commitlint/cli": "^18.1.0",
+    "@commitlint/config-conventional": "^18.1.0",
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^11.1.5",
+    "@storybook/addon-docs": "^7.5.1",
     "@storybook/addon-essentials": "^7.5.1",
     "@storybook/addon-interactions": "^7.5.1",
     "@storybook/addon-links": "^7.5.1",
@@ -53,6 +57,7 @@
     "eslint": "^8",
     "eslint-config-next": "13.5.6",
     "eslint-plugin-storybook": "^0.6.15",
+    "husky": "^8.0.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "next": "13.5.6",
