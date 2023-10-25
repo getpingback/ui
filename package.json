@@ -13,16 +13,18 @@
     "dev": "yarn storybook",
     "build": "yarn rollup",
     "test": "jest",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
     "test:watch": "jest --watch",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "serve-storybook": "serve storybook-static",
     "rollup": "rollup -c",
     "prepare": "husky install",
-    "release": "standard-version",
-    "release:minor": "standard-version --release-as minor",
-    "release:patch": "standard-version --release-as patch",
-    "release:major": "standard-version --release-as major"
+    "base-release": "yarn build && git push --follow-tags origin main && yarn publish --access public",
+    "release": "standard-version && yarn base-release",
+    "release:minor": "standard-version --release-as minor && yarn base-release",
+    "release:patch": "standard-version --release-as patch && yarn base-release",
+    "release:major": "standard-version --release-as major && yarn base-release"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.0",
