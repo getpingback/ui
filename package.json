@@ -1,7 +1,7 @@
 {
   "name": "@getpingback/ui",
   "author": "Pingback Team",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "license": "MIT",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -18,7 +18,11 @@
     "build-storybook": "storybook build",
     "serve-storybook": "serve storybook-static",
     "rollup": "rollup -c",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "release": "standard-version",
+    "release:minor": "standard-version --release-as minor",
+    "release:patch": "standard-version --release-as patch",
+    "release:major": "standard-version --release-as major"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.0",
@@ -69,6 +73,7 @@
     "rollup-plugin-dts": "^6.1.0",
     "rollup-plugin-postcss": "^4.0.2",
     "serve": "^14.2.1",
+    "standard-version": "^9.5.0",
     "storybook": "^7.5.1",
     "tailwindcss": "^3",
     "tslib": "^2.6.2",
