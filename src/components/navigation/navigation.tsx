@@ -17,9 +17,9 @@ const navigationVariants = cva(
     variants: {
       variant: {
         highlighted:
-          'shadow shadow-[0px_0px_0px_3px_rgba(14,159,110,0.12)] hover:bg-list-highlighted text-success-foreground',
+          'shadow shadow-[0px_0px_0px_3px_rgba(14,159,110,0.12)] hover:bg-list-highlighted text-success-foreground ',
         default:
-          'text-tertiary-foreground hover:text-active-foreground hover:bg-list-actived ',
+          'text-tertiary-foreground hover:text-active-foreground hover:bg-list-actived active:font-semibold active:bg-active-menu active:text-active-foreground',
       },
     },
     defaultVariants: {
@@ -61,14 +61,12 @@ function NavigationItem({ className, variant, ...props }: NavigationItemProps) {
 }
 
 export interface NavigationSubItemProps
-  extends React.ComponentProps<typeof NavigationMenuPrimitive.Link>,
-    VariantProps<typeof navigationVariants> {
+  extends React.ComponentProps<typeof NavigationMenuPrimitive.Link> {
   position?: 'first' | 'middle' | 'last' | 'only';
 }
 
 function NavigationSubItem({
   className,
-  variant,
   position,
   ...props
 }: NavigationSubItemProps) {

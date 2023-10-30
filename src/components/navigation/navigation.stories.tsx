@@ -91,7 +91,10 @@ export const SubItem: Story = {
 
 export const Link: Story = {
   render: () => (
-    <NavigationLink href='www.pingback.com'> NavigationLink </NavigationLink>
+    <NavigationLink href='www.pingback.com' target='__blank'>
+      {' '}
+      NavigationLink{' '}
+    </NavigationLink>
   ),
 };
 
