@@ -14,10 +14,10 @@
     --badge-suspended-bg: #f980801f;
     --badge-upgrade-text: #fafafa;
     --badge-upgrade-bg: #0e9f6e;
-    --list-hightlight--hover: 0px 0px 0px 3px rgba(14, 159, 110, 0.12); /* sem token **/
+    --list-hightlight--hover: 0px 0px 0px 3px rgba(14, 159, 110, 0.12);
     --list-actived: #9061F914;
     --list-hover: #71717A14;
-    --list-hightlight: rgba(14, 159, 110, 0.04); /* sem token **/
+    --list-hightlight: rgba(14, 159, 110, 0.04);
     --text-primary: #3F3F46;
     --text-secondary: #52525B;
     --text-tertiary: #71717A;
@@ -48,9 +48,9 @@
     --badge-suspended-bg: #f980801f;
     --badge-upgrade-text: #fafafa;
     --badge-upgrade-bg: #0e9f6e;
-    --list-hightlight--hover: 0px 0px 0px 3px rgba(14, 159, 110, 0.12); /* sem token **/
+    --list-hightlight--hover: 0px 0px 0px 3px rgba(14, 159, 110, 0.12);
     --list-actived: #AC94FA14;
-    --list-hightlight: rgba(14, 159, 110, 0.04); /* sem token **/
+    --list-hightlight: rgba(14, 159, 110, 0.04);
     --text-secondary: #F4F4F5;
     --text-primary: #FAFAFA;
     --text-tertiary: #E4E4E7;
