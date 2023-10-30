@@ -36,4 +36,5 @@ next-env.d.ts
 
 .npmrc
 dist
+storybook-static
 .rollup.cache

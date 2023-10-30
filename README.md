@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![Stash Icons Cover](https://res.cloudinary.com/pingback/image/upload/v1684178797/stash-assets/Templates_oum6vi.png)
 
-## Getting Started
+<div align="center"><strong>@getpingback/ui</strong></div>
+<div align="center">Pingback UI React library</div>
+<br />
+<div align="center">
+<a href="https://stash-ui.com">Docs</a> 
+<span> · </span>
+<a href="https://pingback.com/">Pingback</a>
+</div>
 
-First, run the development server:
+**An open-source UI component library for building modern web applications. Designed and powered by [Pingback](https://pingback.com/).**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Documentation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+For full documentation, visit [stash-ui.com](https://stash-ui.com).
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Releases
 
-## Learn More
+For changelog, visit [stash-ui.com/?path=/docs/overview-changelog--docs](https://stash-ui.com/?path=/docs/overview-changelog--docs).
 
-To learn more about Next.js, take a look at the following resources:
+## Contributing
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Please follow our [contributing guidelines](https://stash-ui.com/?path=/docs/development-contributing--docs).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Authors
 
-## Deploy on Vercel
+- Pedro Ladeira ([@pedrooladeira](https://twitter.com/pedrooladeira))
+- Jéssica Martins ([@jess_bmartins](https://twitter.com/jess_bmartins))
+- Rachel Andrade ([@rchldesigner](https://twitter.com/rchldesigner))
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Community
+
+### Newsroom
+
+We are always posting about our latest news and updates on our Newsroom. Check it out!
+
+[Visit Pingback Newsroom](https://pingback.com/newsroom)
+
+### Twitter
+
+To receive updates about our Engineering team, follow along on Twitter.
+
+[Follow Pingback on Twitter](https://twitter.com/pingbackoficial)
+
+---
+
+## License
+
+Licensed under the MIT License, Copyright © 2023-present [Pingback](https://pingback.com/).
+
+See [LICENSE](./LICENSE) for more information.

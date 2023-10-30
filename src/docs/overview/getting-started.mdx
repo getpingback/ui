@@ -1,0 +1,75 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta
+  title='Overview/Getting started'
+  parameters={{
+    viewMode: "docs",
+    previewTabs: {
+      canvas: { hidden: true },
+    },
+  }}
+/>
+
+# Getting Started
+
+Welcome to the starting point of your journey with the Pingback UI component library! Before diving in, ensure that your project is using TailwindCSS, as it's a prerequisite for our library. Follow the steps below to integrate the Pingback UI library into your application seamlessly.
+
+### Installation
+
+1. **Install the Library**:  
+    Using npm or yarn, add the `@getpingback/ui` package to your project:
+
+   ```bash
+   npm install @getpingback/ui
+   ```
+
+   Or, if you're using yarn:
+
+   ```bash
+   yarn add @getpingback/ui
+   ```
+
+<br />
+
+2. **Tailwind Configuration**:
+   Update your tailwind.config.js to import the configuration from our library:
+
+   ```javascript
+   const pingbackConfig = require("@getpingback/ui/dist/tailwind.config");
+
+   module.exports = {
+     ...pingbackConfig,
+     // ... Your custom configurations here (if any)
+   };
+   ```
+
+<br />
+3. **Import Global Styles**: To ensure consistent styling, import our global stylesheet
+at the root of your application:
+
+    ```javascript
+    import "@getpingback/ui/dist/globals.css";
+    ```
+
+<br />
+## Using the Components
+
+Now that you've set everything up, you're ready to start using our components! Let's begin with an example of how to use the Badge component:
+
+```javascript
+import React from "react";
+import { Badge } from "@getpingback/ui";
+
+function MyApp() {
+  return (
+    <div className='p-4'>
+      <h1>Welcome to Pingback UI!</h1>
+      <Badge>New</Badge>
+    </div>
+  );
+}
+
+export default MyApp;
+```
+
+In the above example, we've imported and used the Badge component with a "primary" variant. You can explore our documentation further to discover the different variants and properties available.
