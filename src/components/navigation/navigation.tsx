@@ -17,9 +17,10 @@ const navigationVariants = cva(
     variants: {
       variant: {
         highlighted:
-          'shadow shadow-[0px_0px_0px_3px_rgba(14,159,110,0.12)] hover:bg-list-highlighted text-success-foreground ',
+          'shadow shadow-[0px_0px_0px_3px_rgba(14,159,110,0.12)] hover:bg-list-highlighted text-success-foreground active:font-semibold',
         default:
           'text-tertiary-foreground hover:text-active-foreground hover:bg-list-actived active:font-semibold active:bg-active-menu active:text-active-foreground',
+        disabled: 'text-tertiary-foreground opacity-45 cursor-not-allowed',
       },
     },
     defaultVariants: {
@@ -49,11 +50,23 @@ export interface NavigationItemProps
     VariantProps<typeof navigationVariants> {}
 
 function NavigationItem({ className, variant, ...props }: NavigationItemProps) {
+  const [isActive, setIsActive] = React.useState(false);
+
   return (
     <NavigationMenuPrimitive.Root>
       <NavigationMenuPrimitive.Item
         data-testid='navigation-item'
-        className={cn(navigationVariants({ variant }), className)}
+        className={cn(
+          navigationVariants({ variant }),
+          className,
+          isActive &&
+            !variant &&
+            'text-active-foreground bg-active-menu font-semibold',
+          isActive &&
+            variant === 'highlighted' &&
+            'text-success-foreground bg-list-highlighted font-semibold'
+        )}
+        onClick={() => setIsActive(!isActive)}
         {...props}
       />
     </NavigationMenuPrimitive.Root>

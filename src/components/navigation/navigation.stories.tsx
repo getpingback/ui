@@ -26,6 +26,9 @@ export const NavigationDemo: Story = {
     <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
       <NavigationList>
         <NavigationItem> NavigationItem </NavigationItem>
+        <NavigationItem variant='disabled'>
+          NavigationItem Disabled
+        </NavigationItem>
         <NavigationLink> NavigationLink </NavigationLink>
         <NavigationTrigger
           title={
