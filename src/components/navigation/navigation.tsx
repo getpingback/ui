@@ -17,10 +17,10 @@ const navigationVariants = cva(
     variants: {
       variant: {
         highlighted:
-          'shadow shadow-[0px_0px_0px_3px_rgba(14,159,110,0.12)] hover:bg-list-highlighted text-success-foreground active:font-semibold',
+          'shadow shadow-[0px_0px_0px_3px_rgba(14,159,110,0.12)] hover:bg-list-highlighted text-success-foreground',
         default:
-          'text-tertiary-foreground hover:text-active-foreground hover:bg-list-actived active:font-semibold active:bg-active-menu active:text-active-foreground',
-        disabled: 'text-tertiary-foreground opacity-45 cursor-not-allowed',
+          'text-tertiary-foreground hover:text-active-foreground hover:bg-list-actived',
+        disabled: 'text-tertiary-foreground opacity-[0.45] cursor-not-allowed',
       },
     },
     defaultVariants: {
@@ -31,14 +31,30 @@ const navigationVariants = cva(
 
 export interface NavigationLinkProps
   extends React.ComponentProps<typeof NavigationMenuPrimitive.Link>,
-    VariantProps<typeof navigationVariants> {}
+    VariantProps<typeof navigationVariants> {
+  isActive?: boolean;
+}
 
-function NavigationLink({ className, variant, ...props }: NavigationLinkProps) {
+function NavigationLink({
+  className,
+  variant,
+  isActive,
+  ...props
+}: NavigationLinkProps) {
   return (
     <NavigationMenuPrimitive.Root>
       <NavigationMenuPrimitive.Link
         data-testid='navigation-link'
-        className={cn(navigationVariants({ variant }), className)}
+        className={cn(
+          navigationVariants({ variant }),
+          className,
+          isActive &&
+            !variant &&
+            'text-active-foreground bg-active-menu font-semibold',
+          isActive &&
+            variant === 'highlighted' &&
+            'text-success-foreground bg-list-highlighted font-semibold'
+        )}
         {...props}
       />
     </NavigationMenuPrimitive.Root>
@@ -47,11 +63,16 @@ function NavigationLink({ className, variant, ...props }: NavigationLinkProps) {
 
 export interface NavigationItemProps
   extends React.ComponentProps<typeof NavigationMenuPrimitive.Item>,
-    VariantProps<typeof navigationVariants> {}
+    VariantProps<typeof navigationVariants> {
+  isActive?: boolean;
+}
 
-function NavigationItem({ className, variant, ...props }: NavigationItemProps) {
-  const [isActive, setIsActive] = React.useState(false);
-
+function NavigationItem({
+  className,
+  variant,
+  isActive,
+  ...props
+}: NavigationItemProps) {
   return (
     <NavigationMenuPrimitive.Root>
       <NavigationMenuPrimitive.Item
@@ -66,7 +87,6 @@ function NavigationItem({ className, variant, ...props }: NavigationItemProps) {
             variant === 'highlighted' &&
             'text-success-foreground bg-list-highlighted font-semibold'
         )}
-        onClick={() => setIsActive(!isActive)}
         {...props}
       />
     </NavigationMenuPrimitive.Root>
@@ -83,15 +103,18 @@ function NavigationSubItem({
   position,
   ...props
 }: NavigationSubItemProps) {
-  const handleIcon = (position: string) => {
+  const renderLeftIconPosition = (position: string) => {
     if (position === 'first') {
       return <Image src={subItem1SVG} alt='dot-icon' data-testid='first-dot' />;
-    } else if (position === 'last') {
+    }
+    if (position === 'last') {
       return <Image src={subItem3SVG} alt='dot-icon' data-testid='last-dot' />;
-    } else if (position === 'only') {
+    }
+    if (position === 'only') {
       return <Image src={subItem4SVG} alt='dot-icon' data-testid='only-dot' />;
-    } else
-      return <Image src={subItem2SVG} alt='dot-icon' data-testid='middle' />;
+    }
+
+    return <Image src={subItem2SVG} alt='dot-icon' data-testid='middle' />;
   };
 
   return (
@@ -99,17 +122,17 @@ function NavigationSubItem({
       <NavigationMenuPrimitive.Link
         data-testid='navigation-sub-item'
         className={cn(
-          'flex items-center flex-start w-full px-3 cursor-pointer text-xs font-normal text-primary opacity-60 hover:bg-list-hover transition duration-300 ease-in-out',
+          'flex items-center flex-start w-full px-3 cursor-pointer text-xs font-normal text-primary hover:bg-list-hover transition duration-300 ease-in-out',
           className
         )}
         {...props}
       >
         <div
           className={cn(
-            'opacity-60 hover:opacity-100 flex items-center flex-start transition-all duration-300'
+            'w-full opacity-60 hover:opacity-100 flex items-center text-tertiary-foreground flex-start transition-all duration-300 z-9'
           )}
         >
-          {position && handleIcon(position)}
+          {position && renderLeftIconPosition(position)}
           {props.children}
         </div>
       </NavigationMenuPrimitive.Link>
@@ -117,16 +140,17 @@ function NavigationSubItem({
   );
 }
 
+interface NavigationTriggerProps
+  extends Omit<AccordionPrimitive.AccordionItemProps, 'value'> {
+  items: { label: string; href: string }[];
+}
+
 function NavigationTrigger({
   className,
   items,
-  title,
+  children,
   ...props
-}: {
-  title: string | JSX.Element;
-  items: { label: string; href: string }[];
-  className?: string;
-}) {
+}: NavigationTriggerProps) {
   const handlePosition = (itemIndex: number, itemsLength: number) => {
     if (itemsLength === 1) return 'only';
     else if (itemIndex === 0 && itemsLength > 1) return 'first';
@@ -142,9 +166,9 @@ function NavigationTrigger({
       data-testid='navigation-trigger'
     >
       <AccordionPrimitive.Item
+        {...props}
         className='AccordionItem'
         value='accordion'
-        {...props}
       >
         <AccordionPrimitive.Trigger
           className={cn(
@@ -152,8 +176,8 @@ function NavigationTrigger({
             className
           )}
         >
-          {title}
-          <ChevronDownIcon className='h-4 w-4 shrink-0 transition-transform duration-200' />
+          {children}
+          <ChevronDownIcon className='shrink-0 transition-transform duration-200' />
         </AccordionPrimitive.Trigger>
         <AccordionPrimitive.Content
           className={cn(

@@ -31,35 +31,34 @@ export const NavigationDemo: Story = {
         </NavigationItem>
         <NavigationLink> NavigationLink </NavigationLink>
         <NavigationTrigger
-          title={
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-              {
-                <UserCheckIcon
-                  width={24}
-                  height={24}
-                  style={{ paddingRight: 5 }}
-                />
-              }
-              Settings
-            </div>
-          }
           items={[
             { label: 'Account', href: '/account' },
             { label: 'Profile', href: '/profile' },
             { label: 'Notifications', href: '/notifications' },
           ]}
-        />
+        >
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            {
+              <UserCheckIcon
+                width={24}
+                height={24}
+                style={{ paddingRight: 5 }}
+              />
+            }
+            Settings
+          </div>
+        </NavigationTrigger>
+        <NavigationTrigger items={[{ label: 'Products', href: '/products' }]}>
+          Store
+        </NavigationTrigger>
         <NavigationTrigger
-          title='Store'
-          items={[{ label: 'Products', href: '/products' }]}
-        />
-        <NavigationTrigger
-          title='Create'
           items={[
             { label: 'Product', href: '/product/create' },
             { label: 'Category', href: '/category/create' },
           ]}
-        />
+        >
+          Create
+        </NavigationTrigger>
       </NavigationList>
     </div>
   ),
@@ -117,12 +116,11 @@ export const Trigger: Story = {
         { label: 'Profile', href: '/profile' },
         { label: 'Notifications', href: '/notifications' },
       ]}
-      title={
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          {<UserCheckIcon width={24} height={24} style={{ paddingRight: 5 }} />}
-          Settings
-        </div>
-      }
-    />
+    >
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        {<UserCheckIcon width={24} height={24} style={{ paddingRight: 5 }} />}
+        Settings
+      </div>
+    </NavigationTrigger>
   ),
 };
