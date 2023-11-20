@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Sidebar, SideBarHeader, SideBarFooter , SideBarContent } from './sidebar';
+import {
+  Sidebar,
+  SideBarHeader,
+  SideBarFooter,
+  SideBarContent,
+} from './sidebar';
 
 const meta = {
   title: 'Components/Sidebar',
@@ -23,18 +28,21 @@ export const Default: Story = () => {
 
   return (
     <div className='flex justify-center'>
-      <Sidebar isOpen={isOpen} setIsOpen={setIsOpen}>
+      <Sidebar isOpen={isOpen} onClose={() => setIsOpen(false)}>
         <SideBarContent>
-        <SideBarHeader>Header</SideBarHeader>
-        <div className='h-[40px]'>Dashboard</div>
-        <div className='h-[40px]'>Seetings</div>
-        <div className='h-[40px]'>Create</div>
-        <div className='h-[40px]'>Measure</div>
+          <SideBarHeader>Header</SideBarHeader>
+          <div className='h-[40px]'>Dashboard</div>
+          <div className='h-[40px]'>Seetings</div>
+          <div className='h-[40px]'>Create</div>
+          <div className='h-[40px]'>Measure</div>
         </SideBarContent>
-        
+
         <SideBarFooter>Footer</SideBarFooter>
       </Sidebar>
-      <button className='p-2 border rounded-lg' onClick={() => setIsOpen(!isOpen)}>
+      <button
+        className='p-2 border rounded-lg'
+        onClick={() => setIsOpen(!isOpen)}
+      >
         Click me
       </button>
     </div>
