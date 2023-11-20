@@ -64,22 +64,17 @@ function DropdownRadioItem({
 }
 
 export interface DropdownProps extends React.HTMLAttributes<HTMLDivElement> {
-  buttonComponent?: JSX.Element;
+  trigger?: JSX.Element;
   side?: 'top' | 'bottom' | 'left' | 'right';
   setOpenSub?: React.Dispatch<React.SetStateAction<boolean>>;
   openSub?: boolean;
 }
 
-function Dropdown({
-  className,
-  buttonComponent,
-  side,
-  ...props
-}: DropdownProps) {
+function Dropdown({ className, trigger, side, ...props }: DropdownProps) {
   return (
     <DropdownMenuPrimitive.Root data-testid='dropdown'>
       <DropdownMenuPrimitive.Trigger>
-        {buttonComponent}
+        {trigger}
       </DropdownMenuPrimitive.Trigger>
 
       <DropdownMenuPrimitive.Portal {...props}>

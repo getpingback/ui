@@ -51,7 +51,7 @@ export const Default: Story = {
         </DropdownItem>
       </div>
     ),
-    buttonComponent: (
+    trigger: (
       <button className='bg-active-foreground p-2 rounded-lg text-inverse-foreground'>
         Click here
       </button>
@@ -69,7 +69,7 @@ export const Left: Story = {
         <DropdownItem>Logout </DropdownItem>
       </div>
     ),
-    buttonComponent: (
+    trigger: (
       <button className='bg-active-foreground p-2 rounded-lg text-inverse-foreground'>
         Click here
       </button>
@@ -88,7 +88,7 @@ export const Right: Story = {
         <DropdownItem>Logout </DropdownItem>
       </div>
     ),
-    buttonComponent: (
+    trigger: (
       <button className='bg-active-foreground p-2 rounded-lg text-inverse-foreground'>
         Click here
       </button>
@@ -107,7 +107,7 @@ export const Bottom: Story = {
         <DropdownItem>Logout </DropdownItem>
       </div>
     ),
-    buttonComponent: (
+    trigger: (
       <button className='bg-active-foreground p-2 rounded-lg text-inverse-foreground'>
         Click here
       </button>
@@ -124,7 +124,7 @@ export const Radio: Story = {
         <DropdownRadioItem isChecked={false}> Dark mode </DropdownRadioItem>
       </div>
     ),
-    buttonComponent: (
+    trigger: (
       <button className='bg-active-foreground p-2 rounded-lg text-inverse-foreground'>
         Click here
       </button>
