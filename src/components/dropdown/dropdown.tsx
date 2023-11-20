@@ -1,55 +1,95 @@
 import * as React from 'react';
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
-import { cva, type VariantProps } from 'class-variance-authority';
 
+import { CheckIcon } from '@stash-ui/regular-icons';
+import { cva } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
-// const DropdownMenu = DropdownMenuPrimitive.Root;
-
-const DropdownMenuTrigger = DropdownMenuPrimitive.Trigger;
-
-const DropdownMenuGroup = DropdownMenuPrimitive.Group;
-
-const DropdownMenuPortal = DropdownMenuPrimitive.Portal;
-
-const DropdownMenuSub = DropdownMenuPrimitive.Sub;
-
-const DropdownVariants = cva(
-  'inline-flex items-center px-2.5 py-0.5 text-xs font-semibold',
-  {
-    variants: {
-      variant: {
-        outline: 'bg-transparent',
-        ghost: 'border-none',
-      },
-    },
-  }
+const itemVariants = cva(
+  'h-[40px] flex items-center select-none outline-none focus:bg-list-hover focus:text-primary-foreground flex-start w-full px-3 cursor-pointer text-sm font-normal text-list-label hover:text-tertiary-foreground hover:bg-list-hover transition duration-300 ease-in-out [&>svg>path]:opacity-[.60]'
 );
 
-export interface DropdownMenuProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof DropdownVariants> {
-  buttonComponent?: JSX.Element;
+export interface DropdownDividerProps
+  extends React.ComponentProps<typeof DropdownMenuPrimitive.Separator> {}
+
+function DropdownDivider(props: DropdownDividerProps) {
+  return (
+    <DropdownMenuPrimitive.Separator
+      className='w-full h-[1px] bg-list-hover my-[8px]'
+      {...props}
+    ></DropdownMenuPrimitive.Separator>
+  );
 }
 
-function DropdownMenu({
-  className,
-  variant,
-  buttonComponent,
-  ...props
-}: DropdownMenuProps) {
+export interface DropdownItemProps
+  extends React.ComponentProps<typeof DropdownMenuPrimitive.Item> {
+  isSub?: boolean;
+}
+
+function DropdownItem({ className, ...props }: DropdownItemProps) {
   return (
-    <DropdownMenuPrimitive.Root>
+    <DropdownMenuPrimitive.Item
+      className={cn(itemVariants(), className)}
+      data-testid='dropdown-item'
+      {...props}
+    ></DropdownMenuPrimitive.Item>
+  );
+}
+
+export interface DropdownSubProps
+  extends React.ComponentProps<typeof DropdownMenuPrimitive.Item> {
+  isChecked: boolean;
+  setIsChecked?: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+function DropdownRadioItem({
+  className,
+  isChecked,
+  setIsChecked,
+  ...props
+}: DropdownSubProps) {
+  return (
+    <DropdownMenuPrimitive.CheckboxItem
+      className={cn(itemVariants(), className, 'flex justify-between')}
+      checked={isChecked}
+      onCheckedChange={setIsChecked}
+      data-testid='dropdown-radio'
+    >
+      {props.children}
+      <DropdownMenuPrimitive.ItemIndicator>
+        <CheckIcon />
+      </DropdownMenuPrimitive.ItemIndicator>
+    </DropdownMenuPrimitive.CheckboxItem>
+  );
+}
+
+export interface DropdownProps extends React.HTMLAttributes<HTMLDivElement> {
+  buttonComponent?: JSX.Element;
+  side?: 'top' | 'bottom' | 'left' | 'right';
+  setOpenSub?: React.Dispatch<React.SetStateAction<boolean>>;
+  openSub?: boolean;
+}
+
+function Dropdown({
+  className,
+  buttonComponent,
+  side,
+  ...props
+}: DropdownProps) {
+  return (
+    <DropdownMenuPrimitive.Root data-testid='dropdown'>
       <DropdownMenuPrimitive.Trigger>
         {buttonComponent}
       </DropdownMenuPrimitive.Trigger>
 
       <DropdownMenuPrimitive.Portal {...props}>
         <DropdownMenuPrimitive.Content
+          side={side || 'top'}
           className={cn(
-            'z-50 min-w-[252px] overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2',
+            'flex flex-col z-50 min-w-fit overflow-hidden rounded-lg bg-background-accent shadow-modal',
             className
           )}
+          sideOffset={4}
         >
           {props.children}
         </DropdownMenuPrimitive.Content>
@@ -58,4 +98,4 @@ function DropdownMenu({
   );
 }
 
-export { DropdownMenu, DropdownVariants };
+export { Dropdown, DropdownItem, DropdownRadioItem, DropdownDivider };

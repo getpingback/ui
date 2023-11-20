@@ -14,6 +14,33 @@
     --badge-suspended-bg: #f980801f;
     --badge-upgrade-text: #fafafa;
     --badge-upgrade-bg: #0e9f6e;
+    --background-accent: #FFFFFF;
+    --border-divider-color: #E4E4E7;
+    --bottom_sheet-2: 0px 0px 1px 1px rgba(0, 0, 0, 0.04), 0px 4px 16px -2px rgba(0, 0, 0, 0.08);
+    --modals-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.04), 0px -6px 24px -3px rgba(0, 0, 0, 0.08);
+    --list-hightlight--hover: 0px 0px 0px 3px rgba(14, 159, 110, 0.12);
+    --list-actived: #9061F914;
+    --list-hover: #71717A14;
+    --list-hightlight: rgba(14, 159, 110, 0.04);
+    --list-label_default: #71717A;
+    --text-primary: #3F3F46;
+    --text-secondary: #52525B;
+    --text-tertiary: #71717A;
+    --text-inverse: #FAFAFA;
+    --text-active: #9061F9;
+    --text-informative: #7E3AF2;
+    --text-informative_accent: #6C2BD9;
+    --text-success: #057A55;
+    --text-success_accent: #046C4E;
+    --text-caution: #C27803;
+    --text-caution_accent: #9F580A;
+    --text-warning: #FF5A1F;
+    --text-warning_accent: #D03801;
+    --text-error: #E02424;
+    --text-error_accent: #C81E1E;
+    --text-money: #0E9F6E;
+    --palette-gradiente-active_menu: linear-gradient(270deg, #7E3AF200 0%, #7e3af20b 100%);
+    --icons-default: #71717A;
   }
 
   .classic-purple-dark {
@@ -27,5 +54,32 @@
     --badge-suspended-bg: #f980801f;
     --badge-upgrade-text: #fafafa;
     --badge-upgrade-bg: #0e9f6e;
+    --background-accent: #27272A;
+    --border-divider-color: #3F3F46;
+    --bottom_sheet-2: 0px 0px 1px 1px #0000007a, 0px -4px 16px -2px #0000007a;
+    --modals-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.04), 0px -6px 24px -3px rgba(0, 0, 0, 0.08);
+    --list-hightlight--hover: 0px 0px 0px 3px rgba(14, 159, 110, 0.12);
+    --list-actived: #AC94FA14;
+    --list-hightlight: rgba(14, 159, 110, 0.04);
+    --list-label_default: #E4E4E7;
+    --list-hover: #E4E4E714;
+    --text-secondary: #F4F4F5;
+    --text-primary: #FAFAFA;
+    --text-tertiary: #E4E4E7;
+    --text-inverse: #3F3F46;
+    --text-active: #AC94FA;
+    --text-informative: #9061F9;
+    --text-informative_accent: #CABFFD;
+    --text-success: #31C48D;
+    --text-success_accent: #84E1BC;
+    --text-caution: #FCE96A;
+    --text-caution_accent: #FCE96A;
+    --text-warning: #FF8A4C;
+    --text-warning_accent: #FF8A4C;
+    --text-error: #F98080;
+    --text-error_accent: #F98080;
+    --text-money: #31C48D;
+    --palette-gradiente-active_menu: linear-gradient(270deg, #AC94FA 0%, #AC94FA00 100%);
+    --icons-default: #E4E4E7;
   }
 }
