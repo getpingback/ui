@@ -138,7 +138,44 @@ const config = {
       boxShadow: {
         'bottom_sheet-2': 'var(--bottom_sheet-2)',
       },
+      backgroundImage: {
+        'active-menu': 'var(--palette-gradiente-active_menu)',
+      },
+      keyframes: {
+        slideUp: {
+          from: { height: 0 },
+          to: { height: 'var(--radix-collapsible-content-height)' },
+        },
+        slideDown: {
+          from: { height: 'var(--radix-collapsible-content-height)' },
+          to: { height: 0 },
+        },
+      },
+      animation: {
+        'slide-up': 'slideUp 300ms cubic-bezier(0.87, 0, 0.13, 1) forwards',
+        'slide-down': 'slideDown 300ms cubic-bezier(0.87, 0, 0.13, 1) forwards',
+      },
       colors: {
+        success: {
+          foreground: 'var(--text-success)',
+        },
+        tertiary: {
+          foreground: 'var(--text-tertiary)',
+        },
+        active: {
+          foreground: 'var(--text-active)',
+        },
+        list: {
+          highlighted: {
+            DEFAULT: 'var(--list-hightlight)',
+          },
+          actived: {
+            DEFAULT: 'var(--list-actived)',
+          },
+          hover: {
+            DEFAULT: 'var(--list-hover)',
+          },
+        },
         badge: {
           counter: {
             DEFAULT: 'var(--badge-counter-bg)',
