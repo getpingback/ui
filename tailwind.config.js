@@ -135,6 +135,9 @@ const config = {
       },
     },
     extend: {
+      boxShadow: {
+        'bottom_sheet-2': 'var(--bottom_sheet-2)',
+      },
       backgroundImage: {
         'active-menu': 'var(--palette-gradiente-active_menu)',
       },
@@ -191,9 +194,28 @@ const config = {
             foreground: 'var(--badge-suspended-text)',
           },
         },
+        background: {
+          accent: 'var(--background-accent)',
+        },
+        border: {
+          accent: 'rgba(0, 0, 0, 0.04)',
+        },
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function({addUtilities}) {
+      const newUtilities = {
+        '.no-scrollbar::-webkit-scrollbar': {
+          display: 'none',
+        },
+        ".no-scrollbar": {
+          '-ms-overflow-style': 'none',
+          'scrollbar-width': 'none',
+        },
+      };
+      addUtilities(newUtilities);
+    },
+  ],
 };
 export default config;

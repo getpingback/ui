@@ -14,6 +14,8 @@
     --badge-suspended-bg: #f980801f;
     --badge-upgrade-text: #fafafa;
     --badge-upgrade-bg: #0e9f6e;
+    --bottom_sheet-2: 0px 0px 1px 1px rgba(0, 0, 0, 0.04), 0px 4px 16px -2px rgba(0, 0, 0, 0.08);
+    --background-accent: #FFFFFF;
     --list-hightlight--hover: 0px 0px 0px 3px rgba(14, 159, 110, 0.12);
     --list-actived: #9061F914;
     --list-hover: #71717A14;
@@ -48,6 +50,8 @@
     --badge-suspended-bg: #f980801f;
     --badge-upgrade-text: #fafafa;
     --badge-upgrade-bg: #0e9f6e;
+    --bottom_sheet-2: 0px 0px 1px 1px  #0000007a, 0px -4px 16px -2px #0000007a;
+    --background-accent: #27272A;
     --list-hightlight--hover: 0px 0px 0px 3px rgba(14, 159, 110, 0.12);
     --list-actived: #AC94FA14;
     --list-hightlight: rgba(14, 159, 110, 0.04);
