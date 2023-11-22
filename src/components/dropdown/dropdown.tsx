@@ -111,6 +111,34 @@ function Dropdown({
     setIsOpen(false);
   };
 
+  const renderSubItems = () => {
+    return (
+      <div
+        style={{
+          display: 'flex',
+          width: 252,
+          height: subHeight,
+        }}
+      >
+        <div className='animate-slide-left w-full fixed transition-all duration-300 ease-out'>
+          <button
+            onClick={() => setSelectedSubItem(null)}
+            className='flex justify-between items-center px-[16px] pt-[12px] pb-[4px] text-tertiary-foreground font-semibold text-sm [&>svg]:mr-2 [&>svg>path]:fill-icons-foreground [&>svg>path]:opacity-[.45] hover:text-active'
+          >
+            <ArrowLeftLargeIcon />
+            <div className='w-full flex [&>div]:flex items-center'>
+              {selectedSub && selectedSub[0].props.label}
+            </div>
+          </button>
+          <DropdownDivider />
+
+          {selectedSub &&
+            selectedSub[0].props.children.map((item: ReactElement) => item)}
+        </div>
+      </div>
+    );
+  };
+
   return (
     <DropdownMenuPrimitive.Root
       data-testid='dropdown'
@@ -130,30 +158,7 @@ function Dropdown({
           {...props}
         >
           {selectedSub ? (
-            <div
-              style={{
-                display: 'flex',
-                width: 252,
-                height: subHeight,
-              }}
-            >
-              <div className='animate-slide-left w-full fixed transition-all duration-300 ease-out'>
-                <button
-                  onClick={() => setSelectedSubItem(null)}
-                  className='flex justify-between items-center px-[16px] pt-[12px] pb-[4px] text-tertiary-foreground font-semibold text-sm [&>svg]:mr-2 [&>svg>path]:fill-icons-foreground [&>svg>path]:opacity-[.45] hover:text-active'
-                >
-                  <ArrowLeftLargeIcon />
-                  <div className='w-full flex [&>div]:flex items-center'>
-                    {selectedSub[0].props.label}
-                  </div>
-                </button>
-                <DropdownDivider />
-
-                {selectedSub[0].props.children.map(
-                  (item: ReactElement) => item
-                )}
-              </div>
-            </div>
+            renderSubItems()
           ) : (
             <div
               style={{
