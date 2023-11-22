@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.21](https://github.com/getpingback/ui/compare/v0.0.20...v0.0.21) (2023-11-22)
+
+
+### Bug Fixes
+
+* export components ([557e0fa](https://github.com/getpingback/ui/commits/557e0fa6629ba4f5a37dea8fc41811f13c7111c6))
+
 ### [0.0.20](https://github.com/getpingback/ui/compare/v0.0.19...v0.0.20) (2023-11-22)
 
 ### [0.0.19](https://github.com/getpingback/ui/compare/v0.0.18...v0.0.19) (2023-11-22)
