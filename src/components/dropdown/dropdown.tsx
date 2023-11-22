@@ -1,12 +1,15 @@
-import * as React from 'react';
+import React, { useState, ReactElement, MouseEvent } from 'react';
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
-
-import { CheckIcon } from '@stash-ui/regular-icons';
+import {
+  CheckIcon,
+  ChevronRightIcon,
+  ArrowLeftLargeIcon,
+} from '@stash-ui/regular-icons';
 import { cva } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
 const itemVariants = cva(
-  'h-[40px] flex items-center select-none outline-none focus:bg-list-hover focus:text-primary-foreground flex-start w-full px-3 cursor-pointer text-sm font-normal text-list-label hover:text-tertiary-foreground hover:bg-list-hover transition duration-300 ease-in-out [&>svg>path]:opacity-[.60]'
+  'h-[40px] flex items-center select-none outline-none focus:bg-list-hover flex-start w-full px-3 cursor-pointer text-sm font-normal text-list-label hover:text-primary-foreground hover:bg-list-hover transition duration-300 ease-in-out [&>svg>path]:opacity-[.45]'
 );
 
 export interface DropdownDividerProps
@@ -63,34 +66,150 @@ function DropdownRadioItem({
   );
 }
 
-export interface DropdownProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface DropdownProps
+  extends React.Component<typeof DropdownMenuPrimitive.Root>,
+    React.HTMLAttributes<HTMLDivElement> {
   trigger?: JSX.Element;
   side?: 'top' | 'bottom' | 'left' | 'right';
-  setOpenSub?: React.Dispatch<React.SetStateAction<boolean>>;
-  openSub?: boolean;
+  subHeight?: number;
 }
 
-function Dropdown({ className, trigger, side, ...props }: DropdownProps) {
-  return (
-    <DropdownMenuPrimitive.Root data-testid='dropdown'>
-      <DropdownMenuPrimitive.Trigger>
-        {trigger}
-      </DropdownMenuPrimitive.Trigger>
+function Dropdown({
+  className,
+  trigger,
+  side,
+  subHeight,
+  ...props
+}: DropdownProps) {
+  const [selectedSub, setSelectedSubItem] = useState<ReactElement[] | null>(
+    null
+  );
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const children = props.children as ReactElement;
 
-      <DropdownMenuPrimitive.Portal {...props}>
+  const handleAction = (e: MouseEvent | KeyboardEvent) => {
+    e.preventDefault();
+
+    const targetId = (e.target as HTMLElement)?.id;
+    const accessKey = (e.target as HTMLElement)?.accessKey;
+
+    if (targetId === 'sub' && children && accessKey) {
+      const filteredChildren = children.props?.children.filter(
+        (item: any) => item.props.value === accessKey
+      );
+      setSelectedSubItem(filteredChildren);
+    } else setIsOpen(true);
+  };
+
+  const handleClose = () => {
+    setSelectedSubItem(null);
+    setIsOpen(false);
+  };
+
+  return (
+    <DropdownMenuPrimitive.Root
+      data-testid='dropdown'
+      onOpenChange={(open) => !open && handleClose()}
+    >
+      <DropdownMenuPrimitive.Trigger>{trigger}</DropdownMenuPrimitive.Trigger>
+
+      <DropdownMenuPrimitive.Portal>
         <DropdownMenuPrimitive.Content
+          onClick={(e) => handleAction(e)}
           side={side || 'top'}
           className={cn(
-            'flex flex-col z-50 min-w-fit overflow-hidden rounded-lg bg-background-accent shadow-modal',
+            ' w-[252px] py-2 flex flex-col z-50 min-w-fit overflow-hidden rounded-lg bg-background-accent shadow-modal',
             className
           )}
           sideOffset={4}
+          {...props}
         >
-          {props.children}
+          {selectedSub ? (
+            <div
+              style={{
+                display: 'flex',
+                width: 252,
+                height: subHeight,
+              }}
+            >
+              <div className='animate-slide-left w-full fixed transition-all duration-300 ease-out'>
+                <button
+                  onClick={() => setSelectedSubItem(null)}
+                  className='flex justify-between items-center px-[16px] pt-[12px] pb-[4px] text-tertiary-foreground font-semibold text-sm [&>svg]:mr-2 [&>svg>path]:fill-icons-foreground [&>svg>path]:opacity-[.45] hover:text-active'
+                >
+                  <ArrowLeftLargeIcon />
+                  <div className='w-full flex [&>div]:flex items-center'>
+                    {selectedSub[0].props.label}
+                  </div>
+                </button>
+                <DropdownDivider />
+
+                {selectedSub[0].props.children.map(
+                  (item: ReactElement) => item
+                )}
+              </div>
+            </div>
+          ) : (
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                height: subHeight,
+                width: 252,
+              }}
+              className={
+                isOpen
+                  ? 'animate-slide-right w-full transition-all duration-300 ease-out'
+                  : ''
+              }
+            >
+              {children}
+            </div>
+          )}
         </DropdownMenuPrimitive.Content>
       </DropdownMenuPrimitive.Portal>
     </DropdownMenuPrimitive.Root>
   );
 }
 
-export { Dropdown, DropdownItem, DropdownRadioItem, DropdownDivider };
+export interface DropdownSubContentProps
+  extends React.HtmlHTMLAttributes<HTMLDivElement> {
+  label: string;
+  value: string;
+  icon: JSX.Element;
+}
+function DropdownSub({ className, ...props }: DropdownSubContentProps) {
+  return (
+    <DropdownMenuPrimitive.Root>
+      <DropdownMenuPrimitive.Item>
+        <div
+          className={cn(
+            itemVariants(),
+            className,
+            (className =
+              'w-full z-50 flex items-center justify-between hover:text-primary-foreground transition duration-300 ease-in-out')
+          )}
+          {...props}
+          data-testid='dropdown-sub'
+          id='sub'
+          accessKey={props.value}
+        >
+          <div className='w-full pointer-events-none flex items-center justify-between '>
+            <span className='flex items-center [&>svg]:mr-2 [&>svg>path]:opacity-[.45]'>
+              {props.icon} {props.label}
+            </span>
+            <ChevronRightIcon />
+          </div>
+        </div>
+      </DropdownMenuPrimitive.Item>
+    </DropdownMenuPrimitive.Root>
+  );
+}
+
+export {
+  Dropdown,
+  DropdownItem,
+  DropdownRadioItem,
+  DropdownDivider,
+  DropdownSub,
+};

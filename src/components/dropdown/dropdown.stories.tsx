@@ -5,12 +5,14 @@ import {
   UserCheckIcon,
   SlidersVIcon,
   SignoutAltIcon,
+  GlobeIcon,
 } from '@stash-ui/regular-icons';
 import {
   Dropdown,
   DropdownItem,
   DropdownRadioItem,
   DropdownDivider,
+  DropdownSub,
 } from './dropdown';
 
 const meta = {
@@ -31,7 +33,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     children: (
-      <div className='w-[200px] py-2'>
+      <>
         <DropdownItem>
           <UserCheckIcon className='mr-2' />
           Edit my profile
@@ -49,7 +51,7 @@ export const Default: Story = {
           <SignoutAltIcon className='mr-2' />
           Logout
         </DropdownItem>
-      </div>
+      </>
     ),
     trigger: (
       <button className='bg-active-foreground p-2 rounded-lg text-inverse-foreground'>
@@ -62,12 +64,12 @@ export const Default: Story = {
 export const Left: Story = {
   args: {
     children: (
-      <div className='w-[200px] py-2'>
+      <>
         <DropdownItem>Edit my profile</DropdownItem>
         <DropdownItem>Settings </DropdownItem>
         <DropdownItem>Help </DropdownItem>
         <DropdownItem>Logout </DropdownItem>
-      </div>
+      </>
     ),
     trigger: (
       <button className='bg-active-foreground p-2 rounded-lg text-inverse-foreground'>
@@ -81,12 +83,12 @@ export const Left: Story = {
 export const Right: Story = {
   args: {
     children: (
-      <div className='w-[200px] py-2'>
+      <>
         <DropdownItem>Edit my profile</DropdownItem>
         <DropdownItem>Settings </DropdownItem>
         <DropdownItem>Help </DropdownItem>
         <DropdownItem>Logout </DropdownItem>
-      </div>
+      </>
     ),
     trigger: (
       <button className='bg-active-foreground p-2 rounded-lg text-inverse-foreground'>
@@ -100,12 +102,12 @@ export const Right: Story = {
 export const Bottom: Story = {
   args: {
     children: (
-      <div className='w-[200px] py-2'>
+      <>
         <DropdownItem>Edit my profile</DropdownItem>
         <DropdownItem>Settings </DropdownItem>
         <DropdownItem>Help </DropdownItem>
         <DropdownItem>Logout </DropdownItem>
-      </div>
+      </>
     ),
     trigger: (
       <button className='bg-active-foreground p-2 rounded-lg text-inverse-foreground'>
@@ -119,15 +121,42 @@ export const Bottom: Story = {
 export const Radio: Story = {
   args: {
     children: (
-      <div className='w-[200px] py-2'>
+      <>
         <DropdownRadioItem isChecked> Show All </DropdownRadioItem>
         <DropdownRadioItem isChecked={false}> Dark mode </DropdownRadioItem>
-      </div>
+      </>
     ),
     trigger: (
       <button className='bg-active-foreground p-2 rounded-lg text-inverse-foreground'>
         Click here
       </button>
     ),
+  },
+};
+
+export const Sub: Story = {
+  args: {
+    children: (
+      <>
+        <DropdownItem>Edit my profile</DropdownItem>
+        <DropdownItem>Settings </DropdownItem>
+        <DropdownItem>Help </DropdownItem>
+        <DropdownItem>Logout </DropdownItem>
+        <DropdownSub label='Manage' value='1' icon={<SlidersVIcon />}>
+          <DropdownItem>Dashboard</DropdownItem>
+          <DropdownItem>Members</DropdownItem>
+        </DropdownSub>
+        <DropdownSub label='Language' value='2' icon={<GlobeIcon />}>
+          <DropdownRadioItem isChecked> English </DropdownRadioItem>
+          <DropdownRadioItem isChecked={false}> Portuguese </DropdownRadioItem>
+        </DropdownSub>
+      </>
+    ),
+    trigger: (
+      <button className='bg-active-foreground p-2 rounded-lg text-inverse-foreground'>
+        Click here
+      </button>
+    ),
+    subHeight: 250,
   },
 };

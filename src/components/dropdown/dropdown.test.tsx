@@ -1,10 +1,10 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { fireEvent, getAllByText, render } from '@testing-library/react';
 import { composeStories } from '@storybook/testing-react';
 import userEvent from '@testing-library/user-event';
 import * as stories from './dropdown.stories';
 
-const { Left, Right, Default, Bottom, Radio } = composeStories(stories);
+const { Left, Right, Default, Bottom, Radio, Sub } = composeStories(stories);
 describe('Dropdown Component', () => {
   test('renders correctly DropdownItem styles', async () => {
     const user = userEvent.setup();
@@ -12,7 +12,7 @@ describe('Dropdown Component', () => {
     const button = getAllByRole('button')[0];
     await user.click(button);
     const item = getAllByTestId(/dropdown-item/i);
-    expect(item[0].className.includes('text-tertiary-foreground')).toBe(true);
+    expect(item[0].className.includes('text-list-label')).toBe(true);
     expect(item[0].className.includes('hover:bg-list-hover')).toBe(true);
   });
   test('Render all items correctly', async () => {
@@ -59,4 +59,36 @@ describe('Dropdown Component', () => {
     expect(item[0]).toHaveAttribute('aria-checked', 'true');
     expect(item[1]).toHaveAttribute('aria-checked', 'false');
   });
+  test('Render Submenu correctly', async () => {
+    const user = userEvent.setup();
+    const { getAllByRole, getAllByTestId, getAllByText } = render(<Sub />);
+    const button = getAllByRole('button')[0];
+    await user.click(button);
+    const sub = getAllByTestId(/dropdown-sub/i);
+
+    expect(sub[0]).toHaveTextContent('Manage');
+    expect(sub[1]).toHaveTextContent('Language');
+
+    fireEvent.click(sub[0]);
+    const item = getAllByTestId(/dropdown-item/i);
+    expect(item[0]).toHaveTextContent('Dashboard');
+    expect(item[1]).toHaveTextContent('Members');
+  });
+  test('should return to the initial state when closed', async () => {
+    const user = userEvent.setup();
+    const { getAllByRole, getAllByTestId } = render(<Sub />);
+    const button = getAllByRole('button')[0];
+    await user.click(button);
+    const sub = getAllByTestId(/dropdown-sub/i);
+
+    expect(sub[0]).toHaveTextContent('Manage');
+    expect(sub[1]).toHaveTextContent('Language');
+
+    fireEvent.click(sub[0]);
+
+    fireEvent.click(document.body);
+    expect(sub[0]).not.toBeInTheDocument();
+    expect(sub[1]).not.toBeInTheDocument();
+  });
 });
+0;
