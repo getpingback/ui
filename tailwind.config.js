@@ -137,6 +137,7 @@ const config = {
     extend: {
       boxShadow: {
         'bottom_sheet-2': 'var(--bottom_sheet-2)',
+        modal: 'var(--modals-shadow)',
       },
       backgroundImage: {
         'active-menu': 'var(--palette-gradiente-active_menu)',
@@ -170,9 +171,6 @@ const config = {
         'slide-down': 'slideDown 300ms cubic-bezier(0.87, 0, 0.13, 1) forwards',
         'slide-left': 'slideLeft 300ms cubic-bezier(0.83, 0, 0.17, 1)',
         'slide-right': 'slideRight 300ms cubic-bezier(0.83, 0, 0.17, 1)',
-      },
-      boxShadow: {
-        modal: 'var(--modals-shadow)',
       },
       colors: {
         success: {
@@ -238,12 +236,12 @@ const config = {
     },
   },
   plugins: [
-    function({addUtilities}) {
+    function ({ addUtilities }) {
       const newUtilities = {
         '.no-scrollbar::-webkit-scrollbar': {
           display: 'none',
         },
-        ".no-scrollbar": {
+        '.no-scrollbar': {
           '-ms-overflow-style': 'none',
           'scrollbar-width': 'none',
         },
