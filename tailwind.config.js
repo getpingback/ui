@@ -155,6 +155,9 @@ const config = {
         'slide-up': 'slideUp 300ms cubic-bezier(0.87, 0, 0.13, 1) forwards',
         'slide-down': 'slideDown 300ms cubic-bezier(0.87, 0, 0.13, 1) forwards',
       },
+      boxShadow: {
+        modal: 'var(--modals-shadow)',
+      },
       colors: {
         success: {
           foreground: 'var(--text-success)',
@@ -162,8 +165,17 @@ const config = {
         tertiary: {
           foreground: 'var(--text-tertiary)',
         },
+        primary: {
+          foreground: 'var(--text-primary)',
+        },
         active: {
           foreground: 'var(--text-active)',
+        },
+        inverse: {
+          foreground: 'var(--text-inverse)',
+        },
+        icons: {
+          foreground: 'var(--icons-default)',
         },
         list: {
           highlighted: {
@@ -175,6 +187,12 @@ const config = {
           hover: {
             DEFAULT: 'var(--list-hover)',
           },
+          label: {
+            DEFAULT: 'var(--list-label_default)',
+          },
+        },
+        divider: {
+          DEFAULT: 'var(--border-divider-color)',
         },
         badge: {
           counter: {

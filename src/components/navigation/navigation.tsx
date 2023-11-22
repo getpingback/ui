@@ -12,7 +12,7 @@ const subItem4SVG = require('@/assets/images/sub-item4.svg');
 import { cn } from '@/lib/utils';
 
 const navigationVariants = cva(
-  'inline-flex justify-between w-full p-3 rounded-lg cursor-pointer text-sm font-normal',
+  'h-[40px] inline-flex  items-center justify-between w-full p-3 rounded-lg cursor-pointer text-sm font-normal',
   {
     variants: {
       variant: {
@@ -122,7 +122,7 @@ function NavigationSubItem({
       <NavigationMenuPrimitive.Link
         data-testid='navigation-sub-item'
         className={cn(
-          'flex items-center flex-start w-full px-3 cursor-pointer text-xs font-normal text-primary hover:bg-list-hover transition duration-300 ease-in-out',
+          'h-[40px] flex items-center flex-start w-full px-3 cursor-pointer text-xs font-normal text-primary hover:bg-list-hover transition duration-300 ease-in-out',
           className
         )}
         {...props}
@@ -172,7 +172,7 @@ function NavigationTrigger({
       >
         <AccordionPrimitive.Trigger
           className={cn(
-            'inline-flex justify-between w-full cursor-pointer text-sm font-normal text-tertiary-foreground  p-3 rounded-lg  hover:text-active-foreground [&[data-state=open]>svg]:rotate-180 [&[data-state=open]]:bg-active-menu [&[data-state=open]]:text-active-foreground [&[data-state=open]]:font-semibold hover:text-opacity-100 hover:bg-list-actived transition duration-400 ease-in-out',
+            'h-[40px] inline-flex items-center justify-between w-full cursor-pointer text-sm font-normal text-tertiary-foreground  p-3 rounded-lg  hover:text-active-foreground [&[data-state=open]>svg]:rotate-180 [&[data-state=open]]:bg-active-menu [&[data-state=open]]:text-active-foreground [&[data-state=open]]:font-semibold hover:text-opacity-100 hover:bg-list-actived transition duration-400 ease-in-out',
             className
           )}
         >
