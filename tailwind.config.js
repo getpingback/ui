@@ -137,6 +137,7 @@ const config = {
     extend: {
       boxShadow: {
         'bottom_sheet-2': 'var(--bottom_sheet-2)',
+        modal: 'var(--modals-shadow)',
       },
       backgroundImage: {
         'active-menu': 'var(--palette-gradiente-active_menu)',
@@ -150,13 +151,26 @@ const config = {
           from: { height: 'var(--radix-collapsible-content-height)' },
           to: { height: 0 },
         },
+        slideLeft: {
+          from: {
+            transform: 'translateX(10%)',
+            opacity: 0,
+          },
+          to: { transform: 'translateX(0%)', opacity: 1 },
+        },
+        slideRight: {
+          from: {
+            transform: 'translateX(-10%)',
+            opacity: 0,
+          },
+          to: { transform: 'translateX(0%)', opacity: 1 },
+        },
       },
       animation: {
         'slide-up': 'slideUp 300ms cubic-bezier(0.87, 0, 0.13, 1) forwards',
         'slide-down': 'slideDown 300ms cubic-bezier(0.87, 0, 0.13, 1) forwards',
-      },
-      boxShadow: {
-        modal: 'var(--modals-shadow)',
+        'slide-left': 'slideLeft 300ms cubic-bezier(0.83, 0, 0.17, 1)',
+        'slide-right': 'slideRight 300ms cubic-bezier(0.83, 0, 0.17, 1)',
       },
       colors: {
         success: {
@@ -222,12 +236,12 @@ const config = {
     },
   },
   plugins: [
-    function({addUtilities}) {
+    function ({ addUtilities }) {
       const newUtilities = {
         '.no-scrollbar::-webkit-scrollbar': {
           display: 'none',
         },
-        ".no-scrollbar": {
+        '.no-scrollbar': {
           '-ms-overflow-style': 'none',
           'scrollbar-width': 'none',
         },
