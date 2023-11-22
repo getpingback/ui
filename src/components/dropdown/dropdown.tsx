@@ -9,7 +9,7 @@ import { cva } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
 const itemVariants = cva(
-  'h-[40px] flex items-center select-none outline-none focus:bg-list-hover flex-start w-full px-3 cursor-pointer text-sm font-normal text-list-label hover:text-primary-foreground hover:bg-list-hover transition duration-300 ease-in-out [&>svg>path]:opacity-[.45]'
+  'h-[40px] flex items-center select-none outline-none focus:bg-list-hover flex-start w-full px-3 cursor-pointer text-sm font-normal text-list-label hover:text-primary-foreground hover:bg-list-hover transition duration-300 ease-in-out [&>svg>path]:opacity-[.45] [&>svg]:mr-2'
 );
 
 export interface DropdownDividerProps
@@ -26,7 +26,7 @@ function DropdownDivider(props: DropdownDividerProps) {
 
 export interface DropdownItemProps
   extends React.ComponentProps<typeof DropdownMenuPrimitive.Item> {
-  isSub?: boolean;
+  icon?: JSX.Element;
 }
 
 function DropdownItem({ className, ...props }: DropdownItemProps) {
@@ -35,14 +35,18 @@ function DropdownItem({ className, ...props }: DropdownItemProps) {
       className={cn(itemVariants(), className)}
       data-testid='dropdown-item'
       {...props}
-    ></DropdownMenuPrimitive.Item>
+    >
+      {props.icon && props.icon}
+      {props.children}
+    </DropdownMenuPrimitive.Item>
   );
 }
 
-export interface DropdownSubProps
+export interface DropdownRadioProps
   extends React.ComponentProps<typeof DropdownMenuPrimitive.Item> {
   isChecked: boolean;
   setIsChecked?: React.Dispatch<React.SetStateAction<boolean>>;
+  icon?: JSX.Element;
 }
 
 function DropdownRadioItem({
@@ -50,7 +54,7 @@ function DropdownRadioItem({
   isChecked,
   setIsChecked,
   ...props
-}: DropdownSubProps) {
+}: DropdownRadioProps) {
   return (
     <DropdownMenuPrimitive.CheckboxItem
       className={cn(itemVariants(), className, 'flex justify-between')}
@@ -58,6 +62,7 @@ function DropdownRadioItem({
       onCheckedChange={setIsChecked}
       data-testid='dropdown-radio'
     >
+      {props.icon && props.icon}
       {props.children}
       <DropdownMenuPrimitive.ItemIndicator>
         <CheckIcon />
@@ -187,7 +192,7 @@ function DropdownSub({ className, ...props }: DropdownSubContentProps) {
             itemVariants(),
             className,
             (className =
-              'w-full z-50 flex items-center justify-between hover:text-primary-foreground transition duration-300 ease-in-out')
+              'w-full z-50 flex items-center justify-between select-none outline-none focus:bg-list-hover hover:text-primary-foreground transition duration-300 ease-in-out')
           )}
           {...props}
           data-testid='dropdown-sub'

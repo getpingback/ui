@@ -34,23 +34,11 @@ export const Default: Story = {
   args: {
     children: (
       <>
-        <DropdownItem>
-          <UserCheckIcon className='mr-2' />
-          Edit my profile
-        </DropdownItem>
+        <DropdownItem icon={<UserCheckIcon />}>Edit my profile</DropdownItem>
         <DropdownDivider />
-        <DropdownItem>
-          <SlidersVIcon className='mr-2' />
-          Settings
-        </DropdownItem>
-        <DropdownItem>
-          <LifeRingIcon className='mr-2' />
-          Help
-        </DropdownItem>
-        <DropdownItem>
-          <SignoutAltIcon className='mr-2' />
-          Logout
-        </DropdownItem>
+        <DropdownItem icon={<SlidersVIcon />}>Settings</DropdownItem>
+        <DropdownItem icon={<LifeRingIcon />}>Help</DropdownItem>
+        <DropdownItem icon={<SignoutAltIcon />}>Logout</DropdownItem>
       </>
     ),
     trigger: (
@@ -138,10 +126,11 @@ export const Sub: Story = {
   args: {
     children: (
       <>
-        <DropdownItem>Edit my profile</DropdownItem>
-        <DropdownItem>Settings </DropdownItem>
-        <DropdownItem>Help </DropdownItem>
-        <DropdownItem>Logout </DropdownItem>
+        <DropdownItem icon={<UserCheckIcon />}>Edit my profile</DropdownItem>
+        <DropdownItem icon={<SlidersVIcon />}>Settings</DropdownItem>
+        <DropdownItem icon={<LifeRingIcon />}>Help</DropdownItem>
+        <DropdownItem icon={<SignoutAltIcon />}>Logout</DropdownItem>
+        <DropdownDivider />
         <DropdownSub label='Manage' value='1' icon={<SlidersVIcon />}>
           <DropdownItem>Dashboard</DropdownItem>
           <DropdownItem>Members</DropdownItem>
