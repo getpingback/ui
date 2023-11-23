@@ -1,7 +1,7 @@
 {
   "name": "@getpingback/ui",
   "author": "Pingback Team",
-  "version": "0.0.21",
+  "version": "0.0.22",
   "license": "MIT",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -87,11 +87,11 @@
     "tslib": "^2.6.2",
     "typescript": "^5"
   },
-    "browserslist": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
+  ],
   "description": "Pingback UI Library",
   "repository": {
     "type": "git",
