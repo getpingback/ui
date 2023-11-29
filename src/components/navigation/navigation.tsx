@@ -3,10 +3,10 @@ import * as NavigationMenuPrimitive from '@radix-ui/react-navigation-menu';
 import * as AccordionPrimitive from '@radix-ui/react-accordion';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { ChevronDownIcon } from '@stash-ui/regular-icons';
-const subItem1SVG = require('../../assets/images/sub-item1.svg');
-const subItem2SVG = require('../../assets/images/sub-item2.svg');
-const subItem3SVG = require('../../assets/images/sub-item3.svg');
-const subItem4SVG = require('../../assets/images/sub-item4.svg');
+// const subItem1SVG = require('../../assets/images/sub-item1.svg');
+// const subItem2SVG = require('../../assets/images/sub-item2.svg');
+// const subItem3SVG = require('../../assets/images/sub-item3.svg');
+// const subItem4SVG = require('../../assets/images/sub-item4.svg');
 
 import { cn } from '@/lib/utils';
 
@@ -103,17 +103,19 @@ function NavigationSubItem({
   ...props
 }: NavigationSubItemProps) {
   const renderLeftIconPosition = (position: string) => {
-    if (position === 'first') {
-      return <img src={subItem1SVG} alt='dot-icon' data-testid='first-dot' />;
-    }
-    if (position === 'last') {
-      return <img src={subItem3SVG} alt='dot-icon' data-testid='last-dot' />;
-    }
-    if (position === 'only') {
-      return <img src={subItem4SVG} alt='dot-icon' data-testid='only-dot' />;
-    }
+    // if (position === 'first') {
+    //   return <img src={subItem1SVG} alt='dot-icon' data-testid='first-dot' />;
+    // }
+    // if (position === 'last') {
+    //   return <img src={subItem3SVG} alt='dot-icon' data-testid='last-dot' />;
+    // }
+    // if (position === 'only') {
+    //   return <img src={subItem4SVG} alt='dot-icon' data-testid='only-dot' />;
+    // }
 
-    return <img src={subItem2SVG} alt='dot-icon' data-testid='middle' />;
+    // return <img src={subItem2SVG} alt='dot-icon' data-testid='middle' />;
+
+    return null;
   };
 
   return (
