@@ -4,6 +4,7 @@ import typescript from "@rollup/plugin-typescript";
 import postcss from "rollup-plugin-postcss";
 import dts from "rollup-plugin-dts";
 import copy from "rollup-plugin-copy";
+import svg from 'rollup-plugin-svg'
 
 import packageJson from "./package.json" assert { type: "json" };
 
@@ -23,6 +24,7 @@ const rollupConfig = [
       },
     ],
     plugins: [
+      svg(),
       resolve(),
       commonjs(),
       postcss({
