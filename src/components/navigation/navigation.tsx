@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Image from 'next/image';
 import * as NavigationMenuPrimitive from '@radix-ui/react-navigation-menu';
 import * as AccordionPrimitive from '@radix-ui/react-accordion';
 import { cva, type VariantProps } from 'class-variance-authority';
@@ -105,16 +104,16 @@ function NavigationSubItem({
 }: NavigationSubItemProps) {
   const renderLeftIconPosition = (position: string) => {
     if (position === 'first') {
-      return <Image src={subItem1SVG} alt='dot-icon' data-testid='first-dot' />;
+      return <img src={subItem1SVG} alt='dot-icon' data-testid='first-dot' />;
     }
     if (position === 'last') {
-      return <Image src={subItem3SVG} alt='dot-icon' data-testid='last-dot' />;
+      return <img src={subItem3SVG} alt='dot-icon' data-testid='last-dot' />;
     }
     if (position === 'only') {
-      return <Image src={subItem4SVG} alt='dot-icon' data-testid='only-dot' />;
+      return <img src={subItem4SVG} alt='dot-icon' data-testid='only-dot' />;
     }
 
-    return <Image src={subItem2SVG} alt='dot-icon' data-testid='middle' />;
+    return <img src={subItem2SVG} alt='dot-icon' data-testid='middle' />;
   };
 
   return (

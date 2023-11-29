@@ -1,5 +1,5 @@
 import path from "path";
-import type { StorybookConfig } from "@storybook/nextjs";
+import type { StorybookConfig } from "@storybook/react-webpack5";
 
 const config: StorybookConfig = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
@@ -8,13 +8,24 @@ const config: StorybookConfig = {
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
     {
-      name: "@storybook/addon-docs",
-      options: { transcludeMarkdown: true },
+      name: "@storybook/addon-postcss",
+      options: {
+        cssLoaderOptions: {
+          importLoaders: 1,
+        },
+        postcssLoaderOptions: {
+          implementation: require("postcss"),
+        },
+      },
     },
   ],
   framework: {
-    name: "@storybook/nextjs",
-    options: {},
+    name: "@storybook/react-webpack5",
+    options: {
+      builder: {
+        useSWC: true,
+      },
+    },
   },
   docs: {
     autodocs: "tag",
