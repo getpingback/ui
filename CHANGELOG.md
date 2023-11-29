@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.23](https://github.com/getpingback/ui/compare/v0.0.22...v0.0.23) (2023-11-29)
+
+
+### Bug Fixes
+
+* remove next from project ([333653d](https://github.com/getpingback/ui/commits/333653d347ca07563c7f032a2efb39d792b3d425))
+
 ### [0.0.22](https://github.com/getpingback/ui/compare/v0.0.21...v0.0.22) (2023-11-23)
 
 
