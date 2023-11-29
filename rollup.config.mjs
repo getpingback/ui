@@ -4,7 +4,9 @@ import typescript from "@rollup/plugin-typescript";
 import postcss from "rollup-plugin-postcss";
 import dts from "rollup-plugin-dts";
 import copy from "rollup-plugin-copy";
-import svg from 'rollup-plugin-svg'
+import svg from "rollup-plugin-svg";
+import sourcemaps from "rollup-plugin-sourcemaps";
+import del from "rollup-plugin-delete";
 
 import packageJson from "./package.json" assert { type: "json" };
 
@@ -15,12 +17,12 @@ const rollupConfig = [
       {
         file: packageJson.main,
         format: "cjs",
-        sourcemap: true,
+        sourcemap: "inline",
       },
       {
         file: packageJson.module,
         format: "esm",
-        sourcemap: true,
+        sourcemap: "inline",
       },
     ],
     plugins: [
@@ -49,13 +51,18 @@ const rollupConfig = [
           },
         ],
       }),
-      typescript({ tsconfig: "./tsconfig.json" }),
+      typescript({
+        sourceMap: true,
+        inlineSources: true,
+        tsconfig: "./tsconfig.json",
+      }),
+      sourcemaps(),
     ],
   },
   {
     input: "dist/esm/types/index.d.ts",
-    output: [{ file: "dist/index.d.ts", format: "esm" }],
-    plugins: [dts()],
+    output: [{ file: "dist/index.d.ts", format: "es" }],
+    plugins: [dts(), del({ targets: "dist/types", hook: "buildEnd" })],
   },
 ];
 
