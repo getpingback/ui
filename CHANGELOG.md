@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.25](https://github.com/getpingback/ui/compare/v0.0.24...v0.0.25) (2023-11-29)
+
+
+### Bug Fixes
+
+* change image path ([97a3b69](https://github.com/getpingback/ui/commits/97a3b69f6a4de94c264c7d759e9f061584bf8cec))
+
 ### [0.0.23](https://github.com/getpingback/ui/compare/v0.0.22...v0.0.23) (2023-11-29)
 
 
