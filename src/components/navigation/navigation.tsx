@@ -114,8 +114,8 @@ function NavigationSubItem({
             fill='#71717A'
           />
           <path
-            fill-rule='evenodd'
-            clip-rule='evenodd'
+            fillRule='evenodd'
+            clipRule='evenodd'
             d='M20.5 23L20.5 40L19.5 40L19.5 23L20.5 23Z'
             fill='#71717A'
           />
@@ -133,8 +133,8 @@ function NavigationSubItem({
           data-testid='last-dot'
         >
           <path
-            fill-rule='evenodd'
-            clip-rule='evenodd'
+            fillRule='evenodd'
+            clipRule='evenodd'
             d='M20.5 -4.37114e-08L20.5 17L19.5 17L19.5 0L20.5 -4.37114e-08Z'
             fill='#71717A'
           />
@@ -173,8 +173,8 @@ function NavigationSubItem({
         data-testid='middle'
       >
         <path
-          fill-rule='evenodd'
-          clip-rule='evenodd'
+          fillRule='evenodd'
+          clipRule='evenodd'
           d='M20.5 -4.37114e-08L20.5 17L19.5 17L19.5 0L20.5 -4.37114e-08Z'
           fill='#71717A'
         />
@@ -183,8 +183,8 @@ function NavigationSubItem({
           fill='#71717A'
         />
         <path
-          fill-rule='evenodd'
-          clip-rule='evenodd'
+          fillRule='evenodd'
+          clipRule='evenodd'
           d='M20.5 23L20.5 40L19.5 40L19.5 23L20.5 23Z'
           fill='#71717A'
         />
