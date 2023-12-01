@@ -179,6 +179,9 @@ const config = {
         tertiary: {
           foreground: 'var(--text-tertiary)',
         },
+        secondary: {
+          foreground: 'var(--text-secondary)',
+        },
         primary: {
           foreground: 'var(--text-primary)',
         },
@@ -191,6 +194,7 @@ const config = {
         icons: {
           foreground: 'var(--icons-default)',
         },
+        'border-card': 'var(--border-cards-color)',
         list: {
           highlighted: {
             DEFAULT: 'var(--list-hightlight)',
