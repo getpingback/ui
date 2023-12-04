@@ -5,7 +5,7 @@ import userEvent from '@testing-library/user-event';
 import * as stories from './dropdown.stories';
 
 const { Left, Right, Default, Bottom, Radio, Sub } = composeStories(stories);
-describe.skip('Dropdown Component', () => {
+describe('Dropdown Component', () => {
   test('renders correctly DropdownItem styles', async () => {
     const user = userEvent.setup();
     const { getAllByTestId, getAllByRole } = render(<Default />);
