@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.37](https://github.com/getpingback/ui/compare/v0.0.36...v0.0.37) (2023-12-05)
+
+
+### Features
+
+* create a tab component and tests ([efa145a](https://github.com/getpingback/ui/commits/efa145a6a7296e9c14b46d4d73a5f2af7a2bd714))
+* create a table components and tests ([ddfdeab](https://github.com/getpingback/ui/commits/ddfdeabbd18a0dda21db98ea59ceddc435dc6552))
+* create a table components and tests ([9286b2e](https://github.com/getpingback/ui/commits/9286b2e1900c63178c844f3fb74bb808c5eed739))
+* export components ([265eba5](https://github.com/getpingback/ui/commits/265eba598361247e2a845c0075a8b96364f17932))
+
 ### [0.0.36](https://github.com/getpingback/ui/compare/v0.0.35...v0.0.36) (2023-12-04)
 
 
