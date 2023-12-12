@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useEffect } from 'react';
 import { cn } from '@/lib/utils';
 
 export interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -6,14 +6,11 @@ export interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {
   onClose: () => void;
 }
 function Sidebar({ className, isOpen, onClose, ...props }: SidebarProps) {
-  const keyPress = useCallback(
-    (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && isOpen) onClose();
-    },
-    [onClose, isOpen]
-  );
+  const keyPress = (e: KeyboardEvent) => {
+    if (e.key === 'Escape' && isOpen) onClose();
+  };
 
-  React.useEffect(() => {
+  useEffect(() => {
     document.addEventListener('keydown', keyPress);
     return () => document.removeEventListener('keydown', keyPress);
   }, [keyPress]);
