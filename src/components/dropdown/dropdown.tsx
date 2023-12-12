@@ -9,7 +9,7 @@ import { cva } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
 const itemVariants = cva(
-  'h-[40px] flex items-center select-none outline-none focus:bg-list-hover flex-start w-full px-3 cursor-pointer text-sm font-normal text-list-label hover:text-primary-foreground hover:bg-list-hover transition duration-300 ease-in-out [&>svg>path]:opacity-[.45] [&>svg]:mr-2'
+  'h-[40px] flex items-center select-none outline-none focus:bg-list-hover flex-start w-full px-[16px] cursor-pointer text-sm font-normal text-list-label hover:text-primary-foreground hover:bg-list-hover transition duration-300 ease-in-out [&>svg>path]:opacity-[.45] [&>svg]:mr-2'
 );
 
 export interface DropdownDividerProps
@@ -21,6 +21,18 @@ function DropdownDivider(props: DropdownDividerProps) {
       className='w-full h-[1px] bg-list-hover my-[8px]'
       {...props}
     ></DropdownMenuPrimitive.Separator>
+  );
+}
+
+export interface DropdownTitleProps
+  extends React.HTMLAttributes<HTMLHeadingElement> {}
+
+function DropdownTitle(props: DropdownTitleProps) {
+  return (
+    <h1
+      className='w-full text-[10px] font-bold text-gray-400 uppercase px-[16px] pb-[8px] '
+      {...props}
+    />
   );
 }
 
@@ -77,6 +89,7 @@ export interface DropdownProps
   trigger?: JSX.Element;
   side?: 'top' | 'bottom' | 'left' | 'right';
   subHeight?: number;
+  align?: 'start' | 'end';
 }
 
 function Dropdown({
@@ -84,6 +97,7 @@ function Dropdown({
   trigger,
   side,
   subHeight,
+  align,
   ...props
 }: DropdownProps) {
   const [selectedSub, setSelectedSubItem] = useState<ReactElement[] | null>(
@@ -122,7 +136,10 @@ function Dropdown({
       >
         <div className='animate-slide-left w-full fixed transition-all duration-300 ease-out'>
           <button
-            onClick={() => setSelectedSubItem(null)}
+            onClick={() => {
+              setSelectedSubItem(null);
+              setIsOpen(true);
+            }}
             className='flex justify-between items-center px-[16px] pt-[12px] pb-[4px] text-tertiary-foreground font-semibold text-sm [&>svg]:mr-2 [&>svg>path]:fill-icons-foreground [&>svg>path]:opacity-[.45] hover:text-active'
           >
             <ArrowLeftLargeIcon />
@@ -151,10 +168,11 @@ function Dropdown({
           onClick={(e) => handleAction(e)}
           side={side || 'top'}
           className={cn(
-            ' w-[252px] py-2 flex flex-col z-50 min-w-fit overflow-hidden rounded-lg bg-background-accent shadow-modal',
+            ' w-[252px] py-[12px] flex flex-col z-50 min-w-fit overflow-hidden rounded-lg bg-background-accent shadow-modal',
             className
           )}
           sideOffset={4}
+          align={align || 'center'}
           {...props}
         >
           {selectedSub ? (
@@ -222,4 +240,5 @@ export {
   DropdownRadioItem,
   DropdownDivider,
   DropdownSub,
+  DropdownTitle,
 };
