@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.39](https://github.com/getpingback/ui/compare/v0.0.38...v0.0.39) (2023-12-12)
+
+
+### Bug Fixes
+
+* dropdown styles ([a313dbe](https://github.com/getpingback/ui/commits/a313dbe40161b2fad266ecaa8da6aa48347af22c))
+
 ### [0.0.38](https://github.com/getpingback/ui/compare/v0.0.37...v0.0.38) (2023-12-12)
 
 
