@@ -29,7 +29,10 @@ export const NavigationDemo: Story = {
         <NavigationItem variant='disabled'>
           NavigationItem Disabled
         </NavigationItem>
-        <NavigationLink> NavigationLink </NavigationLink>
+        <NavigationLink>
+          {<UserCheckIcon width={24} height={24} style={{ paddingRight: 5 }} />}
+          NavigationLink{' '}
+        </NavigationLink>
         <NavigationTrigger
           items={[
             { label: 'Account', href: '/account' },
@@ -116,6 +119,7 @@ export const Trigger: Story = {
         { label: 'Profile', href: '/profile' },
         { label: 'Notifications', href: '/notifications' },
       ]}
+      onClickItem={(item) => console.log(item)}
     >
       <div style={{ display: 'flex', alignItems: 'center' }}>
         {<UserCheckIcon width={24} height={24} style={{ paddingRight: 5 }} />}

@@ -97,4 +97,18 @@ describe('NavigationTrigger Component', () => {
     expect(notifications).not.toBeNull();
     expect(notifications).toHaveAttribute('href', '/notifications');
   });
+
+  test('should prevent default behavior and stop propagation', () => {
+    const { getByRole, getAllByTestId } = render(<Trigger />);
+    const consoleSpy = jest.spyOn(console, 'log');
+    const triggerButton = getByRole('button');
+    fireEvent.click(triggerButton);
+    const account = getAllByTestId('navigation-sub-item')[0];
+    fireEvent.click(account);
+
+    expect(consoleSpy).toHaveBeenCalledWith({
+      label: 'Account',
+      href: '/account',
+    });
+  });
 });
