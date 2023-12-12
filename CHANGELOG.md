@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.40](https://github.com/getpingback/ui/compare/v0.0.39...v0.0.40) (2023-12-12)
+
+
+### Bug Fixes
+
+* remove usecallback in sidebar ([3f94386](https://github.com/getpingback/ui/commits/3f94386fdb96f03a592d027a6b57f86c0618a5a6))
+
 ### [0.0.39](https://github.com/getpingback/ui/compare/v0.0.38...v0.0.39) (2023-12-12)
 
 
