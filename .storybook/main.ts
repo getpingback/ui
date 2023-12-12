@@ -33,7 +33,6 @@ const config: StorybookConfig = {
   webpackFinal: async (config: any) => {
     config.resolve.alias = {
       ...config.resolve.alias,
-      react: path.resolve('node_modules/react'),
       '@': path.resolve(__dirname, '../src/'),
     };
     return config;
