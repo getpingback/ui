@@ -11,7 +11,7 @@ function Sidebar({ className, isOpen, onClose, ...props }: SidebarProps) {
   };
 
   useEffect(() => {
-    document.addEventListener('keydown', keyPress);
+    document && document.addEventListener('keydown', keyPress);
     return () => document.removeEventListener('keydown', keyPress);
   }, [keyPress]);
 
