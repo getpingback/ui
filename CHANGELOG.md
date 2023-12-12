@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.38](https://github.com/getpingback/ui/compare/v0.0.37...v0.0.38) (2023-12-12)
+
+
+### Bug Fixes
+
+* styles and tests of sidebar and navigation ([67f012e](https://github.com/getpingback/ui/commits/67f012e200704016b192b52c80bdc857da6e6fb3))
+
 ### [0.0.37](https://github.com/getpingback/ui/compare/v0.0.36...v0.0.37) (2023-12-05)
 
 
