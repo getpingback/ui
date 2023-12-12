@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.41](https://github.com/getpingback/ui/compare/v0.0.40...v0.0.41) (2023-12-12)
+
+
+### Bug Fixes
+
+* changes in config ([f4e84ec](https://github.com/getpingback/ui/commits/f4e84ec5cf2eba8588f8936507f0a9f7a1f78c46))
+
 ### [0.0.40](https://github.com/getpingback/ui/compare/v0.0.39...v0.0.40) (2023-12-12)
 
 
