@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.42](https://github.com/getpingback/ui/compare/v0.0.41...v0.0.42) (2023-12-12)
+
+
+### Bug Fixes
+
+* install react 18.2.0 ([3448fdc](https://github.com/getpingback/ui/commits/3448fdc2aedbe57cff807a00df3cdac9c0cc094c))
+
 ### [0.0.41](https://github.com/getpingback/ui/compare/v0.0.40...v0.0.41) (2023-12-12)
 
 
