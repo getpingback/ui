@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.43](https://github.com/getpingback/ui/compare/v0.0.42...v0.0.43) (2023-12-12)
+
+
+### Bug Fixes
+
+* change in rollup.config ([05d82b3](https://github.com/getpingback/ui/commits/05d82b30e38bffa6d53509b63a6e33ce9fde2975))
+
 ### [0.0.42](https://github.com/getpingback/ui/compare/v0.0.41...v0.0.42) (2023-12-12)
 
 
