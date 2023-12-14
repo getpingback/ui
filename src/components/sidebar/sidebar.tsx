@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useEffect } from 'react';
 import { cn } from '@/lib/utils';
 
 export interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -6,23 +6,20 @@ export interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {
   onClose: () => void;
 }
 function Sidebar({ className, isOpen, onClose, ...props }: SidebarProps) {
-  const keyPress = React.useCallback(
-    (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && isOpen) onClose();
-    },
-    [onClose, isOpen]
-  );
+  const keyPress = (e: KeyboardEvent) => {
+    if (e.key === 'Escape' && isOpen) onClose();
+  };
 
-  React.useEffect(() => {
-    document.addEventListener('keydown', keyPress);
+  useEffect(() => {
+    document && document.addEventListener('keydown', keyPress);
     return () => document.removeEventListener('keydown', keyPress);
   }, [keyPress]);
 
   return (
     <div
       data-testid='sidebar'
-      className={`h-screen bg-background-accent shadow-bottom_sheet-2 fixed top-0 left-0 z-40 transition-all duration-300 ease-out ${
-        isOpen ? 'w-[250px]' : 'w-[114px]'
+      className={`h-screen px-[12px] py-[24px] bg-background-accent shadow-bottom_sheet-2 fixed top-0 left-0 z-40 transition-all duration-300 ease-out ${
+        isOpen ? 'w-[250px]' : 'w-[80px]'
       }`}
       {...props}
     />
@@ -35,10 +32,7 @@ function SideBarHeader({ className, ...props }: SideBarHeaderProps) {
   return (
     <div
       data-testid='sidebar-header'
-      className={cn(
-        'w-full h-[40px] flex justify-center items-center p-8',
-        className
-      )}
+      className={cn('w-full h-[40px] flex items-center py-8', className)}
       {...props}
     />
   );
@@ -51,7 +45,7 @@ function SideBarFooter({ className, ...props }: SideBarFooterProps) {
     <div
       data-testid='sidebar-footer'
       className={cn(
-        'w-full h-[68px] bg-background-accent absolute bottom-0 flex justify-center items-center px-8 border-t border-solid border-border-accent',
+        'py-[12px] bg-background-accent absolute bottom-0 flex justify-center items-center border-t border-solid border-border-accent',
         className
       )}
       {...props}
@@ -66,7 +60,7 @@ function SideBarContent({ className, ...props }: SideBarContentProps) {
     <div
       data-testid='sidebar-content'
       className={cn(
-        'w-full h-[calc(100vh-68px)] flex flex-col items-center overflow-y-scroll no-scrollbar ',
+        'w-full h-[calc(100vh-180px)] py-[24px] gap-[14px] flex flex-col items-center overflow-y-scroll no-scrollbar',
         className
       )}
       {...props}

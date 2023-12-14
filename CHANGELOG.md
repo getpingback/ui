@@ -2,6 +2,48 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.43](https://github.com/getpingback/ui/compare/v0.0.42...v0.0.43) (2023-12-12)
+
+
+### Bug Fixes
+
+* change in rollup.config ([05d82b3](https://github.com/getpingback/ui/commits/05d82b30e38bffa6d53509b63a6e33ce9fde2975))
+
+### [0.0.42](https://github.com/getpingback/ui/compare/v0.0.41...v0.0.42) (2023-12-12)
+
+
+### Bug Fixes
+
+* install react 18.2.0 ([3448fdc](https://github.com/getpingback/ui/commits/3448fdc2aedbe57cff807a00df3cdac9c0cc094c))
+
+### [0.0.41](https://github.com/getpingback/ui/compare/v0.0.40...v0.0.41) (2023-12-12)
+
+
+### Bug Fixes
+
+* changes in config ([f4e84ec](https://github.com/getpingback/ui/commits/f4e84ec5cf2eba8588f8936507f0a9f7a1f78c46))
+
+### [0.0.40](https://github.com/getpingback/ui/compare/v0.0.39...v0.0.40) (2023-12-12)
+
+
+### Bug Fixes
+
+* remove usecallback in sidebar ([3f94386](https://github.com/getpingback/ui/commits/3f94386fdb96f03a592d027a6b57f86c0618a5a6))
+
+### [0.0.39](https://github.com/getpingback/ui/compare/v0.0.38...v0.0.39) (2023-12-12)
+
+
+### Bug Fixes
+
+* dropdown styles ([a313dbe](https://github.com/getpingback/ui/commits/a313dbe40161b2fad266ecaa8da6aa48347af22c))
+
+### [0.0.38](https://github.com/getpingback/ui/compare/v0.0.37...v0.0.38) (2023-12-12)
+
+
+### Bug Fixes
+
+* styles and tests of sidebar and navigation ([67f012e](https://github.com/getpingback/ui/commits/67f012e200704016b192b52c80bdc857da6e6fb3))
+
 ### [0.0.37](https://github.com/getpingback/ui/compare/v0.0.36...v0.0.37) (2023-12-05)
 
 
