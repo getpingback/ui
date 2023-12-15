@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useState } from 'react';
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import { CheckIcon } from '@stash-ui/regular-icons';
 import { cva } from 'class-variance-authority';
@@ -70,12 +70,20 @@ function Dropdown({
   ...props
 }: DropdownProps) {
   const children = props.children as ReactElement;
+  const [isOpen, setIsOpen] = useState(false);
   return (
-    <DropdownMenuPrimitive.Root data-testid='dropdown'>
-      <DropdownMenuPrimitive.Trigger>{trigger}</DropdownMenuPrimitive.Trigger>
+    <DropdownMenuPrimitive.Root
+      data-testid='dropdown'
+      open={isOpen}
+      onOpenChange={(open) => !open && setIsOpen(false)}
+    >
+      <DropdownMenuPrimitive.Trigger onClick={() => setIsOpen(true)}>
+        {trigger}
+      </DropdownMenuPrimitive.Trigger>
 
       <DropdownMenuPrimitive.Portal>
         <DropdownMenuPrimitive.Content
+          onClick={() => setIsOpen(false)}
           side={side || 'top'}
           className={cn(
             ' w-[252px] py-[12px] flex flex-col z-50 min-w-fit overflow-hidden rounded-lg bg-background-accent shadow-modal',
