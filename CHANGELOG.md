@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.45](https://github.com/getpingback/ui/compare/v0.0.44...v0.0.45) (2023-12-15)
+
+
+### Bug Fixes
+
+* dropdown structure ([782ed88](https://github.com/getpingback/ui/commits/782ed883f9ad5189a927cb3c3aa5d1edf48c6e2d))
+* dropdown tests ([7adb87a](https://github.com/getpingback/ui/commits/7adb87a98655e0af6f95e46a7a80b15a5994d6e7))
+
 ### [0.0.44](https://github.com/getpingback/ui/compare/v0.0.43...v0.0.44) (2023-12-15)
 
 
