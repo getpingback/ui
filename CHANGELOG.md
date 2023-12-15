@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.46](https://github.com/getpingback/ui/compare/v0.0.45...v0.0.46) (2023-12-15)
+
+
+### Bug Fixes
+
+* close dropdown on click ([94282db](https://github.com/getpingback/ui/commits/94282db03136cf6a41e7484d1e86e8c40b452e3b))
+
 ### [0.0.45](https://github.com/getpingback/ui/compare/v0.0.44...v0.0.45) (2023-12-15)
 
 
