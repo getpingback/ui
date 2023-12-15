@@ -1,5 +1,5 @@
 import React from 'react';
-import { fireEvent, getAllByText, render } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
 import { composeStories } from '@storybook/testing-react';
 import userEvent from '@testing-library/user-event';
 import * as stories from './dropdown.stories';
@@ -14,6 +14,14 @@ describe('Dropdown Component', () => {
     const item = getAllByTestId(/dropdown-item/i);
     expect(item[0].className.includes('text-list-label')).toBe(true);
     expect(item[0].className.includes('hover:bg-list-hover')).toBe(true);
+  });
+  test('render Title', async () => {
+    const user = userEvent.setup();
+    const { getAllByTestId, getAllByRole } = render(<Default />);
+    const button = getAllByRole('button')[0];
+    await user.click(button);
+    const title = getAllByTestId(/dropdown-title/i);
+    expect(title[0]).toHaveTextContent('Channel');
   });
   test('Render all items correctly', async () => {
     const user = userEvent.setup();
@@ -91,4 +99,3 @@ describe('Dropdown Component', () => {
     expect(sub[1]).not.toBeInTheDocument();
   });
 });
-0;

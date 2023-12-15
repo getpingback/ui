@@ -13,6 +13,7 @@ import {
   DropdownRadioItem,
   DropdownDivider,
   DropdownSub,
+  DropdownTitle,
 } from './dropdown';
 
 const meta = {
@@ -34,6 +35,7 @@ export const Default: Story = {
   args: {
     children: (
       <>
+        <DropdownTitle>Channel</DropdownTitle>
         <DropdownItem icon={<UserCheckIcon />}>Edit my profile</DropdownItem>
         <DropdownDivider />
         <DropdownItem icon={<SlidersVIcon />}>Settings</DropdownItem>

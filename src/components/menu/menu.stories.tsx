@@ -27,7 +27,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     children: (
-      <div className='w-[290px]'>
+      <>
         <MenuTitle>Channel</MenuTitle>
         <MenuItem icon={<UserCheckIcon />}>Edit my profile</MenuItem>
         <MenuDivider />
@@ -39,8 +39,9 @@ export const Default: Story = {
           <MenuItem>French</MenuItem>
           <MenuItem>Spanish</MenuItem>
         </MenuSubItem>
-      </div>
+      </>
     ),
-    subHeight: 400,
+    subHeight: 390,
+    className: 'w-[500px]',
   },
 };

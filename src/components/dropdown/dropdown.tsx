@@ -31,6 +31,7 @@ function DropdownTitle(props: DropdownTitleProps) {
   return (
     <h1
       className='w-full text-[10px] font-bold text-gray-400 uppercase px-[16px] pb-[8px] '
+      data-testid='dropdown-title'
       {...props}
     />
   );

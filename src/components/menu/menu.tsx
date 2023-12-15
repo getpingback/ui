@@ -11,7 +11,11 @@ export interface MenuDividerProps
   extends React.HtmlHTMLAttributes<HTMLSpanElement> {}
 function MenuDivider(props: MenuDividerProps) {
   return (
-    <span className='w-full h-[1px] bg-list-hover my-[8px]' {...props}></span>
+    <span
+      className='w-full h-[1px] bg-list-hover my-[8px]'
+      {...props}
+      data-testid='menu-divider'
+    ></span>
   );
 }
 
@@ -21,6 +25,7 @@ function MenuTitle(props: MenuTitleProps) {
   return (
     <h1
       className='w-full text-[10px] font-bold text-gray-400 uppercase px-[16px] pb-[8px] '
+      data-testid='menu-title'
       {...props}
     ></h1>
   );
@@ -39,6 +44,7 @@ function MenuItem({ className, ...props }: MenuItemProps) {
           className,
           'justify-start hover:no-underline'
         )}
+        data-testid='menu-item'
         {...props}
       >
         {props.icon && props.icon}
@@ -49,7 +55,7 @@ function MenuItem({ className, ...props }: MenuItemProps) {
 }
 
 export interface MenuProps extends React.HtmlHTMLAttributes<HTMLElement> {
-  subHeight: string;
+  subHeight: number;
 }
 
 function Menu({ className, subHeight, ...props }: MenuProps) {
@@ -113,6 +119,7 @@ function Menu({ className, subHeight, ...props }: MenuProps) {
         ' w-full flex flex-col z-50 min-w-fit overflow-hidden',
         className
       )}
+      data-testid='menu'
       {...props}
     >
       {selectedSub ? (
@@ -154,7 +161,7 @@ function MenuSubItem({ className, ...props }: MenuSubItemProps) {
             (className =
               'w-full z-50 flex items-center justify-between select-none focus:bg-list-hover hover:text-primary-foreground transition duration-300 ease-in-out')
           )}
-          data-testid='dropdown-sub'
+          data-testid='menu-sub'
           id='sub'
           accessKey={props.value}
         >
