@@ -105,19 +105,20 @@ function Dropdown({
   );
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const children = props.children as ReactElement;
+  const childrenArray = Array.isArray(children) ? children : [children];
 
   const handleAction = (e: MouseEvent | KeyboardEvent) => {
-    e.preventDefault();
-
     const targetId = (e.target as HTMLElement)?.id;
     const accessKey = (e.target as HTMLElement)?.accessKey;
 
     if (targetId === 'sub' && children && accessKey) {
-      const filteredChildren = children.props?.children.filter(
-        (item: any) => item.props.value === accessKey
-      );
+      const filteredChildren = children.props
+        ? children.props?.children.filter(
+            (item: any) => item.props.value === accessKey
+          )
+        : childrenArray.filter((item: any) => item.props.value === accessKey);
       setSelectedSubItem(filteredChildren);
-    } else setIsOpen(true);
+    }
   };
 
   const handleClose = () => {
