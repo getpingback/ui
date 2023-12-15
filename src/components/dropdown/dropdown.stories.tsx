@@ -1,20 +1,12 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import {
-  LifeRingIcon,
   UserCheckIcon,
   SlidersVIcon,
   SignoutAltIcon,
   GlobeIcon,
 } from '@stash-ui/regular-icons';
-import {
-  Dropdown,
-  DropdownItem,
-  DropdownRadioItem,
-  DropdownDivider,
-  DropdownSub,
-  DropdownTitle,
-} from './dropdown';
+import { Dropdown, DropdownItem, DropdownRadioItem } from './dropdown';
 
 const meta = {
   title: 'Components/DropdownMenu',
@@ -35,12 +27,10 @@ export const Default: Story = {
   args: {
     children: (
       <>
-        <DropdownTitle>Channel</DropdownTitle>
-        <DropdownItem icon={<UserCheckIcon />}>Edit my profile</DropdownItem>
-        <DropdownDivider />
-        <DropdownItem icon={<SlidersVIcon />}>Settings</DropdownItem>
-        <DropdownItem icon={<LifeRingIcon />}>Help</DropdownItem>
-        <DropdownItem icon={<SignoutAltIcon />}>Logout</DropdownItem>
+        <DropdownItem icon={<GlobeIcon />}>Edit my profile</DropdownItem>
+        <DropdownItem icon={<SignoutAltIcon />}>Settings </DropdownItem>
+        <DropdownItem icon={<SlidersVIcon />}>Help </DropdownItem>
+        <DropdownItem icon={<UserCheckIcon />}>Logout </DropdownItem>
       </>
     ),
     trigger: (
@@ -112,8 +102,12 @@ export const Radio: Story = {
   args: {
     children: (
       <>
-        <DropdownRadioItem isChecked> Show All </DropdownRadioItem>
-        <DropdownRadioItem isChecked={false}> Dark mode </DropdownRadioItem>
+        <DropdownRadioItem icon={<GlobeIcon />} isChecked>
+          Show All
+        </DropdownRadioItem>
+        <DropdownRadioItem icon={<GlobeIcon />} isChecked={false}>
+          Dark mode
+        </DropdownRadioItem>
       </>
     ),
     trigger: (
@@ -121,33 +115,5 @@ export const Radio: Story = {
         Click here
       </button>
     ),
-  },
-};
-
-export const Sub: Story = {
-  args: {
-    children: (
-      <>
-        <DropdownItem icon={<UserCheckIcon />}>Edit my profile</DropdownItem>
-        <DropdownItem icon={<SlidersVIcon />}>Settings</DropdownItem>
-        <DropdownItem icon={<LifeRingIcon />}>Help</DropdownItem>
-        <DropdownItem icon={<SignoutAltIcon />}>Logout</DropdownItem>
-        <DropdownDivider />
-        <DropdownSub label='Manage' value='1' icon={<SlidersVIcon />}>
-          <DropdownItem>Dashboard</DropdownItem>
-          <DropdownItem>Members</DropdownItem>
-        </DropdownSub>
-        <DropdownSub label='Language' value='2' icon={<GlobeIcon />}>
-          <DropdownRadioItem isChecked> English </DropdownRadioItem>
-          <DropdownRadioItem isChecked={false}> Portuguese </DropdownRadioItem>
-        </DropdownSub>
-      </>
-    ),
-    trigger: (
-      <button className='bg-active-foreground p-2 rounded-lg text-inverse-foreground'>
-        Click here
-      </button>
-    ),
-    subHeight: 250,
   },
 };

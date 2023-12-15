@@ -37,7 +37,7 @@ export interface MenuItemProps
 }
 function MenuItem({ className, ...props }: MenuItemProps) {
   return (
-    <NavigationMenuPrimitive.Root className={cn('w-full py-3 ', className)}>
+    <NavigationMenuPrimitive.Root className={cn('w-full', className)}>
       <NavigationMenuPrimitive.Link
         className={cn(
           itemVariants(),

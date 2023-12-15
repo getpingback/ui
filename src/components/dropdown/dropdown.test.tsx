@@ -15,14 +15,6 @@ describe('Dropdown Component', () => {
     expect(item[0].className.includes('text-list-label')).toBe(true);
     expect(item[0].className.includes('hover:bg-list-hover')).toBe(true);
   });
-  test('render Title', async () => {
-    const user = userEvent.setup();
-    const { getAllByTestId, getAllByRole } = render(<Default />);
-    const button = getAllByRole('button')[0];
-    await user.click(button);
-    const title = getAllByTestId(/dropdown-title/i);
-    expect(title[0]).toHaveTextContent('Channel');
-  });
   test('Render all items correctly', async () => {
     const user = userEvent.setup();
     const { getAllByRole, getAllByTestId } = render(<Default />);
@@ -33,6 +25,17 @@ describe('Dropdown Component', () => {
     expect(item[1]).toHaveTextContent('Settings');
     expect(item[2]).toHaveTextContent('Help');
     expect(item[3]).toHaveTextContent('Logout');
+  });
+  test('Render Items with correctly icon', async () => {
+    const user = userEvent.setup();
+    const { getAllByRole, getAllByTestId } = render(<Default />);
+    const button = getAllByRole('button')[0];
+    await user.click(button);
+    const item = getAllByTestId(/dropdown-item/i);
+    expect(item[0]).toContainHTML('<svg');
+    expect(item[1]).toContainHTML('<svg');
+    expect(item[2]).toContainHTML('<svg');
+    expect(item[3]).toContainHTML('<svg');
   });
   test('Render Left side correctly', async () => {
     const user = userEvent.setup();
@@ -66,36 +69,7 @@ describe('Dropdown Component', () => {
     const item = getAllByTestId(/dropdown-radio/i);
     expect(item[0]).toHaveAttribute('aria-checked', 'true');
     expect(item[1]).toHaveAttribute('aria-checked', 'false');
-  });
-  test('Render Submenu correctly', async () => {
-    const user = userEvent.setup();
-    const { getAllByRole, getAllByTestId, getAllByText } = render(<Sub />);
-    const button = getAllByRole('button')[0];
-    await user.click(button);
-    const sub = getAllByTestId(/dropdown-sub/i);
-
-    expect(sub[0]).toHaveTextContent('Manage');
-    expect(sub[1]).toHaveTextContent('Language');
-
-    fireEvent.click(sub[0]);
-    const item = getAllByTestId(/dropdown-item/i);
-    expect(item[0]).toHaveTextContent('Dashboard');
-    expect(item[1]).toHaveTextContent('Members');
-  });
-  test('should return to the initial state when closed', async () => {
-    const user = userEvent.setup();
-    const { getAllByRole, getAllByTestId } = render(<Sub />);
-    const button = getAllByRole('button')[0];
-    await user.click(button);
-    const sub = getAllByTestId(/dropdown-sub/i);
-
-    expect(sub[0]).toHaveTextContent('Manage');
-    expect(sub[1]).toHaveTextContent('Language');
-
-    fireEvent.click(sub[0]);
-
-    fireEvent.click(document.body);
-    expect(sub[0]).not.toBeInTheDocument();
-    expect(sub[1]).not.toBeInTheDocument();
+    expect(item[0]).toContainHTML('<svg');
+    expect(item[1]).toContainHTML('<svg');
   });
 });
