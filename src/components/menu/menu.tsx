@@ -71,7 +71,8 @@ function Menu({ className, subHeight, ...props }: MenuProps) {
     const accessKey = (e.target as HTMLElement)?.accessKey;
 
     if (targetId === 'sub' && children && accessKey) {
-      console.log('children', children.props?.children);
+      e.preventDefault();
+      e.stopPropagation();
       const filteredChildren = children.props
         ? children.props?.children.filter(
             (item: any) => item.props.value === accessKey
