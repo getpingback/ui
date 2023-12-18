@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.47](https://github.com/getpingback/ui/compare/v0.0.46...v0.0.47) (2023-12-18)
+
+
+### Bug Fixes
+
+* stop propagation ([0a42005](https://github.com/getpingback/ui/commits/0a42005b044e5f5c7e351b5780a06644492b5320))
+
 ### [0.0.46](https://github.com/getpingback/ui/compare/v0.0.45...v0.0.46) (2023-12-15)
 
 
