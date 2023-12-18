@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.48](https://github.com/getpingback/ui/compare/v0.0.47...v0.0.48) (2023-12-18)
+
+
+### Bug Fixes
+
+* close menu on back step ([7cc8a6f](https://github.com/getpingback/ui/commits/7cc8a6febe3072e1439bf1bf689688b119414450))
+
 ### [0.0.47](https://github.com/getpingback/ui/compare/v0.0.46...v0.0.47) (2023-12-18)
 
 
