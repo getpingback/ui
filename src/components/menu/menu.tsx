@@ -71,7 +71,6 @@ function Menu({ className, subHeight, ...props }: MenuProps) {
     const accessKey = (e.target as HTMLElement)?.accessKey;
 
     if (targetId === 'sub' && children && accessKey) {
-      e.preventDefault();
       e.stopPropagation();
       const filteredChildren = children.props
         ? children.props?.children.filter(
@@ -93,9 +92,10 @@ function Menu({ className, subHeight, ...props }: MenuProps) {
       >
         <div className='animate-slide-left w-full fixed transition-all duration-300 ease-out'>
           <button
-            onClick={() => {
+            onClick={(e) => {
               setSelectedSubItem(null);
               setIsOpen(true);
+              e.stopPropagation();
             }}
             className='w-full flex justify-between items-center pt-[12px] pb-[4px] pl-[15px] text-tertiary-foreground font-semibold text-sm [&>svg]:mr-2 [&>svg>path]:fill-icons-foreground [&>svg>path]:opacity-[.45] hover:text-active'
           >
