@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.47](https://github.com/getpingback/ui/compare/v0.0.43...v0.0.47) (2023-12-22)
+
+
+### Bug Fixes
+
+* **sidebar:** decrease animation time ([a811c65](https://github.com/getpingback/ui/commits/a811c65c0436db1d0256de3df15a39a7a57019c0))
+
 ### [0.0.46](https://github.com/getpingback/ui/compare/v0.0.43...v0.0.46) (2023-12-22)
 
 
