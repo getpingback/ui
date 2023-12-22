@@ -18,7 +18,7 @@ function Sidebar({ className, isOpen, onClose, ...props }: SidebarProps) {
   return (
     <div
       data-testid='sidebar'
-      className={`h-screen px-[12px] py-[24px] bg-background-accent shadow-bottom_sheet-2 fixed top-0 left-0 z-40 transition-all duration-300 ease-out ${
+      className={`h-screen px-[12px] py-[24px] bg-background-accent shadow-bottom_sheet-2 fixed top-0 left-0 z-40 transition-all duration-200 ease-out ${
         isOpen ? 'w-[250px]' : 'w-[80px]'
       }`}
       {...props}
