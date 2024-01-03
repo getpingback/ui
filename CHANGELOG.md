@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.52](https://github.com/getpingback/ui/compare/v0.0.51...v0.0.52) (2024-01-03)
+
+
+### Features
+
+* tooltip ([2ab71c8](https://github.com/getpingback/ui/commits/2ab71c819a629bf1ded17de75509e1e7db68da33))
+
 ### [0.0.51](https://github.com/getpingback/ui/compare/v0.0.50...v0.0.51) (2023-12-22)
 
 ### [0.0.48](https://github.com/getpingback/ui/compare/v0.0.47...v0.0.48) (2023-12-18)
