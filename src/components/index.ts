@@ -4,5 +4,6 @@ export * from './sidebar';
 export * from './dropdown';
 export * from './card';
 export * from './table';
-export * from './tabs';
 export * from './menu';
+export * from './tooltip';
+export * from './tabs';
