@@ -34,7 +34,7 @@ function Tooltip({
           sideOffset={sideOffset}
           data-testid='tooltip-content'
           className={cn(
-            'z-50 overflow-hidden max-w-[260px] rounded-lg bg-[#18181BA6] text-[#FFFFFF] text-center px-[12px] py-[8px] text-xs',
+            'z-50 overflow-hidden max-w-[260px] font-light opacity-90 rounded-lg bg-[#000000] text-[#FFFFFF] text-center pl-[10px] pr-[12px] py-[8px] text-xs',
             className
           )}
           {...props}
