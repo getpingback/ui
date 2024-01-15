@@ -7,7 +7,6 @@ const meta = {
   title: "Components/Accordion",
   component: Accordion,
   parameters: {
-    // layout: "centered",
   },
 
   tags: ["autodocs"],
