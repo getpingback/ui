@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.55](https://github.com/getpingback/ui/compare/v0.0.54...v0.0.55) (2024-01-15)
+
+
+### Bug Fixes
+
+* change color in tooltip ([f6e2d9f](https://github.com/getpingback/ui/commits/f6e2d9f26fe63de89f44873bf0fbe4ddb62c4550))
+* create accordion component ([cab6aec](https://github.com/getpingback/ui/commits/cab6aeca9b4122b2d8b8a7c9934760fcd383e211))
+* remove comments ([8151f09](https://github.com/getpingback/ui/commits/8151f099658f0486e9a32993be17e7533eb5f3d4))
+
 ### [0.0.53](https://github.com/getpingback/ui/compare/v0.0.52...v0.0.53) (2024-01-03)
 
 ### [0.0.52](https://github.com/getpingback/ui/compare/v0.0.51...v0.0.52) (2024-01-03)
