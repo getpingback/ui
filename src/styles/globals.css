@@ -12,6 +12,8 @@
     --badge-soon-bg: #16bdca1f;
     --badge-suspended-text: #e02424;
     --badge-suspended-bg: #f980801f;
+    --badge-disabled-bg: #faca151f;
+    --badge-disabled-text: #c27803;
     --badge-upgrade-text: #fafafa;
     --badge-upgrade-bg: #0e9f6e;
     --background-accent: #FFFFFF;
