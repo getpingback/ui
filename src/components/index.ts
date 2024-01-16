@@ -7,3 +7,4 @@ export * from './table';
 export * from './menu';
 export * from './tabs';
 export * from './tooltip';
+export * from './dropzone';
