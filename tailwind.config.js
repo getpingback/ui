@@ -229,6 +229,10 @@ const config = {
             DEFAULT: 'var(--badge-suspended-bg)',
             foreground: 'var(--badge-suspended-text)',
           },
+          pending: {
+            DEFAULT: 'var(--badge-disabled-bg)',
+            foreground: 'var(--badge-disabled-text)',
+          },
         },
         background: {
           accent: 'var(--background-accent)',

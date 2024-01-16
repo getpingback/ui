@@ -10,7 +10,7 @@ import {
 import { cn } from '@/lib/utils';
 
 const labels = {
-  'pt-BR': {
+  'pt-br': {
     dropYourImageHere: 'Arraste sua imagem aqui, ou <u>busque</u>',
     pngJpgGif: 'PNG, JPG, JPEG e GIF, limite de tamanho de 5 MB.',
     change: 'Alterar',
@@ -32,10 +32,14 @@ const labels = {
 
 export interface DropzoneProps {
   uploadedFile?: { name: string; size: number; src: string };
-  locale?: 'pt-BR' | 'en' | 'es';
+  locale?: 'pt-br' | 'en' | 'es';
   onChange?: (
-    type: string,
-    file: { name: string; size: number; src: string } | {}
+    file:
+      | {
+          type: 'upload' | 'remove';
+          file: { name: string; size: number; src: string | '' };
+        }
+      | {}
   ) => void;
 }
 
@@ -67,13 +71,22 @@ function Dropzone({ uploadedFile, onChange, locale = 'en' }: DropzoneProps) {
       size: number;
       src: string;
     };
+
     setFile(file);
-    onChange && onChange('upload', file);
+    onChange &&
+      onChange({
+        type: 'upload',
+        file: file,
+      });
   };
 
   const removeFile = () => {
     setFile(undefined);
-    onChange && onChange('remove', {});
+    onChange &&
+      onChange({
+        type: 'remove',
+        file: {},
+      });
   };
 
   const ImagePreview = () => {

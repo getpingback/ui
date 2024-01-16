@@ -12,6 +12,7 @@ const badgeVariants = cva(
         counter: 'bg-badge-counter text-badge-counter-foreground',
         soon: 'bg-badge-soon text-badge-soon-foreground',
         suspended: 'bg-badge-suspended text-badge-suspended-foreground',
+        pending: 'bg-badge-pending text-badge-pending-foreground',
       },
       variant: {
         outline: 'bg-transparent',
@@ -42,6 +43,11 @@ const badgeVariants = cva(
         variant: 'outline',
         type: 'suspended',
         className: 'border border-badge-suspended',
+      },
+      {
+        variant: 'outline',
+        type: 'pending',
+        className: 'border border-badge-pending',
       },
     ],
     defaultVariants: {
