@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.62](https://github.com/getpingback/ui/compare/v0.0.60...v0.0.62) (2024-01-30)
+
+
+### Bug Fixes
+
+* initial state ([79dca32](https://github.com/getpingback/ui/commits/79dca32ecc187552aa4dce81aa8a94f244a3f7a0))
+
+### [0.0.61](https://github.com/getpingback/ui/compare/v0.0.60...v0.0.61) (2024-01-30)
+
+
+### Bug Fixes
+
+* initial state ([79dca32](https://github.com/getpingback/ui/commits/79dca32ecc187552aa4dce81aa8a94f244a3f7a0))
+
 ### [0.0.55](https://github.com/getpingback/ui/compare/v0.0.54...v0.0.55) (2024-01-15)
 
 
