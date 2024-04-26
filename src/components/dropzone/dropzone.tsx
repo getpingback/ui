@@ -122,7 +122,7 @@ function Dropzone({ uploadedFile, onChange, locale = 'en' }: DropzoneProps) {
         <div className='w-full flex flex-col justify-between pl-[12px]'>
           <div>
             {file?.name && (
-              <p className='text-sm font-semibold text-primary-foreground'>
+              <p className='line-clamp-3 text-sm font-semibold text-primary-foreground'>
                 {file?.name}
               </p>
             )}
