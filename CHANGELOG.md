@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.75](https://github.com/getpingback/ui/compare/v0.0.74...v0.0.75) (2024-04-29)
+
+
+### Bug Fixes
+
+* globals ([a4bacc2](https://github.com/getpingback/ui/commits/a4bacc226f9e958f1f2170a91d33cc3d93650c2a))
+
 ### [0.0.73](https://github.com/getpingback/ui/compare/v0.0.72...v0.0.73) (2024-04-26)
 
 
