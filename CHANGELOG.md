@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.77](https://github.com/getpingback/ui/compare/v0.0.76...v0.0.77) (2024-04-29)
+
+
+### Bug Fixes
+
+* dropzone file name ([3739673](https://github.com/getpingback/ui/commits/373967371258eb698b37cdb1a47563248dfed5ce))
+
 ### [0.0.75](https://github.com/getpingback/ui/compare/v0.0.74...v0.0.75) (2024-04-29)
 
 
