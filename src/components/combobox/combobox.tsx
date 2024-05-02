@@ -165,7 +165,7 @@ export function Combobox({
           <CaretDownIcon className='ml-2 h-4 w-4 shrink-0 opacity-50' />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className='w-[500px] p-0' data-testid="comboxbox-popover-content">
+      <PopoverContent className='w-[500px] p-0 bg-background-accent' data-testid="comboxbox-popover-content">
         <Command shouldFilter={shouldFilter}>
           <div className='w-full p-4 flex items-center justify-center border-b border-divider'>
             <CommandInput
