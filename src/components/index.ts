@@ -9,3 +9,4 @@ export * from './tabs';
 export * from './tooltip';
 export * from './dropzone';
 export * from './accordion';
+export * from './combobox';
