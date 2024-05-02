@@ -2,13 +2,7 @@ import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Combobox } from "./combobox";
-import {
-  ArticleIcon,
-  CogIcon,
-  EnvelopeFlyingIcon,
-  ListAddIcon,
-  OutboxIcon,
-} from "@stash-ui/regular-icons";
+import { ArticleIcon, CogIcon, EnvelopeFlyingIcon, ListAddIcon } from "@stash-ui/regular-icons";
 
 const meta = {
   title: "Components/Combobox",
@@ -152,6 +146,34 @@ export const IconCompact: Story = {
           </div>
         ),
         value: "adicionar a automação",
+      },
+    ],
+  },
+};
+
+export const ShouldFilterFalse: Story = {
+  args: {
+    shouldFilter: false,
+    onChangeSearchValue: (value: string) => console.log("onChangeSearchValue", value),
+    placeholder: "Selecione o link",
+    searchPlaceholder: "Pesquise pelo link...",
+    emptySearchPlaceholder: "Nenhum resultado encontrado.",
+    items: [
+      {
+        label: "https://pt.semrush.com/blog/bounce-rate-taxa-de-rejeicao/",
+        value: "https://pt.semrush.com/blog/bounce-rate-taxa-de-rejeicao/",
+      },
+      {
+        label: "https://pingback.com/juliano-fabbro",
+        value: "https://pingback.com/juliano-fabbro",
+      },
+      {
+        label: "https://pingback.com/juliano-fabbro/pods-construcao-civil",
+        value: "https://pingback.com/juliano-fabbro/pods-construcao-civil",
+      },
+      {
+        label: "https://blog.pipelovers.net/",
+        value: "https://blog.pipelovers.net/",
       },
     ],
   },

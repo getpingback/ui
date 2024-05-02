@@ -5,13 +5,7 @@ import { CheckIcon, CaretDownIcon } from "@stash-ui/regular-icons";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/button";
-import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-} from "@/components/command";
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from "@/components/command";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/popover";
 
 interface Item {
@@ -23,48 +17,46 @@ interface Item {
 }
 
 interface ComboboxProps {
+  items: Item[];
+  shouldFilter?: boolean;
   placeholder?: string;
   searchPlaceholder?: string;
   emptySearchPlaceholder?: string;
   variant?: "default" | "detailed" | "icon-compact" | "image-detailed";
-  items: Item[];
+  defaultValue?: string;
+  searchValue?: string;
+  onSelect?: (value: string) => void;
+  onChangeSearchValue?: (value: string) => void;
 }
 
 export function Combobox({
   items,
+  shouldFilter = true,
   variant = "default",
   placeholder = "Select an item...",
   searchPlaceholder = "Search...",
   emptySearchPlaceholder = "Nothing found.",
+  defaultValue,
+  searchValue,
+  onChangeSearchValue,
+  onSelect,
 }: ComboboxProps) {
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState("");
 
-  const DefaultVariant = ({
-    item,
-    selected,
-  }: {
-    item: Item;
-    selected: boolean;
-  }) => (
-    <div
-      className={cn("flex items-center w-full", selected && "justify-between")}
-    >
+  React.useEffect(() => {
+    setValue(defaultValue || "");
+  }, [defaultValue]);
+
+  const DefaultVariant = ({ item, selected }: { item: Item; selected: boolean }) => (
+    <div className={cn("flex items-center w-full", selected && "justify-between")}>
       {item.label}
       {selected && <CheckIcon />}
     </div>
   );
 
-  const DetailedVariant = ({
-    item,
-    selected,
-  }: {
-    item: Item;
-    selected: boolean;
-  }) => (
-    <div
-      className={cn("flex items-center w-full", selected && "justify-between")}
-    >
+  const DetailedVariant = ({ item, selected }: { item: Item; selected: boolean }) => (
+    <div className={cn("flex items-center w-full", selected && "justify-between")}>
       <div className='flex flex-col'>
         <div className='text-sm font-medium'>{item.label}</div>
         <div className='text-xs text-gray-500'>{item.description}</div>
@@ -87,13 +79,11 @@ export function Combobox({
       className={cn(
         "w-full flex items-center",
         selected && "justify-between",
-        border && "border-[1px] border-[rgba(63,63,70,0.08)] p-2 rounded-lg"
+        border && "border-[1px] border-border-card p-2 rounded-lg"
       )}
     >
       <div className='flex items-center gap-2'>
-        <div className='flex items-center justify-center w-6 h-6 rounded-md'>
-          {item.icon || null}
-        </div>
+        <div className='flex items-center justify-center w-6 h-6 rounded-md'>{item.icon || null}</div>
         <div className='text-sm font-medium'>{item.label}</div>
       </div>
 
@@ -101,23 +91,11 @@ export function Combobox({
     </div>
   );
 
-  const ImageDetailedVariant = ({
-    item,
-    selected,
-  }: {
-    item: Item;
-    selected: boolean;
-  }) => (
-    <div
-      className={cn("flex items-center w-full", selected && "justify-between")}
-    >
+  const ImageDetailedVariant = ({ item, selected }: { item: Item; selected: boolean }) => (
+    <div className={cn("flex items-center w-full", selected && "justify-between")}>
       <div className='flex items-center gap-4'>
         {item.imageUrl ? (
-          <img
-            src={item.imageUrl}
-            alt={item.label}
-            className='w-[64px] h-[48px] rounded-md object-cover'
-          />
+          <img src={item.imageUrl} alt={item.label} className='w-[64px] h-[48px] rounded-md object-cover' />
         ) : (
           <div className='w-[64px] h-[48px] rounded-md bg-gray-200' />
         )}
@@ -144,7 +122,11 @@ export function Combobox({
     }
   };
 
-  const renderButtonValue = () => {
+  const handleSearchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    onChangeSearchValue?.(e.target.value);
+  };
+
+  const renderButtonContent = () => {
     if (value) {
       const selectedItem = items.find((item) => item.value === value);
 
@@ -153,15 +135,17 @@ export function Combobox({
           item: selectedItem,
           selected: false,
         });
-      } else if (selectedItem && variant === "icon-compact") {
+      }
+
+      if (selectedItem && variant === "icon-compact") {
         return React.createElement(getVariant(), {
           item: selectedItem,
           selected: false,
           border: false,
         });
-      } else {
-        return selectedItem?.label;
       }
+
+      return selectedItem?.label;
     }
 
     return placeholder;
@@ -177,23 +161,31 @@ export function Combobox({
           aria-expanded={open}
           className='w-[500px] justify-between'
         >
-          {renderButtonValue()}
+          {renderButtonContent()}
           <CaretDownIcon className='ml-2 h-4 w-4 shrink-0 opacity-50' />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className='w-[500px] p-0'>
-        <Command>
-          <CommandInput placeholder={searchPlaceholder} className='h-9' />
+      <PopoverContent className='w-[500px] p-0' data-testid="comboxbox-popover-content">
+        <Command shouldFilter={shouldFilter}>
+          <div className='w-full p-4 flex items-center justify-center border-b border-divider'>
+            <CommandInput
+              placeholder={searchPlaceholder}
+              className='h-9 w-full'
+              defaultValue={searchValue}
+              onInput={handleSearchInput}
+            />
+          </div>
 
           <CommandEmpty>{emptySearchPlaceholder}</CommandEmpty>
 
-          <CommandGroup>
+          <CommandGroup className='max-h-[272px] overflow-y-scroll'>
             {items.map((item) => (
               <CommandItem
                 key={item.value}
                 value={item.value}
                 className={cn(variant === "icon-compact" && "py-1")}
                 onSelect={(currentValue: string) => {
+                  onSelect?.(currentValue);
                   setValue(currentValue === value ? "" : currentValue);
                   setOpen(false);
                 }}
