@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.77](https://github.com/getpingback/ui/compare/v0.0.76...v0.0.77) (2024-04-29)
+
+
+### Bug Fixes
+
+* dropzone file name ([3739673](https://github.com/getpingback/ui/commits/373967371258eb698b37cdb1a47563248dfed5ce))
+
+### [0.0.75](https://github.com/getpingback/ui/compare/v0.0.74...v0.0.75) (2024-04-29)
+
+
+### Bug Fixes
+
+* globals ([a4bacc2](https://github.com/getpingback/ui/commits/a4bacc226f9e958f1f2170a91d33cc3d93650c2a))
+
+### [0.0.73](https://github.com/getpingback/ui/compare/v0.0.72...v0.0.73) (2024-04-26)
+
+
+### Bug Fixes
+
+* width of the file name on dropzone ([68d8f3b](https://github.com/getpingback/ui/commits/68d8f3bc6ae83e2760f9f53d5c44477d15c91bb3))
+
 ### [0.0.67](https://github.com/getpingback/ui/compare/v0.0.66...v0.0.67) (2024-04-12)
 
 ### [0.0.64](https://github.com/getpingback/ui/compare/v0.0.63...v0.0.64) (2024-04-12)

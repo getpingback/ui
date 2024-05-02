@@ -112,6 +112,18 @@ function Dropzone({ uploadedFile, onChange, locale = 'en' }: DropzoneProps) {
       </button>
     );
 
+    const renderFileName = (fileName: string) => {
+      if (fileName.length <= 100) {
+        return fileName;
+      } else {
+        const extensionName = fileName.split('.').pop();
+        const name = fileName.substring(0, fileName.lastIndexOf('.'));
+        const formattedName =
+          extensionName && name.substring(0, 100 - extensionName.length - 3);
+        return formattedName + '...' + extensionName;
+      }
+    };
+
     return (
       <div
         className='flex justify-between h-[132px]'
@@ -122,8 +134,8 @@ function Dropzone({ uploadedFile, onChange, locale = 'en' }: DropzoneProps) {
         <div className='w-full flex flex-col justify-between pl-[12px]'>
           <div>
             {file?.name && (
-              <p className='text-sm font-semibold text-primary-foreground'>
-                {file?.name}
+              <p className='line-clamp-3 break-all text-sm font-semibold text-primary-foreground'>
+                {renderFileName(file?.name)}
               </p>
             )}
             {file?.size && (
