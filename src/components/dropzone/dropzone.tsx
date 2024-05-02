@@ -135,7 +135,6 @@ function Dropzone({ uploadedFile, onChange, locale = 'en' }: DropzoneProps) {
           <div>
             {file?.name && (
               <p className='line-clamp-3 break-all text-sm font-semibold text-primary-foreground'>
-                {/* {file?.name} */}
                 {renderFileName(file?.name)}
               </p>
             )}
