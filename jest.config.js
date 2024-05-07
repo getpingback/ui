@@ -8,8 +8,8 @@ const customJestConfig = {
   setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
   testEnvironment: "jest-environment-jsdom",
   testPathIgnorePatterns: ["/node_modules/", "/.next/"],
-  // collectCoverage: true,
-  // collectCoverageFrom: ["src/components/**/*.tsx"],
+  collectCoverage: true,
+  collectCoverageFrom: ["src/components/**/*.tsx"],
   modulePaths: ["<rootDir>/src/"],
 };
 
