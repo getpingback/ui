@@ -9,7 +9,7 @@ import { Calendar } from "@/components/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/popover";
 import { Matcher } from "react-day-picker";
 
-interface DatePickerProps {
+export interface DatePickerProps {
   label?: string;
   helpText?: string;
   placeholder?: string;
