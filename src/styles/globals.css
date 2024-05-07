@@ -17,6 +17,11 @@
     --badge-upgrade-text: #fafafa;
     --badge-upgrade-bg: #0e9f6e;
 
+    --button-solid-bg: #9061F9;
+    --button-solid-text: #fafafa;
+    --button-ghost-bg: #9061F91f;
+    --button-ghost-text: #52525B;
+
     --background-accent: #ffffff;
 
     --border-divider-color: #e4e4e7;
@@ -64,6 +69,11 @@
     --badge-suspended-bg: #f980801f;
     --badge-upgrade-text: #fafafa;
     --badge-upgrade-bg: #0e9f6e;
+
+    --button-solid-bg: #9061F9;
+    --button-solid-text: #fafafa;
+    --button-ghost-bg: #AC94FA3d;
+    --button-ghost-text: #fafafa;
 
     --background-accent: #27272a;
 
