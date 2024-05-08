@@ -16,6 +16,8 @@
     --badge-disabled-text: #c27803;
     --badge-upgrade-text: #fafafa;
     --badge-upgrade-bg: #0e9f6e;
+    --badge-done-bg:  #9061F914;
+    --badge-done-text: #9061F9;
 
     --background-accent: #ffffff;
 
@@ -64,6 +66,8 @@
     --badge-suspended-bg: #f980801f;
     --badge-upgrade-text: #fafafa;
     --badge-upgrade-bg: #0e9f6e;
+    --badge-done-bg: #9061F914;
+    --badge-done-text: #9061F9;
 
     --background-accent: #27272a;
 
