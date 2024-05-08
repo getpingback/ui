@@ -1,17 +1,17 @@
 import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { DatePicker } from "./date-picker";
+import { CounterInput } from "./counter-input";
 
 const meta = {
-  title: "Components/DatePicker",
-  component: DatePicker,
+  title: "Components/CounterInput",
+  component: CounterInput,
   parameters: {},
 
   tags: ["autodocs"],
 
   argTypes: {},
-} satisfies Meta<typeof DatePicker>;
+} satisfies Meta<typeof CounterInput>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -22,14 +22,15 @@ export const Default: Story = {
 
 export const WithInputProps: Story = {
   args: {
-    label: "Date",
-    placeholder: "Select a date",
-    helperText: "Choose a date from the calendar",
+    label: "Days",
+    placeholder: "0",
+    helperText: "Choose the number of days",
   },
 };
 
-export const WithDisabledDaysBeforeToday: Story = {
+export const MinAndMaxValue: Story = {
   args: {
-    disabled: { before: new Date() },
+    min: 0,
+    max: 10,
   },
 };

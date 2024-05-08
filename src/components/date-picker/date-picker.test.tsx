@@ -1,6 +1,5 @@
 import React from "react";
-import { format } from "date-fns";
-import { fireEvent, render, waitFor } from "@testing-library/react";
+import { fireEvent, render } from "@testing-library/react";
 import { composeStories } from "@storybook/testing-react";
 import * as stories from "./date-picker.stories";
 
@@ -24,7 +23,7 @@ describe("DatePicker", () => {
     });
   });
 
-  describe("DatePicker - WithInputProps", () => {
+  describe("WithInputProps", () => {
     it("should render with the correct label", () => {
       const { getByText } = render(<WithInputProps />);
       expect(getByText("Date")).toBeInTheDocument();

@@ -9,17 +9,18 @@ import { Calendar } from "@/components/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/popover";
 import { Matcher } from "react-day-picker";
 
-interface DatePickerProps {
+export interface DatePickerProps {
   label?: string;
-  helpText?: string;
+  helperText?: string;
   placeholder?: string;
   locale?: "en" | "pt" | "es";
+  value?: Date;
   onSelect?: (date?: Date) => void;
   disabled?: Matcher | Matcher[];
 }
 
-export function DatePicker({ locale = "en", label, placeholder, helpText, onSelect, ...props }: DatePickerProps) {
-  const [date, setDate] = React.useState<Date>();
+export function DatePicker({ locale = "en", label, placeholder, helperText, value, onSelect, ...props }: DatePickerProps) {
+  const [date, setDate] = React.useState<Date | undefined>(value);
 
   const handleSelect = (date?: Date) => {
     onSelect?.(date);
@@ -48,7 +49,7 @@ export function DatePicker({ locale = "en", label, placeholder, helpText, onSele
 
         <PopoverTrigger asChild>
           <Button
-            variant={"outline"}
+            variant="outline"
             className={cn(
               "w-full max-w-[280px] justify-between text-left font-normal",
               !date && "text-muted-foreground"
@@ -64,7 +65,7 @@ export function DatePicker({ locale = "en", label, placeholder, helpText, onSele
           </Button>
         </PopoverTrigger>
 
-        {helpText ? <span className='text-xs font-normal text-tertiary-foreground mt-1'>{helpText}</span> : null}
+        {helperText ? <span className='text-xs font-normal text-tertiary-foreground mt-1'>{helperText}</span> : null}
       </div>
 
       <PopoverContent className='w-auto p-0 bg-background-accent' data-testid="date-picker-popover-content">

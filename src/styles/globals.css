@@ -19,10 +19,10 @@
     --badge-done-bg:  #9061F914;
     --badge-done-text: #9061F9;
 
-    --button-solid-bg: #9061F9;
+    --button-solid-bg: #9061f9;
     --button-solid-text: #fafafa;
-    --button-ghost-bg: #9061F91f;
-    --button-ghost-text: #52525B;
+    --button-ghost-bg: #9061f91f;
+    --button-ghost-text: #52525b;
 
     --background-accent: #ffffff;
 
@@ -74,9 +74,9 @@
     --badge-done-bg: #9061F914;
     --badge-done-text: #9061F9;
 
-    --button-solid-bg: #9061F9;
+    --button-solid-bg: #9061f9;
     --button-solid-text: #fafafa;
-    --button-ghost-bg: #AC94FA3d;
+    --button-ghost-bg: #ac94fa3d;
     --button-ghost-text: #fafafa;
 
     --background-accent: #27272a;
@@ -114,6 +114,12 @@
 
     --icons-default: #e4e4e7;
   }
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 ::-webkit-scrollbar {
