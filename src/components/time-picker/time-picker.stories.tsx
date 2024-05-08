@@ -19,3 +19,11 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {},
 };
+
+export const WithInputProps: Story = {
+  args: {
+    label: "Time",
+    placeholder: "00:00",
+    helpText: "Choose a time from the date above",
+  },
+};
