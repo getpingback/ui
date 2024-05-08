@@ -48,17 +48,33 @@ export function Combobox({
     setValue(defaultValue || "");
   }, [defaultValue]);
 
-  const DefaultVariant = ({ item, selected }: { item: Item; selected: boolean }) => (
+  const DefaultVariant = ({
+    item,
+    selected,
+    isButtonLabel,
+  }: {
+    item: Item;
+    selected: boolean;
+    isButtonLabel?: boolean;
+  }) => (
     <div className={cn("flex items-center w-full", selected && "justify-between")}>
-      {item.label}
+      <span className={`${isButtonLabel ? "max-w-[200px] truncate" : ""}`}>{item.label}</span>
       {selected && <CheckIcon />}
     </div>
   );
 
-  const DetailedVariant = ({ item, selected }: { item: Item; selected: boolean }) => (
+  const DetailedVariant = ({
+    item,
+    selected,
+    isButtonLabel,
+  }: {
+    item: Item;
+    selected: boolean;
+    isButtonLabel?: boolean;
+  }) => (
     <div className={cn("flex items-center w-full", selected && "justify-between")}>
       <div className='flex flex-col'>
-        <div className='text-sm font-medium'>{item.label}</div>
+        <div className={`text-sm font-medium${isButtonLabel ? " max-w-[160px] truncate" : ""}`}>{item.label}</div>
         <div className='text-xs text-gray-500'>{item.description}</div>
       </div>
 
@@ -74,6 +90,7 @@ export function Combobox({
     item: Item;
     selected: boolean;
     border?: boolean;
+    isButtonLabel?: boolean;
   }) => (
     <div
       className={cn(
@@ -91,7 +108,15 @@ export function Combobox({
     </div>
   );
 
-  const ImageDetailedVariant = ({ item, selected }: { item: Item; selected: boolean }) => (
+  const ImageDetailedVariant = ({
+    item,
+    selected,
+    isButtonLabel,
+  }: {
+    item: Item;
+    selected: boolean;
+    isButtonLabel?: boolean;
+  }) => (
     <div className={cn("flex items-center w-full", selected && "justify-between")}>
       <div className='flex items-center gap-4'>
         {item.imageUrl ? (
@@ -100,7 +125,7 @@ export function Combobox({
           <div className='w-[64px] h-[48px] rounded-md bg-gray-200' />
         )}
         <div>
-          <div className='text-sm'>{item.label}</div>
+          <div className={`text-sm${isButtonLabel ? " max-w-[160px] truncate" : ""}`}>{item.label}</div>
           <div className='text-xs text-gray-500'>{item.description}</div>
         </div>
       </div>
@@ -134,6 +159,7 @@ export function Combobox({
         return React.createElement(getVariant(), {
           item: selectedItem,
           selected: false,
+          isButtonLabel: true,
         });
       }
 
@@ -145,7 +171,15 @@ export function Combobox({
         });
       }
 
-      return selectedItem?.label;
+      if (selectedItem) {
+        return React.createElement(getVariant(), {
+          item: selectedItem,
+          selected: false,
+          isButtonLabel: true,
+        });
+      }
+
+      return null;
     }
 
     return placeholder;
@@ -159,13 +193,13 @@ export function Combobox({
           size='combobox'
           role='combobox'
           aria-expanded={open}
-          className='w-[500px] justify-between'
+          className='max-w-[280px] w-full justify-between'
         >
           {renderButtonContent()}
           <CaretDownIcon className='ml-2 h-4 w-4 shrink-0 opacity-50' />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className='w-[500px] p-0 bg-background-accent' data-testid="comboxbox-popover-content">
+      <PopoverContent className='max-w-[280px] w-full p-0 bg-background-accent' data-testid='comboxbox-popover-content'>
         <Command shouldFilter={shouldFilter}>
           <div className='w-full p-4 flex items-center justify-center border-b border-divider'>
             <CommandInput
