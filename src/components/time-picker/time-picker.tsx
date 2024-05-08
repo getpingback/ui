@@ -47,13 +47,14 @@ export function TimePicker({ label, placeholder, helpText, value, onChange, ...p
   return (
     <div className='flex flex-col items-start gap-1'>
       {label ? (
-        <label className='text-xs font-semibold text-tertiary-foreground' htmlFor='date-picker'>
+        <label className='text-xs font-semibold text-tertiary-foreground' htmlFor='time-picker'>
           {label}
         </label>
       ) : null}
 
       <div className='relative w-full max-w-[280px]'>
         <input
+          id='time-picker'
           ref={inputRef}
           value={time}
           onChange={handleChange}

@@ -48,7 +48,7 @@ export function DatePicker({ locale = "en", label, placeholder, helpText, onSele
 
         <PopoverTrigger asChild>
           <Button
-            variant={"outline"}
+            variant="outline"
             className={cn(
               "w-full max-w-[280px] justify-between text-left font-normal",
               !date && "text-muted-foreground"

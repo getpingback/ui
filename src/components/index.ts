@@ -12,3 +12,4 @@ export * from './accordion';
 export * from './combobox';
 export * from './date-picker';
 export * from './time-picker';
+export * from './counter-input';
