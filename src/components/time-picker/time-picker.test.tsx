@@ -22,7 +22,7 @@ describe("TimePicker", () => {
       expect(getByText("Time")).toBeInTheDocument();
     });
 
-    it("should display the placeholder text when no date is selected", () => {
+    it("should display the placeholder text", () => {
       const { getByPlaceholderText } = render(<WithInputProps />);
       expect(getByPlaceholderText("00:00")).toBeInTheDocument();
     });
