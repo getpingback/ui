@@ -11,14 +11,14 @@ import { Matcher } from "react-day-picker";
 
 export interface DatePickerProps {
   label?: string;
-  helpText?: string;
+  helperText?: string;
   placeholder?: string;
   locale?: "en" | "pt" | "es";
   onSelect?: (date?: Date) => void;
   disabled?: Matcher | Matcher[];
 }
 
-export function DatePicker({ locale = "en", label, placeholder, helpText, onSelect, ...props }: DatePickerProps) {
+export function DatePicker({ locale = "en", label, placeholder, helperText, onSelect, ...props }: DatePickerProps) {
   const [date, setDate] = React.useState<Date>();
 
   const handleSelect = (date?: Date) => {
@@ -64,7 +64,7 @@ export function DatePicker({ locale = "en", label, placeholder, helpText, onSele
           </Button>
         </PopoverTrigger>
 
-        {helpText ? <span className='text-xs font-normal text-tertiary-foreground mt-1'>{helpText}</span> : null}
+        {helperText ? <span className='text-xs font-normal text-tertiary-foreground mt-1'>{helperText}</span> : null}
       </div>
 
       <PopoverContent className='w-auto p-0 bg-background-accent' data-testid="date-picker-popover-content">

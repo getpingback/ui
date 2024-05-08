@@ -4,13 +4,13 @@ import { ClockIcon } from "@stash-ui/light-icons";
 
 export interface TimePickerProps {
   label?: string;
-  helpText?: string;
+  helperText?: string;
   placeholder?: string;
   value?: string;
   onChange?: (time?: string) => void;
 }
 
-export function TimePicker({ label, placeholder, helpText, value, onChange, ...props }: TimePickerProps) {
+export function TimePicker({ label, placeholder, helperText, value, onChange, ...props }: TimePickerProps) {
   const [time, setTime] = React.useState<string>(value || "");
 
   const inputRef = React.useRef<HTMLInputElement>(null);
@@ -68,7 +68,7 @@ export function TimePicker({ label, placeholder, helpText, value, onChange, ...p
         <ClockIcon className='h-5 w-5 absolute top-[10px] right-[10px]' color='#52525B' />
       </div>
 
-      {helpText ? <span className='text-xs font-normal text-tertiary-foreground mt-1'>{helpText}</span> : null}
+      {helperText ? <span className='text-xs font-normal text-tertiary-foreground mt-1'>{helperText}</span> : null}
     </div>
   );
 }

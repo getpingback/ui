@@ -24,7 +24,7 @@ export const WithInputProps: Story = {
   args: {
     label: "Date",
     placeholder: "Select a date",
-    helpText: "Choose a date from the calendar",
+    helperText: "Choose a date from the calendar",
   },
 };
 

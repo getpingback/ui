@@ -4,7 +4,7 @@ import { MinusIcon, PlusIcon } from "@stash-ui/regular-icons";
 
 interface Props {
   label?: string;
-  helpText?: string;
+  helperText?: string;
   placeholder?: string;
   value?: number;
   onChange?: (value?: number) => void;
@@ -12,7 +12,7 @@ interface Props {
 
 export type CounterInputProps = Props & React.InputHTMLAttributes<HTMLInputElement>;
 
-export function CounterInput({ label, placeholder, helpText, value, onChange, ...props }: CounterInputProps) {
+export function CounterInput({ label, placeholder, helperText, value, onChange, ...props }: CounterInputProps) {
   const [number, setNumber] = React.useState<number | undefined>(value || undefined);
 
   const maxValue = typeof props.max === "number" ? props.max : Infinity;
@@ -86,7 +86,7 @@ export function CounterInput({ label, placeholder, helpText, value, onChange, ..
         </div>
       </div>
 
-      {helpText ? <span className='text-xs font-normal text-tertiary-foreground mt-1'>{helpText}</span> : null}
+      {helperText ? <span className='text-xs font-normal text-tertiary-foreground mt-1'>{helperText}</span> : null}
     </div>
   );
 }

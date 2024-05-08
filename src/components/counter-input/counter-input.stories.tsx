@@ -24,7 +24,7 @@ export const WithInputProps: Story = {
   args: {
     label: "Days",
     placeholder: "0",
-    helpText: "Choose the number of days",
+    helperText: "Choose the number of days",
   },
 };
 
