@@ -233,6 +233,10 @@ const config = {
             DEFAULT: 'var(--badge-disabled-bg)',
             foreground: 'var(--badge-disabled-text)',
           },
+          done: {
+            DEFAULT: 'var(--badge-done-bg)',
+            foreground: 'var(--badge-done-text)',
+          },
         },
         background: {
           accent: 'var(--background-accent)',

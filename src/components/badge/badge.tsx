@@ -13,6 +13,7 @@ const badgeVariants = cva(
         soon: 'bg-badge-soon text-badge-soon-foreground',
         suspended: 'bg-badge-suspended text-badge-suspended-foreground',
         pending: 'bg-badge-pending text-badge-pending-foreground',
+        done: 'bg-badge-done text-badge-done-foreground',
       },
       variant: {
         outline: 'bg-transparent',
