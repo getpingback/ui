@@ -15,17 +15,24 @@ export interface SelectProps {
   helperText?: string;
   placeholder?: string;
   options: Option[];
+  value?: string;
   onValueChange: (value: string) => void;
 }
 
-export function Select({ label, helperText, placeholder, options, onValueChange }: SelectProps) {
+export function Select({ label, helperText, placeholder, options, value, onValueChange }: SelectProps) {
   const [isOpen, setIsOpen] = React.useState(false);
+  const [selectedValue, setSelectedValue] = React.useState(value);
+
+  const handleValueChange = (value: string) => {
+    setSelectedValue(value);
+    onValueChange(value);
+  }
 
   return (
     <div className='flex flex-col items-start gap-1'>
       {label ? <label className='text-xs font-semibold text-tertiary-foreground'>{label}</label> : null}
 
-      <RadixSelect.Root onValueChange={(value) => onValueChange(value)} onOpenChange={setIsOpen}>
+      <RadixSelect.Root value={selectedValue} onValueChange={handleValueChange} onOpenChange={setIsOpen}>
         <RadixSelect.Trigger
           aria-label={label}
           className={cn(

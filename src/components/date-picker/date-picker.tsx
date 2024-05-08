@@ -14,12 +14,13 @@ export interface DatePickerProps {
   helperText?: string;
   placeholder?: string;
   locale?: "en" | "pt" | "es";
+  value?: Date;
   onSelect?: (date?: Date) => void;
   disabled?: Matcher | Matcher[];
 }
 
-export function DatePicker({ locale = "en", label, placeholder, helperText, onSelect, ...props }: DatePickerProps) {
-  const [date, setDate] = React.useState<Date>();
+export function DatePicker({ locale = "en", label, placeholder, helperText, value, onSelect, ...props }: DatePickerProps) {
+  const [date, setDate] = React.useState<Date | undefined>(value);
 
   const handleSelect = (date?: Date) => {
     onSelect?.(date);
