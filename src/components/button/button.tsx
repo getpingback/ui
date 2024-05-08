@@ -18,7 +18,7 @@ const buttonVariants = cva(
         default: "h-9 rounded-lg px-3 py-2",
         sm: "h-8 rounded-lg px-3 text-xs",
         lg: "h-10 rounded-lg px-8",
-        icon: "h-9 w-9",
+        icon: "h-9 w-9 rounded-full",
         combobox: "min-h-[36px] rounded-lg px-3 py-2",
       },
     },

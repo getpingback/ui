@@ -47,7 +47,6 @@ function Calendar({ className, classNames, showOutsideDays = true, ...props }: C
         IconLeft: () => <ChevronLeftIcon className='h-4 w-4' />,
         IconRight: () => <ChevronRightIcon className='h-4 w-4' />,
       }}
-      disabled={{ before: new Date() }}
       {...props}
     />
   );

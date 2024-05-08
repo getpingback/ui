@@ -46,7 +46,7 @@ const CommandInput = React.forwardRef<
     <CommandPrimitive.Input
       ref={ref}
       className={cn(
-        "flex h-10 w-full border-[#E4E4E7] border rounded-lg bg-transparent py-2 pr-3 pl-10 text-sm outline-none text-[#71717A] placeholder:opacity-25 disabled:cursor-not-allowed disabled:opacity-50 hover:border-[#A1A1AA] focus:border-[#9061F9] focus:[box-shadow:0px_0px_0px_3px_rgba(144,_97,_249,_0.12)] transition-all duration-200 ease-in-out",
+        "flex h-10 w-full border-divider border rounded-lg bg-transparent py-2 pr-3 pl-10 text-sm outline-none text-tertiary-foreground placeholder:opacity-85 disabled:cursor-not-allowed disabled:opacity-50 hover:border-[#A1A1AA] focus:border-[#9061F9] focus:[box-shadow:0px_0px_0px_3px_rgba(144,_97,_249,_0.12)] transition-all duration-200 ease-in-out",
         className
       )}
       {...props}
@@ -72,7 +72,7 @@ CommandList.displayName = CommandPrimitive.List.displayName;
 const CommandEmpty = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.Empty>,
   React.ComponentPropsWithoutRef<typeof CommandPrimitive.Empty>
->((props, ref) => <CommandPrimitive.Empty ref={ref} className='py-6 text-center text-sm text-[#71717A]' {...props} />);
+>((props, ref) => <CommandPrimitive.Empty ref={ref} className='py-6 text-center text-sm text-tertiary-foreground' {...props} />);
 
 CommandEmpty.displayName = CommandPrimitive.Empty.displayName;
 
