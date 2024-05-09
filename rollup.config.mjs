@@ -17,12 +17,12 @@ const rollupConfig = [
       {
         file: packageJson.main,
         format: 'cjs',
-        sourcemap: 'inline',
+        sourcemap: false,
       },
       {
         file: packageJson.module,
         format: 'esm',
-        sourcemap: 'inline',
+        sourcemap: false,
       },
     ],
     plugins: [
@@ -52,8 +52,8 @@ const rollupConfig = [
         ],
       }),
       typescript({
-        sourceMap: true,
-        inlineSources: true,
+        sourceMap: false,
+        inlineSources: false,
         tsconfig: './tsconfig.json',
       }),
       sourcemaps(),
