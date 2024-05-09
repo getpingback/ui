@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.89](https://github.com/getpingback/ui/compare/v0.0.88...v0.0.89) (2024-05-09)
+
+
+### Bug Fixes
+
+* noemit inside tsconfig ([60b06d4](https://github.com/getpingback/ui/commits/60b06d403f25a50626d98d5eb4221fe376ff295f))
+
 ### [0.0.87](https://github.com/getpingback/ui/compare/v0.0.86...v0.0.87) (2024-05-09)
 
 
