@@ -24,16 +24,16 @@ const tabTriggerVariants = cva(
 );
 
 const tabListVariants = cva(
-  'inline-flex  items-center justify-center rounded-md p-1 text-muted-foreground bg-[#71717A0A]',
+  'inline-flex items-center justify-center rounded-md text-muted-foreground bg-[#71717A0A]',
   {
     variants: {
-      size: {
-        medium: 'h-[32px]',
-        tall: 'h-[40px]',
+      height: {
+        medium: 'h-[32px] ',
+        full: 'h-[40px] p-1',
       },
     },
     defaultVariants: {
-      size: 'medium',
+      height: 'medium',
     },
   }
 );
@@ -52,23 +52,37 @@ function TabsTrigger({ className, type, ...props }: TabsTriggerProps) {
   );
 }
 
+export interface TabWrapperProps {
+  type: string;
+  children: React.ReactNode;
+}
+
+function TabWrapper({ type, children }: TabWrapperProps) {
+  if (React.Children.count(children) !== 1) return;
+
+  const child = React.Children.only(children) as React.ReactElement<any>;
+  return React.cloneElement(child, { type });
+}
+
 export interface TabProps
   extends Omit<React.ComponentProps<typeof TabsPrimitive.List>, 'type'>,
-    VariantProps<typeof tabTriggerVariants> {}
+    VariantProps<typeof tabTriggerVariants> {
+  type: 'purple' | 'clear';
+  height: 'medium' | 'full';
+}
 
-function TabsList({ className, type, size, ...props }: TabProps) {
+function TabsList({ className, type, height, ...props }: TabProps) {
   return (
     <TabsPrimitive.List
-      className={cn(tabListVariants({ size }), className)}
+      className={cn(tabListVariants({ height }), className)}
       data-testid='tabs-list'
       {...props}
     >
-      {React.Children.map(props.children, (child) => {
-        if (React.isValidElement(child)) {
-          return React.cloneElement(child, { type });
-        }
-        return child;
-      })}
+      {React.Children.map(props.children, (child, index) => (
+        <TabWrapper key={index} type={type}>
+          {child}
+        </TabWrapper>
+      ))}
     </TabsPrimitive.List>
   );
 }

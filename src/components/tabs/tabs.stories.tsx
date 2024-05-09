@@ -40,3 +40,26 @@ export const Default: Story = {
     ),
   },
 };
+
+export const ClearFull: Story = {
+  args: {
+    defaultValue: 'all',
+    className: 'w-[440px]',
+    children: (
+      <>
+        <TabsList className='w-full' type='clear' height='full'>
+          <TabsTrigger value='all'>Tudo</TabsTrigger>
+          <TabsTrigger value='today'>Hoje</TabsTrigger>
+          <TabsTrigger value='week'>Semanal</TabsTrigger>
+          <TabsTrigger value='month'>Mensal</TabsTrigger>
+          <TabsTrigger value='year'>Anual</TabsTrigger>
+        </TabsList>
+        <TabsContent value='all'>Tab 1</TabsContent>
+        <TabsContent value='today'>Tab 2</TabsContent>
+        <TabsContent value='week'>Tab 3</TabsContent>
+        <TabsContent value='month'>Tab 4</TabsContent>
+        <TabsContent value='year'>Tab 5</TabsContent>
+      </>
+    ),
+  },
+};
