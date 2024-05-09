@@ -17,10 +17,11 @@
     "emitDeclarationOnly": true,
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "noEmit": true,
   },
   "exclude": [
-    "dist",
+    "dist",  
     "node_modules",
     "src/**/*.test.tsx",
     "src/**/*.stories.tsx"
