@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.91](https://github.com/getpingback/ui/compare/v0.0.89...v0.0.91) (2024-05-09)
+
+
+### Bug Fixes
+
+* remove sourcemap from now ([f545ae2](https://github.com/getpingback/ui/commits/f545ae2aa71306273c44249c39b1aeaa9f639599))
+
 ### [0.0.89](https://github.com/getpingback/ui/compare/v0.0.88...v0.0.89) (2024-05-09)
 
 
