@@ -24,7 +24,7 @@ export const Default: Story = {
     className: 'w-[440px]',
     children: (
       <>
-        <TabsList className='w-full'>
+        <TabsList className='w-full' type='purple'>
           <TabsTrigger value='all'>Tudo</TabsTrigger>
           <TabsTrigger value='today'>Hoje</TabsTrigger>
           <TabsTrigger value='week'>Semanal</TabsTrigger>
