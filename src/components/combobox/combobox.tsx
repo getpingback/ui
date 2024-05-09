@@ -248,26 +248,6 @@ export function Combobox({
               ))}
             </CommandGroup>
           ))}
-
-          {/* <CommandGroup className='max-h-[272px] overflow-y-scroll'>
-            {items.map((item) => (
-              <CommandItem
-                key={item.value}
-                value={item.value}
-                className={cn(variant === "icon-compact" && "py-1")}
-                onSelect={(currentValue: string) => {
-                  onSelect?.(currentValue);
-                  setValue(currentValue === value ? "" : currentValue);
-                  setOpen(false);
-                }}
-              >
-                {React.createElement(getVariant(), {
-                  item,
-                  selected: value === item.value,
-                })}
-              </CommandItem>
-            ))}
-          </CommandGroup> */}
         </Command>
       </PopoverContent>
     </Popover>
