@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.87](https://github.com/getpingback/ui/compare/v0.0.86...v0.0.87) (2024-05-09)
+
+
+### Bug Fixes
+
+* build ([654aab1](https://github.com/getpingback/ui/commits/654aab13d975d86899cbe38dfccb1c2b3b533711))
+
 ### [0.0.85](https://github.com/getpingback/ui/compare/v0.0.84...v0.0.85) (2024-05-08)
 
 
