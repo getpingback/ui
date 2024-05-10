@@ -233,7 +233,7 @@ export const WithLabelAndHelperText: Story = {
 
 export const GroupHeading: Story = {
   args: {
-    label: 'Lista',
+    label: "Lista",
     variant: "detailed",
     placeholder: "Selecione a lista",
     searchPlaceholder: "Pesquise por uma lista...",
@@ -245,21 +245,33 @@ export const GroupHeading: Story = {
           {
             label: "Engajados",
             description: "117 membros",
+            leadingElement: (
+              <div className='flex items-center justify-center rounded-full mr-4 h-7 w-7 bg-[#FBD5D5]'>😍</div>
+            ),
             value: "engajados",
           },
           {
             label: "Envolvidos",
             description: "45 membros",
+            leadingElement: (
+              <div className='flex items-center justify-center rounded-full mr-4 h-7 w-7 bg-[#FCD9BD]'>😁</div>
+            ),
             value: "envolvidos",
           },
           {
             label: "Passivos",
             description: "67 membros",
+            leadingElement: (
+              <div className='flex items-center justify-center rounded-full mr-4 h-7 w-7 bg-[#FDF6B2]'>🙂</div>
+            ),
             value: "passivos",
           },
           {
             label: "Desinteressados",
             description: "566 membros",
+            leadingElement: (
+              <div className='flex items-center justify-center rounded-full mr-4 h-7 w-7 bg-[#BCF0DA]'>🥱</div>
+            ),
             value: "desinteressados",
           },
         ],
