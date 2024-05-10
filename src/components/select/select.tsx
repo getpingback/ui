@@ -26,7 +26,7 @@ export function Select({ label, helperText, placeholder, options, value, onValue
   const handleValueChange = (value: string) => {
     setSelectedValue(value);
     onValueChange(value);
-  }
+  };
 
   return (
     <div className='flex flex-col items-start gap-1'>
@@ -46,37 +46,41 @@ export function Select({ label, helperText, placeholder, options, value, onValue
           data-testid='select-trigger'
         >
           <RadixSelect.Value placeholder={placeholder} />
-          <RadixSelect.Icon>{isOpen ? <CaretUpIcon /> : <CaretDownIcon />}</RadixSelect.Icon>
+          <RadixSelect.Icon>
+            {isOpen ? (
+              <CaretUpIcon className='h-4 w-4 shrink-0 opacity-50' />
+            ) : (
+              <CaretDownIcon className='h-4 w-4 shrink-0 opacity-50' />
+            )}
+          </RadixSelect.Icon>
         </RadixSelect.Trigger>
 
-        <RadixSelect.Portal>
-          <RadixSelect.Content className='bg-background-accent border-divider rounded-lg shadow-modal overflow-hidden'>
-            <RadixSelect.Viewport>
-              {options.map((option) => (
-                <RadixSelect.Item
-                  key={option.value}
-                  value={option.value}
-                  className='relative flex items-center justify-between p-3 min-h-[48px] hover:outline-none data-[highlighted]:outline-none data-[highlighted]:text-primary-foreground data-[highlighted]:bg-list-hover'
-                >
-                  <div className='flex flex-col'>
-                    <RadixSelect.ItemText>
-                      <span className='text-secondary-foreground text-sm font-medium'>{option.label}</span>
-                    </RadixSelect.ItemText>
+        <RadixSelect.Content className='z-[9999999999] bg-background-accent border-divider rounded-lg shadow-modal overflow-hidden'>
+          <RadixSelect.Viewport>
+            {options.map((option) => (
+              <RadixSelect.Item
+                key={option.value}
+                value={option.value}
+                className='relative flex items-center justify-between p-3 min-h-[48px] hover:outline-none data-[highlighted]:outline-none data-[highlighted]:text-primary-foreground data-[highlighted]:bg-list-hover'
+              >
+                <div className='flex flex-col'>
+                  <RadixSelect.ItemText>
+                    <span className='text-secondary-foreground text-sm font-medium'>{option.label}</span>
+                  </RadixSelect.ItemText>
 
-                    {option.description ? (
-                      <span className='text-tertiary-foreground text-xs font-normal mt-1'>{option.description}</span>
-                    ) : null}
-                  </div>
+                  {option.description ? (
+                    <span className='text-tertiary-foreground text-xs font-normal mt-1'>{option.description}</span>
+                  ) : null}
+                </div>
 
-                  <RadixSelect.ItemIndicator>
-                    <CheckIcon />
-                  </RadixSelect.ItemIndicator>
-                </RadixSelect.Item>
-              ))}
-            </RadixSelect.Viewport>
-            <RadixSelect.Arrow />
-          </RadixSelect.Content>
-        </RadixSelect.Portal>
+                <RadixSelect.ItemIndicator>
+                  <CheckIcon />
+                </RadixSelect.ItemIndicator>
+              </RadixSelect.Item>
+            ))}
+          </RadixSelect.Viewport>
+          <RadixSelect.Arrow />
+        </RadixSelect.Content>
       </RadixSelect.Root>
 
       {helperText ? <span className='text-xs font-normal text-tertiary-foreground mt-1'>{helperText}</span> : null}
