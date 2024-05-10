@@ -12,6 +12,7 @@ interface Item {
   value: string;
   label: string;
   icon?: React.ReactNode;
+  leadingElement?: React.ReactNode;
   imageUrl?: string;
   description?: string;
 }
@@ -82,9 +83,13 @@ export function Combobox({
     isButtonLabel?: boolean;
   }) => (
     <div className={cn("flex items-center w-full", selected && "justify-between")}>
-      <div className='flex flex-col items-start'>
-        <div className={`text-sm font-medium${isButtonLabel ? " max-w-[160px] truncate" : ""}`}>{item.label}</div>
-        {!isButtonLabel ? <div className='text-xs text-gray-500'>{item.description}</div> : null}
+      <div className='flex items-center'>
+        {item.leadingElement && !isButtonLabel ? <>{item.leadingElement}</> : null}
+
+        <div className='flex flex-col items-start'>
+          <div className={`text-sm font-medium${isButtonLabel ? " max-w-[160px] truncate" : ""}`}>{item.label}</div>
+          {!isButtonLabel ? <div className='text-xs text-gray-500'>{item.description}</div> : null}
+        </div>
       </div>
 
       {selected && <CheckIcon />}
@@ -196,7 +201,7 @@ export function Combobox({
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
-      <div className='flex flex-col items-start gap-1 max-w-[280px] w-full'>
+      <div className='flex flex-col items-start gap-1 max-w-[352px] w-full'>
         {label ? <label className='text-xs font-semibold text-tertiary-foreground'>{label}</label> : null}
 
         <PopoverTrigger asChild>
@@ -205,7 +210,7 @@ export function Combobox({
             size='combobox'
             role='combobox'
             aria-expanded={open}
-            className='max-w-[280px] w-full justify-between'
+            className='max-w-[352px] w-full justify-between'
           >
             {renderButtonContent()}
             <CaretDownIcon className='ml-2 h-4 w-4 shrink-0 opacity-50' />
@@ -215,7 +220,7 @@ export function Combobox({
         {helperText ? <span className='text-xs font-normal text-tertiary-foreground mt-1'>{helperText}</span> : null}
       </div>
 
-      <PopoverContent className='max-w-[280px] w-full p-0 bg-background-accent' data-testid='comboxbox-popover-content'>
+      <PopoverContent className='p-0 bg-background-accent' data-testid='comboxbox-popover-content'>
         <Command shouldFilter={shouldFilter}>
           <div className='w-full p-4 flex items-center justify-center border-b border-divider'>
             <CommandInput
@@ -228,26 +233,32 @@ export function Combobox({
 
           <CommandEmpty>{emptySearchPlaceholder}</CommandEmpty>
 
-          {options.map((option, index) => (
-            <CommandGroup key={index} className='py-2' heading={option.heading}>
-              {option.items.map((item) => (
-                <CommandItem
-                  key={item.value}
-                  value={item.value}
-                  onSelect={(currentValue: string) => {
-                    onSelect?.(currentValue);
-                    setValue(currentValue === value ? "" : currentValue);
-                    setOpen(false);
-                  }}
-                >
-                  {React.createElement(getVariant(), {
-                    item,
-                    selected: value === item.value,
-                  })}
-                </CommandItem>
-              ))}
-            </CommandGroup>
-          ))}
+          <div className='max-h-[272px] overflow-y-auto'>
+            {options.map((option, index) => (
+              <>
+                <CommandGroup key={index} className='py-2' heading={option.heading}>
+                  {option.items.map((item) => (
+                    <CommandItem
+                      key={item.value}
+                      value={item.value}
+                      onSelect={(currentValue: string) => {
+                        onSelect?.(currentValue);
+                        setValue(currentValue === value ? "" : currentValue);
+                        setOpen(false);
+                      }}
+                    >
+                      {React.createElement(getVariant(), {
+                        item,
+                        selected: value === item.value,
+                      })}
+                    </CommandItem>
+                  ))}
+                </CommandGroup>
+
+                {index < options.length - 1 && <div className='border-b border-divider' />}
+              </>
+            ))}
+          </div>
         </Command>
       </PopoverContent>
     </Popover>
