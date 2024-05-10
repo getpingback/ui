@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.102](https://github.com/getpingback/ui/compare/v0.0.101...v0.0.102) (2024-05-10)
+
+
+### Bug Fixes
+
+* **combobox:** add leadingEl ([3faf2cb](https://github.com/getpingback/ui/commits/3faf2cbafc1e731590add426c65973172adbd706))
+* merge ([c35164f](https://github.com/getpingback/ui/commits/c35164f515cbf3e26ec66aea2a1dcef1a5e0be68))
+
 ### [0.0.100](https://github.com/getpingback/ui/compare/v0.0.99...v0.0.100) (2024-05-09)
 
 
