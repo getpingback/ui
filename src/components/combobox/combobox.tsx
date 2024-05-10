@@ -67,8 +67,8 @@ export function Combobox({
     selected: boolean;
     isButtonLabel?: boolean;
   }) => (
-    <div className={cn("flex items-center w-full", selected && "justify-between")}>
-      <span className={`${isButtonLabel ? "max-w-[200px] truncate" : ""}`}>{item.label}</span>
+    <div className={cn("flex items-center w-full h-full", selected && "justify-between")}>
+      <span className={`${isButtonLabel ? "max-w-[200px] truncate h-full flex items-center" : ""}`}>{item.label}</span>
       {selected && <CheckIcon />}
     </div>
   );
@@ -108,12 +108,12 @@ export function Combobox({
   }) => (
     <div
       className={cn(
-        "w-full flex items-center",
+        "w-full h-full flex items-center",
         selected && "justify-between",
         border && "border-[1px] border-border-card p-2 rounded-lg"
       )}
     >
-      <div className='flex items-center gap-2'>
+      <div className='flex items-center gap-2 h-full'>
         <div className='flex items-center justify-center w-6 h-6 rounded-md'>{item.icon || null}</div>
         <div className='text-sm font-medium'>{item.label}</div>
       </div>
@@ -131,15 +131,17 @@ export function Combobox({
     selected: boolean;
     isButtonLabel?: boolean;
   }) => (
-    <div className={cn("flex items-center w-full", selected && "justify-between")}>
-      <div className='flex items-center gap-4'>
+    <div className={cn("flex items-center w-full h-full", selected && "justify-between")}>
+      <div className='flex items-center gap-4 h-full'>
         {item.imageUrl ? (
           <img src={item.imageUrl} alt={item.label} className='w-[64px] h-[48px] rounded-md object-cover' />
         ) : (
           <div className='w-[64px] h-[48px] rounded-md bg-gray-200' />
         )}
         <div>
-          <div className={`text-sm${isButtonLabel ? " max-w-[160px] truncate" : ""}`}>{item.label}</div>
+          <div className={`text-sm${isButtonLabel ? " max-w-[160px] truncate h-full flex items-center" : ""}`}>
+            {item.label}
+          </div>
           <div className='text-xs text-gray-500'>{item.description}</div>
         </div>
       </div>

@@ -2,12 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [0.0.100](https://github.com/getpingback/ui/compare/v0.0.99...v0.0.100) (2024-05-10)
+### [0.0.100](https://github.com/getpingback/ui/compare/v0.0.99...v0.0.100) (2024-05-09)
 
 
 ### Bug Fixes
 
-* **combobox:** add leadingEl ([3faf2cb](https://github.com/getpingback/ui/commits/3faf2cbafc1e731590add426c65973172adbd706))
+* height tab ([ee446ab](https://github.com/getpingback/ui/commits/ee446ab31831f1a8d548e038bf9e733e8627bb86))
+* types tabs ([eb8aed5](https://github.com/getpingback/ui/commits/eb8aed50b36fb6dd1c7330818e36f8ed978a93c1))
 
 ### [0.0.98](https://github.com/getpingback/ui/compare/v0.0.97...v0.0.98) (2024-05-09)
 
