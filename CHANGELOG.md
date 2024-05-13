@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.106](https://github.com/getpingback/ui/compare/v0.0.105...v0.0.106) (2024-05-13)
+
+
+### Bug Fixes
+
+* **pickers:** change styles ([fc9cda0](https://github.com/getpingback/ui/commits/fc9cda0b2f5ea7aca465f8ef16b68b7b16096c67))
+
 ### [0.0.104](https://github.com/getpingback/ui/compare/v0.0.103...v0.0.104) (2024-05-10)
 
 
