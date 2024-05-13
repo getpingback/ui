@@ -52,7 +52,7 @@ export function TimePicker({ label, placeholder, helperText, value, onChange, ..
         </label>
       ) : null}
 
-      <div className='relative w-full max-w-[280px]'>
+      <div className='relative w-full'>
         <input
           id='time-picker'
           ref={inputRef}
@@ -60,12 +60,12 @@ export function TimePicker({ label, placeholder, helperText, value, onChange, ..
           onChange={handleChange}
           placeholder={placeholder}
           maxLength={5}
-          className='flex h-10 w-full max-w-[280px] border-divider border rounded-lg bg-transparent py-2 pr-10 pl-3 text-sm outline-none text-tertiary-foreground placeholder:opacity-85 disabled:cursor-not-allowed disabled:opacity-50 hover:border-[#A1A1AA] focus:border-[#9061F9] focus:[box-shadow:0px_0px_0px_3px_rgba(144,_97,_249,_0.12)] transition-all duration-200 ease-in-out'
+          className='flex h-10 w-full border-divider border rounded-lg bg-transparent py-2 pr-10 pl-3 text-sm outline-none text-tertiary-foreground placeholder:opacity-85 disabled:cursor-not-allowed disabled:opacity-50 hover:border-[#A1A1AA] focus:border-[#9061F9] focus:[box-shadow:0px_0px_0px_3px_rgba(144,_97,_249,_0.12)] transition-all duration-200 ease-in-out'
           data-testid='time-picker'
           {...props}
         />
 
-        <ClockIcon className='h-5 w-5 absolute top-[10px] right-[10px]' color='#52525B' />
+        <ClockIcon className='h-5 w-5 absolute top-[10px] right-[12px]' color='#52525B' />
       </div>
 
       {helperText ? <span className='text-xs font-normal text-tertiary-foreground mt-1'>{helperText}</span> : null}

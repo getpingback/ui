@@ -51,7 +51,7 @@ export function DatePicker({ locale = "en", label, placeholder, helperText, valu
           <Button
             variant="outline"
             className={cn(
-              "w-full max-w-[280px] justify-between text-left font-normal",
+              "h-10 w-full justify-between text-left font-normal",
               !date && "text-muted-foreground"
             )}
             data-testid="date-picker-button-popover-trigger"
@@ -59,7 +59,7 @@ export function DatePicker({ locale = "en", label, placeholder, helperText, valu
             {date ? (
               format(date, "PPP", { locale: getLocale() })
             ) : (
-              <span className='text-tertiary-foreground text-sm'>{placeholder || "Pick a date"}</span>
+              <span className='text-tertiary-foreground text-sm opacity-60'>{placeholder}</span>
             )}
             <CalendarIcon height={20} width={20} color='#52525B' />
           </Button>
