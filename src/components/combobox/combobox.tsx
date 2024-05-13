@@ -33,7 +33,7 @@ interface ComboboxProps {
   variant?: "default" | "detailed" | "icon-compact" | "image-detailed";
   defaultValue?: string;
   searchValue?: string;
-  onSelect?: (value: string) => void;
+  onSelect?: (item: Item) => void;
   onChangeSearchValue?: (value: string) => void;
 }
 
@@ -244,7 +244,7 @@ export function Combobox({
                       key={item.value}
                       value={item.value}
                       onSelect={(currentValue: string) => {
-                        onSelect?.(currentValue);
+                        onSelect?.(item);
                         setValue(currentValue === value ? "" : currentValue);
                         setOpen(false);
                       }}

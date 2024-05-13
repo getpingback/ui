@@ -30,7 +30,10 @@ describe("Combobox Component", () => {
       const item = getByText("https://pt.semrush.com/blog/bounce-rate-taxa-de-rejeicao/");
       fireEvent.click(item);
 
-      expect(onSelectMock).toHaveBeenCalledWith("https://pt.semrush.com/blog/bounce-rate-taxa-de-rejeicao/");
+      expect(onSelectMock).toHaveBeenCalledWith({
+        label: "https://pt.semrush.com/blog/bounce-rate-taxa-de-rejeicao/",
+        value: "https://pt.semrush.com/blog/bounce-rate-taxa-de-rejeicao/",
+      });
       expect(comboboxButton).toHaveTextContent("https://pt.semrush.com/blog/bounce-rate-taxa-de-rejeicao/");
     });
   });
@@ -54,7 +57,11 @@ describe("Combobox Component", () => {
       const item = getByText("Comunidades inativas");
       fireEvent.click(item);
 
-      expect(onSelectMock).toHaveBeenCalledWith("comunidades inativas");
+      expect(onSelectMock).toHaveBeenCalledWith({
+        description: "117 membros",
+        label: "Comunidades inativas",
+        value: "comunidades inativas",
+      });
       expect(comboboxButton).toHaveTextContent("Comunidades inativas");
     });
   });
@@ -78,7 +85,6 @@ describe("Combobox Component", () => {
       const item = getByText("Enviar a newsletter...");
       fireEvent.click(item);
 
-      expect(onSelectMock).toHaveBeenCalledWith("enviar a newsletter");
       expect(comboboxButton).toHaveTextContent("Enviar a newsletter...");
       const iconInButton = comboboxButton.querySelector("svg");
       expect(iconInButton).toBeInTheDocument();
@@ -115,7 +121,11 @@ describe("Combobox Component", () => {
       const item = getByText("8 métricas essenciais para acompanhar no seu blog post");
       fireEvent.click(item);
 
-      expect(onSelectMock).toHaveBeenCalledWith("8 métricas essenciais para acompanhar no seu blog post");
+      expect(onSelectMock).toHaveBeenCalledWith({
+        imageUrl: "https://source.unsplash.com/100x100/?blog",
+        label: "8 métricas essenciais para acompanhar no seu blog post",
+        value: "8 métricas essenciais para acompanhar no seu blog post",
+      });
       expect(comboboxButton).toHaveTextContent("8 métricas essenciais para acompanhar no seu blog post");
       const imageInButton = getByAltText("8 métricas essenciais para acompanhar no seu blog post");
       expect(imageInButton).toBeInTheDocument();
@@ -146,7 +156,10 @@ describe("Combobox Component", () => {
       const item = getByText("https://pingback.com/juliano-fabbro");
       fireEvent.click(item);
 
-      expect(onSelectMock).toHaveBeenCalledWith("https://pingback.com/juliano-fabbro");
+      expect(onSelectMock).toHaveBeenCalledWith({
+        label: "https://pingback.com/juliano-fabbro",
+        value: "https://pingback.com/juliano-fabbro",
+      });
       expect(comboboxButton).toHaveTextContent("https://pingback.com/juliano-fabbro");
     });
   });

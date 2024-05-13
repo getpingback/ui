@@ -22,6 +22,7 @@ export const Default: Story = {
     placeholder: "Selecione o link",
     searchPlaceholder: "Pesquise pelo link...",
     emptySearchPlaceholder: "Nenhum resultado encontrado.",
+    onSelect: item => console.log("onSelect =>", item),
     options: [
       {
         items: [
@@ -53,6 +54,7 @@ export const Detailed: Story = {
     placeholder: "Selecione a lista",
     searchPlaceholder: "Pesquise por uma lista...",
     emptySearchPlaceholder: "Nenhum resultado encontrado.",
+    onSelect: item => console.log("onSelect =>", item),
     options: [
       {
         items: [
@@ -88,6 +90,7 @@ export const ImageDetailed: Story = {
     placeholder: "Escolha um conteúdo",
     searchPlaceholder: "Pesquise conteúdo...",
     emptySearchPlaceholder: "Nenhum resultado encontrado.",
+    onSelect: item => console.log("onSelect =>", item),
     options: [
       {
         items: [
@@ -122,6 +125,7 @@ export const IconCompact: Story = {
     placeholder: "Selecione uma ação",
     searchPlaceholder: "Pesquise por uma ação...",
     emptySearchPlaceholder: "Nenhum resultado encontrado.",
+    onSelect: item => console.log("onSelect =>", item),
     options: [
       {
         items: [
@@ -174,6 +178,7 @@ export const ShouldFilterFalse: Story = {
     placeholder: "Selecione o link",
     searchPlaceholder: "Pesquise pelo link...",
     emptySearchPlaceholder: "Nenhum resultado encontrado.",
+    onSelect: item => console.log("onSelect =>", item),
     options: [
       {
         items: [
@@ -206,6 +211,7 @@ export const WithLabelAndHelperText: Story = {
     placeholder: "Selecione o link",
     searchPlaceholder: "Pesquise pelo link...",
     emptySearchPlaceholder: "Nenhum resultado encontrado.",
+    onSelect: item => console.log("onSelect =>", item),
     options: [
       {
         items: [
@@ -238,6 +244,7 @@ export const GroupHeading: Story = {
     placeholder: "Selecione a lista",
     searchPlaceholder: "Pesquise por uma lista...",
     emptySearchPlaceholder: "Nenhum resultado encontrado.",
+    onSelect: item => console.log("onSelect =>", item),
     options: [
       {
         heading: "Listas inteligentes",
