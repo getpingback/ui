@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.108](https://github.com/getpingback/ui/compare/v0.0.107...v0.0.108) (2024-05-13)
+
+
+### Bug Fixes
+
+* **combobox:** change onSelect callback ([5c16079](https://github.com/getpingback/ui/commits/5c160798bfc88dba025147fb1454c4ff5031c077))
+
 ### [0.0.106](https://github.com/getpingback/ui/compare/v0.0.105...v0.0.106) (2024-05-13)
 
 
