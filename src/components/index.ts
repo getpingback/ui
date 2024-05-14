@@ -14,3 +14,4 @@ export * from "./date-picker";
 export * from "./time-picker";
 export * from "./counter-input";
 export * from "./select";
+export * from "./multi-select";

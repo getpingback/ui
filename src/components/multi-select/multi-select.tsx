@@ -7,12 +7,12 @@ import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from "
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/popover";
 import { Badge } from "@/components/badge";
 
-export type OptionType = {
+type OptionType = {
   label: string;
   value: string;
 };
 
-interface MultiSelectProps {
+export interface MultiSelectProps {
   label?: string;
   helperText?: string;
   options: OptionType[];
