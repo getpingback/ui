@@ -4,8 +4,7 @@ import { composeStories } from "@storybook/testing-react";
 
 import * as stories from "./badge.stories";
 
-const { Default, Counter, Full, Ghost, Medium, New, Outline, Soon, Suspended } =
-  composeStories(stories);
+const { Default, Full, Ghost, Medium, Outline } = composeStories(stories);
 
 describe("Badge Component", () => {
   describe("appearence variant", () => {
@@ -47,32 +46,32 @@ describe("Badge Component", () => {
   });
 
   describe("type variant", () => {
-    test("renders counter type badge", () => {
-      const { getByTestId } = render(<Counter data-testid='counter' />);
+    test("renders gray type badge", () => {
+      const { getByTestId } = render(<Default type='gray' data-testid='gray' />);
 
-      const counter = getByTestId("counter");
-      expect(counter.className.includes("bg-badge-counter")).toBe(true);
+      const gray = getByTestId("gray");
+      expect(gray.className.includes("bg-badge-gray")).toBe(true);
     });
 
-    test("renders new type badge", () => {
-      const { getByTestId } = render(<New data-testid='newEl' />);
+    test("renders green type badge", () => {
+      const { getByTestId } = render(<Default type="green" data-testid='greenEl' />);
 
-      const newEl = getByTestId("newEl");
-      expect(newEl.className.includes("bg-badge-new")).toBe(true);
+      const greenEl = getByTestId("greenEl");
+      expect(greenEl.className.includes("bg-badge-green")).toBe(true);
     });
 
-    test("renders soon type badge", () => {
-      const { getByTestId } = render(<Soon data-testid='soon' />);
+    test("renders teal type badge", () => {
+      const { getByTestId } = render(<Default type="teal" data-testid='teal' />);
 
-      const soon = getByTestId("soon");
-      expect(soon.className.includes("bg-badge-soon")).toBe(true);
+      const teal = getByTestId("teal");
+      expect(teal.className.includes("bg-badge-teal")).toBe(true);
     });
 
-    test("renders suspended type badge", () => {
-      const { getByTestId } = render(<Suspended data-testid='suspended' />);
+    test("renders red type badge", () => {
+      const { getByTestId } = render(<Default type="red" data-testid='red' />);
 
-      const suspended = getByTestId("suspended");
-      expect(suspended.className.includes("bg-badge-suspended")).toBe(true);
+      const red = getByTestId("red");
+      expect(red.className.includes("bg-badge-red")).toBe(true);
     });
   });
 });

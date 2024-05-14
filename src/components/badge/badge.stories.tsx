@@ -35,31 +35,6 @@ export const Outline: Story = {
   },
 };
 
-export const Counter: Story = {
-  args: {
-    children: "Counter",
-    type: "counter",
-  },
-};
-export const New: Story = {
-  args: {
-    children: "New",
-    type: "new",
-  },
-};
-export const Soon: Story = {
-  args: {
-    children: "Soon",
-    type: "soon",
-  },
-};
-export const Suspended: Story = {
-  args: {
-    children: "Suspended",
-    type: "suspended",
-  },
-};
-
 export const Medium: Story = {
   args: {
     children: "Medium",

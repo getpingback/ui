@@ -4,20 +4,18 @@
 
 @layer base {
   :root {
-    --badge-counter-text: #71717a;
-    --badge-counter-bg: #a1a1aa1f;
-    --badge-new-text: #057a55;
-    --badge-new-bg: #0e9f6e1f;
-    --badge-soon-text: #047481;
-    --badge-soon-bg: #16bdca1f;
-    --badge-suspended-text: #e02424;
-    --badge-suspended-bg: #f980801f;
-    --badge-disabled-bg: #faca151f;
-    --badge-disabled-text: #c27803;
-    --badge-upgrade-text: #fafafa;
-    --badge-upgrade-bg: #0e9f6e;
-    --badge-done-bg:  #9061F914;
-    --badge-done-text: #9061F9;
+    --badge-gray-text: #71717a;
+    --badge-gray-bg: #a1a1aa1f;
+    --badge-teal-text: #047481;
+    --badge-teal-bg: #16bdca1f;
+    --badge-red-text: #e02424;
+    --badge-red-bg: #f980801f;
+    --badge-yellow-bg: #faca151f;
+    --badge-yellow-text: #c27803;
+    --badge-green-text: #057a55;
+    --badge-green-bg: #0e9f6e1f;
+    --badge-purple-bg: #9061f914;
+    --badge-purple-text: #9061f9;
 
     --button-solid-bg: #9061f9;
     --button-solid-text: #fafafa;
@@ -61,18 +59,18 @@
   }
 
   .classic-purple-dark {
-    --badge-counter-text: #e4e4e7;
-    --badge-counter-bg: #f4f4f51f;
-    --badge-new-text: #31c48d;
-    --badge-new-bg: #84e1bc1f;
-    --badge-soon-text: #16bdca;
-    --badge-soon-bg: #7edce21f;
-    --badge-suspended-text: #f05252;
-    --badge-suspended-bg: #f980801f;
-    --badge-upgrade-text: #fafafa;
-    --badge-upgrade-bg: #0e9f6e;
-    --badge-done-bg: #9061F914;
-    --badge-done-text: #9061F9;
+    --badge-gray-text: #e4e4e7;
+    --badge-gray-bg: #f4f4f51f;
+    --badge-teal-text: #16bdca;
+    --badge-teal-bg: #7edce21f;
+    --badge-red-text: #f05252;
+    --badge-red-bg: #f980801f;
+    --badge-yellow-bg: #faca151f;
+    --badge-yellow-text: #c27803;
+    --badge-green-text: #31c48d;
+    --badge-green-bg: #84e1bc1f;
+    --badge-purple-bg: #9061f914;
+    --badge-purple-text: #9061f9;
 
     --button-solid-bg: #9061f9;
     --button-solid-text: #fafafa;

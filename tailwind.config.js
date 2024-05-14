@@ -213,25 +213,29 @@ const config = {
           DEFAULT: "var(--border-divider-color)",
         },
         badge: {
-          counter: {
-            DEFAULT: "var(--badge-counter-bg)",
-            foreground: "var(--badge-counter-text)",
+          gray: {
+            DEFAULT: "var(--badge-gray-bg)",
+            foreground: "var(--badge-gray-text)",
           },
-          new: {
-            DEFAULT: "var(--badge-new-bg)",
-            foreground: "var(--badge-new-text)",
+          green: {
+            DEFAULT: "var(--badge-green-bg)",
+            foreground: "var(--badge-green-text)",
           },
-          soon: {
-            DEFAULT: "var(--badge-soon-bg)",
-            foreground: "var(--badge-soon-text)",
+          teal: {
+            DEFAULT: "var(--badge-teal-bg)",
+            foreground: "var(--badge-teal-text)",
           },
-          suspended: {
-            DEFAULT: "var(--badge-suspended-bg)",
-            foreground: "var(--badge-suspended-text)",
+          red: {
+            DEFAULT: "var(--badge-red-bg)",
+            foreground: "var(--badge-red-text)",
           },
-          pending: {
-            DEFAULT: "var(--badge-disabled-bg)",
-            foreground: "var(--badge-disabled-text)",
+          yellow: {
+            DEFAULT: "var(--badge-yellow-bg)",
+            foreground: "var(--badge-yellow-text)",
+          },
+          purple: {
+            DEFAULT: "var(--badge-purple-bg)",
+            foreground: "var(--badge-purple-text)",
           },
         },
         button: {
@@ -244,8 +248,8 @@ const config = {
             foreground: "var(--button-ghost-text)",
           },
           done: {
-            DEFAULT: 'var(--badge-done-bg)',
-            foreground: 'var(--badge-done-text)',
+            DEFAULT: "var(--badge-done-bg)",
+            foreground: "var(--badge-done-text)",
           },
         },
         background: {
