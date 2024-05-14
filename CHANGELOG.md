@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.110](https://github.com/getpingback/ui/compare/v0.0.109...v0.0.110) (2024-05-14)
+
+
+### Features
+
+* **multi-select:** create multiselect component ([1e959c5](https://github.com/getpingback/ui/commits/1e959c5d18514d060d1060dcb41c1d55b4a60aa9))
+
+
+### Bug Fixes
+
+* **badge:** change type names ([04b0c7f](https://github.com/getpingback/ui/commits/04b0c7ffb0d5147f63034f67f049356d468bf9d3))
+
 ### [0.0.108](https://github.com/getpingback/ui/compare/v0.0.107...v0.0.108) (2024-05-13)
 
 
