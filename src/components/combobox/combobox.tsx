@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { CheckIcon, CaretDownIcon } from "@stash-ui/regular-icons";
+import { CheckIcon, CaretDownIcon, CaretUpIcon } from "@stash-ui/regular-icons";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/button";
@@ -92,7 +92,7 @@ export function Combobox({
         </div>
       </div>
 
-      {selected && <CheckIcon />}
+      {selected && <CheckIcon height={20} width={20} />}
     </div>
   );
 
@@ -118,7 +118,7 @@ export function Combobox({
         <div className='text-sm font-medium'>{item.label}</div>
       </div>
 
-      {selected && <CheckIcon />}
+      {selected && <CheckIcon height={20} width={20} />}
     </div>
   );
 
@@ -146,7 +146,7 @@ export function Combobox({
         </div>
       </div>
 
-      {selected && <CheckIcon />}
+      {selected && <CheckIcon height={20} width={20} />}
     </div>
   );
 
@@ -215,7 +215,12 @@ export function Combobox({
             className='max-w-[352px] w-full justify-between'
           >
             {renderButtonContent()}
-            <CaretDownIcon className='ml-2 h-4 w-4 shrink-0 opacity-50' />
+
+            {open ? (
+              <CaretUpIcon className='ml-2 h-4 w-4 shrink-0 opacity-50' />
+            ) : (
+              <CaretDownIcon className='ml-2 h-4 w-4 shrink-0 opacity-50' />
+            )}
           </Button>
         </PopoverTrigger>
 
