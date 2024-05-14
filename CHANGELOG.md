@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.112](https://github.com/getpingback/ui/compare/v0.0.111...v0.0.112) (2024-05-14)
+
+
+### Features
+
+* **multi-select:** export ([a8c8809](https://github.com/getpingback/ui/commits/a8c880951da8393e0117987a26c1c52eb71b21ec))
+
 ### [0.0.110](https://github.com/getpingback/ui/compare/v0.0.109...v0.0.110) (2024-05-14)
 
 
