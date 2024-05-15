@@ -30,7 +30,7 @@ export function Select({ label, helperText, placeholder, options, value, onValue
   };
 
   return (
-    <div className='flex flex-col items-start gap-1'>
+    <div className='flex flex-col items-start gap-1 w-full'>
       {label ? <label className='text-xs font-semibold text-tertiary-foreground'>{label}</label> : null}
 
       <RadixSelect.Root value={selectedValue} onValueChange={handleValueChange} onOpenChange={setIsOpen}>
