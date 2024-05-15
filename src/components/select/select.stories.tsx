@@ -24,7 +24,7 @@ export const Default: Story = {
       { value: "1", label: "Intervalo" },
       { value: "2", label: "Data" },
     ],
-    onValueChange: (value: string) => console.log(value),
+    onValueChange: (option) => console.log(option),
   },
 };
 
@@ -36,7 +36,7 @@ export const Description: Story = {
       { value: "1", label: "Intervalo", description: "Ex: Espera de 1 dia e 3h para enviar o próximo email." },
       { value: "2", label: "Data", description: "Ex: Espera até dia 15/10/2024 para enviar o email." },
     ],
-    onValueChange: (value: string) => console.log(value),
+    onValueChange: (option) => console.log(option),
   },
 };
 
@@ -49,6 +49,6 @@ export const WithHelperText: Story = {
       { value: "1", label: "Intervalo" },
       { value: "2", label: "Data" },
     ],
-    onValueChange: (value: string) => console.log(value),
+    onValueChange: (option) => console.log(option),
   },
 };

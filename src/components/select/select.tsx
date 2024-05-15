@@ -16,7 +16,7 @@ export interface SelectProps {
   placeholder?: string;
   options: Option[];
   value?: string;
-  onValueChange: (value: string) => void;
+  onValueChange: (option?: Option) => void;
 }
 
 export function Select({ label, helperText, placeholder, options, value, onValueChange }: SelectProps) {
@@ -25,7 +25,8 @@ export function Select({ label, helperText, placeholder, options, value, onValue
 
   const handleValueChange = (value: string) => {
     setSelectedValue(value);
-    onValueChange(value);
+    const selectedOption = options.find((option) => option.value === value);
+    onValueChange(selectedOption);
   };
 
   return (
