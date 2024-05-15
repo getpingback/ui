@@ -212,7 +212,7 @@ export function Combobox({
             size='combobox'
             role='combobox'
             aria-expanded={open}
-            className='max-w-[352px] w-full justify-between'
+            className='max-w-[352px] w-full justify-between bg-background-accent'
           >
             {renderButtonContent()}
 
