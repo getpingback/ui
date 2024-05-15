@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.116](https://github.com/getpingback/ui/compare/v0.0.115...v0.0.116) (2024-05-15)
+
+
+### Bug Fixes
+
+* **select:** add w-full ([57b4b64](https://github.com/getpingback/ui/commits/57b4b6410114da8255699c51fa6c80a47f68be23))
+
 ### [0.0.114](https://github.com/getpingback/ui/compare/v0.0.113...v0.0.114) (2024-05-15)
 
 
