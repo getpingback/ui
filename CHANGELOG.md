@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.114](https://github.com/getpingback/ui/compare/v0.0.113...v0.0.114) (2024-05-15)
+
+
+### Bug Fixes
+
+* **select:** return entire option on value change ([89fe6b6](https://github.com/getpingback/ui/commits/89fe6b65a4a713bc6d0577f523be207c741a0906))
+
 ### [0.0.112](https://github.com/getpingback/ui/compare/v0.0.111...v0.0.112) (2024-05-14)
 
 
