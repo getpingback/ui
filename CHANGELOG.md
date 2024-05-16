@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.120](https://github.com/getpingback/ui/compare/v0.0.119...v0.0.120) (2024-05-16)
+
+
+### Bug Fixes
+
+* **combobox:** add button bg hover ([90855b6](https://github.com/getpingback/ui/commits/90855b6daebe3b9fa54b6db79928407c3671482b))
+
 ### [0.0.118](https://github.com/getpingback/ui/compare/v0.0.117...v0.0.118) (2024-05-16)
 
 
