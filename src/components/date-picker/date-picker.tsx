@@ -51,7 +51,7 @@ export function DatePicker({ locale = "en", label, placeholder, helperText, valu
           <Button
             variant="outline"
             className={cn(
-              "h-10 w-full justify-between text-left font-normal bg-background-accent",
+              "h-10 w-full justify-between text-left font-normal bg-background-accent hover:bg-background-accent",
               !date && "text-muted-foreground"
             )}
             data-testid="date-picker-button-popover-trigger"

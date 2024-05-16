@@ -65,7 +65,7 @@ function MultiSelect({
             size='combobox'
             role='combobox'
             aria-expanded={open}
-            className='max-w-[352px] w-full justify-between bg-background-accent'
+            className='max-w-[352px] w-full justify-between bg-background-accent hover:bg-background-accent'
             onClick={() => setOpen(!open)}
           >
             {selected.length === 0 ? placeholder : null}
