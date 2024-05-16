@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.118](https://github.com/getpingback/ui/compare/v0.0.117...v0.0.118) (2024-05-16)
+
+
+### Bug Fixes
+
+* **combobox:** add button bg ([3448450](https://github.com/getpingback/ui/commits/3448450afec15782ebfbf0a781d16b39bc55a430))
+
 ### [0.0.116](https://github.com/getpingback/ui/compare/v0.0.115...v0.0.116) (2024-05-15)
 
 
