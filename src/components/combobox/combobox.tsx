@@ -35,6 +35,7 @@ interface ComboboxProps {
   searchValue?: string;
   onSelect?: (item: Item) => void;
   onChangeSearchValue?: (value: string) => void;
+  className?: string;
 }
 
 export function Combobox({
@@ -50,6 +51,7 @@ export function Combobox({
   searchValue,
   onChangeSearchValue,
   onSelect,
+  className,
 }: ComboboxProps) {
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState("");
@@ -67,8 +69,8 @@ export function Combobox({
     selected: boolean;
     isButtonLabel?: boolean;
   }) => (
-    <div className={cn("flex items-center w-full h-full", selected && "justify-between")}>
-      <span className={`${isButtonLabel ? "max-w-[200px] truncate h-full flex items-center" : ""}`}>{item.label}</span>
+    <div className={cn("flex items-center h-full w-full", selected && "justify-between", isButtonLabel && 'w-[calc(100%-30px)]')}>
+      <span className={`${isButtonLabel ? "w-full h-full flex items-center truncate" : ""}`}>{item.label}</span>
       {selected && <CheckIcon />}
     </div>
   );
@@ -138,8 +140,8 @@ export function Combobox({
         ) : (
           <div className='w-[64px] h-[48px] rounded-md bg-gray-200' />
         )}
-        <div>
-          <div className={`text-sm${isButtonLabel ? " max-w-[160px] truncate h-full flex items-center" : ""}`}>
+        <div className="flex flex-col gap-1 w-[171px]">
+          <div className={`text-sm${isButtonLabel ? " w-full truncate h-full flex items-center" : ""}`}>
             {item.label}
           </div>
           <div className='text-xs text-gray-500'>{item.description}</div>
@@ -198,7 +200,7 @@ export function Combobox({
       return null;
     }
 
-    return placeholder;
+    return <span className='text-tertiary-foreground text-sm opacity-60 font-normal'>{placeholder}</span>;
   };
 
   return (
@@ -227,8 +229,8 @@ export function Combobox({
         {helperText ? <span className='text-xs font-normal text-tertiary-foreground mt-1'>{helperText}</span> : null}
       </div>
 
-      <PopoverContent className='p-0 bg-background-accent' data-testid='comboxbox-popover-content'>
-        <Command shouldFilter={shouldFilter}>
+      <PopoverContent className='max-w-[352px] w-full p-0 bg-background-accent' data-testid='comboxbox-popover-content'>
+        <Command shouldFilter={shouldFilter} className={className}>
           <div className='w-full p-4 flex items-center justify-center border-b border-divider'>
             <CommandInput
               placeholder={searchPlaceholder}

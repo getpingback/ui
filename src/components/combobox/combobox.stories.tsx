@@ -23,6 +23,7 @@ export const Default: Story = {
     searchPlaceholder: "Pesquise pelo link...",
     emptySearchPlaceholder: "Nenhum resultado encontrado.",
     onSelect: item => console.log("onSelect =>", item),
+    className: 'w-[352px]',
     options: [
       {
         items: [

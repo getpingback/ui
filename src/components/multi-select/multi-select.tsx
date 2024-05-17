@@ -68,7 +68,9 @@ function MultiSelect({
             className='max-w-[352px] w-full justify-between bg-background-accent hover:bg-background-accent'
             onClick={() => setOpen(!open)}
           >
-            {selected.length === 0 ? placeholder : null}
+            {selected.length === 0 ? (
+              <span className='text-tertiary-foreground text-sm opacity-60 font-normal'>{placeholder}</span>
+            ) : null}
 
             <div className='flex gap-1 flex-wrap'>
               {selected.map((item) => (
