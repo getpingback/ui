@@ -140,7 +140,7 @@ export function Combobox({
         ) : (
           <div className='w-[64px] h-[48px] rounded-md bg-gray-200' />
         )}
-        <div className="flex flex-col gap-1 w-[171px]">
+        <div className="flex flex-col gap-1 w-[151px]">
           <div className={`text-sm${isButtonLabel ? " w-full truncate h-full flex items-center" : ""}`}>
             {item.label}
           </div>
