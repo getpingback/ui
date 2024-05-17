@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.129](https://github.com/getpingback/ui/compare/v0.0.128...v0.0.129) (2024-05-17)
+
+
+### Bug Fixes
+
+* **combobox:** styles ([83afe79](https://github.com/getpingback/ui/commits/83afe798c164781894c77cd211dabc6aab384889))
+
 ### [0.0.127](https://github.com/getpingback/ui/compare/v0.0.126...v0.0.127) (2024-05-17)
 
 ### [0.0.125](https://github.com/getpingback/ui/compare/v0.0.124...v0.0.125) (2024-05-17)
