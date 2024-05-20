@@ -138,7 +138,7 @@ function MultiSelect({
             <>
               <CommandEmpty>{emptySearchPlaceholder}</CommandEmpty>
 
-              <CommandGroup className='max-h-[272px] overflow-y-auto py-2'>
+              <CommandGroup className='max-h-[272px] overflow-y-auto scrollbar-style py-2'>
                 {options.map((option) => (
                   <CommandItem
                     key={option.value}
