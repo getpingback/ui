@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils';
 export interface TableProps extends React.HTMLAttributes<HTMLTableElement> {}
 function Table({ className, ...props }: TableProps) {
   return (
-    <div className='relative w-full overflow-auto'>
+    <div className='relative w-full overflow-auto scrollbar-style'>
       <table
         className={cn('w-full caption-bottom text-sm', className)}
         {...props}

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.131](https://github.com/getpingback/ui/compare/v0.0.129...v0.0.131) (2024-05-20)
+
+
+### Bug Fixes
+
+* scrollbar ([be64fcb](https://github.com/getpingback/ui/commits/be64fcbe5f296120f57f087b2693b67589c18cbb))
+
 ### [0.0.129](https://github.com/getpingback/ui/compare/v0.0.128...v0.0.129) (2024-05-17)
 
 

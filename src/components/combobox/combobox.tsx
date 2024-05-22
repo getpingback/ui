@@ -242,7 +242,7 @@ export function Combobox({
 
           <CommandEmpty>{emptySearchPlaceholder}</CommandEmpty>
 
-          <div className='max-h-[272px] overflow-y-auto'>
+          <div className='max-h-[272px] overflow-y-auto scrollbar-style'>
             {options.map((option, index) => (
               <>
                 <CommandGroup key={index} className='py-2' heading={option.heading}>
