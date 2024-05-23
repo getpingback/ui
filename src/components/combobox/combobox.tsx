@@ -35,7 +35,7 @@ interface ComboboxProps {
   searchValue?: string;
   onSelect?: (item: Item) => void;
   onChangeSearchValue?: (value: string) => void;
-  onOpenChange?: (open: boolean) => void;
+  onEndReached?: () => void;
   className?: string;
 }
 
@@ -52,15 +52,41 @@ export function Combobox({
   searchValue,
   onChangeSearchValue,
   onSelect,
-  onOpenChange,
+  onEndReached,
   className,
 }: ComboboxProps) {
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState("");
 
+  const lastItemRef = React.useRef<HTMLDivElement>(null);
+
   React.useEffect(() => {
     setValue(defaultValue || "");
   }, [defaultValue]);
+
+  React.useEffect(() => {
+    if (!open) return;
+
+    let observer: IntersectionObserver;
+    setTimeout(() => {
+      observer = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting) {
+            onEndReached?.();
+          }
+        },
+        { threshold: 1 }
+      );
+
+      if (lastItemRef.current) {
+        observer.observe(lastItemRef.current);
+      }
+    }, 0);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [lastItemRef.current, options, open]);
 
   const DefaultVariant = ({
     item,
@@ -177,11 +203,6 @@ export function Combobox({
     onChangeSearchValue?.(e.target.value);
   };
 
-  const handleOpenChange = (nextOpen: boolean) => {
-    setOpen(nextOpen);
-    onOpenChange?.(nextOpen);
-  }
-
   const renderButtonContent = () => {
     if (value) {
       const selectedItem = options.flatMap((option) => option.items).find((item) => item.value === value);
@@ -217,7 +238,7 @@ export function Combobox({
   };
 
   return (
-    <Popover open={open} onOpenChange={handleOpenChange}>
+    <Popover open={open} onOpenChange={setOpen}>
       <div className='flex flex-col items-start gap-1 max-w-[352px] w-full'>
         {label ? <label className='text-xs font-semibold text-tertiary-foreground'>{label}</label> : null}
 
@@ -282,7 +303,7 @@ export function Combobox({
             ))}
 
             <div
-              id='pb-ui-combobox-end-reached'
+              ref={lastItemRef}
               style={{ display: "flex", alignItems: "center", justifyContent: "center", minHeight: 20, width: "100%" }}
             />
           </div>

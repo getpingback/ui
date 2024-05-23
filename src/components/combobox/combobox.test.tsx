@@ -1,5 +1,5 @@
 import React from "react";
-import { fireEvent, render } from "@testing-library/react";
+import { fireEvent, render, act } from "@testing-library/react";
 import { composeStories } from "@storybook/testing-react";
 import * as stories from "./combobox.stories";
 
@@ -14,21 +14,31 @@ describe("Combobox Component", () => {
       expect(comboboxButton).toHaveTextContent("Selecione o link");
     });
 
-    it("should open dropdown when clicked", () => {
+    it("should open dropdown when clicked", async () => {
       const { getByRole, getByTestId } = render(<Default />);
       const comboboxButton = getByRole("combobox");
-      fireEvent.click(comboboxButton);
+
+      await act(async () => {
+        fireEvent.click(comboboxButton);
+      });
+
       expect(getByTestId("comboxbox-popover-content")).toBeVisible();
     });
 
-    it("should display correct items and handle selection", () => {
+    it("should display correct items and handle selection", async () => {
       const onSelectMock = jest.fn();
       const { getByRole, getByText } = render(<Default onSelect={onSelectMock} />);
       const comboboxButton = getByRole("combobox");
-      fireEvent.click(comboboxButton);
+
+      await act(async () => {
+        fireEvent.click(comboboxButton);
+      });
 
       const item = getByText("https://pt.semrush.com/blog/bounce-rate-taxa-de-rejeicao/");
-      fireEvent.click(item);
+
+      await act(async () => {
+        fireEvent.click(item);
+      });
 
       expect(onSelectMock).toHaveBeenCalledWith({
         label: "https://pt.semrush.com/blog/bounce-rate-taxa-de-rejeicao/",
@@ -39,23 +49,32 @@ describe("Combobox Component", () => {
   });
 
   describe("Detailed Variant", () => {
-    it("should render correctly with detailed items", () => {
+    it("should render correctly with detailed items", async () => {
       const { getByRole, getByText } = render(<Detailed />);
       const comboboxButton = getByRole("combobox");
-      fireEvent.click(comboboxButton);
+
+      await act(async () => {
+        fireEvent.click(comboboxButton);
+      });
 
       expect(getByText("Comunidades inativas")).toBeInTheDocument();
       expect(getByText("117 membros")).toBeInTheDocument();
     });
 
-    it("should handle selection and display detailed item correctly in the button", () => {
+    it("should handle selection and display detailed item correctly in the button", async () => {
       const onSelectMock = jest.fn();
       const { getByRole, getByText } = render(<Detailed onSelect={onSelectMock} />);
       const comboboxButton = getByRole("combobox");
-      fireEvent.click(comboboxButton);
+
+      await act(async () => {
+        fireEvent.click(comboboxButton);
+      });
 
       const item = getByText("Comunidades inativas");
-      fireEvent.click(item);
+
+      await act(async () => {
+        fireEvent.click(item);
+      });
 
       expect(onSelectMock).toHaveBeenCalledWith({
         description: "117 membros",
@@ -67,23 +86,33 @@ describe("Combobox Component", () => {
   });
 
   describe("IconCompact Variant", () => {
-    it("should open dropdown and display icon items correctly", () => {
+    it("should open dropdown and display icon items correctly", async () => {
       const { getByRole, getByText } = render(<IconCompact />);
       const comboboxButton = getByRole("combobox");
-      fireEvent.click(comboboxButton);
+
+      await act(async () => {
+        fireEvent.click(comboboxButton);
+      });
+
       expect(getByText("Enviar a newsletter...")).toBeVisible();
       const icon = getByText("Enviar a newsletter...")?.parentNode?.querySelector("svg");
       expect(icon).toBeVisible();
     });
 
-    it("should handle selection and show selected icon item in the button", () => {
+    it("should handle selection and show selected icon item in the button", async () => {
       const onSelectMock = jest.fn();
       const { getByRole, getByText } = render(<IconCompact onSelect={onSelectMock} />);
       const comboboxButton = getByRole("combobox");
-      fireEvent.click(comboboxButton);
+
+      await act(async () => {
+        fireEvent.click(comboboxButton);
+      });
 
       const item = getByText("Enviar a newsletter...");
-      fireEvent.click(item);
+
+      await act(async () => {
+        fireEvent.click(item);
+      });
 
       expect(comboboxButton).toHaveTextContent("Enviar a newsletter...");
       const iconInButton = comboboxButton.querySelector("svg");
@@ -92,10 +121,13 @@ describe("Combobox Component", () => {
   });
 
   describe("ImageDetailed Variant", () => {
-    it("should render correctly with image and text details", () => {
+    it("should render correctly with image and text details", async () => {
       const { getByRole, getByText, getByAltText } = render(<ImageDetailed />);
       const comboboxButton = getByRole("combobox");
-      fireEvent.click(comboboxButton);
+
+      await act(async () => {
+        fireEvent.click(comboboxButton);
+      });
 
       expect(getByText("8 métricas essenciais para acompanhar no seu blog post")).toBeInTheDocument();
       const image = getByAltText("8 métricas essenciais para acompanhar no seu blog post");
@@ -103,23 +135,33 @@ describe("Combobox Component", () => {
       expect(image).toHaveAttribute("src", expect.stringContaining("https://source.unsplash.com/100x100/?blog"));
     });
 
-    it("should open dropdown and display image items correctly", () => {
+    it("should open dropdown and display image items correctly", async () => {
       const { getByRole, getByText, getByAltText } = render(<ImageDetailed />);
       const comboboxButton = getByRole("combobox");
-      fireEvent.click(comboboxButton);
+
+      await act(async () => {
+        fireEvent.click(comboboxButton);
+      });
+
       expect(getByText("8 métricas essenciais para acompanhar no seu blog post")).toBeVisible();
       const image = getByAltText("8 métricas essenciais para acompanhar no seu blog post");
       expect(image).toBeVisible();
     });
 
-    it("should handle selection and show selected image item in the button", () => {
+    it("should handle selection and show selected image item in the button", async () => {
       const onSelectMock = jest.fn();
       const { getByRole, getByText, getByAltText } = render(<ImageDetailed onSelect={onSelectMock} />);
       const comboboxButton = getByRole("combobox");
-      fireEvent.click(comboboxButton);
+
+      await act(async () => {
+        fireEvent.click(comboboxButton);
+      });
 
       const item = getByText("8 métricas essenciais para acompanhar no seu blog post");
-      fireEvent.click(item);
+
+      await act(async () => {
+        fireEvent.click(item);
+      });
 
       expect(onSelectMock).toHaveBeenCalledWith({
         imageUrl: "https://source.unsplash.com/100x100/?blog",
@@ -133,13 +175,19 @@ describe("Combobox Component", () => {
   });
 
   describe("shouldFilter false property", () => {
-    it("should render all items regardless of search input", () => {
+    it("should render all items regardless of search input", async () => {
       const { getByRole, getByText, getByPlaceholderText } = render(<ShouldFilterFalse />);
       const comboboxButton = getByRole("combobox");
-      fireEvent.click(comboboxButton);
+
+      await act(async () => {
+        fireEvent.click(comboboxButton);
+      });
 
       const searchInput = getByPlaceholderText("Pesquise pelo link...");
-      fireEvent.change(searchInput, { target: { value: "nonexistent" } });
+
+      await act(async () => {
+        fireEvent.change(searchInput, { target: { value: "nonexistent" } });
+      });
 
       expect(getByText("https://pt.semrush.com/blog/bounce-rate-taxa-de-rejeicao/")).toBeVisible();
       expect(getByText("https://pingback.com/juliano-fabbro")).toBeVisible();
@@ -147,14 +195,20 @@ describe("Combobox Component", () => {
       expect(getByText("https://blog.pipelovers.net/")).toBeVisible();
     });
 
-    it("should allow selection from unfiltered results", () => {
+    it("should allow selection from unfiltered results", async () => {
       const onSelectMock = jest.fn();
       const { getByRole, getByText } = render(<ShouldFilterFalse onSelect={onSelectMock} />);
       const comboboxButton = getByRole("combobox");
-      fireEvent.click(comboboxButton);
+
+      await act(async () => {
+        fireEvent.click(comboboxButton);
+      });
 
       const item = getByText("https://pingback.com/juliano-fabbro");
-      fireEvent.click(item);
+
+      await act(async () => {
+        fireEvent.click(item);
+      });
 
       expect(onSelectMock).toHaveBeenCalledWith({
         label: "https://pingback.com/juliano-fabbro",
