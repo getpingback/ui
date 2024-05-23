@@ -69,7 +69,13 @@ export function Combobox({
     selected: boolean;
     isButtonLabel?: boolean;
   }) => (
-    <div className={cn("flex items-center h-full w-full", selected && "justify-between", isButtonLabel && 'w-[calc(100%-30px)]')}>
+    <div
+      className={cn(
+        "flex items-center h-full w-full",
+        selected && "justify-between",
+        isButtonLabel && "w-[calc(100%-30px)]"
+      )}
+    >
       <span className={`${isButtonLabel ? "w-full h-full flex items-center truncate" : ""}`}>{item.label}</span>
       {selected && <CheckIcon />}
     </div>
@@ -140,7 +146,7 @@ export function Combobox({
         ) : (
           <div className='w-[64px] h-[48px] rounded-md bg-gray-200' />
         )}
-        <div className="flex flex-col gap-1 w-[151px]">
+        <div className='flex flex-col gap-1 w-[151px]'>
           <div className={`text-sm${isButtonLabel ? " w-full truncate h-full flex items-center" : ""}`}>
             {item.label}
           </div>
@@ -267,6 +273,11 @@ export function Combobox({
                 {index < options.length - 1 && <div className='border-b border-divider' />}
               </>
             ))}
+
+            <div
+              id='pb-ui-combobox-end-reached'
+              style={{ display: "flex", alignItems: "center", justifyContent: "center", minHeight: 20, width: "100%" }}
+            />
           </div>
         </Command>
       </PopoverContent>
