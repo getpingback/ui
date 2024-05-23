@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.137](https://github.com/getpingback/ui/compare/v0.0.136...v0.0.137) (2024-05-23)
+
+
+### Bug Fixes
+
+* **combobox:** add onEndReached prop ([1150fe5](https://github.com/getpingback/ui/commits/1150fe582dd479e4d99ce3ecd5f44f5d258e8ef1))
+
 ### [0.0.135](https://github.com/getpingback/ui/compare/v0.0.134...v0.0.135) (2024-05-23)
 
 
