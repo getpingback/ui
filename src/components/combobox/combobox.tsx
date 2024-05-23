@@ -35,6 +35,7 @@ interface ComboboxProps {
   searchValue?: string;
   onSelect?: (item: Item) => void;
   onChangeSearchValue?: (value: string) => void;
+  onOpenChange?: (open: boolean) => void;
   className?: string;
 }
 
@@ -51,6 +52,7 @@ export function Combobox({
   searchValue,
   onChangeSearchValue,
   onSelect,
+  onOpenChange,
   className,
 }: ComboboxProps) {
   const [open, setOpen] = React.useState(false);
@@ -175,6 +177,11 @@ export function Combobox({
     onChangeSearchValue?.(e.target.value);
   };
 
+  const handleOpenChange = (nextOpen: boolean) => {
+    setOpen(nextOpen);
+    onOpenChange?.(nextOpen);
+  }
+
   const renderButtonContent = () => {
     if (value) {
       const selectedItem = options.flatMap((option) => option.items).find((item) => item.value === value);
@@ -210,7 +217,7 @@ export function Combobox({
   };
 
   return (
-    <Popover open={open} onOpenChange={setOpen}>
+    <Popover open={open} onOpenChange={handleOpenChange}>
       <div className='flex flex-col items-start gap-1 max-w-[352px] w-full'>
         {label ? <label className='text-xs font-semibold text-tertiary-foreground'>{label}</label> : null}
 
