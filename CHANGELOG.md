@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.133](https://github.com/getpingback/ui/compare/v0.0.130...v0.0.133) (2024-05-23)
+
+
+### Bug Fixes
+
+* **combobox:** add id to last element ([82e3ba2](https://github.com/getpingback/ui/commits/82e3ba2ab05339c61ccfbbd4b783b54d7a32bdd5))
+* scrollbar ([be64fcb](https://github.com/getpingback/ui/commits/be64fcbe5f296120f57f087b2693b67589c18cbb))
+
 ### [0.0.131](https://github.com/getpingback/ui/compare/v0.0.129...v0.0.131) (2024-05-20)
 
 
