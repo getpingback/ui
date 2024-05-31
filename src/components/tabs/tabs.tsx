@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 const Tabs = TabsPrimitive.Root;
 
 const tabTriggerVariants = cva(
-  "relative w-full h-full outline-none rounded-md [&[data-state=active]]:opacity-100 font-semibold text-secondary-foreground text-xs opacity-45 hover:opacity-100 transition-all duration-200 ease-in-out",
+  "relative w-full h-full !outline-none rounded-md [&[data-state=active]]:opacity-100 font-semibold text-secondary-foreground text-xs opacity-45 hover:opacity-100 transition-all duration-200 ease-in-out",
   {
     variants: {
       type: {
@@ -77,23 +77,20 @@ function TabsTrigger({ className, type, ...props }: TabsTriggerProps) {
       >
         <div className='relative z-30'>{props.children}</div>
 
-        <motion.div
-          key={props.value}
-          className={cn(
-            "absolute rounded-md z-20 debug-border",
-            type === "clear" &&
-              "inset-0 z-[-1] bg-[#FFFFFF] [box-shadow:0px_0px_1px_1px_rgba(0,_0,_0,_0.04)] opacity-100",
-            type === "purple" && "inset-0 bg-[#9061F914] outline-none",
-            type === "bottom-line" && "bg-[#9061F9] h-[2px] left-0 right-0 bottom-0 rounded-none"
-          )}
-          layoutId='tab-active-indicator'
-          animate={{
-            opacity: isActive ? 1 : 0,
-            scaleX: isActive ? 1 : 0.8,
-            scaleY: isActive ? 1 : 0.8,
-          }}
-          transition={{ type: "spring", bounce: 0, duration: 0.6 }}
-        />
+        {isActive ? (
+          <motion.div
+            key={props.value}
+            className={cn(
+              "absolute rounded-md z-20 debug-border",
+              type === "clear" &&
+                "inset-0 z-[-1] bg-[#FFFFFF] [box-shadow:0px_0px_1px_1px_rgba(0,_0,_0,_0.04)] opacity-100",
+              type === "purple" && "inset-0 bg-[#9061F914] outline-none",
+              type === "bottom-line" && "bg-[#9061F9] h-[2px] left-0 right-0 bottom-0 rounded-none"
+            )}
+            layoutId='tab-active-indicator'
+            transition={{ type: "spring", bounce: 0, duration: 0.6 }}
+          />
+        ) : null}
       </TabsPrimitive.Trigger>
     </>
   );
@@ -144,7 +141,7 @@ export interface TabContentProps extends React.ComponentProps<typeof TabsPrimiti
 function TabsContent({ className, ...props }: TabContentProps) {
   return (
     <TabsPrimitive.Content
-      className={cn("mt-2 outline-none focus-visible:outline-none", className)}
+      className={cn("mt-2 !outline-none focus-visible:!outline-none focus:!outline-none", className)}
       data-testid='tabs-content'
       {...props}
     />
