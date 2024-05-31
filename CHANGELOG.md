@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.139](https://github.com/getpingback/ui/compare/v0.0.138...v0.0.139) (2024-05-31)
+
+
+### Features
+
+* **tabs:** new variant ([18f2027](https://github.com/getpingback/ui/commits/18f20270ebe5ef30336feded26377c3b12fc0b74))
+
 ### [0.0.137](https://github.com/getpingback/ui/compare/v0.0.136...v0.0.137) (2024-05-23)
 
 
