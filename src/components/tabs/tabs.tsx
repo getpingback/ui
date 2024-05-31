@@ -79,6 +79,7 @@ function TabsTrigger({ className, type, ...props }: TabsTriggerProps) {
 
         {isActive && (
           <motion.div
+            key={props.value}
             className={cn(
               "absolute rounded-md z-20",
               type === "clear" &&
@@ -86,9 +87,6 @@ function TabsTrigger({ className, type, ...props }: TabsTriggerProps) {
               type === "purple" && "inset-0 bg-[#9061F914] outline-none",
               type === "bottom-line" && "bg-[#9061F9] h-[2px] left-0 right-0 bottom-0 rounded-none"
             )}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
             layoutId='tab-active-indicator'
             transition={{ type: "spring", bounce: 0, duration: 0.6 }}
           />
