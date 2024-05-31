@@ -68,7 +68,7 @@ function TabsTrigger({ className, type, ...props }: TabsTriggerProps) {
     <>
       <TabsPrimitive.Trigger
         ref={triggerRef}
-        className={cn(tabTriggerVariants({ type }), className)}
+        className={cn(tabTriggerVariants({ type }), 'relative', className)}
         style={{
           WebkitTapHighlightColor: "transparent",
         }}
@@ -81,7 +81,8 @@ function TabsTrigger({ className, type, ...props }: TabsTriggerProps) {
           <motion.span
             className={cn(
               "absolute rounded-md z-20",
-              type === "clear" && "inset-0 z-[-1] bg-[#FFFFFF] [box-shadow:0px_0px_1px_1px_rgba(0,_0,_0,_0.04)] opacity-100",
+              type === "clear" &&
+                "inset-0 z-[-1] bg-[#FFFFFF] [box-shadow:0px_0px_1px_1px_rgba(0,_0,_0,_0.04)] opacity-100",
               type === "purple" && "inset-0 bg-[#9061F914] outline-none",
               type === "bottom-line" && "bg-[#9061F9] h-[2px] left-0 right-0 bottom-0 rounded-none"
             )}
@@ -113,7 +114,7 @@ export interface TabProps
   height: "medium" | "full";
 }
 
-function TabsList({ className, type = 'purple', height, ...props }: TabProps) {
+function TabsList({ className, type = "purple", height, ...props }: TabProps) {
   return (
     <TabsPrimitive.List
       className={cn(
@@ -139,10 +140,7 @@ export interface TabContentProps extends React.ComponentProps<typeof TabsPrimiti
 function TabsContent({ className, ...props }: TabContentProps) {
   return (
     <TabsPrimitive.Content
-      className={cn(
-        "mt-2 outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
-        className
-      )}
+      className={cn("mt-2 outline-none focus-visible:outline-none", className)}
       data-testid='tabs-content'
       {...props}
     />
