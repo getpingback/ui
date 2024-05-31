@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.143](https://github.com/getpingback/ui/compare/v0.0.142...v0.0.143) (2024-05-31)
+
+
+### Bug Fixes
+
+* **tabs:** remove focus outline ([6b2c420](https://github.com/getpingback/ui/commits/6b2c420128903ab09806c7b70b5e5fa927c5d268))
+
 ### [0.0.141](https://github.com/getpingback/ui/compare/v0.0.140...v0.0.141) (2024-05-31)
 
 
