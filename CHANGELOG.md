@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.145](https://github.com/getpingback/ui/compare/v0.0.144...v0.0.145) (2024-05-31)
+
+
+### Bug Fixes
+
+* change accordion name animation ([3941feb](https://github.com/getpingback/ui/commits/3941feb8a4192255e59fa99f969768cd99f78226))
+
 ### [0.0.143](https://github.com/getpingback/ui/compare/v0.0.142...v0.0.143) (2024-05-31)
 
 
