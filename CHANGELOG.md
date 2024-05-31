@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.141](https://github.com/getpingback/ui/compare/v0.0.140...v0.0.141) (2024-05-31)
+
+
+### Bug Fixes
+
+* **tabs:** outline and default variant ([6ee39a8](https://github.com/getpingback/ui/commits/6ee39a892ece1f0a11dccffa8e62c6c3e957c2a0))
+
 ### [0.0.139](https://github.com/getpingback/ui/compare/v0.0.138...v0.0.139) (2024-05-31)
 
 
