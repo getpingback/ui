@@ -43,6 +43,7 @@
     "clsx": "^2.0.0",
     "cmdk": "^0.2.1",
     "date-fns": "^3.6.0",
+    "framer-motion": "^11.2.10",
     "react-day-picker": "^8.10.1",
     "react-dropzone": "^14.2.3",
     "tailwind-merge": "^1.14.0"
