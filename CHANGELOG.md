@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.155](https://github.com/getpingback/ui/compare/v0.0.154...v0.0.155) (2024-06-03)
+
+
+### Bug Fixes
+
+* **tabs:** z-index 9 ([996ee21](https://github.com/getpingback/ui/commits/996ee211b7abf37174650e5bb038a8d4c9bf3fc1))
+
 ### [0.0.153](https://github.com/getpingback/ui/compare/v0.0.152...v0.0.153) (2024-05-31)
 
 
