@@ -120,7 +120,7 @@ function TabsList({ className, type = "purple", height, ...props }: TabProps) {
     <TabsPrimitive.List
       className={cn(
         tabListVariants({ height }),
-        "relative z-10 outline-none",
+        "relative z-[9] outline-none",
         type === "bottom-line" && "bg-transparent",
         className
       )}
