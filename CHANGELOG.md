@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.157](https://github.com/getpingback/ui/compare/v0.0.156...v0.0.157) (2024-06-04)
+
+
+### Bug Fixes
+
+* **tabs:** try new animation approach 5 ([b23a0a2](https://github.com/getpingback/ui/commits/b23a0a2920f8a5801a2c1df11022b504f9dbc6a1))
+
 ### [0.0.155](https://github.com/getpingback/ui/compare/v0.0.154...v0.0.155) (2024-06-03)
 
 
