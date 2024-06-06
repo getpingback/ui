@@ -310,12 +310,12 @@ export function Combobox({
 
             <div
               ref={lastItemRef}
-              style={{ display: "flex", alignItems: "center", justifyContent: "center", minHeight: 20, width: "100%" }}
+              style={{ display: "flex", alignItems: "center", justifyContent: "center", minHeight: 4, width: "100%" }}
             />
           </div>
 
           {isLoading ? (
-            <div className='flex items-center justify-center mb-6 h-10'>
+            <div className='flex items-center justify-center mb-4 h-10'>
               <svg
                 aria-hidden='true'
                 className='w-8 h-8 text-gray-200 animate-spin fill-purple-500'
