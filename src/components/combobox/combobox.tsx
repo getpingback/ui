@@ -148,13 +148,7 @@ export function Combobox({
     border?: boolean;
     isButtonLabel?: boolean;
   }) => (
-    <div
-      className={cn(
-        "w-full h-full flex items-center",
-        selected && "justify-between",
-        border && "border-[1px] border-border-card p-2 rounded-lg"
-      )}
-    >
+    <div className={cn("w-full h-full flex items-center", selected && "justify-between")}>
       <div className='flex items-center gap-2 h-full'>
         <div className='flex items-center justify-center w-6 h-6 rounded-md'>{item.icon || null}</div>
         <div className='text-sm font-medium line-clamp-1'>{item.label}</div>
@@ -180,8 +174,12 @@ export function Combobox({
         ) : (
           <div className='w-[64px] h-[48px] rounded-md bg-gray-200' />
         )}
-        <div className='flex flex-col gap-1 w-[151px]'>
-          <div className={`line-clamp-2 text-sm${isButtonLabel ? " w-full truncate h-full flex items-center" : ""}`}>
+        <div className='flex flex-col gap-1'>
+          <div
+            className={`line-clamp-2 text-sm${
+              isButtonLabel ? " max-w-[151px] w-full truncate h-full flex items-center" : ""
+            }`}
+          >
             {item.label}
           </div>
           <div className='text-xs text-gray-500'>{item.description}</div>
