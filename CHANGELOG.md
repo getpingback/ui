@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.163](https://github.com/getpingback/ui/compare/v0.0.162...v0.0.163) (2024-06-06)
+
+
+### Bug Fixes
+
+* **combobox:** loading style 2 ([03ec841](https://github.com/getpingback/ui/commits/03ec8411e6f24920cb1d964afc3d46b1ce2f37f0))
+
 ### [0.0.161](https://github.com/getpingback/ui/compare/v0.0.160...v0.0.161) (2024-06-06)
 
 
