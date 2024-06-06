@@ -315,7 +315,7 @@ export function Combobox({
           </div>
 
           {isLoading ? (
-            <div className='flex items-center justify-center my-4 h-10'>
+            <div className='flex items-center justify-center mb-6 h-10'>
               <svg
                 aria-hidden='true'
                 className='w-8 h-8 text-gray-200 animate-spin fill-purple-500'

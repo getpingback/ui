@@ -213,7 +213,7 @@ export const ShouldFilterFalseContent: Story = {
     searchPlaceholder: "Pesquise pelo link...",
     emptySearchPlaceholder: "Nenhum resultado encontrado.",
     onSelect: (item) => console.log("onSelect =>", item),
-    shouldFilterFalseEmptyContent: <div className="w-full flex items-center justify-center my-6">oi</div>,
+    shouldFilterFalseEmptyContent: <div className='w-full flex items-center justify-center my-6'>oi</div>,
     options: [
       {
         items: [],
