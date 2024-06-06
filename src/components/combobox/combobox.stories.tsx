@@ -205,6 +205,23 @@ export const ShouldFilterFalse: Story = {
   },
 };
 
+export const ShouldFilterFalseContent: Story = {
+  args: {
+    shouldFilter: false,
+    onChangeSearchValue: (value: string) => console.log("onChangeSearchValue", value),
+    placeholder: "Selecione o link",
+    searchPlaceholder: "Pesquise pelo link...",
+    emptySearchPlaceholder: "Nenhum resultado encontrado.",
+    onSelect: (item) => console.log("onSelect =>", item),
+    shouldFilterFalseEmptyContent: <div className="w-full flex items-center justify-center my-6">oi</div>,
+    options: [
+      {
+        items: [],
+      },
+    ],
+  },
+};
+
 export const WithLabelAndHelperText: Story = {
   args: {
     label: "Link",
