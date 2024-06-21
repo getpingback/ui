@@ -7,7 +7,7 @@ import { ChevronDownIcon } from '@stash-ui/regular-icons';
 import { cn } from '@/lib/utils';
 
 const navigationVariants = cva(
-  'h-[40px] inline-flex  items-center justify-between hover:no-underline w-full p-[12px] rounded-lg cursor-pointer text-sm font-normal',
+  'h-[40px] font-primary inline-flex  items-center justify-between hover:no-underline w-full p-[12px] rounded-lg cursor-pointer text-sm font-normal',
   {
     variants: {
       variant: {
@@ -107,8 +107,8 @@ function NavigationSubItem({
     const dotClasses =
       'absolute left-1/2 transform -translate-x-1/2 w-[6px] h-[6px] rounded-full z-10 top-3.5';
     const activeDotClasses = activeItem
-      ? 'bg-[#9061F9] shadow-[0px_0px_0px_0px_rgba(0,0,0,0.85)]'
-      : 'bg-[#A1A1AA]';
+      ? 'bg-[#9061F9] shadow-custom'
+      : 'bg-[#A1A1AA] opacity-60';
     const lineClasses = 'absolute left-1/2 transform -translate-x-1/2 w-px';
 
     const topLineClasses =
@@ -122,24 +122,18 @@ function NavigationSubItem({
 
     return (
       <div className={baseClasses}>
-        {/* Traço para cima */}
+        {/* Top line */}
         <div
-          className={`${lineClasses} ${topLineClasses} ${
-            position === 'last' ? 'top-[-4px] h-[20px]' : 'top-[-4px] h-[20px]'
-          }`}
+          className={`${lineClasses} ${topLineClasses} ${'top-[-4px] h-[18px]'}`}
         ></div>
-        {/* Bolinha */}
+        {/* circle */}
         <div
           className={`${dotClasses} ${activeDotClasses}`}
           data-testid={position}
         ></div>
-        {/* Traço para baixo */}
+        {/* Bottom line */}
         <div
-          className={`${lineClasses} ${bottomLineClasses} ${
-            position === 'first'
-              ? 'bottom-[-4px] h-[16px]'
-              : 'bottom-[-4px] h-[20px]'
-          }`}
+          className={`${lineClasses} ${bottomLineClasses} ${'bottom-[-4px] h-[16px]'}`}
         ></div>
       </div>
     );
@@ -150,19 +144,19 @@ function NavigationSubItem({
       <NavigationMenuPrimitive.Link
         data-testid='navigation-sub-item'
         className={cn(
-          'h-[40px] flex items-center hover:no-underline flex-start w-full px-3 cursor-pointer text-xs font-normal text-primary hover:bg-list-hover transition duration-300 ease-in-out',
+          'h-[40px] font-primary flex items-center hover:no-underline flex-start w-full px-3 cursor-pointer text-xs font-normal text-primary hover:bg-list-hover transition duration-300 ease-in-out',
           className
         )}
         {...props}
       >
         <div
           className={cn(
-            'h-[40px] w-full opacity-60 flex items-center text-tertiary-foreground flex-start transition-all duration-300 z-9',
+            'h-[40px] w-full text-xs flex items-center text-tertiary-foreground flex-start transition-all duration-300 z-9',
             activeItem ? 'font-semibold' : 'font-normal'
           )}
         >
           {position && renderLeftIconPosition(position)}
-          {props.children}
+          <span className={cn('font-primary ')}>{props.children}</span>
         </div>
       </NavigationMenuPrimitive.Link>
     </NavigationMenuPrimitive.Root>
@@ -181,7 +175,7 @@ function NavigationTrigger({
   items,
   children,
   onClickItem,
-  activeItem,
+  activeItem = '',
   ...props
 }: NavigationTriggerProps) {
   const handlePosition = (itemIndex: number, itemsLength: number) => {
@@ -209,7 +203,7 @@ function NavigationTrigger({
       <AccordionPrimitive.Item {...props} value='accordion'>
         <AccordionPrimitive.Trigger
           className={cn(
-            'w-full h-[40px] inline-flex items-center justify-between cursor-pointer text-sm font-normal text-tertiary-foreground  p-[12px] rounded-lg  hover:text-active-foreground [&[data-state=open]>svg]:rotate-180 [&[data-state=open]]:bg-active-menu [&[data-state=open]]:text-active-foreground [&[data-state=open]]:font-semibold hover:text-opacity-100 hover:bg-list-actived transition duration-400 ease-in-out'
+            'w-full font-primary h-[40px] inline-flex items-center justify-between cursor-pointer text-sm font-normal text-tertiary-foreground  p-[12px] rounded-lg  hover:text-active-foreground [&[data-state=open]>svg]:rotate-180 [&[data-state=open]]:bg-active-menu [&[data-state=open]]:text-active-foreground [&[data-state=open]]:font-semibold hover:text-opacity-100 hover:bg-list-actived transition duration-400 ease-in-out'
           )}
         >
           {children}
@@ -246,7 +240,7 @@ function NavigationList({ ...props }: NavigationListProps) {
     <NavigationMenuPrimitive.Root className={cn('w-full')}>
       <NavigationMenuPrimitive.List
         className={cn(
-          'group flex list-none flex-col gap-1 w-full overflow-hidden gap-0'
+          'group font-primary flex list-none flex-col gap-1 w-full overflow-hidden gap-0'
         )}
         {...props}
       />
