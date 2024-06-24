@@ -107,7 +107,7 @@ function NavigationSubItem({
     const dotClasses =
       'absolute left-1/2 transform -translate-x-1/2 w-[6px] h-[6px] rounded-full z-10 top-3.5';
     const activeDotClasses = activeItem
-      ? 'bg-[#9061F9] shadow-custom'
+      ? 'bg-[#9061F9] shadow-custom border-2 border-solid	border-[#9061F93D]'
       : 'bg-[#A1A1AA] opacity-60';
     const lineClasses = 'absolute left-1/2 transform -translate-x-1/2 w-px';
 
@@ -151,7 +151,7 @@ function NavigationSubItem({
       >
         <div
           className={cn(
-            'h-[40px] w-full text-xs flex items-center text-tertiary-foreground flex-start transition-all duration-300 z-9',
+            'h-[40px] w-full text-xs flex items-center text-tertiary-foreground flex-start z-9',
             activeItem ? 'font-semibold' : 'font-normal'
           )}
         >
