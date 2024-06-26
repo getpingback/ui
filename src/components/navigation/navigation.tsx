@@ -203,7 +203,7 @@ function NavigationTrigger({
       <AccordionPrimitive.Item {...props} value='accordion'>
         <AccordionPrimitive.Trigger
           className={cn(
-            'w-full font-primary h-[64px] inline-flex items-center justify-between cursor-pointer [&[data-state=open]>svg]:rotate-180 [&[data-state=open]]:bg-active-menu [&[data-state=open]]:text-active-foreground [&[data-state=open]]:font-semibold  transition duration-400 ease-in-out'
+            'w-full font-primary h-[40px] inline-flex items-center justify-between cursor-pointer [&[data-state=open]>svg]:rotate-180 [&[data-state=open]]:bg-active-menu [&[data-state=open]]:text-active-foreground [&[data-state=open]]:font-semibold  transition duration-400 ease-in-out'
           )}
         >
           {children}
