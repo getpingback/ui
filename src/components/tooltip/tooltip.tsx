@@ -9,11 +9,13 @@ export interface TooltipProps
   className?: string;
   sideOffset?: number;
   trigger?: JSX.Element;
+  showArrow?: boolean;
 }
 function Tooltip({
   className,
   sideOffset = 4,
   trigger,
+  showArrow,
   ...props
 }: TooltipProps) {
   return (
@@ -38,7 +40,12 @@ function Tooltip({
             className
           )}
           {...props}
-        />
+        >
+          {props.children}
+          {showArrow ? (
+            <TooltipPrimitive.Arrow className='fill-[#000000]' />
+          ) : null}
+        </TooltipPrimitive.Content>
       </TooltipPrimitive.Root>
     </TooltipPrimitive.Provider>
   );
