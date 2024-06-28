@@ -21,6 +21,7 @@ export const Default: Story = {
   args: {
     children:
       'Receita: Valor total de monetização do canal. Consideramos os valores de assinaturas',
+    side: 'right',
   },
 };
 

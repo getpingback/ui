@@ -19,7 +19,7 @@ function Sidebar({ className, isOpen, onClose, ...props }: SidebarProps) {
     <div
       data-testid='sidebar'
       className={`h-screen px-[12px] py-[24px] bg-background-accent shadow-bottom_sheet-2 fixed top-0 left-0 z-40 transition-all duration-200 ease-out ${
-        isOpen ? 'w-[250px]' : 'w-[80px]'
+        isOpen ? 'w-[225px]' : 'w-[64px]'
       }`}
       {...props}
     />
@@ -60,7 +60,7 @@ function SideBarContent({ className, ...props }: SideBarContentProps) {
     <div
       data-testid='sidebar-content'
       className={cn(
-        'w-full h-[calc(100vh-180px)] py-[24px] gap-[14px] flex flex-col items-center overflow-y-scroll no-scrollbar',
+        'w-full h-[calc(100vh-180px)] py-[24px] flex flex-col items-center overflow-y-scroll no-scrollbar',
         className
       )}
       {...props}

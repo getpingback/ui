@@ -35,10 +35,15 @@ export const NavigationDemo: Story = {
         </NavigationLink>
         <NavigationTrigger
           items={[
-            { label: 'Account', href: '/account' },
-            { label: 'Profile', href: '/profile' },
-            { label: 'Notifications', href: '/notifications' },
+            { label: 'Account', href: '/account', value: 'account' },
+            { label: 'Profile', href: '/profile', value: 'profile' },
+            {
+              label: 'Notifications',
+              href: '/notifications',
+              value: 'notifications',
+            },
           ]}
+          activeItem='account'
         >
           <div style={{ display: 'flex', alignItems: 'center' }}>
             {
@@ -84,10 +89,11 @@ export const SubItem: Story = {
       <NavigationSubItem position='first' href='/first'>
         NavigationItem
       </NavigationSubItem>
+
       <NavigationSubItem position='middle' href='/middle'>
         NavigationItem
       </NavigationSubItem>
-      <NavigationSubItem position='last' href='/last'>
+      <NavigationSubItem position='last' href='/last' activeItem>
         NavigationItem
       </NavigationSubItem>
     </>
@@ -97,8 +103,7 @@ export const SubItem: Story = {
 export const Link: Story = {
   render: () => (
     <NavigationLink href='www.pingback.com' target='__blank'>
-      {' '}
-      NavigationLink{' '}
+      NavigationLink
     </NavigationLink>
   ),
 };
