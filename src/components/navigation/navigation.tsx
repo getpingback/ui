@@ -122,16 +122,13 @@ function NavigationSubItem({
 
     return (
       <div className={baseClasses}>
-        {/* Top line */}
         <div
           className={`${lineClasses} ${topLineClasses} ${'top-[-4px] h-[18px]'}`}
         ></div>
-        {/* circle */}
         <div
           className={`${dotClasses} ${activeDotClasses}`}
           data-testid={position}
         ></div>
-        {/* Bottom line */}
         <div
           className={`${lineClasses} ${bottomLineClasses} ${'bottom-[-4px] h-[16px]'}`}
         ></div>
