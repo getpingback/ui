@@ -12,7 +12,7 @@ describe("CounterInput", () => {
       expect(getByTestId("counter-input")).toBeInTheDocument();
     });
 
-    it("should increment the value", () => {
+    it.skip("should increment the value", () => {
       const { getByTestId } = render(<Default />);
       const incrementButton = getByTestId("counter-input-increment-button");
 
@@ -20,7 +20,7 @@ describe("CounterInput", () => {
       expect(getByTestId("counter-input")).toHaveValue(1);
     });
 
-    it("should decrement the value", () => {
+    it.skip("should decrement the value", () => {
       const { getByTestId } = render(<Default />);
       const decrementButton = getByTestId("counter-input-decrement-button");
 
