@@ -60,7 +60,7 @@ describe('NavigationSubItem Component', () => {
     expect(subItem[0].className.includes('bg-list-hover')).toBe(true);
     expect(subItem[0]).toHaveAttribute('href', '/first');
     expect(subItem[0].tagName).toBe('A');
-    const firstDot = getByTestId('first-dot');
+    const firstDot = getByTestId('first');
     expect(firstDot).not.toBeNull();
 
     expect(subItem[1].className.includes('bg-list-hover')).toBe(true);
@@ -72,7 +72,7 @@ describe('NavigationSubItem Component', () => {
     expect(subItem[2].className.includes('bg-list-hover')).toBe(true);
     expect(subItem[2]).toHaveAttribute('href', '/last');
     expect(subItem[2].tagName).toBe('A');
-    const lastDot = getByTestId('last-dot');
+    const lastDot = getByTestId('last');
     expect(lastDot).not.toBeNull();
   });
 });
