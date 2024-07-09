@@ -9,9 +9,10 @@ const Command = React.forwardRef<
   <CommandPrimitive
     ref={ref}
     className={cn(
-      'flex h-full w-full z-50 flex-col overflow-hidden rounded-md bg-[#FFFFFFA6] text-popover-foreground shadow-[0px_0px_1px_1px_#0000000A]',
+      'flex h-full w-full z-50 flex-col overflow-hidden rounded-md bg-[#ffffffc2] text-popover-foreground shadow-[0px_0px_1px_1px_#0000000A]',
       className
     )}
+    data-testid='command'
     {...props}
   />
 ));

@@ -3,7 +3,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import {
   Command,
-  CommandDialog,
   CommandInput,
   CommandList,
   CommandEmpty,
@@ -12,7 +11,6 @@ import {
   CommandShortcut,
   CommandSeparator,
 } from './command';
-
 import { Popover, PopoverContent, PopoverTrigger } from '../popover';
 const meta = {
   title: 'Components/Command',
@@ -37,44 +35,44 @@ export const Default: Story = {
         <PopoverContent className='w-[600px] p-0'>
           <Command>
             <CommandInput placeholder='Search language...' />
+            <CommandEmpty>not found</CommandEmpty>
             <CommandList>
               <CommandGroup heading='Fruits'>
-                <CommandItem>
+                <CommandItem
+                  value='apple'
+                  onSelect={() => console.log('apple')}
+                >
                   Apple
                   <CommandShortcut className='ml-auto'>⌘K</CommandShortcut>
                 </CommandItem>
-                <CommandItem>
+                <CommandItem
+                  value='apple2'
+                  onSelect={() => console.log('apple2')}
+                >
                   Apple2
                   <CommandShortcut className='ml-auto'>⌘K</CommandShortcut>
                 </CommandItem>
-                <CommandItem>
-                  Apple3
-                  <CommandShortcut className='ml-auto'>⌘K</CommandShortcut>
+                <CommandItem
+                  value='orange'
+                  onSelect={() => console.log('orange')}
+                >
+                  Orange
                 </CommandItem>
-                <CommandItem>
-                  Apple4
-                  <CommandShortcut className='ml-auto'>⌘K</CommandShortcut>
-                </CommandItem>
-
-                <CommandItem>
-                  Apple5
-                  <CommandShortcut className='ml-auto'>⌘K</CommandShortcut>
-                </CommandItem>
-                <CommandItem>
-                  Apple6
-                  <CommandShortcut className='ml-auto'>⌘K</CommandShortcut>
-                </CommandItem>
-
-                <CommandItem>Orange</CommandItem>
                 <CommandSeparator />
-                <CommandItem>Pear</CommandItem>
-                <CommandItem>Blueberry</CommandItem>
+                <CommandItem value='pear' onSelect={() => console.log('pear')}>
+                  Pear
+                </CommandItem>
+                <CommandItem
+                  value='blueberry'
+                  onSelect={() => console.log('blueberry')}
+                >
+                  Blueberry
+                </CommandItem>
+                <CommandItem value='fish' onSelect={() => console.log('fish')}>
+                  Fish
+                </CommandItem>
               </CommandGroup>
-              <CommandItem>Fish</CommandItem>
             </CommandList>
-            <CommandItem className='border-t border-[#71717A14]'>
-              <CommandShortcut className='ml-auto'>⌘K</CommandShortcut>
-            </CommandItem>
           </Command>
         </PopoverContent>
       </Popover>
