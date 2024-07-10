@@ -2,25 +2,25 @@ import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import {
-  Command,
-  CommandInput,
-  CommandList,
-  CommandEmpty,
-  CommandGroup,
-  CommandItem,
-  CommandShortcut,
-  CommandSeparator,
-} from './command';
+  CommandK,
+  CommandKInput,
+  CommandKList,
+  CommandKEmpty,
+  CommandKGroup,
+  CommandKItem,
+  CommandKShortcut,
+  CommandKSeparator,
+} from './command-cmdk';
 import { Popover, PopoverContent, PopoverTrigger } from '../popover';
 const meta = {
-  title: 'Components/Command',
-  component: Command,
+  title: 'Components/CommandK',
+  component: CommandK,
   parameters: {},
 
   tags: ['autodocs'],
 
   argTypes: {},
-} satisfies Meta<typeof Command>;
+} satisfies Meta<typeof CommandK>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -33,47 +33,47 @@ export const Default: Story = {
           <button>Open Command</button>
         </PopoverTrigger>
         <PopoverContent className='w-[600px] p-0'>
-          <Command>
-            <CommandInput placeholder='Search language...' />
-            <CommandEmpty>not found</CommandEmpty>
-            <CommandList>
-              <CommandGroup heading='Fruits'>
-                <CommandItem
+          <CommandK>
+            <CommandKInput placeholder='Search language...' />
+            <CommandKEmpty>not found</CommandKEmpty>
+            <CommandKList>
+              <CommandKGroup heading='Fruits'>
+                <CommandKItem
                   value='apple'
                   onSelect={() => console.log('apple')}
                 >
                   Apple
-                  <CommandShortcut className='ml-auto'>⌘K</CommandShortcut>
-                </CommandItem>
-                <CommandItem
+                  <CommandKShortcut className='ml-auto'>⌘K</CommandKShortcut>
+                </CommandKItem>
+                <CommandKItem
                   value='apple2'
                   onSelect={() => console.log('apple2')}
                 >
                   Apple2
-                  <CommandShortcut className='ml-auto'>⌘K</CommandShortcut>
-                </CommandItem>
-                <CommandItem
+                  <CommandKShortcut className='ml-auto'>⌘K</CommandKShortcut>
+                </CommandKItem>
+                <CommandKItem
                   value='orange'
                   onSelect={() => console.log('orange')}
                 >
                   Orange
-                </CommandItem>
-                <CommandSeparator />
-                <CommandItem value='pear' onSelect={() => console.log('pear')}>
+                </CommandKItem>
+                <CommandKSeparator />
+                <CommandKItem value='pear' onSelect={() => console.log('pear')}>
                   Pear
-                </CommandItem>
-                <CommandItem
+                </CommandKItem>
+                <CommandKItem
                   value='blueberry'
                   onSelect={() => console.log('blueberry')}
                 >
                   Blueberry
-                </CommandItem>
-                <CommandItem value='fish' onSelect={() => console.log('fish')}>
+                </CommandKItem>
+                <CommandKItem value='fish' onSelect={() => console.log('fish')}>
                   Fish
-                </CommandItem>
-              </CommandGroup>
-            </CommandList>
-          </Command>
+                </CommandKItem>
+              </CommandKGroup>
+            </CommandKList>
+          </CommandK>
         </PopoverContent>
       </Popover>
     </div>
