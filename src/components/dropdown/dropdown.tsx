@@ -75,6 +75,7 @@ function Dropdown({
     <DropdownMenuPrimitive.Root
       data-testid='dropdown'
       open={isOpen}
+      modal={false}
       onOpenChange={(open) => !open && setIsOpen(false)}
     >
       <DropdownMenuPrimitive.Trigger onClick={() => setIsOpen(true)}>
