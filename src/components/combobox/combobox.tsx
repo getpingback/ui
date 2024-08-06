@@ -85,12 +85,12 @@ export function Combobox({
       );
 
       if (lastItemRef.current) {
-        observer.observe(lastItemRef.current);
+        observer?.observe(lastItemRef.current);
       }
     }, 0);
 
     return () => {
-      observer.disconnect();
+      observer?.disconnect();
     };
   }, [lastItemRef.current, options, open]);
 
