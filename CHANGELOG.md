@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.187](https://github.com/getpingback/ui/compare/v0.0.186...v0.0.187) (2024-08-23)
+
+
+### Bug Fixes
+
+* **combobox:** remove max-width ([c147ae7](https://github.com/getpingback/ui/commits/c147ae708c373fc3e946d9a268787afcbfcb2546))
+
 ### [0.0.165](https://github.com/getpingback/ui/compare/v0.0.164...v0.0.165) (2024-06-06)
 
 
