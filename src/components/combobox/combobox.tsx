@@ -243,7 +243,7 @@ export function Combobox({
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
-      <div className='flex flex-col items-start gap-1 max-w-[352px] w-full'>
+      <div className='flex flex-col items-start gap-1 w-full'>
         {label ? <label className='text-xs font-semibold text-tertiary-foreground'>{label}</label> : null}
 
         <PopoverTrigger asChild>
@@ -252,7 +252,7 @@ export function Combobox({
             size='combobox'
             role='combobox'
             aria-expanded={open}
-            className='max-w-[352px] w-full justify-between bg-background-accent hover:bg-background-accent'
+            className='w-full justify-between bg-background-accent hover:bg-background-accent'
           >
             {renderButtonContent()}
 
@@ -267,7 +267,7 @@ export function Combobox({
         {helperText ? <span className='text-xs font-normal text-tertiary-foreground mt-1'>{helperText}</span> : null}
       </div>
 
-      <PopoverContent className='max-w-[352px] w-full p-0 bg-background-accent' data-testid='comboxbox-popover-content'>
+      <PopoverContent className='w-full p-0 bg-background-accent' data-testid='comboxbox-popover-content'>
         <Command shouldFilter={shouldFilter} className={className}>
           <div className='w-full p-4 flex items-center justify-center border-b border-divider'>
             <CommandInput

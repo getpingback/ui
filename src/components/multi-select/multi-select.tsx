@@ -56,7 +56,7 @@ function MultiSelect({
 
   return (
     <Popover open={open} onOpenChange={setOpen} {...props}>
-      <div className='flex flex-col items-start gap-1 max-w-[352px] w-full'>
+      <div className='flex flex-col items-start gap-1 w-full'>
         {label ? <label className='text-xs font-semibold text-tertiary-foreground'>{label}</label> : null}
 
         <PopoverTrigger asChild>
@@ -65,7 +65,7 @@ function MultiSelect({
             size='combobox'
             role='combobox'
             aria-expanded={open}
-            className='max-w-[352px] w-full justify-between bg-background-accent hover:bg-background-accent'
+            className='w-full justify-between bg-background-accent hover:bg-background-accent'
             onClick={() => setOpen(!open)}
           >
             {selected.length === 0 ? (
@@ -104,7 +104,7 @@ function MultiSelect({
         {helperText ? <span className='text-xs font-normal text-tertiary-foreground mt-1'>{helperText}</span> : null}
       </div>
 
-      <PopoverContent className='max-w-[352px] w-full p-0 bg-background-accent'>
+      <PopoverContent className='w-full p-0 bg-background-accent'>
         <Command className={className} shouldFilter={shouldFilter}>
           <div className='w-full p-4 flex items-center justify-center border-b border-divider'>
             <CommandInput
