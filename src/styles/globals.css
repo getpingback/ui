@@ -33,6 +33,8 @@
     --bottom_sheet-2: 0px 0px 1px 1px rgba(0, 0, 0, 0.04), 0px 4px 16px -2px rgba(0, 0, 0, 0.08);
     --modals-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.04), 0px -6px 24px -3px rgba(0, 0, 0, 0.08);
 
+    --button-solid-shadow: 0px 0px 0px 3px #9061F940;
+
     --list-hightlight--hover: 0px 0px 0px 3px rgba(14, 159, 110, 0.12);
     --list-actived: #9061f914;
     --list-hover: #71717A0A;
@@ -87,6 +89,7 @@
 
     --bottom_sheet-2: 0px 0px 1px 1px #0000007a, 0px -4px 16px -2px #0000007a;
     --modals-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.04), 0px -6px 24px -3px rgba(0, 0, 0, 0.08);
+    --button-solid-shadow: 0px 0px 0px 3px #9061F940;
 
     --list-hightlight--hover: 0px 0px 0px 3px rgba(14, 159, 110, 0.12);
     --list-actived: #ac94fa14;
