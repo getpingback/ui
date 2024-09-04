@@ -54,6 +54,11 @@ function MultiSelect({
     onChange(selected.filter((i) => i !== item));
   };
 
+  const getOptionLabel = (value: string) => {
+    const option = options.find(opt => opt.value === value);
+    return option ? option.label : value;
+  };
+
   return (
     <Popover open={open} onOpenChange={setOpen} {...props}>
       <div className='flex flex-col items-start gap-1 w-full'>
@@ -75,7 +80,7 @@ function MultiSelect({
             <div className='flex gap-1 flex-wrap'>
               {selected.map((item) => (
                 <Badge variant='ghost' key={item} className='mr-1' onClick={() => handleUnselect(item)}>
-                  {item}
+                  {getOptionLabel(item)}
                   <button
                     className='ml-1 ring-offset-background rounded-full outline-none hover:[box-shadow:0px_0px_0px_3px_rgba(240,_82,_82,_0.12)] focus:[box-shadow:0px_0px_0px_3px_rgba(240,_82,_82,_0.12)]'
                     onKeyDown={(e) => {
