@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.189](https://github.com/getpingback/ui/compare/v0.0.188...v0.0.189) (2024-09-04)
+
+
+### Bug Fixes
+
+* **multi-select:** show label instead of value when selected ([ca5fa61](https://github.com/getpingback/ui/commits/ca5fa61732b62cac2b9e217793bf2dec91519c46))
+
 ### [0.0.187](https://github.com/getpingback/ui/compare/v0.0.186...v0.0.187) (2024-08-23)
 
 
