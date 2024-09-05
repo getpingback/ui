@@ -48,6 +48,7 @@ function MultiSelect({
 }: MultiSelectProps) {
   const [open, setOpen] = React.useState(false);
   const lastItemRef = React.useRef<HTMLDivElement>(null);
+  const [selectedOptions, setSelectedOptions] = React.useState<OptionType[]>([]);
 
   React.useEffect(() => {
     if (!open) {
@@ -85,10 +86,11 @@ function MultiSelect({
 
   const handleUnselect = (item: string) => {
     onChange(selected.filter((i) => i !== item));
+    setSelectedOptions(selectedOptions.filter((i) => i.value !== item));
   };
 
   const getOptionLabel = (value: string) => {
-    const option = options.find((opt) => opt.value === value);
+    const option = selectedOptions.find((opt) => opt.value === value);
     return option ? option.label : value;
   };
 
@@ -197,6 +199,7 @@ function MultiSelect({
                           ? selected.filter((item) => item !== option.value)
                           : [...selected, option.value]
                       );
+                      setSelectedOptions([...selectedOptions, option]);
                       setOpen(true);
                     }}
                   >
