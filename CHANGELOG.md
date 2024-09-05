@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.195](https://github.com/getpingback/ui/compare/v0.0.194...v0.0.195) (2024-09-05)
+
+
+### Bug Fixes
+
+* **multi-select:** get label on change ([d9f8af5](https://github.com/getpingback/ui/commits/d9f8af577c361f02ce20a2eaddc8ee7677f0203f))
+
 ### [0.0.193](https://github.com/getpingback/ui/compare/v0.0.192...v0.0.193) (2024-09-05)
 
 
