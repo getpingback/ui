@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.191](https://github.com/getpingback/ui/compare/v0.0.190...v0.0.191) (2024-09-05)
+
+
+### Features
+
+* **multi-select:** add onEndReached ([60a25f0](https://github.com/getpingback/ui/commits/60a25f0b784b1bb4cc1d72855ac02c968d4849ef))
+
 ### [0.0.189](https://github.com/getpingback/ui/compare/v0.0.188...v0.0.189) (2024-09-04)
 
 
