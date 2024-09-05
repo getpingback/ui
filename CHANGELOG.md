@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.193](https://github.com/getpingback/ui/compare/v0.0.192...v0.0.193) (2024-09-05)
+
+
+### Bug Fixes
+
+* **combobox/multi-select:** loop on onChangeSearchValue ([7082e1b](https://github.com/getpingback/ui/commits/7082e1be61215b8ba7062a5d4448a608c8403f79))
+
 ### [0.0.191](https://github.com/getpingback/ui/compare/v0.0.190...v0.0.191) (2024-09-05)
 
 
