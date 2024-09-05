@@ -26,6 +26,7 @@ export interface MultiSelectProps {
   onChangeSearchValue?: (value: string) => void;
   loadingSearch?: boolean;
   className?: string;
+  onEndReached?: () => void;
 }
 
 function MultiSelect({
@@ -42,9 +43,43 @@ function MultiSelect({
   searchValue,
   onChangeSearchValue,
   className,
+  onEndReached,
   ...props
 }: MultiSelectProps) {
   const [open, setOpen] = React.useState(false);
+  const lastItemRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    if (!open) {
+      if (onChangeSearchValue) {
+        onChangeSearchValue("");
+      }
+    }
+  }, [open, onChangeSearchValue]);
+
+  React.useEffect(() => {
+    if (!open) return;
+
+    let observer: IntersectionObserver;
+    setTimeout(() => {
+      observer = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting) {
+            onEndReached?.();
+          }
+        },
+        { threshold: 1 }
+      );
+
+      if (lastItemRef.current) {
+        observer?.observe(lastItemRef.current);
+      }
+    }, 0);
+
+    return () => {
+      observer?.disconnect();
+    };
+  }, [lastItemRef.current, options, open, onEndReached]);
 
   const handleSearchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChangeSearchValue?.(e.target.value);
@@ -55,7 +90,7 @@ function MultiSelect({
   };
 
   const getOptionLabel = (value: string) => {
-    const option = options.find(opt => opt.value === value);
+    const option = options.find((opt) => opt.value === value);
     return option ? option.label : value;
   };
 
@@ -79,7 +114,15 @@ function MultiSelect({
 
             <div className='flex gap-1 flex-wrap'>
               {selected.map((item) => (
-                <Badge variant='ghost' key={item} className='mr-1' onClick={() => handleUnselect(item)}>
+                <Badge
+                  variant='ghost'
+                  key={item}
+                  className='mr-1'
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleUnselect(item);
+                  }}
+                >
                   {getOptionLabel(item)}
                   <button
                     className='ml-1 ring-offset-background rounded-full outline-none hover:[box-shadow:0px_0px_0px_3px_rgba(240,_82,_82,_0.12)] focus:[box-shadow:0px_0px_0px_3px_rgba(240,_82,_82,_0.12)]'
@@ -90,7 +133,10 @@ function MultiSelect({
                       e.preventDefault();
                       e.stopPropagation();
                     }}
-                    onClick={() => handleUnselect(item)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleUnselect(item);
+                    }}
                   >
                     <TimesIcon className='h-4 w-4' />
                   </button>
@@ -168,6 +214,16 @@ function MultiSelect({
                     </div>
                   </CommandItem>
                 ))}
+                <div
+                  ref={lastItemRef}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    minHeight: 4,
+                    width: "100%",
+                  }}
+                />
               </CommandGroup>
             </>
           )}

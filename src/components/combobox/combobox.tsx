@@ -71,6 +71,14 @@ export function Combobox({
   }, [defaultValue]);
 
   React.useEffect(() => {
+    if (!open) {
+      if (onChangeSearchValue) {
+        onChangeSearchValue("");
+      }
+    }
+  }, [open, onChangeSearchValue]);
+
+  React.useEffect(() => {
     if (!open) return;
 
     let observer: IntersectionObserver;
