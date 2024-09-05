@@ -51,11 +51,9 @@ function MultiSelect({
 
   React.useEffect(() => {
     if (!open) {
-      if (onChangeSearchValue) {
-        onChangeSearchValue("");
-      }
+      if (onChangeSearchValue) onChangeSearchValue("");
     }
-  }, [open, onChangeSearchValue]);
+  }, [open]);
 
   React.useEffect(() => {
     if (!open) return;
