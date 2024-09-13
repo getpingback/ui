@@ -114,12 +114,16 @@ export function TriggerRangeDate({ rangeDate, locale = 'en' }: TriggerProps) {
   };
 
   const renderLabel = (rangeDate: DateRangeApplying) => {
-    const fromDate = format(rangeDate.from, "dd 'de' MMM, yyyy", {
-      locale: LOCALE[locale],
-    });
-    const toDate = format(rangeDate.to, "dd 'de' MMM, yyyy", {
-      locale: LOCALE[locale],
-    });
+    const fromDate =
+      rangeDate?.from &&
+      format(rangeDate?.from, "dd 'de' MMM, yyyy", {
+        locale: LOCALE[locale],
+      });
+    const toDate =
+      rangeDate?.to &&
+      format(rangeDate?.to, "dd 'de' MMM, yyyy", {
+        locale: LOCALE[locale],
+      });
     return rangeDate && rangeDate.from ? (
       <>
         {rangeDate.type ? (
@@ -150,7 +154,7 @@ export function TriggerRangeDate({ rangeDate, locale = 'en' }: TriggerProps) {
       className='min-w-[200px] w-fit flex items-center justify-start text-left text-sm font-semibold'
     >
       <CalendarIcon className='w-4 h-4 mr-1 opacity-85' color='#71717A' />
-      {renderLabel(rangeDate)}
+      {rangeDate && renderLabel(rangeDate)}
     </Button>
   );
 }
