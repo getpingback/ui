@@ -1,17 +1,21 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import {
+  format,
+  subDays,
+  startOfWeek,
+  startOfMonth,
+  isValid,
+  parse,
+} from 'date-fns';
 
-import { format, subDays, startOfWeek, startOfMonth, isValid } from 'date-fns';
 import { DayPicker, DateRange } from 'react-day-picker';
 import { cn } from '@/lib/utils';
 import { cva } from 'class-variance-authority';
 import { Button } from '@/components/button';
-import {
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  ArrowRightIcon,
-} from '@stash-ui/regular-icons';
+import { ChevronLeftIcon, ChevronRightIcon } from '@stash-ui/regular-icons';
+import { ArrowRightIcon, CalendarIcon } from '@stash-ui/solid-icons';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/popover';
 import {
   DEFAULT_PERIODS,
@@ -19,7 +23,10 @@ import {
   BUTTONS_ACTIONS_LABEL,
   RANGE_PICKER_STYLES,
   LOCALE,
+  LOCALE_DATE_FORMAT,
+  DATA_PERIODS_LABEL,
 } from './constants';
+import useClickOutside from '@/hooks/useClickOutside';
 
 const DATE_NOW = new Date();
 
@@ -61,8 +68,6 @@ export interface RangerPickerProps {
   type: 'range' | 'single';
   numberOfMonths?: number;
   trigger?: React.ReactNode;
-  isOpen: boolean;
-  onClose: () => void;
   initialSingleDate?: Date;
   hideInputs?: boolean;
   hideMenu?: boolean;
@@ -88,7 +93,67 @@ interface FooterProps {
   hideInputs: boolean;
 }
 
+interface TriggerProps {
+  rangeDate?: DateRangeApplying;
+  locale: 'en' | 'pt-br' | 'es';
+}
+
 export type CalendarProps = React.ComponentProps<typeof DayPicker>;
+
+export function TriggerRangeDate({ rangeDate, locale = 'en' }: TriggerProps) {
+  const renderDate = (date: Date) => {
+    const todayDate = format(new Date(), "dd 'de' MMM, yyyy", {
+      locale: LOCALE[locale],
+    });
+    const formattedDate = format(date, "dd 'de' MMM, yyyy", {
+      locale: LOCALE[locale],
+    });
+
+    if (todayDate === formattedDate) return DATA_PERIODS_LABEL.today[locale];
+    return formattedDate;
+  };
+
+  const renderLabel = (rangeDate: DateRangeApplying) => {
+    const fromDate = format(rangeDate.from, "dd 'de' MMM, yyyy", {
+      locale: LOCALE[locale],
+    });
+    const toDate = format(rangeDate.to, "dd 'de' MMM, yyyy", {
+      locale: LOCALE[locale],
+    });
+    return rangeDate && rangeDate.from ? (
+      <>
+        {rangeDate.type ? (
+          <span className='text-[#71717A] opacity-85 mr-1'>
+            {DATA_PERIODS_LABEL[rangeDate.type][locale]}:
+          </span>
+        ) : null}
+
+        <span className='flex items-center text-[#52525B] opacity-85 mr-1'>
+          {fromDate}
+          {rangeDate.to && fromDate !== toDate ? (
+            <>
+              <ArrowRightIcon className='w-4 h-4 mx-1' />
+              {renderDate(rangeDate.to)}
+            </>
+          ) : null}
+        </span>
+      </>
+    ) : (
+      'Select date'
+    );
+  };
+
+  return (
+    <Button
+      id='date'
+      variant='outline'
+      className='min-w-[200px] w-fit flex items-center justify-start text-left text-sm font-semibold'
+    >
+      <CalendarIcon className='w-4 h-4 mr-1 opacity-85' color='#71717A' />
+      {renderLabel(rangeDate)}
+    </Button>
+  );
+}
 
 const RangePickerMenu = ({
   locale = 'en',
@@ -173,55 +238,68 @@ const CalendarFooter = ({
   onDateChange,
   selectedDate,
   locale,
-  minDate,
   onCancel,
   onApply,
   hideInputs,
 }: FooterProps) => {
-  const [inputFocus, setInputFocus] = useState('');
+  const [startInputValue, setStartInputValue] = useState('');
+  const [endInputValue, setEndInputValue] = useState('');
 
   const initialInputRef = useRef<HTMLInputElement>(null);
   const endInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Backspace') {
-        if (inputFocus === 'initial' && initialInputRef.current) {
-          onDateChange({ from: undefined, to: selectedDate?.to });
-          initialInputRef.current.value = '';
-        } else if (inputFocus === 'end' && endInputRef.current) {
-          onDateChange({ from: selectedDate.from, to: undefined });
-          endInputRef.current.value = '';
-        }
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [inputFocus]);
+    if (selectedDate?.from) {
+      setStartInputValue(
+        format(selectedDate.from, LOCALE_DATE_FORMAT[locale], {
+          locale: LOCALE[locale],
+        })
+      );
+    }
+    if (selectedDate?.to) {
+      setEndInputValue(
+        format(selectedDate.to, LOCALE_DATE_FORMAT[locale], {
+          locale: LOCALE[locale],
+        })
+      );
+    }
+  }, [selectedDate, locale]);
 
   const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target;
-    const formattedDate = value ? new Date(value) : undefined;
 
     if (id === 'initial-date') {
-      onDateChange({ from: formattedDate, to: selectedDate?.to });
+      setStartInputValue(value);
     } else {
-      onDateChange({ from: selectedDate?.from, to: formattedDate });
+      setEndInputValue(value);
     }
   };
 
-  const renderInputValue = (value: Date) => {
-    if (isValid(value)) {
-      const formattedValue = format(value, 'yyyy-MM-dd');
-      if (value >= new Date(minDate)) {
-        return formattedValue;
-      } else return undefined;
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    const { id, value } = e.target;
+    const dateFormat = LOCALE_DATE_FORMAT[locale];
+    const parsedDate = parse(value, dateFormat, new Date(), {
+      locale: LOCALE[locale],
+    });
+
+    if (isValid(parsedDate)) {
+      if (id === 'initial-date') {
+        onDateChange({ from: parsedDate, to: selectedDate?.to });
+        setStartInputValue(
+          format(parsedDate, dateFormat, { locale: LOCALE[locale] })
+        );
+      } else {
+        onDateChange({ from: selectedDate?.from, to: parsedDate });
+        setEndInputValue(
+          format(parsedDate, dateFormat, { locale: LOCALE[locale] })
+        );
+      }
     } else {
-      return undefined;
+      if (id === 'initial-date') {
+        setStartInputValue('');
+      } else {
+        setEndInputValue('');
+      }
     }
   };
 
@@ -231,23 +309,25 @@ const CalendarFooter = ({
         {!hideInputs && (
           <>
             <input
-              onFocus={() => setInputFocus('initial')}
-              type='date'
+              type='text'
               id='initial-date'
               data-testid='initial-date'
               ref={initialInputRef}
-              value={selectedDate?.from && renderInputValue(selectedDate?.from)}
+              placeholder={LOCALE_DATE_FORMAT[locale]}
+              value={startInputValue}
               onChange={handleDateChange}
+              onBlur={handleBlur}
               className='flex h-[32px] w-full max-w-[102px] border-divider border rounded-lg bg-transparent py-2 px-2 text-sm outline-none text-tertiary-foreground placeholder:opacity-85 disabled:cursor-not-allowed disabled:opacity-50 hover:border-[#A1A1AA] focus:border-[#9061F9] focus:[box-shadow:0px_0px_0px_3px_rgba(144,_97,_249,_0.12)] transition-all duration-200 ease-in-out'
             />
             <ArrowRightIcon opacity={0.45} />
             <input
-              onFocus={() => setInputFocus('end')}
-              type='date'
+              type='text'
               id='end-date'
               data-testid='end-date'
+              onBlur={handleBlur}
               ref={endInputRef}
-              value={selectedDate?.to && renderInputValue(selectedDate?.to)}
+              value={endInputValue}
+              placeholder={LOCALE_DATE_FORMAT[locale]}
               onChange={handleDateChange}
               className='flex h-[32px] w-full max-w-[102px] border-divider border rounded-lg bg-transparent py-2 px-2 text-sm outline-none text-tertiary-foreground placeholder:opacity-85 disabled:cursor-not-allowed disabled:opacity-50 hover:border-[#A1A1AA] focus:border-[#9061F9] focus:[box-shadow:0px_0px_0px_3px_rgba(144,_97,_249,_0.12)] transition-all duration-200 ease-in-out'
             />
@@ -305,22 +385,34 @@ export function RangePicker({
   type = 'range',
   numberOfMonths = 2,
   trigger,
-  isOpen,
-  onClose,
   initialSingleDate,
   hideInputs = false,
   hideMenu = false,
   ...props
 }: RangerPickerProps) {
+  const [isOpen, setIsOpen] = useState(false);
   const [rangeType, setRangeType] = useState<PeriodKeys>('today');
   const [isCustom, setIsCustom] = useState(false);
   const [selectedDate, setSelectedDate] = useState<DateRange>({
     from: new Date(),
     to: new Date(),
   });
+
+  const [dateApplied, setDateApplied] = useState<DateRangeApplying>({
+    from: selectedDate.from,
+    to: selectedDate.to,
+    type: 'today',
+  });
+
   const [singleDate, setSingleDate] = useState<Date>(
     initialSingleDate || new Date()
   );
+
+  const rangeRef = useRef<HTMLDivElement>(null);
+
+  useClickOutside(rangeRef, () => {
+    setIsOpen(false);
+  });
 
   const handleRangeChange = (date: DateRange | undefined) => {
     setIsCustom(true);
@@ -330,20 +422,30 @@ export function RangePicker({
   const handleSingleChange = (date: Date) => {
     date && onApply(date);
     setSingleDate(date);
-    onClose();
   };
 
   const handleAppy = () => {
     const { from, to } = selectedDate;
     onApply({ from, to, type: !hideMenu ? rangeType : null });
-    onClose();
+    setDateApplied({ from, to, type: !hideMenu ? rangeType : null });
+    setIsOpen(false);
   };
 
   return (
     <div className={cn('grid gap-2 ')} data-testid='ranger'>
       <Popover open={isOpen}>
-        <PopoverTrigger data-testid='ranger-trigger'>{trigger}</PopoverTrigger>
+        <PopoverTrigger
+          data-testid='ranger-trigger'
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {trigger ? (
+            trigger
+          ) : (
+            <TriggerRangeDate locale={locale} rangeDate={dateApplied} />
+          )}
+        </PopoverTrigger>
         <PopoverContent
+          ref={rangeRef}
           className='w-auto p-0 flex bg-[#FFFFFF]'
           align='start'
           data-testid='ranger-content'
@@ -381,7 +483,7 @@ export function RangePicker({
                 selectedDate={selectedDate}
                 minDate={createdAt}
                 onApply={() => handleAppy()}
-                onCancel={onClose}
+                onCancel={() => setIsOpen(false)}
                 hideInputs={hideInputs}
               />
             )}

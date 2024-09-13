@@ -8,6 +8,12 @@ export const LOCALE = {
   'pt-br': ptBR,
 };
 
+export const LOCALE_DATE_FORMAT = {
+  en: 'yyyy/MM/dd',
+  'pt-br': 'dd/MM/yyyy',
+  es: 'dd/MM/yyyy',
+};
+
 export const DEFAULT_PERIODS = {
   TODAY: 'today',
   YESTERDAY: 'yesterday',
