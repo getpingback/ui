@@ -181,12 +181,6 @@ const RangePickerMenu = ({
       from: values[0],
       to: values[1],
     });
-
-    if (values[1])
-      onDateChange({
-        from: values[0],
-        to: values[1],
-      });
   };
 
   const setRanges = (range: PeriodKeys) => {
@@ -471,9 +465,7 @@ export function RangePicker({
                 initialFocus
                 mode={type}
                 selected={type === 'range' ? selectedDate : singleDate}
-                onSelect={
-                  type === 'range' ? handleRangeChange : handleSingleChange
-                }
+                onSelect={(date:any)=> type === 'range' ? handleRangeChange(date) : handleSingleChange(date)}
                 locale={LOCALE[locale]}
                 numberOfMonths={numberOfMonths}
                 {...props}
