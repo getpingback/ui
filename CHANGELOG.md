@@ -2,6 +2,54 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.200](https://github.com/getpingback/ui/compare/v0.0.199...v0.0.200) (2024-09-20)
+
+
+### Bug Fixes
+
+* merge ([28d6e72](https://github.com/getpingback/ui/commits/28d6e723a40035566c190d3d7b6b8fe75a1ccaa5))
+
+### [0.0.195](https://github.com/getpingback/ui/compare/v0.0.194...v0.0.195) (2024-09-05)
+
+
+### Bug Fixes
+
+* **multi-select:** get label on change ([d9f8af5](https://github.com/getpingback/ui/commits/d9f8af577c361f02ce20a2eaddc8ee7677f0203f))
+
+### [0.0.194](https://github.com/getpingback/ui/compare/v0.0.193...v0.0.194) (2024-09-05)
+
+### [0.0.193](https://github.com/getpingback/ui/compare/v0.0.192...v0.0.193) (2024-09-05)
+
+
+### Bug Fixes
+
+* **combobox/multi-select:** loop on onChangeSearchValue ([7082e1b](https://github.com/getpingback/ui/commits/7082e1be61215b8ba7062a5d4448a608c8403f79))
+
+### [0.0.192](https://github.com/getpingback/ui/compare/v0.0.190...v0.0.192) (2024-09-05)
+
+
+### Features
+
+* **multi-select:** add onEndReached ([60a25f0](https://github.com/getpingback/ui/commits/60a25f0b784b1bb4cc1d72855ac02c968d4849ef))
+
+### [0.0.190](https://github.com/getpingback/ui/compare/v0.0.189...v0.0.190) (2024-09-04)
+
+### [0.0.189](https://github.com/getpingback/ui/compare/v0.0.188...v0.0.189) (2024-09-04)
+
+
+### Bug Fixes
+
+* **multi-select:** show label instead of value when selected ([ca5fa61](https://github.com/getpingback/ui/commits/ca5fa61732b62cac2b9e217793bf2dec91519c46))
+
+### [0.0.188](https://github.com/getpingback/ui/compare/v0.0.187...v0.0.188) (2024-08-23)
+
+### [0.0.187](https://github.com/getpingback/ui/compare/v0.0.186...v0.0.187) (2024-08-23)
+
+
+### Bug Fixes
+
+* **combobox:** remove max-width ([c147ae7](https://github.com/getpingback/ui/commits/c147ae708c373fc3e946d9a268787afcbfcb2546))
+
 ### [0.0.199](https://github.com/getpingback/ui/compare/v0.0.198...v0.0.199) (2024-09-20)
 
 ### [0.0.198](https://github.com/getpingback/ui/compare/v0.0.196...v0.0.198) (2024-09-20)
