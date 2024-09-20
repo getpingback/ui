@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.191](https://github.com/getpingback/ui/compare/v0.0.185...v0.0.191) (2024-09-20)
+
+
+### Features
+
+* range picker ([cc3e15b](https://github.com/getpingback/ui/commits/cc3e15b61a4f68bb5813ea191df5cc6fb2a51269))
+
+
+### Bug Fixes
+
+* **combobox:** prevent error when disconnect does not exist ([2547b22](https://github.com/getpingback/ui/commits/2547b22c8f19adb246812355f2793e3f81f871c5))
+* daypicker types ([fcc74d9](https://github.com/getpingback/ui/commits/fcc74d9ee59bdc18c9cb6752a350db7bf46f5f02))
+* daypicker types ([008906b](https://github.com/getpingback/ui/commits/008906bf8b319e8893d40591709bed3c05b8765c))
+* daypicker types ([39fc0b0](https://github.com/getpingback/ui/commits/39fc0b042b0726f3d635b5cab50290d77f16bce1))
+* export componente ([bb30bc9](https://github.com/getpingback/ui/commits/bb30bc915d9cfd451296b40beab2cef7cbd0b808))
+* fix ([b3c9886](https://github.com/getpingback/ui/commits/b3c988614111e4eb07612389f05e8c70dbe2e335))
+* onSelect function on rangePicker ([7569327](https://github.com/getpingback/ui/commits/7569327d5e6aac3e38c53cec127cf15d1bed688b))
+* tests  e refactor rangefooter ([b6b5582](https://github.com/getpingback/ui/commits/b6b5582db41473f0e19a5c9adbf5c60020f38507))
+
 ### [0.0.165](https://github.com/getpingback/ui/compare/v0.0.164...v0.0.165) (2024-06-06)
 
 
