@@ -26,6 +26,7 @@ export interface MultiSelectProps {
   onChangeSearchValue?: (value: string) => void;
   loadingSearch?: boolean;
   className?: string;
+  onEndReached?: () => void;
 }
 
 function MultiSelect({
@@ -42,9 +43,42 @@ function MultiSelect({
   searchValue,
   onChangeSearchValue,
   className,
+  onEndReached,
   ...props
 }: MultiSelectProps) {
   const [open, setOpen] = React.useState(false);
+  const lastItemRef = React.useRef<HTMLDivElement>(null);
+  const [selectedOptions, setSelectedOptions] = React.useState<OptionType[]>([]);
+
+  React.useEffect(() => {
+    if (!open) {
+      if (onChangeSearchValue) onChangeSearchValue("");
+    }
+  }, [open]);
+
+  React.useEffect(() => {
+    if (!open) return;
+
+    let observer: IntersectionObserver;
+    setTimeout(() => {
+      observer = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting) {
+            onEndReached?.();
+          }
+        },
+        { threshold: 1 }
+      );
+
+      if (lastItemRef.current) {
+        observer?.observe(lastItemRef.current);
+      }
+    }, 0);
+
+    return () => {
+      observer?.disconnect();
+    };
+  }, [lastItemRef.current, options, open, onEndReached]);
 
   const handleSearchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChangeSearchValue?.(e.target.value);
@@ -52,11 +86,17 @@ function MultiSelect({
 
   const handleUnselect = (item: string) => {
     onChange(selected.filter((i) => i !== item));
+    setSelectedOptions(selectedOptions.filter((i) => i.value !== item));
+  };
+
+  const getOptionLabel = (value: string) => {
+    const option = selectedOptions.find((opt) => opt.value === value);
+    return option ? option.label : value;
   };
 
   return (
     <Popover open={open} onOpenChange={setOpen} {...props}>
-      <div className='flex flex-col items-start gap-1 max-w-[352px] w-full'>
+      <div className='flex flex-col items-start gap-1 w-full'>
         {label ? <label className='text-xs font-semibold text-tertiary-foreground'>{label}</label> : null}
 
         <PopoverTrigger asChild>
@@ -65,7 +105,7 @@ function MultiSelect({
             size='combobox'
             role='combobox'
             aria-expanded={open}
-            className='max-w-[352px] w-full justify-between bg-background-accent hover:bg-background-accent'
+            className='w-full justify-between bg-background-accent hover:bg-background-accent'
             onClick={() => setOpen(!open)}
           >
             {selected.length === 0 ? (
@@ -74,8 +114,16 @@ function MultiSelect({
 
             <div className='flex gap-1 flex-wrap'>
               {selected.map((item) => (
-                <Badge variant='ghost' key={item} className='mr-1' onClick={() => handleUnselect(item)}>
-                  {item}
+                <Badge
+                  variant='ghost'
+                  key={item}
+                  className='mr-1'
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleUnselect(item);
+                  }}
+                >
+                  {getOptionLabel(item)}
                   <button
                     className='ml-1 ring-offset-background rounded-full outline-none hover:[box-shadow:0px_0px_0px_3px_rgba(240,_82,_82,_0.12)] focus:[box-shadow:0px_0px_0px_3px_rgba(240,_82,_82,_0.12)]'
                     onKeyDown={(e) => {
@@ -85,7 +133,10 @@ function MultiSelect({
                       e.preventDefault();
                       e.stopPropagation();
                     }}
-                    onClick={() => handleUnselect(item)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleUnselect(item);
+                    }}
                   >
                     <TimesIcon className='h-4 w-4' />
                   </button>
@@ -104,7 +155,7 @@ function MultiSelect({
         {helperText ? <span className='text-xs font-normal text-tertiary-foreground mt-1'>{helperText}</span> : null}
       </div>
 
-      <PopoverContent className='max-w-[352px] w-full p-0 bg-background-accent'>
+      <PopoverContent className='w-full p-0 bg-background-accent'>
         <Command className={className} shouldFilter={shouldFilter}>
           <div className='w-full p-4 flex items-center justify-center border-b border-divider'>
             <CommandInput
@@ -148,6 +199,7 @@ function MultiSelect({
                           ? selected.filter((item) => item !== option.value)
                           : [...selected, option.value]
                       );
+                      setSelectedOptions([...selectedOptions, option]);
                       setOpen(true);
                     }}
                   >
@@ -163,6 +215,16 @@ function MultiSelect({
                     </div>
                   </CommandItem>
                 ))}
+                <div
+                  ref={lastItemRef}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    minHeight: 4,
+                    width: "100%",
+                  }}
+                />
               </CommandGroup>
             </>
           )}
