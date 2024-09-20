@@ -62,7 +62,6 @@ interface DateRangeApplying {
 
 export interface RangerPickerProps {
   locale?: 'en' | 'pt-br' | 'es';
-  className?: string;
   onApply: (data: DateRangeApplying | Date) => void;
   createdAt: string;
   type: 'range' | 'single';
@@ -97,8 +96,6 @@ interface TriggerProps {
   rangeDate?: DateRangeApplying;
   locale: 'en' | 'pt-br' | 'es';
 }
-
-export type CalendarProps = React.ComponentProps<typeof DayPicker>;
 
 export function TriggerRangeDate({ rangeDate, locale = 'en' }: TriggerProps) {
   const renderDate = (date: Date) => {
@@ -354,28 +351,6 @@ const CalendarFooter = ({
   );
 };
 
-export function RangeCalendar({
-  className,
-  classNames,
-  showOutsideDays = true,
-  numberOfMonths,
-  ...props
-}: CalendarProps) {
-  return (
-    <DayPicker
-      className={cn('p-3', className)}
-      classNames={RANGE_PICKER_STYLES}
-      showOutsideDays={showOutsideDays}
-      numberOfMonths={numberOfMonths}
-      components={{
-        IconLeft: () => <ChevronLeftIcon className='h-6 w-6' />,
-        IconRight: () => <ChevronRightIcon className='h-6 w-6' />,
-      }}
-      {...props}
-    />
-  );
-}
-
 export function RangePicker({
   locale = 'en',
   createdAt,
@@ -386,8 +361,18 @@ export function RangePicker({
   initialSingleDate,
   hideInputs = false,
   hideMenu = false,
-  ...props
 }: RangerPickerProps) {
+  const commonProps = {
+    className: 'p-3',
+    classNames: RANGE_PICKER_STYLES,
+    showOutsideDays: true,
+    numberOfMonths,
+    components: {
+      IconLeft: () => <ChevronLeftIcon className='h-6 w-6' />,
+      IconRight: () => <ChevronRightIcon className='h-6 w-6' />,
+    },
+  };
+
   const [isOpen, setIsOpen] = useState(false);
   const [rangeType, setRangeType] = useState<PeriodKeys>('today');
   const [isCustom, setIsCustom] = useState(false);
@@ -417,9 +402,11 @@ export function RangePicker({
     date && setSelectedDate(date);
   };
 
-  const handleSingleChange = (date: Date) => {
-    date && onApply(date);
-    setSingleDate(date);
+  const handleSingleChange = (date: Date | undefined) => {
+    if (date) {
+      onApply(date);
+      setSingleDate(date);
+    }
   };
 
   const handleAppy = () => {
@@ -461,15 +448,21 @@ export function RangePicker({
 
           <div className='flex flex-col'>
             <div className='flex'>
-              <RangeCalendar
-                initialFocus
-                mode={type}
-                selected={type === 'range' ? selectedDate : singleDate}
-                onSelect={(date:any)=> type === 'range' ? handleRangeChange(date) : handleSingleChange(date)}
-                locale={LOCALE[locale]}
-                numberOfMonths={numberOfMonths}
-                {...props}
-              />
+              {type === 'range' ? (
+                <DayPicker
+                  {...commonProps}
+                  mode='range'
+                  selected={selectedDate}
+                  onSelect={handleRangeChange}
+                />
+              ) : (
+                <DayPicker
+                  {...commonProps}
+                  mode='single'
+                  selected={singleDate}
+                  onSelect={(date) => handleSingleChange(date)}
+                />
+              )}
             </div>
 
             {type === 'range' && (
