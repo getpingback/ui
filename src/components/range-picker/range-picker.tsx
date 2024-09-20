@@ -422,6 +422,7 @@ export function RangePicker({
         <PopoverTrigger
           data-testid='ranger-trigger'
           onClick={() => setIsOpen(!isOpen)}
+          type='submit'
         >
           {trigger ? (
             trigger
