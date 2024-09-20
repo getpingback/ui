@@ -145,14 +145,13 @@ export function TriggerRangeDate({ rangeDate, locale = 'en' }: TriggerProps) {
   };
 
   return (
-    <Button
+    <div
       id='date'
-      variant='outline'
-      className='min-w-[200px] w-fit flex items-center justify-start text-left text-sm font-semibold'
+      className='min-w-[200px] border border-solid border-[#D4D4D8] py-2 px-3  rounded-lg w-fit flex items-center justify-start text-left text-sm font-semibold'
     >
       <CalendarIcon className='w-4 h-4 mr-1 opacity-85' color='#71717A' />
       {rangeDate && renderLabel(rangeDate)}
-    </Button>
+    </div>
   );
 }
 
