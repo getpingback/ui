@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Button } from '../button';
-import { CalendarIcon, ArrowRightIcon } from '@stash-ui/regular-icons';
 
-import { RangePicker, TriggerRangeDate } from './range-picker';
+import { RangePicker } from './range-picker';
 
 const meta = {
   title: 'Components/RangePicker',
@@ -22,6 +20,7 @@ export const Default: Story = () => {
   return (
     <div className='w-full flex justify-center'>
       <RangePicker
+        type='range'
         onApply={(date) => console.log(date)}
         createdAt='Thu Aug 22 2022 15:21:32 GMT-0300 (Brasilia Standard Time)'
       />
