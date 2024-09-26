@@ -161,7 +161,7 @@ export function TriggerRangeDate({
         </span>
       </>
     ) : (
-      'Select date'
+      DATA_PERIODS_LABEL['select-date'][locale]
     );
   };
 

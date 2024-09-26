@@ -106,6 +106,11 @@ export const DATA_PERIODS_LABEL = {
     en: 'Custom',
     'pt-br': 'Personalizado',
   },
+  'select-date': {
+    es: 'Seleccionar fecha',
+    en: 'Select date',
+    'pt-br': 'Selecionar data',
+  },
 };
 
 export const BUTTONS_ACTIONS_LABEL = {
