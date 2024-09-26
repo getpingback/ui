@@ -123,46 +123,47 @@ export function TriggerRangeDate({
   };
 
   const renderLabel = (rangeDate: DateRangeApplying | Date) => {
-    const fromDate =
-      rangeDate?.from &&
-      format(rangeDate?.from, "dd 'de' MMM, yyyy", {
-        locale: LOCALE[locale],
-      });
-    const toDate =
-      rangeDate?.to &&
-      format(rangeDate?.to, "dd 'de' MMM, yyyy", {
-        locale: LOCALE[locale],
-      });
+    if (type === 'range' && 'from' in rangeDate && 'to' in rangeDate) {
+      const fromDate = rangeDate?.from
+        ? format(rangeDate.from, "dd 'de' MMM, yyyy", {
+            locale: LOCALE[locale],
+          })
+        : null;
+      const toDate = rangeDate?.to
+        ? format(rangeDate.to, "dd 'de' MMM, yyyy", {
+            locale: LOCALE[locale],
+          })
+        : null;
 
-    return rangeDate ? (
-      <>
-        {rangeDate.type && !hideMenu && type === 'range' ? (
-          <span className='text-[#71717A] opacity-85 mr-1'>
-            {DATA_PERIODS_LABEL[rangeDate.type][locale]}:
+      return (
+        <>
+          {rangeDate.type && !hideMenu ? (
+            <span className='text-[#71717A] opacity-85 mr-1'>
+              {DATA_PERIODS_LABEL[rangeDate.type][locale]}:
+            </span>
+          ) : null}
+          <span className='flex items-center text-[#52525B] opacity-85 mr-1'>
+            {fromDate}
+            {rangeDate.to && fromDate !== toDate ? (
+              <>
+                <ArrowRightIcon className='w-4 h-4 mx-1' />
+                {renderDate(rangeDate.to)}
+              </>
+            ) : null}
           </span>
-        ) : null}
-
+        </>
+      );
+    } else if (rangeDate instanceof Date) {
+      return (
         <span className='flex items-center text-[#52525B] opacity-85 mr-1'>
-          {type === 'range' ? (
-            <>
-              {fromDate}
-              {rangeDate.to && fromDate !== toDate ? (
-                <>
-                  <ArrowRightIcon className='w-4 h-4 mx-1' />
-                  {renderDate(rangeDate.to)}
-                </>
-              ) : null}
-            </>
-          ) : (
-            format(rangeDate, "dd 'de' MMM, yyyy", {
-              locale: LOCALE[locale],
-            })
-          )}
+          {format(rangeDate, "dd 'de' MMM, yyyy", {
+            locale: LOCALE[locale],
+          })}
         </span>
-      </>
-    ) : (
-      DATA_PERIODS_LABEL['select-date'][locale]
-    );
+      );
+    }
+
+    return DATA_PERIODS_LABEL['select-date'][locale];
   };
 
   return (
