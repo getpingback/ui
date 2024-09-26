@@ -66,7 +66,7 @@ export const DATA_PERIODS = [
     id: DEFAULT_PERIODS.CUSTOM,
     es: 'Personalizado',
     en: 'Custom',
-    'pt-br': 'Personalizado',
+    'pt-br': 'Customizado',
   },
 ];
 
@@ -125,7 +125,9 @@ export const RANGE_PICKER_STYLES = {
   months: 'flex flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0',
   month: 'space-y-4',
   caption:
-    'flex justify-center pt-1 relative items-center text-[#52525B] opacity-85',
+    'flex justify-center pt-6 pb-3 relative items-center text-[#52525B] opacity-85 capitalize ',
+  caption_end: 'border-l-[1px] border-[#71717A14] pr-3 pb-3 pl-3',
+  caption_start: 'pl-3 pb-3',
   caption_label: 'text-sm font-medium',
   nav: 'space-x-1 flex items-center',
   nav_button: cn(
@@ -137,12 +139,12 @@ export const RANGE_PICKER_STYLES = {
   table: 'w-full border-collapse space-y-1',
   head_row: 'flex',
   head_cell:
-    'text-button-ghost-foreground rounded-md w-9 font-normal text-[0.8rem]',
-  row: 'flex w-full mt-2',
+    'text-button-ghost-foreground rounded-md w-9  text-[12px] opacity-65 font-semibold capitalize ',
+  row: 'flex w-full mt-0',
   cell: 'h-9 w-9 text-center text-sm p-0 relative [&:has([aria-selected].day-range-end)]:rounded-r-md [&:has([aria-selected].day-outside)]:bg-background-accent/50 [&:has([aria-selected])]:bg-background-accent first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md focus-within:relative focus-within:z-20',
   day: cn(
     buttonVariants({ variant: 'ghost' }),
-    'h-9 w-9 p-0 font-normal aria-selected:opacity-100'
+    'h-9 w-9 p-0 font-normal aria-selected:opacity-100 opacity-85 color-[#3F3F46]'
   ),
   day_range_end: 'bg-button-solid rounded-s-sm',
   day_range_start: 'bg-button-solid rounded-e-sm',

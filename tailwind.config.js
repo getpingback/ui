@@ -140,6 +140,7 @@ const config = {
         modal: 'var(--modals-shadow)',
         custom: '0px 0px 0px 1px rgba(0,0,0,0.15)',
         solid: 'var(--button-solid-shadow)',
+        dropdown: 'var(--dropdown-shadow)',
       },
       backgroundImage: {
         'active-menu': 'var(--palette-gradiente-active_menu)',

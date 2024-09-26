@@ -14,8 +14,12 @@ import { DayPicker, DateRange } from 'react-day-picker';
 import { cn } from '@/lib/utils';
 import { cva } from 'class-variance-authority';
 import { Button } from '@/components/button';
-import { ChevronLeftIcon, ChevronRightIcon } from '@stash-ui/regular-icons';
-import { ArrowRightIcon, CalendarIcon } from '@stash-ui/solid-icons';
+import {
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  ArrowRightIcon,
+} from '@stash-ui/regular-icons';
+import { CalendarIcon } from '@stash-ui/solid-icons';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/popover';
 import {
   DEFAULT_PERIODS,
@@ -62,12 +66,13 @@ interface DateRangeApplying {
 
 export interface RangerPickerProps {
   locale?: 'en' | 'pt-br' | 'es';
-  onApply: (data: DateRangeApplying | Date) => void;
+  onChange: (data: DateRangeApplying | Date) => void;
   createdAt: string;
   type: 'range' | 'single';
   numberOfMonths?: number;
   trigger?: React.ReactNode;
   initialSingleDate?: Date;
+  initialRangeDate?: DateRange;
   hideInputs?: boolean;
   hideMenu?: boolean;
 }
@@ -93,11 +98,18 @@ interface FooterProps {
 }
 
 interface TriggerProps {
-  rangeDate?: DateRangeApplying;
+  rangeDate?: DateRangeApplying | Date;
   locale: 'en' | 'pt-br' | 'es';
+  hideMenu: boolean;
+  type: 'range' | 'single';
 }
 
-export function TriggerRangeDate({ rangeDate, locale = 'en' }: TriggerProps) {
+export function TriggerRangeDate({
+  rangeDate,
+  type,
+  locale = 'en',
+  hideMenu,
+}: TriggerProps) {
   const renderDate = (date: Date) => {
     const todayDate = format(new Date(), "dd 'de' MMM, yyyy", {
       locale: LOCALE[locale],
@@ -110,7 +122,7 @@ export function TriggerRangeDate({ rangeDate, locale = 'en' }: TriggerProps) {
     return formattedDate;
   };
 
-  const renderLabel = (rangeDate: DateRangeApplying) => {
+  const renderLabel = (rangeDate: DateRangeApplying | Date) => {
     const fromDate =
       rangeDate?.from &&
       format(rangeDate?.from, "dd 'de' MMM, yyyy", {
@@ -121,22 +133,31 @@ export function TriggerRangeDate({ rangeDate, locale = 'en' }: TriggerProps) {
       format(rangeDate?.to, "dd 'de' MMM, yyyy", {
         locale: LOCALE[locale],
       });
-    return rangeDate && rangeDate.from ? (
+
+    return rangeDate ? (
       <>
-        {rangeDate.type ? (
+        {rangeDate.type && !hideMenu && type === 'range' ? (
           <span className='text-[#71717A] opacity-85 mr-1'>
             {DATA_PERIODS_LABEL[rangeDate.type][locale]}:
           </span>
         ) : null}
 
         <span className='flex items-center text-[#52525B] opacity-85 mr-1'>
-          {fromDate}
-          {rangeDate.to && fromDate !== toDate ? (
+          {type === 'range' ? (
             <>
-              <ArrowRightIcon className='w-4 h-4 mx-1' />
-              {renderDate(rangeDate.to)}
+              {fromDate}
+              {rangeDate.to && fromDate !== toDate ? (
+                <>
+                  <ArrowRightIcon className='w-4 h-4 mx-1' />
+                  {renderDate(rangeDate.to)}
+                </>
+              ) : null}
             </>
-          ) : null}
+          ) : (
+            format(rangeDate, "dd 'de' MMM, yyyy", {
+              locale: LOCALE[locale],
+            })
+          )}
         </span>
       </>
     ) : (
@@ -209,7 +230,7 @@ const RangePickerMenu = ({
   };
 
   return (
-    <ul className='flex flex-col gap-1 pt-[20px] px-3 border-x border-[#71717A14] font-primary'>
+    <ul className='flex flex-col gap-1 pt-[20px] px-3 border-r border-[#71717A14] font-primary'>
       {DATA_PERIODS?.map((period) => (
         <li
           key={period.id}
@@ -313,7 +334,7 @@ const CalendarFooter = ({
               onBlur={handleBlur}
               className='flex h-[32px] w-full max-w-[102px] border-divider border rounded-lg bg-transparent py-2 px-2 text-sm outline-none text-tertiary-foreground placeholder:opacity-85 disabled:cursor-not-allowed disabled:opacity-50 hover:border-[#A1A1AA] focus:border-[#9061F9] focus:[box-shadow:0px_0px_0px_3px_rgba(144,_97,_249,_0.12)] transition-all duration-200 ease-in-out'
             />
-            <ArrowRightIcon opacity={0.45} />
+            <ArrowRightIcon opacity={0.45} color='#52525B' />
             <input
               type='text'
               id='end-date'
@@ -353,19 +374,20 @@ const CalendarFooter = ({
 export function RangePicker({
   locale = 'en',
   createdAt,
-  onApply,
+  onChange,
   type = 'range',
-  numberOfMonths = 2,
   trigger,
   initialSingleDate,
+  numberOfMonths = 2,
   hideInputs = false,
   hideMenu = false,
+  initialRangeDate,
 }: RangerPickerProps) {
   const commonProps = {
-    className: 'p-3',
     classNames: RANGE_PICKER_STYLES,
     showOutsideDays: true,
-    numberOfMonths,
+    locale: LOCALE[locale],
+    numberOfMonths: type === 'range' ? 2 : 1,
     components: {
       IconLeft: () => <ChevronLeftIcon className='h-6 w-6' />,
       IconRight: () => <ChevronRightIcon className='h-6 w-6' />,
@@ -376,8 +398,8 @@ export function RangePicker({
   const [rangeType, setRangeType] = useState<PeriodKeys>('today');
   const [isCustom, setIsCustom] = useState(false);
   const [selectedDate, setSelectedDate] = useState<DateRange>({
-    from: new Date(),
-    to: new Date(),
+    from: initialRangeDate?.from || new Date(),
+    to: initialRangeDate?.to || new Date(),
   });
 
   const [dateApplied, setDateApplied] = useState<DateRangeApplying>({
@@ -403,14 +425,14 @@ export function RangePicker({
 
   const handleSingleChange = (date: Date | undefined) => {
     if (date) {
-      onApply(date);
+      onChange(date);
       setSingleDate(date);
     }
   };
 
   const handleAppy = () => {
     const { from, to } = selectedDate;
-    onApply({ from, to, type: !hideMenu ? rangeType : null });
+    onChange({ from, to, type: !hideMenu ? rangeType : null });
     setDateApplied({ from, to, type: !hideMenu ? rangeType : null });
     setIsOpen(false);
   };
@@ -420,19 +442,25 @@ export function RangePicker({
       <Popover open={isOpen}>
         <PopoverTrigger
           data-testid='ranger-trigger'
+          className='w-fit cursor-pointer'
           onClick={() => setIsOpen(!isOpen)}
           type='submit'
         >
           {trigger ? (
             trigger
           ) : (
-            <TriggerRangeDate locale={locale} rangeDate={dateApplied} />
+            <TriggerRangeDate
+              locale={locale}
+              rangeDate={type === 'range' ? dateApplied : singleDate}
+              type={type}
+              hideMenu={hideMenu}
+            />
           )}
         </PopoverTrigger>
         <PopoverContent
           ref={rangeRef}
-          className='w-auto p-0 flex bg-[#FFFFFF]'
-          align='start'
+          className=' p-0 flex bg-[#FFFFFF] !w-fit !shadow-dropdown border-none'
+          align={type === 'range' && numberOfMonths > 2 ? 'end' : 'center'}
           data-testid='ranger-content'
         >
           {type === 'range' && !hideMenu && (
@@ -451,6 +479,7 @@ export function RangePicker({
               {type === 'range' ? (
                 <DayPicker
                   {...commonProps}
+                  numberOfMonths={numberOfMonths}
                   mode='range'
                   selected={selectedDate}
                   onSelect={handleRangeChange}
@@ -458,6 +487,7 @@ export function RangePicker({
               ) : (
                 <DayPicker
                   {...commonProps}
+                  numberOfMonths={1}
                   mode='single'
                   selected={singleDate}
                   onSelect={(date) => handleSingleChange(date)}
