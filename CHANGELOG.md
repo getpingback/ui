@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.202](https://github.com/getpingback/ui/compare/v0.0.201...v0.0.202) (2024-09-26)
+
+
+### Bug Fixes
+
+* changes requested ([d9a4026](https://github.com/getpingback/ui/commits/d9a40265ec3f7a88534880d223c844f8104f5469))
+* translations ([7497e45](https://github.com/getpingback/ui/commits/7497e45ee6e17803e69583f5a2347c25a89e4cef))
+* translations ([f3b7ae6](https://github.com/getpingback/ui/commits/f3b7ae60c4a270ae68758e2b0f1d5213f866b014))
+
 ### [0.0.200](https://github.com/getpingback/ui/compare/v0.0.199...v0.0.200) (2024-09-20)
 
 
