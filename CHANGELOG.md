@@ -2,12 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.202](https://github.com/getpingback/ui/compare/v0.0.201...v0.0.202) (2024-09-26)
+
+
+### Bug Fixes
+
+* changes requested ([d9a4026](https://github.com/getpingback/ui/commits/d9a40265ec3f7a88534880d223c844f8104f5469))
+* translations ([7497e45](https://github.com/getpingback/ui/commits/7497e45ee6e17803e69583f5a2347c25a89e4cef))
+* translations ([f3b7ae6](https://github.com/getpingback/ui/commits/f3b7ae60c4a270ae68758e2b0f1d5213f866b014))
+
+### [0.0.200](https://github.com/getpingback/ui/compare/v0.0.199...v0.0.200) (2024-09-20)
+
+
+### Bug Fixes
+
+* merge ([28d6e72](https://github.com/getpingback/ui/commits/28d6e723a40035566c190d3d7b6b8fe75a1ccaa5))
+
 ### [0.0.195](https://github.com/getpingback/ui/compare/v0.0.194...v0.0.195) (2024-09-05)
 
 
 ### Bug Fixes
 
 * **multi-select:** get label on change ([d9f8af5](https://github.com/getpingback/ui/commits/d9f8af577c361f02ce20a2eaddc8ee7677f0203f))
+
+### [0.0.194](https://github.com/getpingback/ui/compare/v0.0.193...v0.0.194) (2024-09-05)
 
 ### [0.0.193](https://github.com/getpingback/ui/compare/v0.0.192...v0.0.193) (2024-09-05)
 
@@ -16,12 +34,14 @@ All notable changes to this project will be documented in this file. See [standa
 
 * **combobox/multi-select:** loop on onChangeSearchValue ([7082e1b](https://github.com/getpingback/ui/commits/7082e1be61215b8ba7062a5d4448a608c8403f79))
 
-### [0.0.191](https://github.com/getpingback/ui/compare/v0.0.190...v0.0.191) (2024-09-05)
+### [0.0.192](https://github.com/getpingback/ui/compare/v0.0.190...v0.0.192) (2024-09-05)
 
 
 ### Features
 
 * **multi-select:** add onEndReached ([60a25f0](https://github.com/getpingback/ui/commits/60a25f0b784b1bb4cc1d72855ac02c968d4849ef))
+
+### [0.0.190](https://github.com/getpingback/ui/compare/v0.0.189...v0.0.190) (2024-09-04)
 
 ### [0.0.189](https://github.com/getpingback/ui/compare/v0.0.188...v0.0.189) (2024-09-04)
 
@@ -30,12 +50,74 @@ All notable changes to this project will be documented in this file. See [standa
 
 * **multi-select:** show label instead of value when selected ([ca5fa61](https://github.com/getpingback/ui/commits/ca5fa61732b62cac2b9e217793bf2dec91519c46))
 
+### [0.0.188](https://github.com/getpingback/ui/compare/v0.0.187...v0.0.188) (2024-08-23)
+
 ### [0.0.187](https://github.com/getpingback/ui/compare/v0.0.186...v0.0.187) (2024-08-23)
 
 
 ### Bug Fixes
 
 * **combobox:** remove max-width ([c147ae7](https://github.com/getpingback/ui/commits/c147ae708c373fc3e946d9a268787afcbfcb2546))
+
+### [0.0.199](https://github.com/getpingback/ui/compare/v0.0.198...v0.0.199) (2024-09-20)
+
+### [0.0.198](https://github.com/getpingback/ui/compare/v0.0.196...v0.0.198) (2024-09-20)
+
+
+### Bug Fixes
+
+* rangepicker trigger ([a3a1cd8](https://github.com/getpingback/ui/commits/a3a1cd8dbe8eb94bc9ae1148322fd023596ea623))
+
+### [0.0.197](https://github.com/getpingback/ui/compare/v0.0.196...v0.0.197) (2024-09-20)
+
+### [0.0.196](https://github.com/getpingback/ui/compare/v0.0.191...v0.0.196) (2024-09-20)
+
+
+### Bug Fixes
+
+* rangepicker trigger ([1b38495](https://github.com/getpingback/ui/commits/1b38495e996d8bbd36a9ea9df9db9ce8e37b4fda))
+
+### [0.0.195](https://github.com/getpingback/ui/compare/v0.0.191...v0.0.195) (2024-09-20)
+
+
+### Bug Fixes
+
+* rangepicker trigger ([1b38495](https://github.com/getpingback/ui/commits/1b38495e996d8bbd36a9ea9df9db9ce8e37b4fda))
+
+### [0.0.194](https://github.com/getpingback/ui/compare/v0.0.191...v0.0.194) (2024-09-20)
+
+
+### Bug Fixes
+
+* rangepicker trigger ([1b38495](https://github.com/getpingback/ui/commits/1b38495e996d8bbd36a9ea9df9db9ce8e37b4fda))
+
+### [0.0.193](https://github.com/getpingback/ui/compare/v0.0.191...v0.0.193) (2024-09-20)
+
+
+### Bug Fixes
+
+* rangepicker trigger ([1b38495](https://github.com/getpingback/ui/commits/1b38495e996d8bbd36a9ea9df9db9ce8e37b4fda))
+
+### [0.0.192](https://github.com/getpingback/ui/compare/v0.0.191...v0.0.192) (2024-09-20)
+
+### [0.0.191](https://github.com/getpingback/ui/compare/v0.0.185...v0.0.191) (2024-09-20)
+
+
+### Features
+
+* range picker ([cc3e15b](https://github.com/getpingback/ui/commits/cc3e15b61a4f68bb5813ea191df5cc6fb2a51269))
+
+
+### Bug Fixes
+
+* **combobox:** prevent error when disconnect does not exist ([2547b22](https://github.com/getpingback/ui/commits/2547b22c8f19adb246812355f2793e3f81f871c5))
+* daypicker types ([fcc74d9](https://github.com/getpingback/ui/commits/fcc74d9ee59bdc18c9cb6752a350db7bf46f5f02))
+* daypicker types ([008906b](https://github.com/getpingback/ui/commits/008906bf8b319e8893d40591709bed3c05b8765c))
+* daypicker types ([39fc0b0](https://github.com/getpingback/ui/commits/39fc0b042b0726f3d635b5cab50290d77f16bce1))
+* export componente ([bb30bc9](https://github.com/getpingback/ui/commits/bb30bc915d9cfd451296b40beab2cef7cbd0b808))
+* fix ([b3c9886](https://github.com/getpingback/ui/commits/b3c988614111e4eb07612389f05e8c70dbe2e335))
+* onSelect function on rangePicker ([7569327](https://github.com/getpingback/ui/commits/7569327d5e6aac3e38c53cec127cf15d1bed688b))
+* tests  e refactor rangefooter ([b6b5582](https://github.com/getpingback/ui/commits/b6b5582db41473f0e19a5c9adbf5c60020f38507))
 
 ### [0.0.165](https://github.com/getpingback/ui/compare/v0.0.164...v0.0.165) (2024-06-06)
 

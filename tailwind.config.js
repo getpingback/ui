@@ -139,6 +139,8 @@ const config = {
         'bottom_sheet-2': 'var(--bottom_sheet-2)',
         modal: 'var(--modals-shadow)',
         custom: '0px 0px 0px 1px rgba(0,0,0,0.15)',
+        solid: 'var(--button-solid-shadow)',
+        dropdown: 'var(--dropdown-shadow)',
       },
       backgroundImage: {
         'active-menu': 'var(--palette-gradiente-active_menu)',
@@ -190,6 +192,9 @@ const config = {
         },
         active: {
           foreground: 'var(--text-active)',
+        },
+        informative: {
+          foreground: 'var(--text-informative_accent)',
         },
         inverse: {
           foreground: 'var(--text-inverse)',

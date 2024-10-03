@@ -2698,6 +2698,11 @@
   resolved "https://registry.yarnpkg.com/@stash-ui/regular-icons/-/regular-icons-1.0.21.tgz#0ff0b762ff295d45c6646992b5e3c686d8d98993"
   integrity sha512-dS8PcXwFP2TeqdQOkvGThVJo5JkI/93HAE10UShQ74WBeH9RMp6GPSaHnhFURZpV4P8Ine15gNTNrrIrg6mzZQ==
 
+"@stash-ui/solid-icons@^1.0.30":
+  version "1.0.30"
+  resolved "https://registry.yarnpkg.com/@stash-ui/solid-icons/-/solid-icons-1.0.30.tgz#4e1d9fbb99b23bb28a829f46ce65854e1f494ad4"
+  integrity sha512-5zr8UEVHSLeO7kiDIB4itwinE/VHif3RdSjh5WqF73F06Nvtv8OOS50zpj9dlLH59Y+R8MuBwvFsjVz2EgpYjQ==
+
 "@storybook/addon-actions@7.6.19":
   version "7.6.19"
   resolved "https://registry.yarnpkg.com/@storybook/addon-actions/-/addon-actions-7.6.19.tgz#f131faf51c2baf036aa0fff33d77a1fa74e22ad0"
