@@ -23,15 +23,6 @@ describe('Sidebar Component', () => {
     fireEvent.click(button);
     expect(sidebarContainer.className.includes('w-[225px]')).toBe(true);
   });
-  test('The sidebar should close when the user clicks escape', () => {
-    const { getByTestId } = render(<Default />);
-    const sidebarContainer = getByTestId('sidebar');
-    const button = screen.getByRole('button');
-    fireEvent.click(button);
-
-    fireEvent.keyDown(document, { key: 'Escape', code: 'Escape' });
-    expect(sidebarContainer.className.includes('w-[64px]')).toBe(true);
-  });
   test('should render the correct sidebar layout', () => {
     const { getByTestId } = render(<Default />);
     const sidebarContainer = getByTestId('sidebar');

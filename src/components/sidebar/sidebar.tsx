@@ -6,15 +6,7 @@ export interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {
   onClose: () => void;
 }
 function Sidebar({ className, isOpen, onClose, ...props }: SidebarProps) {
-  const keyPress = (e: KeyboardEvent) => {
-    if (e.key === 'Escape' && isOpen) onClose();
-  };
-
-  useEffect(() => {
-    document && document.addEventListener('keydown', keyPress);
-    return () => document.removeEventListener('keydown', keyPress);
-  }, [keyPress]);
-
+  
   return (
     <div
       data-testid='sidebar'
