@@ -259,6 +259,18 @@ const config = {
             DEFAULT: 'var(--badge-done-bg)',
             foreground: 'var(--badge-done-text)',
           },
+          'page-solid': {
+            DEFAULT: 'var(--buttons-solid_default)',
+          },
+          'page-ghost': {
+            DEFAULT: 'var(--buttons-ghost_bg-color)',
+          },
+          'page-color-solid': {
+            DEFAULT: 'var(--buttons-label_inverse)',
+          },
+          'page-color-clear': {
+            DEFAULT: 'var(--buttons-label)',
+          },
         },
         background: {
           accent: 'var(--background-accent)',
