@@ -7,7 +7,7 @@ import {
   ChevronDoubleLeftIcon,
   ChevronDoubleRightIcon,
 } from '@stash-ui/regular-icons';
-import { usePagination, DOTS } from '@/hooks/usePagination';
+import { getPaginationRange, DOTS } from '@/lib/utils';
 
 const buttonVariants = cva(
   'h-[32px] min-w-[32px] px-3 inline-flex items-center justify-center whitespace-nowrap text-sm font-medium focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 transition-all duration-300 ease-in-out',
@@ -101,7 +101,11 @@ const Pagination = ({
 }: PaginationProps) => {
   const [currentPage, setCurrentPage] = useState(page);
 
-  const paginationRange = usePagination(currentPage, totalPages, siblingCount);
+  const paginationRange = getPaginationRange(
+    currentPage,
+    totalPages,
+    siblingCount
+  );
 
   const handleSetActivePage = (page: number) => {
     if (page < 1 || page > totalPages) return;
