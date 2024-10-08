@@ -1,6 +1,5 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { UserCheckIcon } from '@stash-ui/regular-icons';
 import { Pagination } from './pagination';
 
 const meta = {
@@ -15,10 +14,23 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const NavigationDemo: Story = {
+export const Demo: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-      <Pagination totalPages={10} page={2} />
-    </div>
+    <Pagination
+      totalPages={10}
+      page={2}
+      onPageChange={(page) => console.log(page)}
+    />
+  ),
+};
+
+export const Radius: Story = {
+  render: () => (
+    <Pagination
+      totalPages={3}
+      page={1}
+      onPageChange={(page) => console.log(page)}
+      round
+    />
   ),
 };

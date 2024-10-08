@@ -114,11 +114,13 @@ const Pagination = ({
       role='navigation'
       aria-label='pagination'
       className={cn('mx-auto flex w-full justify-center')}
+      data-testid='pagination'
       {...props}
     >
       <Controller
         onClick={() => handleSetActivePage(1)}
         disabled={currentPage === 1}
+        data-testid='pagination-first'
       >
         <ChevronDoubleLeftIcon />
       </Controller>
@@ -126,6 +128,7 @@ const Pagination = ({
         onClick={() => handleSetActivePage(currentPage - 1)}
         className='mr-2'
         disabled={currentPage === 1}
+        data-testid='pagination-previous'
       >
         <ChevronLeftIcon />
       </Controller>
@@ -134,7 +137,11 @@ const Pagination = ({
           const formattedPage = page as number;
           if (page === DOTS) {
             return (
-              <PaginationItem key={index} disabled>
+              <PaginationItem
+                key={index}
+                disabled
+                data-testid='pagination-dots'
+              >
                 &hellip;
               </PaginationItem>
             );
@@ -155,12 +162,14 @@ const Pagination = ({
         onClick={() => handleSetActivePage(currentPage + 1)}
         className='ml-2'
         disabled={currentPage === totalPages}
+        data-testid='pagination-next'
       >
         <ChevronRightIcon />
       </Controller>
       <Controller
         onClick={() => handleSetActivePage(totalPages)}
         disabled={currentPage === totalPages}
+        data-testid='pagination-last'
       >
         <ChevronDoubleRightIcon />
       </Controller>
