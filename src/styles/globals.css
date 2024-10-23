@@ -20,10 +20,15 @@
     --badge-purple-bg: #9061f914;
     --badge-purple-text: #9061f9;
 
+
+    --buttons-solid_default: #9061f9;
     --button-solid-bg: #9061f9;
     --button-solid-text: #fafafa;
     --button-ghost-bg: #9061f91f;
     --button-ghost-text: #52525b;
+    --buttons-label_inverse: #FAFAFA;
+    --button-hover-solid-color: #9061F940;
+    --buttons-ghost_bg-color: #9061F91f;
 
     --background-accent: #ffffff;
 
@@ -78,10 +83,16 @@
     --badge-purple-bg: #9061f914;
     --badge-purple-text: #9061f9;
 
+    --buttons-solid_default: #9061f9;
     --button-solid-bg: #9061f9;
     --button-solid-text: #fafafa;
+    --buttons-label: #52525B;
     --button-ghost-bg: #ac94fa3d;
     --button-ghost-text: #fafafa;
+    --buttons-label_inverse: #FAFAFA;
+    --button-hover-solid-color: #9061F940;
+    --buttons-label: #52525B;
+    --buttons-ghost_bg-color: #9061F91f;
 
     --background-accent: #27272a;
 

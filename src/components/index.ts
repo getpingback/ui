@@ -19,3 +19,4 @@ export * from './command';
 export * from './command-cmdk';
 export * from './popover';
 export * from './range-picker';
+export * from './pagination'
