@@ -38,6 +38,7 @@
     "@radix-ui/react-tabs": "^1.0.4",
     "@radix-ui/react-tooltip": "^1.0.7",
     "@stash-ui/duotone-icons": "^1.0.14",
+    "@stash-ui/editor-icons": "^1.0.33",
     "@stash-ui/light-icons": "^1.0.8",
     "@stash-ui/solid-icons": "^1.0.30",
     "class-variance-authority": "^0.7.0",
