@@ -2688,6 +2688,11 @@
   resolved "https://registry.yarnpkg.com/@stash-ui/duotone-icons/-/duotone-icons-1.0.18.tgz#48c711d987d8eccd11fcaab26dedd709c38a68c7"
   integrity sha512-OnOcmNzSYMNb6nJt2IBXfw2lvoJJiZLnO40hgcrZGVozK2mll4qHBMpU+NK9JnGAd+LXzztXumc8HN9H753chA==
 
+"@stash-ui/editor-icons@^1.0.33":
+  version "1.0.33"
+  resolved "https://registry.yarnpkg.com/@stash-ui/editor-icons/-/editor-icons-1.0.33.tgz#bbd15ff34c0b0672594cbaf6b308c4f517cd987d"
+  integrity sha512-0iQ1DZXr31QdpO0sRpnzj3ZOPB8jwA+vu84rdRQjEUza5OlQyhxyqjf63DaDpl0CCuF10UVOOurS2F4H1JiZCQ==
+
 "@stash-ui/light-icons@^1.0.8":
   version "1.0.19"
   resolved "https://registry.yarnpkg.com/@stash-ui/light-icons/-/light-icons-1.0.19.tgz#6ea19dcff6bacf1c8e6a49d06dbef0021299ce09"
