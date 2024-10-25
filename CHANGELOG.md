@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.207](https://github.com/getpingback/ui/compare/v0.0.201...v0.0.207) (2024-10-25)
+
+
+### Features
+
+* pagination component ([3c076dc](https://github.com/getpingback/ui/commits/3c076dc467c71e1a4425502f705e3d23916b714c))
+* **variable-input:** create component ([0440ec7](https://github.com/getpingback/ui/commits/0440ec7170c0e002adbd750a583da91bbd55407b))
+
+
+### Bug Fixes
+
+* changes requested ([d54347f](https://github.com/getpingback/ui/commits/d54347fbd5a0e6cb9602b4d05fed1a759d5f0a83))
+* changes requested ([d9a4026](https://github.com/getpingback/ui/commits/d9a40265ec3f7a88534880d223c844f8104f5469))
+* export pagination component ([950ff4c](https://github.com/getpingback/ui/commits/950ff4ce8803b1cb1495f3910435d4b5b7489b2f))
+* remove escape close on sidebar ([365c9ad](https://github.com/getpingback/ui/commits/365c9adaaaeea8d426922dafbcec0efe8c237dfc))
+* translations ([7497e45](https://github.com/getpingback/ui/commits/7497e45ee6e17803e69583f5a2347c25a89e4cef))
+* translations ([f3b7ae6](https://github.com/getpingback/ui/commits/f3b7ae60c4a270ae68758e2b0f1d5213f866b014))
+
 ### [0.0.202](https://github.com/getpingback/ui/compare/v0.0.201...v0.0.202) (2024-09-26)
 
 
