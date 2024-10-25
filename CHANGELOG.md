@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.211](https://github.com/getpingback/ui/compare/v0.0.210...v0.0.211) (2024-10-25)
+
+
+### Features
+
+* **variable-input:** export component ([b6ab191](https://github.com/getpingback/ui/commits/b6ab1916271fa523e6d11cdb6591a8129ae004f8))
+
 ### [0.0.209](https://github.com/getpingback/ui/compare/v0.0.207...v0.0.209) (2024-10-25)
 
 ### [0.0.207](https://github.com/getpingback/ui/compare/v0.0.201...v0.0.207) (2024-10-25)
