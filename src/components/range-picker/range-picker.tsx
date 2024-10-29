@@ -90,7 +90,6 @@ interface FooterProps {
   onDateChange: (date: DateRange) => void;
   selectedDate: DateRange;
   locale: 'en' | 'pt-br' | 'es';
-  minDate: string;
   onApply: () => void;
   onCancel: () => void;
   hideInputs: boolean;
@@ -141,7 +140,7 @@ export function TriggerRangeDate({
               {DATA_PERIODS_LABEL[rangeDate.type][locale]}:
             </span>
           ) : null}
-          <span className='flex items-center text-[#52525B] opacity-85 mr-1 overflow-hidden'>
+          <span className='flex items-center text-[#52525B] opacity-85 mr-1 '>
             <span className='w-full text-nowrap'>{fromDate}</span>
             {rangeDate.to && fromDate !== toDate ? (
               <>
@@ -451,7 +450,7 @@ export function RangePicker({
       <Popover open={isOpen}>
         <PopoverTrigger
           data-testid='ranger-trigger'
-          className='w-full  max-w-full overflow-hidden overflow-ellipsis cursor-pointer'
+          className='w-full max-w-full cursor-pointer'
           onClick={() => setIsOpen(!isOpen)}
           type='submit'
         >
