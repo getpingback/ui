@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.215](https://github.com/getpingback/ui/compare/v0.0.214...v0.0.215) (2024-10-29)
+
+
+### Bug Fixes
+
+* range picker trigger ([148304e](https://github.com/getpingback/ui/commits/148304ec53360dead389080278c1dcf1329fde8b))
+
 ### [0.0.213](https://github.com/getpingback/ui/compare/v0.0.210...v0.0.213) (2024-10-29)
 
 
