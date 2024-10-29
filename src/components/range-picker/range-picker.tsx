@@ -136,7 +136,7 @@ export function TriggerRangeDate({
       return (
         <>
           {rangeDate.type && !hideMenu ? (
-            <span className='text-[#71717A] opacity-85 mr-1'>
+            <span className='text-[#71717A] opacity-85 mr-1 text-nowrap'>
               {DATA_PERIODS_LABEL[rangeDate.type][locale]}:
             </span>
           ) : null}
