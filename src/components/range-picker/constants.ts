@@ -57,12 +57,6 @@ export const DATA_PERIODS = [
     'pt-br': 'Este ano',
   },
   {
-    id: DEFAULT_PERIODS.ALL_TIME,
-    es: 'Todo periodo',
-    en: 'All time',
-    'pt-br': 'Todo o período',
-  },
-  {
     id: DEFAULT_PERIODS.CUSTOM,
     es: 'Personalizado',
     en: 'Custom',

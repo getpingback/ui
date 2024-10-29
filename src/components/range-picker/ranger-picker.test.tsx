@@ -230,45 +230,6 @@ describe('RangerPicker Component', () => {
 
     consoleSpy.mockRestore();
   });
-  test('should select a correct all time period', async () => {
-    const { getByTestId } = render(<Default />);
-    const consoleSpy = jest.spyOn(console, 'log').mockImplementation();
-
-    const rangerPickerTrigger = getByTestId('ranger-trigger');
-    fireEvent.click(rangerPickerTrigger);
-
-    const allTime = getByTestId('range-all-time');
-    fireEvent.click(allTime);
-
-    const applyButton = getByTestId('ranger-apply');
-
-    fireEvent.click(applyButton);
-
-    const startDate = new Date(
-      'Thu Aug 22 2022 15:21:32 GMT-0300 (Brasilia Standard Time)'
-    );
-    const todayDate = new Date();
-    const endDate = new Date(
-      todayDate.getFullYear(),
-      todayDate.getMonth(),
-      todayDate.getDate()
-    );
-
-    const logCalls = consoleSpy.mock.calls;
-    const loggedFrom = logCalls[0][0].from;
-    const loggedTo = logCalls[0][0].to;
-
-    const normalizedLoggedTo = new Date(
-      loggedTo.getFullYear(),
-      loggedTo.getMonth(),
-      loggedTo.getDate()
-    );
-
-    expect(loggedFrom).toEqual(startDate);
-    expect(normalizedLoggedTo).toEqual(endDate);
-
-    consoleSpy.mockRestore();
-  });
 
   test('should select the date in the input field', async () => {
     const { getByTestId } = render(<Default />);
@@ -336,7 +297,7 @@ describe('RangerPicker Component', () => {
     // const current = new Date();
     // const selectedDate = new Date(getYear(current), current.getMonth(), 20);
 
-    expect(consoleSpy).toHaveBeenCalled()
+    expect(consoleSpy).toHaveBeenCalled();
 
     consoleSpy.mockRestore();
   });

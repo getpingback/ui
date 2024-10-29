@@ -35,7 +35,7 @@ import useClickOutside from '@/hooks/useClickOutside';
 const DATE_NOW = new Date();
 
 const menuVariants = cva(
-  'h-[32px] inline-flex items-center text-xs font-regular cursor-pointer opacity-85 px-3 rounded-lg hover:bg-[#9061F914] hover:text-[#9061F9] transition-all duration-200 ease-in-out',
+  'h-[32px] inline-flex items-center text-xs font-primary cursor-pointer opacity-85 px-3 rounded-lg hover:bg-[#9061F914] hover:text-[#9061F9] transition-all duration-200 ease-in-out',
   {
     variants: {
       variant: {
@@ -67,7 +67,6 @@ interface DateRangeApplying {
 export interface RangerPickerProps {
   locale?: 'en' | 'pt-br' | 'es';
   onChange: (data: DateRangeApplying | Date) => void;
-  createdAt: string;
   type: 'range' | 'single';
   numberOfMonths?: number;
   trigger?: React.ReactNode;
@@ -81,7 +80,6 @@ interface MenuProps {
   locale?: 'en' | 'pt-br' | 'es';
   onSelect?: (date?: Date) => void;
   onDateChange: (date: DateRange) => void;
-  createdDate: string;
   onSelectType: (type: PeriodKeys) => void;
   rangeType?: string;
   isCustom?: boolean;
@@ -169,7 +167,7 @@ export function TriggerRangeDate({
   return (
     <div
       id='date'
-      className='min-w-[200px] border border-solid border-[#D4D4D8] py-2 px-3  rounded-lg w-fit flex items-center justify-start text-left text-sm font-semibold'
+      className='min-w-[200px] w-full border border-solid border-[#D4D4D8] py-2 px-3  rounded-lg flex items-center justify-start text-left text-sm font-semibold'
     >
       <CalendarIcon className='w-4 h-4 mr-1 opacity-85' color='#71717A' />
       {rangeDate && renderLabel(rangeDate)}
@@ -181,7 +179,6 @@ const RangePickerMenu = ({
   locale = 'en',
   onDateChange,
   onSelectType,
-  createdDate,
   rangeType,
   isCustom,
 }: MenuProps) => {
@@ -220,8 +217,6 @@ const RangePickerMenu = ({
       case DEFAULT_PERIODS.THIS_YEAR:
         const startOfYear = new Date(new Date().getFullYear(), 0, 1);
         return handleDateChange([startOfYear, DATE_NOW]);
-      case DEFAULT_PERIODS.ALL_TIME:
-        return handleDateChange([new Date(createdDate), DATE_NOW]);
       case DEFAULT_PERIODS.CUSTOM:
         return;
 
@@ -374,7 +369,6 @@ const CalendarFooter = ({
 
 export function RangePicker({
   locale = 'en',
-  createdAt,
   onChange,
   type = 'range',
   trigger,
@@ -421,7 +415,14 @@ export function RangePicker({
 
   const handleRangeChange = (date: DateRange | undefined) => {
     setIsCustom(true);
-    date && setSelectedDate(date);
+
+    if (date?.from === undefined) {
+      setSelectedDate({ from: date?.to, to: date?.to });
+    } else if (date?.to === undefined) {
+      setSelectedDate({ from: date?.from, to: date?.from });
+    } else {
+      setSelectedDate(date);
+    }
   };
 
   const handleSingleChange = (date: Date | undefined) => {
@@ -439,11 +440,11 @@ export function RangePicker({
   };
 
   return (
-    <div className={cn('grid gap-2 ')} data-testid='ranger'>
+    <div className={cn('w-full grid gap-2 ')} data-testid='ranger'>
       <Popover open={isOpen}>
         <PopoverTrigger
           data-testid='ranger-trigger'
-          className='w-fit cursor-pointer'
+          className='w-full cursor-pointer'
           onClick={() => setIsOpen(!isOpen)}
           type='submit'
         >
@@ -470,7 +471,6 @@ export function RangePicker({
               onDateChange={(date) => handleRangeChange(date)}
               onSelectType={(type) => setRangeType(type)}
               rangeType={rangeType}
-              createdDate={createdAt}
               isCustom={isCustom}
             />
           )}
@@ -484,6 +484,8 @@ export function RangePicker({
                   mode='range'
                   selected={selectedDate}
                   onSelect={handleRangeChange}
+                  showOutsideDays={false}
+                  max={365}
                 />
               ) : (
                 <DayPicker
@@ -501,7 +503,6 @@ export function RangePicker({
                 onDateChange={(date) => handleRangeChange(date)}
                 locale={locale}
                 selectedDate={selectedDate}
-                minDate={createdAt}
                 onApply={() => handleAppy()}
                 onCancel={() => setIsOpen(false)}
                 hideInputs={hideInputs}
