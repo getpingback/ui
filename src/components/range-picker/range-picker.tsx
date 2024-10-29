@@ -74,6 +74,7 @@ export interface RangerPickerProps {
   initialRangeDate?: DateRange;
   hideInputs?: boolean;
   hideMenu?: boolean;
+  toDate?: Date;
 }
 
 interface MenuProps {
@@ -140,12 +141,14 @@ export function TriggerRangeDate({
               {DATA_PERIODS_LABEL[rangeDate.type][locale]}:
             </span>
           ) : null}
-          <span className='flex items-center text-[#52525B] opacity-85 mr-1'>
-            {fromDate}
+          <span className='flex items-center text-[#52525B] opacity-85 mr-1 overflow-hidden'>
+            <span className='w-full text-nowrap'>{fromDate}</span>
             {rangeDate.to && fromDate !== toDate ? (
               <>
-                <ArrowRightIcon className='w-4 h-4 mx-1' />
-                {renderDate(rangeDate.to)}
+                <ArrowRightIcon className='w-4 h-4 mx-1 min-w-4' />
+                <span className='w-full text-nowrap'>
+                  {renderDate(rangeDate.to)}
+                </span>
               </>
             ) : null}
           </span>
@@ -167,9 +170,12 @@ export function TriggerRangeDate({
   return (
     <div
       id='date'
-      className='min-w-[200px] w-full border border-solid border-[#D4D4D8] py-2 px-3  rounded-lg flex items-center justify-start text-left text-sm font-semibold'
+      className='w-full border border-solid border-[#D4D4D8] py-2 px-3  rounded-lg flex items-center justify-start text-left text-sm font-semibold '
     >
-      <CalendarIcon className='w-4 h-4 mr-1 opacity-85' color='#71717A' />
+      <CalendarIcon
+        className='w-4 h-4 mr-1 min-w-4 opacity-85'
+        color='#71717A'
+      />
       {rangeDate && renderLabel(rangeDate)}
     </div>
   );
@@ -371,6 +377,7 @@ export function RangePicker({
   locale = 'en',
   onChange,
   type = 'range',
+  toDate,
   trigger,
   initialSingleDate,
   numberOfMonths = 2,
@@ -444,7 +451,7 @@ export function RangePicker({
       <Popover open={isOpen}>
         <PopoverTrigger
           data-testid='ranger-trigger'
-          className='w-full cursor-pointer'
+          className='w-full  max-w-full overflow-hidden overflow-ellipsis cursor-pointer'
           onClick={() => setIsOpen(!isOpen)}
           type='submit'
         >
@@ -486,6 +493,7 @@ export function RangePicker({
                   onSelect={handleRangeChange}
                   showOutsideDays={false}
                   max={365}
+                  toDate={toDate || new Date()}
                 />
               ) : (
                 <DayPicker
