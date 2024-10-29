@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.217](https://github.com/getpingback/ui/compare/v0.0.216...v0.0.217) (2024-10-29)
+
+
+### Bug Fixes
+
+* range picker header style ([5728d57](https://github.com/getpingback/ui/commits/5728d57b242fa792ed5c6a662002c50a50b7f5f2))
+
 ### [0.0.215](https://github.com/getpingback/ui/compare/v0.0.214...v0.0.215) (2024-10-29)
 
 
