@@ -447,7 +447,7 @@ export function RangePicker({
   };
 
   return (
-    <div className={cn('w-full grid gap-2 ')} data-testid='ranger'>
+    <div className={cn('w-fit grid gap-2 ')} data-testid='ranger'>
       <Popover open={isOpen}>
         <PopoverTrigger
           data-testid='ranger-trigger'

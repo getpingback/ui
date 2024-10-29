@@ -127,7 +127,7 @@ export const RANGE_PICKER_STYLES = {
     'flex justify-center pt-6 pb-3 relative items-center text-[#52525B] opacity-85 capitalize ',
   caption_end: 'border-l-[1px] border-[#71717A14] pr-3 pb-3 pl-3',
   caption_start: 'pl-3 pb-3',
-  caption_label: 'text-sm font-medium',
+  caption_label: 'text-sm font-semibold',
   nav: 'space-x-1 flex items-center',
   nav_button: cn(
     buttonVariants({ variant: 'outline' }),
