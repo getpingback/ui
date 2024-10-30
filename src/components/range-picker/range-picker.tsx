@@ -417,10 +417,16 @@ export function RangePicker({
 
   useClickOutside(rangeRef, () => {
     setIsOpen(false);
+    setIsCustom(false);
   });
 
-  const handleRangeChange = (date: DateRange | undefined) => {
-    setIsCustom(true);
+  const handleRangeChange = (
+    date: DateRange | undefined,
+    isFromMenu = false
+  ) => {
+    if (!isFromMenu) {
+      setIsCustom(true);
+    }
 
     if (date?.from === undefined) {
       setSelectedDate({ from: date?.to, to: date?.to });
@@ -443,6 +449,7 @@ export function RangePicker({
     onChange({ from, to, type: !hideMenu ? rangeType : null });
     setDateApplied({ from, to, type: !hideMenu ? rangeType : null });
     setIsOpen(false);
+    setIsCustom(false);
   };
 
   return (
@@ -474,9 +481,9 @@ export function RangePicker({
           {type === 'range' && !hideMenu && (
             <RangePickerMenu
               locale={locale}
-              onDateChange={(date) => handleRangeChange(date)}
+              onDateChange={(date) => handleRangeChange(date, true)}
               onSelectType={(type) => setRangeType(type)}
-              rangeType={rangeType}
+              rangeType={dateApplied.type}
               isCustom={isCustom}
             />
           )}
@@ -489,7 +496,7 @@ export function RangePicker({
                   numberOfMonths={numberOfMonths}
                   mode='range'
                   selected={selectedDate}
-                  onSelect={handleRangeChange}
+                  onSelect={(date) => handleRangeChange(date, false)}
                   showOutsideDays={false}
                   max={365}
                   toDate={toDate || new Date()}
@@ -507,7 +514,7 @@ export function RangePicker({
 
             {type === 'range' && (
               <CalendarFooter
-                onDateChange={(date) => handleRangeChange(date)}
+                onDateChange={(date) => handleRangeChange(date, false)}
                 locale={locale}
                 selectedDate={selectedDate}
                 onApply={() => handleAppy()}

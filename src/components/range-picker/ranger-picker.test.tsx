@@ -72,10 +72,11 @@ describe('RangerPicker Component', () => {
     fireEvent.click(applyButton);
 
     const todayDate = new Date();
+
     const date = new Date(
-      todayDate.getFullYear(),
-      todayDate.getMonth(),
-      todayDate.getDate()
+      todayDate?.getFullYear(),
+      todayDate?.getMonth(),
+      todayDate?.getDate()
     );
 
     const logCalls = consoleSpy.mock.calls;
@@ -83,14 +84,14 @@ describe('RangerPicker Component', () => {
     const loggedTo = logCalls[0][0].to;
 
     const normalizedLoggedFrom = new Date(
-      loggedFrom.getFullYear(),
-      loggedFrom.getMonth(),
-      loggedFrom.getDate()
+      loggedFrom?.getFullYear(),
+      loggedFrom?.getMonth(),
+      loggedFrom?.getDate()
     );
     const normalizedLoggedTo = new Date(
-      loggedTo.getFullYear(),
-      loggedTo.getMonth(),
-      loggedTo.getDate()
+      loggedTo?.getFullYear(),
+      loggedTo?.getMonth(),
+      loggedTo?.getDate()
     );
 
     expect(normalizedLoggedFrom).toEqual(date);
