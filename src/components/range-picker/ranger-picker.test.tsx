@@ -72,7 +72,6 @@ describe('RangerPicker Component', () => {
     fireEvent.click(applyButton);
 
     const todayDate = new Date();
-
     const date = new Date(
       todayDate?.getFullYear(),
       todayDate?.getMonth(),

@@ -231,7 +231,7 @@ const RangePickerMenu = ({
   };
 
   return (
-    <ul className='flex flex-col gap-1 pt-[20px] px-3 border-r border-[#71717A14] font-primary'>
+    <ul className='w-[130px] flex flex-col gap-1 pt-[20px] px-3 border-r border-[#71717A14] font-primary'>
       {DATA_PERIODS?.map((period) => (
         <li
           key={period.id}

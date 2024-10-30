@@ -60,7 +60,7 @@ export const DATA_PERIODS = [
     id: DEFAULT_PERIODS.CUSTOM,
     es: 'Personalizado',
     en: 'Custom',
-    'pt-br': 'Customizado',
+    'pt-br': 'Personalizado',
   },
 ];
 
