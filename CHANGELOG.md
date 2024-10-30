@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.225](https://github.com/getpingback/ui/compare/v0.0.224...v0.0.225) (2024-10-30)
+
+
+### Bug Fixes
+
+* range picker menu width ([23f37a0](https://github.com/getpingback/ui/commits/23f37a0d23a20188c9316a3a1c80c55adaa198da))
+
 ### [0.0.223](https://github.com/getpingback/ui/compare/v0.0.222...v0.0.223) (2024-10-30)
 
 
