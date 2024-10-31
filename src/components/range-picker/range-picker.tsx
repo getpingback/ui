@@ -72,9 +72,11 @@ export interface RangerPickerProps {
   trigger?: React.ReactNode;
   initialSingleDate?: Date;
   initialRangeDate?: DateRange;
+  initialType?: PeriodKeys;
   hideInputs?: boolean;
   hideMenu?: boolean;
-  toDate?: Date;
+  maxDate?: Date | null;
+  minDate?: Date | null;
 }
 
 interface MenuProps {
@@ -93,6 +95,8 @@ interface FooterProps {
   onApply: () => void;
   onCancel: () => void;
   hideInputs: boolean;
+  maxDate?: Date | null;
+  minDate?: Date | null;
 }
 
 interface TriggerProps {
@@ -257,6 +261,8 @@ const CalendarFooter = ({
   onCancel,
   onApply,
   hideInputs,
+  maxDate,
+  minDate,
 }: FooterProps) => {
   const [startInputValue, setStartInputValue] = useState('');
   const [endInputValue, setEndInputValue] = useState('');
@@ -299,15 +305,23 @@ const CalendarFooter = ({
     });
 
     if (isValid(parsedDate)) {
+      let adjustedDate = parsedDate;
+      if (maxDate && parsedDate > maxDate) {
+        adjustedDate = maxDate;
+      }
+      if (minDate && parsedDate < minDate) {
+        adjustedDate = minDate;
+      }
+
       if (id === 'initial-date') {
-        onDateChange({ from: parsedDate, to: selectedDate?.to });
+        onDateChange({ from: adjustedDate, to: selectedDate?.to });
         setStartInputValue(
-          format(parsedDate, dateFormat, { locale: LOCALE[locale] })
+          format(adjustedDate, dateFormat, { locale: LOCALE[locale] })
         );
       } else {
-        onDateChange({ from: selectedDate?.from, to: parsedDate });
+        onDateChange({ from: selectedDate?.from, to: adjustedDate });
         setEndInputValue(
-          format(parsedDate, dateFormat, { locale: LOCALE[locale] })
+          format(adjustedDate, dateFormat, { locale: LOCALE[locale] })
         );
       }
     } else {
@@ -376,13 +390,15 @@ export function RangePicker({
   locale = 'en',
   onChange,
   type = 'range',
-  toDate,
   trigger,
   initialSingleDate,
   numberOfMonths = 2,
   hideInputs = false,
   hideMenu = false,
   initialRangeDate,
+  initialType = 'this-month',
+  maxDate,
+  minDate,
 }: RangerPickerProps) {
   const commonProps = {
     classNames: RANGE_PICKER_STYLES,
@@ -406,7 +422,7 @@ export function RangePicker({
   const [dateApplied, setDateApplied] = useState<DateRangeApplying>({
     from: selectedDate.from,
     to: selectedDate.to,
-    type: 'today',
+    type: initialType,
   });
 
   const [singleDate, setSingleDate] = useState<Date>(
@@ -498,8 +514,8 @@ export function RangePicker({
                   selected={selectedDate}
                   onSelect={(date) => handleRangeChange(date, false)}
                   showOutsideDays={false}
-                  max={365}
-                  toDate={toDate || new Date()}
+                  toDate={maxDate || undefined}
+                  fromDate={minDate || undefined}
                 />
               ) : (
                 <DayPicker
@@ -520,6 +536,8 @@ export function RangePicker({
                 onApply={() => handleAppy()}
                 onCancel={() => setIsOpen(false)}
                 hideInputs={hideInputs}
+                maxDate={maxDate}
+                minDate={minDate}
               />
             )}
           </div>
