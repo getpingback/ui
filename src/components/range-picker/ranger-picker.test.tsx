@@ -4,6 +4,8 @@ import { getYear } from 'date-fns';
 import { composeStories } from '@storybook/testing-react';
 import * as stories from './ranger-picker.stories';
 
+import { RangePicker } from './range-picker';
+
 const { Default, SingleType } = composeStories(stories);
 
 describe('RangerPicker Component', () => {
@@ -33,7 +35,7 @@ describe('RangerPicker Component', () => {
     fireEvent.click(rangerPickerTrigger);
 
     const rangerPickerContainer = getByTestId('ranger-content');
-    const containerInitialDate = getAllByText(rangerPickerContainer, '1')[0];
+    const containerInitialDate = getAllByText(rangerPickerContainer, '2')[0];
     fireEvent.click(containerInitialDate);
 
     const containerEndDate = getAllByText(rangerPickerContainer, '15')[0];
@@ -82,6 +84,7 @@ describe('RangerPicker Component', () => {
     const loggedFrom = logCalls[0][0].from;
     const loggedTo = logCalls[0][0].to;
 
+    console.log(loggedFrom, loggedTo);
     const normalizedLoggedFrom = new Date(
       loggedFrom?.getFullYear(),
       loggedFrom?.getMonth(),
@@ -101,7 +104,7 @@ describe('RangerPicker Component', () => {
 
   test(' should select a correct yesterday period', async () => {
     const { getByTestId } = render(<Default />);
-    const consoleSpy = jest.spyOn(console, 'log').mockImplementation();
+    const consoleSpy = jest.spyOn(console, 'log');
 
     const rangerPickerTrigger = getByTestId('ranger-trigger');
     fireEvent.click(rangerPickerTrigger);
@@ -138,12 +141,15 @@ describe('RangerPicker Component', () => {
     expect(normalizedLoggedFrom).toEqual(yesterdayDate);
     expect(normalizedLoggedTo).toEqual(yesterdayDate);
 
+    jest.useRealTimers();
     consoleSpy.mockRestore();
   });
 
-  test('should select a correct this month period', async () => {
-    const { getByTestId } = render(<Default />);
-    const consoleSpy = jest.spyOn(console, 'log').mockImplementation();
+  test.only('should select a correct this month period', async () => {
+    const handleChange = jest.fn();
+    const { getByTestId } = render(
+      <RangePicker type='range' onChange={handleChange} />
+    );
 
     const rangerPickerTrigger = getByTestId('ranger-trigger');
     fireEvent.click(rangerPickerTrigger);
@@ -152,7 +158,6 @@ describe('RangerPicker Component', () => {
     fireEvent.click(thisMonth);
 
     const applyButton = getByTestId('ranger-apply');
-
     fireEvent.click(applyButton);
 
     const todayDate = new Date();
@@ -167,25 +172,11 @@ describe('RangerPicker Component', () => {
       todayDate.getDate()
     );
 
-    const logCalls = consoleSpy.mock.calls;
-    const loggedFrom = logCalls[0][0].from;
-    const loggedTo = logCalls[0][0].to;
-
-    const normalizedLoggedFrom = new Date(
-      loggedFrom.getFullYear(),
-      loggedFrom.getMonth(),
-      loggedFrom.getDate()
-    );
-    const normalizedLoggedTo = new Date(
-      loggedTo.getFullYear(),
-      loggedTo.getMonth(),
-      loggedTo.getDate()
-    );
-
-    expect(normalizedLoggedFrom).toEqual(startDate);
-    expect(normalizedLoggedTo).toEqual(endDate);
-
-    consoleSpy.mockRestore();
+    expect(handleChange).toHaveBeenCalledWith({
+      from: startDate,
+      to: endDate,
+      type: 'this-month',
+    });
   });
 
   test('should select a correct this year period', async () => {

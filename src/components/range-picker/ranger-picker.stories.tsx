@@ -19,7 +19,11 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = () => {
   return (
     <div className='w-full flex justify-center'>
-      <RangePicker type='range' onChange={(date) => console.log(date)} />
+      <RangePicker
+        type='range'
+        onChange={(date) => console.log(date)}
+        initialType='today'
+      />
     </div>
   );
 };

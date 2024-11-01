@@ -8,6 +8,8 @@ import {
   startOfMonth,
   isValid,
   parse,
+  addDays,
+  differenceInDays,
 } from 'date-fns';
 
 import { DayPicker, DateRange } from 'react-day-picker';
@@ -77,6 +79,7 @@ export interface RangerPickerProps {
   hideMenu?: boolean;
   maxDate?: Date | null;
   minDate?: Date | null;
+  maxDaysRange?: number;
 }
 
 interface MenuProps {
@@ -399,6 +402,7 @@ export function RangePicker({
   initialType = 'this-month',
   maxDate,
   minDate,
+  maxDaysRange,
 }: RangerPickerProps) {
   const commonProps = {
     classNames: RANGE_PICKER_STYLES,
@@ -462,8 +466,50 @@ export function RangePicker({
 
   const handleAppy = () => {
     const { from, to } = selectedDate;
-    onChange({ from, to, type: !hideMenu ? rangeType : null });
-    setDateApplied({ from, to, type: !hideMenu ? rangeType : null });
+
+    const setStandardTime = (date: Date) => {
+      const standardDate = new Date(date);
+      standardDate.setHours(0, 0, 0, 0);
+      return standardDate;
+    };
+
+    if (maxDaysRange && from && to) {
+      const diffInDays = differenceInDays(to, from);
+
+      if (diffInDays > maxDaysRange) {
+        const newToDate = setStandardTime(addDays(from, maxDaysRange));
+        const standardFrom = setStandardTime(from);
+
+        onChange({
+          from: standardFrom,
+          to: newToDate,
+          type: !hideMenu ? rangeType : null,
+        });
+        setDateApplied({
+          from: standardFrom,
+          to: newToDate,
+          type: !hideMenu ? rangeType : null,
+        });
+        setSelectedDate({ from: standardFrom, to: newToDate });
+        setIsOpen(false);
+        setIsCustom(false);
+        return;
+      }
+    }
+
+    const standardFrom = from ? setStandardTime(from) : undefined;
+    const standardTo = to ? setStandardTime(to) : undefined;
+
+    onChange({
+      from: standardFrom,
+      to: standardTo,
+      type: !hideMenu ? rangeType : null,
+    });
+    setDateApplied({
+      from: standardFrom,
+      to: standardTo,
+      type: !hideMenu ? rangeType : null,
+    });
     setIsOpen(false);
     setIsCustom(false);
   };
