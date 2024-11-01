@@ -35,7 +35,7 @@ import useClickOutside from '@/hooks/useClickOutside';
 const DATE_NOW = new Date();
 
 const menuVariants = cva(
-  'h-[32px] inline-flex items-center text-xs font-regular cursor-pointer opacity-85 px-3 rounded-lg hover:bg-[#9061F914] hover:text-[#9061F9] transition-all duration-200 ease-in-out',
+  'h-[32px] inline-flex items-center text-xs font-primary cursor-pointer opacity-85 px-3 rounded-lg hover:bg-[#9061F914] hover:text-[#9061F9] transition-all duration-200 ease-in-out',
   {
     variants: {
       variant: {
@@ -67,21 +67,22 @@ interface DateRangeApplying {
 export interface RangerPickerProps {
   locale?: 'en' | 'pt-br' | 'es';
   onChange: (data: DateRangeApplying | Date) => void;
-  createdAt: string;
   type: 'range' | 'single';
   numberOfMonths?: number;
   trigger?: React.ReactNode;
   initialSingleDate?: Date;
   initialRangeDate?: DateRange;
+  initialType?: PeriodKeys;
   hideInputs?: boolean;
   hideMenu?: boolean;
+  maxDate?: Date | null;
+  minDate?: Date | null;
 }
 
 interface MenuProps {
   locale?: 'en' | 'pt-br' | 'es';
   onSelect?: (date?: Date) => void;
   onDateChange: (date: DateRange) => void;
-  createdDate: string;
   onSelectType: (type: PeriodKeys) => void;
   rangeType?: string;
   isCustom?: boolean;
@@ -91,10 +92,11 @@ interface FooterProps {
   onDateChange: (date: DateRange) => void;
   selectedDate: DateRange;
   locale: 'en' | 'pt-br' | 'es';
-  minDate: string;
   onApply: () => void;
   onCancel: () => void;
   hideInputs: boolean;
+  maxDate?: Date | null;
+  minDate?: Date | null;
 }
 
 interface TriggerProps {
@@ -138,16 +140,18 @@ export function TriggerRangeDate({
       return (
         <>
           {rangeDate.type && !hideMenu ? (
-            <span className='text-[#71717A] opacity-85 mr-1'>
+            <span className='text-[#71717A] opacity-85 mr-1 text-nowrap'>
               {DATA_PERIODS_LABEL[rangeDate.type][locale]}:
             </span>
           ) : null}
-          <span className='flex items-center text-[#52525B] opacity-85 mr-1'>
-            {fromDate}
+          <span className='flex items-center text-[#52525B] opacity-85 mr-1 '>
+            <span className='w-full text-nowrap'>{fromDate}</span>
             {rangeDate.to && fromDate !== toDate ? (
               <>
-                <ArrowRightIcon className='w-4 h-4 mx-1' />
-                {renderDate(rangeDate.to)}
+                <ArrowRightIcon className='w-4 h-4 mx-1 min-w-4' />
+                <span className='w-full text-nowrap'>
+                  {renderDate(rangeDate.to)}
+                </span>
               </>
             ) : null}
           </span>
@@ -169,9 +173,12 @@ export function TriggerRangeDate({
   return (
     <div
       id='date'
-      className='min-w-[200px] border border-solid border-[#D4D4D8] py-2 px-3  rounded-lg w-fit flex items-center justify-start text-left text-sm font-semibold'
+      className='w-full border border-solid border-[#D4D4D8] py-2 px-3  rounded-lg flex items-center justify-start text-left text-sm font-semibold '
     >
-      <CalendarIcon className='w-4 h-4 mr-1 opacity-85' color='#71717A' />
+      <CalendarIcon
+        className='w-4 h-4 mr-1 min-w-4 opacity-85'
+        color='#71717A'
+      />
       {rangeDate && renderLabel(rangeDate)}
     </div>
   );
@@ -181,7 +188,6 @@ const RangePickerMenu = ({
   locale = 'en',
   onDateChange,
   onSelectType,
-  createdDate,
   rangeType,
   isCustom,
 }: MenuProps) => {
@@ -220,8 +226,6 @@ const RangePickerMenu = ({
       case DEFAULT_PERIODS.THIS_YEAR:
         const startOfYear = new Date(new Date().getFullYear(), 0, 1);
         return handleDateChange([startOfYear, DATE_NOW]);
-      case DEFAULT_PERIODS.ALL_TIME:
-        return handleDateChange([new Date(createdDate), DATE_NOW]);
       case DEFAULT_PERIODS.CUSTOM:
         return;
 
@@ -231,7 +235,7 @@ const RangePickerMenu = ({
   };
 
   return (
-    <ul className='flex flex-col gap-1 pt-[20px] px-3 border-r border-[#71717A14] font-primary'>
+    <ul className='w-[130px] flex flex-col gap-1 pt-[20px] px-3 border-r border-[#71717A14] font-primary'>
       {DATA_PERIODS?.map((period) => (
         <li
           key={period.id}
@@ -257,6 +261,8 @@ const CalendarFooter = ({
   onCancel,
   onApply,
   hideInputs,
+  maxDate,
+  minDate,
 }: FooterProps) => {
   const [startInputValue, setStartInputValue] = useState('');
   const [endInputValue, setEndInputValue] = useState('');
@@ -299,15 +305,23 @@ const CalendarFooter = ({
     });
 
     if (isValid(parsedDate)) {
+      let adjustedDate = parsedDate;
+      if (maxDate && parsedDate > maxDate) {
+        adjustedDate = maxDate;
+      }
+      if (minDate && parsedDate < minDate) {
+        adjustedDate = minDate;
+      }
+
       if (id === 'initial-date') {
-        onDateChange({ from: parsedDate, to: selectedDate?.to });
+        onDateChange({ from: adjustedDate, to: selectedDate?.to });
         setStartInputValue(
-          format(parsedDate, dateFormat, { locale: LOCALE[locale] })
+          format(adjustedDate, dateFormat, { locale: LOCALE[locale] })
         );
       } else {
-        onDateChange({ from: selectedDate?.from, to: parsedDate });
+        onDateChange({ from: selectedDate?.from, to: adjustedDate });
         setEndInputValue(
-          format(parsedDate, dateFormat, { locale: LOCALE[locale] })
+          format(adjustedDate, dateFormat, { locale: LOCALE[locale] })
         );
       }
     } else {
@@ -374,7 +388,6 @@ const CalendarFooter = ({
 
 export function RangePicker({
   locale = 'en',
-  createdAt,
   onChange,
   type = 'range',
   trigger,
@@ -383,6 +396,9 @@ export function RangePicker({
   hideInputs = false,
   hideMenu = false,
   initialRangeDate,
+  initialType = 'this-month',
+  maxDate,
+  minDate,
 }: RangerPickerProps) {
   const commonProps = {
     classNames: RANGE_PICKER_STYLES,
@@ -406,7 +422,7 @@ export function RangePicker({
   const [dateApplied, setDateApplied] = useState<DateRangeApplying>({
     from: selectedDate.from,
     to: selectedDate.to,
-    type: 'today',
+    type: initialType,
   });
 
   const [singleDate, setSingleDate] = useState<Date>(
@@ -417,11 +433,24 @@ export function RangePicker({
 
   useClickOutside(rangeRef, () => {
     setIsOpen(false);
+    setIsCustom(false);
   });
 
-  const handleRangeChange = (date: DateRange | undefined) => {
-    setIsCustom(true);
-    date && setSelectedDate(date);
+  const handleRangeChange = (
+    date: DateRange | undefined,
+    isFromMenu = false
+  ) => {
+    if (!isFromMenu) {
+      setIsCustom(true);
+    }
+
+    if (date?.from === undefined) {
+      setSelectedDate({ from: date?.to, to: date?.to });
+    } else if (date?.to === undefined) {
+      setSelectedDate({ from: date?.from, to: date?.from });
+    } else {
+      setSelectedDate(date);
+    }
   };
 
   const handleSingleChange = (date: Date | undefined) => {
@@ -436,14 +465,15 @@ export function RangePicker({
     onChange({ from, to, type: !hideMenu ? rangeType : null });
     setDateApplied({ from, to, type: !hideMenu ? rangeType : null });
     setIsOpen(false);
+    setIsCustom(false);
   };
 
   return (
-    <div className={cn('grid gap-2 ')} data-testid='ranger'>
+    <div className={cn('w-fit grid gap-2 ')} data-testid='ranger'>
       <Popover open={isOpen}>
         <PopoverTrigger
           data-testid='ranger-trigger'
-          className='w-fit cursor-pointer'
+          className='w-full max-w-full cursor-pointer'
           onClick={() => setIsOpen(!isOpen)}
           type='submit'
         >
@@ -467,10 +497,9 @@ export function RangePicker({
           {type === 'range' && !hideMenu && (
             <RangePickerMenu
               locale={locale}
-              onDateChange={(date) => handleRangeChange(date)}
+              onDateChange={(date) => handleRangeChange(date, true)}
               onSelectType={(type) => setRangeType(type)}
-              rangeType={rangeType}
-              createdDate={createdAt}
+              rangeType={dateApplied.type}
               isCustom={isCustom}
             />
           )}
@@ -483,7 +512,10 @@ export function RangePicker({
                   numberOfMonths={numberOfMonths}
                   mode='range'
                   selected={selectedDate}
-                  onSelect={handleRangeChange}
+                  onSelect={(date) => handleRangeChange(date, false)}
+                  showOutsideDays={false}
+                  toDate={maxDate || undefined}
+                  fromDate={minDate || undefined}
                 />
               ) : (
                 <DayPicker
@@ -498,13 +530,14 @@ export function RangePicker({
 
             {type === 'range' && (
               <CalendarFooter
-                onDateChange={(date) => handleRangeChange(date)}
+                onDateChange={(date) => handleRangeChange(date, false)}
                 locale={locale}
                 selectedDate={selectedDate}
-                minDate={createdAt}
                 onApply={() => handleAppy()}
                 onCancel={() => setIsOpen(false)}
                 hideInputs={hideInputs}
+                maxDate={maxDate}
+                minDate={minDate}
               />
             )}
           </div>

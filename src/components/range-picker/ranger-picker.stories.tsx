@@ -19,18 +19,13 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = () => {
   return (
     <div className='w-full flex justify-center'>
-      <RangePicker
-        type='range'
-        onChange={(date) => console.log(date)}
-        createdAt='Thu Aug 22 2022 15:21:32 GMT-0300 (Brasilia Standard Time)'
-      />
+      <RangePicker type='range' onChange={(date) => console.log(date)} />
     </div>
   );
 };
 
 export const SingleType: Story = {
   args: {
-    createdAt: 'Thu Aug 22 2022 15:21:32 GMT-0300 (Brasilia Standard Time)',
     onChange: (date) => console.log(date),
     type: 'single',
   },
@@ -38,7 +33,6 @@ export const SingleType: Story = {
 
 export const MobileType: Story = {
   args: {
-    createdAt: 'Thu Aug 22 2022 15:21:32 GMT-0300 (Brasilia Standard Time)',
     onChange: (date) => console.log(date),
     hideMenu: true,
     hideInputs: true,
