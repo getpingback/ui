@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.227](https://github.com/getpingback/ui/compare/v0.0.226...v0.0.227) (2024-11-04)
+
+
+### Features
+
+* **variable-input:** initialContent and onChangeContent ([f48ea0c](https://github.com/getpingback/ui/commits/f48ea0cb5ab8615d42868282d05bb1dd9a24e0f8))
+
+
+### Bug Fixes
+
+* min and max date on rangepicker ([9eb2f0c](https://github.com/getpingback/ui/commits/9eb2f0cf54d2d8fdbe5e045864b977a2757e32bd))
+* **range-picker:** types ([6c10afd](https://github.com/getpingback/ui/commits/6c10afd98d2e6b3b93d2bd6dfeac9379fabf5e40))
+
 ### [0.0.225](https://github.com/getpingback/ui/compare/v0.0.224...v0.0.225) (2024-10-30)
 
 
