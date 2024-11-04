@@ -9,10 +9,8 @@ interface Props {
   label?: string;
   helperText?: string;
   placeholder?: string;
-  value?: string;
-  onChangeText?: (text: string) => void;
-  onChangeHtml?: (html: string) => void;
-  onChangeContent?: ({ plainText, html }: { plainText: string; html: string }) => void;
+  initialContent?: string;
+  onChangeContent?: (content: string) => void;
   onSelect?: (selectedVariable: string) => void;
   options: {
     label: string;
@@ -26,9 +24,7 @@ export function VariableInput({
   label,
   placeholder,
   helperText,
-  value,
-  onChangeText,
-  onChangeHtml,
+  initialContent,
   onChangeContent,
   onSelect,
   options,
@@ -42,15 +38,24 @@ export function VariableInput({
 
   const placeholderTag = `<span data-pb-placeholder="" class="opacity-50">${placeholder || ""}</span>`;
 
+  const transformContentToPlainText = (html: string) => {
+    const tempDiv = document.createElement("div");
+    tempDiv.innerHTML = html;
+
+    const spans = tempDiv.querySelectorAll("span[data-variable]");
+    spans.forEach((span) => {
+      const variable = span.getAttribute("data-variable");
+      span.replaceWith(`{{${variable}}}`);
+    });
+
+    return tempDiv.textContent ?? "";
+  };
+
   const handleInput = (e: React.FormEvent<HTMLDivElement>) => {
     const target = e.target as HTMLDivElement;
-    const plainText = target.textContent ?? "";
-    const html = target.innerHTML || "";
+    const plainText = transformContentToPlainText(target.innerHTML);
 
-    onChangeText?.(plainText);
-    onChangeHtml?.(html);
-    onChangeContent?.({ plainText, html });
-
+    onChangeContent?.(plainText);
     setText(plainText);
 
     const selection = window.getSelection();
@@ -103,6 +108,9 @@ export function VariableInput({
       }
 
       onSelect?.(selectedVariable);
+      const plainText = transformContentToPlainText(editor.innerHTML);
+      onChangeContent?.(plainText);
+      setText(plainText);
     }
   };
 
@@ -112,6 +120,31 @@ export function VariableInput({
 
   const handleBlur = () => {
     setIsFocused(false);
+  };
+
+  const transformVariablesToSpans = (content: string) => {
+    const regex = /{{([^}]+)}}/g;
+    const tempDiv = document.createElement("div");
+    tempDiv.textContent = content;
+
+    let match;
+    while ((match = regex.exec(content)) !== null) {
+      const variable = match[1];
+      const option = options.find((opt) => opt.value === variable);
+
+      if (option) {
+        const span = document.createElement("span");
+        span.className =
+          "inline-flex items-center bg-transparent text-[#52525B] rounded-md border border-[#D4D4D8] px-1 py-0 text-sm font-medium mx-0.5";
+        span.contentEditable = "false";
+        span.dataset.variable = variable;
+        span.textContent = option.label;
+
+        tempDiv.innerHTML = tempDiv.innerHTML.replace(match[0], span.outerHTML);
+      }
+    }
+
+    return tempDiv.innerHTML;
   };
 
   React.useEffect(() => {
@@ -125,6 +158,16 @@ export function VariableInput({
       }
     }
   }, [isFocused, text, placeholder]);
+
+  React.useEffect(() => {
+    const editor = editorRef.current;
+
+    if (editor && initialContent) {
+      const contentWithSpans = transformVariablesToSpans(initialContent);
+      editor.innerHTML = contentWithSpans;
+      setText(initialContent);
+    }
+  }, [initialContent]);
 
   return (
     <div className='flex flex-col items-start gap-1'>

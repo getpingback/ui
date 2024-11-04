@@ -35,3 +35,10 @@ export const WithInputProps: Story = {
     options,
   },
 };
+
+export const WithInitialContent: Story = {
+  args: {
+    initialContent: "Hello {{name}}! How are you?",
+    options,
+  },
+};

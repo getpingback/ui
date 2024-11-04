@@ -18,14 +18,14 @@ describe("VariableInput Component", () => {
     expect(getByText("Variable 2")).toBeInTheDocument();
   });
 
-  it("should call onChangeText when text is input", () => {
-    const handleChangeText = jest.fn();
-    const { container } = render(<VariableInput options={options} onChangeText={handleChangeText} />);
+  it("should call onChangeContent when text is input", () => {
+    const handleChangeContent = jest.fn();
+    const { container } = render(<VariableInput options={options} onChangeContent={handleChangeContent} />);
 
     const editor = container.querySelector("[contenteditable='true']");
     if (editor) {
       fireEvent.input(editor, { target: { textContent: "Hello" } });
-      expect(handleChangeText).toHaveBeenCalledWith("Hello");
+      expect(handleChangeContent).toHaveBeenCalledWith("Hello");
     }
   });
 
