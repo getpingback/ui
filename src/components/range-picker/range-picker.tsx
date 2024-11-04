@@ -84,7 +84,7 @@ interface MenuProps {
   onSelect?: (date?: Date) => void;
   onDateChange: (date: DateRange) => void;
   onSelectType: (type: PeriodKeys) => void;
-  rangeType?: string;
+  rangeType?: PeriodKeys | null;
   isCustom?: boolean;
 }
 
