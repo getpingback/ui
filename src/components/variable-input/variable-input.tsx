@@ -167,7 +167,7 @@ export function VariableInput({
       editor.innerHTML = contentWithSpans;
       setText(initialContent);
     }
-  }, [initialContent]);
+  }, []);
 
   return (
     <div className='flex flex-col items-start gap-1'>
