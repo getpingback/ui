@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.233](https://github.com/getpingback/ui/compare/v0.0.232...v0.0.233) (2024-11-07)
+
+
+### Bug Fixes
+
+* **range-picker:** startDate/endDate time and tests ([d7c2af9](https://github.com/getpingback/ui/commits/d7c2af9f3f6efe12c227b3f5787a99b2dd84d3fa))
+
 ### [0.0.231](https://github.com/getpingback/ui/compare/v0.0.229...v0.0.231) (2024-11-04)
 
 ### [0.0.229](https://github.com/getpingback/ui/compare/v0.0.227...v0.0.229) (2024-11-04)
