@@ -116,7 +116,13 @@ export function Combobox({
         isButtonLabel && "w-[calc(100%-30px)]"
       )}
     >
-      <span className={`line-clamp-1 ${isButtonLabel ? "w-full h-full flex items-center" : ""}`}>{item.label}</span>
+      <span
+        className={`line-clamp-1 ${isButtonLabel ? "w-full h-full flex items-center" : ""} ${
+          selected ? "text-visible" : ""
+        }`}
+      >
+        {item.label}
+      </span>
       {selected && <CheckIcon />}
     </div>
   );
@@ -135,7 +141,13 @@ export function Combobox({
         {item.leadingElement && !isButtonLabel ? <>{item.leadingElement}</> : null}
 
         <div className='flex flex-col items-start'>
-          <div className={`line-clamp-1 text-sm font-medium${isButtonLabel ? " max-w-[160px]" : ""}`}>{item.label}</div>
+          <div
+            className={`line-clamp-1 text-sm font-medium${isButtonLabel ? " max-w-[160px]" : ""} ${
+              selected ? "text-visible" : ""
+            }`}
+          >
+            {item.label}
+          </div>
           {!isButtonLabel ? <div className='text-xs text-gray-500'>{item.description}</div> : null}
         </div>
       </div>
@@ -144,16 +156,7 @@ export function Combobox({
     </div>
   );
 
-  const IconCompactVariant = ({
-    item,
-    selected,
-    border = true,
-  }: {
-    item: Item;
-    selected: boolean;
-    border?: boolean;
-    isButtonLabel?: boolean;
-  }) => (
+  const IconCompactVariant = ({ item, selected }: { item: Item; selected: boolean }) => (
     <div className={cn("w-full h-full flex items-center", selected && "justify-between")}>
       <div className='flex items-center gap-2 h-full'>
         <div className='flex items-center justify-center w-6 h-6 rounded-md'>{item.icon || null}</div>
@@ -229,7 +232,6 @@ export function Combobox({
         return React.createElement(getVariant(), {
           item: selectedItem,
           selected: false,
-          border: false,
         });
       }
 

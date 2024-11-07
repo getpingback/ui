@@ -19,7 +19,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    onChange: (file) => console.log('FILEEEEEE', file),
+    onChange: (file) => console.log(file),
   },
 };
 
