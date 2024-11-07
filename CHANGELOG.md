@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.235](https://github.com/getpingback/ui/compare/v0.0.234...v0.0.235) (2024-11-07)
+
+
+### Bug Fixes
+
+* **variable-input:** remove initialContent from useEffect array ([ff4c2a8](https://github.com/getpingback/ui/commits/ff4c2a89dd2817c9826cf82f101a0f32fb44f675))
+
 ### [0.0.233](https://github.com/getpingback/ui/compare/v0.0.232...v0.0.233) (2024-11-07)
 
 
