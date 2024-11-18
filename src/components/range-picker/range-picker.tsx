@@ -148,7 +148,7 @@ export function TriggerRangeDate({ rangeDate, type, locale = "en", hideMenu }: T
   return (
     <div
       id='date'
-      className='w-full border border-solid border-[#D4D4D8] py-2 px-3  rounded-lg flex items-center justify-start text-left text-sm font-semibold '
+      className='w-full border border-solid border-[#D4D4D8] h-[32px] px-3  rounded-lg flex items-center justify-start text-left text-sm font-semibold '
     >
       <CalendarIcon className='w-4 h-4 mr-1 min-w-4 opacity-85' color='#71717A' />
       {rangeDate && renderLabel(rangeDate)}
