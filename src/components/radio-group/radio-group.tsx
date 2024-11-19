@@ -8,7 +8,7 @@ interface RadioGroupProps
 }
 
 interface RadioItemProps extends RadioGroupPrimitive.RadioGroupItemProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 const RadioGroup = React.forwardRef<
