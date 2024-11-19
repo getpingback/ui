@@ -46,10 +46,10 @@ describe("RangePicker Component", () => {
 
       const current = new Date();
       const startDate = new Date(getYear(current), current.getMonth(), 1);
-      startDate.setHours(0, 0, 0, 0);
+      startDate.setUTCHours(0, 0, 0, 0);
 
       const endDate = new Date(getYear(current), current.getMonth(), 15);
-      endDate.setHours(23, 59, 59, 999);
+      endDate.setUTCHours(23, 59, 59, 999);
 
       expect(handleChange).toHaveBeenCalledWith({
         from: startDate,
@@ -73,10 +73,10 @@ describe("RangePicker Component", () => {
 
       const todayDate = new Date();
       const startOfDay = new Date(todayDate.getFullYear(), todayDate.getMonth(), todayDate.getDate());
-      startOfDay.setHours(0, 0, 0, 0);
+      startOfDay.setUTCHours(0, 0, 0, 0);
 
       const endOfDay = new Date(todayDate.getFullYear(), todayDate.getMonth(), todayDate.getDate());
-      endOfDay.setHours(23, 59, 59, 999);
+      endOfDay.setUTCHours(23, 59, 59, 999);
 
       expect(handleChange).toHaveBeenCalledWith({
         from: startOfDay,
@@ -102,10 +102,10 @@ describe("RangePicker Component", () => {
       const yesterdayDate = new Date(todayDate.getFullYear(), todayDate.getMonth(), todayDate.getDate() - 1);
 
       const startOfDay = new Date(yesterdayDate.getFullYear(), yesterdayDate.getMonth(), yesterdayDate.getDate());
-      startOfDay.setHours(0, 0, 0, 0);
+      startOfDay.setUTCHours(0, 0, 0, 0);
 
       const endOfDay = new Date(yesterdayDate.getFullYear(), yesterdayDate.getMonth(), yesterdayDate.getDate());
-      endOfDay.setHours(23, 59, 59, 999);
+      endOfDay.setUTCHours(23, 59, 59, 999);
 
       expect(handleChange).toHaveBeenCalledWith({
         from: startOfDay,
@@ -130,10 +130,10 @@ describe("RangePicker Component", () => {
       const todayDate = new Date();
 
       const startDate = new Date(todayDate.getFullYear(), todayDate.getMonth(), 1);
-      startDate.setHours(0, 0, 0, 0);
+      startDate.setUTCHours(0, 0, 0, 0);
 
       const endDate = new Date(todayDate.getFullYear(), todayDate.getMonth(), todayDate.getDate());
-      endDate.setHours(23, 59, 59, 999);
+      endDate.setUTCHours(23, 59, 59, 999);
 
       expect(handleChange).toHaveBeenCalledWith({
         from: startDate,
@@ -157,10 +157,10 @@ describe("RangePicker Component", () => {
 
       const todayDate = new Date();
       const startDate = new Date(todayDate.getFullYear(), 0, 1);
-      startDate.setHours(0, 0, 0, 0);
+      startDate.setUTCHours(0, 0, 0, 0);
 
       const endDate = new Date(todayDate.getFullYear(), todayDate.getMonth(), todayDate.getDate());
-      endDate.setHours(23, 59, 59, 999);
+      endDate.setUTCHours(23, 59, 59, 999);
 
       expect(handleChange).toHaveBeenCalledWith({
         from: startDate,
@@ -194,8 +194,14 @@ describe("RangePicker Component", () => {
       const applyButton = getByTestId("ranger-apply");
       fireEvent.click(applyButton);
 
-      const expectedFromDate = startOfDay(parseISO("2022-08-01"));
-      const expectedToDate = endOfDay(parseISO("2022-08-15"));
+      const fromDate = parseISO("2022-08-01");
+      const toDate = parseISO("2022-08-15");
+
+      const expectedFromDate = new Date(fromDate);
+      expectedFromDate.setUTCHours(0, 0, 0, 0);
+
+      const expectedToDate = new Date(toDate);
+      expectedToDate.setUTCHours(23, 59, 59, 999);
 
       expect(handleChange).toHaveBeenCalledWith({
         from: expectedFromDate,

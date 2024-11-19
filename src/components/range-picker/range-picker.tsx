@@ -337,13 +337,13 @@ const CalendarFooter = ({
 
 function setStartOfDay(date: Date): Date {
   const newDate = new Date(date);
-  newDate.setHours(0, 0, 0, 0);
+  newDate.setUTCHours(0, 0, 0, 0);
   return newDate;
 }
 
 function setEndOfDay(date: Date): Date {
   const newDate = new Date(date);
-  newDate.setHours(23, 59, 59, 999);
+  newDate.setUTCHours(23, 59, 59, 999);
   return newDate;
 }
 
