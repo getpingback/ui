@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.239](https://github.com/getpingback/ui/compare/v0.0.237...v0.0.239) (2024-11-19)
+
+
+### Bug Fixes
+
+* **range-picker:** setUTC hours ([351d2aa](https://github.com/getpingback/ui/commits/351d2aafd2a3105996cb04e610e086a4ca43dd7d))
+
+### [0.0.236](https://github.com/getpingback/ui/compare/v0.0.235...v0.0.236) (2024-11-07)
+
 ### [0.0.237](https://github.com/getpingback/ui/compare/v0.0.236...v0.0.237) (2024-11-18)
 
 ### [0.0.236](https://github.com/getpingback/ui/compare/v0.0.235...v0.0.236) (2024-11-18)
