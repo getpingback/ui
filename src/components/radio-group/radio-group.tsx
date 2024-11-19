@@ -38,20 +38,14 @@ const RadioItem = ({
       value={value}
       id={id}
       disabled={disabled}
-      className="peer border border-gray-500/65 w-4 h-4 rounded-full enabled:hover:ring-8 enabled:hover:ring-gray-500/10 aria-checked:ring-purple-500/10 aria-checked:border-4 enabled:aria-checked:border-purple-500 transition duration-200"
+      className="peer border border-gray-500/65 w-4 h-4 rounded-full enabled:hover:ring-8 enabled:hover:ring-gray-500/10 aria-checked:ring-purple-500/10 aria-checked:border-4 enabled:aria-checked:border-purple-500 transition duration-200 enabled:hover:cursor-pointer disabled:hover:cursor-not-allowed"
       {...props}
     >
       <RadioGroupPrimitive.Indicator />
     </RadioGroupPrimitive.Item>
 
     <label
-      className={cn(
-        "text-gray-600/85 text-sm peer-focus:underline duration-200 transition peer-focus:decoration-gray-500",
-        {
-          "peer-aria-checked:text-purple-600/85": !disabled,
-          "peer-disabled:text-gray-500/45": disabled,
-        }
-      )}
+      className="text-gray-600/85 text-sm peer-hover:cursor-pointer peer-disabled:hover:cursor-not-allowed peer-focus:underline duration-200 transition peer-focus:decoration-gray-500 peer-enabled:peer-aria-checked:text-purple-600/85 peer-disabled:text-gray-500/45"
       htmlFor={id}
     >
       {children}
