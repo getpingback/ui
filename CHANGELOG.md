@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.243](https://github.com/getpingback/ui/compare/v0.0.241...v0.0.243) (2024-11-19)
+
+
+### Features
+
+* update branch with main ([c6be5eb](https://github.com/getpingback/ui/commits/c6be5eba8d4140e4d5798b9c512be3e8c3a3872c))
+
 ### [0.0.241](https://github.com/getpingback/ui/compare/v0.0.242...v0.0.241) (2024-11-19)
 
 ### [0.0.239](https://github.com/getpingback/ui/compare/v0.0.237...v0.0.239) (2024-11-19)
