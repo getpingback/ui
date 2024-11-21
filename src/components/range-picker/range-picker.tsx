@@ -560,7 +560,7 @@ export function RangePicker({
                   numberOfMonths={numberOfMonths}
                   mode='range'
                   selected={selectedDate}
-                  defaultMonth={initialRangeDate?.from || selectedDate.from}
+                  defaultMonth={selectedDate.from}
                   onSelect={(date) => handleRangeChange(date, false)}
                   showOutsideDays={false}
                   toDate={maxDate || undefined}
