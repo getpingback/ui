@@ -145,7 +145,7 @@ export const RANGE_PICKER_STYLES = {
     buttonVariants({ variant: 'ghost' }),
     'h-9 w-9 p-0 font-normal aria-selected:opacity-100 opacity-85 color-[#3F3F46]'
   ),
-  day_range_end: 'bg-button-solid rounded-s-sm',
+  day_range_end: 'bg-button-solid rounded-s-sm ',
   day_range_start: 'bg-button-solid rounded-e-sm',
   day_selected:
     'text-button-solid-foreground hover:bg-button-solid hover:text-button-ghost-foreground focus:bg-button-solid focus:text-button-solid-foreground !font-medium',
@@ -154,6 +154,6 @@ export const RANGE_PICKER_STYLES = {
     'day-outside text-button-ghost-foreground opacity-50 aria-selected:bg-[#9061F914] aria-selected:text-button-ghost-foreground',
   day_disabled: 'text-button-ghost-foreground opacity-50',
   day_range_middle:
-    'aria-selected:bg-[#9061F914] aria-selected:rounded-none aria-selected:text-informative-foreground ',
+    'aria-selected:bg-[#9061F914] aria-selected:!rounded-none aria-selected:text-informative-foreground ',
   day_hidden: 'invisible',
 };

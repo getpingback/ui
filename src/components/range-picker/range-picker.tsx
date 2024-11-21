@@ -8,6 +8,7 @@ import {
   startOfMonth,
   isValid,
   parse,
+  differenceInDays,
 } from 'date-fns';
 
 import { DayPicker, DateRange } from 'react-day-picker';
@@ -415,8 +416,29 @@ export function RangePicker({
   const commonProps = {
     classNames: RANGE_PICKER_STYLES,
     showOutsideDays: true,
+    modifiers: {
+      single_day: () => {
+        const getDiffDays = differenceInDays(
+          selectedDate?.to,
+          selectedDate?.from
+        );
+        if (
+          getDiffDays > 0 ||
+          getDiffDays < 0 ||
+          !selectedDate?.from ||
+          !selectedDate?.to
+        )
+          return false;
+        return true;
+      },
+    },
+    modifiersClassNames: {
+      single_day: '!rounded-md',
+    },
+
     locale: LOCALE[locale],
     numberOfMonths: type === 'range' ? 2 : 1,
+    defaultMonth: initialRangeDate?.from || new Date(),
     components: {
       IconLeft: () => <ChevronLeftIcon className='h-6 w-6' />,
       IconRight: () => <ChevronRightIcon className='h-6 w-6' />,
@@ -538,6 +560,7 @@ export function RangePicker({
                   numberOfMonths={numberOfMonths}
                   mode='range'
                   selected={selectedDate}
+                  defaultMonth={initialRangeDate?.from || selectedDate.from}
                   onSelect={(date) => handleRangeChange(date, false)}
                   showOutsideDays={false}
                   toDate={maxDate || undefined}
