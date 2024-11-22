@@ -124,7 +124,7 @@ export const RANGE_PICKER_STYLES = {
   months: 'flex flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0',
   month: 'space-y-4',
   caption:
-    'flex justify-center pt-6 pb-3 relative items-center text-[#52525B] opacity-85 capitalize ',
+    'flex justify-center pt-4 pb-3 relative items-center text-[#52525B] opacity-85 capitalize ',
   caption_end: 'border-l-[1px] border-[#71717A14] pr-3 pb-3 pl-3',
   caption_start: 'pl-3 pb-3',
   caption_label: 'text-sm font-semibold',

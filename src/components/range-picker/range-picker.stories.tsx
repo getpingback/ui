@@ -40,3 +40,17 @@ export const MobileType: Story = {
     numberOfMonths: 1,
   },
 };
+
+export const ShowInputsOnTop: Story = () => {
+  return (
+    <div className='w-full flex justify-center'>
+      <RangePicker
+        type='range'
+        onChange={(date) => console.log(date)}
+        inputPosition='top'
+        hideMenu
+        numberOfMonths={1}
+      />
+    </div>
+  );
+};
