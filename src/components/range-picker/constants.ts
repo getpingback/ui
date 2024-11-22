@@ -124,7 +124,7 @@ export const RANGE_PICKER_STYLES = {
   months: 'flex flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0',
   month: 'space-y-4',
   caption:
-    'flex justify-center pt-6 pb-3 relative items-center text-[#52525B] opacity-85 capitalize ',
+    'flex justify-center pt-4 pb-3 relative items-center text-[#52525B] opacity-85 capitalize ',
   caption_end: 'border-l-[1px] border-[#71717A14] pr-3 pb-3 pl-3',
   caption_start: 'pl-3 pb-3',
   caption_label: 'text-sm font-semibold',
@@ -145,7 +145,7 @@ export const RANGE_PICKER_STYLES = {
     buttonVariants({ variant: 'ghost' }),
     'h-9 w-9 p-0 font-normal aria-selected:opacity-100 opacity-85 color-[#3F3F46]'
   ),
-  day_range_end: 'bg-button-solid rounded-s-sm',
+  day_range_end: 'bg-button-solid rounded-s-sm ',
   day_range_start: 'bg-button-solid rounded-e-sm',
   day_selected:
     'text-button-solid-foreground hover:bg-button-solid hover:text-button-ghost-foreground focus:bg-button-solid focus:text-button-solid-foreground !font-medium',
@@ -154,6 +154,6 @@ export const RANGE_PICKER_STYLES = {
     'day-outside text-button-ghost-foreground opacity-50 aria-selected:bg-[#9061F914] aria-selected:text-button-ghost-foreground',
   day_disabled: 'text-button-ghost-foreground opacity-50',
   day_range_middle:
-    'aria-selected:bg-[#9061F914] aria-selected:rounded-none aria-selected:text-informative-foreground ',
+    'aria-selected:bg-[#9061F914] aria-selected:!rounded-none aria-selected:text-informative-foreground ',
   day_hidden: 'invisible',
 };
