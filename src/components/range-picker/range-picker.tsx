@@ -287,6 +287,18 @@ const CalendarInputs = ({
     }
   }, [selectedDate, locale]);
 
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      initialInputRef.current?.blur();
+      endInputRef.current?.blur();
+      if (document.activeElement instanceof HTMLElement) {
+        document.activeElement.blur();
+      }
+    }, 0);
+
+    return () => clearTimeout(timeoutId);
+  }, []);
+
   const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target;
 
