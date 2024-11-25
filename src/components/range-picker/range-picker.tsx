@@ -558,6 +558,7 @@ export function RangePicker({
           )}
         </PopoverTrigger>
         <PopoverContent
+          onOpenAutoFocus={(e) => e.preventDefault()}
           ref={rangeRef}
           className='p-0 flex bg-[#FFFFFF] !w-fit !shadow-dropdown border-none'
           align={type === 'range' && numberOfMonths > 2 ? 'end' : 'center'}
