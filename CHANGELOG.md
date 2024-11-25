@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.251](https://github.com/getpingback/ui/compare/v0.0.250...v0.0.251) (2024-11-25)
+
+
+### Bug Fixes
+
+* remove autofocus from rangePicker input ([002b0de](https://github.com/getpingback/ui/commits/002b0de8322d945565d593eb0679de0fdb3de6ac))
+* remove last updates ([d039f51](https://github.com/getpingback/ui/commits/d039f51ddecb1fb68a4bffc5aa7675e5b683e640))
+
 ### [0.0.249](https://github.com/getpingback/ui/compare/v0.0.246...v0.0.249) (2024-11-22)
 
 
