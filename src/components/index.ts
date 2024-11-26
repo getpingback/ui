@@ -21,3 +21,4 @@ export * from './popover';
 export * from './range-picker';
 export * from './pagination';
 export * from './variable-input';
+export * from './radio-group';
