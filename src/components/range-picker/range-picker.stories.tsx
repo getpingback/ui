@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { RangePicker } from './range-picker';
+import { RangePicker, Inputs } from './range-picker';
 
 const meta = {
   title: 'Components/RangePicker',
@@ -39,4 +39,18 @@ export const MobileType: Story = {
     type: 'range',
     numberOfMonths: 1,
   },
+};
+
+export const ShowInputsOnTop: Story = () => {
+  return (
+    <div className='w-full flex justify-center'>
+      <RangePicker
+        type='range'
+        onChange={(date) => console.log(date)}
+        inputPosition='top'
+        hideMenu
+        numberOfMonths={1}
+      />
+    </div>
+  );
 };

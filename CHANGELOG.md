@@ -2,25 +2,74 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [0.0.245](https://github.com/getpingback/ui/compare/v0.0.243...v0.0.245) (2024-11-19)
-
-### [0.0.242](https://github.com/getpingback/ui/compare/v0.0.241...v0.0.242) (2024-11-19)
-
-### [0.0.241](https://github.com/getpingback/ui/compare/v0.0.240...v0.0.241) (2024-11-19)
-
-### [0.0.243](https://github.com/getpingback/ui/compare/v0.0.241...v0.0.243) (2024-11-19)
-
-### Features
-
-- update branch with main ([c6be5eb](https://github.com/getpingback/ui/commits/c6be5eba8d4140e4d5798b9c512be3e8c3a3872c))
-
-### [0.0.241](https://github.com/getpingback/ui/compare/v0.0.242...v0.0.241) (2024-11-19)
-
-### [0.0.239](https://github.com/getpingback/ui/compare/v0.0.237...v0.0.239) (2024-11-19)
+### [0.0.251](https://github.com/getpingback/ui/compare/v0.0.250...v0.0.251) (2024-11-25)
 
 ### Bug Fixes
 
-- **range-picker:** setUTC hours ([351d2aa](https://github.com/getpingback/ui/commits/351d2aafd2a3105996cb04e610e086a4ca43dd7d))
+* remove autofocus from rangePicker input ([002b0de](https://github.com/getpingback/ui/commits/002b0de8322d945565d593eb0679de0fdb3de6ac))
+* remove last updates ([d039f51](https://github.com/getpingback/ui/commits/d039f51ddecb1fb68a4bffc5aa7675e5b683e640))
+
+### [0.0.249](https://github.com/getpingback/ui/compare/v0.0.246...v0.0.249) (2024-11-22)
+
+
+### Bug Fixes
+
+* add input on top rangepicker ([4d7b05c](https://github.com/getpingback/ui/commits/4d7b05c3576180d7fd21b0d37865a48ad7d5e9c1))
+* remove focus on rangepicker input ([ca51029](https://github.com/getpingback/ui/commits/ca51029f505c07b005e0c71b6ca951b3aa08c0f5))
+
+### [0.0.248](https://github.com/getpingback/ui/compare/v0.0.246...v0.0.248) (2024-11-22)
+
+
+### Bug Fixes
+
+* add input on top rangepicker ([4d7b05c](https://github.com/getpingback/ui/commits/4d7b05c3576180d7fd21b0d37865a48ad7d5e9c1))
+* remove focus on rangepicker input ([ca51029](https://github.com/getpingback/ui/commits/ca51029f505c07b005e0c71b6ca951b3aa08c0f5))
+
+### [0.0.247](https://github.com/getpingback/ui/compare/v0.0.246...v0.0.247) (2024-11-22)
+
+
+### Bug Fixes
+
+* add input on top rangepicker ([4d7b05c](https://github.com/getpingback/ui/commits/4d7b05c3576180d7fd21b0d37865a48ad7d5e9c1))
+* remove focus on rangepicker input ([ca51029](https://github.com/getpingback/ui/commits/ca51029f505c07b005e0c71b6ca951b3aa08c0f5))
+
+### [0.0.245](https://github.com/getpingback/ui/compare/v0.0.244...v0.0.245) (2024-11-21)
+
+
+### Bug Fixes
+
+* default month on range picker ([a1ba7e6](https://github.com/getpingback/ui/commits/a1ba7e6c656e229bd397ace70723948de1519ff2))
+
+### [0.0.243](https://github.com/getpingback/ui/compare/v0.0.239...v0.0.243) (2024-11-21)
+
+
+### Bug Fixes
+
+* default month on range picker ([f399862](https://github.com/getpingback/ui/commits/f39986255fcfe28dedc7d327388c782537f0affe))
+* remove changes from last version ([616b267](https://github.com/getpingback/ui/commits/616b2676301afc54ed0192bc1c95291d970ce03c))
+
+### [0.0.242](https://github.com/getpingback/ui/compare/v0.0.239...v0.0.242) (2024-11-21)
+
+
+### Bug Fixes
+
+* default month on range picker ([f399862](https://github.com/getpingback/ui/commits/f39986255fcfe28dedc7d327388c782537f0affe))
+* remove changes from last version ([616b267](https://github.com/getpingback/ui/commits/616b2676301afc54ed0192bc1c95291d970ce03c))
+
+### [0.0.241](https://github.com/getpingback/ui/compare/v0.0.239...v0.0.241) (2024-11-21)
+
+
+### Bug Fixes
+
+* default month on range picker ([f399862](https://github.com/getpingback/ui/commits/f39986255fcfe28dedc7d327388c782537f0affe))
+* remove changes from last version ([616b267](https://github.com/getpingback/ui/commits/616b2676301afc54ed0192bc1c95291d970ce03c))
+
+### [0.0.239](https://github.com/getpingback/ui/compare/v0.0.237...v0.0.239) (2024-11-19)
+
+
+### Bug Fixes
+
+* **range-picker:** setUTC hours ([351d2aa](https://github.com/getpingback/ui/commits/351d2aafd2a3105996cb04e610e086a4ca43dd7d))
 
 ### [0.0.236](https://github.com/getpingback/ui/compare/v0.0.235...v0.0.236) (2024-11-07)
 

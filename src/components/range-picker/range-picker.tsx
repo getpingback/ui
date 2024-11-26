@@ -8,6 +8,7 @@ import {
   startOfMonth,
   isValid,
   parse,
+  differenceInDays,
 } from 'date-fns';
 
 import { DayPicker, DateRange } from 'react-day-picker';
@@ -77,6 +78,7 @@ export interface RangerPickerProps {
   hideMenu?: boolean;
   maxDate?: Date | null;
   minDate?: Date | null;
+  inputPosition?: 'bottom' | 'top';
 }
 
 interface MenuProps {
@@ -140,16 +142,16 @@ export function TriggerRangeDate({
       return (
         <>
           {rangeDate.type && !hideMenu ? (
-            <span className='text-[#71717A] opacity-85 mr-1 text-nowrap'>
+            <span className="text-[#71717A] opacity-85 mr-1 text-nowrap">
               {DATA_PERIODS_LABEL[rangeDate.type][locale]}:
             </span>
           ) : null}
-          <span className='flex items-center text-[#52525B] opacity-85 mr-1 '>
-            <span className='w-full text-nowrap'>{fromDate}</span>
+          <span className="flex items-center text-[#52525B] opacity-85 mr-1 ">
+            <span className="w-full text-nowrap">{fromDate}</span>
             {rangeDate.to && fromDate !== toDate ? (
               <>
-                <ArrowRightIcon className='w-4 h-4 mx-1 min-w-4' />
-                <span className='w-full text-nowrap'>
+                <ArrowRightIcon className="w-4 h-4 mx-1 min-w-4" />
+                <span className="w-full text-nowrap">
                   {renderDate(rangeDate.to)}
                 </span>
               </>
@@ -159,7 +161,7 @@ export function TriggerRangeDate({
       );
     } else if (rangeDate instanceof Date) {
       return (
-        <span className='flex items-center text-[#52525B] opacity-85 mr-1'>
+        <span className="flex items-center text-[#52525B] opacity-85 mr-1">
           {format(rangeDate, "dd 'de' MMM, yyyy", {
             locale: LOCALE[locale],
           })}
@@ -172,12 +174,12 @@ export function TriggerRangeDate({
 
   return (
     <div
-      id='date'
-      className='w-full border border-solid border-[#D4D4D8] h-[32px] px-3  rounded-lg flex items-center justify-start text-left text-sm font-semibold '
+      id="date"
+      className="w-full border border-solid border-[#D4D4D8] h-[32px] px-3  rounded-lg flex items-center justify-start text-left text-sm font-semibold "
     >
       <CalendarIcon
-        className='w-4 h-4 mr-1 min-w-4 opacity-85'
-        color='#71717A'
+        className="w-4 h-4 mr-1 min-w-4 opacity-85"
+        color="#71717A"
       />
       {rangeDate && renderLabel(rangeDate)}
     </div>
@@ -235,7 +237,7 @@ const RangePickerMenu = ({
   };
 
   return (
-    <ul className='w-[130px] flex flex-col gap-1 pt-[20px] px-3 border-r border-[#71717A14] font-primary'>
+    <ul className="w-[130px] flex flex-col gap-1 pt-[20px] px-3 border-r border-[#71717A14] font-primary">
       {DATA_PERIODS?.map((period) => (
         <li
           key={period.id}
@@ -254,12 +256,10 @@ const RangePickerMenu = ({
   );
 };
 
-const CalendarFooter = ({
+const CalendarInputs = ({
   onDateChange,
   selectedDate,
   locale,
-  onCancel,
-  onApply,
   hideInputs,
   maxDate,
   minDate,
@@ -334,53 +334,35 @@ const CalendarFooter = ({
   };
 
   return (
-    <div className='w-full flex justify-between border-t-[1px] border-[#71717A14]'>
-      <div className='flex items-center py-4 px-6 gap-2'>
+    <div className="w-full flex justify-between">
+      <div className="flex items-center py-4 px-4 gap-2">
         {!hideInputs && (
           <>
             <input
-              type='text'
-              id='initial-date'
-              data-testid='initial-date'
+              type="text"
+              id="initial-date"
+              data-testid="initial-date"
               ref={initialInputRef}
               placeholder={LOCALE_DATE_FORMAT[locale]}
               value={startInputValue}
               onChange={handleDateChange}
               onBlur={handleBlur}
-              className='flex h-[32px] w-full max-w-[102px] border-divider border rounded-lg bg-transparent py-2 px-2 text-sm outline-none text-tertiary-foreground placeholder:opacity-85 disabled:cursor-not-allowed disabled:opacity-50 hover:border-[#A1A1AA] focus:border-[#9061F9] focus:[box-shadow:0px_0px_0px_3px_rgba(144,_97,_249,_0.12)] transition-all duration-200 ease-in-out'
+              className="flex h-[32px] w-full max-w-[102px] min-w-[102px] border-divider border rounded-lg bg-transparent py-2 px-2 text-sm outline-none text-tertiary-foreground placeholder:opacity-85 disabled:cursor-not-allowed disabled:opacity-50 hover:border-[#A1A1AA] focus:border-[#9061F9] focus:[box-shadow:0px_0px_0px_3px_rgba(144,_97,_249,_0.12)] transition-all duration-200 ease-in-out"
             />
-            <ArrowRightIcon opacity={0.45} color='#52525B' />
+            <ArrowRightIcon opacity={0.45} color="#52525B" />
             <input
-              type='text'
-              id='end-date'
-              data-testid='end-date'
+              type="text"
+              id="end-date"
+              data-testid="end-date"
               onBlur={handleBlur}
               ref={endInputRef}
               value={endInputValue}
               placeholder={LOCALE_DATE_FORMAT[locale]}
               onChange={handleDateChange}
-              className='flex h-[32px] w-full max-w-[102px] border-divider border rounded-lg bg-transparent py-2 px-2 text-sm outline-none text-tertiary-foreground placeholder:opacity-85 disabled:cursor-not-allowed disabled:opacity-50 hover:border-[#A1A1AA] focus:border-[#9061F9] focus:[box-shadow:0px_0px_0px_3px_rgba(144,_97,_249,_0.12)] transition-all duration-200 ease-in-out'
+              className="flex h-[32px] w-full max-w-[102px] min-w-[102px] border-divider border rounded-lg bg-transparent py-2 px-2 text-sm outline-none text-tertiary-foreground placeholder:opacity-85 disabled:cursor-not-allowed disabled:opacity-50 hover:border-[#A1A1AA] focus:border-[#9061F9] focus:[box-shadow:0px_0px_0px_3px_rgba(144,_97,_249,_0.12)] transition-all duration-200 ease-in-out"
             />
           </>
         )}
-      </div>
-      <div className='flex py-4 px-6'>
-        <Button
-          variant='clear'
-          size='sm'
-          onClick={onCancel}
-          data-testid='ranger-cancel'
-        >
-          {BUTTONS_ACTIONS_LABEL.cancel[locale]}
-        </Button>
-        <Button
-          variant='solid'
-          size='sm'
-          onClick={onApply}
-          data-testid='ranger-apply'
-        >
-          {BUTTONS_ACTIONS_LABEL.apply[locale]}
-        </Button>
       </div>
     </div>
   );
@@ -411,15 +393,37 @@ export function RangePicker({
   initialType = 'this-month',
   maxDate,
   minDate,
+  inputPosition = 'bottom',
 }: RangerPickerProps) {
   const commonProps = {
     classNames: RANGE_PICKER_STYLES,
     showOutsideDays: true,
+    modifiers: {
+      single_day: () => {
+        const getDiffDays = differenceInDays(
+          selectedDate?.to,
+          selectedDate?.from
+        );
+        if (
+          getDiffDays > 0 ||
+          getDiffDays < 0 ||
+          !selectedDate?.from ||
+          !selectedDate?.to
+        )
+          return false;
+        return true;
+      },
+    },
+    modifiersClassNames: {
+      single_day: '!rounded-md',
+    },
+
     locale: LOCALE[locale],
     numberOfMonths: type === 'range' ? 2 : 1,
+    defaultMonth: initialRangeDate?.from || new Date(),
     components: {
-      IconLeft: () => <ChevronLeftIcon className='h-6 w-6' />,
-      IconRight: () => <ChevronRightIcon className='h-6 w-6' />,
+      IconLeft: () => <ChevronLeftIcon className="h-6 w-6" />,
+      IconRight: () => <ChevronRightIcon className="h-6 w-6" />,
     },
   };
 
@@ -493,15 +497,54 @@ export function RangePicker({
     setIsOpen(false);
     setIsCustom(false);
   };
+  const renderCalendarInputs = () => (
+    <CalendarInputs
+      onDateChange={(date) => handleRangeChange(date, false)}
+      locale={locale}
+      selectedDate={selectedDate}
+      onApply={() => handleAppy()}
+      onCancel={() => setIsOpen(false)}
+      hideInputs={hideInputs}
+      maxDate={maxDate}
+      minDate={minDate}
+    />
+  );
+
+  const renderCalendarButtons = () => (
+    <div
+      className={`flex py-4 px-6 ${
+        inputPosition === 'top' || hideInputs
+          ? 'justify-between'
+          : 'justify-end'
+      } ${inputPosition === 'top' || hideInputs ? 'w-full' : 'w-fit'}`}
+    >
+      <Button
+        variant="clear"
+        size="sm"
+        onClick={() => setIsOpen(false)}
+        data-testid="ranger-cancel"
+      >
+        {BUTTONS_ACTIONS_LABEL.cancel[locale]}
+      </Button>
+      <Button
+        variant="solid"
+        size="sm"
+        onClick={handleAppy}
+        data-testid="ranger-apply"
+      >
+        {BUTTONS_ACTIONS_LABEL.apply[locale]}
+      </Button>
+    </div>
+  );
 
   return (
-    <div className={cn('w-fit grid gap-2 ')} data-testid='ranger'>
+    <div className={cn('w-fit grid gap-2 ')} data-testid="ranger">
       <Popover open={isOpen}>
         <PopoverTrigger
-          data-testid='ranger-trigger'
-          className='w-full max-w-full cursor-pointer'
+          data-testid="ranger-trigger"
+          className="w-full max-w-full cursor-pointer"
           onClick={() => setIsOpen(!isOpen)}
-          type='submit'
+          type="submit"
         >
           {trigger ? (
             trigger
@@ -515,10 +558,11 @@ export function RangePicker({
           )}
         </PopoverTrigger>
         <PopoverContent
+          onOpenAutoFocus={(e) => e.preventDefault()}
           ref={rangeRef}
-          className=' p-0 flex bg-[#FFFFFF] !w-fit !shadow-dropdown border-none'
+          className="p-0 flex bg-[#FFFFFF] !w-fit !shadow-dropdown border-none"
           align={type === 'range' && numberOfMonths > 2 ? 'end' : 'center'}
-          data-testid='ranger-content'
+          data-testid="ranger-content"
         >
           {type === 'range' && !hideMenu && (
             <RangePickerMenu
@@ -530,14 +574,21 @@ export function RangePicker({
             />
           )}
 
-          <div className='flex flex-col'>
-            <div className='flex'>
+          <div className="flex flex-col">
+            {type === 'range' && inputPosition === 'top' && (
+              <div className="w-full flex justify-between border-b-[1px] border-[#71717A14]">
+                {!hideInputs ? renderCalendarInputs() : null}
+              </div>
+            )}
+
+            <div className="w-full flex items-center justify-center">
               {type === 'range' ? (
                 <DayPicker
                   {...commonProps}
                   numberOfMonths={numberOfMonths}
-                  mode='range'
+                  mode="range"
                   selected={selectedDate}
+                  defaultMonth={selectedDate.from}
                   onSelect={(date) => handleRangeChange(date, false)}
                   showOutsideDays={false}
                   toDate={maxDate || undefined}
@@ -547,25 +598,19 @@ export function RangePicker({
                 <DayPicker
                   {...commonProps}
                   numberOfMonths={1}
-                  mode='single'
+                  mode="single"
                   selected={singleDate}
                   onSelect={(date) => handleSingleChange(date)}
                 />
               )}
             </div>
 
-            {type === 'range' && (
-              <CalendarFooter
-                onDateChange={(date) => handleRangeChange(date, false)}
-                locale={locale}
-                selectedDate={selectedDate}
-                onApply={() => handleAppy()}
-                onCancel={() => setIsOpen(false)}
-                hideInputs={hideInputs}
-                maxDate={maxDate}
-                minDate={minDate}
-              />
-            )}
+            <div className="w-full flex justify-between border-t-[1px] border-[#71717A14]">
+              {!hideInputs && type === 'range' && inputPosition === 'bottom'
+                ? renderCalendarInputs()
+                : null}
+              {type === 'range' ? renderCalendarButtons() : null}
+            </div>
           </div>
         </PopoverContent>
       </Popover>
