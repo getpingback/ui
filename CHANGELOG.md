@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.258](https://github.com/getpingback/ui/compare/v0.0.257...v0.0.258) (2024-11-26)
+
+
+### Bug Fixes
+
+* tooltip trigger ([9185dec](https://github.com/getpingback/ui/commits/9185dec0c9b9c019318b11a94afca7f6c2ab018e))
+
 ### [0.0.256](https://github.com/getpingback/ui/compare/v0.0.254...v0.0.256) (2024-11-26)
 
 ### [0.0.255](https://github.com/getpingback/ui/compare/v0.0.254...v0.0.255) (2024-11-26)
