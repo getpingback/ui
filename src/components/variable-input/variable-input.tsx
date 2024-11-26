@@ -1,9 +1,8 @@
 import * as React from 'react';
-import { Dropdown, DropdownItem } from '../dropdown';
 import { VariableIcon } from '@stash-ui/editor-icons';
 import { CaretDownIcon, CaretUpIcon } from '@stash-ui/light-icons';
-import { cn } from '@/lib/utils';
 
+import { cn } from '@/lib/utils';
 import { Button } from '@/components/button';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/popover';
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from '@/components/command';
