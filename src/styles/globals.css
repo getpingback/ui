@@ -34,6 +34,9 @@
     --border-divider-color: #e4e4e7;
     --border-cards-color: #3f3f4614;
     --border-input_filled-color: #9061f9;
+    --border-button_outlined-color: #71717a;
+
+    --background-informative: #9061f914;
 
     --bottom_sheet-2: 0px 0px 1px 1px rgba(0, 0, 0, 0.04),
       0px 4px 16px -2px rgba(0, 0, 0, 0.08);
