@@ -20,30 +20,36 @@
     --badge-purple-bg: #9061f914;
     --badge-purple-text: #9061f9;
 
-
     --buttons-solid_default: #9061f9;
     --button-solid-bg: #9061f9;
     --button-solid-text: #fafafa;
     --button-ghost-bg: #9061f91f;
     --button-ghost-text: #52525b;
-    --buttons-label_inverse: #FAFAFA;
-    --button-hover-solid-color: #9061F940;
-    --buttons-ghost_bg-color: #9061F91f;
+    --buttons-label_inverse: #fafafa;
+    --button-hover-solid-color: #9061f940;
+    --buttons-ghost_bg-color: #9061f91f;
 
     --background-accent: #ffffff;
 
     --border-divider-color: #e4e4e7;
     --border-cards-color: #3f3f4614;
+    --border-input_filled-color: #9061f9;
+    --border-button_outlined-color: #71717a;
 
-    --bottom_sheet-2: 0px 0px 1px 1px rgba(0, 0, 0, 0.04), 0px 4px 16px -2px rgba(0, 0, 0, 0.08);
-    --modals-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.04), 0px -6px 24px -3px rgba(0, 0, 0, 0.08);
-    --dropdown-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.04), 0px 10px 40px -5px rgba(0, 0, 0, 0.08);
+    --background-informative: #9061f914;
 
-    --button-solid-shadow: 0px 0px 0px 3px #9061F940;
+    --bottom_sheet-2: 0px 0px 1px 1px rgba(0, 0, 0, 0.04),
+      0px 4px 16px -2px rgba(0, 0, 0, 0.08);
+    --modals-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.04),
+      0px -6px 24px -3px rgba(0, 0, 0, 0.08);
+    --dropdown-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.04),
+      0px 10px 40px -5px rgba(0, 0, 0, 0.08);
+
+    --button-solid-shadow: 0px 0px 0px 3px #9061f940;
 
     --list-hightlight--hover: 0px 0px 0px 3px rgba(14, 159, 110, 0.12);
     --list-actived: #9061f914;
-    --list-hover: #71717A0A;
+    --list-hover: #71717a0a;
     --list-hightlight: rgba(14, 159, 110, 0.04);
     --list-label_default: #71717a;
 
@@ -64,7 +70,11 @@
     --text-error_accent: #c81e1e;
     --text-money: #0e9f6e;
 
-    --palette-gradiente-active_menu: linear-gradient(270deg, #7e3af200 0%, #7e3af20b 100%);
+    --palette-gradiente-active_menu: linear-gradient(
+      270deg,
+      #7e3af200 0%,
+      #7e3af20b 100%
+    );
 
     --icons-default: #71717a;
   }
@@ -86,13 +96,13 @@
     --buttons-solid_default: #9061f9;
     --button-solid-bg: #9061f9;
     --button-solid-text: #fafafa;
-    --buttons-label: #52525B;
+    --buttons-label: #52525b;
     --button-ghost-bg: #ac94fa3d;
     --button-ghost-text: #fafafa;
-    --buttons-label_inverse: #FAFAFA;
-    --button-hover-solid-color: #9061F940;
-    --buttons-label: #52525B;
-    --buttons-ghost_bg-color: #9061F91f;
+    --buttons-label_inverse: #fafafa;
+    --button-hover-solid-color: #9061f940;
+    --buttons-label: #52525b;
+    --buttons-ghost_bg-color: #9061f91f;
 
     --background-accent: #27272a;
 
@@ -100,10 +110,12 @@
     --border-cards-color: #fafafa14;
 
     --bottom_sheet-2: 0px 0px 1px 1px #0000007a, 0px -4px 16px -2px #0000007a;
-    --modals-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.04), 0px -6px 24px -3px rgba(0, 0, 0, 0.08);
-    --button-solid-shadow: 0px 0px 0px 3px #9061F940;
-    --dropdown-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.04), 0px 10px 40px -5px rgba(0, 0, 0, 0.08);
-    
+    --modals-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.04),
+      0px -6px 24px -3px rgba(0, 0, 0, 0.08);
+    --button-solid-shadow: 0px 0px 0px 3px #9061f940;
+    --dropdown-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.04),
+      0px 10px 40px -5px rgba(0, 0, 0, 0.08);
+
     --list-hightlight--hover: 0px 0px 0px 3px rgba(14, 159, 110, 0.12);
     --list-actived: #ac94fa14;
     --list-hightlight: rgba(14, 159, 110, 0.04);
@@ -127,14 +139,18 @@
     --text-error_accent: #f98080;
     --text-money: #31c48d;
 
-    --palette-gradiente-active_menu: linear-gradient(270deg, #ac94fa 0%, #ac94fa00 100%);
+    --palette-gradiente-active_menu: linear-gradient(
+      270deg,
+      #ac94fa 0%,
+      #ac94fa00 100%
+    );
 
     --icons-default: #e4e4e7;
   }
 }
 
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }

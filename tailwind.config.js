@@ -185,7 +185,7 @@ const config = {
           foreground: 'var(--text-tertiary)',
         },
         secondary: {
-          foreground: 'var(--text-secondary)',
+          foreground: 'rgb(from var(--text-secondary) r g b / <alpha-value>)',
         },
         primary: {
           foreground: 'var(--text-primary)',
@@ -195,6 +195,9 @@ const config = {
         },
         informative: {
           foreground: 'var(--text-informative_accent)',
+        },
+        highlighted: {
+          foreground: 'var(--text-informative)',
         },
         inverse: {
           foreground: 'var(--text-inverse)',
@@ -219,6 +222,12 @@ const config = {
         },
         divider: {
           DEFAULT: 'var(--border-divider-color)',
+        },
+        input: {
+          filled: 'var(--border-input_filled-color)',
+          outline:
+            'rgb(from var(--border-button_outlined-color) r g b / <alpha-value>)',
+          informative: 'var(--background-informative)',
         },
         badge: {
           gray: {
