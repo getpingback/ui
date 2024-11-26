@@ -196,6 +196,9 @@ const config = {
         informative: {
           foreground: 'var(--text-informative_accent)',
         },
+        highlighted: {
+          foreground: 'rgb(from var(--text-informative) r g b / <alpha-value>)',
+        },
         inverse: {
           foreground: 'var(--text-inverse)',
         },
@@ -219,6 +222,10 @@ const config = {
         },
         divider: {
           DEFAULT: 'var(--border-divider-color)',
+        },
+        input: {
+          filled:
+            'rgb(from var(--border-input_filled-color) r g b / <alpha-value>)',
         },
         badge: {
           gray: {
