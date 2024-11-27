@@ -210,7 +210,7 @@ export function VariableInput({
       editor.innerHTML = contentWithSpans;
       setText(initialContent);
     }
-  }, []);
+  }, [initialContent]);
 
   React.useEffect(() => {
     const editor = editorRef.current;
@@ -226,7 +226,6 @@ export function VariableInput({
 
   React.useEffect(() => {
     if (!open) {
-      onChangeVariablesSearchValue?.('');
       onVariablesEndReached?.();
       return;
     }
