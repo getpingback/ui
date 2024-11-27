@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.263](https://github.com/getpingback/ui/compare/v0.0.262...v0.0.263) (2024-11-27)
+
+
+### Bug Fixes
+
+* **variable-input:** reset search on close ([ff0075e](https://github.com/getpingback/ui/commits/ff0075e17bd53aac5ceca5a8f7ea73cb5f85684f))
+
 ### [0.0.261](https://github.com/getpingback/ui/compare/v0.0.260...v0.0.261) (2024-11-27)
 
 
