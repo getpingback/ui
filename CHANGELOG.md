@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.261](https://github.com/getpingback/ui/compare/v0.0.260...v0.0.261) (2024-11-27)
+
+
+### Features
+
+* **variable-input:** add custom fields and combobox ([3e89a07](https://github.com/getpingback/ui/commits/3e89a07602d029ad5a8ee5490631503a52706c9a))
+
+
+### Bug Fixes
+
+* change selection scope ([ec3c5b3](https://github.com/getpingback/ui/commits/ec3c5b31c39522303b26f2ca136d96c819806c8b))
+* **variable-input:** remove unused components ([844a5db](https://github.com/getpingback/ui/commits/844a5db2bd55b9fbdebd73dfcc14c1786cc3ae1a))
+
 ### [0.0.260](https://github.com/getpingback/ui/compare/v0.0.257...v0.0.260) (2024-11-27)
 
 
