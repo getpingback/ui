@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.265](https://github.com/getpingback/ui/compare/v0.0.264...v0.0.265) (2024-11-27)
+
+
+### Bug Fixes
+
+* **variable-input:** initial content ([9a44ec0](https://github.com/getpingback/ui/commits/9a44ec0db6bc2e8e47056ec24e8939eb21c5b897))
+
 ### [0.0.263](https://github.com/getpingback/ui/compare/v0.0.262...v0.0.263) (2024-11-27)
 
 
