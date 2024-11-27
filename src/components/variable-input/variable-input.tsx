@@ -110,20 +110,18 @@ export function VariableInput({
 
     if (editor.innerHTML === placeholderTag) editor.innerHTML = '';
 
+    const selection = window.getSelection();
     if (!lastRange || !editor.contains(lastRange.commonAncestorContainer)) {
       const range = document.createRange();
       range.selectNodeContents(editor);
       range.collapse(false);
-      const selection = window.getSelection();
       selection?.removeAllRanges();
       selection?.addRange(range);
     } else {
-      const selection = window.getSelection();
       selection?.removeAllRanges();
       selection?.addRange(lastRange);
     }
 
-    const selection = window.getSelection();
     if (selection && selection.rangeCount > 0) {
       const range = selection.getRangeAt(0);
       const span = document.createElement('span');
