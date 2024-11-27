@@ -226,6 +226,7 @@ export function VariableInput({
 
   React.useEffect(() => {
     if (!open) {
+      onChangeVariablesSearchValue?.('');
       onVariablesEndReached?.();
       return;
     }
