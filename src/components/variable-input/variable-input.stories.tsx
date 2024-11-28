@@ -47,6 +47,8 @@ export const WithInputProps: Story = {
 
 export const WithInitialContent: Story = {
   args: {
+    label: 'Expression',
+    placeholder: 'Enter the expression',
     initialContent: 'Hello {{name}}! How are you?',
     options
   }

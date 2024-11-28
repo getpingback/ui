@@ -216,13 +216,13 @@ export function VariableInput({
     const editor = editorRef.current;
 
     if (editor) {
-      if (!isFocused && !text && placeholder) {
+      if (!isFocused && !text && !initialContent && placeholder) {
         editor.innerHTML = placeholderTag;
       } else if (isFocused && editor.innerHTML === placeholderTag) {
         editor.innerHTML = '';
       }
     }
-  }, [isFocused, text, placeholder]);
+  }, [isFocused, text, placeholder, initialContent]);
 
   React.useEffect(() => {
     if (!open) {

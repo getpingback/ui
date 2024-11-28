@@ -100,4 +100,15 @@ describe('VariableInput Component', () => {
 
     expect(getByText('No results found')).toBeInTheDocument();
   });
+
+  it('should prioritize initialContent over placeholder', () => {
+    const initialContent = 'Initial content';
+    const { container } = render(<VariableInput options={options} initialContent={initialContent} placeholder="Placeholder" />);
+
+    const editor = container.querySelector("[contenteditable='true']");
+    if (editor) {
+      expect(editor.innerHTML).toBe(initialContent);
+      expect(editor.innerHTML).not.toBe('Placeholder');
+    }
+  });
 });
