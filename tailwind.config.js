@@ -224,6 +224,7 @@ const config = {
         input: {
           selected: {
             DEFAULT: 'var(--border-input_filled-color)',
+            label: 'var(--buttons-label_color)',
             hover: 'var(--background-informative)'
           },
           outline: {
