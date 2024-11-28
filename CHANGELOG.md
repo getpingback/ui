@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.267](https://github.com/getpingback/ui/compare/v0.0.266...v0.0.267) (2024-11-28)
+
+
+### Bug Fixes
+
+* **variable-input:** initalContent over placeholder ([e127035](https://github.com/getpingback/ui/commits/e1270356c341f3edb42c6cd8e6104d078befe007))
+
 ### [0.0.265](https://github.com/getpingback/ui/compare/v0.0.264...v0.0.265) (2024-11-27)
 
 
