@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.269](https://github.com/getpingback/ui/compare/v0.0.268...v0.0.269) (2024-11-28)
+
+
+### Bug Fixes
+
+* use button-label-variable ([c7f6681](https://github.com/getpingback/ui/commits/c7f6681ff4807a69e0ebfbf96ada991cb24264b9))
+
 ### [0.0.267](https://github.com/getpingback/ui/compare/v0.0.266...v0.0.267) (2024-11-28)
 
 
