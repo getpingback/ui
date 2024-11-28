@@ -33,7 +33,7 @@ const RadioItem = ({ id, value, children, disabled, ...props }: RadioItemProps) 
     </RadioGroupPrimitive.Item>
 
     <label
-      className="text-secondary-foreground text-sm peer-hover:cursor-pointer peer-disabled:hover:cursor-not-allowed peer-focus:underline duration-200 transition peer-enabled:peer-aria-checked:text-highlighted-foreground peer-enabled:peer-aria-checked:decoration-input-selected peer-disabled:text-secondary-foreground/45"
+      className="text-secondary-foreground text-sm peer-hover:cursor-pointer peer-disabled:hover:cursor-not-allowed peer-focus:underline duration-200 transition peer-enabled:peer-aria-checked:text-input-selected-label peer-enabled:peer-aria-checked:decoration-input-selected peer-disabled:text-secondary-foreground/45"
       htmlFor={id}
     >
       {children}
