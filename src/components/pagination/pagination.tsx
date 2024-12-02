@@ -1,12 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { cva } from 'class-variance-authority';
-import {
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  ChevronDoubleLeftIcon,
-  ChevronDoubleRightIcon,
-} from '@stash-ui/regular-icons';
+import { ChevronLeftIcon, ChevronRightIcon, ChevronDoubleLeftIcon, ChevronDoubleRightIcon } from '@stash-ui/regular-icons';
 import { getPaginationRange, DOTS } from '@/lib/utils';
 
 const buttonVariants = cva(
@@ -14,19 +9,18 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default:
-          'bg-transparent px-0 opacity-85 text-button-page-color-clear hover:bg-button-page-ghost hover:opacity-1',
-        solid: 'bg-button-page-solid text-button-page-color-solid px-3 ',
+        default: 'bg-transparent px-0 opacity-85 text-button-page-color-clear hover:bg-button-page-ghost hover:opacity-1',
+        solid: 'bg-button-page-solid text-button-page-color-solid px-3 '
       },
       rounded: {
         default: 'rounded-lg',
-        full: 'rounded-full',
-      },
+        full: 'rounded-full'
+      }
     },
     defaultVariants: {
       variant: 'default',
-      rounded: 'default',
-    },
+      rounded: 'default'
+    }
   }
 );
 
@@ -36,20 +30,13 @@ export interface PaginationItemProps extends React.ComponentProps<'button'> {
   disabled?: boolean;
 }
 
-function PaginationItem({
-  children,
-  isActive,
-  isRounded,
-  className,
-  disabled,
-  ...props
-}: PaginationItemProps) {
+function PaginationItem({ children, isActive, isRounded, className, disabled, ...props }: PaginationItemProps) {
   return (
     <button
       className={cn(
         buttonVariants({
           variant: isActive ? 'solid' : 'default',
-          rounded: isRounded ? 'full' : 'default',
+          rounded: isRounded ? 'full' : 'default'
         }),
         disabled ? 'cursor-not-allowed  opacity-45' : '',
         className
@@ -68,12 +55,7 @@ export interface ControllersProps extends React.ComponentProps<'button'> {
   disabled?: boolean;
 }
 
-function Controller({
-  children,
-  onClick,
-  disabled,
-  ...props
-}: ControllersProps) {
+function Controller({ children, onClick, disabled, ...props }: ControllersProps) {
   return (
     <PaginationItem onClick={onClick} disabled={disabled} {...props}>
       {children}
@@ -90,22 +72,14 @@ export interface PaginationProps extends React.ComponentProps<'nav'> {
   className?: string;
 }
 
-const Pagination = ({
-  totalPages,
-  onPageChange,
-  page,
-  siblingCount = 1,
-  round = false,
-  className,
-  ...props
-}: PaginationProps) => {
-  const [currentPage, setCurrentPage] = useState(page);
+const Pagination = ({ totalPages, onPageChange, page, siblingCount = 1, round = false, className, ...props }: PaginationProps) => {
+  const [currentPage, setCurrentPage] = useState();
 
-  const paginationRange = getPaginationRange(
-    currentPage,
-    totalPages,
-    siblingCount
-  );
+  useEffect(() => {
+    setCurrentPage(page);
+  }, [page]);
+
+  const paginationRange = getPaginationRange(currentPage, totalPages, siblingCount);
 
   const handleSetActivePage = (page: number) => {
     if (page < 1 || page > totalPages) return;
@@ -114,38 +88,24 @@ const Pagination = ({
   };
 
   return (
-    <nav
-      role='navigation'
-      aria-label='pagination'
-      className={cn('mx-auto flex w-full justify-center')}
-      data-testid='pagination'
-      {...props}
-    >
-      <Controller
-        onClick={() => handleSetActivePage(1)}
-        disabled={currentPage === 1}
-        data-testid='pagination-first'
-      >
+    <nav role="navigation" aria-label="pagination" className={cn('mx-auto flex w-full justify-center')} data-testid="pagination" {...props}>
+      <Controller onClick={() => handleSetActivePage(1)} disabled={currentPage === 1} data-testid="pagination-first">
         <ChevronDoubleLeftIcon />
       </Controller>
       <Controller
         onClick={() => handleSetActivePage(currentPage - 1)}
-        className='mr-2'
+        className="mr-2"
         disabled={currentPage === 1}
-        data-testid='pagination-previous'
+        data-testid="pagination-previous"
       >
         <ChevronLeftIcon />
       </Controller>
-      <span className='flex gap-1'>
+      <span className="flex gap-1">
         {paginationRange?.map((page, index) => {
           const formattedPage = page as number;
           if (page === DOTS) {
             return (
-              <PaginationItem
-                key={index}
-                disabled
-                data-testid='pagination-dots'
-              >
+              <PaginationItem key={index} disabled data-testid="pagination-dots">
                 &hellip;
               </PaginationItem>
             );
@@ -164,17 +124,13 @@ const Pagination = ({
       </span>
       <Controller
         onClick={() => handleSetActivePage(currentPage + 1)}
-        className='ml-2'
+        className="ml-2"
         disabled={currentPage === totalPages}
-        data-testid='pagination-next'
+        data-testid="pagination-next"
       >
         <ChevronRightIcon />
       </Controller>
-      <Controller
-        onClick={() => handleSetActivePage(totalPages)}
-        disabled={currentPage === totalPages}
-        data-testid='pagination-last'
-      >
+      <Controller onClick={() => handleSetActivePage(totalPages)} disabled={currentPage === totalPages} data-testid="pagination-last">
         <ChevronDoubleRightIcon />
       </Controller>
     </nav>
