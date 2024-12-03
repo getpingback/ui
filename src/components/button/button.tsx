@@ -11,44 +11,34 @@ const buttonVariants = cva(
       variant: {
         default: 'bg-transparent',
         outline:
-          'border border-[#D4D4D8] bg-transparent text-secondary-foreground text-opacity-10 hover:bg-[rgba(112,119,128,0.00)] hover:[box-shadow:0px_0px_0px_3px_rgba(113,_113,_122,_0.12)] focus-visible:[box-shadow:0px_0px_0px_3px_rgba(113,_113,_122,_0.12)]',
+          'border border-[#D4D4D8] bg-transparent !text-secondary-foreground text-opacity-10 hover:bg-[rgba(112,119,128,0.00)] hover:[box-shadow:0px_0px_0px_3px_rgba(113,_113,_122,_0.12)] focus-visible:[box-shadow:0px_0px_0px_3px_rgba(113,_113,_122,_0.12)]',
         ghost: 'text-button-ghost-foreground hover:bg-button-ghost',
         solid: 'bg-[#9061F9] text-[#FFFFFF] hover:shadow-solid',
-        clear: 'bg-transparent text-[#52525B] opacity-65 hover:opacity-100',
+        clear: 'bg-transparent text-[#52525B] opacity-65 hover:opacity-100'
       },
       size: {
         default: 'h-9 rounded-lg px-3 py-2',
         sm: 'h-8 rounded-lg px-3 text-xs',
         lg: 'h-10 rounded-lg px-8',
         icon: 'h-9 w-9 rounded-full',
-        combobox: 'min-h-[36px] rounded-lg px-3 py-2',
-      },
+        combobox: 'min-h-[36px] rounded-lg px-3 py-2'
+      }
     },
     defaultVariants: {
       variant: 'default',
-      size: 'default',
-    },
+      size: 'default'
+    }
   }
 );
 
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {
   asChild?: boolean;
 }
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : 'button';
-    return (
-      <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
-        ref={ref}
-        {...props}
-      />
-    );
-  }
-);
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({ className, variant, size, asChild = false, ...props }, ref) => {
+  const Comp = asChild ? Slot : 'button';
+  return <Comp className={cn(buttonVariants({ variant, size, className }))} ref={ref} {...props} />;
+});
 Button.displayName = 'Button';
 
 export { Button, buttonVariants };

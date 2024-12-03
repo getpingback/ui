@@ -2,7 +2,7 @@ const config = {
   content: [
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/stories/**/*.{js,ts,jsx,tsx}',
-    './node_modules/@getpingback/ui/dist/**/*.{js,ts,jsx,tsx}',
+    './node_modules/@getpingback/ui/dist/**/*.{js,ts,jsx,tsx}'
   ],
   theme: {
     screens: {
@@ -10,7 +10,7 @@ const config = {
       md: '768px',
       lg: '1024px',
       xl: '1280px',
-      '2xl': '1440px',
+      '2xl': '1440px'
     },
     colors: {
       gray: {
@@ -23,7 +23,7 @@ const config = {
         600: '#52525b',
         700: '#3f3f46',
         800: '#27272a',
-        900: '#18181b',
+        900: '#18181b'
       },
       coolGray: {
         50: '#f9fafb',
@@ -35,7 +35,7 @@ const config = {
         600: '#4b5563',
         700: '#374151',
         800: '#1f2937',
-        900: '#111827',
+        900: '#111827'
       },
       red: {
         50: '#fdf2f2',
@@ -47,7 +47,7 @@ const config = {
         600: '#e02424',
         700: '#c81e1e',
         800: '#9b1c1c',
-        900: '#771d1d',
+        900: '#771d1d'
       },
       blue: {
         50: '#ebf5ff',
@@ -59,7 +59,7 @@ const config = {
         600: '#1c64f2',
         700: '#1a56db',
         800: '#1e429f',
-        900: '#233876',
+        900: '#233876'
       },
       green: {
         50: '#f3faf7',
@@ -71,7 +71,7 @@ const config = {
         600: '#057a55',
         700: '#046c4e',
         800: '#03543f',
-        900: '#014737',
+        900: '#014737'
       },
       yellow: {
         50: '#fdfdea',
@@ -83,7 +83,7 @@ const config = {
         600: '#9f580a',
         700: '#8e4b10',
         800: '#723b13',
-        900: '#633112',
+        900: '#633112'
       },
       orange: {
         50: '#fff8f1',
@@ -95,7 +95,7 @@ const config = {
         600: '#d03801',
         700: '#b43403',
         800: '#8a2c0d',
-        900: '#771d1d',
+        900: '#771d1d'
       },
       teal: {
         50: '#edfafa',
@@ -107,7 +107,7 @@ const config = {
         600: '#047481',
         700: '#036672',
         800: '#05505c',
-        900: '#014451',
+        900: '#014451'
       },
       purple: {
         50: '#f6f5ff',
@@ -119,7 +119,7 @@ const config = {
         600: '#7e3af2',
         700: '#6c2bd9',
         800: '#5521b5',
-        900: '#4a1d96',
+        900: '#4a1d96'
       },
       pink: {
         50: '#fdf2f8',
@@ -131,8 +131,8 @@ const config = {
         600: '#d61f69',
         700: '#bf125d',
         800: '#99154b',
-        900: '#751a3d',
-      },
+        900: '#751a3d'
+      }
     },
     extend: {
       boxShadow: {
@@ -140,172 +140,175 @@ const config = {
         modal: 'var(--modals-shadow)',
         custom: '0px 0px 0px 1px rgba(0,0,0,0.15)',
         solid: 'var(--button-solid-shadow)',
-        dropdown: 'var(--dropdown-shadow)',
+        dropdown: 'var(--dropdown-shadow)'
       },
       backgroundImage: {
-        'active-menu': 'var(--palette-gradiente-active_menu)',
+        'active-menu': 'var(--palette-gradiente-active_menu)'
       },
       keyframes: {
         accordionSlideUp: {
           from: { height: 0 },
-          to: { height: 'var(--radix-collapsible-content-height)' },
+          to: { height: 'var(--radix-collapsible-content-height)' }
         },
         accordionSlideDown: {
           from: { height: 'var(--radix-collapsible-content-height)' },
-          to: { height: 0 },
+          to: { height: 0 }
         },
         slideLeft: {
           from: {
             transform: 'translateX(10%)',
-            opacity: 0,
+            opacity: 0
           },
-          to: { transform: 'translateX(0%)', opacity: 1 },
+          to: { transform: 'translateX(0%)', opacity: 1 }
         },
         slideRight: {
           from: {
             transform: 'translateX(-10%)',
-            opacity: 0,
+            opacity: 0
           },
-          to: { transform: 'translateX(0%)', opacity: 1 },
-        },
+          to: { transform: 'translateX(0%)', opacity: 1 }
+        }
       },
       animation: {
-        'slide-up':
-          'accordionSlideUp 300ms cubic-bezier(0.87, 0, 0.13, 1) forwards',
-        'slide-down':
-          'accordionSlideDown 300ms cubic-bezier(0.87, 0, 0.13, 1) forwards',
+        'slide-up': 'accordionSlideUp 300ms cubic-bezier(0.87, 0, 0.13, 1) forwards',
+        'slide-down': 'accordionSlideDown 300ms cubic-bezier(0.87, 0, 0.13, 1) forwards',
         'slide-left': 'slideLeft 300ms cubic-bezier(0.83, 0, 0.17, 1)',
-        'slide-right': 'slideRight 300ms cubic-bezier(0.83, 0, 0.17, 1)',
+        'slide-right': 'slideRight 300ms cubic-bezier(0.83, 0, 0.17, 1)'
       },
       colors: {
         success: {
-          foreground: 'var(--text-success)',
+          foreground: 'var(--text-success)'
         },
         tertiary: {
-          foreground: 'var(--text-tertiary)',
+          foreground: 'var(--text-tertiary)'
         },
         secondary: {
-          foreground: 'rgb(from var(--text-secondary) r g b / <alpha-value>)',
+          foreground: 'rgb(from var(--text-secondary) r g b / <alpha-value>)'
         },
         primary: {
-          foreground: 'var(--text-primary)',
+          foreground: 'var(--text-primary)'
         },
         active: {
-          foreground: 'var(--text-active)',
+          foreground: 'var(--text-active)'
         },
         informative: {
-          foreground: 'var(--text-informative_accent)',
+          foreground: 'var(--text-informative_accent)'
         },
         highlighted: {
-          foreground: 'var(--text-informative)',
+          foreground: 'var(--text-informative)'
         },
         inverse: {
-          foreground: 'var(--text-inverse)',
+          foreground: 'var(--text-inverse)'
         },
         icons: {
-          foreground: 'var(--icons-default)',
+          foreground: 'var(--icons-default)'
         },
         'border-card': 'var(--border-cards-color)',
         list: {
           highlighted: {
-            DEFAULT: 'var(--list-hightlight)',
+            DEFAULT: 'var(--list-hightlight)'
           },
           actived: {
-            DEFAULT: 'var(--list-actived)',
+            DEFAULT: 'var(--list-actived)'
           },
           hover: {
-            DEFAULT: 'var(--list-hover)',
+            DEFAULT: 'var(--list-hover)'
           },
           label: {
-            DEFAULT: 'var(--list-label_default)',
-          },
+            DEFAULT: 'var(--list-label_default)'
+          }
         },
         divider: {
-          DEFAULT: 'var(--border-divider-color)',
+          DEFAULT: 'var(--border-divider-color)'
         },
         input: {
-          filled: 'var(--border-input_filled-color)',
-          outline:
-            'rgb(from var(--border-button_outlined-color) r g b / <alpha-value>)',
-          informative: 'var(--background-informative)',
+          selected: {
+            DEFAULT: 'var(--border-input_filled-color)',
+            label: 'var(--buttons-label_color)',
+            hover: 'var(--background-informative)'
+          },
+          outline: {
+            DEFAULT: 'rgb(from var(--text-tertiary) r g b / <alpha-value>)',
+            hover: 'var(--list-hover)'
+          }
         },
         badge: {
           gray: {
             DEFAULT: 'var(--badge-gray-bg)',
-            foreground: 'var(--badge-gray-text)',
+            foreground: 'var(--badge-gray-text)'
           },
           green: {
             DEFAULT: 'var(--badge-green-bg)',
-            foreground: 'var(--badge-green-text)',
+            foreground: 'var(--badge-green-text)'
           },
           teal: {
             DEFAULT: 'var(--badge-teal-bg)',
-            foreground: 'var(--badge-teal-text)',
+            foreground: 'var(--badge-teal-text)'
           },
           red: {
             DEFAULT: 'var(--badge-red-bg)',
-            foreground: 'var(--badge-red-text)',
+            foreground: 'var(--badge-red-text)'
           },
           yellow: {
             DEFAULT: 'var(--badge-yellow-bg)',
-            foreground: 'var(--badge-yellow-text)',
+            foreground: 'var(--badge-yellow-text)'
           },
           purple: {
             DEFAULT: 'var(--badge-purple-bg)',
-            foreground: 'var(--badge-purple-text)',
-          },
+            foreground: 'var(--badge-purple-text)'
+          }
         },
         button: {
           solid: {
             DEFAULT: 'var(--button-solid-bg)',
-            foreground: 'var(--button-solid-text)',
+            foreground: 'var(--button-solid-text)'
           },
           ghost: {
             DEFAULT: 'var(--button-ghost-bg)',
-            foreground: 'var(--button-ghost-text)',
+            foreground: 'var(--button-ghost-text)'
           },
           done: {
             DEFAULT: 'var(--badge-done-bg)',
-            foreground: 'var(--badge-done-text)',
+            foreground: 'var(--badge-done-text)'
           },
           'page-solid': {
-            DEFAULT: 'var(--buttons-solid_default)',
+            DEFAULT: 'var(--buttons-solid_default)'
           },
           'page-ghost': {
-            DEFAULT: 'var(--buttons-ghost_bg-color)',
+            DEFAULT: 'var(--buttons-ghost_bg-color)'
           },
           'page-color-solid': {
-            DEFAULT: 'var(--buttons-label_inverse)',
+            DEFAULT: 'var(--buttons-label_inverse)'
           },
           'page-color-clear': {
-            DEFAULT: 'var(--buttons-label)',
-          },
+            DEFAULT: 'var(--buttons-label)'
+          }
         },
         background: {
-          accent: 'var(--background-accent)',
+          accent: 'var(--background-accent)'
         },
         border: {
-          accent: 'rgba(0, 0, 0, 0.04)',
-        },
-      },
+          accent: 'rgba(0, 0, 0, 0.04)'
+        }
+      }
     },
     fontFamily: {
-      primary: ['Inter', 'sans-serif'],
-    },
+      primary: ['Inter', 'sans-serif']
+    }
   },
   plugins: [
     function ({ addUtilities }) {
       const newUtilities = {
         '.no-scrollbar::-webkit-scrollbar': {
-          display: 'none',
+          display: 'none'
         },
         '.no-scrollbar': {
           '-ms-overflow-style': 'none',
-          'scrollbar-width': 'none',
-        },
+          'scrollbar-width': 'none'
+        }
       };
       addUtilities(newUtilities);
-    },
-  ],
+    }
+  ]
 };
 export default config;
