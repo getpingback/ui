@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.275](https://github.com/getpingback/ui/compare/v0.0.274...v0.0.275) (2024-12-03)
+
+
+### Bug Fixes
+
+* merge main ([1f461b1](https://github.com/getpingback/ui/commits/1f461b18af69f797cbb0dcfed4ec1b0f98b318b7))
+
+### [0.0.259](https://github.com/getpingback/ui/compare/v0.0.258...v0.0.259) (2024-11-26)
+
+### [0.0.258](https://github.com/getpingback/ui/compare/v0.0.257...v0.0.258) (2024-11-26)
+
+
+### Bug Fixes
+
+* tooltip trigger ([9185dec](https://github.com/getpingback/ui/commits/9185dec0c9b9c019318b11a94afca7f6c2ab018e))
+
 ### [0.0.273](https://github.com/getpingback/ui/compare/v0.0.272...v0.0.273) (2024-12-02)
 
 
