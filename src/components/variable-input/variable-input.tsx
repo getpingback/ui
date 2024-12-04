@@ -225,10 +225,7 @@ export function VariableInput({
   }, [isFocused, text, placeholder, initialContent]);
 
   React.useEffect(() => {
-    if (!open) {
-      onVariablesEndReached?.();
-      return;
-    }
+    if (!open) return;
 
     let observer: IntersectionObserver;
     setTimeout(() => {

@@ -26,13 +26,20 @@ const options = [
   },
   {
     heading: 'Custom Variables',
-    items: [{ label: 'Custom Variable', value: 'customVariable' }]
+    items: [
+      { label: 'Custom Variable', value: 'customVariable' },
+      { label: 'Custom Variable 2', value: 'customVariable2' },
+      { label: 'Custom Variable 3', value: 'customVariable3' },
+      { label: 'Custom Variable 4', value: 'customVariable4' },
+      { label: 'Custom Variable 5', value: 'customVariable5' }
+    ]
   }
 ];
 
 export const Default: Story = {
   args: {
-    options
+    options,
+    onVariablesEndReached: () => console.log('End Reached')
   }
 };
 
