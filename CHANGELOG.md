@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.279](https://github.com/getpingback/ui/compare/v0.0.276...v0.0.279) (2024-12-04)
+
+
+### Bug Fixes
+
+* onVariablesEndReached ([e68bacf](https://github.com/getpingback/ui/commits/e68bacf78b152eb94ffa2e3e51dbee7cbb571808))
+
+### [0.0.278](https://github.com/getpingback/ui/compare/v0.0.276...v0.0.278) (2024-12-04)
+
+
+### Bug Fixes
+
+* onVariablesEndReached ([e68bacf](https://github.com/getpingback/ui/commits/e68bacf78b152eb94ffa2e3e51dbee7cbb571808))
+
+### [0.0.277](https://github.com/getpingback/ui/compare/v0.0.276...v0.0.277) (2024-12-04)
+
+
+### Bug Fixes
+
+* onVariablesEndReached ([e68bacf](https://github.com/getpingback/ui/commits/e68bacf78b152eb94ffa2e3e51dbee7cbb571808))
+
 ### [0.0.275](https://github.com/getpingback/ui/compare/v0.0.274...v0.0.275) (2024-12-03)
 
 
