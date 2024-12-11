@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.281](https://github.com/getpingback/ui/compare/v0.0.280...v0.0.281) (2024-12-11)
+
+
+### Bug Fixes
+
+* add disabled props on select ([1004862](https://github.com/getpingback/ui/commits/100486293b6fcccabe7ca7aac382f8beb2c4b994))
+
 ### [0.0.279](https://github.com/getpingback/ui/compare/v0.0.276...v0.0.279) (2024-12-04)
 
 
