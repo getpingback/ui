@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.291](https://github.com/getpingback/ui/compare/v0.0.290...v0.0.291) (2024-12-11)
+
+
+### Bug Fixes
+
+* add variante orange on badge ([c8cc3e0](https://github.com/getpingback/ui/commits/c8cc3e0e35cc83d34c1663796652ed91925ece4a))
+
 ### [0.0.289](https://github.com/getpingback/ui/compare/v0.0.288...v0.0.289) (2024-12-11)
 
 
