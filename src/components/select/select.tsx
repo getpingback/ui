@@ -8,6 +8,7 @@ interface Option {
   value: string;
   label: string;
   description?: string;
+  isDisabled?: boolean;
 }
 
 export interface SelectProps {
@@ -59,7 +60,10 @@ export function Select({ label, helperText, placeholder, options, value, onValue
               <RadixSelect.Item
                 key={option.value}
                 value={option.value}
-                className="relative flex items-center justify-between p-3 min-h-[48px] hover:outline-none data-[highlighted]:outline-none data-[highlighted]:text-primary-foreground data-[highlighted]:bg-list-hover"
+                disabled={option.isDisabled}
+                className={`relative flex items-center justify-between p-3 min-h-[48px] hover:outline-none data-[highlighted]:outline-none data-[highlighted]:text-primary-foreground data-[highlighted]:bg-list-hover ${
+                  option.isDisabled ? 'opacity-50 cursor-not-allowed' : ''
+                }`}
               >
                 <div className="flex flex-col">
                   <RadixSelect.ItemText>
