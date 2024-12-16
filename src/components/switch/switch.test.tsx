@@ -33,4 +33,10 @@ describe('Switch Component', () => {
     fireEvent.click(screen.getByRole('checkbox'));
     expect(handleChange).not.toHaveBeenCalled();
   });
+
+  it('should have purple background when highlight prop is true', () => {
+    render(<Switch highlight />);
+    const switchElement = screen.getByRole('checkbox');
+    expect(switchElement).toHaveStyle({ backgroundColor: 'var(--purple-500)' });
+  });
 });

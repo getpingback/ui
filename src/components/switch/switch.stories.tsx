@@ -21,6 +21,10 @@ export const Checked: Story = {
   }
 };
 
+export const Highlight: Story = {
+  args: { highlight: true, checked: true }
+};
+
 export const Disabled: Story = {
   args: {
     checked: false,
