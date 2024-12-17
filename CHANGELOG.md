@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.293](https://github.com/getpingback/ui/compare/v0.0.292...v0.0.293) (2024-12-17)
+
+
+### Bug Fixes
+
+* select content width ([01303f4](https://github.com/getpingback/ui/commits/01303f48190edcb59d9d2995bf7b0c9adfd8166f))
+
 ### [0.0.291](https://github.com/getpingback/ui/compare/v0.0.290...v0.0.291) (2024-12-11)
 
 
