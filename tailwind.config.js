@@ -132,6 +132,26 @@ const config = {
         700: '#bf125d',
         800: '#99154b',
         900: '#751a3d'
+      },
+      switch: {
+        bg: {
+          DEFAULT: 'var(--switch-bg-default)',
+          hover: 'var(--switch-bg-hover)'
+        },
+        thumb: {
+          DEFAULT: 'var(--switch-thumb-bg)',
+          disabled: 'var(--switch-thumb-disabled)'
+        },
+        checked: {
+          DEFAULT: 'var(--switch-checked-bg)',
+          hover: 'var(--switch-checked-hover)',
+          ring: 'var(--switch-checked-ring)'
+        },
+        highlight: {
+          DEFAULT: 'var(--switch-highlight-bg)',
+          hover: 'var(--switch-highlight-hover)',
+          ring: 'var(--switch-highlight-ring)'
+        }
       }
     },
     extend: {

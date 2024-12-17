@@ -71,6 +71,19 @@
     --palette-gradiente-active_menu: linear-gradient(270deg, #7e3af200 0%, #7e3af20b 100%);
 
     --icons-default: #71717a;
+
+    --switch-bg-default: #e4e4e740;
+    --switch-bg-hover: #e4e4e7;
+    --switch-thumb-bg: #fafafa;
+    --switch-thumb-disabled: #e5e5e5;
+
+    --switch-checked-bg: #31c48d;
+    --switch-checked-hover: #0e9f6e;
+    --switch-checked-ring: #31c48d1f;
+
+    --switch-highlight-bg: #ac94fa;
+    --switch-highlight-hover: #9061f9;
+    --switch-highlight-ring: #ac94fa1f;
   }
 
   .classic-purple-dark {
