@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.293](https://github.com/getpingback/ui/compare/v0.0.288...v0.0.293) (2024-12-18)
+
+
+### Features
+
+* create highlight prop ([e51a5ea](https://github.com/getpingback/ui/commits/e51a5eaa4387c7513535efda09d5ac137fbc0919))
+* create switch button with checked and disabled states ([cf5f965](https://github.com/getpingback/ui/commits/cf5f96529dde0c8092fececa0af8ad331fc37127))
+* use argtypes and default global values ([a8d4012](https://github.com/getpingback/ui/commits/a8d40123c144a5eb41a5b4adc46367dbb3bbc8a1))
+
 ### [0.0.292](https://github.com/getpingback/ui/compare/v0.0.288...v0.0.292) (2024-12-18)
 
 
