@@ -511,7 +511,6 @@ export function RangePicker({
                   showOutsideDays={false}
                   toDate={maxDate || undefined}
                   fromDate={minDate || undefined}
-                  month={selectedDate.from}
                 />
               ) : (
                 <DayPicker
