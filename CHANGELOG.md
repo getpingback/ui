@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.299](https://github.com/getpingback/ui/compare/v0.0.298...v0.0.299) (2024-12-18)
+
+
+### Bug Fixes
+
+* export switch component ([1b4d904](https://github.com/getpingback/ui/commits/1b4d904917775735a7b6e5d898e54780601b51c7))
+
 ### [0.0.297](https://github.com/getpingback/ui/compare/v0.0.294...v0.0.297) (2024-12-18)
 
 ### [0.0.296](https://github.com/getpingback/ui/compare/v0.0.294...v0.0.296) (2024-12-18)
