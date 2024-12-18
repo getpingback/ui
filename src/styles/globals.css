@@ -43,6 +43,7 @@
     --bottom_sheet-2: 0px 0px 1px 1px rgba(0, 0, 0, 0.04), 0px 4px 16px -2px rgba(0, 0, 0, 0.08);
     --modals-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.04), 0px -6px 24px -3px rgba(0, 0, 0, 0.08);
     --dropdown-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.04), 0px 10px 40px -5px rgba(0, 0, 0, 0.08);
+    --switch-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.161) inset;
 
     --button-solid-shadow: 0px 0px 0px 3px #9061f940;
 
@@ -72,6 +73,19 @@
     --palette-gradiente-active_menu: linear-gradient(270deg, #7e3af200 0%, #7e3af20b 100%);
 
     --icons-default: #71717a;
+
+    --switch-bg-default: #e4e4e740;
+    --switch-bg-hover: #e4e4e7;
+    --switch-thumb-bg: #fafafa;
+    --switch-thumb-disabled: #e5e5e5;
+
+    --switch-checked-bg: #31c48d;
+    --switch-checked-hover: #0e9f6e;
+    --switch-checked-ring: #31c48d1f;
+
+    --switch-highlight-bg: #ac94fa;
+    --switch-highlight-hover: #9061f9;
+    --switch-highlight-ring: #ac94fa1f;
   }
 
   .classic-purple-dark {

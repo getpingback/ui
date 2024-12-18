@@ -10,7 +10,7 @@ const meta = {
 
   tags: ['autodocs'],
 
-  argTypes: {},
+  argTypes: {}
 } satisfies Meta<typeof RangePicker>;
 
 export default meta;
@@ -18,8 +18,8 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = () => {
   return (
-    <div className='w-full flex justify-center'>
-      <RangePicker type='range' onChange={(date) => console.log(date)} />
+    <div className="w-full flex justify-center">
+      <RangePicker type="range" onChange={(date) => console.log(date)} />
     </div>
   );
 };
@@ -27,8 +27,8 @@ export const Default: Story = () => {
 export const SingleType: Story = {
   args: {
     onChange: (date) => console.log(date),
-    type: 'single',
-  },
+    type: 'single'
+  }
 };
 
 export const MobileType: Story = {
@@ -37,20 +37,14 @@ export const MobileType: Story = {
     hideMenu: true,
     hideInputs: true,
     type: 'range',
-    numberOfMonths: 1,
-  },
+    numberOfMonths: 1
+  }
 };
 
 export const ShowInputsOnTop: Story = () => {
   return (
-    <div className='w-full flex justify-center'>
-      <RangePicker
-        type='range'
-        onChange={(date) => console.log(date)}
-        inputPosition='top'
-        hideMenu
-        numberOfMonths={1}
-      />
+    <div className="w-full flex justify-center">
+      <RangePicker type="range" onChange={(date) => console.log(date)} inputPosition="top" hideMenu numberOfMonths={1} />
     </div>
   );
 };

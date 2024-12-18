@@ -132,6 +132,26 @@ const config = {
         700: '#bf125d',
         800: '#99154b',
         900: '#751a3d'
+      },
+      switch: {
+        bg: {
+          DEFAULT: 'var(--switch-bg-default)',
+          hover: 'var(--switch-bg-hover)'
+        },
+        thumb: {
+          DEFAULT: 'var(--switch-thumb-bg)',
+          disabled: 'var(--switch-thumb-disabled)'
+        },
+        checked: {
+          DEFAULT: 'var(--switch-checked-bg)',
+          hover: 'var(--switch-checked-hover)',
+          ring: 'var(--switch-checked-ring)'
+        },
+        highlight: {
+          DEFAULT: 'var(--switch-highlight-bg)',
+          hover: 'var(--switch-highlight-hover)',
+          ring: 'var(--switch-highlight-ring)'
+        }
       }
     },
     extend: {
@@ -140,7 +160,8 @@ const config = {
         modal: 'var(--modals-shadow)',
         custom: '0px 0px 0px 1px rgba(0,0,0,0.15)',
         solid: 'var(--button-solid-shadow)',
-        dropdown: 'var(--dropdown-shadow)'
+        dropdown: 'var(--dropdown-shadow)',
+        switch: 'var(--switch-shadow)'
       },
       backgroundImage: {
         'active-menu': 'var(--palette-gradiente-active_menu)'

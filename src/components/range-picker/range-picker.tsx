@@ -520,7 +520,6 @@ export function RangePicker({
                   mode="single"
                   selected={singleDate}
                   onSelect={(date) => handleSingleChange(date)}
-                  month={singleDate}
                 />
               )}
             </div>
