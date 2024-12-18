@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.303](https://github.com/getpingback/ui/compare/v0.0.302...v0.0.303) (2024-12-18)
+
+
+### Bug Fixes
+
+* range picker month ([0e320b2](https://github.com/getpingback/ui/commits/0e320b23e1dbab8331ffac8a514a96638d008b86))
+
 ### [0.0.301](https://github.com/getpingback/ui/compare/v0.0.300...v0.0.301) (2024-12-18)
 
 
