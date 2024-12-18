@@ -2,16 +2,59 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.303](https://github.com/getpingback/ui/compare/v0.0.302...v0.0.303) (2024-12-18)
+
+
+### Bug Fixes
+
+* range picker month ([0e320b2](https://github.com/getpingback/ui/commits/0e320b23e1dbab8331ffac8a514a96638d008b86))
+
+### [0.0.301](https://github.com/getpingback/ui/compare/v0.0.300...v0.0.301) (2024-12-18)
+
+
+### Bug Fixes
+
+* merge ([0440a09](https://github.com/getpingback/ui/commits/0440a09b58e776ffc3d965130a60bbb78289236e))
+
+### [0.0.296](https://github.com/getpingback/ui/compare/v0.0.295...v0.0.296) (2024-12-17)
+
+### [0.0.295](https://github.com/getpingback/ui/compare/v0.0.293...v0.0.295) (2024-12-17)
+
+### [0.0.293](https://github.com/getpingback/ui/compare/v0.0.292...v0.0.293) (2024-12-17)
+
+
+### Bug Fixes
+
+* select content width ([01303f4](https://github.com/getpingback/ui/commits/01303f48190edcb59d9d2995bf7b0c9adfd8166f))
+
+### [0.0.292](https://github.com/getpingback/ui/compare/v0.0.291...v0.0.292) (2024-12-11)
+
+### [0.0.291](https://github.com/getpingback/ui/compare/v0.0.290...v0.0.291) (2024-12-11)
+
+
+### Bug Fixes
+
+* add variante orange on badge ([c8cc3e0](https://github.com/getpingback/ui/commits/c8cc3e0e35cc83d34c1663796652ed91925ece4a))
+
+### [0.0.290](https://github.com/getpingback/ui/compare/v0.0.289...v0.0.290) (2024-12-11)
+
+### [0.0.289](https://github.com/getpingback/ui/compare/v0.0.288...v0.0.289) (2024-12-11)
+
+
+### Bug Fixes
+
+* range picker type single ([264dda9](https://github.com/getpingback/ui/commits/264dda93ddbbf5639574026059ccb17084763a4f))
+
 ### [0.0.299](https://github.com/getpingback/ui/compare/v0.0.298...v0.0.299) (2024-12-18)
 
 
 ### Bug Fixes
 
-* export switch component ([1b4d904](https://github.com/getpingback/ui/commits/1b4d904917775735a7b6e5d898e54780601b51c7))
+<<<<<<< HEAD
+* select content width ([01303f4](https://github.com/getpingback/ui/commits/01303f48190edcb59d9d2995bf7b0c9adfd8166f))
 
-### [0.0.297](https://github.com/getpingback/ui/compare/v0.0.294...v0.0.297) (2024-12-18)
+### [0.0.291](https://github.com/getpingback/ui/compare/v0.0.290...v0.0.291) (2024-12-11)
 
-### [0.0.296](https://github.com/getpingback/ui/compare/v0.0.294...v0.0.296) (2024-12-18)
 
 ### [0.0.294](https://github.com/getpingback/ui/compare/v0.0.288...v0.0.294) (2024-12-18)
 
@@ -66,12 +109,12 @@ All notable changes to this project will be documented in this file. See [standa
 * create highlight prop ([e51a5ea](https://github.com/getpingback/ui/commits/e51a5eaa4387c7513535efda09d5ac137fbc0919))
 * create switch button with checked and disabled states ([cf5f965](https://github.com/getpingback/ui/commits/cf5f96529dde0c8092fececa0af8ad331fc37127))
 * use argtypes and default global values ([a8d4012](https://github.com/getpingback/ui/commits/a8d40123c144a5eb41a5b4adc46367dbb3bbc8a1))
+>>>>>>> main
 
 ### [0.0.287](https://github.com/getpingback/ui/compare/v0.0.284...v0.0.287) (2024-12-11)
 
 ### [0.0.286](https://github.com/getpingback/ui/compare/v0.0.284...v0.0.286) (2024-12-11)
 
-### [0.0.285](https://github.com/getpingback/ui/compare/v0.0.284...v0.0.285) (2024-12-11)
 
 ### [0.0.283](https://github.com/getpingback/ui/compare/v0.0.282...v0.0.283) (2024-12-11)
 

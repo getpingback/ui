@@ -140,11 +140,11 @@ export const RANGE_PICKER_STYLES = {
   day_range_end: 'bg-button-solid rounded-s-sm ',
   day_range_start: 'bg-button-solid rounded-e-sm',
   day_selected:
-    'text-button-solid-foreground hover:bg-button-solid hover:text-button-ghost-foreground focus:bg-button-solid focus:text-button-solid-foreground !font-medium',
+    'text-button-solid-foreground !bg-button-solid hover:bg-button-solid hover:text-button-ghost-foreground focus:bg-button-solid focus:text-button-solid-foreground !font-medium',
   day_today: 'bg-button-ghost text-button-ghost-foreground pb-current-day',
   day_outside:
     'day-outside text-button-ghost-foreground opacity-50 aria-selected:bg-[#9061F914] aria-selected:text-button-ghost-foreground',
   day_disabled: 'text-button-ghost-foreground opacity-50',
-  day_range_middle: 'aria-selected:bg-[#9061F914] aria-selected:!rounded-none aria-selected:text-informative-foreground ',
+  day_range_middle: 'aria-selected:!bg-[#9061F914] aria-selected:!rounded-none aria-selected:text-informative-foreground ',
   day_hidden: 'invisible'
 };
