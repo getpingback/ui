@@ -20,7 +20,7 @@ export const Default: Story = {
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.',
     hasDivider: true,
     open: true,
-    preffixIcon: <ArrowLeftIcon />,
+    prefixIcon: <ArrowLeftIcon />,
     children: (
       <div className="flex flex-col gap-4">
         <div>lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos</div>

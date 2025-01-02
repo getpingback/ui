@@ -32,7 +32,7 @@ describe('Drawer', () => {
     const TestIcon = () => <div data-testid="test-icon">Icon</div>;
 
     render(
-      <Drawer {...defaultProps} preffixIcon={<TestIcon />}>
+      <Drawer {...defaultProps} prefixIcon={<TestIcon />}>
         <div>Drawer content</div>
       </Drawer>
     );

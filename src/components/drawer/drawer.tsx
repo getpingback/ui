@@ -5,12 +5,12 @@ import * as React from 'react';
 interface DrawerProps extends Dialog.DialogProps {
   title: string;
   description?: string;
-  preffixIcon?: React.ReactNode;
+  prefixIcon?: React.ReactNode;
   hasDivider?: boolean;
   footer?: React.ReactNode;
 }
 
-function Drawer({ children, title, description, preffixIcon, hasDivider, footer, ...props }: DrawerProps) {
+function Drawer({ children, title, description, prefixIcon, hasDivider, footer, ...props }: DrawerProps) {
   return (
     <Dialog.Root {...props}>
       <Dialog.Portal>
@@ -18,7 +18,7 @@ function Drawer({ children, title, description, preffixIcon, hasDivider, footer,
         <Dialog.Content className="z-50 flex flex-col bg-[#FFFFFF] shadow-drawer rounded-xl w-[400px] border border-border-card fixed right-6 top-6 h-[calc(100vh-48px)] data-[state=open]:animate-drawer-slide-in data-[state=closed]:animate-drawer-slide-out">
           <div className="flex justify-between gap-2 p-6 pb-4">
             <div className="flex gap-2">
-              {preffixIcon && <div className="h-fit">{preffixIcon}</div>}
+              {prefixIcon && <div className="h-fit">{prefixIcon}</div>}
               <div className="flex flex-col gap-1">
                 <Dialog.Title className="text-lg font-bold leading-6 text-primary-foreground">{title}</Dialog.Title>
                 {description && (
