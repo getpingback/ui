@@ -158,6 +158,7 @@ const config = {
       boxShadow: {
         'bottom_sheet-2': 'var(--bottom_sheet-2)',
         modal: 'var(--modals-shadow)',
+        drawer: 'var(--drawer-shadow)',
         custom: '0px 0px 0px 1px rgba(0,0,0,0.15)',
         solid: 'var(--button-solid-shadow)',
         dropdown: 'var(--dropdown-shadow)',
@@ -188,13 +189,23 @@ const config = {
             opacity: 0
           },
           to: { transform: 'translateX(0%)', opacity: 1 }
+        },
+        drawerSlideIn: {
+          from: { transform: 'translateX(100%)' },
+          to: { transform: 'translateX(0%)' }
+        },
+        drawerSlideOut: {
+          from: { transform: 'translateX(0%)' },
+          to: { transform: 'translateX(100%)' }
         }
       },
       animation: {
         'slide-up': 'accordionSlideUp 300ms cubic-bezier(0.87, 0, 0.13, 1) forwards',
         'slide-down': 'accordionSlideDown 300ms cubic-bezier(0.87, 0, 0.13, 1) forwards',
         'slide-left': 'slideLeft 300ms cubic-bezier(0.83, 0, 0.17, 1)',
-        'slide-right': 'slideRight 300ms cubic-bezier(0.83, 0, 0.17, 1)'
+        'slide-right': 'slideRight 300ms cubic-bezier(0.83, 0, 0.17, 1)',
+        'drawer-slide-in': 'drawerSlideIn 300ms cubic-bezier(0.83, 0, 0.17, 1)',
+        'drawer-slide-out': 'drawerSlideOut 300ms cubic-bezier(0.83, 0, 0.17, 1)'
       },
       colors: {
         success: {
