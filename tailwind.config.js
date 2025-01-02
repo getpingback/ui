@@ -197,6 +197,10 @@ const config = {
         drawerSlideOut: {
           from: { transform: 'translateX(0%)' },
           to: { transform: 'translateX(100%)' }
+        },
+        'fade-in': {
+          from: { opacity: 0 },
+          to: { opacity: 1 }
         }
       },
       animation: {
@@ -205,7 +209,8 @@ const config = {
         'slide-left': 'slideLeft 300ms cubic-bezier(0.83, 0, 0.17, 1)',
         'slide-right': 'slideRight 300ms cubic-bezier(0.83, 0, 0.17, 1)',
         'drawer-slide-in': 'drawerSlideIn 300ms cubic-bezier(0.83, 0, 0.17, 1)',
-        'drawer-slide-out': 'drawerSlideOut 300ms cubic-bezier(0.83, 0, 0.17, 1)'
+        'drawer-slide-out': 'drawerSlideOut 300ms cubic-bezier(0.83, 0, 0.17, 1)',
+        'fade-in': 'fadeIn 300ms cubic-bezier(0.83, 0, 0.17, 1)'
       },
       colors: {
         success: {

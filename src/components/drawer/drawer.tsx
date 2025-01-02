@@ -14,8 +14,8 @@ function Drawer({ children, title, description, preffixIcon, hasDivider, footer,
   return (
     <Dialog.Root {...props}>
       <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 z-50 bg-black/80  data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
-        <Dialog.Content className="flex flex-col shadow-drawer rounded-xl w-[400px] border border-border-card fixed right-6 top-6 h-[calc(100vh-48px)] data-[state=open]:animate-drawer-slide-in data-[state=closed]:animate-drawer-slide-out">
+        <Dialog.Overlay className=" z-50 fixed inset-0 bg-[#00000011] w-screen h-screen backdrop-blur-[1px] animate-fade-in" />
+        <Dialog.Content className="z-50 flex flex-col bg-[#FFFFFF] shadow-drawer rounded-xl w-[400px] border border-border-card fixed right-6 top-6 h-[calc(100vh-48px)] data-[state=open]:animate-drawer-slide-in data-[state=closed]:animate-drawer-slide-out">
           <div className="flex justify-between gap-2 p-6 pb-4">
             <div className="flex gap-2">
               {preffixIcon && <div className="h-fit">{preffixIcon}</div>}
