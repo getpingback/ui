@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.311](https://github.com/getpingback/ui/compare/v0.0.310...v0.0.311) (2025-01-06)
+
+
+### Bug Fixes
+
+* splitbutton font style ([5052395](https://github.com/getpingback/ui/commits/505239574bf2c634e648531a3a409e710674cd06))
+
 ### [0.0.309](https://github.com/getpingback/ui/compare/v0.0.308...v0.0.309) (2025-01-06)
 
 
