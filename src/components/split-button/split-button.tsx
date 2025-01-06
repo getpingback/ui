@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { cva } from 'class-variance-authority';
 import { DropdownItem } from '../dropdown';
 
-const buttonVariants = cva('flex items-center font-primary max-w-fit h-[32px] text-sm rounded-lg ', {
+const containerVariants = cva('flex items-center font-primary max-w-fit h-[32px] text-sm rounded-lg ', {
   variants: {
     type: {
       solid: 'bg-button-solid text-button-solid-foreground  hover:shadow-solid transition-all duration-200 ease-in-out',
@@ -55,7 +55,7 @@ interface SplitButtonProps {
   className?: string;
   menuItems: {
     key: string;
-    icon: React.ReactNode;
+    icon: JSX.Element | undefined;
     text: string;
     onClick: () => void;
   }[];
@@ -72,7 +72,7 @@ function SplitButton({ primaryIcon, primaryText, variant, onPrimaryClick, menuIt
       onOpenChange={(open) => !open && setIsMenuActionsOpen(false)}
     >
       <DropdownMenu.Trigger asChild>
-        <div className={buttonVariants({ type: variant })} data-testid="split-button">
+        <div className={containerVariants({ type: variant })} data-testid="split-button">
           <button className={leftButtonVariants({ type: variant })} onClick={onPrimaryClick} data-testid="split-button-primary">
             {primaryIcon}
             {primaryText}
@@ -97,7 +97,7 @@ function SplitButton({ primaryIcon, primaryText, variant, onPrimaryClick, menuIt
           align="center"
         >
           {menuItems.map((item, index) => (
-            <DropdownItem icon={item.icon} key={index} onClick={item.onClick} data-testid="split-button-menu-item">
+            <DropdownItem icon={item?.icon} key={index} onClick={item.onClick} data-testid="split-button-menu-item">
               {item.text}
             </DropdownItem>
           ))}
