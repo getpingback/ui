@@ -141,6 +141,8 @@ const config = {
         drawer: 'var(--drawer-shadow)',
         custom: '0px 0px 0px 1px rgba(0,0,0,0.15)',
         solid: 'var(--button-solid-shadow)',
+        outlined: 'var(--button-outlined-shadow)',
+        ghost: 'var(--button-ghost-shadow)',
         dropdown: 'var(--dropdown-shadow)',
         switch: 'var(--switch-shadow)'
       },
@@ -298,11 +300,18 @@ const config = {
         button: {
           solid: {
             DEFAULT: 'var(--button-solid-bg)',
-            foreground: 'var(--button-solid-text)'
+            foreground: 'var(--button-solid-text)',
+            hover: 'var(--button-solid-hover)'
           },
           ghost: {
             DEFAULT: 'var(--button-ghost-bg)',
-            foreground: 'var(--button-ghost-text)'
+            foreground: 'var(--button-ghost-text)',
+            gray: 'var(--button-ghost-gray)',
+            hover: 'var(--button-ghost-gray-hover)'
+          },
+          outlined: {
+            border: 'var(--button-outlined-border)',
+            hover: 'var(--button-outlined-hover)'
           },
           done: {
             DEFAULT: 'var(--badge-done-bg)',
