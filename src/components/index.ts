@@ -24,3 +24,4 @@ export * from './pagination';
 export * from './variable-input';
 export * from './radio-group';
 export * from './switch';
+export * from './split-button';
