@@ -21,7 +21,7 @@ const buttonVariants = cva('flex items-center font-primary max-w-fit h-[32px] te
 });
 
 const leftButtonVariants = cva(
-  'h-full w-full flex items-center gap-1 px-3 rounded-l-lg rounded-r-none transition-all duration-200 ease-in-out',
+  'h-full w-full flex items-center gap-1 px-3 rounded-l-lg rounded-r-none transition-all duration-200 ease-in-out font-semibold',
   {
     variants: {
       type: {
