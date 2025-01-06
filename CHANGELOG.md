@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.307](https://github.com/getpingback/ui/compare/v0.0.305...v0.0.307) (2025-01-06)
+
+
+### Features
+
+* create a splitbutton and tests ([ed2e45c](https://github.com/getpingback/ui/commits/ed2e45c04755bedf8e0d657e69d3a3901f63bea6))
+* export splitbutton ([e3cdfe3](https://github.com/getpingback/ui/commits/e3cdfe3f5075f3fffe2dd57cbc75744f03ada978))
+
 ### [0.0.305](https://github.com/getpingback/ui/compare/v0.0.303...v0.0.305) (2025-01-02)
 
 ### [0.0.303](https://github.com/getpingback/ui/compare/v0.0.301...v0.0.303) (2025-01-02)
