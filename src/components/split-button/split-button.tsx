@@ -65,12 +65,7 @@ function SplitButton({ primaryIcon, primaryText, variant, onPrimaryClick, menuIt
   const [isMenuActionsOpen, setIsMenuActionsOpen] = useState(false);
 
   return (
-    <DropdownMenu.Root
-      data-testid="dropdown"
-      open={isMenuActionsOpen}
-      modal={false}
-      onOpenChange={(open) => !open && setIsMenuActionsOpen(false)}
-    >
+    <DropdownMenu.Root open={isMenuActionsOpen} modal={false} onOpenChange={(open) => !open && setIsMenuActionsOpen(false)}>
       <DropdownMenu.Trigger asChild>
         <div className={containerVariants({ type: variant })} data-testid="split-button">
           <button className={leftButtonVariants({ type: variant })} onClick={onPrimaryClick} data-testid="split-button-primary">
