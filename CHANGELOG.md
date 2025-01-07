@@ -2,48 +2,55 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [0.0.303](https://github.com/getpingback/ui/compare/v0.0.302...v0.0.303) (2024-12-18)
+### [0.0.313](https://github.com/getpingback/ui/compare/v0.0.312...v0.0.313) (2025-01-07)
 
 
 ### Bug Fixes
 
-* range picker month ([0e320b2](https://github.com/getpingback/ui/commits/0e320b23e1dbab8331ffac8a514a96638d008b86))
+* changes requested ([65f9c2d](https://github.com/getpingback/ui/commits/65f9c2d25bb8e39dc57c581a8893af148244d337))
+* remove props ([ffb5e79](https://github.com/getpingback/ui/commits/ffb5e791a33540d37baade5e9fcb9bf5d4b0436c))
+* types ([6c072ff](https://github.com/getpingback/ui/commits/6c072ff427ccdf0d42081621005a3010d9e0fb0e))
 
-### [0.0.301](https://github.com/getpingback/ui/compare/v0.0.300...v0.0.301) (2024-12-18)
-
-
-### Bug Fixes
-
-* merge ([0440a09](https://github.com/getpingback/ui/commits/0440a09b58e776ffc3d965130a60bbb78289236e))
-
-### [0.0.296](https://github.com/getpingback/ui/compare/v0.0.295...v0.0.296) (2024-12-17)
-
-### [0.0.295](https://github.com/getpingback/ui/compare/v0.0.293...v0.0.295) (2024-12-17)
-
-### [0.0.293](https://github.com/getpingback/ui/compare/v0.0.292...v0.0.293) (2024-12-17)
+### [0.0.311](https://github.com/getpingback/ui/compare/v0.0.310...v0.0.311) (2025-01-06)
 
 
 ### Bug Fixes
 
-* select content width ([01303f4](https://github.com/getpingback/ui/commits/01303f48190edcb59d9d2995bf7b0c9adfd8166f))
+* splitbutton font style ([5052395](https://github.com/getpingback/ui/commits/505239574bf2c634e648531a3a409e710674cd06))
 
-### [0.0.292](https://github.com/getpingback/ui/compare/v0.0.291...v0.0.292) (2024-12-11)
-
-### [0.0.291](https://github.com/getpingback/ui/compare/v0.0.290...v0.0.291) (2024-12-11)
+### [0.0.309](https://github.com/getpingback/ui/compare/v0.0.308...v0.0.309) (2025-01-06)
 
 
 ### Bug Fixes
 
-* add variante orange on badge ([c8cc3e0](https://github.com/getpingback/ui/commits/c8cc3e0e35cc83d34c1663796652ed91925ece4a))
+* splitbutton styles ([75d1224](https://github.com/getpingback/ui/commits/75d1224157950f57c9420945bf4c5925c7d03d54))
 
-### [0.0.290](https://github.com/getpingback/ui/compare/v0.0.289...v0.0.290) (2024-12-11)
+### [0.0.307](https://github.com/getpingback/ui/compare/v0.0.305...v0.0.307) (2025-01-06)
 
-### [0.0.289](https://github.com/getpingback/ui/compare/v0.0.288...v0.0.289) (2024-12-11)
+
+### Features
+
+* create a splitbutton and tests ([ed2e45c](https://github.com/getpingback/ui/commits/ed2e45c04755bedf8e0d657e69d3a3901f63bea6))
+* export splitbutton ([e3cdfe3](https://github.com/getpingback/ui/commits/e3cdfe3f5075f3fffe2dd57cbc75744f03ada978))
+
+### [0.0.305](https://github.com/getpingback/ui/compare/v0.0.303...v0.0.305) (2025-01-02)
+
+### [0.0.303](https://github.com/getpingback/ui/compare/v0.0.301...v0.0.303) (2025-01-02)
+
+### [0.0.301](https://github.com/getpingback/ui/compare/v0.0.300...v0.0.301) (2025-01-02)
+
+
+### Features
+
+* create drawer component ([e9758ef](https://github.com/getpingback/ui/commits/e9758eff7d06499a4d99da1d1281f463f7b76640))
+* export drawer component ([65892df](https://github.com/getpingback/ui/commits/65892df8bfc508e3e22e67760247b798b8e16604))
 
 
 ### Bug Fixes
 
-* range picker type single ([264dda9](https://github.com/getpingback/ui/commits/264dda93ddbbf5639574026059ccb17084763a4f))
+* overlay ([b245b1c](https://github.com/getpingback/ui/commits/b245b1cc02eb08b39467b63bc57e37eaae09d849))
+* prefix sintaxe ([d35b94c](https://github.com/getpingback/ui/commits/d35b94c1d704d875017727063c9d5cb5779b4bb4))
+* switch theme export ([d345298](https://github.com/getpingback/ui/commits/d345298817809cf7a2f6dea4f852f76d6040fef3))
 
 ### [0.0.299](https://github.com/getpingback/ui/compare/v0.0.298...v0.0.299) (2024-12-18)
 

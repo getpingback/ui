@@ -132,34 +132,17 @@ const config = {
         700: '#bf125d',
         800: '#99154b',
         900: '#751a3d'
-      },
-      switch: {
-        bg: {
-          DEFAULT: 'var(--switch-bg-default)',
-          hover: 'var(--switch-bg-hover)'
-        },
-        thumb: {
-          DEFAULT: 'var(--switch-thumb-bg)',
-          disabled: 'var(--switch-thumb-disabled)'
-        },
-        checked: {
-          DEFAULT: 'var(--switch-checked-bg)',
-          hover: 'var(--switch-checked-hover)',
-          ring: 'var(--switch-checked-ring)'
-        },
-        highlight: {
-          DEFAULT: 'var(--switch-highlight-bg)',
-          hover: 'var(--switch-highlight-hover)',
-          ring: 'var(--switch-highlight-ring)'
-        }
       }
     },
     extend: {
       boxShadow: {
         'bottom_sheet-2': 'var(--bottom_sheet-2)',
         modal: 'var(--modals-shadow)',
+        drawer: 'var(--drawer-shadow)',
         custom: '0px 0px 0px 1px rgba(0,0,0,0.15)',
         solid: 'var(--button-solid-shadow)',
+        outlined: 'var(--button-outlined-shadow)',
+        ghost: 'var(--button-ghost-shadow)',
         dropdown: 'var(--dropdown-shadow)',
         switch: 'var(--switch-shadow)'
       },
@@ -188,13 +171,28 @@ const config = {
             opacity: 0
           },
           to: { transform: 'translateX(0%)', opacity: 1 }
+        },
+        drawerSlideIn: {
+          from: { transform: 'translateX(100%)' },
+          to: { transform: 'translateX(0%)' }
+        },
+        drawerSlideOut: {
+          from: { transform: 'translateX(0%)' },
+          to: { transform: 'translateX(100%)' }
+        },
+        'fade-in': {
+          from: { opacity: 0 },
+          to: { opacity: 1 }
         }
       },
       animation: {
         'slide-up': 'accordionSlideUp 300ms cubic-bezier(0.87, 0, 0.13, 1) forwards',
         'slide-down': 'accordionSlideDown 300ms cubic-bezier(0.87, 0, 0.13, 1) forwards',
         'slide-left': 'slideLeft 300ms cubic-bezier(0.83, 0, 0.17, 1)',
-        'slide-right': 'slideRight 300ms cubic-bezier(0.83, 0, 0.17, 1)'
+        'slide-right': 'slideRight 300ms cubic-bezier(0.83, 0, 0.17, 1)',
+        'drawer-slide-in': 'drawerSlideIn 300ms cubic-bezier(0.83, 0, 0.17, 1)',
+        'drawer-slide-out': 'drawerSlideOut 300ms cubic-bezier(0.83, 0, 0.17, 1)',
+        'fade-in': 'fadeIn 300ms cubic-bezier(0.83, 0, 0.17, 1)'
       },
       colors: {
         success: {
@@ -283,14 +281,41 @@ const config = {
             foreground: 'var(--badge-orange-text)'
           }
         },
+        switch: {
+          bg: {
+            DEFAULT: 'var(--switch-bg-default)',
+            hover: 'var(--switch-bg-hover)'
+          },
+          thumb: {
+            DEFAULT: 'var(--switch-thumb-bg)',
+            disabled: 'var(--switch-thumb-disabled)'
+          },
+          checked: {
+            DEFAULT: 'var(--switch-checked-bg)',
+            hover: 'var(--switch-checked-hover)',
+            ring: 'var(--switch-checked-ring)'
+          },
+          highlight: {
+            DEFAULT: 'var(--switch-highlight-bg)',
+            hover: 'var(--switch-highlight-hover)',
+            ring: 'var(--switch-highlight-ring)'
+          }
+        },
         button: {
           solid: {
             DEFAULT: 'var(--button-solid-bg)',
-            foreground: 'var(--button-solid-text)'
+            foreground: 'var(--button-solid-text)',
+            hover: 'var(--button-solid-hover)'
           },
           ghost: {
             DEFAULT: 'var(--button-ghost-bg)',
-            foreground: 'var(--button-ghost-text)'
+            foreground: 'var(--button-ghost-text)',
+            gray: 'var(--button-ghost-gray)',
+            hover: 'var(--button-ghost-gray-hover)'
+          },
+          outlined: {
+            border: 'var(--button-outlined-border)',
+            hover: 'var(--button-outlined-hover)'
           },
           done: {
             DEFAULT: 'var(--badge-done-bg)',

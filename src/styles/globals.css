@@ -24,10 +24,15 @@
 
     --buttons-solid_default: #9061f9;
     --button-solid-bg: #9061f9;
+    --button-solid-hover: #7e3af2;
     --buttons-label_color: #7e3af2;
     --button-solid-text: #fafafa;
     --button-ghost-bg: #9061f91f;
     --button-ghost-text: #52525b;
+    --button-ghost-gray: #52525B14;
+    --button-ghost-gray-hover: #282C2F14;
+    --button-outlined-border: #D4D4D8;
+    --button-outlined-hover: #52525B14;
     --buttons-label_inverse: #fafafa;
     --button-hover-solid-color: #9061f940;
     --buttons-ghost_bg-color: #9061f91f;
@@ -42,10 +47,13 @@
 
     --bottom_sheet-2: 0px 0px 1px 1px rgba(0, 0, 0, 0.04), 0px 4px 16px -2px rgba(0, 0, 0, 0.08);
     --modals-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.04), 0px -6px 24px -3px rgba(0, 0, 0, 0.08);
+    --drawer-shadow: -2px 0px 24px -4px #0000001f;
     --dropdown-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.04), 0px 10px 40px -5px rgba(0, 0, 0, 0.08);
     --switch-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.161) inset;
 
     --button-solid-shadow: 0px 0px 0px 3px #9061f940;
+    --button-outlined-shadow: 0px 0px 0px 3px #9CA3AF1F;
+    --button-ghost-shadow: 0px 0px 0px 3px #9CA3AF14;
 
     --list-hightlight--hover: 0px 0px 0px 3px rgba(14, 159, 110, 0.12);
     --list-actived: #9061f914;
@@ -105,6 +113,7 @@
     --buttons-solid_default: #9061f9;
     --button-solid-bg: #9061f9;
     --button-solid-text: #fafafa;
+    --button-solid-hover: #7e3af2;
     --buttons-label: #52525b;
     --button-ghost-bg: #ac94fa3d;
     --button-ghost-text: #fafafa;
@@ -120,6 +129,7 @@
 
     --bottom_sheet-2: 0px 0px 1px 1px #0000007a, 0px -4px 16px -2px #0000007a;
     --modals-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.04), 0px -6px 24px -3px rgba(0, 0, 0, 0.08);
+    --drawer-shadow: -2px 0px 24px -4px #0000001f;
     --button-solid-shadow: 0px 0px 0px 3px #9061f940;
     --dropdown-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.04), 0px 10px 40px -5px rgba(0, 0, 0, 0.08);
 
