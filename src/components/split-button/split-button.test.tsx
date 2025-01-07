@@ -66,7 +66,7 @@ describe('SplitButton Component', () => {
 
   it('should call the onClick function when a primary button is clicked', async () => {
     const onClickMock = jest.fn();
-    render(<Solid {...{ onPrimaryClick: () => onClickMock('primary action') }} />);
+    render(<Solid {...{ onPrefixClick: () => onClickMock('primary action') }} />);
     const user = userEvent.setup();
     const primaryButton = screen.getByTestId('split-button-primary');
     await user.click(primaryButton);

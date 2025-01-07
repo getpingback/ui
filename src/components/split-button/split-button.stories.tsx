@@ -18,10 +18,10 @@ type Story = StoryObj<typeof meta>;
 
 export const Solid: Story = {
   args: {
-    primaryIcon: <HeartIcon />,
+    prefixIcon: <HeartIcon />,
     variant: 'solid',
-    primaryText: 'Button label',
-    onPrimaryClick: () => {},
+    label: 'Button label',
+    onPrefixClick: () => {},
     menuItems: [
       {
         key: 'add',
