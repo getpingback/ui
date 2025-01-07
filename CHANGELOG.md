@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.313](https://github.com/getpingback/ui/compare/v0.0.312...v0.0.313) (2025-01-07)
+
+
+### Bug Fixes
+
+* changes requested ([65f9c2d](https://github.com/getpingback/ui/commits/65f9c2d25bb8e39dc57c581a8893af148244d337))
+* remove props ([ffb5e79](https://github.com/getpingback/ui/commits/ffb5e791a33540d37baade5e9fcb9bf5d4b0436c))
+* types ([6c072ff](https://github.com/getpingback/ui/commits/6c072ff427ccdf0d42081621005a3010d9e0fb0e))
+
 ### [0.0.311](https://github.com/getpingback/ui/compare/v0.0.310...v0.0.311) (2025-01-06)
 
 
