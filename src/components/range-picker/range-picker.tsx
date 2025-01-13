@@ -349,7 +349,7 @@ export function RangePicker({
     showOutsideDays: true,
     modifiers: {
       single_day: () => {
-        const getDiffDays = differenceInDays(selectedDate?.to, selectedDate?.from);
+        const getDiffDays = differenceInDays(selectedDate?.to as Date, selectedDate?.from as Date);
         if (getDiffDays > 0 || getDiffDays < 0 || !selectedDate?.from || !selectedDate?.to) return false;
         return true;
       }
@@ -477,6 +477,8 @@ export function RangePicker({
         </PopoverTrigger>
         <PopoverContent
           onOpenAutoFocus={(e) => e.preventDefault()}
+          onWheel={(e) => e.stopPropagation()}
+          onTouchMove={(e) => e.stopPropagation()}
           ref={rangeRef}
           className="p-0 flex bg-[#FFFFFF] !w-fit !shadow-dropdown border-none"
           align={type === 'range' && numberOfMonths > 2 ? 'end' : 'center'}

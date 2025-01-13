@@ -284,7 +284,12 @@ export function VariableInput({
         {helperText ? <span className="text-xs font-normal text-tertiary-foreground opacity-65">{helperText}</span> : null}
       </div>
 
-      <PopoverContent className="w-full p-0 bg-background-accent" data-testid="comboxbox-popover-content">
+      <PopoverContent
+        className="w-full p-0 bg-background-accent"
+        onWheel={(e) => e.stopPropagation()}
+        onTouchMove={(e) => e.stopPropagation()}
+        data-testid="comboxbox-popover-content"
+      >
         <Command shouldFilter={variablesShouldFilter} className={className}>
           <div className="w-full p-4 flex items-center justify-center border-b border-divider">
             <CommandInput
