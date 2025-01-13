@@ -54,18 +54,18 @@ export function Select({ label, helperText, placeholder, options, value, onValue
           </RadixSelect.Icon>
         </RadixSelect.Trigger>
 
-        <RadixSelect.Content className="z-[9999999999] bg-background-accent border-divider rounded-lg shadow-modal overflow-hidden">
-          <RadixSelect.Viewport>
+        <RadixSelect.Content className="w-full z-[9999999999] bg-background-accent border-divider rounded-lg shadow-modal overflow-hidden">
+          <RadixSelect.Viewport className="w-full">
             {options.map((option) => (
               <RadixSelect.Item
                 key={option.value}
                 value={option.value}
                 disabled={option.isDisabled}
-                className={`relative flex items-center justify-between p-3 min-h-[48px] hover:outline-none data-[highlighted]:outline-none data-[highlighted]:text-primary-foreground data-[highlighted]:bg-list-hover ${
+                className={`w-full relative flex items-center justify-between p-3 min-h-[48px] hover:outline-none data-[highlighted]:outline-none data-[highlighted]:text-primary-foreground data-[highlighted]:bg-list-hover ${
                   option.isDisabled ? 'opacity-50 cursor-not-allowed' : ''
                 }`}
               >
-                <div className="flex flex-col">
+                <div className="w-full flex flex-col">
                   <RadixSelect.ItemText>
                     <span className="text-secondary-foreground text-sm font-medium">{option.label}</span>
                   </RadixSelect.ItemText>

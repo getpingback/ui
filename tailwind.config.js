@@ -275,6 +275,10 @@ const config = {
           purple: {
             DEFAULT: 'var(--badge-purple-bg)',
             foreground: 'var(--badge-purple-text)'
+          },
+          orange: {
+            DEFAULT: 'var(--badge-orange-bg)',
+            foreground: 'var(--badge-orange-text)'
           }
         },
         switch: {
