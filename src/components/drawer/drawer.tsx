@@ -1,3 +1,4 @@
+import { cn } from '@/lib/utils';
 import * as Dialog from '@radix-ui/react-dialog';
 import { TimesIcon } from '@stash-ui/light-icons';
 import * as React from 'react';
@@ -8,14 +9,20 @@ interface DrawerProps extends Dialog.DialogProps {
   prefixIcon?: React.ReactNode;
   hasDivider?: boolean;
   footer?: React.ReactNode;
+  className?: string;
 }
 
-function Drawer({ children, title, description, prefixIcon, hasDivider, footer, ...props }: DrawerProps) {
+function Drawer({ children, className, title, description, prefixIcon, hasDivider, footer, ...props }: DrawerProps) {
   return (
     <Dialog.Root {...props}>
       <Dialog.Portal>
         <Dialog.Overlay className=" z-50 fixed inset-0 bg-[#00000011] w-screen h-screen backdrop-blur-[1px] animate-fade-in" />
-        <Dialog.Content className="z-50 flex flex-col bg-[#FFFFFF] shadow-drawer rounded-xl w-[400px] border border-border-card fixed right-6 top-6 h-[calc(100vh-48px)] data-[state=open]:animate-drawer-slide-in data-[state=closed]:animate-drawer-slide-out">
+        <Dialog.Content
+          className={cn(
+            'z-50 flex flex-col bg-[#FFFFFF] shadow-drawer rounded-xl w-[400px] border border-border-card fixed right-6 top-6 h-[calc(100vh-48px)] data-[state=open]:animate-drawer-slide-in data-[state=closed]:animate-drawer-slide-out',
+            className
+          )}
+        >
           <div className="flex justify-between gap-2 p-6 pb-4">
             <div className="flex gap-2">
               {prefixIcon && <div className="h-fit">{prefixIcon}</div>}
