@@ -7,7 +7,15 @@ import { Button } from '../button/button';
 const meta = {
   title: 'Components/Modal',
   component: Modal,
-  tags: ['autodocs']
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      story: {
+        inline: false,
+        iframeHeight: 300
+      }
+    }
+  }
 } satisfies Meta<typeof Modal>;
 
 export default meta;
