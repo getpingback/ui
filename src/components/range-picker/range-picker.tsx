@@ -360,7 +360,7 @@ export function RangePicker({
 
     locale: LOCALE[locale],
     numberOfMonths: type === 'range' ? 2 : 1,
-    defaultMonth: initialRangeDate?.from || new Date(),
+    defaultMonth: type === 'range' ? initialRangeDate?.from : initialSingleDate || new Date(),
     components: {
       IconLeft: () => <ChevronLeftIcon className="h-6 w-6" />,
       IconRight: () => <ChevronRightIcon className="h-6 w-6" />
