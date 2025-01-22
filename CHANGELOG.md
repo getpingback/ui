@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.322](https://github.com/getpingback/ui/compare/v0.0.321...v0.0.322) (2025-01-22)
+
+
+### Features
+
+* add modal component ([80a2e60](https://github.com/getpingback/ui/commits/80a2e6034f335e70bb048d16337f24a28505feb0))
+* export modal ([2f92180](https://github.com/getpingback/ui/commits/2f921807ca5f38be08dfd8217eddaedd682f64c5))
+
 ### [0.0.320](https://github.com/getpingback/ui/compare/v0.0.319...v0.0.320) (2025-01-21)
 
 
