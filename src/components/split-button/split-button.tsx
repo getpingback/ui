@@ -52,6 +52,7 @@ interface SplitButtonProps {
   onPrefixClick: () => void;
   sufixIcon?: React.ReactNode;
   className?: string;
+  align?: 'start' | 'center' | 'end';
   menuItems: {
     key: string;
     icon: JSX.Element | undefined;
@@ -60,7 +61,7 @@ interface SplitButtonProps {
   }[];
 }
 
-function SplitButton({ prefixIcon, label, variant, onPrefixClick, menuItems, sufixIcon, className }: SplitButtonProps) {
+function SplitButton({ prefixIcon, label, variant, onPrefixClick, menuItems, sufixIcon, className, align }: SplitButtonProps) {
   const [isMenuActionsOpen, setIsMenuActionsOpen] = useState(false);
 
   return (
@@ -88,7 +89,8 @@ function SplitButton({ prefixIcon, label, variant, onPrefixClick, menuItems, suf
           side="bottom"
           className={`rounded-lg w-[252px] flex-col z-50 min-w-fit overflow-hidden  bg-background-accent shadow-modal py-2 ${className}`}
           sideOffset={4}
-          align="center"
+          collisionPadding={8}
+          align={align || 'end'}
         >
           {menuItems.map((item, index) => (
             <DropdownItem icon={item?.icon} key={index} onClick={item.onClick} data-testid="split-button-menu-item">
