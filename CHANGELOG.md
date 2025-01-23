@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.324](https://github.com/getpingback/ui/compare/v0.0.323...v0.0.324) (2025-01-23)
+
+
+### Bug Fixes
+
+* add props side to splitbutton menu ([1f5fc17](https://github.com/getpingback/ui/commits/1f5fc175313ffaf02fa69b56515c272894d49902))
+
 ### [0.0.322](https://github.com/getpingback/ui/compare/v0.0.321...v0.0.322) (2025-01-22)
 
 
