@@ -4,7 +4,7 @@ import { CaretDownIcon } from '@stash-ui/light-icons';
 import { cva } from 'class-variance-authority';
 import { DropdownItem } from '../dropdown';
 
-const containerVariants = cva('flex items-center font-primary max-w-fit h-[32px] text-sm rounded-lg ', {
+const containerVariants = cva('flex items-center font-primary max-w-fit h-[32px] text-xs rounded-lg ', {
   variants: {
     type: {
       solid: 'bg-button-solid text-button-solid-foreground  hover:shadow-solid transition-all duration-200 ease-in-out',
@@ -20,7 +20,7 @@ const containerVariants = cva('flex items-center font-primary max-w-fit h-[32px]
 });
 
 const leftButtonVariants = cva(
-  'h-full w-full flex items-center gap-1 px-3 rounded-l-lg rounded-r-none transition-all duration-200 ease-in-out font-semibold',
+  'h-full w-full flex items-center text-xs gap-1 px-3 rounded-l-lg rounded-r-none transition-all duration-200 ease-in-out font-semibold',
   {
     variants: {
       type: {
