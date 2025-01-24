@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.326](https://github.com/getpingback/ui/compare/v0.0.325...v0.0.326) (2025-01-24)
+
+
+### Bug Fixes
+
+* trigger alignment ([8253a9c](https://github.com/getpingback/ui/commits/8253a9c7372e1cd1fb1a288d854046c273ccdeaf))
+
 ### [0.0.324](https://github.com/getpingback/ui/compare/v0.0.323...v0.0.324) (2025-01-23)
 
 
