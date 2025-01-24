@@ -33,7 +33,7 @@ const leftButtonVariants = cva(
 );
 
 const menuTriggerVariants = cva(
-  'h-full w-full min-w-[32px] max-w-[32px] border-l flex items-center justify-center rounded-r-lg rounded-l-none border-solid transition-all duration-200 ease-in-out',
+  'h-full w-full min-w-[32px] max-w-[32px] mr-[2px] border-l flex items-center justify-center rounded-r-lg rounded-l-none border-solid transition-all duration-200 ease-in-out',
   {
     variants: {
       type: {
