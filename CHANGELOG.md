@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.329](https://github.com/getpingback/ui/compare/v0.0.323...v0.0.329) (2025-01-27)
+
+
+### Bug Fixes
+
+* drawer max width ([98f165d](https://github.com/getpingback/ui/commits/98f165d33cda7c419f70ae7656ba9269bba81ec3))
+
 ### [0.0.328](https://github.com/getpingback/ui/compare/v0.0.323...v0.0.328) (2025-01-27)
 
 
