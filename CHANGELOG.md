@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.334](https://github.com/getpingback/ui/compare/v0.0.333...v0.0.334) (2025-01-28)
+
+
+### Bug Fixes
+
+* drawer overlay index ([16576b3](https://github.com/getpingback/ui/commits/16576b35192c519314cd60906957af35e5bef4a9))
+
 ### [0.0.332](https://github.com/getpingback/ui/compare/v0.0.331...v0.0.332) (2025-01-28)
 
 
