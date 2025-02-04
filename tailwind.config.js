@@ -378,7 +378,25 @@ const config = {
           'scrollbar-width': 'none'
         }
       };
-      addUtilities(newUtilities);
+      const colorPickerComponent = {
+        '.custom-color-picker .react-colorful': {
+          width: '100%',
+          height: '152px'
+        },
+        '.custom-color-picker .react-colorful__saturation': {
+          borderTopLeftRadius: '4px',
+          borderTopRightRadius: '4px'
+        },
+        '.custom-color-picker .react-colorful__last-control': {
+          borderBottomLeftRadius: '4px',
+          borderBottomRightRadius: '4px'
+        },
+        '.custom-color-picker .react-colorful__pointer': {
+          width: '0.5rem',
+          height: '0.5rem'
+        }
+      };
+      addUtilities({ ...newUtilities, ...colorPickerComponent });
     }
   ]
 };
