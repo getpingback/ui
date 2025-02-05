@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.336](https://github.com/getpingback/ui/compare/v0.0.335...v0.0.336) (2025-02-05)
+
+
+### Features
+
+* concat hex color with opacity ([3d043f3](https://github.com/getpingback/ui/commits/3d043f3b85405041659a77a0f10bd4cd37bab4d0))
+* create color picker component ([954cb0e](https://github.com/getpingback/ui/commits/954cb0e7469360294f7b8e6a5cfd95d58ee68ff4))
+* remove log ([cb65753](https://github.com/getpingback/ui/commits/cb657531f7e01eb926fda5c3e2d68f8574fba447))
+
 ### [0.0.334](https://github.com/getpingback/ui/compare/v0.0.333...v0.0.334) (2025-01-28)
 
 
