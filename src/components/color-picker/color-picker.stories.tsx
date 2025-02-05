@@ -14,18 +14,14 @@ type Story = StoryObj<typeof ColorPicker>;
 export const Default: Story = {
   args: {
     color: '#000000',
-    onChange: (color: string) => console.log('Color changed:', color)
+    opacity: 1,
+    saveText: 'Save',
+    cancelText: 'Cancel'
   },
-  render: ({ color: defaultColor }) => {
+  render: ({ color: defaultColor, opacity: defaultOpacity, ...args }) => {
     const [color, setColor] = useState(defaultColor);
+    const [opacity, setOpacity] = useState(defaultOpacity);
 
-    return <ColorPicker color={color} onChange={setColor} />;
-  }
-};
-
-export const WithInitialColor: Story = {
-  args: {
-    color: '#FF0000',
-    onChange: (color: string) => console.log('Color changed:', color)
+    return <ColorPicker {...args} color={color} onChange={setColor} opacity={opacity} onChangeOpacity={setOpacity} />;
   }
 };

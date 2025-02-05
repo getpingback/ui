@@ -1,14 +1,16 @@
 import * as React from 'react';
 
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
-import { RgbaColorPicker } from 'react-colorful';
+import { HexColorPicker } from 'react-colorful';
 import { Button } from '../button';
 import { THEME_COLORS } from './constants';
-import { convertToHex, convertToRgba } from './utils';
+import { opacityToHex } from './utils';
 
 interface ColorPickerProps {
   color: string;
   onChange: (color: string) => void;
+  opacity: number;
+  onChangeOpacity: (opacity: number) => void;
   onSave?: () => void;
   onCancel?: () => void;
   cancelText?: string;
@@ -18,16 +20,36 @@ interface ColorPickerProps {
 export const ColorPicker = ({
   color = '#000000',
   onChange,
+  opacity = 1,
+  onChangeOpacity,
   onSave,
   onCancel,
   cancelText = 'Cancel',
   saveText = 'Save'
 }: ColorPickerProps) => {
   const [isOpen, setIsOpen] = React.useState(false);
-  const transparencyColor = convertToRgba(color).a * 100;
 
-  const handleTransparencyChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
+  const handleChangeOpacity = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const rawValue = e.target.value.replace('%', '');
+    const value = Math.min(100, Math.max(0, Number(rawValue) || 0));
+    const newOpacity = value / 100;
+    onChangeOpacity(newOpacity);
+
+    if (newOpacity < 1) {
+      const baseColor = color.slice(0, 7);
+      onChange(baseColor + opacityToHex(newOpacity));
+    }
+  };
+
+  const handleOpacityInputClick = (e: React.MouseEvent<HTMLInputElement>) => {
+    const input = e.target as HTMLInputElement;
+    const valueLength = Math.round(opacity * 100).toString().length;
+    input.setSelectionRange(0, valueLength);
+  };
+
+  const handleChangeHexColor = (color: string) => {
+    onChange(color);
+    onChangeOpacity(1);
   };
 
   const handleSave = () => {
@@ -47,21 +69,22 @@ export const ColorPicker = ({
       </DropdownMenuPrimitive.Trigger>
       <DropdownMenuPrimitive.Content side="bottom" align="start" className="w-[252px] p-4 flex flex-col z-50 rounded-lg shadow-modal">
         <div className="custom-color-picker">
-          <RgbaColorPicker color={convertToRgba(color)} onChange={(color) => onChange(convertToHex(color))} />
+          <HexColorPicker color={color} onChange={handleChangeHexColor} />
         </div>
         <div className="flex flex-col gap-4 mt-4">
           <div className="flex">
             <input
               type="text"
-              className="w-full border border-gray-500/10 rounded-l-md rounded-r-none color-gray-600 text-sm p-2"
+              className="w-full border border-gray-500/10 rounded-l-lg rounded-r-none text-gray-600 text-sm py-2 px-3"
               value={color.toUpperCase()}
               onChange={(e) => onChange(e.target.value)}
             />
             <input
               type="text"
-              className="w-full max-w-[60px] border border-gray-500/10 rounded-r-md rounded-l-none border-l-0 color-gray-600 text-sm p-2"
-              value={`${transparencyColor}%`}
-              onChange={handleTransparencyChange}
+              className="w-full max-w-[60px] border border-gray-500/10 rounded-r-lg rounded-l-none border-l-0 text-gray-600 text-sm py-2 px-[11px]"
+              value={`${Math.round(opacity * 100)}%`}
+              onChange={handleChangeOpacity}
+              onClick={handleOpacityInputClick}
             />
           </div>
           <div className="flex flex-wrap gap-[9px]">
@@ -70,7 +93,7 @@ export const ColorPicker = ({
                 key={themeColor}
                 style={{ backgroundColor: themeColor }}
                 className="w-[13px] h-[13px] rounded-sm cursor-pointer"
-                onClick={() => onChange(themeColor)}
+                onClick={() => handleChangeHexColor(themeColor)}
               />
             ))}
           </div>

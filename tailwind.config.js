@@ -270,7 +270,10 @@ const config = {
           outline: {
             DEFAULT: 'rgb(from var(--text-tertiary) r g b / <alpha-value>)',
             hover: 'var(--list-hover)'
-          }
+          },
+          hover: 'var(--input-hover-border)',
+          focus: 'var(--input-focus-border)',
+          'focus-shadow': 'var(--input-focus-shadow)'
         },
         badge: {
           gray: {
@@ -368,7 +371,7 @@ const config = {
     }
   },
   plugins: [
-    function ({ addUtilities }) {
+    function ({ addUtilities, theme }) {
       const newUtilities = {
         '.no-scrollbar::-webkit-scrollbar': {
           display: 'none'
@@ -396,7 +399,24 @@ const config = {
           height: '0.5rem'
         }
       };
-      addUtilities({ ...newUtilities, ...colorPickerComponent });
+      const inputFocusStyles = {
+        '.input-focus': {
+          '&:hover': {
+            'border-color': theme('colors.input.hover')
+          },
+          '&:focus': {
+            'border-color': theme('colors.input.focus'),
+            'box-shadow': `0px 0px 0px 3px ${theme('colors.input.focus-shadow')}`
+          },
+          outline: '2px solid transparent',
+          outlineOffset: '2px',
+          'transition-property': 'all',
+          'transition-duration': '200ms',
+          'transition-timing-function': 'ease-in-out'
+        }
+      };
+
+      addUtilities({ ...newUtilities, ...colorPickerComponent, ...inputFocusStyles });
     }
   ]
 };
