@@ -25,7 +25,6 @@ describe('ColorPicker', () => {
     render(<ColorPicker {...defaultProps} />);
 
     const trigger = screen.getByRole('button');
-    console.log(trigger);
     fireEvent.click(trigger);
 
     expect(screen.getByTestId('color-picker-dialog')).toBeInTheDocument();
