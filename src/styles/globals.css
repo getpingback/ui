@@ -89,6 +89,10 @@
     --switch-thumb-bg: #fafafa;
     --switch-thumb-disabled: #e5e5e5;
 
+    --input-hover-border: #a1a1aa;
+    --input-focus-border: #9061f9;
+    --input-focus-shadow: rgba(144, 97, 249, 0.12);
+
     --switch-checked-bg: #31c48d;
     --switch-checked-hover: #0e9f6e;
     --switch-checked-ring: #31c48d1f;
