@@ -26,3 +26,4 @@ export * from './variable-input';
 export * from './radio-group';
 export * from './switch';
 export * from './split-button';
+export * from './color-picker';

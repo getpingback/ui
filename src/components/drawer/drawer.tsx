@@ -1,7 +1,7 @@
+import * as React from 'react';
 import { cn } from '@/lib/utils';
 import * as Dialog from '@radix-ui/react-dialog';
 import { TimesIcon } from '@stash-ui/light-icons';
-import * as React from 'react';
 
 interface DrawerRootProps extends Dialog.DialogProps {
   children: React.ReactNode;
