@@ -65,9 +65,18 @@ export const ColorPicker = ({
   return (
     <DropdownMenuPrimitive.Root open={isOpen} onOpenChange={setIsOpen}>
       <DropdownMenuPrimitive.Trigger asChild>
-        <div style={{ backgroundColor: color }} className="w-6 h-6 rounded-md shadow-[0px_0px_0px_1.33px_#00000014_inset] cursor-pointer" />
+        <button
+          style={{ backgroundColor: color }}
+          className="w-6 h-6 rounded-md shadow-[0px_0px_0px_1.33px_#00000014_inset] cursor-pointer"
+          onClick={() => setIsOpen(true)}
+        />
       </DropdownMenuPrimitive.Trigger>
-      <DropdownMenuPrimitive.Content side="bottom" align="start" className="w-[252px] p-4 flex flex-col z-50 rounded-lg shadow-modal">
+      <DropdownMenuPrimitive.Content
+        side="bottom"
+        align="start"
+        className="w-[252px] p-4 flex flex-col z-50 rounded-lg shadow-modal"
+        data-testid="color-picker-dialog"
+      >
         <div className="custom-color-picker">
           <HexColorPicker color={color} onChange={handleChangeHexColor} />
         </div>
@@ -91,6 +100,7 @@ export const ColorPicker = ({
             {THEME_COLORS.map((themeColor) => (
               <div
                 key={themeColor}
+                data-testid="theme-color"
                 style={{ backgroundColor: themeColor }}
                 className="w-[13px] h-[13px] rounded-sm cursor-pointer"
                 onClick={() => handleChangeHexColor(themeColor)}
