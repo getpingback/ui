@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.338](https://github.com/getpingback/ui/compare/v0.0.337...v0.0.338) (2025-02-10)
+
+
+### Bug Fixes
+
+* color picker bg color and remove unecessary opacity prop ([c0c9725](https://github.com/getpingback/ui/commits/c0c9725858f74fbe61eaa39244bae007cec4d977))
+
 ### [0.0.336](https://github.com/getpingback/ui/compare/v0.0.335...v0.0.336) (2025-02-05)
 
 
