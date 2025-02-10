@@ -1,39 +1,45 @@
 import * as React from 'react';
 
-import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
+import { cn } from '@/lib/utils';
 import { HexColorPicker } from 'react-colorful';
+import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
+
 import { Button } from '../button';
+import { getInitialOpacity, opacityToHex } from './utils';
 import { THEME_COLORS } from './constants';
-import { opacityToHex } from './utils';
 
 interface ColorPickerProps {
   color: string;
   onChange: (color: string) => void;
-  opacity: number;
-  onChangeOpacity: (opacity: number) => void;
   onSave?: () => void;
   onCancel?: () => void;
   cancelText?: string;
   saveText?: string;
+  className?: string;
+  side?: 'top' | 'bottom' | 'left' | 'right';
+  align?: 'start' | 'center' | 'end';
 }
 
 export const ColorPicker = ({
   color = '#000000',
   onChange,
-  opacity = 1,
-  onChangeOpacity,
   onSave,
   onCancel,
   cancelText = 'Cancel',
-  saveText = 'Save'
+  saveText = 'Save',
+  side = 'bottom',
+  align = 'end',
+  className
 }: ColorPickerProps) => {
+  const initialOpacity = getInitialOpacity(color);
   const [isOpen, setIsOpen] = React.useState(false);
+  const [opacity, setOpacity] = React.useState(initialOpacity);
 
   const handleChangeOpacity = (e: React.ChangeEvent<HTMLInputElement>) => {
     const rawValue = e.target.value.replace('%', '');
     const value = Math.min(100, Math.max(0, Number(rawValue) || 0));
     const newOpacity = value / 100;
-    onChangeOpacity(newOpacity);
+    setOpacity(newOpacity);
 
     if (newOpacity < 1) {
       const baseColor = color.slice(0, 7);
@@ -49,7 +55,7 @@ export const ColorPicker = ({
 
   const handleChangeHexColor = (color: string) => {
     onChange(color);
-    onChangeOpacity(1);
+    setOpacity(1);
   };
 
   const handleSave = () => {
@@ -72,9 +78,9 @@ export const ColorPicker = ({
         />
       </DropdownMenuPrimitive.Trigger>
       <DropdownMenuPrimitive.Content
-        side="bottom"
-        align="start"
-        className="w-[252px] p-4 flex flex-col z-50 rounded-lg shadow-modal"
+        side={side}
+        align={align}
+        className={cn('w-[252px] bg-[#FFFFFF] p-4 flex flex-col z-50 rounded-lg shadow-modal', className)}
         data-testid="color-picker-dialog"
       >
         <div className="custom-color-picker">
