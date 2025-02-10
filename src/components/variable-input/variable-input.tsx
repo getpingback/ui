@@ -55,7 +55,7 @@ export function VariableInput({
   ...props
 }: VariableInputProps) {
   const [open, setOpen] = React.useState(false);
-  const [text, setText] = React.useState('');
+  const [contentValue, setContentValue] = React.useState(initialContent);
   const [isFocused, setIsFocused] = React.useState(false);
   const [lastRange, setLastRange] = React.useState<Range | null>(null);
 
@@ -69,7 +69,7 @@ export function VariableInput({
     const plainText = transformContentToPlainText(target.innerHTML);
 
     onChangeContent?.(plainText);
-    setText(plainText);
+    setContentValue(plainText);
 
     const selection = window.getSelection();
     if (selection && selection.rangeCount > 0) {
@@ -142,7 +142,7 @@ export function VariableInput({
     onSelectVariable?.(selectedVariable);
     const plainText = transformContentToPlainText(editor.innerHTML);
     onChangeContent?.(plainText);
-    setText(plainText);
+    setContentValue(plainText);
   };
 
   const handleFocus = () => {
@@ -208,21 +208,20 @@ export function VariableInput({
     if (editor && initialContent) {
       const contentWithSpans = transformVariablesToSpans(initialContent);
       editor.innerHTML = contentWithSpans;
-      setText(initialContent);
     }
-  }, [initialContent]);
+  }, []);
 
   React.useEffect(() => {
     const editor = editorRef.current;
 
     if (editor) {
-      if (!isFocused && !text && !initialContent && placeholder) {
+      if (!isFocused && !contentValue && placeholder) {
         editor.innerHTML = placeholderTag;
       } else if (isFocused && editor.innerHTML === placeholderTag) {
         editor.innerHTML = '';
       }
     }
-  }, [isFocused, text, placeholder, initialContent]);
+  }, [isFocused, contentValue, placeholder]);
 
   React.useEffect(() => {
     if (!open) return;
