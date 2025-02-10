@@ -5,9 +5,7 @@ import { ColorPicker } from './color-picker';
 describe('ColorPicker', () => {
   const defaultProps = {
     color: '#000000',
-    onChange: jest.fn(),
-    opacity: 1,
-    onChangeOpacity: jest.fn()
+    onChange: jest.fn()
   };
 
   beforeEach(() => {
@@ -51,7 +49,17 @@ describe('ColorPicker', () => {
     const opacityInput = screen.getByDisplayValue('100%');
     fireEvent.change(opacityInput, { target: { value: '50' } });
 
-    expect(defaultProps.onChangeOpacity).toHaveBeenCalledWith(0.5);
+    expect(defaultProps.onChange).toHaveBeenCalledWith('#00000080');
+  });
+
+  it('correctly displays opacity when color has alpha channel', () => {
+    render(<ColorPicker {...defaultProps} color="#FF000080" />);
+
+    const trigger = screen.getByRole('button');
+    fireEvent.click(trigger);
+
+    const opacityInput = screen.getByDisplayValue('50%');
+    expect(opacityInput).toBeInTheDocument();
   });
 
   it('calls onSave when save button is clicked', () => {
@@ -90,6 +98,5 @@ describe('ColorPicker', () => {
     fireEvent.click(themeColors[0]);
 
     expect(defaultProps.onChange).toHaveBeenCalled();
-    expect(defaultProps.onChangeOpacity).toHaveBeenCalledWith(1);
   });
 });
