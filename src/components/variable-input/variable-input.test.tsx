@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import { VariableInput } from './variable-input';
+import userEvent from '@testing-library/user-event';
 
 describe('VariableInput Component', () => {
   const options = [
@@ -109,6 +110,23 @@ describe('VariableInput Component', () => {
     if (editor) {
       expect(editor.innerHTML).toBe(initialContent);
       expect(editor.innerHTML).not.toBe('Placeholder');
+    }
+  });
+
+  it('should update content when user types text', async () => {
+    const user = userEvent.setup();
+    const handleChangeContent = jest.fn();
+    const { container } = render(<VariableInput options={options} onChangeContent={handleChangeContent} />);
+
+    const editor = container.querySelector("[contenteditable='true']");
+    expect(editor).toBeInTheDocument();
+
+    if (editor) {
+      await user.click(editor);
+      await user.keyboard('Hello world');
+
+      expect(handleChangeContent).toHaveBeenCalledWith('Hello world');
+      expect(editor.textContent).toBe('Hello world');
     }
   });
 });
