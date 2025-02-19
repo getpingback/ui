@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.341](https://github.com/getpingback/ui/compare/v0.0.340...v0.0.341) (2025-02-19)
+
+
+### Bug Fixes
+
+* add size props to badge component ([cc5fe2b](https://github.com/getpingback/ui/commits/cc5fe2b5237552f85d518228aa5e8e0ddbf6f008))
+
 ### [0.0.338](https://github.com/getpingback/ui/compare/v0.0.337...v0.0.338) (2025-02-10)
 
 
