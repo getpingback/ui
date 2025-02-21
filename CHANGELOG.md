@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.343](https://github.com/getpingback/ui/compare/v0.0.342...v0.0.343) (2025-02-21)
+
+
+### Bug Fixes
+
+* color sr-only ([f4af890](https://github.com/getpingback/ui/commits/f4af890fff4f3b4da1bde463e2d3eb23435bf263))
+
 ### [0.0.341](https://github.com/getpingback/ui/compare/v0.0.340...v0.0.341) (2025-02-19)
 
 
