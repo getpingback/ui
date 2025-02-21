@@ -17,7 +17,7 @@ function Switch({ checked, disabled, highlight, onChange }: SwitchProps) {
 
   return (
     <label className="inline-flex items-center cursor-pointer">
-      <input type="checkbox" className="sr-only peer" checked={checked} disabled={disabled} onChange={handleChange} />
+      <input type="checkbox" className="sr-only fixed peer" checked={checked} disabled={disabled} onChange={handleChange} />
       <div
         className={cn(
           'relative w-9 h-5 bg-switch-bg hover:bg-switch-bg-hover transition-all shadow-switch rounded-full peer',
