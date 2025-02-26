@@ -49,6 +49,7 @@ interface SplitButtonProps {
   prefixIcon: React.ReactNode;
   label: string;
   variant?: 'solid' | 'outlined' | 'ghost';
+  customMenu?: React.ReactNode;
   onPrefixClick: () => void;
   sufixIcon?: React.ReactNode;
   className?: string;
@@ -61,7 +62,7 @@ interface SplitButtonProps {
   }[];
 }
 
-function SplitButton({ prefixIcon, label, variant, onPrefixClick, menuItems, sufixIcon, className, align }: SplitButtonProps) {
+function SplitButton({ prefixIcon, label, variant, onPrefixClick, menuItems, sufixIcon, className, align, customMenu }: SplitButtonProps) {
   const [isMenuActionsOpen, setIsMenuActionsOpen] = useState(false);
 
   return (
@@ -92,11 +93,13 @@ function SplitButton({ prefixIcon, label, variant, onPrefixClick, menuItems, suf
           collisionPadding={8}
           align={align || 'end'}
         >
-          {menuItems.map((item, index) => (
-            <DropdownItem icon={item?.icon} key={index} onClick={item.onClick} data-testid="split-button-menu-item">
-              {item.text}
-            </DropdownItem>
-          ))}
+          {customMenu
+            ? customMenu
+            : menuItems.map((item, index) => (
+                <DropdownItem icon={item?.icon} key={index} onClick={item.onClick} data-testid="split-button-menu-item">
+                  {item.text}
+                </DropdownItem>
+              ))}
         </DropdownMenu.Content>
       </DropdownMenu.Portal>
     </DropdownMenu.Root>
