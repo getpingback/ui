@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.345](https://github.com/getpingback/ui/compare/v0.0.344...v0.0.345) (2025-02-26)
+
+
+### Bug Fixes
+
+* add custom content on split button ([bd8464e](https://github.com/getpingback/ui/commits/bd8464e7cdcf4c7e8901bb6058e701f19ddbdf3a))
+
 ### [0.0.343](https://github.com/getpingback/ui/compare/v0.0.342...v0.0.343) (2025-02-21)
 
 
