@@ -41,16 +41,28 @@ export const ColorPicker = ({
     const newOpacity = value / 100;
     setOpacity(newOpacity);
 
-    if (newOpacity < 1) {
-      const baseColor = color.slice(0, 7);
-      onChange(baseColor + opacityToHex(newOpacity));
-    }
+    const baseColor = color.slice(0, 7);
+
+    if (newOpacity < 1) return onChange(baseColor + opacityToHex(newOpacity));
+
+    return onChange(baseColor);
   };
 
   const handleOpacityInputClick = (e: React.MouseEvent<HTMLInputElement>) => {
     const input = e.target as HTMLInputElement;
     const valueLength = Math.round(opacity * 100).toString().length;
     input.setSelectionRange(0, valueLength);
+  };
+
+  const hasHash = color.startsWith('#');
+
+  const handleHexInputBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    const isValidHex = /^#?([0-9A-F]{3}|[0-9A-F]{4}|[0-9A-F]{6})$/i.test(value);
+
+    if (!hasHash && isValidHex) return onChange(`#${value}`);
+
+    if (!isValidHex) return onChange('#000000');
   };
 
   const handleChangeHexColor = (color: string) => {
@@ -72,7 +84,7 @@ export const ColorPicker = ({
     <DropdownMenuPrimitive.Root open={isOpen} onOpenChange={setIsOpen}>
       <DropdownMenuPrimitive.Trigger asChild>
         <button
-          style={{ backgroundColor: color }}
+          style={{ backgroundColor: hasHash ? color : `#${color}` }}
           className="w-6 h-6 rounded-md shadow-[0px_0px_0px_1.33px_#00000014_inset] cursor-pointer"
           onClick={() => setIsOpen(true)}
         />
@@ -93,6 +105,7 @@ export const ColorPicker = ({
               className="w-full border border-gray-500/10 rounded-l-lg rounded-r-none text-gray-600 text-sm py-2 px-3"
               value={color.toUpperCase()}
               onChange={(e) => onChange(e.target.value)}
+              onBlur={handleHexInputBlur}
             />
             <input
               type="text"
