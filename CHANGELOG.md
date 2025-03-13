@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.347](https://github.com/getpingback/ui/compare/v0.0.346...v0.0.347) (2025-03-13)
+
+
+### Bug Fixes
+
+* set hexColors on blur ([47e9f92](https://github.com/getpingback/ui/commits/47e9f923b2dac9925561b7548a96e34d7660eb6a))
+* update color picker opacity with 100% and add validate onBlur ([21454a4](https://github.com/getpingback/ui/commits/21454a4a3642ae414e98ee961680721dd15fc044))
+
 ### [0.0.345](https://github.com/getpingback/ui/compare/v0.0.344...v0.0.345) (2025-02-26)
 
 
