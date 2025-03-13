@@ -54,11 +54,15 @@ export const ColorPicker = ({
     input.setSelectionRange(0, valueLength);
   };
 
+  const hasHash = color.startsWith('#');
+
   const handleHexInputBlur = (e: React.FocusEvent<HTMLInputElement>) => {
-    const isValidHex = /^#[0-9A-F]{6}$/i.test(e.target.value);
-    if (!isValidHex) {
-      onChange('#000000');
-    }
+    const value = e.target.value;
+    const isValidHex = /^#?([0-9A-F]{3}|[0-9A-F]{4}|[0-9A-F]{6})$/i.test(value);
+
+    if (!hasHash && isValidHex) return onChange(`#${value}`);
+
+    if (!isValidHex) return onChange('#000000');
   };
 
   const handleChangeHexColor = (color: string) => {
@@ -80,7 +84,7 @@ export const ColorPicker = ({
     <DropdownMenuPrimitive.Root open={isOpen} onOpenChange={setIsOpen}>
       <DropdownMenuPrimitive.Trigger asChild>
         <button
-          style={{ backgroundColor: color }}
+          style={{ backgroundColor: hasHash ? color : `#${color}` }}
           className="w-6 h-6 rounded-md shadow-[0px_0px_0px_1.33px_#00000014_inset] cursor-pointer"
           onClick={() => setIsOpen(true)}
         />
