@@ -41,16 +41,24 @@ export const ColorPicker = ({
     const newOpacity = value / 100;
     setOpacity(newOpacity);
 
-    if (newOpacity < 1) {
-      const baseColor = color.slice(0, 7);
-      onChange(baseColor + opacityToHex(newOpacity));
-    }
+    const baseColor = color.slice(0, 7);
+
+    if (newOpacity < 1) return onChange(baseColor + opacityToHex(newOpacity));
+
+    return onChange(baseColor);
   };
 
   const handleOpacityInputClick = (e: React.MouseEvent<HTMLInputElement>) => {
     const input = e.target as HTMLInputElement;
     const valueLength = Math.round(opacity * 100).toString().length;
     input.setSelectionRange(0, valueLength);
+  };
+
+  const handleHexInputBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    const isValidHex = /^#[0-9A-F]{6}$/i.test(e.target.value);
+    if (!isValidHex) {
+      onChange('#000000');
+    }
   };
 
   const handleChangeHexColor = (color: string) => {
@@ -93,6 +101,7 @@ export const ColorPicker = ({
               className="w-full border border-gray-500/10 rounded-l-lg rounded-r-none text-gray-600 text-sm py-2 px-3"
               value={color.toUpperCase()}
               onChange={(e) => onChange(e.target.value)}
+              onBlur={handleHexInputBlur}
             />
             <input
               type="text"
