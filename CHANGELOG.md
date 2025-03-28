@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.354](https://github.com/getpingback/ui/compare/v0.0.353...v0.0.354) (2025-03-28)
+
+
+### Bug Fixes
+
+* lastItem on combobox ([6ead0d7](https://github.com/getpingback/ui/commits/6ead0d7d6365f587d66212846ded3bd71813ea7c))
+
 ### [0.0.352](https://github.com/getpingback/ui/compare/v0.0.350...v0.0.352) (2025-03-28)
 
 ### [0.0.350](https://github.com/getpingback/ui/compare/v0.0.349...v0.0.350) (2025-03-28)
