@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.349](https://github.com/getpingback/ui/compare/v0.0.348...v0.0.349) (2025-03-28)
+
+
+### Bug Fixes
+
+* trying to fix bug on onendreached function ([083f244](https://github.com/getpingback/ui/commits/083f24437bbfd8682ba9dfeace8ad3cbabb4ceb0))
+
 ### [0.0.347](https://github.com/getpingback/ui/compare/v0.0.346...v0.0.347) (2025-03-13)
 
 
