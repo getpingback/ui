@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.350](https://github.com/getpingback/ui/compare/v0.0.349...v0.0.350) (2025-03-28)
+
 ### [0.0.349](https://github.com/getpingback/ui/compare/v0.0.348...v0.0.349) (2025-03-28)
 
 
