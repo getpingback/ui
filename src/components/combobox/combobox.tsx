@@ -98,7 +98,7 @@ export function Combobox({
     return () => {
       observer?.disconnect();
     };
-  }, [lastItemRef.current, options, open]);
+  }, [lastItemRef, options, open]);
 
   const DefaultVariant = ({ item, selected, isButtonLabel }: { item: Item; selected: boolean; isButtonLabel?: boolean }) => (
     <div className={cn('flex items-center h-full w-full', selected && 'justify-between', isButtonLabel && 'w-[calc(100%-30px)]')}>
