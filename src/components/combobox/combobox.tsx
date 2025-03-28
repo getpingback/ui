@@ -98,7 +98,7 @@ export function Combobox({
     return () => {
       observer?.disconnect();
     };
-  }, [lastItemRef, options, open]);
+  }, [lastItemRef.current, options, open]);
 
   const DefaultVariant = ({ item, selected, isButtonLabel }: { item: Item; selected: boolean; isButtonLabel?: boolean }) => (
     <div className={cn('flex items-center h-full w-full', selected && 'justify-between', isButtonLabel && 'w-[calc(100%-30px)]')}>
@@ -274,7 +274,7 @@ export function Combobox({
 
             <div
               ref={lastItemRef}
-              style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 4, width: '100%' }}
+              style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 10, width: '100%' }}
             />
           </div>
 
