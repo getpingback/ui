@@ -79,26 +79,26 @@ export function Combobox({
   React.useEffect(() => {
     if (!open) return;
 
-    let observer: IntersectionObserver;
-    setTimeout(() => {
-      observer = new IntersectionObserver(
-        (entries) => {
-          if (entries[0].isIntersecting) {
-            onEndReached?.();
-          }
-        },
-        { threshold: 1 }
-      );
-
-      if (lastItemRef.current) {
-        observer?.observe(lastItemRef.current);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          onEndReached?.();
+        }
+      },
+      {
+        threshold: 0.5,
+        rootMargin: '100px'
       }
-    }, 0);
+    );
+
+    if (lastItemRef.current) {
+      observer.observe(lastItemRef.current);
+    }
 
     return () => {
-      observer?.disconnect();
+      observer.disconnect();
     };
-  }, [lastItemRef.current, options, open]);
+  }, [open, options, onEndReached]);
 
   const DefaultVariant = ({ item, selected, isButtonLabel }: { item: Item; selected: boolean; isButtonLabel?: boolean }) => (
     <div className={cn('flex items-center h-full w-full', selected && 'justify-between', isButtonLabel && 'w-[calc(100%-30px)]')}>
