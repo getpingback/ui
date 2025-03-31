@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.358](https://github.com/getpingback/ui/compare/v0.0.357...v0.0.358) (2025-03-31)
+
+
+### Bug Fixes
+
+* add consoles ([5a1fcab](https://github.com/getpingback/ui/commits/5a1fcab1513cb938de1e4499507908478e30b9f0))
+
 ### [0.0.356](https://github.com/getpingback/ui/compare/v0.0.355...v0.0.356) (2025-03-31)
 
 
