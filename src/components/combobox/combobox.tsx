@@ -81,6 +81,7 @@ export function Combobox({
 
     const observer = new IntersectionObserver(
       (entries) => {
+        console.log('entries', entries);
         if (entries[0].isIntersecting) {
           onEndReached?.();
         }
@@ -91,6 +92,7 @@ export function Combobox({
       }
     );
 
+    console.log('lastItemRef.current', lastItemRef.current);
     if (lastItemRef.current) {
       observer.observe(lastItemRef.current);
     }
@@ -98,7 +100,7 @@ export function Combobox({
     return () => {
       observer.disconnect();
     };
-  }, [open, options, onEndReached]);
+  }, [open, options, onEndReached, lastItemRef.current]);
 
   const DefaultVariant = ({ item, selected, isButtonLabel }: { item: Item; selected: boolean; isButtonLabel?: boolean }) => (
     <div className={cn('flex items-center h-full w-full', selected && 'justify-between', isButtonLabel && 'w-[calc(100%-30px)]')}>
