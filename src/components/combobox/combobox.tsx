@@ -79,15 +79,10 @@ export function Combobox({
   React.useEffect(() => {
     if (!open) return;
 
-    console.log('Effect executado, open:', open);
-
-    // Pequeno delay para garantir que o DOM foi atualizado
     const timer = setTimeout(() => {
       const observer = new IntersectionObserver(
         (entries) => {
-          console.log('entries', entries);
           if (entries[0]?.isIntersecting) {
-            console.log('Intersecting!');
             onEndReached?.();
           }
         },
@@ -97,7 +92,6 @@ export function Combobox({
         }
       );
 
-      console.log('lastItemRef.current após timeout:', lastItemRef.current);
       if (lastItemRef.current) {
         observer.observe(lastItemRef.current);
       }
