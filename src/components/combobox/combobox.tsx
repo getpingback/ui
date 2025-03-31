@@ -112,12 +112,12 @@ export function Combobox({
   );
 
   const DetailedVariant = ({ item, selected, isButtonLabel }: { item: Item; selected: boolean; isButtonLabel?: boolean }) => (
-    <div className={cn('flex items-center w-full', selected && 'justify-between')}>
-      <div className="flex items-center">
+    <div className={cn('flex items-center w-full max-w-[calc(100%-24px)]', selected && 'justify-between')}>
+      <div className="flex items-center w-full">
         {item.leadingElement && !isButtonLabel ? <>{item.leadingElement}</> : null}
 
-        <div className="flex flex-col items-start">
-          <div className={`line-clamp-1 text-sm font-medium${isButtonLabel ? ' max-w-[160px]' : ''} ${selected ? 'text-visible' : ''}`}>
+        <div className="flex flex-col items-start w-full">
+          <div className={`line-clamp-1 text-sm font-medium${isButtonLabel ? ' max-w-[100%]' : ''} ${selected ? 'text-visible' : ''}`}>
             {item.label}
           </div>
           {!isButtonLabel ? <div className="text-xs text-gray-500">{item.description}</div> : null}
@@ -178,7 +178,8 @@ export function Combobox({
 
   const renderButtonContent = () => {
     if (value) {
-      const selectedItem = options.flatMap((option) => option.items).find((item) => item.value === value);
+      const allItems = options.flatMap((option) => option.items);
+      const selectedItem = allItems.find((item) => item.value.toLowerCase() === value.toLowerCase());
 
       if (selectedItem && variant === 'image-detailed') {
         return React.createElement(getVariant(), {
