@@ -251,7 +251,7 @@ export function Combobox({
 
           <div className="max-h-[272px] overflow-y-auto scrollbar-style">
             {options.map((option, index) => (
-              <React.Fragment key={index}>
+              <>
                 <CommandGroup className="py-2" heading={option.heading}>
                   {option.items.map((item) => (
                     <CommandItem
@@ -269,25 +269,15 @@ export function Combobox({
                       })}
                     </CommandItem>
                   ))}
-
-                  {index === options.length - 1 && (
-                    <div
-                      ref={lastItemRef}
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        minHeight: 20,
-                        width: '100%',
-                        background: 'transparent' // Para debug visual
-                      }}
-                    />
-                  )}
                 </CommandGroup>
 
                 {index < options.length - 1 && <div className="border-b border-divider" />}
-              </React.Fragment>
+              </>
             ))}
+            <div
+              ref={lastItemRef}
+              style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 4, width: '100%' }}
+            />
           </div>
 
           {isLoading ? (
