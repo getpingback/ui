@@ -79,28 +79,34 @@ export function Combobox({
   React.useEffect(() => {
     if (!open) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        console.log('entries', entries);
-        if (entries[0].isIntersecting) {
-          onEndReached?.();
+    console.log('Effect executado, open:', open);
+
+    // Pequeno delay para garantir que o DOM foi atualizado
+    const timer = setTimeout(() => {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          console.log('entries', entries);
+          if (entries[0]?.isIntersecting) {
+            console.log('Intersecting!');
+            onEndReached?.();
+          }
+        },
+        {
+          threshold: 0.5,
+          rootMargin: '100px'
         }
-      },
-      {
-        threshold: 0.5,
-        rootMargin: '100px'
+      );
+
+      console.log('lastItemRef.current após timeout:', lastItemRef.current);
+      if (lastItemRef.current) {
+        observer.observe(lastItemRef.current);
       }
-    );
 
-    console.log('lastItemRef.current', lastItemRef.current);
-    if (lastItemRef.current) {
-      observer.observe(lastItemRef.current);
-    }
+      return () => observer.disconnect();
+    }, 100);
 
-    return () => {
-      observer.disconnect();
-    };
-  }, [open, options, onEndReached, lastItemRef.current]);
+    return () => clearTimeout(timer);
+  }, [open, options, onEndReached]);
 
   const DefaultVariant = ({ item, selected, isButtonLabel }: { item: Item; selected: boolean; isButtonLabel?: boolean }) => (
     <div className={cn('flex items-center h-full w-full', selected && 'justify-between', isButtonLabel && 'w-[calc(100%-30px)]')}>
@@ -250,8 +256,8 @@ export function Combobox({
 
           <div className="max-h-[272px] overflow-y-auto scrollbar-style">
             {options.map((option, index) => (
-              <>
-                <CommandGroup key={index} className="py-2" heading={option.heading}>
+              <React.Fragment key={index}>
+                <CommandGroup className="py-2" heading={option.heading}>
                   {option.items.map((item) => (
                     <CommandItem
                       key={item.value}
@@ -268,16 +274,25 @@ export function Combobox({
                       })}
                     </CommandItem>
                   ))}
+
+                  {index === options.length - 1 && (
+                    <div
+                      ref={lastItemRef}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        minHeight: 20,
+                        width: '100%',
+                        background: 'transparent' // Para debug visual
+                      }}
+                    />
+                  )}
                 </CommandGroup>
 
                 {index < options.length - 1 && <div className="border-b border-divider" />}
-              </>
+              </React.Fragment>
             ))}
-
-            <div
-              ref={lastItemRef}
-              style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 10, width: '100%' }}
-            />
           </div>
 
           {isLoading ? (
