@@ -217,6 +217,7 @@ export function Combobox({
             variant="outline"
             size="combobox"
             role="combobox"
+            rounded="lg"
             aria-expanded={open}
             className="w-full justify-between bg-background-accent hover:bg-background-accent"
           >
