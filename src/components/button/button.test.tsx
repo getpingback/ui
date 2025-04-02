@@ -41,6 +41,7 @@ describe('Button Component', () => {
       expect(screen.getByText(/button/i).className.includes('bg-[#E4E4E7]')).toBe(true);
       expect(screen.getByText(/button/i).className.includes('cursor-not-allowed')).toBe(true);
       expect(screen.getByText(/button/i).className.includes('opacity-45')).toBe(true);
+      expect(screen.getByText(/button/i)).toHaveAttribute('disabled');
     });
   });
   describe('Outline', () => {
@@ -53,6 +54,7 @@ describe('Button Component', () => {
       expect(screen.getByText(/button/i).className.includes('border-[#D4D4D8]')).toBe(true);
       expect(screen.getByText(/button/i).className.includes('cursor-not-allowed')).toBe(true);
       expect(screen.getByText(/button/i).className.includes('opacity-45')).toBe(true);
+      expect(screen.getByText(/button/i)).toHaveAttribute('disabled');
     });
   });
   describe('Ghost', () => {
@@ -66,6 +68,7 @@ describe('Button Component', () => {
       expect(screen.getByText(/button/i).className.includes('bg-[#E4E4E7]')).toBe(true);
       expect(screen.getByText(/button/i).className.includes('cursor-not-allowed')).toBe(true);
       expect(screen.getByText(/button/i).className.includes('opacity-45')).toBe(true);
+      expect(screen.getByText(/button/i)).toHaveAttribute('disabled');
     });
   });
   describe('Clear', () => {
@@ -78,6 +81,7 @@ describe('Button Component', () => {
       expect(screen.getByText(/button/i).className.includes('bg-transparent')).toBe(true);
       expect(screen.getByText(/button/i).className.includes('cursor-not-allowed')).toBe(true);
       expect(screen.getByText(/button/i).className.includes('opacity-45')).toBe(true);
+      expect(screen.getByText(/button/i)).toHaveAttribute('disabled');
     });
   });
   describe('Rounded', () => {
