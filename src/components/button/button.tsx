@@ -19,9 +19,7 @@ const buttonVariants = cva(
       },
       size: {
         sm: 'h-8 px-3 text-xs',
-        lg: 'h-10 px-3',
-        icon: 'h-9 w-9 rounded-full',
-        combobox: 'min-h-[36px] px-3 py-2'
+        lg: 'h-10 px-3'
       },
       rounded: {
         none: 'rounded-none',
@@ -29,12 +27,17 @@ const buttonVariants = cva(
         md: 'rounded-md',
         lg: 'rounded-lg',
         full: 'rounded-full'
+      },
+      width: {
+        full: 'w-full',
+        fit: 'w-fit'
       }
     },
     defaultVariants: {
       variant: 'solid',
       size: 'sm',
-      rounded: 'lg'
+      rounded: 'lg',
+      width: 'fit'
     }
   }
 );
@@ -46,10 +49,10 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, rounded, asChild = false, children, prefix, suffix, ...props }, ref) => {
+  ({ className, variant, size, rounded, width, asChild = false, children, prefix, suffix, ...props }, ref) => {
     const Comp = asChild ? Slot : 'button';
     return (
-      <Comp className={cn(buttonVariants({ variant, size, rounded, className }))} ref={ref} {...props}>
+      <Comp className={cn(buttonVariants({ variant, size, rounded, width, className }))} ref={ref} {...props}>
         {prefix && <span className="mr-1">{prefix}</span>}
         {children}
         {suffix && <span className="ml-1">{suffix}</span>}

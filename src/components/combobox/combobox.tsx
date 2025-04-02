@@ -215,11 +215,10 @@ export function Combobox({
         <PopoverTrigger asChild>
           <Button
             variant="outline"
-            size="combobox"
             role="combobox"
             rounded="lg"
             aria-expanded={open}
-            className="w-full justify-between bg-background-accent hover:bg-background-accent"
+            className="w-full min-h-[36px] px-3 py-2 justify-between bg-background-accent hover:bg-background-accent"
           >
             {renderButtonContent()}
 

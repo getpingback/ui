@@ -16,7 +16,8 @@ const {
   DisabledClear,
   Rounded,
   WithPrefix,
-  WithSuffix
+  WithSuffix,
+  FullWidth
 } = composeStories(stories);
 
 describe('Button Component', () => {
@@ -26,6 +27,7 @@ describe('Button Component', () => {
       expect(screen.getByText(/button/i)).not.toBeNull();
       expect(screen.getByText(/button/i).className.includes('bg-[#9061F9]')).toBe(true);
       expect(screen.getByText(/button/i).className.includes('h-8')).toBe(true);
+      expect(screen.getByText(/button/i).className.includes('w-fit')).toBe(true);
     });
   });
   describe('Solid', () => {
@@ -105,6 +107,12 @@ describe('Button Component', () => {
       fireEvent.click(button);
 
       expect(handleClick).toHaveBeenCalledTimes(1);
+    });
+  });
+  describe('FullWidth', () => {
+    test('renders full width button', () => {
+      render(<FullWidth />);
+      expect(screen.getByText(/button/i).className.includes('w-full')).toBe(true);
     });
   });
 });

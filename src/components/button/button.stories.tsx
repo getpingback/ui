@@ -8,7 +8,7 @@ const meta = {
   title: 'Components/Button',
   component: Button,
   parameters: {
-    layout: 'centered'
+    layout: 'padded'
   },
 
   tags: ['autodocs'],
@@ -100,5 +100,12 @@ export const WithSuffix: Story = {
   args: {
     children: 'Button',
     suffix: <PlusIcon data-testid="plus-icon" />
+  }
+};
+
+export const FullWidth: Story = {
+  args: {
+    children: 'Button',
+    width: 'full'
   }
 };
