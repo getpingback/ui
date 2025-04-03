@@ -11,19 +11,22 @@ const meta = {
 
   tags: ['autodocs'],
 
-  argTypes: {}
+  argTypes: {},
+  args: {
+    onChangeSearchValue: undefined
+  }
 } satisfies Meta<typeof Combobox>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const componentToBeRender = (Story: any, { args }: any) => {
+const componentToBeRender = (Story, { args }) => {
   const [value, setValue] = React.useState<string>('');
   const enhancedArgs = {
     ...args,
     value,
     onSelect: (item) => {
-      args.onSelect(item);
+      args.onSelect?.(item);
       setValue(item.value);
     }
   };
@@ -188,8 +191,7 @@ export const IconCompact: Story = {
 
 export const ShouldFilterFalse: Story = {
   args: {
-    shouldFilter: false,
-    onChangeSearchValue: (value: string) => console.log('onChangeSearchValue', value),
+    onChangeSearchValue: () => {},
     placeholder: 'Selecione o link',
     searchPlaceholder: 'Pesquise pelo link...',
     emptySearchPlaceholder: 'Nenhum resultado encontrado.',
@@ -219,14 +221,13 @@ export const ShouldFilterFalse: Story = {
   decorators: [componentToBeRender]
 };
 
-export const ShouldFilterFalseContent: Story = {
+export const EmptyContentRender: Story = {
   args: {
-    shouldFilter: false,
-    onChangeSearchValue: (value: string) => console.log('onChangeSearchValue', value),
+    onChangeSearchValue: () => {},
     placeholder: 'Selecione o link',
     searchPlaceholder: 'Pesquise pelo link...',
     emptySearchPlaceholder: 'Nenhum resultado encontrado.',
-    shouldFilterFalseEmptyContent: <div className="w-full flex items-center justify-center my-6">oi</div>,
+    emptyContentRender: <div className="w-full flex items-center justify-center my-6">not found</div>,
     options: [
       {
         items: []
@@ -272,7 +273,7 @@ export const WithLabelAndHelperText: Story = {
 export const GroupHeading: Story = {
   args: {
     label: 'Lista',
-    onEndReached: () => console.log('onEndReached'),
+    onEndReached: () => {},
     variant: 'detailed',
     placeholder: 'Selecione a lista',
     searchPlaceholder: 'Pesquise por uma lista...',
@@ -335,4 +336,61 @@ export const GroupHeading: Story = {
     ]
   },
   decorators: [componentToBeRender]
+};
+
+export const ScrollToEnd: Story = {
+  args: {
+    label: 'Lista',
+    options: [
+      {
+        items: [
+          {
+            label: 'Item 1',
+            value: 'item-1'
+          },
+          {
+            label: 'Item 2',
+            value: 'item-2'
+          },
+          {
+            label: 'Item 3',
+            value: 'item-3'
+          },
+          {
+            label: 'Item 4',
+            value: 'item-4'
+          },
+          {
+            label: 'Item 5',
+            value: 'item-5'
+          },
+          {
+            label: 'Item 6',
+            value: 'item-6'
+          },
+          {
+            label: 'Item 7',
+            value: 'item-7'
+          },
+          {
+            label: 'Item 8',
+            value: 'item-8'
+          }
+        ]
+      }
+    ]
+  },
+  decorators: [
+    (Story, { args }) => {
+      const [isLoading, setIsLoading] = React.useState(false);
+
+      const enhancedArgs = {
+        ...args,
+        isLoading,
+        onEndReached: () => setIsLoading(true)
+      };
+
+      return <Story args={enhancedArgs} />;
+    }
+  ]
 };
