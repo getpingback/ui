@@ -32,7 +32,7 @@ interface ComboboxProps {
   searchPlaceholder?: string;
   emptySearchPlaceholder?: string;
   variant?: 'default' | 'detailed' | 'icon-compact' | 'image-detailed';
-  defaultValue?: string;
+  value?: string;
   searchValue?: string;
   onSelect?: (item: Item) => void;
   onChangeSearchValue?: (value: string) => void;
@@ -51,7 +51,7 @@ export function Combobox({
   placeholder = 'Select an item...',
   searchPlaceholder = 'Search...',
   emptySearchPlaceholder = 'Nothing found.',
-  defaultValue,
+  value,
   searchValue,
   onChangeSearchValue,
   onSelect,
@@ -60,15 +60,10 @@ export function Combobox({
   shouldFilterFalseEmptyContent
 }: ComboboxProps) {
   const [open, setOpen] = React.useState(false);
-  const [value, setValue] = React.useState('');
 
   const isEmpty = options.every((option) => option.items.length === 0);
 
   const lastItemRef = React.useRef<HTMLDivElement>(null);
-
-  React.useEffect(() => {
-    setValue(defaultValue || '');
-  }, [defaultValue]);
 
   React.useEffect(() => {
     if (!open) {
@@ -257,9 +252,8 @@ export function Combobox({
                     <CommandItem
                       key={item.value}
                       value={item.value}
-                      onSelect={(currentValue: string) => {
+                      onSelect={() => {
                         onSelect?.(item);
-                        setValue(currentValue === value ? '' : currentValue);
                         setOpen(false);
                       }}
                     >

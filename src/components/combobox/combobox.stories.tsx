@@ -17,12 +17,25 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const componentToBeRender = (Story: any, { args }: any) => {
+  const [value, setValue] = React.useState<string>('');
+  const enhancedArgs = {
+    ...args,
+    value,
+    onSelect: (item) => {
+      args.onSelect(item);
+      setValue(item.value);
+    }
+  };
+
+  return <Story args={enhancedArgs} />;
+};
+
 export const Default: Story = {
   args: {
     placeholder: 'Selecione o link',
     searchPlaceholder: 'Pesquise pelo link...',
     emptySearchPlaceholder: 'Nenhum resultado encontrado.',
-    onSelect: (item) => console.log('onSelect =>', item),
     className: 'w-[352px]',
     options: [
       {
@@ -46,7 +59,8 @@ export const Default: Story = {
         ]
       }
     ]
-  }
+  },
+  decorators: [componentToBeRender]
 };
 
 export const Detailed: Story = {
@@ -55,7 +69,6 @@ export const Detailed: Story = {
     placeholder: 'Selecione a lista',
     searchPlaceholder: 'Pesquise por uma lista...',
     emptySearchPlaceholder: 'Nenhum resultado encontrado.',
-    onSelect: (item) => console.log('onSelect =>', item),
     options: [
       {
         items: [
@@ -82,7 +95,8 @@ export const Detailed: Story = {
         ]
       }
     ]
-  }
+  },
+  decorators: [componentToBeRender]
 };
 
 export const ImageDetailed: Story = {
@@ -91,7 +105,6 @@ export const ImageDetailed: Story = {
     placeholder: 'Escolha um conteúdo',
     searchPlaceholder: 'Pesquise conteúdo...',
     emptySearchPlaceholder: 'Nenhum resultado encontrado.',
-    onSelect: (item) => console.log('onSelect =>', item),
     options: [
       {
         items: [
@@ -117,7 +130,8 @@ export const ImageDetailed: Story = {
         ]
       }
     ]
-  }
+  },
+  decorators: [componentToBeRender]
 };
 
 export const IconCompact: Story = {
@@ -126,7 +140,6 @@ export const IconCompact: Story = {
     placeholder: 'Selecione uma ação',
     searchPlaceholder: 'Pesquise por uma ação...',
     emptySearchPlaceholder: 'Nenhum resultado encontrado.',
-    onSelect: (item) => console.log('onSelect =>', item),
     options: [
       {
         items: [
@@ -169,7 +182,8 @@ export const IconCompact: Story = {
         ]
       }
     ]
-  }
+  },
+  decorators: [componentToBeRender]
 };
 
 export const ShouldFilterFalse: Story = {
@@ -179,7 +193,6 @@ export const ShouldFilterFalse: Story = {
     placeholder: 'Selecione o link',
     searchPlaceholder: 'Pesquise pelo link...',
     emptySearchPlaceholder: 'Nenhum resultado encontrado.',
-    onSelect: (item) => console.log('onSelect =>', item),
     options: [
       {
         items: [
@@ -202,7 +215,8 @@ export const ShouldFilterFalse: Story = {
         ]
       }
     ]
-  }
+  },
+  decorators: [componentToBeRender]
 };
 
 export const ShouldFilterFalseContent: Story = {
@@ -212,14 +226,14 @@ export const ShouldFilterFalseContent: Story = {
     placeholder: 'Selecione o link',
     searchPlaceholder: 'Pesquise pelo link...',
     emptySearchPlaceholder: 'Nenhum resultado encontrado.',
-    onSelect: (item) => console.log('onSelect =>', item),
     shouldFilterFalseEmptyContent: <div className="w-full flex items-center justify-center my-6">oi</div>,
     options: [
       {
         items: []
       }
     ]
-  }
+  },
+  decorators: [componentToBeRender]
 };
 
 export const WithLabelAndHelperText: Story = {
@@ -229,7 +243,6 @@ export const WithLabelAndHelperText: Story = {
     placeholder: 'Selecione o link',
     searchPlaceholder: 'Pesquise pelo link...',
     emptySearchPlaceholder: 'Nenhum resultado encontrado.',
-    onSelect: (item) => console.log('onSelect =>', item),
     options: [
       {
         items: [
@@ -252,7 +265,8 @@ export const WithLabelAndHelperText: Story = {
         ]
       }
     ]
-  }
+  },
+  decorators: [componentToBeRender]
 };
 
 export const GroupHeading: Story = {
@@ -263,7 +277,6 @@ export const GroupHeading: Story = {
     placeholder: 'Selecione a lista',
     searchPlaceholder: 'Pesquise por uma lista...',
     emptySearchPlaceholder: 'Nenhum resultado encontrado.',
-    onSelect: (item) => console.log('onSelect =>', item),
     options: [
       {
         heading: 'Listas inteligentes',
@@ -320,5 +333,6 @@ export const GroupHeading: Story = {
         ]
       }
     ]
-  }
+  },
+  decorators: [componentToBeRender]
 };
