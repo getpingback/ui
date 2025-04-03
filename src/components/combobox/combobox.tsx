@@ -163,7 +163,7 @@ export function Combobox({
             <CommandInput placeholder={searchPlaceholder} className="h-9 w-full" defaultValue={searchValue} onInput={handleSearchInput} />
           </div>
 
-          <CommandEmpty>{emptySearchPlaceholder}</CommandEmpty>
+          {!emptyContentRender && <CommandEmpty>{emptySearchPlaceholder}</CommandEmpty>}
 
           <div className="max-h-[272px] overflow-y-auto scrollbar-style">
             {options.map((option, index) => (
