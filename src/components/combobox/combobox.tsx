@@ -31,7 +31,7 @@ interface ComboboxProps {
   searchPlaceholder?: string;
   emptySearchPlaceholder?: string;
   variant?: 'default' | 'detailed' | 'icon-compact' | 'image-detailed';
-  value?: string;
+  defaultValue?: Item;
   searchValue?: string;
   onSelect?: (item: Item) => void;
   onChangeSearchValue?: (value: string) => void;
@@ -49,7 +49,7 @@ export function Combobox({
   placeholder = 'Select an item...',
   searchPlaceholder = 'Search...',
   emptySearchPlaceholder = 'Nothing found.',
-  value,
+  defaultValue,
   searchValue,
   onChangeSearchValue,
   onSelect,
@@ -58,6 +58,9 @@ export function Combobox({
   emptyContentRender
 }: ComboboxProps) {
   const [open, setOpen] = React.useState(false);
+  const [selectedItem, setSelectedItem] = React.useState<Item | null>(null);
+
+  const currentValue = selectedItem || defaultValue;
 
   const isEmpty = options.every((option) => option.items.length === 0);
 
@@ -97,34 +100,27 @@ export function Combobox({
   };
 
   const renderButtonContent = () => {
-    if (value) {
-      const allItems = options.flatMap((option) => option.items);
-      const selectedItem = allItems.find((item) => item.value.toLowerCase() === value.toLowerCase());
-
-      if (selectedItem && variant === 'image-detailed') {
+    if (currentValue) {
+      if (variant === 'image-detailed') {
         return React.createElement(comboboxVariants[variant], {
-          item: selectedItem,
+          item: currentValue,
           selected: false,
           isButtonLabel: true
         });
       }
 
-      if (selectedItem && variant === 'icon-compact') {
+      if (variant === 'icon-compact') {
         return React.createElement(comboboxVariants[variant], {
-          item: selectedItem,
+          item: currentValue,
           selected: false
         });
       }
 
-      if (selectedItem) {
-        return React.createElement(comboboxVariants[variant], {
-          item: selectedItem,
-          selected: false,
-          isButtonLabel: true
-        });
-      }
-
-      return null;
+      return React.createElement(comboboxVariants[variant], {
+        item: currentValue,
+        selected: false,
+        isButtonLabel: true
+      });
     }
 
     return <span className="text-tertiary-foreground text-sm opacity-60 font-normal">{placeholder}</span>;
@@ -178,13 +174,14 @@ export function Combobox({
                       key={item.value}
                       value={item.value}
                       onSelect={() => {
+                        setSelectedItem(item);
                         onSelect?.(item);
                         setOpen(false);
                       }}
                     >
                       {React.createElement(comboboxVariants[variant], {
                         item,
-                        selected: value === item.value
+                        selected: currentValue?.value === item.value
                       })}
                     </CommandItem>
                   ))}

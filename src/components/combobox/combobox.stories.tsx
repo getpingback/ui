@@ -8,9 +8,7 @@ const meta = {
   title: 'Components/Combobox',
   component: Combobox,
   parameters: {},
-
   tags: ['autodocs'],
-
   argTypes: {},
   args: {
     onChangeSearchValue: undefined
@@ -19,20 +17,6 @@ const meta = {
 
 export default meta;
 type Story = StoryObj<typeof meta>;
-
-const componentToBeRender = (Story, { args }) => {
-  const [value, setValue] = React.useState<string>('');
-  const enhancedArgs = {
-    ...args,
-    value,
-    onSelect: (item) => {
-      args.onSelect?.(item);
-      setValue(item.value);
-    }
-  };
-
-  return <Story args={enhancedArgs} />;
-};
 
 export const Default: Story = {
   args: {
@@ -62,8 +46,7 @@ export const Default: Story = {
         ]
       }
     ]
-  },
-  decorators: [componentToBeRender]
+  }
 };
 
 export const Detailed: Story = {
@@ -98,8 +81,7 @@ export const Detailed: Story = {
         ]
       }
     ]
-  },
-  decorators: [componentToBeRender]
+  }
 };
 
 export const ImageDetailed: Story = {
@@ -133,8 +115,7 @@ export const ImageDetailed: Story = {
         ]
       }
     ]
-  },
-  decorators: [componentToBeRender]
+  }
 };
 
 export const IconCompact: Story = {
@@ -185,8 +166,7 @@ export const IconCompact: Story = {
         ]
       }
     ]
-  },
-  decorators: [componentToBeRender]
+  }
 };
 
 export const ShouldFilterFalse: Story = {
@@ -217,8 +197,7 @@ export const ShouldFilterFalse: Story = {
         ]
       }
     ]
-  },
-  decorators: [componentToBeRender]
+  }
 };
 
 export const EmptyContentRender: Story = {
@@ -233,8 +212,7 @@ export const EmptyContentRender: Story = {
         items: []
       }
     ]
-  },
-  decorators: [componentToBeRender]
+  }
 };
 
 export const WithLabelAndHelperText: Story = {
@@ -266,8 +244,7 @@ export const WithLabelAndHelperText: Story = {
         ]
       }
     ]
-  },
-  decorators: [componentToBeRender]
+  }
 };
 
 export const GroupHeading: Story = {
@@ -334,8 +311,7 @@ export const GroupHeading: Story = {
         ]
       }
     ]
-  },
-  decorators: [componentToBeRender]
+  }
 };
 
 export const ScrollToEnd: Story = {
