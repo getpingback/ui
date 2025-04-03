@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.371](https://github.com/getpingback/ui/compare/v0.0.370...v0.0.371) (2025-04-03)
+
+
+### Bug Fixes
+
+* empty component ([6c2d098](https://github.com/getpingback/ui/commits/6c2d098053ac634f7afa758ebe623b6e8a53f2b3))
+
 ### [0.0.368](https://github.com/getpingback/ui/compare/v0.0.367...v0.0.368) (2025-04-03)
 
 ### [0.0.366](https://github.com/getpingback/ui/compare/v0.0.365...v0.0.366) (2025-03-31)
