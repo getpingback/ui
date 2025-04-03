@@ -244,6 +244,7 @@ const config = {
           foreground: 'var(--icons-default)'
         },
         'border-card': 'var(--border-cards-color)',
+        'border-card-active': 'var(--border-card-active)',
         list: {
           highlighted: {
             DEFAULT: 'var(--list-hightlight)'
