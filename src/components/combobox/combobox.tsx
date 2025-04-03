@@ -1,12 +1,12 @@
 'use client';
 
 import * as React from 'react';
-import { CheckIcon, CaretDownIcon, CaretUpIcon } from '@stash-ui/regular-icons';
+import { CaretDownIcon, CaretUpIcon } from '@stash-ui/regular-icons';
 
-import { cn } from '@/lib/utils';
 import { Button } from '@/components/button';
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from '@/components/command';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/popover';
+import { DetailedVariant, IconCompactVariant, ImageDetailedVariant, DefaultVariant } from './combobox-variants';
 
 interface Item {
   value: string;
@@ -27,18 +27,17 @@ interface ComboboxProps {
   label?: string;
   helperText?: string;
   options: Option[];
-  shouldFilter?: boolean;
   placeholder?: string;
   searchPlaceholder?: string;
   emptySearchPlaceholder?: string;
   variant?: 'default' | 'detailed' | 'icon-compact' | 'image-detailed';
-  defaultValue?: string;
+  value?: string;
   searchValue?: string;
   onSelect?: (item: Item) => void;
   onChangeSearchValue?: (value: string) => void;
   onEndReached?: () => void;
   className?: string;
-  shouldFilterFalseEmptyContent?: React.ReactNode;
+  emptyContentRender?: React.ReactNode;
 }
 
 export function Combobox({
@@ -46,128 +45,51 @@ export function Combobox({
   label,
   helperText,
   options,
-  shouldFilter = true,
   variant = 'default',
   placeholder = 'Select an item...',
   searchPlaceholder = 'Search...',
   emptySearchPlaceholder = 'Nothing found.',
-  defaultValue,
+  value,
   searchValue,
   onChangeSearchValue,
   onSelect,
   onEndReached,
   className,
-  shouldFilterFalseEmptyContent
+  emptyContentRender
 }: ComboboxProps) {
   const [open, setOpen] = React.useState(false);
-  const [value, setValue] = React.useState('');
 
   const isEmpty = options.every((option) => option.items.length === 0);
 
   const lastItemRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
-    setValue(defaultValue || '');
-  }, [defaultValue]);
-
-  React.useEffect(() => {
-    if (!open) {
-      if (onChangeSearchValue) onChangeSearchValue('');
-    }
+    if (!open && onChangeSearchValue) onChangeSearchValue('');
   }, [open]);
 
   React.useEffect(() => {
-    if (!open) return;
+    if (!open || !onEndReached) return;
 
-    let observer: IntersectionObserver;
-    setTimeout(() => {
-      observer = new IntersectionObserver(
-        (entries) => {
-          if (entries[0].isIntersecting) {
-            onEndReached?.();
-          }
-        },
-        { threshold: 1 }
-      );
-
-      if (lastItemRef.current) {
-        observer?.observe(lastItemRef.current);
-      }
-    }, 0);
-
-    return () => {
-      observer?.disconnect();
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      if (entries[0]?.isIntersecting) onEndReached();
     };
-  }, [lastItemRef.current, options, open]);
 
-  const DefaultVariant = ({ item, selected, isButtonLabel }: { item: Item; selected: boolean; isButtonLabel?: boolean }) => (
-    <div className={cn('flex items-center h-full w-full', selected && 'justify-between', isButtonLabel && 'w-[calc(100%-30px)]')}>
-      <span className={`line-clamp-1 ${isButtonLabel ? 'w-full h-full flex items-center' : ''} ${selected ? 'text-visible' : ''}`}>
-        {item.label}
-      </span>
-      {selected && <CheckIcon />}
-    </div>
-  );
+    const observer = new IntersectionObserver(observerCallback);
 
-  const DetailedVariant = ({ item, selected, isButtonLabel }: { item: Item; selected: boolean; isButtonLabel?: boolean }) => (
-    <div className={cn('flex items-center w-full', selected && 'justify-between')}>
-      <div className="flex items-center">
-        {item.leadingElement && !isButtonLabel ? <>{item.leadingElement}</> : null}
+    setTimeout(() => {
+      if (lastItemRef.current) {
+        observer.observe(lastItemRef.current);
+      }
+    }, 100);
 
-        <div className="flex flex-col items-start">
-          <div className={`line-clamp-1 text-sm font-medium${isButtonLabel ? ' max-w-[160px]' : ''} ${selected ? 'text-visible' : ''}`}>
-            {item.label}
-          </div>
-          {!isButtonLabel ? <div className="text-xs text-gray-500">{item.description}</div> : null}
-        </div>
-      </div>
+    return () => observer.disconnect();
+  }, [open, options, onEndReached]);
 
-      {selected && <CheckIcon height={20} width={20} />}
-    </div>
-  );
-
-  const IconCompactVariant = ({ item, selected }: { item: Item; selected: boolean }) => (
-    <div className={cn('w-full h-full flex items-center', selected && 'justify-between')}>
-      <div className="flex items-center gap-2 h-full">
-        <div className="flex items-center justify-center w-6 h-6 rounded-md">{item.icon || null}</div>
-        <div className="text-sm font-medium line-clamp-1">{item.label}</div>
-      </div>
-
-      {selected && <CheckIcon height={20} width={20} />}
-    </div>
-  );
-
-  const ImageDetailedVariant = ({ item, selected, isButtonLabel }: { item: Item; selected: boolean; isButtonLabel?: boolean }) => (
-    <div className={cn('flex items-center w-full h-full', selected && 'justify-between')}>
-      <div className="flex items-center gap-4 h-full">
-        {item.imageUrl ? (
-          <img src={item.imageUrl} alt={item.label} className="w-[64px] h-[48px] rounded-md object-cover" />
-        ) : (
-          <div className="w-[64px] h-[48px] rounded-md bg-gray-200" />
-        )}
-        <div className="flex flex-col gap-1">
-          <div className={`line-clamp-2 text-sm${isButtonLabel ? ' max-w-[151px] w-full truncate h-full flex items-center' : ''}`}>
-            {item.label}
-          </div>
-          <div className="text-xs text-gray-500">{item.description}</div>
-        </div>
-      </div>
-
-      {selected && <CheckIcon height={20} width={20} />}
-    </div>
-  );
-
-  const getVariant = () => {
-    switch (variant) {
-      case 'detailed':
-        return DetailedVariant;
-      case 'icon-compact':
-        return IconCompactVariant;
-      case 'image-detailed':
-        return ImageDetailedVariant;
-      default:
-        return DefaultVariant;
-    }
+  const comboboxVariants = {
+    default: DefaultVariant,
+    detailed: DetailedVariant,
+    'icon-compact': IconCompactVariant,
+    'image-detailed': ImageDetailedVariant
   };
 
   const handleSearchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -176,10 +98,11 @@ export function Combobox({
 
   const renderButtonContent = () => {
     if (value) {
-      const selectedItem = options.flatMap((option) => option.items).find((item) => item.value === value);
+      const allItems = options.flatMap((option) => option.items);
+      const selectedItem = allItems.find((item) => item.value.toLowerCase() === value.toLowerCase());
 
       if (selectedItem && variant === 'image-detailed') {
-        return React.createElement(getVariant(), {
+        return React.createElement(comboboxVariants[variant], {
           item: selectedItem,
           selected: false,
           isButtonLabel: true
@@ -187,14 +110,14 @@ export function Combobox({
       }
 
       if (selectedItem && variant === 'icon-compact') {
-        return React.createElement(getVariant(), {
+        return React.createElement(comboboxVariants[variant], {
           item: selectedItem,
           selected: false
         });
       }
 
       if (selectedItem) {
-        return React.createElement(getVariant(), {
+        return React.createElement(comboboxVariants[variant], {
           item: selectedItem,
           selected: false,
           isButtonLabel: true
@@ -239,7 +162,7 @@ export function Combobox({
         onTouchMove={(e) => e.stopPropagation()}
         data-testid="comboxbox-popover-content"
       >
-        <Command shouldFilter={shouldFilter} className={className}>
+        <Command shouldFilter={!onChangeSearchValue} className={className}>
           <div className="w-full p-4 flex items-center justify-center border-b border-divider">
             <CommandInput placeholder={searchPlaceholder} className="h-9 w-full" defaultValue={searchValue} onInput={handleSearchInput} />
           </div>
@@ -254,13 +177,12 @@ export function Combobox({
                     <CommandItem
                       key={item.value}
                       value={item.value}
-                      onSelect={(currentValue: string) => {
+                      onSelect={() => {
                         onSelect?.(item);
-                        setValue(currentValue === value ? '' : currentValue);
                         setOpen(false);
                       }}
                     >
-                      {React.createElement(getVariant(), {
+                      {React.createElement(comboboxVariants[variant], {
                         item,
                         selected: value === item.value
                       })}
@@ -271,15 +193,11 @@ export function Combobox({
                 {index < options.length - 1 && <div className="border-b border-divider" />}
               </>
             ))}
-
-            <div
-              ref={lastItemRef}
-              style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 4, width: '100%' }}
-            />
+            <div ref={lastItemRef} className="flex w-full" />
           </div>
 
           {isLoading ? (
-            <div className="flex items-center justify-center mb-4 h-10">
+            <div className="flex items-center justify-center mb-4 h-10" data-testid="combobox-loading">
               <svg
                 aria-hidden="true"
                 className="w-8 h-8 text-gray-200 animate-spin fill-purple-500"
@@ -299,7 +217,7 @@ export function Combobox({
             </div>
           ) : null}
 
-          {!isLoading && isEmpty && shouldFilterFalseEmptyContent ? <>{shouldFilterFalseEmptyContent}</> : null}
+          {!isLoading && isEmpty && emptyContentRender ? <>{emptyContentRender}</> : null}
         </Command>
       </PopoverContent>
     </Popover>

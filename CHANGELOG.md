@@ -2,6 +2,67 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.366](https://github.com/getpingback/ui/compare/v0.0.365...v0.0.366) (2025-03-31)
+
+
+### Bug Fixes
+
+* removed unnecessary code ([0006799](https://github.com/getpingback/ui/commits/000679909e9f50c4eb014e707404a0a6bd0cfce9))
+* removed unnecessary code ([7933bcb](https://github.com/getpingback/ui/commits/7933bcb6abe617cecf8395edb14d7c61e8bc285d))
+
+### [0.0.364](https://github.com/getpingback/ui/compare/v0.0.363...v0.0.364) (2025-03-31)
+
+
+### Bug Fixes
+
+* selected value on combobox ([64f0929](https://github.com/getpingback/ui/commits/64f092957545e7d0cb7264e8fd7d56436540c3ce))
+
+### [0.0.362](https://github.com/getpingback/ui/compare/v0.0.361...v0.0.362) (2025-03-31)
+
+
+### Bug Fixes
+
+* remove consoles ([82eeeb4](https://github.com/getpingback/ui/commits/82eeeb48162fbd5a2aab2fa373f3c7440878fea7))
+
+### [0.0.360](https://github.com/getpingback/ui/compare/v0.0.359...v0.0.360) (2025-03-31)
+
+
+### Bug Fixes
+
+* add consoles ([8d07534](https://github.com/getpingback/ui/commits/8d075349c9c374819940d8e379963e06f2af6081))
+
+### [0.0.358](https://github.com/getpingback/ui/compare/v0.0.357...v0.0.358) (2025-03-31)
+
+
+### Bug Fixes
+
+* add consoles ([5a1fcab](https://github.com/getpingback/ui/commits/5a1fcab1513cb938de1e4499507908478e30b9f0))
+
+### [0.0.356](https://github.com/getpingback/ui/compare/v0.0.355...v0.0.356) (2025-03-31)
+
+
+### Bug Fixes
+
+* still trying to fix ([dbabc1c](https://github.com/getpingback/ui/commits/dbabc1c15f88115e848ee61a4a85a8507c7f9b82))
+
+### [0.0.354](https://github.com/getpingback/ui/compare/v0.0.353...v0.0.354) (2025-03-28)
+
+
+### Bug Fixes
+
+* lastItem on combobox ([6ead0d7](https://github.com/getpingback/ui/commits/6ead0d7d6365f587d66212846ded3bd71813ea7c))
+
+### [0.0.352](https://github.com/getpingback/ui/compare/v0.0.350...v0.0.352) (2025-03-28)
+
+### [0.0.350](https://github.com/getpingback/ui/compare/v0.0.349...v0.0.350) (2025-03-28)
+
+### [0.0.349](https://github.com/getpingback/ui/compare/v0.0.348...v0.0.349) (2025-03-28)
+
+
+### Bug Fixes
+
+* trying to fix bug on onendreached function ([083f244](https://github.com/getpingback/ui/commits/083f24437bbfd8682ba9dfeace8ad3cbabb4ceb0))
+
 ### [0.0.347](https://github.com/getpingback/ui/compare/v0.0.346...v0.0.347) (2025-03-13)
 
 
