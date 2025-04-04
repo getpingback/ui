@@ -24,70 +24,81 @@ describe('Button Component', () => {
   describe('Default', () => {
     test('renders default button', () => {
       render(<Default />);
-      expect(screen.getByText(/button/i)).not.toBeNull();
-      expect(screen.getByText(/button/i).className.includes('bg-[#9061F9]')).toBe(true);
-      expect(screen.getByText(/button/i).className.includes('h-8')).toBe(true);
-      expect(screen.getByText(/button/i).className.includes('w-fit')).toBe(true);
+      const button = screen.getByRole('button');
+
+      expect(button).not.toBeNull();
+      expect(button.className.includes('bg-button-solid')).toBe(true);
+      expect(button.className.includes('h-8')).toBe(true);
+      expect(button.className.includes('w-fit')).toBe(true);
     });
   });
   describe('Solid', () => {
     test('renders solid button', () => {
       render(<Solid />);
-      expect(screen.getByText(/button/i).className.includes('bg-[#9061F9]')).toBe(true);
-      expect(screen.getByText(/button/i).className.includes('h-8')).toBe(true);
+      const button = screen.getByRole('button');
+      expect(button.className.includes('bg-button-solid')).toBe(true);
+      expect(button.className.includes('h-8')).toBe(true);
     });
     test('renders disabled solid button', () => {
       render(<DisabledSolid />);
-      expect(screen.getByText(/button/i).className.includes('bg-[#E4E4E7]')).toBe(true);
-      expect(screen.getByText(/button/i).className.includes('cursor-not-allowed')).toBe(true);
-      expect(screen.getByText(/button/i).className.includes('opacity-45')).toBe(true);
-      expect(screen.getByText(/button/i)).toHaveAttribute('disabled');
+      const button = screen.getByRole('button');
+      expect(button.className.includes('disabled:bg-button-solid-disabled')).toBe(true);
+      expect(button.className.includes('cursor-not-allowed')).toBe(true);
+      expect(button.className.includes('opacity-45')).toBe(true);
+      expect(button).toHaveAttribute('disabled');
     });
   });
   describe('Outline', () => {
     test('renders outline button', () => {
       render(<Outline />);
-      expect(screen.getByText(/button/i).className.includes('border-[#D4D4D8]')).toBe(true);
+      const button = screen.getByRole('button');
+      expect(button.className.includes('border-button-outlined-border')).toBe(true);
     });
     test('renders disabled outline button', () => {
       render(<DisabledOutline />);
-      expect(screen.getByText(/button/i).className.includes('border-[#D4D4D8]')).toBe(true);
-      expect(screen.getByText(/button/i).className.includes('cursor-not-allowed')).toBe(true);
-      expect(screen.getByText(/button/i).className.includes('opacity-45')).toBe(true);
-      expect(screen.getByText(/button/i)).toHaveAttribute('disabled');
+      const button = screen.getByRole('button');
+      expect(button.className.includes('border-button-outlined-border')).toBe(true);
+      expect(button.className.includes('cursor-not-allowed')).toBe(true);
+      expect(button.className.includes('opacity-45')).toBe(true);
+      expect(button).toHaveAttribute('disabled');
     });
   });
   describe('Ghost', () => {
     test('renders ghost button', () => {
       render(<Ghost />);
-      expect(screen.getByText(/button/i).className.includes('bg-[#52525B14]')).toBe(true);
-      expect(screen.getByText(/button/i).className.includes('text-[#52525B]')).toBe(true);
+      const button = screen.getByRole('button');
+      expect(button.className.includes('bg-button-ghost-gray')).toBe(true);
+      expect(button.className.includes('text-secondary-foreground ')).toBe(true);
     });
     test('renders disabled ghost button', () => {
       render(<DisabledGhost />);
-      expect(screen.getByText(/button/i).className.includes('bg-[#E4E4E7]')).toBe(true);
-      expect(screen.getByText(/button/i).className.includes('cursor-not-allowed')).toBe(true);
-      expect(screen.getByText(/button/i).className.includes('opacity-45')).toBe(true);
-      expect(screen.getByText(/button/i)).toHaveAttribute('disabled');
+      const button = screen.getByRole('button');
+      expect(button.className.includes('disabled:bg-button-ghost-disabled')).toBe(true);
+      expect(button.className.includes('cursor-not-allowed')).toBe(true);
+      expect(button.className.includes('opacity-45')).toBe(true);
+      expect(button).toHaveAttribute('disabled');
     });
   });
   describe('Clear', () => {
     test('renders clear button', () => {
       render(<Clear />);
-      expect(screen.getByText(/button/i).className.includes('bg-transparent')).toBe(true);
+      const button = screen.getByRole('button');
+      expect(button.className.includes('bg-transparent')).toBe(true);
     });
     test('renders disabled clear button', () => {
       render(<DisabledClear />);
-      expect(screen.getByText(/button/i).className.includes('bg-transparent')).toBe(true);
-      expect(screen.getByText(/button/i).className.includes('cursor-not-allowed')).toBe(true);
-      expect(screen.getByText(/button/i).className.includes('opacity-45')).toBe(true);
-      expect(screen.getByText(/button/i)).toHaveAttribute('disabled');
+      const button = screen.getByRole('button');
+      expect(button.className.includes('bg-transparent')).toBe(true);
+      expect(button.className.includes('cursor-not-allowed')).toBe(true);
+      expect(button.className.includes('opacity-45')).toBe(true);
+      expect(button).toHaveAttribute('disabled');
     });
   });
   describe('Rounded', () => {
     test('renders rounded button', () => {
       render(<Rounded />);
-      expect(screen.getByText(/button/i).className.includes('rounded-full')).toBe(true);
+      const button = screen.getByRole('button');
+      expect(button.className.includes('rounded-full')).toBe(true);
     });
   });
   describe('WithPrefix', () => {
@@ -107,7 +118,7 @@ describe('Button Component', () => {
       const handleClick = jest.fn();
       render(<Default onClick={handleClick} />);
 
-      const button = screen.getByText(/button/i);
+      const button = screen.getByRole('button');
       fireEvent.click(button);
 
       expect(handleClick).toHaveBeenCalledTimes(1);
@@ -116,7 +127,8 @@ describe('Button Component', () => {
   describe('FullWidth', () => {
     test('renders full width button', () => {
       render(<FullWidth />);
-      expect(screen.getByText(/button/i).className.includes('w-full')).toBe(true);
+      const button = screen.getByRole('button');
+      expect(button.className.includes('w-full')).toBe(true);
     });
   });
 });

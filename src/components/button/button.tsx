@@ -1,21 +1,21 @@
 import * as React from 'react';
 import { Slot } from '@radix-ui/react-slot';
+import { Spinner } from '@/components/spinner';
 import { cva, type VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center whitespace-nowrap text-sm font-medium font-primary transition-colors focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-45 disabled:hover:shadow-none transition-all duration-200 ease-in-out',
+  'inline-flex items-center justify-center whitespace-nowrap text-sm font-medium font-primary transition-colors focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-45 disabled:hover:shadow-none transition-all duration-200 ease-in-out data-[loading=true]:hover:shadow-none data-[loading=true]:pointer-events-none relative',
   {
     variants: {
       variant: {
         outline:
-          'border border-[#D4D4D8] bg-transparent !text-secondary-foreground text-opacity-10 hover:bg-[rgba(112,119,128,0.00)] hover:[box-shadow:0px_0px_0px_3px_rgba(113,_113,_122,_0.12)] focus-visible:[box-shadow:0px_0px_0px_3px_rgba(113,_113,_122,_0.12)] ',
-        ghost:
-          'text-[#52525B] bg-[#52525B14] opacity-85 hover:bg-[#52525B14] hover:opacity-100 disabled:text-[#52525B] disabled:bg-[#E4E4E7]',
+          'border border-button-outlined-border bg-transparent !text-secondary-foreground text-opacity-10 hover:shadow-outlined focus-visible:shadow-outlined data-[loading=true]:!bg-button-ghost-gray data-[loading=true]:!border-none',
+        ghost: 'text-secondary-foreground bg-button-ghost-gray opacity-85 hover:opacity-100 disabled:bg-button-ghost-disabled',
         solid:
-          'bg-[#9061F9] text-[#FFFFFF] hover:shadow-solid disabled:bg-[#E4E4E7] disabled:text-[#52525B] disabled:opacity-45 active:bg-[#7E3AF2]',
-        clear: 'bg-transparent text-[#52525B] opacity-85 hover:opacity-100 '
+          'bg-button-solid text-inverse-foreground hover:shadow-solid disabled:bg-button-solid-disabled disabled:text-secondary-foreground disabled:opacity-45 active:bg-button-solid-hover data-[loading=true]:!bg-button-ghost-gray',
+        clear: 'bg-transparent text-secondary-foreground opacity-85 hover:opacity-100 data-[loading=true]:!bg-button-ghost-gray'
       },
       size: {
         sm: 'h-8 px-3 text-xs',
@@ -42,20 +42,32 @@ const buttonVariants = cva(
   }
 );
 
-export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {
+type ButtonBaseProps = Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'prefix' | 'suffix'>;
+
+export interface ButtonProps extends ButtonBaseProps, VariantProps<typeof buttonVariants> {
   asChild?: boolean;
-  prefix?: React.ReactNode;
-  suffix?: React.ReactNode;
+  prefix?: JSX.Element | string;
+  suffix?: JSX.Element | string;
+  isLoading?: boolean;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, rounded, width, asChild = false, children, prefix, suffix, ...props }, ref) => {
+  ({ className, variant, size, rounded, width, asChild = false, children, prefix, suffix, isLoading = false, ...props }, ref) => {
     const Comp = asChild ? Slot : 'button';
+
     return (
-      <Comp className={cn(buttonVariants({ variant, size, rounded, width, className }))} ref={ref} {...props}>
-        {prefix && <span className="mr-1">{prefix}</span>}
-        {children}
-        {suffix && <span className="ml-1">{suffix}</span>}
+      <Comp className={cn(buttonVariants({ variant, size, rounded, width, className }))} ref={ref} data-loading={isLoading} {...props}>
+        <span className={cn('flex items-center', { 'opacity-0': isLoading })}>
+          {prefix && <span className="mr-1">{prefix}</span>}
+          {children}
+          {suffix && <span className="ml-1">{suffix}</span>}
+        </span>
+
+        {isLoading && (
+          <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
+            <Spinner size="small" variant="gray" />
+          </span>
+        )}
       </Comp>
     );
   }

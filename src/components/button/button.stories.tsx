@@ -106,6 +106,22 @@ export const WithSuffix: Story = {
 export const FullWidth: Story = {
   args: {
     children: 'Button',
-    width: 'full'
+    width: 'full',
+    onClick: () => console.log('clicked')
+  }
+};
+
+export const SolidLoading: Story = {
+  args: {
+    children: 'Button',
+    isLoading: true,
+    variant: 'solid'
+  }
+};
+export const GhostLoading: Story = {
+  args: {
+    children: 'Button',
+    isLoading: true,
+    variant: 'ghost'
   }
 };
