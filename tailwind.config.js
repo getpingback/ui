@@ -145,7 +145,9 @@ const config = {
         outlined: 'var(--button-outlined-shadow)',
         ghost: 'var(--button-ghost-shadow)',
         dropdown: 'var(--dropdown-shadow)',
-        switch: 'var(--switch-shadow)'
+        switch: 'var(--switch-shadow)',
+        'text-field': 'var(--input-shadow)',
+        'text-field-error': 'var(--input-shadow-error)'
       },
       backgroundImage: {
         'active-menu': 'var(--palette-gradiente-active_menu)'
@@ -243,7 +245,17 @@ const config = {
         icons: {
           foreground: 'var(--icons-default)'
         },
+        error: {
+          foreground: 'var(--text-error_accent)'
+        },
         'border-card': 'var(--border-cards-color)',
+        divider: {
+          DEFAULT: 'var(--border-divider-color)',
+          active: 'var(--divider-color-active)',
+          error: 'var(--divider-color-error)',
+          highlighted: 'var(--divider-color-highlighted)',
+          disabled: 'var(--divider-color-disabled)'
+        },
         list: {
           highlighted: {
             DEFAULT: 'var(--list-hightlight)'
@@ -363,6 +375,15 @@ const config = {
         },
         border: {
           accent: 'rgba(0, 0, 0, 0.04)'
+        }
+      },
+      borderColor: {
+        divider: {
+          DEFAULT: 'var(--border-divider-color)',
+          active: 'var(--divider-color-active)',
+          error: 'var(--divider-color-error)',
+          highlighted: 'var(--divider-color-highlighted)',
+          disabled: 'var(--divider-color-disabled)'
         }
       }
     },

@@ -4,9 +4,22 @@ import { TextField } from './text-field';
 const meta = {
   title: 'TextField',
   component: TextField,
+  tags: ['autodocs'],
   argTypes: {
     label: {
       control: 'text'
+    },
+    error: {
+      control: 'text'
+    },
+    helperText: {
+      control: 'text'
+    },
+    placeholder: {
+      control: 'text'
+    },
+    disabled: {
+      control: 'boolean'
     }
   }
 };
@@ -17,6 +30,10 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    label: 'TextField'
+    label: 'TextField',
+    placeholder: 'Placeholder',
+    error: 'Error',
+    helperText: 'Helper text',
+    disabled: false
   }
 };
