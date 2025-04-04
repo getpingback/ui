@@ -34,6 +34,13 @@ const typographyVariants = cva('', {
       large: 'leading-[170%]',
       medium: 'leading-[145%]',
       none: 'leading-none'
+    },
+    size: {
+      large: 'text-lg',
+      medium: 'text-base',
+      small: 'text-sm',
+      xsmall: 'text-xs',
+      caption: 'text-[10px]'
     }
   },
   defaultVariants: {
@@ -47,11 +54,11 @@ interface TypographyProps extends React.HTMLAttributes<HTMLHeadingElement>, Vari
   children: React.ReactNode;
 }
 
-const Typography = ({ children, variant, align, type, weight, lineHeight, className, ...props }: TypographyProps) => {
+const Typography = ({ children, variant, align, type, weight, lineHeight, size, className, ...props }: TypographyProps) => {
   const Element = variant || 'span';
 
   return (
-    <Element className={cn(typographyVariants({ variant, align, type, weight, lineHeight }), className)} {...props}>
+    <Element className={cn(typographyVariants({ variant, align, type, weight, lineHeight, size }), className)} {...props}>
       {children}
     </Element>
   );

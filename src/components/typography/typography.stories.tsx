@@ -25,6 +25,10 @@ const meta: Meta<typeof Typography> = {
     lineHeight: {
       control: 'select',
       options: ['large', 'medium', 'none', null]
+    },
+    size: {
+      control: 'select',
+      options: ['large', 'medium', 'small', 'xsmall', 'caption', null]
     }
   }
 };

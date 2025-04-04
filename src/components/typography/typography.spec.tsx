@@ -72,6 +72,23 @@ describe('Typography', () => {
     render(<Typography className="custom-class">Custom Class Text</Typography>);
     const element = screen.getByText('Custom Class Text');
     expect(element).toHaveClass('custom-class');
-    expect(element).toHaveClass('text-sm'); // Default variant class
+    expect(element).toHaveClass('text-sm');
+  });
+
+  it('applies size classes correctly', () => {
+    const { rerender } = render(<Typography size="large">Large Size</Typography>);
+    expect(screen.getByText('Large Size')).toHaveClass('text-lg');
+
+    rerender(<Typography size="medium">Medium Size</Typography>);
+    expect(screen.getByText('Medium Size')).toHaveClass('text-base');
+
+    rerender(<Typography size="small">Small Size</Typography>);
+    expect(screen.getByText('Small Size')).toHaveClass('text-sm');
+
+    rerender(<Typography size="xsmall">XSmall Size</Typography>);
+    expect(screen.getByText('XSmall Size')).toHaveClass('text-xs');
+
+    rerender(<Typography size="caption">Caption Size</Typography>);
+    expect(screen.getByText('Caption Size')).toHaveClass('text-[10px]');
   });
 });
