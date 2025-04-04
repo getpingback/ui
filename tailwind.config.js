@@ -329,13 +329,16 @@ const config = {
           solid: {
             DEFAULT: 'var(--button-solid-bg)',
             foreground: 'var(--button-solid-text)',
-            hover: 'var(--button-solid-hover)'
+            hover: 'var(--button-solid-hover)',
+            disabled: 'var(--button-solid-disabled)',
+            loading: 'var(--button-solid-loading)'
           },
           ghost: {
             DEFAULT: 'var(--button-ghost-bg)',
             foreground: 'var(--button-ghost-text)',
             gray: 'var(--button-ghost-gray)',
-            hover: 'var(--button-ghost-gray-hover)'
+            hover: 'var(--button-ghost-gray-hover)',
+            disabled: 'var(--button-ghost-disabled)'
           },
           outlined: {
             border: 'var(--button-outlined-border)',

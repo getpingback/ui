@@ -102,10 +102,9 @@ function MultiSelect({
         <PopoverTrigger asChild>
           <Button
             variant="outline"
-            size="combobox"
             role="combobox"
             aria-expanded={open}
-            className="w-full justify-between bg-background-accent hover:bg-background-accent"
+            className="w-full min-h-[36px] px-3 py-2 justify-between bg-background-accent hover:bg-background-accent"
             onClick={() => setOpen(!open)}
           >
             {selected.length === 0 ? <span className="text-tertiary-foreground text-sm opacity-60 font-normal">{placeholder}</span> : null}
