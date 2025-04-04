@@ -22,48 +22,52 @@ const spinnerVariants = cva('inline-block ', {
   }
 });
 
-interface SpinnerProps {
+interface SpinnerProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: 'small' | 'medium' | 'large' | 'extraLarge';
   variant?: 'purple' | 'gray' | 'purpleGradient';
   strokeSize?: 'small' | 'medium' | 'large';
   className?: string;
 }
 
-const Spinner = ({ size = 'medium', strokeSize = 'small', variant, className }: SpinnerProps) => {
-  const strokeSizeMap = {
-    small: 3.6,
-    medium: 5,
-    large: 7
-  };
+const Spinner = React.forwardRef<HTMLDivElement, SpinnerProps>(
+  ({ size = 'medium', strokeSize = 'small', variant, className, ...props }, ref) => {
+    const strokeSizeMap = {
+      small: 3.6,
+      medium: 5,
+      large: 7
+    };
 
-  const stroke = strokeSizeMap[strokeSize];
+    const stroke = strokeSizeMap[strokeSize];
 
-  return (
-    <div role="status" className={cn(spinnerVariants({ size, variant }), className)}>
-      <svg className="w-full h-full animate-[spin_1s_linear_infinite]" viewBox="22 22 44 44">
-        <defs>
-          <linearGradient id="gradient">
-            <stop offset="-17.21%" stopColor="#9061F9" />
-            <stop offset="62.18%" stopColor="#9061F9" stopOpacity="0" />
-          </linearGradient>
-        </defs>
-        <circle id="circle" cx="44" cy="44" r="12" fill="none" strokeWidth={stroke} />
-        <circle
-          id="gradient-circle"
-          className="opacity-65"
-          cx="44"
-          cy="44"
-          r="12"
-          fill="none"
-          strokeWidth={stroke}
-          stroke="currentColor"
-          strokeLinecap="round"
-          strokeDasharray="80, 100"
-          strokeDashoffset="45"
-        />
-      </svg>
-    </div>
-  );
-};
+    return (
+      <div ref={ref} data-testid="spinner" className={cn(spinnerVariants({ size, variant }), className)} {...props}>
+        <svg className="w-full h-full animate-[spin_1s_linear_infinite]" viewBox="22 22 44 44">
+          <defs>
+            <linearGradient id="gradient">
+              <stop offset="-17.21%" stopColor="#9061F9" />
+              <stop offset="62.18%" stopColor="#9061F9" stopOpacity="0" />
+            </linearGradient>
+          </defs>
+          <circle id="circle" cx="44" cy="44" r="12" fill="none" strokeWidth={stroke} />
+          <circle
+            id="gradient-circle"
+            className="opacity-65"
+            cx="44"
+            cy="44"
+            r="12"
+            fill="none"
+            strokeWidth={stroke}
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeDasharray="80, 100"
+            strokeDashoffset="45"
+          />
+        </svg>
+      </div>
+    );
+  }
+);
+
+Spinner.displayName = 'Spinner';
 
 export { Spinner };
