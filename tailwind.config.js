@@ -256,7 +256,8 @@ const config = {
             DEFAULT: 'var(--list-hover)'
           },
           label: {
-            DEFAULT: 'var(--list-label_default)'
+            DEFAULT: 'var(--list-label_default)',
+            active: 'var(--list-label_active)'
           }
         },
         divider: {

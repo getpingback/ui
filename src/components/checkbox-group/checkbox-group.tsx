@@ -10,7 +10,7 @@ const checkboxVariants = cva(
     variants: {
       variant: {
         default: 'bg-transparent',
-        highlight: 'enabled:data-[state=unchecked]:hover:bg-[#71717A0F] data-[state=checked]:bg-[#9061F90A]'
+        highlight: 'enabled:data-[state=unchecked]:hover:bg-list-hover data-[state=checked]:bg-list-actived'
       },
       rounded: {
         default: 'rounded-md',
@@ -27,7 +27,6 @@ const checkboxVariants = cva(
 
 interface CheckboxGroupProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
-  value?: string[];
   onValueChange?: (value: string[]) => void;
   defaultValue?: string[];
   variant?: 'default' | 'highlight';
@@ -57,25 +56,21 @@ const CheckboxGroupContext = React.createContext<{
 const CheckboxGroup = ({
   children,
   className,
-  value,
   onValueChange,
   defaultValue = [],
   variant = 'default',
   rounded = 'default',
   ...props
 }: CheckboxGroupProps) => {
-  const [internalValue, setInternalValue] = React.useState<string[]>(defaultValue);
-  const controlledValue = value ?? internalValue;
+  const [displayValue, setDisplayValue] = React.useState<string[]>(defaultValue);
 
   const handleValueChange = (newValue: string[]) => {
-    if (!value) {
-      setInternalValue(newValue);
-    }
+    setDisplayValue(newValue);
     onValueChange?.(newValue);
   };
 
   return (
-    <CheckboxGroupContext.Provider value={{ value: controlledValue, onValueChange: handleValueChange, variant: variant, rounded: rounded }}>
+    <CheckboxGroupContext.Provider value={{ value: displayValue, onValueChange: handleValueChange, variant: variant, rounded: rounded }}>
       <div className={cn('flex flex-col gap-1', className)} {...props}>
         {children}
       </div>
@@ -107,16 +102,16 @@ const CheckboxItem = ({ disabled, label, value, variant = 'default', rounded, ..
           data-state={checked ? 'checked' : 'unchecked'}
           data-disabled={disabled}
         />
-        <div className="relative flex items-center justify-center opacity-85 w-[15.5px] h-[15.5px] max-h-[15.5px] aria-checked:ring-input-selected-hover rounded border border-[#71717a6c] data-[state=checked]:border-none bg-background shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground data-[state=checked]:bg-[#9061F9] data-[state=checked]:text-primary-foreground">
-          <CheckboxPrimitive.Indicator className="flex items-center z-10 justify-center data-[state=checked]:text-[#fff] rounded data-[state=checked]:bg-[#9061F9] w-[15.5px] h-[15.5px]">
+        <div className="relative flex items-center justify-center opacity-85 w-[15.5px] h-[15.5px] max-h-[15.5px] aria-checked:ring-input-selected-hover rounded border border-input-hover data-[state=checked]:border-none bg-background shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground data-[state=checked]:bg-border-card-active data-[state=checked]:text-primary-foreground">
+          <CheckboxPrimitive.Indicator className="flex items-center z-10 justify-center data-[state=checked]:text-inverse-foreground rounded data-[state=checked]:bg-border-card-active w-[15.5px] h-[15.5px]">
             <CheckIcon className="w-4 h-4" />
           </CheckboxPrimitive.Indicator>
         </div>
       </div>
 
       <label
-        className={cn(' w-full font-primary flex items-start text-[#71717A] text-sm', {
-          'text-[#7E3AF2]': checked,
+        className={cn(' w-full font-primary flex items-start text-list-label text-sm', {
+          'text-list-label-active': checked,
           'opacity-50 cursor-not-allowed': disabled
         })}
         htmlFor={value}

@@ -68,7 +68,7 @@ describe('Checkbox Component', () => {
     expect(screen.getAllByRole('checkbox')).toHaveLength(3);
     expect(screen.getAllByRole('checkbox')[0]).toHaveTextContent('Option 1');
     expect(screen.getAllByRole('checkbox')[0]).toHaveAttribute('data-state', 'checked');
-    expect(screen.getAllByRole('checkbox')[0]).toHaveClass('data-[state=checked]:bg-[#9061F90A]');
+    expect(screen.getAllByRole('checkbox')[0]).toHaveClass('data-[state=checked]:bg-list-actived');
 
     expect(screen.getAllByRole('checkbox')[1]).toHaveTextContent('Option 2');
     expect(screen.getAllByRole('checkbox')[1]).toHaveAttribute('data-state', 'unchecked');
