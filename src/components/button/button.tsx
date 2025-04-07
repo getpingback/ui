@@ -1,44 +1,77 @@
 import * as React from 'react';
 import { Slot } from '@radix-ui/react-slot';
+import { Spinner } from '@/components/spinner';
 import { cva, type VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium font-primary transition-colors focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 transition-all duration-200 ease-in-out',
+  'inline-flex items-center justify-center whitespace-nowrap text-sm font-medium font-primary transition-colors focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-45 disabled:hover:shadow-none transition-all duration-200 ease-in-out data-[loading=true]:hover:shadow-none data-[loading=true]:pointer-events-none relative',
   {
     variants: {
       variant: {
-        default: 'bg-transparent',
         outline:
-          'border border-[#D4D4D8] bg-transparent !text-secondary-foreground text-opacity-10 hover:bg-[rgba(112,119,128,0.00)] hover:[box-shadow:0px_0px_0px_3px_rgba(113,_113,_122,_0.12)] focus-visible:[box-shadow:0px_0px_0px_3px_rgba(113,_113,_122,_0.12)]',
-        ghost: 'text-button-ghost-foreground hover:bg-button-ghost',
-        solid: 'bg-[#9061F9] text-[#FFFFFF] hover:shadow-solid',
-        clear: 'bg-transparent text-[#52525B] opacity-65 hover:opacity-100'
+          'border border-button-outlined-border bg-transparent !text-secondary-foreground text-opacity-10 hover:shadow-outlined focus-visible:shadow-outlined data-[loading=true]:!bg-button-ghost-gray data-[loading=true]:!border-none',
+        ghost: 'text-secondary-foreground bg-button-ghost-gray opacity-85 hover:opacity-100 disabled:bg-button-ghost-disabled',
+        solid:
+          'bg-button-solid text-inverse-foreground hover:shadow-solid disabled:bg-button-solid-disabled disabled:text-secondary-foreground disabled:opacity-45 active:bg-button-solid-hover data-[loading=true]:!bg-button-ghost-gray',
+        clear: 'bg-transparent text-secondary-foreground opacity-85 hover:opacity-100 data-[loading=true]:!bg-button-ghost-gray'
       },
       size: {
-        default: 'h-9 rounded-lg px-3 py-2',
-        sm: 'h-8 rounded-lg px-3 text-xs',
-        lg: 'h-10 rounded-lg px-8',
-        icon: 'h-9 w-9 rounded-full',
-        combobox: 'min-h-[36px] rounded-lg px-3 py-2'
+        sm: 'h-8 px-3 text-xs',
+        lg: 'h-10 px-3'
+      },
+      rounded: {
+        none: 'rounded-none',
+        sm: 'rounded-sm',
+        md: 'rounded-md',
+        lg: 'rounded-lg',
+        full: 'rounded-full'
+      },
+      width: {
+        full: 'w-full',
+        fit: 'w-fit'
       }
     },
     defaultVariants: {
-      variant: 'default',
-      size: 'default'
+      variant: 'solid',
+      size: 'sm',
+      rounded: 'lg',
+      width: 'fit'
     }
   }
 );
 
-export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {
+type ButtonBaseProps = Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'prefix' | 'suffix'>;
+
+export interface ButtonProps extends ButtonBaseProps, VariantProps<typeof buttonVariants> {
   asChild?: boolean;
+  prefix?: JSX.Element | string;
+  suffix?: JSX.Element | string;
+  isLoading?: boolean;
 }
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({ className, variant, size, asChild = false, ...props }, ref) => {
-  const Comp = asChild ? Slot : 'button';
-  return <Comp className={cn(buttonVariants({ variant, size, className }))} ref={ref} {...props} />;
-});
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant, size, rounded, width, asChild = false, children, prefix, suffix, isLoading = false, ...props }, ref) => {
+    const Comp = asChild ? Slot : 'button';
+
+    return (
+      <Comp className={cn(buttonVariants({ variant, size, rounded, width, className }))} ref={ref} data-loading={isLoading} {...props}>
+        <span className={cn('flex items-center', { 'opacity-0': isLoading })}>
+          {prefix && <span className="mr-1">{prefix}</span>}
+          {children}
+          {suffix && <span className="ml-1">{suffix}</span>}
+        </span>
+
+        {isLoading && (
+          <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
+            <Spinner size="small" variant="gray" />
+          </span>
+        )}
+      </Comp>
+    );
+  }
+);
 Button.displayName = 'Button';
 
 export { Button, buttonVariants };

@@ -256,6 +256,7 @@ const config = {
           highlighted: 'var(--divider-color-highlighted)',
           disabled: 'var(--divider-color-disabled)'
         },
+        'border-card-active': 'var(--border-card-active)',
         list: {
           highlighted: {
             DEFAULT: 'var(--list-hightlight)'
@@ -267,7 +268,8 @@ const config = {
             DEFAULT: 'var(--list-hover)'
           },
           label: {
-            DEFAULT: 'var(--list-label_default)'
+            DEFAULT: 'var(--list-label_default)',
+            active: 'var(--list-label_active)'
           }
         },
         divider: {
@@ -341,13 +343,16 @@ const config = {
           solid: {
             DEFAULT: 'var(--button-solid-bg)',
             foreground: 'var(--button-solid-text)',
-            hover: 'var(--button-solid-hover)'
+            hover: 'var(--button-solid-hover)',
+            disabled: 'var(--button-solid-disabled)',
+            loading: 'var(--button-solid-loading)'
           },
           ghost: {
             DEFAULT: 'var(--button-ghost-bg)',
             foreground: 'var(--button-ghost-text)',
             gray: 'var(--button-ghost-gray)',
-            hover: 'var(--button-ghost-gray-hover)'
+            hover: 'var(--button-ghost-gray-hover)',
+            disabled: 'var(--button-ghost-disabled)'
           },
           outlined: {
             border: 'var(--button-outlined-border)',
