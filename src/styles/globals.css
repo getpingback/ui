@@ -49,6 +49,15 @@
     --button-hover-solid-color: #9061f940;
     --buttons-ghost_bg-color: #9061f91f;
 
+    --divider-color: #e4e4e7;
+    --divider-color-active: #a1a1aa;
+    --divider-color-error: #f05252;
+    --divider-color-highlighted: #9061f9;
+    --divider-color-disabled: #d4d4d840;
+
+    --input-shadow: 0px 0px 0px 3px #9061f91f;
+    --input-shadow-error: 0px 0px 0px 3px #ff758a1f;
+
     --background-accent: #ffffff;
 
     --border-divider-color: #e4e4e7;
@@ -141,6 +150,15 @@
     --button-hover-solid-color: #9061f940;
     --buttons-label: #52525b;
     --buttons-ghost_bg-color: #9061f91f;
+
+    --divider-color: #e4e4e7;
+    --divider-color-active: #a1a1aa;
+    --divider-color-error: #f05252;
+    --divider-color-highlighted: #9061f9;
+    --divider-color-disabled: #d4d4d840;
+
+    --input-shadow: 0px 0px 0px 3px #9061f91f;
+    --input-shadow-error: 0px 0px 0px 3px #ff758a1f;
 
     --background-accent: #27272a;
 

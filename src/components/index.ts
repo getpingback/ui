@@ -27,4 +27,5 @@ export * from './radio-group';
 export * from './switch';
 export * from './split-button';
 export * from './color-picker';
+export * from './text-field';
 export * from './typography';
