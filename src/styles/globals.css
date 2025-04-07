@@ -41,6 +41,7 @@
 
     --border-divider-color: #e4e4e7;
     --border-cards-color: #3f3f4614;
+    --border-card-active: #9061F9;
     --border-input_filled-color: #9061f9;
 
     --background-informative: #9061f914;
@@ -62,6 +63,7 @@
     --list-hover: #71717a14;
     --list-hightlight: rgba(14, 159, 110, 0.04);
     --list-label_default: #71717a;
+    --list-label_active: #7E3AF2;
 
     --text-primary: #3f3f46;
     --text-secondary: #52525b;
@@ -132,6 +134,7 @@
 
     --border-divider-color: #3f3f46;
     --border-cards-color: #fafafa14;
+    --border-card-active: #9061F9;
 
     --bottom_sheet-2: 0px 0px 1px 1px #0000007a, 0px -4px 16px -2px #0000007a;
     --modals-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.04), 0px -6px 24px -3px rgba(0, 0, 0, 0.08);

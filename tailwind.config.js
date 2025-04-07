@@ -244,6 +244,7 @@ const config = {
           foreground: 'var(--icons-default)'
         },
         'border-card': 'var(--border-cards-color)',
+        'border-card-active': 'var(--border-card-active)',
         list: {
           highlighted: {
             DEFAULT: 'var(--list-hightlight)'
@@ -255,7 +256,8 @@ const config = {
             DEFAULT: 'var(--list-hover)'
           },
           label: {
-            DEFAULT: 'var(--list-label_default)'
+            DEFAULT: 'var(--list-label_default)',
+            active: 'var(--list-label_active)'
           }
         },
         divider: {
