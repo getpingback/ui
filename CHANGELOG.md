@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.373](https://github.com/getpingback/ui/compare/v0.0.372...v0.0.373) (2025-04-07)
+
+
+### Features
+
+* add variant to card component ([7988e8a](https://github.com/getpingback/ui/commits/7988e8a06d8af36c11c3d7bd8394485c8f2a1bcb))
+* apply size variants ([6f2c60b](https://github.com/getpingback/ui/commits/6f2c60bfa326baa8d7b2594342f464992d583ee3))
+* button ([581af8d](https://github.com/getpingback/ui/commits/581af8db24f145b212d7cbd45016d531cf1d3ba3))
+* checkbox group and tests ([ae0d4da](https://github.com/getpingback/ui/commits/ae0d4da7606bdc222d43ecf1c7aab30b3719f394))
+* create typography component ([4663f58](https://github.com/getpingback/ui/commits/4663f58617324c26b6f169107cda89106cacc3fb))
+* disabled button tests ([b0bac23](https://github.com/getpingback/ui/commits/b0bac237bf75e983e5c5b177d42754194e084f91))
+* export typography component ([aa346ac](https://github.com/getpingback/ui/commits/aa346ac4d75340ca87ef3cf5d8c1079143a3d9bb))
+* full width props ([08189e8](https://github.com/getpingback/ui/commits/08189e8595f1e375b64b35fe996f734e80b907f2))
+* spinner component ([19abd71](https://github.com/getpingback/ui/commits/19abd71aa8860e3275f3b0a02ab7819656de0de4))
+
 ### [0.0.371](https://github.com/getpingback/ui/compare/v0.0.370...v0.0.371) (2025-04-03)
 
 
