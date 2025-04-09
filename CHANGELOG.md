@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.374](https://github.com/getpingback/ui/compare/v0.0.373...v0.0.374) (2025-04-08)
+
+
+### Features
+
+* base text field component ([7a0afbb](https://github.com/getpingback/ui/commits/7a0afbb4ba32b161f6cdcc78ba898db9e38a17b5))
+* create text field ([c621111](https://github.com/getpingback/ui/commits/c621111ac6611fcd9a3d274ae149f7cf9e1e25d2))
+* solving conflicts ([ff4ad85](https://github.com/getpingback/ui/commits/ff4ad853f18d0ba850ab382eab795e410a28c256))
+
 ### [0.0.373](https://github.com/getpingback/ui/compare/v0.0.372...v0.0.373) (2025-04-07)
 
 
