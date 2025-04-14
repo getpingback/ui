@@ -15,7 +15,6 @@ export * from './date-picker';
 export * from './time-picker';
 export * from './counter-input';
 export * from './select';
-export * from './multi-select';
 export * from './command';
 export * from './command-cmdk';
 export * from './popover';
