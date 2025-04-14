@@ -161,9 +161,10 @@ export function Combobox({
             variant="outline"
             role="combobox"
             rounded="lg"
+            size="lg"
             aria-expanded={open}
             suffix={<CaretDownIcon className={cn('ml-2 h-4 w-4 shrink-0 opacity-50 transition-transform', { 'rotate-180': open })} />}
-            className="w-full min-h-[36px] px-3 py-2 justify-between bg-background-accent hover:bg-background-accent"
+            className="w-full min-h-[40px] h-auto px-3 py-2 justify-between bg-background-accent hover:bg-background-accent"
           >
             {renderButtonContent()}
           </Button>

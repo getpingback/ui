@@ -41,7 +41,7 @@ export function Select({ label, helperText, placeholder, options, value, onValue
           className={cn(
             buttonVariants({
               variant: 'outline',
-              size: 'combobox',
+              size: 'lg',
               className:
                 'bg-background-accent hover:bg-background-accent w-full justify-between data-[state=open]:border-[#9061F9] data-[state=open]:[box-shadow:0px_0px_0px_3px_rgba(144,_97,_249,_0.12)] data-[placeholder]:text-tertiary-foreground data-[placeholder]:opacity-60 data-[placeholder]:font-normal'
             })

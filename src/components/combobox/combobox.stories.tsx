@@ -397,6 +397,26 @@ export const Multiple: Story = {
           {
             label: 'Item 5',
             value: 'item-5'
+          },
+          {
+            label: 'Item 6',
+            value: 'item-6'
+          },
+          {
+            label: 'Item 7',
+            value: 'item-7'
+          },
+          {
+            label: 'Item 8',
+            value: 'item-8'
+          },
+          {
+            label: 'Item 9',
+            value: 'item-9'
+          },
+          {
+            label: 'Item 10',
+            value: 'item-10'
           }
         ]
       }
