@@ -370,3 +370,36 @@ export const ScrollToEnd: Story = {
     }
   ]
 };
+
+export const Multiple: Story = {
+  args: {
+    variant: 'multiple',
+    placeholder: 'Selecione uma lista',
+    options: [
+      {
+        items: [
+          {
+            label: 'Item 1',
+            value: 'item-1'
+          },
+          {
+            label: 'Item 2',
+            value: 'item-2'
+          },
+          {
+            label: 'Item 3',
+            value: 'item-3'
+          },
+          {
+            label: 'Item 4',
+            value: 'item-4'
+          },
+          {
+            label: 'Item 5',
+            value: 'item-5'
+          }
+        ]
+      }
+    ]
+  }
+};

@@ -1,12 +1,13 @@
 'use client';
 
 import * as React from 'react';
-import { CaretDownIcon, CaretUpIcon } from '@stash-ui/regular-icons';
+import { CaretDownIcon } from '@stash-ui/regular-icons';
 
 import { Button } from '@/components/button';
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from '@/components/command';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/popover';
-import { DetailedVariant, IconCompactVariant, ImageDetailedVariant, DefaultVariant } from './combobox-variants';
+import { DetailedVariant, IconCompactVariant, ImageDetailedVariant, DefaultVariant, MultipleVariant } from './combobox-variants';
+import { cn } from '@/lib/utils';
 
 interface Item {
   value: string;
@@ -30,8 +31,8 @@ interface ComboboxProps {
   placeholder?: string;
   searchPlaceholder?: string;
   emptySearchPlaceholder?: string;
-  variant?: 'default' | 'detailed' | 'icon-compact' | 'image-detailed';
-  defaultValue?: Item;
+  variant?: 'default' | 'detailed' | 'icon-compact' | 'image-detailed' | 'multiple';
+  defaultValue?: Item | Item[];
   searchValue?: string;
   onSelect?: (item: Item) => void;
   onChangeSearchValue?: (value: string) => void;
@@ -58,9 +59,13 @@ export function Combobox({
   emptyContentRender
 }: ComboboxProps) {
   const [open, setOpen] = React.useState(false);
-  const [selectedItem, setSelectedItem] = React.useState<Item | null>(null);
+  const [selectedItems, setSelectedItems] = React.useState<Item[]>([]);
 
-  const currentValue = selectedItem || defaultValue;
+  const multiple = variant === 'multiple';
+
+  const currentSingleValue = selectedItems[0] || defaultValue;
+
+  const currentMultipleValue = selectedItems || defaultValue;
 
   const isEmpty = options.every((option) => option.items.length === 0);
 
@@ -92,7 +97,8 @@ export function Combobox({
     default: DefaultVariant,
     detailed: DetailedVariant,
     'icon-compact': IconCompactVariant,
-    'image-detailed': ImageDetailedVariant
+    'image-detailed': ImageDetailedVariant,
+    multiple: MultipleVariant
   };
 
   const handleSearchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -100,10 +106,10 @@ export function Combobox({
   };
 
   const renderButtonContent = () => {
-    if (currentValue) {
+    if (currentSingleValue) {
       if (variant === 'image-detailed') {
         return React.createElement(comboboxVariants[variant], {
-          item: currentValue,
+          item: currentSingleValue,
           selected: false,
           isButtonLabel: true
         });
@@ -111,19 +117,38 @@ export function Combobox({
 
       if (variant === 'icon-compact') {
         return React.createElement(comboboxVariants[variant], {
-          item: currentValue,
+          item: currentSingleValue,
           selected: false
         });
       }
 
+      if (variant === 'multiple') {
+        return React.createElement(comboboxVariants[variant], {
+          items: currentMultipleValue,
+          handleUnselect: (item) => setSelectedItems((prev) => prev.filter((i) => i.value !== item.value))
+        });
+      }
+
       return React.createElement(comboboxVariants[variant], {
-        item: currentValue,
+        item: currentSingleValue,
         selected: false,
         isButtonLabel: true
       });
     }
 
     return <span className="text-tertiary-foreground text-sm opacity-60 font-normal">{placeholder}</span>;
+  };
+
+  const handleSelectItem = (item: Item) => {
+    if (multiple) {
+      const isItemSelected = selectedItems.some((i) => i.value === item.value);
+      setSelectedItems((prev) => (isItemSelected ? prev.filter((i) => i.value !== item.value) : [...prev, item]));
+    } else {
+      setSelectedItems([item]);
+    }
+
+    onSelect?.(item);
+    setOpen(false);
   };
 
   return (
@@ -137,15 +162,10 @@ export function Combobox({
             role="combobox"
             rounded="lg"
             aria-expanded={open}
+            suffix={<CaretDownIcon className={cn('ml-2 h-4 w-4 shrink-0 opacity-50 transition-transform', { 'rotate-180': open })} />}
             className="w-full min-h-[36px] px-3 py-2 justify-between bg-background-accent hover:bg-background-accent"
           >
             {renderButtonContent()}
-
-            {open ? (
-              <CaretUpIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-            ) : (
-              <CaretDownIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-            )}
           </Button>
         </PopoverTrigger>
 
@@ -167,28 +187,24 @@ export function Combobox({
 
           <div className="max-h-[272px] overflow-y-auto scrollbar-style">
             {options.map((option, index) => (
-              <>
-                <CommandGroup key={index} className="py-2" heading={option.heading}>
+              <div key={index}>
+                <CommandGroup className="py-2" heading={option.heading}>
                   {option.items.map((item) => (
-                    <CommandItem
-                      key={item.value}
-                      value={item.value}
-                      onSelect={() => {
-                        setSelectedItem(item);
-                        onSelect?.(item);
-                        setOpen(false);
-                      }}
-                    >
-                      {React.createElement(comboboxVariants[variant], {
-                        item,
-                        selected: currentValue?.value === item.value
-                      })}
+                    <CommandItem key={item.value} value={item.value} onSelect={() => handleSelectItem(item)}>
+                      {multiple ? (
+                        <DefaultVariant item={item} selected={currentMultipleValue.includes(item)} />
+                      ) : (
+                        React.createElement(comboboxVariants[variant], {
+                          item,
+                          selected: currentSingleValue?.value === item.value
+                        })
+                      )}
                     </CommandItem>
                   ))}
                 </CommandGroup>
 
                 {index < options.length - 1 && <div className="border-b border-divider" />}
-              </>
+              </div>
             ))}
             <div ref={lastItemRef} className="flex w-full" />
           </div>

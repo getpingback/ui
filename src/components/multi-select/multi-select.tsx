@@ -51,34 +51,26 @@ function MultiSelect({
   const [selectedOptions, setSelectedOptions] = React.useState<OptionType[]>([]);
 
   React.useEffect(() => {
-    if (!open) {
-      if (onChangeSearchValue) onChangeSearchValue('');
-    }
+    if (!open && onChangeSearchValue) onChangeSearchValue('');
   }, [open]);
 
   React.useEffect(() => {
-    if (!open) return;
+    if (!open || !onEndReached) return;
 
-    let observer: IntersectionObserver;
-    setTimeout(() => {
-      observer = new IntersectionObserver(
-        (entries) => {
-          if (entries[0].isIntersecting) {
-            onEndReached?.();
-          }
-        },
-        { threshold: 1 }
-      );
-
-      if (lastItemRef.current) {
-        observer?.observe(lastItemRef.current);
-      }
-    }, 0);
-
-    return () => {
-      observer?.disconnect();
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      if (entries[0]?.isIntersecting) onEndReached();
     };
-  }, [lastItemRef.current, options, open, onEndReached]);
+
+    const observer = new IntersectionObserver(observerCallback);
+
+    setTimeout(() => {
+      if (lastItemRef.current) {
+        observer.observe(lastItemRef.current);
+      }
+    }, 100);
+
+    return () => observer.disconnect();
+  }, [open, options, onEndReached]);
 
   const handleSearchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChangeSearchValue?.(e.target.value);

@@ -2,6 +2,8 @@ import * as React from 'react';
 import { CheckIcon } from '@stash-ui/regular-icons';
 
 import { cn } from '@/lib/utils';
+import { Badge } from '../badge';
+import { TimesIcon } from '@stash-ui/light-icons';
 
 interface Item {
   value: string;
@@ -69,4 +71,40 @@ const ImageDetailedVariant = ({ item, selected, isButtonLabel }: { item: Item; s
   </div>
 );
 
-export { DefaultVariant, DetailedVariant, IconCompactVariant, ImageDetailedVariant };
+const MultipleVariant = ({ items, handleUnselect }: { items: Item[]; handleUnselect: (item: Item) => void }) => (
+  <div className="flex gap-1 flex-wrap">
+    {items.map((item) => (
+      <Badge
+        data-testid="combobox-item"
+        variant="ghost"
+        key={item.value}
+        className="mr-1"
+        onClick={(e) => {
+          e.stopPropagation();
+          handleUnselect(item);
+        }}
+      >
+        {item.label}
+        <div
+          role="button"
+          className="ml-1 ring-offset-background rounded-full outline-none hover:[box-shadow:0px_0px_0px_3px_rgba(240,_82,_82,_0.12)] focus:[box-shadow:0px_0px_0px_3px_rgba(240,_82,_82,_0.12)]"
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') handleUnselect(item);
+          }}
+          onMouseDown={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+          }}
+          onClick={(e) => {
+            e.stopPropagation();
+            handleUnselect(item);
+          }}
+        >
+          <TimesIcon className="h-4 w-4" />
+        </div>
+      </Badge>
+    ))}
+  </div>
+);
+
+export { DefaultVariant, DetailedVariant, IconCompactVariant, ImageDetailedVariant, MultipleVariant };

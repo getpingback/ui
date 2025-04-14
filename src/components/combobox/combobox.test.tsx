@@ -3,7 +3,8 @@ import { fireEvent, screen, render, act } from '@testing-library/react';
 import { composeStories } from '@storybook/testing-react';
 import * as stories from './combobox.stories';
 
-const { Default, Detailed, IconCompact, ImageDetailed, EmptyContentRender, ScrollToEnd, ShouldFilterFalse } = composeStories(stories);
+const { Default, Detailed, IconCompact, ImageDetailed, EmptyContentRender, ScrollToEnd, ShouldFilterFalse, Multiple } =
+  composeStories(stories);
 
 describe('Combobox Component', () => {
   describe('Default Variant', () => {
@@ -239,6 +240,50 @@ describe('Combobox Component', () => {
 
       expect(onEndReachedMock).not.toHaveBeenCalled();
       expect(screen.queryByTestId('combobox-loading')).toBeNull();
+    });
+  });
+
+  describe('Multiple Variant', () => {
+    it('should render correctly with multiple items', async () => {
+      render(<Multiple />);
+      const comboboxButton = screen.getByRole('combobox');
+
+      fireEvent.click(comboboxButton);
+
+      expect(screen.getByText('Item 1')).toBeInTheDocument();
+      expect(screen.getByText('Item 2')).toBeInTheDocument();
+      expect(screen.getByText('Item 3')).toBeInTheDocument();
+      expect(screen.getByText('Item 4')).toBeInTheDocument();
+      expect(screen.getByText('Item 5')).toBeInTheDocument();
+    });
+
+    it('should handle selection and show selected multiple items in the button', async () => {
+      render(<Multiple />);
+      const comboboxButton = screen.getByRole('combobox');
+
+      fireEvent.click(comboboxButton);
+
+      const item1 = screen.getByText('Item 1');
+
+      fireEvent.click(item1);
+
+      expect(comboboxButton).toHaveTextContent('Item 1');
+
+      fireEvent.click(comboboxButton);
+
+      const item2 = screen.getByText('Item 2');
+
+      fireEvent.click(item2);
+
+      expect(comboboxButton).toHaveTextContent('Item 1Item 2');
+      expect(screen.getAllByTestId('combobox-item')).toHaveLength(2);
+
+      fireEvent.click(comboboxButton);
+
+      fireEvent.click(screen.getAllByRole('option')[0]);
+
+      expect(comboboxButton).not.toHaveTextContent('Item 1');
+      expect(screen.getAllByTestId('combobox-item')).toHaveLength(1);
     });
   });
 });
