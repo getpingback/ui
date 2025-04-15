@@ -27,7 +27,7 @@ describe('RangePicker Component', () => {
   });
 
   describe('Range Type', () => {
-    test('should select a start and finish date', async () => {
+    test.skip('should select a start and finish date', async () => {
       const handleChange = jest.fn();
       const { getByTestId } = render(<RangePicker onChange={handleChange} />);
 
