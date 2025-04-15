@@ -370,3 +370,56 @@ export const ScrollToEnd: Story = {
     }
   ]
 };
+
+export const Multiple: Story = {
+  args: {
+    variant: 'multiple',
+    placeholder: 'Selecione uma lista',
+    options: [
+      {
+        items: [
+          {
+            label: 'Item 1',
+            value: 'item-1'
+          },
+          {
+            label: 'Item 2',
+            value: 'item-2'
+          },
+          {
+            label: 'Item 3',
+            value: 'item-3'
+          },
+          {
+            label: 'Item 4',
+            value: 'item-4'
+          },
+          {
+            label: 'Item 5',
+            value: 'item-5'
+          },
+          {
+            label: 'Item 6',
+            value: 'item-6'
+          },
+          {
+            label: 'Item 7',
+            value: 'item-7'
+          },
+          {
+            label: 'Item 8',
+            value: 'item-8'
+          },
+          {
+            label: 'Item 9',
+            value: 'item-9'
+          },
+          {
+            label: 'Item 10',
+            value: 'item-10'
+          }
+        ]
+      }
+    ]
+  }
+};
