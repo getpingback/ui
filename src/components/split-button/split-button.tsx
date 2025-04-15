@@ -20,7 +20,7 @@ const containerVariants = cva('flex items-center font-primary max-w-fit h-[32px]
 });
 
 const leftButtonVariants = cva(
-  'h-full w-full flex items-center text-xs gap-1 px-3 rounded-l-lg rounded-r-none transition-all duration-200 ease-in-out font-semibold',
+  'h-full w-full flex items-center text-xs gap-1 pl-2 pr-3 rounded-l-lg rounded-r-none transition-all duration-200 ease-in-out font-semibold',
   {
     variants: {
       type: {

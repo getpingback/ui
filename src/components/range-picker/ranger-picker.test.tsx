@@ -2,6 +2,7 @@ import React from 'react';
 import { getYear } from 'date-fns';
 import { fireEvent, getAllByText, render } from '@testing-library/react';
 import { parseISO, startOfDay, endOfDay } from 'date-fns';
+import { jest, describe, test, expect } from '@jest/globals';
 
 import { RangePicker } from './range-picker';
 
@@ -27,7 +28,11 @@ describe('RangePicker Component', () => {
   });
 
   describe('Range Type', () => {
-    test.skip('should select a start and finish date', async () => {
+    test('should select a start and finish date', async () => {
+      const mockDate = new Date(2024, 9, 17, 10, 0, 0);
+      jest.useFakeTimers();
+      jest.setSystemTime(mockDate);
+
       const handleChange = jest.fn();
       const { getByTestId } = render(<RangePicker onChange={handleChange} />);
 
@@ -35,6 +40,7 @@ describe('RangePicker Component', () => {
       fireEvent.click(rangerPickerTrigger);
 
       const rangerPickerContainer = getByTestId('ranger-content');
+
       const containerInitialDate = getAllByText(rangerPickerContainer, '1')[0];
       fireEvent.click(containerInitialDate);
 
@@ -56,6 +62,8 @@ describe('RangePicker Component', () => {
         to: endDate,
         type: 'custom'
       });
+
+      jest.useRealTimers();
     });
 
     test('should select a correct today period', async () => {
