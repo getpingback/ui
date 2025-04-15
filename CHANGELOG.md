@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.379](https://github.com/getpingback/ui/compare/v0.0.377...v0.0.379) (2025-04-15)
+
+
+### Features
+
+* slip test ([ab59564](https://github.com/getpingback/ui/commits/ab595645378e4bd22258d9e8026420259e8e6462))
+
+
+### Bug Fixes
+
+* delete multiselect ([b3a7a9c](https://github.com/getpingback/ui/commits/b3a7a9c3fe0215867647b006782c8611b5cf9513))
+* multiselector as a variant ([52bfd9a](https://github.com/getpingback/ui/commits/52bfd9a923b01d04af15db6ba33b747e2a2255ed))
+* select and combobox height ([078cf56](https://github.com/getpingback/ui/commits/078cf56a4a1527fffe72a83c6432c816b550aea6))
+
 ### [0.0.378](https://github.com/getpingback/ui/compare/v0.0.377...v0.0.378) (2025-04-15)
 
 
