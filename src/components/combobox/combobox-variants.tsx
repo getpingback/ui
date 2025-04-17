@@ -15,16 +15,16 @@ interface Item {
 }
 
 const DefaultVariant = ({ item, selected, isButtonLabel }: { item: Item; selected: boolean; isButtonLabel?: boolean }) => (
-  <div className={cn('flex items-center h-full w-full', selected && 'justify-between', isButtonLabel && 'w-[calc(100%-30px)]')}>
+  <>
     <span className={`line-clamp-1 ${isButtonLabel ? 'w-full h-full flex items-center' : ''} ${selected ? 'text-visible' : ''}`}>
       {item.label}
     </span>
-    {selected && <CheckIcon />}
-  </div>
+    {selected && <CheckIcon className="min-w-6 min-h-6" />}
+  </>
 );
 
 const DetailedVariant = ({ item, selected, isButtonLabel }: { item: Item; selected: boolean; isButtonLabel?: boolean }) => (
-  <div className={cn('flex items-center w-full max-w-[calc(100%-24px)]', selected && 'justify-between')}>
+  <>
     <div className="flex items-center w-full">
       {item.leadingElement && !isButtonLabel ? <>{item.leadingElement}</> : null}
 
@@ -37,22 +37,22 @@ const DetailedVariant = ({ item, selected, isButtonLabel }: { item: Item; select
     </div>
 
     {selected && <CheckIcon height={20} width={20} />}
-  </div>
+  </>
 );
 
 const IconCompactVariant = ({ item, selected }: { item: Item; selected: boolean }) => (
-  <div className={cn('w-full h-full flex items-center', selected && 'justify-between')}>
+  <>
     <div className="flex items-center gap-2 h-full">
       <div className="flex items-center justify-center w-6 h-6 rounded-md">{item.icon || null}</div>
       <div className="text-sm font-medium line-clamp-1">{item.label}</div>
     </div>
 
     {selected && <CheckIcon height={20} width={20} />}
-  </div>
+  </>
 );
 
 const ImageDetailedVariant = ({ item, selected, isButtonLabel }: { item: Item; selected: boolean; isButtonLabel?: boolean }) => (
-  <div className={cn('flex items-center w-full h-full', selected && 'justify-between')}>
+  <>
     <div className="flex items-center gap-4 h-full">
       {item.imageUrl ? (
         <img src={item.imageUrl} alt={item.label} className="w-[64px] h-[48px] rounded-md object-cover" />
@@ -68,7 +68,7 @@ const ImageDetailedVariant = ({ item, selected, isButtonLabel }: { item: Item; s
     </div>
 
     {selected && <CheckIcon height={20} width={20} />}
-  </div>
+  </>
 );
 
 const MultipleVariant = ({ items, handleUnselect }: { items: Item[]; handleUnselect: (item: Item) => void }) => (
