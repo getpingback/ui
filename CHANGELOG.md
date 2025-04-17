@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.385](https://github.com/getpingback/ui/compare/v0.0.384...v0.0.385) (2025-04-17)
+
+
+### Bug Fixes
+
+* button span height ([8171cb6](https://github.com/getpingback/ui/commits/8171cb6493ad0d64c102cc88dcc24f96873a570c))
+
 ### [0.0.383](https://github.com/getpingback/ui/compare/v0.0.380...v0.0.383) (2025-04-17)
 
 
