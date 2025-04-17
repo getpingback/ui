@@ -191,7 +191,12 @@ export function Combobox({
               <div key={index}>
                 <CommandGroup className="py-2" heading={option.heading}>
                   {option.items.map((item) => (
-                    <CommandItem key={item.value} value={item.value} onSelect={() => handleSelectItem(item)}>
+                    <CommandItem
+                      className="flex items-center justify-between h-full w-full gap-4"
+                      key={item.value}
+                      value={item.value}
+                      onSelect={() => handleSelectItem(item)}
+                    >
                       {multiple ? (
                         <DefaultVariant item={item} selected={currentMultipleValue.includes(item)} />
                       ) : (
