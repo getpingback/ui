@@ -57,7 +57,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     return (
       <Comp className={cn(buttonVariants({ variant, size, rounded, width, className }))} ref={ref} data-loading={isLoading} {...props}>
-        <span className={cn('flex items-center w-full justify-between', { 'opacity-0': isLoading })}>
+        <span className={cn('flex items-center w-full justify-between h-full', { 'opacity-0': isLoading })}>
           {prefix && <span className="mr-1">{prefix}</span>}
           {children}
           {suffix && <span className="ml-1">{suffix}</span>}
