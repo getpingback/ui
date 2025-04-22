@@ -25,14 +25,12 @@ const checkboxVariants = cva(
   }
 );
 
-interface CheckboxGroupProps extends React.HTMLAttributes<HTMLDivElement> {
+interface CheckboxGroupProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onValueChange'> {
   children: React.ReactNode;
-  onValueChange?: (value: string[]) => void;
-  defaultValue?: string[];
+  value: string[];
+  onValueChange: (value: string[]) => void;
   variant?: 'default' | 'highlight';
   rounded?: 'default' | 'lg' | 'none';
-  unselectAll?: boolean;
-  selectAll?: boolean;
 }
 
 interface CheckboxItemProps extends Omit<CheckboxPrimitive.CheckboxProps, 'checked' | 'onCheckedChange'> {
@@ -41,8 +39,6 @@ interface CheckboxItemProps extends Omit<CheckboxPrimitive.CheckboxProps, 'check
   value: string;
   variant?: 'default' | 'highlight';
   rounded?: 'default' | 'lg' | 'none';
-  unselectAll?: boolean;
-  selectAll?: boolean;
 }
 
 const CheckboxGroupContext = React.createContext<{
@@ -60,40 +56,14 @@ const CheckboxGroupContext = React.createContext<{
 const CheckboxGroup = ({
   children,
   className,
+  value,
   onValueChange,
-  defaultValue = [],
   variant = 'default',
   rounded = 'default',
-  unselectAll,
-  selectAll,
   ...props
 }: CheckboxGroupProps) => {
-  const [displayValue, setDisplayValue] = React.useState<string[]>(defaultValue);
-
-  const handleValueChange = React.useCallback(
-    (newValue: string[]) => {
-      setDisplayValue(newValue);
-      onValueChange?.(newValue);
-    },
-    [onValueChange]
-  );
-
-  React.useEffect(() => {
-    if (unselectAll) {
-      handleValueChange([]);
-    } else if (selectAll) {
-      const allValues = React.Children.toArray(children)
-        .filter(
-          (child): child is React.ReactElement<CheckboxItemProps> =>
-            React.isValidElement(child) && (child.type === CheckboxItem || (child.type as any).displayName === 'CheckboxItem')
-        )
-        .map((child) => child.props.value);
-      handleValueChange(allValues);
-    }
-  }, [unselectAll, selectAll, children, handleValueChange]);
-
   return (
-    <CheckboxGroupContext.Provider value={{ value: displayValue, onValueChange: handleValueChange, variant: variant, rounded: rounded }}>
+    <CheckboxGroupContext.Provider value={{ value: value, onValueChange: onValueChange, variant: variant, rounded: rounded }}>
       <div className={cn('flex flex-col gap-1', className)} {...props}>
         {children}
       </div>
@@ -101,12 +71,12 @@ const CheckboxGroup = ({
   );
 };
 
-const CheckboxItem = ({ disabled, label, value, variant = 'default', rounded, unselectAll, ...props }: CheckboxItemProps) => {
+const CheckboxItem = ({ disabled, label, value, variant = 'default', rounded, ...props }: CheckboxItemProps) => {
   const { value: groupValue, onValueChange, variant: groupVariant, rounded: groupRounded } = React.useContext(CheckboxGroupContext);
   const checked = groupValue.includes(value);
 
-  const handleCheckedChange = (checked: boolean) => {
-    const newValue = checked ? [...groupValue, value] : groupValue.filter((v) => v !== value);
+  const handleCheckedChange = (isChecked: boolean) => {
+    const newValue = isChecked ? [...groupValue, value] : groupValue.filter((v) => v !== value);
     onValueChange(newValue);
   };
 

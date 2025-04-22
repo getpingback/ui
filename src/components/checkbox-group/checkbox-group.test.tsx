@@ -40,10 +40,14 @@ describe('Checkbox Component', () => {
     expect(secondCheckbox).toHaveAttribute('data-state', 'checked');
   });
 
-  test('should call onValueChange when checkbox is clicked', () => {
-    const onValueChange = jest.fn();
-    render(
-      <CheckboxGroup onValueChange={onValueChange}>
+  test('should reflect controlled value changes and call onValueChange', () => {
+    let currentValue: string[] = [];
+    const onValueChange = jest.fn((newValue: string[]) => {
+      currentValue = newValue;
+    });
+
+    const { rerender } = render(
+      <CheckboxGroup value={[]} onValueChange={onValueChange}>
         <CheckboxItem id="1" value="opt-1">
           Option 1
         </CheckboxItem>
@@ -54,13 +58,27 @@ describe('Checkbox Component', () => {
     );
 
     const firstCheckbox = screen.getAllByRole('checkbox')[0];
+    const secondCheckbox = screen.getAllByRole('checkbox')[1];
+
+    expect(firstCheckbox).toHaveAttribute('data-state', 'unchecked');
+    expect(secondCheckbox).toHaveAttribute('data-state', 'unchecked');
+
     fireEvent.click(firstCheckbox);
     expect(onValueChange).toHaveBeenCalledWith(['opt-1']);
-    const secondCheckbox = screen.getAllByRole('checkbox')[1];
-    fireEvent.click(secondCheckbox);
-    expect(onValueChange).toHaveBeenCalledWith(['opt-1', 'opt-2']);
-    fireEvent.click(firstCheckbox);
-    expect(onValueChange).toHaveBeenCalledWith(['opt-2']);
+
+    rerender(
+      <CheckboxGroup value={currentValue} onValueChange={onValueChange}>
+        <CheckboxItem id="1" value="opt-1">
+          Option 1
+        </CheckboxItem>
+        <CheckboxItem id="2" value="opt-2">
+          Option 2
+        </CheckboxItem>
+      </CheckboxGroup>
+    );
+
+    expect(screen.getAllByRole('checkbox')[0]).toHaveAttribute('data-state', 'checked');
+    expect(screen.getAllByRole('checkbox')[1]).toHaveAttribute('data-state', 'unchecked');
   });
 
   test('renders highlight checkbox', () => {
