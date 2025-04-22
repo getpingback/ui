@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.387](https://github.com/getpingback/ui/compare/v0.0.386...v0.0.387) (2025-04-22)
+
+
+### Bug Fixes
+
+* add select all controll on checkbox ([261f696](https://github.com/getpingback/ui/commits/261f6968c5edc05b442f17ae47e0e77cc457a0a0))
+
 ### [0.0.385](https://github.com/getpingback/ui/compare/v0.0.384...v0.0.385) (2025-04-17)
 
 
