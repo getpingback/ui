@@ -31,6 +31,8 @@ interface CheckboxGroupProps extends React.HTMLAttributes<HTMLDivElement> {
   defaultValue?: string[];
   variant?: 'default' | 'highlight';
   rounded?: 'default' | 'lg' | 'none';
+  unselectAll?: boolean;
+  selectAll?: boolean;
 }
 
 interface CheckboxItemProps extends Omit<CheckboxPrimitive.CheckboxProps, 'checked' | 'onCheckedChange'> {
@@ -39,6 +41,8 @@ interface CheckboxItemProps extends Omit<CheckboxPrimitive.CheckboxProps, 'check
   value: string;
   variant?: 'default' | 'highlight';
   rounded?: 'default' | 'lg' | 'none';
+  unselectAll?: boolean;
+  selectAll?: boolean;
 }
 
 const CheckboxGroupContext = React.createContext<{
@@ -60,14 +64,33 @@ const CheckboxGroup = ({
   defaultValue = [],
   variant = 'default',
   rounded = 'default',
+  unselectAll,
+  selectAll,
   ...props
 }: CheckboxGroupProps) => {
   const [displayValue, setDisplayValue] = React.useState<string[]>(defaultValue);
 
-  const handleValueChange = (newValue: string[]) => {
-    setDisplayValue(newValue);
-    onValueChange?.(newValue);
-  };
+  const handleValueChange = React.useCallback(
+    (newValue: string[]) => {
+      setDisplayValue(newValue);
+      onValueChange?.(newValue);
+    },
+    [onValueChange]
+  );
+
+  React.useEffect(() => {
+    if (unselectAll) {
+      handleValueChange([]);
+    } else if (selectAll) {
+      const allValues = React.Children.toArray(children)
+        .filter(
+          (child): child is React.ReactElement<CheckboxItemProps> =>
+            React.isValidElement(child) && (child.type === CheckboxItem || (child.type as any).displayName === 'CheckboxItem')
+        )
+        .map((child) => child.props.value);
+      handleValueChange(allValues);
+    }
+  }, [unselectAll, selectAll, children, handleValueChange]);
 
   return (
     <CheckboxGroupContext.Provider value={{ value: displayValue, onValueChange: handleValueChange, variant: variant, rounded: rounded }}>
@@ -78,7 +101,7 @@ const CheckboxGroup = ({
   );
 };
 
-const CheckboxItem = ({ disabled, label, value, variant = 'default', rounded, ...props }: CheckboxItemProps) => {
+const CheckboxItem = ({ disabled, label, value, variant = 'default', rounded, unselectAll, ...props }: CheckboxItemProps) => {
   const { value: groupValue, onValueChange, variant: groupVariant, rounded: groupRounded } = React.useContext(CheckboxGroupContext);
   const checked = groupValue.includes(value);
 
