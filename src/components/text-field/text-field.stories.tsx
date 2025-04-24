@@ -1,6 +1,7 @@
+import React from 'react';
 import { StoryObj } from '@storybook/react';
 import { TextField } from './text-field';
-
+import { SearchIcon } from '@stash-ui/light-icons';
 const meta = {
   title: 'TextField',
   component: TextField,
@@ -34,6 +35,7 @@ export const Default: Story = {
     placeholder: 'Placeholder',
     error: 'Error',
     helperText: 'Helper text',
-    disabled: false
+    disabled: false,
+    prefix: <SearchIcon />
   }
 };
