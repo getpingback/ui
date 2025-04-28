@@ -3,7 +3,7 @@ import React, { InputHTMLAttributes } from 'react';
 import { cn } from '@/lib/utils';
 import { ExclamationCircleIcon } from '@stash-ui/solid-icons';
 
-interface TextFieldProps extends InputHTMLAttributes<HTMLInputElement> {
+interface TextFieldProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'prefix'> {
   label?: string;
   error?: string;
   helperText?: string;
