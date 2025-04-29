@@ -272,9 +272,6 @@ const config = {
             active: 'var(--list-label_active)'
           }
         },
-        divider: {
-          DEFAULT: 'var(--border-divider-color)'
-        },
         input: {
           selected: {
             DEFAULT: 'var(--border-input_filled-color)',
