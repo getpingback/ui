@@ -1,16 +1,16 @@
 import React from 'react';
 
-import Carousel from './carousel';
+import { Swiper } from './swiper';
 import type { Meta, StoryObj } from '@storybook/react';
 
-const meta: Meta<typeof Carousel> = {
-  title: 'Components/Carousel',
-  component: Carousel,
+const meta: Meta<typeof Swiper> = {
+  title: 'Components/Swiper',
+  component: Swiper,
   tags: ['autodocs'],
   argTypes: {
     settings: {
       control: 'object',
-      description: 'Configurações do carousel',
+      description: 'Configurações do swiper',
       defaultValue: {
         itemWidth: 224,
         spaceBetween: 24,
@@ -30,7 +30,7 @@ const meta: Meta<typeof Carousel> = {
       }
     }
   }
-} satisfies Meta<typeof Carousel>;
+} satisfies Meta<typeof Swiper>;
 
 export default meta;
 
@@ -49,7 +49,7 @@ export const Default: Story = {
     }
   },
   render: (args) => (
-    <Carousel {...args}>
+    <Swiper {...args}>
       <Card color="bg-red-500" number={1} />
       <Card color="bg-blue-500" number={2} />
       <Card color="bg-green-500" number={3} />
@@ -58,6 +58,6 @@ export const Default: Story = {
       <Card color="bg-red-500" number={6} />
       <Card color="bg-blue-500" number={7} />
       <Card color="bg-green-500" number={8} />
-    </Carousel>
+    </Swiper>
   )
 };

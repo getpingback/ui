@@ -3,7 +3,7 @@ import React, { useState, Children, useRef, useEffect } from 'react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@stash-ui/light-icons/dist';
 import { cn } from '@/lib/utils';
 
-interface SliderProps {
+interface SwiperProps {
   children: React.ReactNode;
   className?: string;
   settings?: {
@@ -21,7 +21,7 @@ const DEFAULT_SETTINGS = {
 
 const BUTTON__CONTROLL_SIZE = 40;
 
-export default function Slider({ children, settings = DEFAULT_SETTINGS, className }: SliderProps) {
+const Swiper = ({ children, settings = DEFAULT_SETTINGS, className }: SwiperProps) => {
   const initialSettings = { ...DEFAULT_SETTINGS, ...settings };
   const { hideNavigationButtons, itemWidth, spaceBetween } = initialSettings;
 
@@ -158,4 +158,6 @@ export default function Slider({ children, settings = DEFAULT_SETTINGS, classNam
       </button>
     </div>
   );
-}
+};
+
+export { Swiper };

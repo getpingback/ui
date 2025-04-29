@@ -1,21 +1,20 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
-import Carousel from './carousel';
+import { render, screen } from '@testing-library/react';
+import { Swiper } from './swiper';
 
-describe('Carousel', () => {
-  // Setup mock for clientWidth
+describe('Swiper', () => {
   const mockGetBoundingClientRect = jest.fn();
   beforeEach(() => {
     Element.prototype.getBoundingClientRect = mockGetBoundingClientRect;
   });
 
-  test('renders all carousel items', () => {
+  test('renders all swiper items', () => {
     render(
-      <Carousel>
+      <Swiper>
         <div>1</div>
         <div>2</div>
         <div>3</div>
-      </Carousel>
+      </Swiper>
     );
 
     expect(screen.getByText('1')).toBeInTheDocument();
@@ -25,11 +24,11 @@ describe('Carousel', () => {
 
   test('hides navigation buttons when hideNavigationButtons is true', () => {
     render(
-      <Carousel settings={{ itemWidth: 224, spaceBetween: 24, hideNavigationButtons: true }}>
+      <Swiper settings={{ itemWidth: 224, spaceBetween: 24, hideNavigationButtons: true }}>
         <div>1</div>
         <div>2</div>
         <div>3</div>
-      </Carousel>
+      </Swiper>
     );
 
     const buttons = screen.queryAllByRole('button');
@@ -41,11 +40,11 @@ describe('Carousel', () => {
 
   test('shows navigation buttons by default', () => {
     render(
-      <Carousel>
+      <Swiper>
         <div>1</div>
         <div>2</div>
         <div>3</div>
-      </Carousel>
+      </Swiper>
     );
 
     const buttons = screen.queryAllByRole('button');
@@ -55,7 +54,7 @@ describe('Carousel', () => {
   });
 
   test('renders nothing when there are no children', () => {
-    const { container } = render(<Carousel />);
+    const { container } = render(<Swiper />);
     expect(container.firstChild).toBeNull();
   });
 });
