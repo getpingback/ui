@@ -40,7 +40,10 @@ export default function Slider({ children, settings = DEFAULT_SETTINGS, classNam
   const isFirstPage = currentPage === 1;
   const isLastPage = currentPage === totalPages;
 
-  console.log('currentPage', currentPage, totalItems, itemsPerPage, totalPages, pageWidth);
+  console.log(currentPage, totalPages, scrollLeft);
+
+  const shouldHideNextNavButton = (isLastPage || hideNavigationButtons) && !isDragging;
+  const shouldHidePrevNavButton = (isFirstPage || hideNavigationButtons) && !isDragging;
 
   useEffect(() => {
     if (sliderRef.current) {
@@ -75,17 +78,44 @@ export default function Slider({ children, settings = DEFAULT_SETTINGS, classNam
 
   const handleMove = (x: number) => {
     if (!isDragging) return;
+
+    if (sliderRef.current) {
+      const diff = x - startX;
+      const newScrollLeft = scrollLeft - diff;
+      sliderRef.current.scrollLeft = newScrollLeft;
+
+      const widthToScroll = isFirstPage || isLastPage ? pageWidth - BUTTON__CONTROLL_SIZE : pageWidth;
+      const newPage = Math.round(newScrollLeft / widthToScroll) + 1;
+
+      if (newPage !== currentPage && newPage > 0 && newPage <= totalPages) {
+        setCurrentPage(newPage);
+      }
+    }
   };
 
-  const handleMouseUp = () => {};
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
 
-  const handleTouchStart = (e: React.TouchEvent) => {};
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setIsDragging(true);
+    setStartX(e.touches[0].pageX);
+    setScrollLeft(sliderRef.current?.scrollLeft || 0);
+  };
 
-  const handleMouseDown = (e: React.MouseEvent) => {};
+  const handleMouseDown = (e: React.MouseEvent) => {
+    setIsDragging(true);
+    setStartX(e.pageX);
+    setScrollLeft(sliderRef.current?.scrollLeft || 0);
+  };
 
-  const handleMouseMove = (e: React.MouseEvent) => {};
+  const handleMouseMove = (e: React.MouseEvent) => {
+    handleMove(e.pageX);
+  };
 
-  const handleTouchMove = (e: React.TouchEvent) => {};
+  const handleTouchMove = (e: React.TouchEvent) => {
+    handleMove(e.touches[0].pageX);
+  };
 
   return (
     <div className={cn('flex items-center gap-6', className)}>
@@ -93,7 +123,7 @@ export default function Slider({ children, settings = DEFAULT_SETTINGS, classNam
         onClick={handlePrev}
         className={cn(
           'overflow-hidden transition-all duration-300 hover:bg-purple-500/5 rounded-full',
-          (isFirstPage || hideNavigationButtons) && !isDragging ? 'w-0' : 'w-10 min-w-10'
+          shouldHidePrevNavButton ? 'w-0' : 'w-10 min-w-10'
         )}
       >
         <ChevronLeftIcon className="w-10 h-10 text-purple-500" />
@@ -121,7 +151,7 @@ export default function Slider({ children, settings = DEFAULT_SETTINGS, classNam
         onClick={handleNext}
         className={cn(
           'overflow-hidden transition-all duration-300 hover:bg-purple-500/5 rounded-full',
-          (isLastPage || hideNavigationButtons) && !isDragging ? 'w-0' : 'w-10 min-w-10'
+          shouldHideNextNavButton ? 'w-0' : 'w-10 min-w-10'
         )}
       >
         <ChevronRightIcon className="w-10 h-10 text-purple-500" />
