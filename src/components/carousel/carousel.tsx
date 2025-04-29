@@ -1,97 +1,99 @@
-import React, { useState, Children, useRef } from 'react';
+import React, { useState, Children, useRef, useEffect } from 'react';
 
 import { ChevronLeftIcon, ChevronRightIcon } from '@stash-ui/light-icons/dist';
 import { cn } from '@/lib/utils';
 
 interface SliderProps {
   children: React.ReactNode;
+  className?: string;
   settings?: {
-    itemWidth: number;
-    spaceBetween: number;
+    itemWidth?: number;
+    spaceBetween?: number;
+    hideNavigationButtons?: boolean;
   };
 }
 
 const DEFAULT_SETTINGS = {
   itemWidth: 224,
-  spaceBetween: 24
+  spaceBetween: 24,
+  hideNavigationButtons: false
 };
 
-export default function Slider({ children, settings = DEFAULT_SETTINGS }: SliderProps) {
+const BUTTON__CONTROLL_SIZE = 40;
+
+export default function Slider({ children, settings = DEFAULT_SETTINGS, className }: SliderProps) {
+  const initialSettings = { ...DEFAULT_SETTINGS, ...settings };
+  const { hideNavigationButtons, itemWidth, spaceBetween } = initialSettings;
+
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
-  const [currentPage, setCurrentPage] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageWidth, setPageWidth] = useState(0);
   const sliderRef = useRef<HTMLDivElement>(null);
 
-  console.log(currentPage);
+  const totalItems = Children.count(children);
+  const itemsPerPage = Math.max(1, Math.floor((pageWidth || 0) / (itemWidth + spaceBetween)));
+
+  const totalPages = Math.ceil(totalItems / itemsPerPage) || 1;
+
+  const isFirstPage = currentPage === 1;
+  const isLastPage = currentPage === totalPages;
+
+  console.log('currentPage', currentPage, totalItems, itemsPerPage, totalPages, pageWidth);
+
+  useEffect(() => {
+    if (sliderRef.current) {
+      const currentWidth = sliderRef.current.clientWidth;
+      setPageWidth(currentWidth);
+    }
+  }, [sliderRef.current]);
 
   if (!children) return null;
 
-  const totalItems = Children.count(children);
-  const itemsPerPage = Math.floor((sliderRef.current?.clientWidth || 0) / (settings.itemWidth + settings.spaceBetween));
-  const totalPages = Math.ceil(totalItems / itemsPerPage);
-
   const handleNext = () => {
-    if (sliderRef.current && currentPage < totalPages - 1) {
-      const nextPage = currentPage + 1;
-      setCurrentPage(nextPage);
+    if (sliderRef.current) {
+      setCurrentPage(currentPage + 1);
+      const widthToScroll = isFirstPage || isLastPage ? pageWidth - BUTTON__CONTROLL_SIZE : pageWidth;
       sliderRef.current.scrollTo({
-        left: nextPage * sliderRef.current.clientWidth,
+        left: widthToScroll * currentPage,
         behavior: 'smooth'
       });
     }
   };
 
   const handlePrev = () => {
-    if (sliderRef.current && currentPage > 0) {
-      const prevPage = currentPage - 1;
-      setCurrentPage(prevPage);
+    if (sliderRef.current) {
+      setCurrentPage(currentPage - 1);
+      const widthToScroll = isFirstPage || isLastPage ? pageWidth - BUTTON__CONTROLL_SIZE : pageWidth;
       sliderRef.current.scrollTo({
-        left: prevPage * sliderRef.current.clientWidth,
+        left: widthToScroll * (currentPage - 2),
         behavior: 'smooth'
       });
     }
   };
 
-  const handleMouseDown = (e: React.MouseEvent) => {
-    setIsDragging(true);
-    setStartX(e.pageX - (sliderRef.current?.offsetLeft || 0));
-    setScrollLeft(sliderRef.current?.scrollLeft || 0);
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
+  const handleMove = (x: number) => {
     if (!isDragging) return;
-    e.preventDefault();
-    const x = e.pageX - (sliderRef.current?.offsetLeft || 0);
-    const walk = (x - startX) * 2;
-    if (sliderRef.current) {
-      sliderRef.current.scrollLeft = scrollLeft - walk;
-      const maxScroll = sliderRef.current.scrollWidth - sliderRef.current.clientWidth;
-      const newPage = Math.round((sliderRef.current.scrollLeft / maxScroll) * (totalPages - 1));
-      setCurrentPage(Math.max(0, Math.min(newPage, totalPages - 1)));
-    }
   };
 
-  const handleMouseUp = () => {
-    if (!isDragging) return;
-    setIsDragging(false);
-    if (sliderRef.current) {
-      const maxScroll = sliderRef.current.scrollWidth - sliderRef.current.clientWidth;
-      const newPage = Math.round((sliderRef.current.scrollLeft / maxScroll) * (totalPages - 1));
-      setCurrentPage(Math.max(0, Math.min(newPage, totalPages - 1)));
-    }
-  };
+  const handleMouseUp = () => {};
 
-  const isFirstPage = currentPage === 0;
-  const isLastPage = currentPage === totalPages - 1;
+  const handleTouchStart = (e: React.TouchEvent) => {};
+
+  const handleMouseDown = (e: React.MouseEvent) => {};
+
+  const handleMouseMove = (e: React.MouseEvent) => {};
+
+  const handleTouchMove = (e: React.TouchEvent) => {};
 
   return (
-    <div className="flex items-center gap-6">
+    <div className={cn('flex items-center gap-6', className)}>
       <button
         onClick={handlePrev}
         className={cn(
           'overflow-hidden transition-all duration-300 hover:bg-purple-500/5 rounded-full',
-          isFirstPage ? 'w-0' : 'w-10 min-w-10'
+          (isFirstPage || hideNavigationButtons) && !isDragging ? 'w-0' : 'w-10 min-w-10'
         )}
       >
         <ChevronLeftIcon className="w-10 h-10 text-purple-500" />
@@ -103,10 +105,13 @@ export default function Slider({ children, settings = DEFAULT_SETTINGS }: Slider
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleMouseUp}
       >
-        <div className="flex" style={{ gap: settings.spaceBetween }}>
+        <div className="flex" style={{ gap: spaceBetween }}>
           {Children.toArray(children).map((child, index) => (
-            <div key={index} className="flex-shrink-0" style={{ width: settings.itemWidth }}>
+            <div key={index} className="flex-shrink-0" style={{ width: itemWidth }}>
               {child}
             </div>
           ))}
@@ -116,7 +121,7 @@ export default function Slider({ children, settings = DEFAULT_SETTINGS }: Slider
         onClick={handleNext}
         className={cn(
           'overflow-hidden transition-all duration-300 hover:bg-purple-500/5 rounded-full',
-          isLastPage ? 'w-0' : 'w-10 min-w-10'
+          (isLastPage || hideNavigationButtons) && !isDragging ? 'w-0' : 'w-10 min-w-10'
         )}
       >
         <ChevronRightIcon className="w-10 h-10 text-purple-500" />

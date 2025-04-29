@@ -6,7 +6,30 @@ import type { Meta, StoryObj } from '@storybook/react';
 const meta: Meta<typeof Carousel> = {
   title: 'Components/Carousel',
   component: Carousel,
-  tags: ['autodocs']
+  tags: ['autodocs'],
+  argTypes: {
+    settings: {
+      control: 'object',
+      description: 'Configurações do carousel',
+      defaultValue: {
+        itemWidth: 224,
+        spaceBetween: 24,
+        hideNavigationButtons: false
+      },
+      table: {
+        type: {
+          summary: '{ itemWidth?: number; spaceBetween?: number; hideNavigationButtons?: boolean; }'
+        },
+        defaultValue: {
+          summary: JSON.stringify({
+            itemWidth: 224,
+            spaceBetween: 24,
+            hideNavigationButtons: false
+          })
+        }
+      }
+    }
+  }
 } satisfies Meta<typeof Carousel>;
 
 export default meta;
@@ -18,8 +41,15 @@ const Card = ({ color, number }: { color: string; number: number }) => (
 );
 
 export const Default: Story = {
-  render: () => (
-    <Carousel>
+  args: {
+    settings: {
+      itemWidth: 224,
+      spaceBetween: 24,
+      hideNavigationButtons: false
+    }
+  },
+  render: (args) => (
+    <Carousel {...args}>
       <Card color="bg-red-500" number={1} />
       <Card color="bg-blue-500" number={2} />
       <Card color="bg-green-500" number={3} />
