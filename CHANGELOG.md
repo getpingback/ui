@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.397](https://github.com/getpingback/ui/compare/v0.0.396...v0.0.397) (2025-04-29)
+
+
+### Bug Fixes
+
+* textarea ([68f231a](https://github.com/getpingback/ui/commits/68f231a43dacab7e7d80e39a7b0b4802069cee29))
+
 ### [0.0.395](https://github.com/getpingback/ui/compare/v0.0.394...v0.0.395) (2025-04-29)
 
 
