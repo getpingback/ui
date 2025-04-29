@@ -7,6 +7,7 @@ interface TextAreaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   error?: string;
   helperText?: string;
   defaultHeight?: number;
+  onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
 const TextArea = ({
@@ -35,7 +36,8 @@ const TextArea = ({
             'placeholder:text-tertiary-foreground placeholder:opacity-65 placeholder:font-normal placeholder:text-sm',
             { 'border-divider-error focus:border-divider-error focus:shadow-text-field-error': error },
             { 'border-divider hover:border-divider-active focus:border-divider-highlighted focus:shadow-text-field': !error },
-            { 'border-divider-disabled hover:border-divider-disabled cursor-not-allowed': disabled }
+            { 'border-divider-disabled hover:border-divider-disabled cursor-not-allowed': disabled },
+            'resize-none'
           )}
           style={{ height: defaultHeight }}
           placeholder={placeholder}
