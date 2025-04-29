@@ -3,55 +3,55 @@ import React, { useState, Children, useRef } from 'react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@stash-ui/light-icons/dist';
 import { cn } from '@/lib/utils';
 
-export default function Slider({ children }: { children: React.ReactNode }) {
-  const [currentIndex, setCurrentIndex] = useState(0);
+interface SliderProps {
+  children: React.ReactNode;
+  settings?: {
+    itemWidth: number;
+    spaceBetween: number;
+  };
+}
+
+const DEFAULT_SETTINGS = {
+  itemWidth: 224,
+  spaceBetween: 24
+};
+
+export default function Slider({ children, settings = DEFAULT_SETTINGS }: SliderProps) {
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
+  const [currentPage, setCurrentPage] = useState(0);
   const sliderRef = useRef<HTMLDivElement>(null);
 
+  console.log(currentPage);
+
+  if (!children) return null;
+
   const totalItems = Children.count(children);
+  const itemsPerPage = Math.floor((sliderRef.current?.clientWidth || 0) / (settings.itemWidth + settings.spaceBetween));
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
 
   const handleNext = () => {
-    if (sliderRef.current) {
-      const { scrollLeft, clientWidth, scrollWidth } = sliderRef.current;
-      const nextScrollLeft = scrollLeft + clientWidth;
-
+    if (sliderRef.current && currentPage < totalPages - 1) {
+      const nextPage = currentPage + 1;
+      setCurrentPage(nextPage);
       sliderRef.current.scrollTo({
-        left: nextScrollLeft,
+        left: nextPage * sliderRef.current.clientWidth,
         behavior: 'smooth'
       });
-
-      console.log('next out', nextScrollLeft, clientWidth);
-
-      if (Math.ceil(nextScrollLeft + clientWidth) >= scrollWidth) {
-        setCurrentIndex(totalItems - 1);
-      } else {
-        setCurrentIndex(Math.floor(nextScrollLeft / clientWidth));
-      }
     }
   };
 
   const handlePrev = () => {
-    if (sliderRef.current) {
-      const { scrollLeft, clientWidth } = sliderRef.current;
-      const prevScrollLeft = scrollLeft - clientWidth;
-
+    if (sliderRef.current && currentPage > 0) {
+      const prevPage = currentPage - 1;
+      setCurrentPage(prevPage);
       sliderRef.current.scrollTo({
-        left: prevScrollLeft,
+        left: prevPage * sliderRef.current.clientWidth,
         behavior: 'smooth'
       });
-
-      const currentScrollIndex = Math.round(scrollLeft / clientWidth);
-      if (currentScrollIndex > 0) {
-        setCurrentIndex(currentScrollIndex - 1);
-      } else {
-        setCurrentIndex(0);
-      }
     }
   };
-
-  if (!children) return null;
 
   const handleMouseDown = (e: React.MouseEvent) => {
     setIsDragging(true);
@@ -66,30 +66,33 @@ export default function Slider({ children }: { children: React.ReactNode }) {
     const walk = (x - startX) * 2;
     if (sliderRef.current) {
       sliderRef.current.scrollLeft = scrollLeft - walk;
+      const maxScroll = sliderRef.current.scrollWidth - sliderRef.current.clientWidth;
+      const newPage = Math.round((sliderRef.current.scrollLeft / maxScroll) * (totalPages - 1));
+      setCurrentPage(Math.max(0, Math.min(newPage, totalPages - 1)));
     }
   };
 
   const handleMouseUp = () => {
+    if (!isDragging) return;
     setIsDragging(false);
-
     if (sliderRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } = sliderRef.current;
-
-      if (scrollLeft === 0) {
-        setCurrentIndex(0);
-      } else if (Math.ceil(scrollLeft + clientWidth) >= scrollWidth) {
-        setCurrentIndex(totalItems - 1);
-      }
+      const maxScroll = sliderRef.current.scrollWidth - sliderRef.current.clientWidth;
+      const newPage = Math.round((sliderRef.current.scrollLeft / maxScroll) * (totalPages - 1));
+      setCurrentPage(Math.max(0, Math.min(newPage, totalPages - 1)));
     }
   };
+
+  const isFirstPage = currentPage === 0;
+  const isLastPage = currentPage === totalPages - 1;
 
   return (
     <div className="flex items-center gap-6">
       <button
         onClick={handlePrev}
-        className={`${
-          currentIndex > 0 ? 'w-10 min-w-10' : 'w-0'
-        } overflow-hidden transition-all duration-300 hover:bg-purple-500/5 rounded-full`}
+        className={cn(
+          'overflow-hidden transition-all duration-300 hover:bg-purple-500/5 rounded-full',
+          isFirstPage ? 'w-0' : 'w-10 min-w-10'
+        )}
       >
         <ChevronLeftIcon className="w-10 h-10 text-purple-500" />
       </button>
@@ -101,13 +104,20 @@ export default function Slider({ children }: { children: React.ReactNode }) {
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}
       >
-        <div className="flex gap-6">{children}</div>
+        <div className="flex" style={{ gap: settings.spaceBetween }}>
+          {Children.toArray(children).map((child, index) => (
+            <div key={index} className="flex-shrink-0" style={{ width: settings.itemWidth }}>
+              {child}
+            </div>
+          ))}
+        </div>
       </div>
       <button
         onClick={handleNext}
-        className={`${
-          currentIndex < totalItems - 1 ? 'w-10 min-w-10' : 'w-0'
-        } overflow-hidden transition-all duration-300 hover:bg-purple-500/5 rounded-full`}
+        className={cn(
+          'overflow-hidden transition-all duration-300 hover:bg-purple-500/5 rounded-full',
+          isLastPage ? 'w-0' : 'w-10 min-w-10'
+        )}
       >
         <ChevronRightIcon className="w-10 h-10 text-purple-500" />
       </button>
