@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.395](https://github.com/getpingback/ui/compare/v0.0.394...v0.0.395) (2025-04-29)
+
+
+### Features
+
+* create a textarea component ([bbca311](https://github.com/getpingback/ui/commits/bbca311b41de9fca167033a417fbda0156efdec3))
+
+
+### Bug Fixes
+
+* tests ([48d912a](https://github.com/getpingback/ui/commits/48d912ae4ed3df1760cf3608d645f7fb28820fc2))
+
 ### [0.0.393](https://github.com/getpingback/ui/compare/v0.0.392...v0.0.393) (2025-04-24)
 
 ### [0.0.391](https://github.com/getpingback/ui/compare/v0.0.389...v0.0.391) (2025-04-24)
