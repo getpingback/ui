@@ -25,6 +25,11 @@ export const Default: Story = {
       <Card color="bg-green-500" number={3} />
       <Card color="bg-yellow-500" number={4} />
       <Card color="bg-purple-500" number={5} />
+      <Card color="bg-red-500" number={6} />
+      <Card color="bg-blue-500" number={7} />
+      <Card color="bg-green-500" number={8} />
+      <Card color="bg-yellow-500" number={9} />
+      <Card color="bg-purple-500" number={10} />
     </Carousel>
   )
 };

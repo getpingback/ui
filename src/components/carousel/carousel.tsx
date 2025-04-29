@@ -10,17 +10,48 @@ export default function Slider({ children }: { children: React.ReactNode }) {
   const [scrollLeft, setScrollLeft] = useState(0);
   const sliderRef = useRef<HTMLDivElement>(null);
 
+  const totalItems = Children.count(children);
+
   const handleNext = () => {
-    setCurrentIndex(currentIndex + 1);
+    if (sliderRef.current) {
+      const { scrollLeft, clientWidth, scrollWidth } = sliderRef.current;
+      const nextScrollLeft = scrollLeft + clientWidth;
+
+      sliderRef.current.scrollTo({
+        left: nextScrollLeft,
+        behavior: 'smooth'
+      });
+
+      console.log('next out', nextScrollLeft, clientWidth);
+
+      if (Math.ceil(nextScrollLeft + clientWidth) >= scrollWidth) {
+        setCurrentIndex(totalItems - 1);
+      } else {
+        setCurrentIndex(Math.floor(nextScrollLeft / clientWidth));
+      }
+    }
   };
 
   const handlePrev = () => {
-    setCurrentIndex(currentIndex - 1);
+    if (sliderRef.current) {
+      const { scrollLeft, clientWidth } = sliderRef.current;
+      const prevScrollLeft = scrollLeft - clientWidth;
+
+      sliderRef.current.scrollTo({
+        left: prevScrollLeft,
+        behavior: 'smooth'
+      });
+
+      const currentScrollIndex = Math.round(scrollLeft / clientWidth);
+      if (currentScrollIndex > 0) {
+        setCurrentIndex(currentScrollIndex - 1);
+      } else {
+        setCurrentIndex(0);
+      }
+    }
   };
 
   if (!children) return null;
-
-  const totalItems = Children.count(children);
 
   const handleMouseDown = (e: React.MouseEvent) => {
     setIsDragging(true);
@@ -57,7 +88,7 @@ export default function Slider({ children }: { children: React.ReactNode }) {
       <button
         onClick={handlePrev}
         className={`${
-          currentIndex > 0 ? 'w-[40px]' : 'w-0'
+          currentIndex > 0 ? 'w-10 min-w-10' : 'w-0'
         } overflow-hidden transition-all duration-300 hover:bg-purple-500/5 rounded-full`}
       >
         <ChevronLeftIcon className="w-10 h-10 text-purple-500" />
@@ -75,7 +106,7 @@ export default function Slider({ children }: { children: React.ReactNode }) {
       <button
         onClick={handleNext}
         className={`${
-          currentIndex < totalItems - 1 ? 'w-[40px]' : 'w-0'
+          currentIndex < totalItems - 1 ? 'w-10 min-w-10' : 'w-0'
         } overflow-hidden transition-all duration-300 hover:bg-purple-500/5 rounded-full`}
       >
         <ChevronRightIcon className="w-10 h-10 text-purple-500" />
