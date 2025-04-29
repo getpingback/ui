@@ -14,18 +14,18 @@ describe('TextArea', () => {
     expect(screen.getByPlaceholderText('Enter text')).toBeInTheDocument();
   });
 
-  it('should handle user input', async () => {
+  it('should handle onChange', async () => {
     const handleChange = jest.fn();
     render(<TextArea onChange={handleChange} />);
 
-    const input = screen.getByRole('textbox');
-    await userEvent.type(input, 'test');
+    const textarea = screen.getByRole('textbox');
+    await userEvent.type(textarea, 'test');
 
     expect(handleChange).toHaveBeenCalled();
-    expect(input).toHaveValue('test');
+    expect(textarea).toHaveValue('test');
   });
 
-  it('should display error message and icon', () => {
+  it('should display error message', () => {
     render(<TextArea error="Error message" />);
 
     expect(screen.getByText('Error message')).toBeInTheDocument();
