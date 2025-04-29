@@ -11,7 +11,7 @@ describe('Typography', () => {
     render(<Typography>Test Content</Typography>);
     const element = screen.getByText('Test Content');
     expect(element.tagName).toBe('SPAN');
-    expect(element).toHaveClass('text-sm', 'leading-[170%]', 'font-normal', 'text-left', 'text-foreground');
+    expect(element).toHaveClass('text-sm', 'leading-[170%]', 'font-normal', 'text-left', 'text-primary-foreground');
   });
 
   it('renders different HTML elements based on variant', () => {
@@ -37,7 +37,7 @@ describe('Typography', () => {
 
   it('applies type classes correctly', () => {
     const { rerender } = render(<Typography type="primary">Primary Text</Typography>);
-    expect(screen.getByText('Primary Text')).toHaveClass('text-foreground');
+    expect(screen.getByText('Primary Text')).toHaveClass('text-primary-foreground');
 
     rerender(<Typography type="secondary">Secondary Text</Typography>);
     expect(screen.getByText('Secondary Text')).toHaveClass('text-secondary-foreground');
