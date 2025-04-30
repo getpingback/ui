@@ -31,4 +31,5 @@ export * from './typography';
 export * from './button';
 export * from './checkbox-group';
 export * from './spinner';
+export * from './swiper';
 export * from './text-area';
