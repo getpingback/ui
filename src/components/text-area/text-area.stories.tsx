@@ -1,10 +1,10 @@
 import React from 'react';
 import { StoryObj } from '@storybook/react';
-import { TextField } from './text-field';
+import { TextArea } from './text-area';
 import { SearchIcon } from '@stash-ui/light-icons';
 const meta = {
-  title: 'TextField',
-  component: TextField,
+  title: 'TextArea',
+  component: TextArea,
   tags: ['autodocs'],
   argTypes: {
     label: {
@@ -31,11 +31,28 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    label: 'TextField',
+    label: 'TextArea',
+    placeholder: 'Placeholder',
+    helperText: 'Helper text',
+    disabled: false,
+    required: true
+  }
+};
+
+export const Disabled: Story = {
+  args: {
+    label: 'TextArea',
+    placeholder: 'Placeholder',
+    disabled: true
+  }
+};
+
+export const Error: Story = {
+  args: {
+    label: 'TextArea',
     placeholder: 'Placeholder',
     error: 'Error',
-    required: true,
     helperText: 'Helper text',
-    prefix: <SearchIcon />
+    disabled: false
   }
 };
