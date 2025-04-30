@@ -28,6 +28,7 @@ const Swiper = ({ children, settings = DEFAULT_SETTINGS, className }: SwiperProp
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
+  const [currentPosition, setCurrentPosition] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [pageWidth, setPageWidth] = useState(0);
   const sliderRef = useRef<HTMLDivElement>(null);
@@ -36,14 +37,15 @@ const Swiper = ({ children, settings = DEFAULT_SETTINGS, className }: SwiperProp
   const itemsPerPage = Math.max(1, Math.floor((pageWidth || 0) / (itemWidth + spaceBetween)));
 
   const totalPages = Math.ceil(totalItems / itemsPerPage) || 1;
+  const maxScrollPosition = totalItems * (itemWidth + spaceBetween) - pageWidth;
 
   const isFirstPage = currentPage === 1;
   const isLastPage = currentPage === totalPages;
+  const isAtStart = currentPosition <= 0;
+  const isAtEnd = currentPosition >= maxScrollPosition;
 
-  console.log(currentPage, totalPages, scrollLeft);
-
-  const shouldHideNextNavButton = (isLastPage || hideNavigationButtons) && !isDragging;
-  const shouldHidePrevNavButton = (isFirstPage || hideNavigationButtons) && !isDragging;
+  const shouldHideNextNavButton = (isAtEnd || hideNavigationButtons) && !isDragging;
+  const shouldHidePrevNavButton = (isAtStart || hideNavigationButtons) && !isDragging;
 
   useEffect(() => {
     if (sliderRef.current) {
@@ -56,8 +58,10 @@ const Swiper = ({ children, settings = DEFAULT_SETTINGS, className }: SwiperProp
 
   const handleNext = () => {
     if (sliderRef.current) {
-      setCurrentPage(currentPage + 1);
+      if (currentPage < totalPages) setCurrentPage(currentPage + 1);
+
       const widthToScroll = isFirstPage || isLastPage ? pageWidth - BUTTON__CONTROLL_SIZE : pageWidth;
+      setCurrentPosition(widthToScroll * currentPage);
       sliderRef.current.scrollTo({
         left: widthToScroll * currentPage,
         behavior: 'smooth'
@@ -67,8 +71,10 @@ const Swiper = ({ children, settings = DEFAULT_SETTINGS, className }: SwiperProp
 
   const handlePrev = () => {
     if (sliderRef.current) {
-      setCurrentPage(currentPage - 1);
+      if (currentPage > 1) setCurrentPage(currentPage - 1);
+
       const widthToScroll = isFirstPage || isLastPage ? pageWidth - BUTTON__CONTROLL_SIZE : pageWidth;
+      setCurrentPosition(widthToScroll * (currentPage - 2));
       sliderRef.current.scrollTo({
         left: widthToScroll * (currentPage - 2),
         behavior: 'smooth'
@@ -80,6 +86,7 @@ const Swiper = ({ children, settings = DEFAULT_SETTINGS, className }: SwiperProp
     if (!isDragging) return;
 
     if (sliderRef.current) {
+      setCurrentPosition(sliderRef.current.scrollLeft);
       const diff = x - startX;
       const newScrollLeft = scrollLeft - diff;
       sliderRef.current.scrollLeft = newScrollLeft;
