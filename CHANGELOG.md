@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.399](https://github.com/getpingback/ui/compare/v0.0.398...v0.0.399) (2025-04-30)
+
+
+### Features
+
+* add settings prop ([dfc945f](https://github.com/getpingback/ui/commits/dfc945f304c81d73348ac7ad9101cb0c87104e9d))
+* carousel works(not properly) ([ffefe0e](https://github.com/getpingback/ui/commits/ffefe0e4f15b7f4b929c27e8d8adf9ce9aea4a52))
+* change carousel name to swiper ([19965e1](https://github.com/getpingback/ui/commits/19965e1cc59b89889d61d4caeb2b265222f82a0c))
+* create carousel slider component ([48f6c4a](https://github.com/getpingback/ui/commits/48f6c4a30137d463e2c7d646502fb17c539b77cd))
+* merge with main ([80384a7](https://github.com/getpingback/ui/commits/80384a748c94bd3f5b0e387a8c5953307e7ea4ff))
+* navigation works ([3ddaa74](https://github.com/getpingback/ui/commits/3ddaa7486e6283ac1a7fb2dda48b977a4a9a6cd4))
+* next and prev button works in all devices ([19432ef](https://github.com/getpingback/ui/commits/19432ef1e849f998fc7c27acf72cc1da3c23091b))
+* swiper at start and at end ([6577184](https://github.com/getpingback/ui/commits/65771847209f76a9435ac58d21c19af73ea25f2f))
+
+
+### Bug Fixes
+
+* add ref to textfield and textarea ([dc8f725](https://github.com/getpingback/ui/commits/dc8f725b2947f931f856a957df7b56c3725ea2d6))
+
 ### [0.0.397](https://github.com/getpingback/ui/compare/v0.0.396...v0.0.397) (2025-04-29)
 
 
