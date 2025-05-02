@@ -33,3 +33,4 @@ export * from './checkbox-group';
 export * from './spinner';
 export * from './swiper';
 export * from './text-area';
+export * from './toast';
