@@ -221,6 +221,9 @@ const config = {
         success: {
           foreground: 'var(--text-success)'
         },
+        caution: {
+          foreground: 'var(--text-caution)'
+        },
         tertiary: {
           foreground: 'var(--text-tertiary)'
         },

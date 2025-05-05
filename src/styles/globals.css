@@ -251,3 +251,15 @@ input[type='number']::-webkit-outer-spin-button {
 .spin-dash {
   animation: dash 1.4s ease-in-out infinite;
 }
+
+
+[data-sonner-toast] [data-close-button] {
+  background-color: transparent !important;
+  color: #71717A !important;
+  
+}
+
+[data-sonner-toast] [data-close-button]:hover,
+[data-sonner-toast] [data-close-button]:focus {
+  background-color: transparent !important;
+}
