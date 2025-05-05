@@ -2,6 +2,46 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.404](https://github.com/getpingback/ui/compare/v0.0.400...v0.0.404) (2025-05-05)
+
+
+### Bug Fixes
+
+* add custom styles on toast ([0c5ee77](https://github.com/getpingback/ui/commits/0c5ee779fe79396124a4d5377936e9aa37e05e99))
+* export toast ([b80a1e8](https://github.com/getpingback/ui/commits/b80a1e8f515b32646bd5aa0803ae5369f39c3751))
+* on click children ([970bc4d](https://github.com/getpingback/ui/commits/970bc4d4567a2ec4efac172628b13ab543ad9f0c))
+* removed yarn.lock ([052e8be](https://github.com/getpingback/ui/commits/052e8beebf4a6229dc23a895de215fdb5ecdad5f))
+
+### [0.0.403](https://github.com/getpingback/ui/compare/v0.0.400...v0.0.403) (2025-05-05)
+
+
+### Bug Fixes
+
+* add custom styles on toast ([0c5ee77](https://github.com/getpingback/ui/commits/0c5ee779fe79396124a4d5377936e9aa37e05e99))
+* export toast ([b80a1e8](https://github.com/getpingback/ui/commits/b80a1e8f515b32646bd5aa0803ae5369f39c3751))
+* on click children ([970bc4d](https://github.com/getpingback/ui/commits/970bc4d4567a2ec4efac172628b13ab543ad9f0c))
+* removed yarn.lock ([052e8be](https://github.com/getpingback/ui/commits/052e8beebf4a6229dc23a895de215fdb5ecdad5f))
+
+### [0.0.402](https://github.com/getpingback/ui/compare/v0.0.400...v0.0.402) (2025-05-05)
+
+
+### Bug Fixes
+
+* add custom styles on toast ([0c5ee77](https://github.com/getpingback/ui/commits/0c5ee779fe79396124a4d5377936e9aa37e05e99))
+* export toast ([b80a1e8](https://github.com/getpingback/ui/commits/b80a1e8f515b32646bd5aa0803ae5369f39c3751))
+* on click children ([970bc4d](https://github.com/getpingback/ui/commits/970bc4d4567a2ec4efac172628b13ab543ad9f0c))
+* removed yarn.lock ([052e8be](https://github.com/getpingback/ui/commits/052e8beebf4a6229dc23a895de215fdb5ecdad5f))
+
+### [0.0.401](https://github.com/getpingback/ui/compare/v0.0.400...v0.0.401) (2025-05-05)
+
+
+### Bug Fixes
+
+* add custom styles on toast ([0c5ee77](https://github.com/getpingback/ui/commits/0c5ee779fe79396124a4d5377936e9aa37e05e99))
+* export toast ([b80a1e8](https://github.com/getpingback/ui/commits/b80a1e8f515b32646bd5aa0803ae5369f39c3751))
+* on click children ([970bc4d](https://github.com/getpingback/ui/commits/970bc4d4567a2ec4efac172628b13ab543ad9f0c))
+* removed yarn.lock ([052e8be](https://github.com/getpingback/ui/commits/052e8beebf4a6229dc23a895de215fdb5ecdad5f))
+
 ### [0.0.399](https://github.com/getpingback/ui/compare/v0.0.398...v0.0.399) (2025-04-30)
 
 
