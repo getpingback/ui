@@ -100,7 +100,8 @@ const Swiper = ({ children, settings = DEFAULT_SETTINGS, className }: SwiperProp
     }
   };
 
-  const handleMouseUp = () => {
+  const handleMouseUp = (e: React.MouseEvent | React.TouchEvent) => {
+    e.stopPropagation();
     setIsDragging(false);
   };
 
@@ -125,12 +126,12 @@ const Swiper = ({ children, settings = DEFAULT_SETTINGS, className }: SwiperProp
   };
 
   return (
-    <div className={cn('flex items-center gap-6', className)}>
+    <div className={cn('flex items-center', className)}>
       <button
         onClick={handlePrev}
         className={cn(
           'overflow-hidden transition-all duration-300 hover:bg-purple-500/5 rounded-full',
-          shouldHidePrevNavButton ? 'w-0' : 'w-10 min-w-10'
+          shouldHidePrevNavButton ? 'w-0' : 'w-10 min-w-10 mr-6'
         )}
       >
         <ChevronLeftIcon className="w-10 h-10 text-purple-500" />
@@ -146,7 +147,7 @@ const Swiper = ({ children, settings = DEFAULT_SETTINGS, className }: SwiperProp
         onTouchMove={handleTouchMove}
         onTouchEnd={handleMouseUp}
       >
-        <div className="flex" style={{ gap: spaceBetween }}>
+        <div className="flex items-center gap-6" style={{ gap: spaceBetween }}>
           {Children.toArray(children).map((child, index) => (
             <div key={index} className="flex-shrink-0" style={{ width: itemWidth }}>
               {child}
@@ -158,7 +159,7 @@ const Swiper = ({ children, settings = DEFAULT_SETTINGS, className }: SwiperProp
         onClick={handleNext}
         className={cn(
           'overflow-hidden transition-all duration-300 hover:bg-purple-500/5 rounded-full',
-          shouldHideNextNavButton ? 'w-0' : 'w-10 min-w-10'
+          shouldHideNextNavButton ? 'w-0' : 'w-10 min-w-10 ml-6'
         )}
       >
         <ChevronRightIcon className="w-10 h-10 text-purple-500" />
