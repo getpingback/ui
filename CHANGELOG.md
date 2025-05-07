@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.406](https://github.com/getpingback/ui/compare/v0.0.405...v0.0.406) (2025-05-07)
+
+
+### Bug Fixes
+
+* merge ([454060d](https://github.com/getpingback/ui/commits/454060d49ebe0d77268b925d679cfd1d1957e680))
+* toast layout ([6233e4f](https://github.com/getpingback/ui/commits/6233e4f390d3af6ba7e419bd5bc2f9e7d3dae2f9))
+
 ### [0.0.404](https://github.com/getpingback/ui/compare/v0.0.400...v0.0.404) (2025-05-05)
 
 
