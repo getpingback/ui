@@ -20,6 +20,7 @@ const DEFAULT_SETTINGS = {
 };
 
 const BUTTON__CONTROLL_SIZE = 40;
+const DRAG_THRESHOLD = 5;
 
 const Swiper = ({ children, settings = DEFAULT_SETTINGS, className }: SwiperProps) => {
   const initialSettings = { ...DEFAULT_SETTINGS, ...settings };
@@ -32,6 +33,7 @@ const Swiper = ({ children, settings = DEFAULT_SETTINGS, className }: SwiperProp
   const [currentPage, setCurrentPage] = useState(1);
   const [pageWidth, setPageWidth] = useState(0);
   const sliderRef = useRef<HTMLDivElement>(null);
+  const wasDraggingRef = useRef(false);
 
   const totalItems = Children.count(children);
   const itemsPerPage = Math.max(1, Math.floor((pageWidth || 0) / (itemWidth + spaceBetween)));
@@ -83,15 +85,17 @@ const Swiper = ({ children, settings = DEFAULT_SETTINGS, className }: SwiperProp
   };
 
   const handleMove = (x: number) => {
-    if (!isDragging) return;
+    if (!isDragging || !sliderRef.current) return;
 
-    if (sliderRef.current) {
-      setCurrentPosition(sliderRef.current.scrollLeft);
-      const diff = x - startX;
-      const newScrollLeft = scrollLeft - diff;
-      sliderRef.current.scrollLeft = newScrollLeft;
+    const diff = x - startX;
+    if (Math.abs(diff) > DRAG_THRESHOLD) wasDraggingRef.current = true;
 
-      const widthToScroll = isFirstPage || isLastPage ? pageWidth - BUTTON__CONTROLL_SIZE : pageWidth;
+    const newScrollLeft = scrollLeft - diff;
+    sliderRef.current.scrollLeft = newScrollLeft;
+    setCurrentPosition(newScrollLeft);
+
+    const widthToScroll = isFirstPage || isLastPage ? pageWidth - BUTTON__CONTROLL_SIZE : pageWidth;
+    if (widthToScroll > 0) {
       const newPage = Math.round(newScrollLeft / widthToScroll) + 1;
 
       if (newPage !== currentPage && newPage > 0 && newPage <= totalPages) {
@@ -101,17 +105,18 @@ const Swiper = ({ children, settings = DEFAULT_SETTINGS, className }: SwiperProp
   };
 
   const handleMouseUp = (e: React.MouseEvent | React.TouchEvent) => {
-    e.stopPropagation();
     setIsDragging(false);
   };
 
   const handleTouchStart = (e: React.TouchEvent) => {
+    wasDraggingRef.current = false;
     setIsDragging(true);
     setStartX(e.touches[0].pageX);
     setScrollLeft(sliderRef.current?.scrollLeft || 0);
   };
 
   const handleMouseDown = (e: React.MouseEvent) => {
+    wasDraggingRef.current = false;
     setIsDragging(true);
     setStartX(e.pageX);
     setScrollLeft(sliderRef.current?.scrollLeft || 0);
@@ -123,6 +128,14 @@ const Swiper = ({ children, settings = DEFAULT_SETTINGS, className }: SwiperProp
 
   const handleTouchMove = (e: React.TouchEvent) => {
     handleMove(e.touches[0].pageX);
+  };
+
+  const handleClickCapture = (e: React.MouseEvent) => {
+    if (wasDraggingRef.current) {
+      e.stopPropagation();
+      e.preventDefault();
+      wasDraggingRef.current = false;
+    }
   };
 
   return (
@@ -146,6 +159,7 @@ const Swiper = ({ children, settings = DEFAULT_SETTINGS, className }: SwiperProp
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleMouseUp}
+        onClickCapture={handleClickCapture}
       >
         <div className="flex items-center gap-6" style={{ gap: spaceBetween }}>
           {Children.toArray(children).map((child, index) => (
