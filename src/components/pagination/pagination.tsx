@@ -3,6 +3,7 @@ import { cn } from '@/lib/utils';
 import { cva } from 'class-variance-authority';
 import { ChevronLeftIcon, ChevronRightIcon, ChevronDoubleLeftIcon, ChevronDoubleRightIcon } from '@stash-ui/regular-icons';
 import { getPaginationRange, DOTS } from '@/lib/utils';
+import { Button } from '../button';
 
 const buttonVariants = cva(
   'h-[32px] min-w-[32px] px-3 inline-flex items-center justify-center whitespace-nowrap text-sm font-medium focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 transition-all duration-300 ease-in-out',
@@ -30,36 +31,17 @@ export interface PaginationItemProps extends React.ComponentProps<'button'> {
   disabled?: boolean;
 }
 
-function PaginationItem({ children, isActive, isRounded, className, disabled, ...props }: PaginationItemProps) {
+function PaginationItem({ children, isActive, isRounded, disabled, ...props }: PaginationItemProps) {
   return (
-    <button
-      className={cn(
-        buttonVariants({
-          variant: isActive ? 'solid' : 'default',
-          rounded: isRounded ? 'full' : 'default'
-        }),
-        disabled ? 'cursor-not-allowed  opacity-45' : '',
-        className
-      )}
+    <Button
       {...props}
+      variant={isActive ? 'solid' : 'outline'}
+      rounded={isRounded ? 'full' : 'lg'}
+      disabled={disabled}
+      className="h-8 w-8 p-0"
     >
-      {children}
-    </button>
-  );
-}
-
-export interface ControllersProps extends React.ComponentProps<'button'> {
-  onClick: () => void;
-  children: React.ReactNode;
-  className?: string;
-  disabled?: boolean;
-}
-
-function Controller({ children, onClick, disabled, ...props }: ControllersProps) {
-  return (
-    <PaginationItem onClick={onClick} disabled={disabled} {...props}>
-      {children}
-    </PaginationItem>
+      <span className="w-full flex items-center justify-center font-semibold">{children}</span>
+    </Button>
   );
 }
 
@@ -73,7 +55,7 @@ export interface PaginationProps extends React.ComponentProps<'nav'> {
 }
 
 const Pagination = ({ totalPages, onPageChange, page, siblingCount = 1, round = false, className, ...props }: PaginationProps) => {
-  const [currentPage, setCurrentPage] = useState();
+  const [currentPage, setCurrentPage] = useState<number>(1);
 
   useEffect(() => {
     setCurrentPage(page);
@@ -88,51 +70,62 @@ const Pagination = ({ totalPages, onPageChange, page, siblingCount = 1, round = 
   };
 
   return (
-    <nav role="navigation" aria-label="pagination" className={cn('mx-auto flex w-full justify-center')} data-testid="pagination" {...props}>
-      <Controller onClick={() => handleSetActivePage(1)} disabled={currentPage === 1} data-testid="pagination-first">
-        <ChevronDoubleLeftIcon />
-      </Controller>
-      <Controller
+    <nav
+      role="navigation"
+      aria-label="pagination"
+      className={cn('mx-auto flex w-full justify-center gap-2', className)}
+      data-testid="pagination"
+      {...props}
+    >
+      <PaginationItem onClick={() => handleSetActivePage(1)} disabled={currentPage === 1} data-testid="pagination-first" isRounded={round}>
+        <ChevronDoubleLeftIcon color="#71717A" width={16} height={16} />
+      </PaginationItem>
+      <PaginationItem
         onClick={() => handleSetActivePage(currentPage - 1)}
-        className="mr-2"
         disabled={currentPage === 1}
         data-testid="pagination-previous"
+        isRounded={round}
       >
-        <ChevronLeftIcon />
-      </Controller>
-      <span className="flex gap-1">
-        {paginationRange?.map((page, index) => {
-          const formattedPage = page as number;
-          if (page === DOTS) {
-            return (
-              <PaginationItem key={index} disabled data-testid="pagination-dots">
-                &hellip;
-              </PaginationItem>
-            );
-          }
+        <ChevronLeftIcon color="#71717A" width={16} height={16} />
+      </PaginationItem>
+
+      {paginationRange?.map((page, index) => {
+        const formattedPage = page as number;
+        if (page === DOTS) {
           return (
-            <PaginationItem
-              key={index}
-              isActive={formattedPage === currentPage}
-              isRounded={round}
-              onClick={() => handleSetActivePage(formattedPage)}
-            >
-              {page}
+            <PaginationItem key={index} disabled data-testid="pagination-dots" isRounded={round}>
+              &hellip;
             </PaginationItem>
           );
-        })}
-      </span>
-      <Controller
+        }
+        return (
+          <PaginationItem
+            key={index}
+            isActive={formattedPage === currentPage}
+            isRounded={round}
+            onClick={() => handleSetActivePage(formattedPage)}
+          >
+            {page}
+          </PaginationItem>
+        );
+      })}
+
+      <PaginationItem
         onClick={() => handleSetActivePage(currentPage + 1)}
-        className="ml-2"
         disabled={currentPage === totalPages}
         data-testid="pagination-next"
+        isRounded={round}
       >
-        <ChevronRightIcon />
-      </Controller>
-      <Controller onClick={() => handleSetActivePage(totalPages)} disabled={currentPage === totalPages} data-testid="pagination-last">
-        <ChevronDoubleRightIcon />
-      </Controller>
+        <ChevronRightIcon color="#71717A" width={16} height={16} />
+      </PaginationItem>
+      <PaginationItem
+        onClick={() => handleSetActivePage(totalPages)}
+        disabled={currentPage === totalPages}
+        data-testid="pagination-last"
+        isRounded={round}
+      >
+        <ChevronDoubleRightIcon color="#71717A" width={16} height={16} />
+      </PaginationItem>
     </nav>
   );
 };

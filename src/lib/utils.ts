@@ -4,6 +4,8 @@ import { useMemo } from 'react';
 
 export const DOTS = '...';
 
+export const RANGE_SIZE = 5;
+
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
@@ -13,14 +15,9 @@ const pageRange = (start: number, end: number) => {
   return Array.from({ length }, (_, idx) => idx + start);
 };
 
-export const getPaginationRange = (
-  currentPage: number,
-  totalPages: number,
-  siblingCount: number
-) => {
+export const getPaginationRange = (currentPage: number, totalPages: number, siblingCount: number) => {
   const paginationRange = useMemo(() => {
-    if (siblingCount * 5 >= totalPages || siblingCount === 0)
-      return pageRange(1, totalPages);
+    if (siblingCount * RANGE_SIZE >= totalPages || siblingCount === 0) return pageRange(1, totalPages);
 
     const leftSiblingIndex = Math.max(currentPage - 1, 1);
     const rightSiblingIndex = Math.min(currentPage + 1, totalPages);
@@ -32,14 +29,14 @@ export const getPaginationRange = (
     const lastPageIndex = totalPages;
 
     if (!shouldShowLeftDots && shouldShowRightDots) {
-      const leftItemCount = 5 * siblingCount;
+      const leftItemCount = RANGE_SIZE * siblingCount;
       const leftRange = pageRange(1, leftItemCount);
 
       return [...leftRange, DOTS, totalPages];
     }
 
     if (shouldShowLeftDots && !shouldShowRightDots) {
-      const rightItemCount = 5 * siblingCount;
+      const rightItemCount = RANGE_SIZE * siblingCount;
       const rightRange = pageRange(totalPages - rightItemCount + 1, totalPages);
       return [firstPageIndex, DOTS, ...rightRange];
     }
