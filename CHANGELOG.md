@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.408](https://github.com/getpingback/ui/compare/v0.0.407...v0.0.408) (2025-05-08)
+
+
+### Bug Fixes
+
+* swiper click and layout pagination ([1c85a0c](https://github.com/getpingback/ui/commits/1c85a0cc03d55c8360a3bc0ee08b19eebaaf151c))
+
 ### [0.0.406](https://github.com/getpingback/ui/compare/v0.0.405...v0.0.406) (2025-05-07)
 
 
