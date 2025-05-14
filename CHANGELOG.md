@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.410](https://github.com/getpingback/ui/compare/v0.0.409...v0.0.410) (2025-05-14)
+
+
+### Features
+
+* sort breakpoints ([b26880f](https://github.com/getpingback/ui/commits/b26880fa23a88742a05a69b771c0a2aeb28d0bd3))
+* swiper mobile width ([ad84a00](https://github.com/getpingback/ui/commits/ad84a0070adc0e68324565fe86d7c30c216a86a3))
+
 ### [0.0.408](https://github.com/getpingback/ui/compare/v0.0.407...v0.0.408) (2025-05-08)
 
 
