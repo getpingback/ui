@@ -17,9 +17,12 @@ export const useDevice = (breakpoints = BREAKPOINTS) => {
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
-      const device = breakpoints.find((b) => width >= b.width);
-      setDevice(device?.name || 'lg');
+      const sortedBreakpoints = [...breakpoints].sort((a, b) => b.width - a.width);
+      const device = sortedBreakpoints.find((b) => width >= b.width);
+      setDevice(device?.name || 'sm');
     };
+
+    handleResize();
 
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);

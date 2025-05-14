@@ -65,8 +65,8 @@ export const Default: Story = {
 export const Mobile: Story = {
   args: {
     settings: {
-      itemWidth: [224, 120],
-      spaceBetween: [24, 12]
+      itemWidth: [120, 224],
+      spaceBetween: [12, 24]
     }
   },
   render: (args) => (
