@@ -61,3 +61,24 @@ export const Default: Story = {
     </Swiper>
   )
 };
+
+export const Mobile: Story = {
+  args: {
+    settings: {
+      itemWidth: [224, 120],
+      spaceBetween: [24, 12]
+    }
+  },
+  render: (args) => (
+    <Swiper {...args}>
+      <Card color="bg-red-500" number={1} />
+      <Card color="bg-blue-500" number={2} />
+      <Card color="bg-green-500" number={3} />
+      <Card color="bg-yellow-500" number={4} />
+      <Card color="bg-purple-500" number={5} />
+      <Card color="bg-red-500" number={6} />
+      <Card color="bg-blue-500" number={7} />
+      <Card color="bg-green-500" number={8} />
+    </Swiper>
+  )
+};
