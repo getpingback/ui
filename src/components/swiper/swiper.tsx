@@ -2,13 +2,13 @@ import React, { useState, Children, useRef, useEffect } from 'react';
 
 import { ChevronLeftIcon, ChevronRightIcon } from '@stash-ui/light-icons/dist';
 import { cn } from '@/lib/utils';
-
+import { useDevice } from '@/hooks/useDevice';
 interface SwiperProps {
   children: React.ReactNode;
   className?: string;
   settings?: {
-    itemWidth?: number;
-    spaceBetween?: number;
+    itemWidth?: number | number[];
+    spaceBetween?: number | number[];
     hideNavigationButtons?: boolean;
   };
 }
@@ -22,9 +22,21 @@ const DEFAULT_SETTINGS = {
 const BUTTON__CONTROLL_SIZE = 40;
 const DRAG_THRESHOLD = 5;
 
+const getCurrentItemWidth = (itemWidth: number | number[], device: string) => {
+  if (typeof itemWidth === 'number') return itemWidth;
+  return itemWidth[device === 'sm' ? 0 : 1];
+};
+
+const getCurrentSpaceBetween = (spaceBetween: number | number[], device: string) => {
+  if (typeof spaceBetween === 'number') return spaceBetween;
+  return spaceBetween[device === 'sm' ? 0 : 1];
+};
+
 const Swiper = ({ children, settings = DEFAULT_SETTINGS, className }: SwiperProps) => {
   const initialSettings = { ...DEFAULT_SETTINGS, ...settings };
   const { hideNavigationButtons, itemWidth, spaceBetween } = initialSettings;
+
+  const device = useDevice();
 
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
@@ -35,11 +47,14 @@ const Swiper = ({ children, settings = DEFAULT_SETTINGS, className }: SwiperProp
   const sliderRef = useRef<HTMLDivElement>(null);
   const wasDraggingRef = useRef(false);
 
+  const currentItemWidth = getCurrentItemWidth(itemWidth, device);
+  const currentSpaceBetween = getCurrentSpaceBetween(spaceBetween, device);
+
   const totalItems = Children.count(children);
-  const itemsPerPage = Math.max(1, Math.floor((pageWidth || 0) / (itemWidth + spaceBetween)));
+  const itemsPerPage = Math.max(1, Math.floor((pageWidth || 0) / (currentItemWidth + currentSpaceBetween)));
 
   const totalPages = Math.ceil(totalItems / itemsPerPage) || 1;
-  const maxScrollPosition = totalItems * (itemWidth + spaceBetween) - pageWidth;
+  const maxScrollPosition = totalItems * (currentItemWidth + currentSpaceBetween) - pageWidth;
 
   const isFirstPage = currentPage === 1;
   const isLastPage = currentPage === totalPages;
@@ -161,9 +176,9 @@ const Swiper = ({ children, settings = DEFAULT_SETTINGS, className }: SwiperProp
         onTouchEnd={handleMouseUp}
         onClickCapture={handleClickCapture}
       >
-        <div className="flex items-center gap-6" style={{ gap: spaceBetween }}>
+        <div className="flex items-center gap-6" style={{ gap: currentSpaceBetween }}>
           {Children.toArray(children).map((child, index) => (
-            <div key={index} className="flex-shrink-0" style={{ width: itemWidth }}>
+            <div key={index} className="flex-shrink-0" style={{ width: currentItemWidth }}>
               {child}
             </div>
           ))}
