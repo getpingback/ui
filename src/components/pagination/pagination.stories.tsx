@@ -8,29 +8,27 @@ const meta = {
 
   tags: ['autodocs'],
 
-  argTypes: {},
+  argTypes: {}
 } satisfies Meta<typeof Pagination>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Demo: Story = {
-  render: () => (
-    <Pagination
-      totalPages={10}
-      page={2}
-      onPageChange={(page) => console.log(page)}
-    />
-  ),
+  args: {
+    totalPages: 10,
+    page: 1,
+    onPageChange: (page) => console.log(page)
+  },
+  render: (args) => <Pagination {...args} />
 };
 
 export const Radius: Story = {
-  render: () => (
-    <Pagination
-      totalPages={3}
-      page={1}
-      onPageChange={(page) => console.log(page)}
-      round
-    />
-  ),
+  args: {
+    totalPages: 10,
+    page: 1,
+    onPageChange: (page) => console.log(page),
+    round: true
+  },
+  render: (args) => <Pagination {...args} />
 };

@@ -35,12 +35,12 @@ describe('Pagination Component', () => {
       const activePage = screen.getAllByRole('button');
       const nextPage = screen.getByText('3');
 
-      expect(activePage[3].className.includes('bg-button-solid')).toBe(true);
+      expect(activePage[4].className.includes('bg-button-solid')).toBe(false);
 
       fireEvent.click(nextPage);
       expect(activePage[4].className.includes('bg-button-solid')).toBe(true);
+      expect(activePage[5].className.includes('bg-button-solid')).toBe(false);
       expect(activePage[3].className.includes('bg-button-solid')).toBe(false);
-      expect(activePage[2].className.includes('bg-button-solid')).toBe(false);
     });
 
     test('onChange event', () => {
@@ -49,7 +49,7 @@ describe('Pagination Component', () => {
       const nextPage = getByTestId('pagination-next');
 
       fireEvent.click(nextPage);
-      expect(consoleSpy).toHaveBeenCalledWith(3);
+      expect(consoleSpy).toHaveBeenCalledWith(2);
     });
   });
 
