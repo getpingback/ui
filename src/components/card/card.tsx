@@ -6,8 +6,7 @@ const cardVariants = cva('flex flex-col rounded-lg border bg-background-accent',
   variants: {
     variant: {
       default: 'border-border-card',
-      active:
-        ' border-[#71717A1F] hover:border-border-card-active transition-colors duration-200 shadow-[0px_0px_1px_1px_#0000000A] shadow-[0px_6px_24px_-3px_#00000014]'
+      active: ' border-border-card-light hover:border-border-card-active transition-all duration-300 hover:shadow-card-active'
     },
     radius: {
       none: 'rounded-none',

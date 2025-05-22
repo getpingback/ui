@@ -147,7 +147,8 @@ const config = {
         dropdown: 'var(--dropdown-shadow)',
         switch: 'var(--switch-shadow)',
         'text-field': 'var(--input-shadow)',
-        'text-field-error': 'var(--input-shadow-error)'
+        'text-field-error': 'var(--input-shadow-error)',
+        'card-active': 'var(--card-shadow)'
       },
       backgroundImage: {
         'active-menu': 'var(--palette-gradiente-active_menu)'
@@ -252,6 +253,7 @@ const config = {
           foreground: 'var(--text-error_accent)'
         },
         'border-card': 'var(--border-cards-color)',
+        'border-card-light': 'var(--border-card-light)',
         divider: {
           DEFAULT: 'var(--border-divider-color)',
           active: 'var(--divider-color-active)',

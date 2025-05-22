@@ -34,14 +34,14 @@
     --buttons-solid_default: #9061f9;
     --button-solid-bg: #9061f9;
     --button-solid-hover: #7e3af2;
-    --button-solid-disabled: #E4E4E7;
+    --button-solid-disabled: #e4e4e7;
     --button-solid-loading: #7e3af208;
     --buttons-label_color: #7e3af2;
     --button-solid-text: #fafafa;
     --button-ghost-bg: #9061f91f;
     --button-ghost-text: #52525b;
     --button-ghost-gray: #52525b14;
-    --button-ghost-disabled: #E4E4E7;
+    --button-ghost-disabled: #e4e4e7;
     --button-ghost-gray-hover: #282c2f14;
     --button-outlined-border: #d4d4d8;
     --button-outlined-hover: #52525b14;
@@ -62,14 +62,16 @@
 
     --border-divider-color: #e4e4e7;
     --border-cards-color: #3f3f4614;
-    --border-card-active: #9061F9;
+    --border-card-active: #9061f9;
+    --border-card-light: #71717a1f;
     --border-input_filled-color: #9061f9;
 
     --background-informative: #9061f914;
 
     --bottom_sheet-2: 0px 0px 1px 1px rgba(0, 0, 0, 0.04), 0px 4px 16px -2px rgba(0, 0, 0, 0.08);
     --modals-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.04), 0px -6px 24px -3px rgba(0, 0, 0, 0.08);
-    --modals-shadow-large: 0px 0px 1px 1px #0000000a, 0px 8px 32px -4px rgba(0, 0, 0, 0.078);
+    --modals-shadow-large: 0px 0px 1px 1px rgba(0, 0, 0, 0.039), 0px 8px 32px -4px rgba(0, 0, 0, 0.078);
+    --card-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.039), 0px 6px 24px -3px rgba(0, 0, 0, 0.08);
 
     --drawer-shadow: -2px 0px 24px -4px #0000001f;
     --dropdown-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.04), 0px 10px 40px -5px rgba(0, 0, 0, 0.08);
@@ -84,12 +86,12 @@
     --list-hover: #71717a14;
     --list-hightlight: rgba(14, 159, 110, 0.04);
     --list-label_default: #71717a;
-    --list-label_active: #7E3AF2;
+    --list-label_active: #7e3af2;
 
     --text-primary: #3f3f46;
     --text-secondary: #52525b;
     --text-tertiary: #71717a;
-    --text-inverse: #fafafa; 
+    --text-inverse: #fafafa;
     --text-active: #9061f9;
     --text-informative: #7e3af2;
     --text-informative_accent: #6c2bd9;
@@ -164,7 +166,7 @@
 
     --border-divider-color: #3f3f46;
     --border-cards-color: #fafafa14;
-    --border-card-active: #9061F9;
+    --border-card-active: #9061f9;
 
     --bottom_sheet-2: 0px 0px 1px 1px #0000007a, 0px -4px 16px -2px #0000007a;
     --modals-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.04), 0px -6px 24px -3px rgba(0, 0, 0, 0.08);
@@ -252,11 +254,9 @@ input[type='number']::-webkit-outer-spin-button {
   animation: dash 1.4s ease-in-out infinite;
 }
 
-
 [data-sonner-toast] [data-close-button] {
   background-color: transparent !important;
-  color: #71717A !important;
-  
+  color: #71717a !important;
 }
 
 [data-sonner-toast] [data-close-button]:hover,
