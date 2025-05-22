@@ -15,9 +15,9 @@ const pageRange = (start: number, end: number) => {
   return Array.from({ length }, (_, idx) => idx + start);
 };
 
-export const getPaginationRange = (currentPage: number, totalPages: number, siblingCount: number) => {
+export const getPaginationRange = (currentPage: number, totalPages: number) => {
   const paginationRange = useMemo(() => {
-    if (siblingCount * RANGE_SIZE >= totalPages || siblingCount === 0) return pageRange(1, totalPages);
+    if (RANGE_SIZE >= totalPages) return pageRange(1, totalPages);
 
     const leftSiblingIndex = Math.max(currentPage - 1, 1);
     const rightSiblingIndex = Math.min(currentPage + 1, totalPages);
@@ -29,14 +29,14 @@ export const getPaginationRange = (currentPage: number, totalPages: number, sibl
     const lastPageIndex = totalPages;
 
     if (!shouldShowLeftDots && shouldShowRightDots) {
-      const leftItemCount = RANGE_SIZE * siblingCount;
+      const leftItemCount = RANGE_SIZE;
       const leftRange = pageRange(1, leftItemCount);
 
       return [...leftRange, DOTS, totalPages];
     }
 
     if (shouldShowLeftDots && !shouldShowRightDots) {
-      const rightItemCount = RANGE_SIZE * siblingCount;
+      const rightItemCount = RANGE_SIZE;
       const rightRange = pageRange(totalPages - rightItemCount + 1, totalPages);
       return [firstPageIndex, DOTS, ...rightRange];
     }
@@ -47,7 +47,7 @@ export const getPaginationRange = (currentPage: number, totalPages: number, sibl
     } else {
       return pageRange(1, totalPages);
     }
-  }, [currentPage, totalPages, siblingCount]);
+  }, [currentPage, totalPages]);
 
   return paginationRange;
 };

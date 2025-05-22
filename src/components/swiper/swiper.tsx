@@ -46,8 +46,8 @@ const Swiper = ({ children, settings = DEFAULT_SETTINGS, className }: SwiperProp
   const isAtStart = currentPosition <= 0;
   const isAtEnd = currentPosition >= maxScrollPosition;
 
-  const shouldHideNextNavButton = (isAtEnd || hideNavigationButtons) && !isDragging;
-  const shouldHidePrevNavButton = (isAtStart || hideNavigationButtons) && !isDragging;
+  const shouldHideNextNavButton = (isAtEnd && !isDragging) || hideNavigationButtons;
+  const shouldHidePrevNavButton = (isAtStart && !isDragging) || hideNavigationButtons;
 
   useEffect(() => {
     if (sliderRef.current) {

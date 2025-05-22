@@ -1,29 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
-import { cva } from 'class-variance-authority';
 import { ChevronLeftIcon, ChevronRightIcon, ChevronDoubleLeftIcon, ChevronDoubleRightIcon } from '@stash-ui/regular-icons';
 import { getPaginationRange, DOTS } from '@/lib/utils';
 import { Button } from '../button';
-
-const buttonVariants = cva(
-  'h-[32px] min-w-[32px] px-3 inline-flex items-center justify-center whitespace-nowrap text-sm font-medium focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 transition-all duration-300 ease-in-out',
-  {
-    variants: {
-      variant: {
-        default: 'bg-transparent px-0 opacity-85 text-button-page-color-clear hover:bg-button-page-ghost hover:opacity-1',
-        solid: 'bg-button-page-solid text-button-page-color-solid px-3 '
-      },
-      rounded: {
-        default: 'rounded-lg',
-        full: 'rounded-full'
-      }
-    },
-    defaultVariants: {
-      variant: 'default',
-      rounded: 'default'
-    }
-  }
-);
 
 export interface PaginationItemProps extends React.ComponentProps<'button'> {
   isActive?: boolean;
@@ -31,14 +10,14 @@ export interface PaginationItemProps extends React.ComponentProps<'button'> {
   disabled?: boolean;
 }
 
-function PaginationItem({ children, isActive, isRounded, disabled, ...props }: PaginationItemProps) {
+function PaginationItem({ children, isActive, isRounded, disabled, className, ...props }: PaginationItemProps) {
   return (
     <Button
       {...props}
       variant={isActive ? 'solid' : 'outline'}
       rounded={isRounded ? 'full' : 'lg'}
       disabled={disabled}
-      className="h-8 w-8 p-0"
+      className={cn('h-8 w-8 p-0', className)}
     >
       <span className="w-full flex items-center justify-center font-semibold">{children}</span>
     </Button>
@@ -49,19 +28,18 @@ export interface PaginationProps extends React.ComponentProps<'nav'> {
   totalPages: number;
   onPageChange: (page: number) => void;
   page: number;
-  siblingCount?: number;
   round?: boolean;
   className?: string;
 }
 
-const Pagination = ({ totalPages, onPageChange, page, siblingCount = 1, round = false, className, ...props }: PaginationProps) => {
+const Pagination = ({ totalPages, onPageChange, page, round = false, className, ...props }: PaginationProps) => {
   const [currentPage, setCurrentPage] = useState<number>(1);
 
   useEffect(() => {
     setCurrentPage(page);
   }, [page]);
 
-  const paginationRange = getPaginationRange(currentPage, totalPages, siblingCount);
+  const paginationRange = getPaginationRange(currentPage, totalPages);
 
   const handleSetActivePage = (page: number) => {
     if (page < 1 || page > totalPages) return;
@@ -77,7 +55,13 @@ const Pagination = ({ totalPages, onPageChange, page, siblingCount = 1, round = 
       data-testid="pagination"
       {...props}
     >
-      <PaginationItem onClick={() => handleSetActivePage(1)} disabled={currentPage === 1} data-testid="pagination-first" isRounded={round}>
+      <PaginationItem
+        onClick={() => handleSetActivePage(1)}
+        disabled={currentPage === 1}
+        data-testid="pagination-first"
+        isRounded={round}
+        className="hidden xl:block"
+      >
         <ChevronDoubleLeftIcon color="#71717A" width={16} height={16} />
       </PaginationItem>
       <PaginationItem
@@ -98,6 +82,7 @@ const Pagination = ({ totalPages, onPageChange, page, siblingCount = 1, round = 
             </PaginationItem>
           );
         }
+
         return (
           <PaginationItem
             key={index}
@@ -123,6 +108,7 @@ const Pagination = ({ totalPages, onPageChange, page, siblingCount = 1, round = 
         disabled={currentPage === totalPages}
         data-testid="pagination-last"
         isRounded={round}
+        className="hidden xl:block"
       >
         <ChevronDoubleRightIcon color="#71717A" width={16} height={16} />
       </PaginationItem>
