@@ -148,7 +148,8 @@ const config = {
         switch: 'var(--switch-shadow)',
         'text-field': 'var(--input-shadow)',
         'text-field-error': 'var(--input-shadow-error)',
-        'card-active': 'var(--card-shadow)'
+        'card-active': 'var(--card-shadow)',
+        'select-item': 'var(--select-item-shadow)'
       },
       backgroundImage: {
         'active-menu': 'var(--palette-gradiente-active_menu)'
