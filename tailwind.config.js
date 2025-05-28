@@ -151,7 +151,8 @@ const config = {
         'card-active': 'var(--card-shadow)'
       },
       backgroundImage: {
-        'active-menu': 'var(--palette-gradiente-active_menu)'
+        'active-menu': 'var(--palette-gradiente-active_menu)',
+        'line-default': 'var(--background-stepper-line)'
       },
       keyframes: {
         accordionSlideUp: {
@@ -290,6 +291,9 @@ const config = {
           hover: 'var(--input-hover-border)',
           focus: 'var(--input-focus-border)',
           'focus-shadow': 'var(--input-focus-shadow)'
+        },
+        stepper: {
+          line: 'var(--background-stepper-line-completed)'
         },
         badge: {
           gray: {
