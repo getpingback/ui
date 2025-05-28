@@ -70,7 +70,7 @@ describe('Stepper', () => {
         <Step label="Step 2" description="Desc 2" stepName="2" status="current">
           Content 2
         </Step>
-        <Step label="Step 3" description="Desc 3" stepName="3" status="default">
+        <Step label="Step 3" description="Desc 3" stepName="3" status="pending">
           Content 3
         </Step>
       </Stepper>

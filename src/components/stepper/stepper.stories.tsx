@@ -51,7 +51,7 @@ export const Default: Story = {
         >
           Content example
         </Step>
-        <Step label="Registro DNS" description="Add your registered domain name below" stepName="Step 2" status="default">
+        <Step label="Registro DNS" description="Add your registered domain name below" stepName="Step 2" status="pending">
           <div className="flex flex-col gap-2">
             <Accordion label="Add your registered domain name below">Content example</Accordion>
             <Accordion label="Add your registered domain name below">Content example</Accordion>

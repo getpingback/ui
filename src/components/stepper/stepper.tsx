@@ -6,7 +6,7 @@ import { CircleIcon } from '@stash-ui/light-icons';
 import { cn } from '@/lib/utils';
 
 interface StepProps {
-  status: 'completed' | 'current' | 'default';
+  status: 'completed' | 'current' | 'pending';
   description: string;
   label: string;
   stepName: string;
@@ -20,7 +20,7 @@ export const Step = ({ label, description, stepName, children, rightElement, sta
   const stepIcons = {
     completed: <CheckCircleIcon color="#31C48D" />,
     current: <CircleDotIcon color="#71717A" />,
-    default: <CircleIcon color="#71717A" />
+    pending: <CircleIcon color="#71717A" />
   };
 
   return (
