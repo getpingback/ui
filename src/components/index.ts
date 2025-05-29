@@ -34,4 +34,5 @@ export * from './spinner';
 export * from './swiper';
 export * from './text-area';
 export * from './toast';
+export * from './select-list';
 export * from './stepper';
