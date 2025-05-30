@@ -1,11 +1,14 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { NodeFlow, NodeLine } from './node-flow';
+import { NodeFlow, NodeLine, NodeParent } from './node-flow';
 
 describe('NodeFlow Component', () => {
   it('should render correctly with default props', () => {
     render(
-      <NodeFlow parent={<span>Parent Node</span>}>
+      <NodeFlow>
+        <NodeParent>
+          <span>Parent Node</span>
+        </NodeParent>
         <NodeLine>Child 1</NodeLine>
         <NodeLine>Child 2</NodeLine>
       </NodeFlow>
@@ -16,24 +19,12 @@ describe('NodeFlow Component', () => {
     expect(screen.getByText('Child 2')).toBeInTheDocument();
   });
 
-  it('should open and close the accordion', async () => {
-    render(
-      <NodeFlow parent={<span>Parent Node</span>}>
-        <NodeLine>Child Content 1</NodeLine>
-        <NodeLine>Child Content 2</NodeLine>
-      </NodeFlow>
-    );
-
-    const triggerButton = screen.getByText('Parent Node').closest('button');
-    expect(triggerButton).toBeInTheDocument();
-
-    expect(await screen.findByText('Child Content 1')).toBeVisible();
-    expect(screen.getByText('Child Content 2')).toBeVisible();
-  });
-
   it('should render children NodeLines correctly with status active and isLast props', async () => {
     render(
-      <NodeFlow parent={<span>Parent Node</span>} status="active">
+      <NodeFlow status="active">
+        <NodeParent>
+          <span>Parent Node</span>
+        </NodeParent>
         <NodeLine>Child 1</NodeLine>
         <NodeLine>Child 2</NodeLine>
       </NodeFlow>
@@ -53,7 +44,10 @@ describe('NodeFlow Component', () => {
 
   it('should render children NodeLines correctly with status default and isLast props', async () => {
     render(
-      <NodeFlow parent={<span>Parent Node</span>} status="default">
+      <NodeFlow status="default">
+        <NodeParent>
+          <span>Parent Node</span>
+        </NodeParent>
         <NodeLine>Child 1</NodeLine>
         <NodeLine>Child 2</NodeLine>
       </NodeFlow>
@@ -71,18 +65,12 @@ describe('NodeFlow Component', () => {
     expect(childDivider[1]).toHaveClass('!hidden');
   });
 
-  it('should render suffix when provided', () => {
-    render(
-      <NodeFlow parent={<span>Parent Node</span>} suffix={<span>Suffix Content</span>}>
-        <NodeLine>Child 1</NodeLine>
-      </NodeFlow>
-    );
-    expect(screen.getByText('Suffix Content')).toBeInTheDocument();
-  });
-
   it('should render the corret conection height', async () => {
     render(
-      <NodeFlow parent={<span>Parent Node</span>} status="active">
+      <NodeFlow status="active">
+        <NodeParent>
+          <span>Parent Node</span>
+        </NodeParent>
         <NodeLine conectionHeight={20}>Child 1</NodeLine>
         <NodeLine conectionHeight={40}>Child 2</NodeLine>
       </NodeFlow>
