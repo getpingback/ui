@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.416](https://github.com/getpingback/ui/compare/v0.0.411...v0.0.416) (2025-05-30)
+
+
+### Features
+
+* create select list structure ([c770a4d](https://github.com/getpingback/ui/commits/c770a4dee6c6edd564777e94399fe0bfebfed766))
+* finishing select list behavior and adding tests ([8c655dc](https://github.com/getpingback/ui/commits/8c655dc57bd5aa6d56a2c699aa8b4d346247386e))
+* merge with main (conflicts solved) ([0ec68d6](https://github.com/getpingback/ui/commits/0ec68d63374bf03742a0cd11d357d116511e26a9))
+* stepper component ([f85d601](https://github.com/getpingback/ui/commits/f85d601765b85f6b96ad10babce28ff0156f3975))
+* update with main ([d738c35](https://github.com/getpingback/ui/commits/d738c35567fa974d549531f0f048600240a85e01))
+
+
+### Bug Fixes
+
+* card border and shadow ([b2df07c](https://github.com/getpingback/ui/commits/b2df07c974f50b190643fe1ec7fb2ada1615d82d))
+* export stepper component ([b4c5043](https://github.com/getpingback/ui/commits/b4c50430dd93f1b0493ffcd9736d24c65446a202))
+* status name ([27c9e75](https://github.com/getpingback/ui/commits/27c9e758150cd3efc6982e10564f84e2dd4ddc79))
+* swiper click and layout pagination ([01fae0d](https://github.com/getpingback/ui/commits/01fae0de48ef05791d38ca871262eb10d31cb0e7))
+
 ### [0.0.415](https://github.com/getpingback/ui/compare/v0.0.411...v0.0.415) (2025-05-30)
 
 
