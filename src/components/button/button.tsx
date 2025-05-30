@@ -11,11 +11,12 @@ const buttonVariants = cva(
     variants: {
       variant: {
         outline:
-          'border border-button-outlined-border bg-transparent !text-secondary-foreground text-opacity-10 hover:shadow-outlined focus-visible:shadow-outlined data-[loading=true]:!bg-button-ghost-gray data-[loading=true]:!border-none',
-        ghost: 'text-secondary-foreground bg-button-ghost-gray opacity-85 hover:opacity-100 disabled:bg-button-ghost-disabled',
+          'border border-button-outlined-border bg-transparent !text-secondary-foreground text-opacity-10 hover:shadow-[0_0_0_3px_var(--button-hover-color)] data-[loading=true]:!bg-button-ghost data-[loading=true]:!border-none',
+        ghost:
+          'text-secondary-foreground hover:shadow-[0_0_0_3px_var(--button-hover-color)] bg-button-ghost opacity-85 hover:opacity-100 disabled:bg-button-ghost-disabled',
         solid:
-          'bg-button-solid text-inverse-foreground hover:shadow-solid disabled:bg-button-solid-disabled disabled:text-secondary-foreground disabled:opacity-45 active:bg-button-solid-hover data-[loading=true]:!bg-button-ghost-gray',
-        clear: 'bg-transparent text-secondary-foreground opacity-85 hover:opacity-100 data-[loading=true]:!bg-button-ghost-gray'
+          'bg-button-solid text-inverse-foreground hover:shadow-[0_0_0_3px_var(--button-hover-solid-color)] disabled:bg-button-solid-disabled disabled:text-secondary-foreground disabled:opacity-45 active:bg-button-solid-hover data-[loading=true]:!bg-button-ghost',
+        clear: 'bg-transparent text-secondary-foreground opacity-85 hover:opacity-100 data-[loading=true]:!bg-button-ghost'
       },
       size: {
         sm: 'h-8 px-3 text-xs',
