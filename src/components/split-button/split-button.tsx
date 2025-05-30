@@ -7,11 +7,12 @@ import { DropdownItem } from '../dropdown';
 const containerVariants = cva('flex items-center font-primary max-w-fit h-[32px] text-xs rounded-lg ', {
   variants: {
     type: {
-      solid: 'bg-button-solid text-button-solid-foreground  hover:shadow-solid transition-all duration-200 ease-in-out',
+      solid:
+        'bg-button-solid text-button-solid-foreground  hover:shadow-[0_0_0_3px_var(--button-hover-solid-color)] transition-all duration-200 ease-in-out',
       outlined:
-        'bg-button-outlined text-secondary-foreground border border-button-outlined-border hover:shadow-outlined transition-all duration-200 ease-in-out',
+        'bg-button-outlined text-secondary-foreground border border-button-outlined-border hover:shadow-[0_0_0_3px_var(--button-hover-color)] transition-all duration-200 ease-in-out',
       ghost:
-        'bg-button-ghost-gray text-button-ghost-foreground text-secondary-foreground hover:shadow-ghost transition-all duration-200 ease-in-out'
+        'bg-button-ghost text-button-ghost-foreground text-secondary-foreground hover:shadow-[0_0_0_3px_var(--button-hover-color)] transition-all duration-200 ease-in-out'
     }
   },
   defaultVariants: {
@@ -26,7 +27,7 @@ const leftButtonVariants = cva(
       type: {
         solid: 'hover:bg-button-solid-hover',
         outlined: 'hover:bg-button-outlined-hover opacity-85 hover:opacity-100',
-        ghost: 'hover:bg-button-ghost-hover opacity-85 hover:opacity-100'
+        ghost: 'hover:bg-button-ghost opacity-85 hover:opacity-100'
       }
     }
   }
@@ -39,7 +40,7 @@ const menuTriggerVariants = cva(
       type: {
         solid: 'hover:bg-button-solid-hover border-[#282C2F1F]',
         outlined: 'hover:bg-button-outlined-hover opacity-85 hover:opacity-100 border-[#282C2F1F]',
-        ghost: 'hover:bg-button-ghost-hover border-[#282C2F1F]'
+        ghost: 'hover:bg-button-ghost border-[#282C2F1F]'
       }
     }
   }
