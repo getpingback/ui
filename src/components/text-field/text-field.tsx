@@ -28,8 +28,11 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
             className={cn(
               'w-full rounded-lg border h-10 px-3 py-2 text-sm leading-none text-tertiary-foreground font-normal transition-all outline-none',
               'placeholder:text-tertiary-foreground placeholder:opacity-65 placeholder:font-normal placeholder:text-sm',
-              { 'border-divider-error focus:border-divider-error focus:shadow-text-field-error': error },
-              { 'border-divider hover:border-divider-active focus:border-divider-highlighted focus:shadow-text-field': !error },
+              { 'border-divider-error focus:border-divider-error focus:shadow-[0_0_0_3px_var(--background-error)]': error },
+              {
+                'border-divider hover:border-divider-active focus:border-divider-highlighted focus:shadow-[0_0_0_3px_var(--button-hover-solid-color)]':
+                  !error
+              },
               { 'border-divider-disabled hover:border-divider-disabled cursor-not-allowed': disabled },
               { 'pl-10': prefix }
             )}

@@ -141,9 +141,9 @@ const config = {
         'modal-large': 'var(--modals-shadow-large)',
         drawer: 'var(--drawer-shadow)',
         custom: '0px 0px 0px 1px rgba(0,0,0,0.15)',
-        solid: 'var(--button-solid-shadow)',
-        outlined: 'var(--button-outlined-shadow)',
-        ghost: 'var(--button-ghost-shadow)',
+        solid: 'var(--button-hover-solid-color)',
+        outlined: 'var(--button-hover-color)',
+        ghost: 'var(--button-hover-color)',
         dropdown: 'var(--dropdown-shadow)',
         switch: 'var(--switch-shadow)',
         'text-field': 'var(--input-shadow)',
@@ -259,8 +259,8 @@ const config = {
         divider: {
           DEFAULT: 'var(--border-divider-color)',
           active: 'var(--divider-color-active)',
-          error: 'var(--divider-color-error)',
-          highlighted: 'var(--divider-color-highlighted)',
+          error: 'var(--border-input_invalid-color)',
+          highlighted: 'var(--border-input_filled-color)',
           disabled: 'var(--divider-color-disabled)'
         },
         'border-card-active': 'var(--border-card-active)',
@@ -348,21 +348,19 @@ const config = {
         },
         button: {
           solid: {
-            DEFAULT: 'var(--button-solid-bg)',
-            foreground: 'var(--button-solid-text)',
+            DEFAULT: 'var(--buttons-solid_default)',
+            foreground: 'var(--buttons-label_inverse)',
             hover: 'var(--button-solid-hover)',
-            disabled: 'var(--button-solid-disabled)',
-            loading: 'var(--button-solid-loading)'
+            disabled: 'var(--buttons-disabled)'
           },
           ghost: {
-            DEFAULT: 'var(--button-ghost-bg)',
-            foreground: 'var(--button-ghost-text)',
-            gray: 'var(--button-ghost-gray)',
+            DEFAULT: 'var(--buttons-ghost_bg)',
+            foreground: 'var(--buttons-label)',
             hover: 'var(--button-ghost-gray-hover)',
-            disabled: 'var(--button-ghost-disabled)'
+            disabled: 'var(--buttons-disabled)'
           },
           outlined: {
-            border: 'var(--button-outlined-border)',
+            border: 'var(--border-button_outlined-color)',
             hover: 'var(--button-outlined-hover)'
           },
           done: {

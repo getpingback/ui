@@ -67,7 +67,7 @@ describe('Button Component', () => {
     test('renders ghost button', () => {
       render(<Ghost />);
       const button = screen.getByRole('button');
-      expect(button.className.includes('bg-button-ghost-gray')).toBe(true);
+      expect(button.className.includes('bg-button-ghost')).toBe(true);
       expect(button.className.includes('text-secondary-foreground ')).toBe(true);
     });
     test('renders disabled ghost button', () => {
