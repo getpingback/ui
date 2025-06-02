@@ -358,12 +358,36 @@ export const ScrollToEnd: Story = {
   },
   decorators: [
     (Story, { args }) => {
+      const [options, setOptions] = React.useState(args.options);
       const [isLoading, setIsLoading] = React.useState(false);
+
+      const onEndReached = () => {
+        setIsLoading(true);
+        setTimeout(() => {
+          setOptions([
+            ...options,
+            {
+              items: [
+                {
+                  label: `Item ${Math.floor(Math.random() * 1000)}`,
+                  value: `item-${Math.floor(Math.random() * 1000)}`
+                },
+                {
+                  label: `Item ${Math.floor(Math.random() * 1000)}`,
+                  value: `item-${Math.floor(Math.random() * 1000)}`
+                }
+              ]
+            }
+          ]);
+          setIsLoading(false);
+        }, 1000);
+      };
 
       const enhancedArgs = {
         ...args,
         isLoading,
-        onEndReached: () => setIsLoading(true)
+        options,
+        onEndReached
       };
 
       return <Story args={enhancedArgs} />;

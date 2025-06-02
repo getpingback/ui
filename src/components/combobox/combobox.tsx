@@ -198,7 +198,10 @@ export function Combobox({
                       onSelect={() => handleSelectItem(item)}
                     >
                       {multiple ? (
-                        <DefaultVariant item={item} selected={currentMultipleValue.includes(item)} />
+                        <DefaultVariant
+                          item={item}
+                          selected={currentMultipleValue.find((currentValue) => currentValue.value === item.value) !== undefined}
+                        />
                       ) : (
                         React.createElement(comboboxVariants[variant], {
                           item,
