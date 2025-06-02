@@ -72,8 +72,8 @@ export function Combobox({
   const lastItemRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
-    if (!open && onChangeSearchValue) onChangeSearchValue('');
-  }, [open]);
+    if (!open && !!searchValue && onChangeSearchValue) onChangeSearchValue('');
+  }, [open, searchValue, onChangeSearchValue]);
 
   React.useEffect(() => {
     if (!open || !onEndReached) return;
