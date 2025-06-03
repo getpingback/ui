@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.435](https://github.com/getpingback/ui/compare/v0.0.434...v0.0.435) (2025-06-03)
+
+
+### Bug Fixes
+
+* range picker nav button position ([a7907a9](https://github.com/getpingback/ui/commits/a7907a9ec27313fde66c9b2de4090c7742f8e16c))
+
 ### [0.0.433](https://github.com/getpingback/ui/compare/v0.0.432...v0.0.433) (2025-06-03)
 
 
