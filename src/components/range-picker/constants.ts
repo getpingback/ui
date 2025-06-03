@@ -137,8 +137,8 @@ export const RANGE_PICKER_STYLES = {
   row: 'flex w-full mt-0',
   cell: 'h-9 w-9 text-center text-sm p-0 relative [&:has([aria-selected].day-range-end)]:rounded-r-md [&:has([aria-selected].day-outside)]:bg-background-accent/50 [&:has([aria-selected])]:bg-background-accent first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md focus-within:relative focus-within:z-20',
   day: cn(buttonVariants({ variant: 'clear' }), 'h-9 w-9 p-0 font-normal aria-selected:opacity-100 opacity-85 color-[#3F3F46]'),
-  day_range_end: 'bg-button-solid rounded-s-sm',
-  day_range_start: 'bg-button-solid rounded-e-sm ',
+  day_range_end: '!bg-button-solid rounded-s-sm',
+  day_range_start: '!bg-button-solid rounded-e-sm ',
   day_selected:
     '!text-button-solid-foreground  hover:bg-button-solid hover:text-button-ghost-foreground focus:bg-button-solid focus:text-button-solid-foreground !font-medium',
   day_today: 'bg-button-ghost text-button-ghost-foreground pb-current-day',
