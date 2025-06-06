@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.437](https://github.com/getpingback/ui/compare/v0.0.427...v0.0.437) (2025-06-06)
+
+
+### Features
+
+* merge with main ([b65d0d9](https://github.com/getpingback/ui/commits/b65d0d9b081b76dbc8b44c474ff30a312666b92f))
+* nodeFlow component and tests ([c04855c](https://github.com/getpingback/ui/commits/c04855c0d2faa81d5ae05c4eee97ad158d1f3df2))
+
+
+### Bug Fixes
+
+* cascade flow initial structure ([def901e](https://github.com/getpingback/ui/commits/def901ec0d06737b211034633b864b7d88dc57a1))
+* combobox selected ([30b1a9e](https://github.com/getpingback/ui/commits/30b1a9e167d83a7cc2a78e7be8561618fbc6b183))
+* conflict between modal content and select ([f0914ae](https://github.com/getpingback/ui/commits/f0914aecc70f9b80e92129563179031a3d0b1e2b))
+* dont call onHandleSearch cb when open is false ([ff6fd68](https://github.com/getpingback/ui/commits/ff6fd68f049c2ff8bbb2dfce6fdc46acaa34a104))
+* export nodeflow ([9459332](https://github.com/getpingback/ui/commits/9459332e5c5db8534afd7294e64ee32488fedbe7))
+
 ### [0.0.436](https://github.com/getpingback/ui/compare/v0.0.427...v0.0.436) (2025-06-06)
 
 
