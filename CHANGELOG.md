@@ -2,6 +2,41 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.441](https://github.com/getpingback/ui/compare/v0.0.440...v0.0.441) (2025-06-06)
+
+
+### Bug Fixes
+
+* animation ([605b7c0](https://github.com/getpingback/ui/commits/605b7c0463980906f16d36056db9e12c1f31c3d7))
+* conflicts ([6fa223f](https://github.com/getpingback/ui/commits/6fa223fbaeb0187eabe159ffb4130f91ce361c94))
+
+### [0.0.436](https://github.com/getpingback/ui/compare/v0.0.435...v0.0.436) (2025-06-03)
+
+### [0.0.435](https://github.com/getpingback/ui/compare/v0.0.434...v0.0.435) (2025-06-03)
+
+
+### Bug Fixes
+
+* range picker nav button position ([a7907a9](https://github.com/getpingback/ui/commits/a7907a9ec27313fde66c9b2de4090c7742f8e16c))
+
+### [0.0.434](https://github.com/getpingback/ui/compare/v0.0.433...v0.0.434) (2025-06-03)
+
+### [0.0.433](https://github.com/getpingback/ui/compare/v0.0.432...v0.0.433) (2025-06-03)
+
+
+### Bug Fixes
+
+* range picker start and end date ([bbf5218](https://github.com/getpingback/ui/commits/bbf52189ccb642b5deb71f4caad0d3c96b5f4b5a))
+
+### [0.0.432](https://github.com/getpingback/ui/compare/v0.0.431...v0.0.432) (2025-06-03)
+
+### [0.0.431](https://github.com/getpingback/ui/compare/v0.0.427...v0.0.431) (2025-06-03)
+
+
+### Bug Fixes
+
+* range picker nav ([a1a3ecc](https://github.com/getpingback/ui/commits/a1a3ecc1000bf5b546e20636ad3994ee8fa2859d))
+
 ### [0.0.439](https://github.com/getpingback/ui/compare/v0.0.438...v0.0.439) (2025-06-06)
 
 

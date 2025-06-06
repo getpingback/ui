@@ -1,7 +1,7 @@
 {
   "name": "@getpingback/ui",
   "author": "Pingback Team",
-  "version": "0.0.440",
+  "version": "0.0.441",
   "license": "MIT",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
