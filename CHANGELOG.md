@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.439](https://github.com/getpingback/ui/compare/v0.0.438...v0.0.439) (2025-06-06)
+
+
+### Bug Fixes
+
+* add required on select ([8b91a6c](https://github.com/getpingback/ui/commits/8b91a6c25845eaf0e620fa9912856e205e47af98))
+* modal position ([6005008](https://github.com/getpingback/ui/commits/6005008a57b21946c14ebf34b1ca8ba5768ecadd))
+
 ### [0.0.437](https://github.com/getpingback/ui/compare/v0.0.427...v0.0.437) (2025-06-06)
 
 
