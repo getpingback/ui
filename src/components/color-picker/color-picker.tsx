@@ -127,11 +127,11 @@ export const ColorPicker = ({
             ))}
           </div>
           <div className="flex gap-3">
-            <Button variant="ghost" className="w-full" onClick={handleCancel}>
-              {cancelText}
+            <Button variant="ghost" width="full" onClick={handleCancel}>
+              <span className="w-full text-center">{cancelText}</span>
             </Button>
-            <Button variant="outline" className="w-full" onClick={handleSave}>
-              {saveText}
+            <Button variant="outline" width="full" onClick={handleSave}>
+              <span className="w-full text-center">{saveText}</span>
             </Button>
           </div>
         </div>
