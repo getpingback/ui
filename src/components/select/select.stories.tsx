@@ -20,6 +20,7 @@ export const Default: Story = {
   args: {
     label: 'Select',
     placeholder: 'Select an option',
+    required: true,
     options: [
       { value: '1', label: 'Intervalo' },
       { value: '2', label: 'Data' }

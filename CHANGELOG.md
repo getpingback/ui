@@ -2,12 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.441](https://github.com/getpingback/ui/compare/v0.0.440...v0.0.441) (2025-06-06)
+
+
+### Bug Fixes
+
+* animation ([605b7c0](https://github.com/getpingback/ui/commits/605b7c0463980906f16d36056db9e12c1f31c3d7))
+* conflicts ([6fa223f](https://github.com/getpingback/ui/commits/6fa223fbaeb0187eabe159ffb4130f91ce361c94))
+
+### [0.0.436](https://github.com/getpingback/ui/compare/v0.0.435...v0.0.436) (2025-06-03)
+
 ### [0.0.435](https://github.com/getpingback/ui/compare/v0.0.434...v0.0.435) (2025-06-03)
 
 
 ### Bug Fixes
 
 * range picker nav button position ([a7907a9](https://github.com/getpingback/ui/commits/a7907a9ec27313fde66c9b2de4090c7742f8e16c))
+
+### [0.0.434](https://github.com/getpingback/ui/compare/v0.0.433...v0.0.434) (2025-06-03)
 
 ### [0.0.433](https://github.com/getpingback/ui/compare/v0.0.432...v0.0.433) (2025-06-03)
 
@@ -16,7 +28,24 @@ All notable changes to this project will be documented in this file. See [standa
 
 * range picker start and end date ([bbf5218](https://github.com/getpingback/ui/commits/bbf52189ccb642b5deb71f4caad0d3c96b5f4b5a))
 
+### [0.0.432](https://github.com/getpingback/ui/compare/v0.0.431...v0.0.432) (2025-06-03)
+
 ### [0.0.431](https://github.com/getpingback/ui/compare/v0.0.427...v0.0.431) (2025-06-03)
+
+
+### Bug Fixes
+
+* range picker nav ([a1a3ecc](https://github.com/getpingback/ui/commits/a1a3ecc1000bf5b546e20636ad3994ee8fa2859d))
+
+### [0.0.439](https://github.com/getpingback/ui/compare/v0.0.438...v0.0.439) (2025-06-06)
+
+
+### Bug Fixes
+
+* add required on select ([8b91a6c](https://github.com/getpingback/ui/commits/8b91a6c25845eaf0e620fa9912856e205e47af98))
+* modal position ([6005008](https://github.com/getpingback/ui/commits/6005008a57b21946c14ebf34b1ca8ba5768ecadd))
+
+### [0.0.437](https://github.com/getpingback/ui/compare/v0.0.427...v0.0.437) (2025-06-06)
 
 
 ### Features
@@ -29,9 +58,111 @@ All notable changes to this project will be documented in this file. See [standa
 
 * cascade flow initial structure ([def901e](https://github.com/getpingback/ui/commits/def901ec0d06737b211034633b864b7d88dc57a1))
 * combobox selected ([30b1a9e](https://github.com/getpingback/ui/commits/30b1a9e167d83a7cc2a78e7be8561618fbc6b183))
+* conflict between modal content and select ([f0914ae](https://github.com/getpingback/ui/commits/f0914aecc70f9b80e92129563179031a3d0b1e2b))
 * dont call onHandleSearch cb when open is false ([ff6fd68](https://github.com/getpingback/ui/commits/ff6fd68f049c2ff8bbb2dfce6fdc46acaa34a104))
 * export nodeflow ([9459332](https://github.com/getpingback/ui/commits/9459332e5c5db8534afd7294e64ee32488fedbe7))
-* range picker nav ([a1a3ecc](https://github.com/getpingback/ui/commits/a1a3ecc1000bf5b546e20636ad3994ee8fa2859d))
+
+### [0.0.436](https://github.com/getpingback/ui/compare/v0.0.427...v0.0.436) (2025-06-06)
+
+
+### Features
+
+* merge with main ([b65d0d9](https://github.com/getpingback/ui/commits/b65d0d9b081b76dbc8b44c474ff30a312666b92f))
+* nodeFlow component and tests ([c04855c](https://github.com/getpingback/ui/commits/c04855c0d2faa81d5ae05c4eee97ad158d1f3df2))
+
+
+### Bug Fixes
+
+* cascade flow initial structure ([def901e](https://github.com/getpingback/ui/commits/def901ec0d06737b211034633b864b7d88dc57a1))
+* combobox selected ([30b1a9e](https://github.com/getpingback/ui/commits/30b1a9e167d83a7cc2a78e7be8561618fbc6b183))
+* conflict between modal content and select ([f0914ae](https://github.com/getpingback/ui/commits/f0914aecc70f9b80e92129563179031a3d0b1e2b))
+* dont call onHandleSearch cb when open is false ([ff6fd68](https://github.com/getpingback/ui/commits/ff6fd68f049c2ff8bbb2dfce6fdc46acaa34a104))
+* export nodeflow ([9459332](https://github.com/getpingback/ui/commits/9459332e5c5db8534afd7294e64ee32488fedbe7))
+
+### [0.0.435](https://github.com/getpingback/ui/compare/v0.0.427...v0.0.435) (2025-06-06)
+
+
+### Features
+
+* merge with main ([b65d0d9](https://github.com/getpingback/ui/commits/b65d0d9b081b76dbc8b44c474ff30a312666b92f))
+* nodeFlow component and tests ([c04855c](https://github.com/getpingback/ui/commits/c04855c0d2faa81d5ae05c4eee97ad158d1f3df2))
+
+
+### Bug Fixes
+
+* cascade flow initial structure ([def901e](https://github.com/getpingback/ui/commits/def901ec0d06737b211034633b864b7d88dc57a1))
+* combobox selected ([30b1a9e](https://github.com/getpingback/ui/commits/30b1a9e167d83a7cc2a78e7be8561618fbc6b183))
+* conflict between modal content and select ([f0914ae](https://github.com/getpingback/ui/commits/f0914aecc70f9b80e92129563179031a3d0b1e2b))
+* dont call onHandleSearch cb when open is false ([ff6fd68](https://github.com/getpingback/ui/commits/ff6fd68f049c2ff8bbb2dfce6fdc46acaa34a104))
+* export nodeflow ([9459332](https://github.com/getpingback/ui/commits/9459332e5c5db8534afd7294e64ee32488fedbe7))
+
+### [0.0.434](https://github.com/getpingback/ui/compare/v0.0.427...v0.0.434) (2025-06-06)
+
+
+### Features
+
+* merge with main ([b65d0d9](https://github.com/getpingback/ui/commits/b65d0d9b081b76dbc8b44c474ff30a312666b92f))
+* nodeFlow component and tests ([c04855c](https://github.com/getpingback/ui/commits/c04855c0d2faa81d5ae05c4eee97ad158d1f3df2))
+
+
+### Bug Fixes
+
+* cascade flow initial structure ([def901e](https://github.com/getpingback/ui/commits/def901ec0d06737b211034633b864b7d88dc57a1))
+* combobox selected ([30b1a9e](https://github.com/getpingback/ui/commits/30b1a9e167d83a7cc2a78e7be8561618fbc6b183))
+* conflict between modal content and select ([f0914ae](https://github.com/getpingback/ui/commits/f0914aecc70f9b80e92129563179031a3d0b1e2b))
+* dont call onHandleSearch cb when open is false ([ff6fd68](https://github.com/getpingback/ui/commits/ff6fd68f049c2ff8bbb2dfce6fdc46acaa34a104))
+* export nodeflow ([9459332](https://github.com/getpingback/ui/commits/9459332e5c5db8534afd7294e64ee32488fedbe7))
+
+### [0.0.433](https://github.com/getpingback/ui/compare/v0.0.427...v0.0.433) (2025-06-06)
+
+
+### Features
+
+* merge with main ([b65d0d9](https://github.com/getpingback/ui/commits/b65d0d9b081b76dbc8b44c474ff30a312666b92f))
+* nodeFlow component and tests ([c04855c](https://github.com/getpingback/ui/commits/c04855c0d2faa81d5ae05c4eee97ad158d1f3df2))
+
+
+### Bug Fixes
+
+* cascade flow initial structure ([def901e](https://github.com/getpingback/ui/commits/def901ec0d06737b211034633b864b7d88dc57a1))
+* combobox selected ([30b1a9e](https://github.com/getpingback/ui/commits/30b1a9e167d83a7cc2a78e7be8561618fbc6b183))
+* conflict between modal content and select ([f0914ae](https://github.com/getpingback/ui/commits/f0914aecc70f9b80e92129563179031a3d0b1e2b))
+* dont call onHandleSearch cb when open is false ([ff6fd68](https://github.com/getpingback/ui/commits/ff6fd68f049c2ff8bbb2dfce6fdc46acaa34a104))
+* export nodeflow ([9459332](https://github.com/getpingback/ui/commits/9459332e5c5db8534afd7294e64ee32488fedbe7))
+
+### [0.0.432](https://github.com/getpingback/ui/compare/v0.0.427...v0.0.432) (2025-06-06)
+
+
+### Features
+
+* merge with main ([b65d0d9](https://github.com/getpingback/ui/commits/b65d0d9b081b76dbc8b44c474ff30a312666b92f))
+* nodeFlow component and tests ([c04855c](https://github.com/getpingback/ui/commits/c04855c0d2faa81d5ae05c4eee97ad158d1f3df2))
+
+
+### Bug Fixes
+
+* cascade flow initial structure ([def901e](https://github.com/getpingback/ui/commits/def901ec0d06737b211034633b864b7d88dc57a1))
+* combobox selected ([30b1a9e](https://github.com/getpingback/ui/commits/30b1a9e167d83a7cc2a78e7be8561618fbc6b183))
+* conflict between modal content and select ([f0914ae](https://github.com/getpingback/ui/commits/f0914aecc70f9b80e92129563179031a3d0b1e2b))
+* dont call onHandleSearch cb when open is false ([ff6fd68](https://github.com/getpingback/ui/commits/ff6fd68f049c2ff8bbb2dfce6fdc46acaa34a104))
+* export nodeflow ([9459332](https://github.com/getpingback/ui/commits/9459332e5c5db8534afd7294e64ee32488fedbe7))
+
+### [0.0.431](https://github.com/getpingback/ui/compare/v0.0.427...v0.0.431) (2025-06-06)
+
+
+### Features
+
+* merge with main ([b65d0d9](https://github.com/getpingback/ui/commits/b65d0d9b081b76dbc8b44c474ff30a312666b92f))
+* nodeFlow component and tests ([c04855c](https://github.com/getpingback/ui/commits/c04855c0d2faa81d5ae05c4eee97ad158d1f3df2))
+
+
+### Bug Fixes
+
+* cascade flow initial structure ([def901e](https://github.com/getpingback/ui/commits/def901ec0d06737b211034633b864b7d88dc57a1))
+* combobox selected ([30b1a9e](https://github.com/getpingback/ui/commits/30b1a9e167d83a7cc2a78e7be8561618fbc6b183))
+* conflict between modal content and select ([f0914ae](https://github.com/getpingback/ui/commits/f0914aecc70f9b80e92129563179031a3d0b1e2b))
+* dont call onHandleSearch cb when open is false ([ff6fd68](https://github.com/getpingback/ui/commits/ff6fd68f049c2ff8bbb2dfce6fdc46acaa34a104))
+* export nodeflow ([9459332](https://github.com/getpingback/ui/commits/9459332e5c5db8534afd7294e64ee32488fedbe7))
 
 ### [0.0.426](https://github.com/getpingback/ui/compare/v0.0.425...v0.0.426) (2025-05-30)
 
