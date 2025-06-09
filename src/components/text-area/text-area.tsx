@@ -22,7 +22,7 @@ const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
           <textarea
             ref={ref}
             className={cn(
-              'w-full rounded-lg border h-10 px-3 py-2 text-sm leading-none text-tertiary-foreground font-normal transition-all outline-none',
+              'w-full rounded-lg border h-10 px-3 py-2 text-sm leading-5 text-tertiary-foreground font-normal transition-all outline-none',
               'placeholder:text-tertiary-foreground placeholder:opacity-65 placeholder:font-normal placeholder:text-sm',
               { 'border-divider-error focus:border-divider-error focus:shadow-[0_0_0_3px_var(--background-error)]': error },
               {
