@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as RadixSelect from '@radix-ui/react-select';
 import { CaretDownIcon, CaretUpIcon, CheckIcon } from '@stash-ui/regular-icons';
+import { AsteriskIcon } from '@stash-ui/solid-icons';
 import { buttonVariants } from '../button';
 import { cn } from '@/lib/utils';
 
@@ -15,13 +16,14 @@ export interface SelectProps {
   label?: string;
   helperText?: string;
   placeholder?: string;
+  required?: boolean;
   options: Option[];
   value?: string;
   onValueChange: (option?: Option) => void;
   disabled?: boolean;
 }
 
-export function Select({ label, helperText, placeholder, options, value, onValueChange, disabled }: SelectProps) {
+export function Select({ label, helperText, placeholder, options, value, onValueChange, disabled, required }: SelectProps) {
   const [isOpen, setIsOpen] = React.useState(false);
   const [selectedValue, setSelectedValue] = React.useState(value);
 
@@ -33,9 +35,20 @@ export function Select({ label, helperText, placeholder, options, value, onValue
 
   return (
     <div className="flex flex-col items-start gap-1 w-full">
-      {label ? <label className="text-xs font-semibold text-tertiary-foreground">{label}</label> : null}
+      {label ? (
+        <label className="flex items-center text-xs font-semibold text-tertiary-foreground">
+          {label}
+          {required && <AsteriskIcon color="#52525B" width={16} height={16} opacity={0.45} />}
+        </label>
+      ) : null}
 
-      <RadixSelect.Root value={selectedValue} onValueChange={handleValueChange} onOpenChange={setIsOpen} disabled={disabled}>
+      <RadixSelect.Root
+        value={selectedValue}
+        onValueChange={handleValueChange}
+        onOpenChange={setIsOpen}
+        disabled={disabled}
+        required={required}
+      >
         <RadixSelect.Trigger
           aria-label={label}
           className={cn(
