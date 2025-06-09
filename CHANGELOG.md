@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.443](https://github.com/getpingback/ui/compare/v0.0.442...v0.0.443) (2025-06-09)
+
+
+### Bug Fixes
+
+* merge main ([18706c5](https://github.com/getpingback/ui/commits/18706c57c84a54e30054dbfdbe83b659b81f24ab))
+* overlay z-index ([d68687e](https://github.com/getpingback/ui/commits/d68687ef361442750ff277d72c6c16d441da6bae))
+
 ### [0.0.441](https://github.com/getpingback/ui/compare/v0.0.440...v0.0.441) (2025-06-06)
 
 
