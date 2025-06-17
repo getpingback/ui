@@ -31,17 +31,16 @@
     --badge-orange-bg: #ff5a1f14;
     --badge-orange-text: #ff5a1f;
 
-    --buttons-label: #52525B;
-    --buttons-label_inverse: #FAFAFA;
-    --buttons-disabled: #E4E4E7;
+    --buttons-label: #52525b;
+    --buttons-label_inverse: #fafafa;
+    --buttons-disabled: #e4e4e7;
 
     --button-solid-shadow: 0px 0px 0px 3px #9061f940;
     --button-outlined-shadow: 0px 0px 0px 3px #9ca3af1f;
     --button-ghost-shadow: 0px 0px 0px 3px #9ca3af14;
 
-    --button-hover-solid-color: #9061F940;
+    --button-hover-solid-color: #9061f940;
     --button-hover-color: #71717a1f;
-   
 
     --buttons-solid_default: #9061f9;
     --button-solid-bg: #9061f9;
@@ -51,14 +50,19 @@
     --buttons-label_color: #7e3af2;
     --button-solid-text: #fafafa;
 
-    --buttons-ghost_bg: #52525B14;
+    --buttons-ghost_bg: #52525b14;
     --buttons-ghost_bg-color: #9061f91f;
     --button-ghost-text: #52525b;
     --button-ghost-gray: #52525b14;
     --button-ghost-disabled: #e4e4e7;
     --button-ghost-gray-hover: #282c2f14;
 
-    --border-button_outlined-color: #D4D4D8;
+    --buttons-danger-bg: #f05252;
+    --buttons-danger-bg-hover: #e02424;
+    --buttons-danger-disabled: #e4e4e7;
+    --button-hover-danger-color: #f0525240;
+
+    --border-button_outlined-color: #d4d4d8;
     --button-outlined-hover: #52525b14;
     --buttons-label_inverse: #fafafa;
 
@@ -70,7 +74,7 @@
 
     --input-shadow: 0px 0px 0px 3px #9061f91f;
     --input-shadow-error: 0px 0px 0px 3px #ff758a1f;
-    --border-input_invalid-color: #F05252;
+    --border-input_invalid-color: #f05252;
 
     --background-accent: #ffffff;
 
@@ -79,12 +83,11 @@
     --border-card-active: #9061f9;
     --border-card-light: #71717a1f;
     --border-input_filled-color: #9061f9;
-    
 
     --background-informative: #9061f914;
     --background-stepper-line: linear-gradient(180deg, #d4d4d8 0%, rgba(250, 250, 250, 0) 100%);
     --background-stepper-line-completed: #d4d4d8;
-    --background-error: #F0525214;
+    --background-error: #f0525214;
 
     --bottom_sheet-2: 0px 0px 1px 1px rgba(0, 0, 0, 0.04), 0px 4px 16px -2px rgba(0, 0, 0, 0.08);
     --modals-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.04), 0px -6px 24px -3px rgba(0, 0, 0, 0.08);
@@ -161,7 +164,7 @@
     --button-solid-text: #fafafa;
     --button-solid-hover: #7e3af2;
     --buttons-label: #52525b;
-    --buttons-label_inverse: #FAFAFA;
+    --buttons-label_inverse: #fafafa;
     --buttons-ghost-bg: #ac94fa3d;
     --button-ghost-text: #fafafa;
     --buttons-label_inverse: #fafafa;
@@ -183,7 +186,7 @@
     --input-shadow-error: 0px 0px 0px 3px #ff758a1f;
 
     --background-accent: #27272a;
-    --background-error: #F0525214;
+    --background-error: #f0525214;
 
     --border-divider-color: #3f3f46;
     --border-cards-color: #fafafa14;

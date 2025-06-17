@@ -1,17 +1,17 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 
-import { Badge } from "./badge";
+import { Badge } from './badge';
 
 const meta = {
-  title: "Components/Badge",
+  title: 'Components/Badge',
   component: Badge,
   parameters: {
-    layout: "centered",
+    layout: 'centered'
   },
 
-  tags: ["autodocs"],
+  tags: ['autodocs'],
 
-  argTypes: {},
+  argTypes: {}
 } satisfies Meta<typeof Badge>;
 
 export default meta;
@@ -19,31 +19,31 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    children: "Badge",
-  },
+    children: 'Badge'
+  }
 };
 
 export const Ghost: Story = {
   args: {
-    children: "Ghost",
-  },
+    children: 'Ghost'
+  }
 };
 export const Outline: Story = {
   args: {
-    children: "Outline",
-    variant: "outline",
-  },
+    children: 'Outline',
+    variant: 'outline'
+  }
 };
 
 export const Medium: Story = {
   args: {
-    children: "Medium",
-    radius: "medium",
-  },
+    children: 'Medium',
+    radius: 'medium'
+  }
 };
 export const Full: Story = {
   args: {
-    children: "Full",
-    radius: "full",
-  },
+    children: 'Full',
+    radius: 'full'
+  }
 };

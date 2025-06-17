@@ -16,6 +16,8 @@ const buttonVariants = cva(
           'text-secondary-foreground hover:shadow-[0_0_0_3px_var(--button-hover-color)] bg-button-ghost opacity-85 hover:opacity-100 disabled:bg-button-ghost-disabled',
         solid:
           'bg-button-solid text-inverse-foreground hover:shadow-[0_0_0_3px_var(--button-hover-solid-color)] disabled:bg-button-solid-disabled disabled:text-secondary-foreground disabled:opacity-45 active:bg-button-solid-hover data-[loading=true]:!bg-button-ghost',
+        danger:
+          'bg-button-danger text-inverse-foreground hover:shadow-[0_0_0_3px_var(--button-hover-danger-color)] disabled:bg-button-danger-disabled disabled:text-secondary-foreground disabled:opacity-45 active:bg-button-danger-hover data-[loading=true]:!bg-button-ghost',
         clear: 'bg-transparent text-secondary-foreground opacity-85 hover:opacity-100 data-[loading=true]:!bg-button-ghost'
       },
       size: {
@@ -58,10 +60,10 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     return (
       <Comp className={cn(buttonVariants({ variant, size, rounded, width, className }))} ref={ref} data-loading={isLoading} {...props}>
-        <span className={cn('flex items-center w-full justify-between h-full', { 'opacity-0': isLoading })}>
-          {prefix && <span className="mr-1">{prefix}</span>}
+        <span className={cn('flex items-center w-full justify-center gap-1 h-full', { 'opacity-0': isLoading })}>
+          {prefix && <span>{prefix}</span>}
           {children}
-          {suffix && <span className="ml-1">{suffix}</span>}
+          {suffix && <span>{suffix}</span>}
         </span>
 
         {isLoading && (

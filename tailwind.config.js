@@ -359,6 +359,12 @@ const config = {
             hover: 'var(--button-ghost-gray-hover)',
             disabled: 'var(--buttons-disabled)'
           },
+          danger: {
+            DEFAULT: 'var(--buttons-danger-bg)',
+            foreground: 'var(--buttons-label_inverse)',
+            hover: 'var(--buttons-danger-bg-hover)',
+            disabled: 'var(--buttons-danger-disabled)'
+          },
           outlined: {
             border: 'var(--border-button_outlined-color)',
             hover: 'var(--button-outlined-hover)'

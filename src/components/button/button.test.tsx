@@ -17,7 +17,8 @@ const {
   Rounded,
   WithPrefix,
   WithSuffix,
-  FullWidth
+  FullWidth,
+  Danger
 } = composeStories(stories);
 
 describe('Button Component', () => {
@@ -129,6 +130,13 @@ describe('Button Component', () => {
       render(<FullWidth />);
       const button = screen.getByRole('button');
       expect(button.className.includes('w-full')).toBe(true);
+    });
+  });
+  describe('Danger', () => {
+    test('renders danger button', () => {
+      render(<Danger />);
+      const button = screen.getByRole('button');
+      expect(button.className.includes('bg-button-danger')).toBe(true);
     });
   });
 });

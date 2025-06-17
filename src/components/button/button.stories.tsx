@@ -10,10 +10,7 @@ const meta = {
   parameters: {
     layout: 'padded'
   },
-
-  tags: ['autodocs'],
-
-  argTypes: {}
+  tags: ['autodocs']
 } satisfies Meta<typeof Button>;
 
 export default meta;
@@ -31,6 +28,14 @@ export const Solid: Story = {
     variant: 'solid'
   }
 };
+
+export const Danger: Story = {
+  args: {
+    children: 'Button',
+    variant: 'danger'
+  }
+};
+
 export const DisabledSolid: Story = {
   args: {
     children: 'Button',
