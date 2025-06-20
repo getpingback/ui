@@ -69,43 +69,47 @@ const SelectItem = ({ className, onClick, value, label, description, prefix, suf
   const isSelected = type === 'single' ? selectedItem === value : (selectedItem as string[]).includes(value);
 
   return (
-    <button
-      type="button"
-      className={cn(
-        'group flex justify-between border border-border-card-light p-4 rounded-xl gap-2 cursor-pointer transition-all duration-300 hover:border-purple-500/25',
-        isSelected && 'bg-purple-500/5 shadow-select-item border-purple-500/25',
-        className
-      )}
-      onClick={handleClick}
-    >
-      <div className={cn('flex gap-2', !description && 'items-center')}>
-        <span className={cn('text-gray-600 transition-all duration-300 group-hover:text-purple-600', isSelected && 'text-purple-600')}>
-          {prefix}
-        </span>
-        <div className="flex flex-col gap-1">
-          <Typography
-            weight="semibold"
-            className={cn('transition-all duration-300 group-hover:text-purple-600/85', isSelected && 'text-purple-600')}
-          >
-            {label}
-          </Typography>
-          {description && (
-            <Typography size="xsmall" className={cn(isSelected && 'text-purple-600/65')}>
-              {description}
-            </Typography>
-          )}
-        </div>
-      </div>
-
-      {(tag || suffix) && (
-        <div className="flex items-center gap-2">
-          {tag}
-          <span className={cn('text-gray-600 transition-all duration-300 group-hover:text-purple-600', isSelected && 'text-gray-600')}>
-            {suffix}
+    <div className="w-full">
+      <button
+        type="button"
+        className={cn(
+          'w-full group flex justify-between border border-border-card-light p-4 rounded-xl gap-2 cursor-pointer transition-all duration-300 hover:border-purple-500/25',
+          isSelected && 'bg-purple-500/5 shadow-select-item border-purple-500/25',
+          className
+        )}
+        onClick={handleClick}
+        tabIndex={1}
+      >
+        <div className={cn('flex gap-4', !description && 'items-center')}>
+          <span className={cn('text-gray-600 transition-all duration-300 group-hover:text-purple-600', isSelected && 'text-purple-600')}>
+            {prefix}
           </span>
+          <div className="flex flex-col gap-1">
+            <Typography
+              weight="semibold"
+              className={cn('transition-all duration-300 group-hover:text-purple-600/85', isSelected && 'text-purple-600')}
+            >
+              {label}
+            </Typography>
+            {description && (
+              <Typography size="xsmall" className={cn(isSelected && 'text-purple-600/65')}>
+                {description}
+              </Typography>
+            )}
+          </div>
         </div>
-      )}
-    </button>
+
+        {(tag || suffix) && (
+          <div className="flex items-center gap-2">
+            {tag}
+            <span className={cn('text-gray-600 transition-all duration-300 group-hover:text-purple-600', isSelected && 'text-gray-600')}>
+              {suffix}
+            </span>
+          </div>
+        )}
+      </button>
+      <input type="checkbox" className="hidden" value={value} defaultChecked={isSelected} />
+    </div>
   );
 };
 
