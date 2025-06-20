@@ -51,9 +51,11 @@ const Callout = ({ title, description, onClose, variant = 'info', className }: C
       <div className="flex gap-4">
         {icon[variant]}
         <div className="flex flex-col gap-1">
-          <Typography variant="h6" className={currentTextColor}>
-            {title}
-          </Typography>
+          {title && (
+            <Typography variant="h6" className={currentTextColor}>
+              {title}
+            </Typography>
+          )}
           <Typography variant="span" className={currentTextColor}>
             {description}
           </Typography>
