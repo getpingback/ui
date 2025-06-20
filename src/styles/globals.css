@@ -31,6 +31,17 @@
     --badge-orange-bg: #ff5a1f14;
     --badge-orange-text: #ff5a1f;
 
+    --callout-primary-bg: #9061f914;
+    --callout-primary-text: #6c2bd9;
+    --callout-info-bg: #d4d4d840;
+    --callout-info-text: #52525b;
+    --callout-success-bg: #31c48d14;
+    --callout-success-text: #046c4e;
+    --callout-warning-bg: #faca1514;
+    --callout-warning-text: #9f580a;
+    --callout-error-bg: #f0525214;
+    --callout-error-text: #c81e1e;
+
     --buttons-label: #52525b;
     --buttons-label_inverse: #fafafa;
     --buttons-disabled: #e4e4e7;

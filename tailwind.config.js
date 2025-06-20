@@ -326,6 +326,28 @@ const config = {
             foreground: 'var(--badge-orange-text)'
           }
         },
+        callout: {
+          primary: {
+            DEFAULT: 'var(--callout-primary-bg)',
+            foreground: 'var(--callout-primary-text)'
+          },
+          info: {
+            DEFAULT: 'var(--callout-info-bg)',
+            foreground: 'var(--callout-info-text)'
+          },
+          success: {
+            DEFAULT: 'var(--callout-success-bg)',
+            foreground: 'var(--callout-success-text)'
+          },
+          warning: {
+            DEFAULT: 'var(--callout-warning-bg)',
+            foreground: 'var(--callout-warning-text)'
+          },
+          error: {
+            DEFAULT: 'var(--callout-error-bg)',
+            foreground: 'var(--callout-error-text)'
+          }
+        },
         switch: {
           bg: {
             DEFAULT: 'var(--switch-bg-default)',
