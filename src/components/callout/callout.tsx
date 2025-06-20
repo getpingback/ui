@@ -36,7 +36,7 @@ const Callout = ({ title, description, onClose, variant = 'info', className }: C
 
   const currentTextColor = iconColor[variant];
 
-  const currentIconColor = `${iconColor[variant]} opacity-45`;
+  const currentIconColor = `min-w-6 min-h-6 ${iconColor[variant]} opacity-45`;
 
   const icon = {
     info: <InfoCircleIcon className={currentIconColor} />,
