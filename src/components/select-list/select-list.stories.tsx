@@ -49,3 +49,24 @@ export const Default: Story = {
     )
   }
 };
+
+export const WithForm: Story = {
+  args: {
+    type: 'single',
+    defaultValue: '1',
+    onChangeValue: () => alert('submitted'),
+    children: (
+      <>
+        <SelectItem value="1" label="Titulo 1" />
+        <SelectItem value="4" label="Titulo 4" />
+      </>
+    )
+  },
+  render: ({ children, ...args }) => {
+    return (
+      <form onSubmit={() => console.log('submitted')}>
+        <SelectList {...args}>{children}</SelectList>
+      </form>
+    );
+  }
+};
