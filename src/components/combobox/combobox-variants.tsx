@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { CheckIcon } from '@stash-ui/regular-icons';
+import { CheckIcon, ChevronRightIcon } from '@stash-ui/regular-icons';
 
 import { cn } from '@/lib/utils';
 import { Badge } from '../badge';
@@ -14,11 +14,23 @@ interface Item {
   description?: string;
 }
 
-const DefaultVariant = ({ item, selected, isButtonLabel }: { item: Item; selected: boolean; isButtonLabel?: boolean }) => (
+const DefaultVariant = ({
+  item,
+  selected,
+  isButtonLabel,
+  hasStep
+}: {
+  item: Item;
+  selected: boolean;
+  isStep?: boolean;
+  isButtonLabel?: boolean;
+  hasStep?: boolean;
+}) => (
   <>
     <span className={`line-clamp-1 ${isButtonLabel ? 'w-full h-full flex items-center' : ''} ${selected ? 'text-visible' : ''}`}>
       {item.label}
     </span>
+    {hasStep && <ChevronRightIcon color="#A1A1AA" width={20} height={20} />}
     {selected && <CheckIcon className="min-w-6 min-h-6" />}
   </>
 );
