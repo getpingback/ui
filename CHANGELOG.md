@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.454](https://github.com/getpingback/ui/compare/v0.0.452...v0.0.454) (2025-06-23)
+
+
+### Bug Fixes
+
+* update version ([acd7b7e](https://github.com/getpingback/ui/commits/acd7b7ec7ee2034a46871d96c42a117a359e1b7c))
+
 ### [0.0.452](https://github.com/getpingback/ui/compare/v0.0.451...v0.0.452) (2025-06-23)
 
 
