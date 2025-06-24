@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.457](https://github.com/getpingback/ui/compare/v0.0.456...v0.0.457) (2025-06-24)
+
+
+### Bug Fixes
+
+* merge ([0b8692d](https://github.com/getpingback/ui/commits/0b8692d822ee1928905dfc56ee91e0d0e3559049))
+* select list typography ([9477e64](https://github.com/getpingback/ui/commits/9477e64658b941b7e7206decf8028059140c1cf5))
+
 ### [0.0.456](https://github.com/getpingback/ui/compare/v0.0.455...v0.0.456) (2025-06-24)
 
 
