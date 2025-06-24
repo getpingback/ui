@@ -81,13 +81,15 @@ const SelectItem = ({ className, onClick, value, label, description, prefix, suf
         tabIndex={1}
       >
         <div className={cn('flex gap-4', !description && 'items-center')}>
-          <span className={cn('text-gray-600 transition-all duration-300 group-hover:text-purple-600', isSelected && 'text-purple-600')}>
-            {prefix}
-          </span>
+          {prefix && (
+            <span className={cn('text-gray-600 transition-all duration-300 group-hover:text-purple-600', isSelected && 'text-purple-600')}>
+              {prefix}
+            </span>
+          )}
           <div className="flex flex-col gap-1">
             <Typography
               weight="semibold"
-              className={cn('transition-all duration-300 group-hover:text-purple-600/85', isSelected && 'text-purple-600')}
+              className={cn('opacity-85 transition-all duration-300 group-hover:text-purple-600/85', isSelected && 'text-purple-600')}
             >
               {label}
             </Typography>
