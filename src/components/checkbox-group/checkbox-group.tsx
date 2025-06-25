@@ -33,7 +33,7 @@ interface CheckboxGroupProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 
   rounded?: 'default' | 'lg' | 'none';
 }
 
-interface CheckboxItemProps extends Omit<CheckboxPrimitive.CheckboxProps, 'checked' | 'onCheckedChange'> {
+interface CheckboxItemProps extends Omit<CheckboxPrimitive.CheckboxProps, 'onCheckedChange'> {
   id: string;
   label?: string;
   value: string;
