@@ -43,6 +43,7 @@ interface ComboboxProps {
   onEndReached?: () => void;
   className?: string;
   emptyContentRender?: React.ReactNode;
+  footer?: React.ReactNode;
 }
 
 export function Combobox({
@@ -60,7 +61,8 @@ export function Combobox({
   onSelect,
   onEndReached,
   className,
-  emptyContentRender
+  emptyContentRender,
+  footer
 }: ComboboxProps) {
   const [open, setOpen] = React.useState(false);
   const [selectedItems, setSelectedItems] = React.useState<Item[]>([]);
@@ -203,7 +205,7 @@ export function Combobox({
             size="lg"
             aria-expanded={open}
             suffix={<CaretDownIcon className={cn('ml-2 h-4 w-4 shrink-0 opacity-50 transition-transform', { 'rotate-180': open })} />}
-            className="w-full min-h-[40px] h-auto px-3 py-2 justify-between bg-background-accent hover:bg-background-accent"
+            className="w-full min-h-[40px] h-auto px-3 py-2 !justify-between bg-background-accent hover:bg-background-accent"
           >
             {renderButtonContent()}
           </Button>
@@ -250,10 +252,11 @@ export function Combobox({
             {!isStepped && hasSelectedStep ? <div ref={lastItemRef} className="flex w-full" /> : null}
           </div>
 
-          <Loader isLoading={isLoading && !isStepped && hasSelectedStep} />
+          <Loader isLoading={(isLoading && !isStepped) || (isStepped && hasSelectedStep)} />
 
           {!isLoading && isEmpty && emptyContentRender ? <>{emptyContentRender}</> : null}
         </Command>
+        {footer && (!isStepped || (isStepped && hasSelectedStep)) ? footer : null}
       </PopoverContent>
     </Popover>
   );
