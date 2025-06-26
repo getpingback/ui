@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.460](https://github.com/getpingback/ui/compare/v0.0.459...v0.0.460) (2025-06-26)
+
+
+### Bug Fixes
+
+* checkbox checked prop on checkbox item ([c354a48](https://github.com/getpingback/ui/commits/c354a48b3acab3208ba18bb477e6fd825f55c430))
+* version ([07dd4b2](https://github.com/getpingback/ui/commits/07dd4b2d60f53520874b0d83c42479770688f1fa))
+
 ### [0.0.459](https://github.com/getpingback/ui/compare/v0.0.458...v0.0.459) (2025-06-26)
 
 
