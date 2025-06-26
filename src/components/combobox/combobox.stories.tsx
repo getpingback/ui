@@ -49,6 +49,94 @@ export const Default: Story = {
   }
 };
 
+export const Step: Story = {
+  args: {
+    placeholder: 'Selecione o link',
+    searchPlaceholder: 'Pesquise pelo link...',
+    emptySearchPlaceholder: 'Nenhum resultado encontrado.',
+    className: 'w-[352px]',
+    variant: 'detailed',
+    options: [
+      {
+        items: [
+          {
+            label: 'Atributos do contato',
+            value: 'contact-attributes',
+            items: [
+              {
+                heading: 'Informações do contato',
+                items: [
+                  {
+                    label: 'Nome',
+                    value: 'name'
+                  },
+                  {
+                    label: 'Email',
+                    value: 'email'
+                  },
+                  {
+                    label: 'Telefone',
+                    value: 'phone'
+                  }
+                ]
+              },
+              {
+                heading: 'Custom fields',
+                items: [
+                  {
+                    label: 'Cargo',
+                    value: 'Cargo'
+                  },
+                  {
+                    label: 'Empresa',
+                    value: 'Empresa'
+                  },
+                  {
+                    label: 'Cidade',
+                    value: 'Cidade'
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            label: 'Eventos',
+            value: 'events',
+            items: [
+              {
+                heading: 'Email',
+                items: [
+                  {
+                    label: 'Abriu o email ...',
+                    value: 'abriu-o-email'
+                  },
+                  {
+                    label: 'Clicou no link ...',
+                    value: 'email'
+                  }
+                ]
+              },
+              {
+                heading: 'Lista',
+                items: [
+                  {
+                    label: 'Está na lista ...',
+                    value: 'esta-na-lista'
+                  },
+                  {
+                    label: 'Não está na lista ...',
+                    value: 'nao-esta-na-lista'
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+};
+
 export const Detailed: Story = {
   args: {
     variant: 'detailed',
@@ -252,6 +340,7 @@ export const GroupHeading: Story = {
     label: 'Lista',
     onEndReached: () => {},
     variant: 'detailed',
+    className: 'w-[480px]',
     placeholder: 'Selecione a lista',
     searchPlaceholder: 'Pesquise por uma lista...',
     emptySearchPlaceholder: 'Nenhum resultado encontrado.',

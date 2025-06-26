@@ -2,6 +2,82 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.464](https://github.com/getpingback/ui/compare/v0.0.463...v0.0.464) (2025-06-26)
+
+
+### Bug Fixes
+
+* onEndReached on combobox ([4ee4708](https://github.com/getpingback/ui/commits/4ee4708f283e345b50d41b8845d53c4819585791))
+
+### [0.0.462](https://github.com/getpingback/ui/compare/v0.0.461...v0.0.462) (2025-06-26)
+
+
+### Bug Fixes
+
+* loading on combobox ([d276624](https://github.com/getpingback/ui/commits/d2766247cdb12b3a95dc913fb6fabe650c0dd268))
+
+### [0.0.460](https://github.com/getpingback/ui/compare/v0.0.459...v0.0.460) (2025-06-26)
+
+
+### Bug Fixes
+
+* checkbox checked prop on checkbox item ([c354a48](https://github.com/getpingback/ui/commits/c354a48b3acab3208ba18bb477e6fd825f55c430))
+* version ([07dd4b2](https://github.com/getpingback/ui/commits/07dd4b2d60f53520874b0d83c42479770688f1fa))
+
+### [0.0.459](https://github.com/getpingback/ui/compare/v0.0.458...v0.0.459) (2025-06-26)
+
+
+### Bug Fixes
+
+* add footer on combobox ([0149b71](https://github.com/getpingback/ui/commits/0149b71a1fa1e5ed66c3a2f46657dbda3feff2bc))
+
+### [0.0.457](https://github.com/getpingback/ui/compare/v0.0.456...v0.0.457) (2025-06-24)
+
+
+### Bug Fixes
+
+* merge ([0b8692d](https://github.com/getpingback/ui/commits/0b8692d822ee1928905dfc56ee91e0d0e3559049))
+* select list typography ([9477e64](https://github.com/getpingback/ui/commits/9477e64658b941b7e7206decf8028059140c1cf5))
+
+### [0.0.456](https://github.com/getpingback/ui/compare/v0.0.455...v0.0.456) (2025-06-24)
+
+
+### Bug Fixes
+
+* combobox label ([c893eee](https://github.com/getpingback/ui/commits/c893eeeb5edb0e1e286ddfe742c3d46376619be2))
+
+### [0.0.454](https://github.com/getpingback/ui/compare/v0.0.452...v0.0.454) (2025-06-23)
+
+
+### Bug Fixes
+
+* update version ([acd7b7e](https://github.com/getpingback/ui/commits/acd7b7ec7ee2034a46871d96c42a117a359e1b7c))
+
+### [0.0.452](https://github.com/getpingback/ui/compare/v0.0.451...v0.0.452) (2025-06-23)
+
+
+### Bug Fixes
+
+* merge ([0da15d9](https://github.com/getpingback/ui/commits/0da15d922bf62054ae3b7bf31a356cecf43ce48a))
+
+### [0.0.451](https://github.com/getpingback/ui/compare/v0.0.450...v0.0.451) (2025-06-23)
+
+### [0.0.450](https://github.com/getpingback/ui/compare/v0.0.444...v0.0.450) (2025-06-23)
+
+
+### Features
+
+* add callout component ([1ac9fe9](https://github.com/getpingback/ui/commits/1ac9fe9fa90ada85f1ef30ed0d66a8fd20fe5884))
+* add danger button ([c0e904b](https://github.com/getpingback/ui/commits/c0e904bf3f1ec3f8086e17d0bc749bff08f0c929))
+* export callout ([bf754ad](https://github.com/getpingback/ui/commits/bf754adee5c49257bff37955fbc0f6a0c11b178f))
+
+
+### Bug Fixes
+
+* add step on combobox ([f9898c7](https://github.com/getpingback/ui/commits/f9898c7a84a9c85c1ac672e95b8b4e61eb8c0f83))
+* callout title ([2c75baf](https://github.com/getpingback/ui/commits/2c75baf6c79c0896506b92c78cec740dfffb021b))
+* textarea line-height ([b8b0389](https://github.com/getpingback/ui/commits/b8b0389187b06e72fdecf685ab41da9516bbb3c5))
+
 ### [0.0.443](https://github.com/getpingback/ui/compare/v0.0.442...v0.0.443) (2025-06-09)
 
 

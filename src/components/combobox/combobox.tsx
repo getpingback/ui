@@ -2,12 +2,15 @@
 
 import * as React from 'react';
 import { CaretDownIcon } from '@stash-ui/regular-icons';
+import { ArrowLeftIcon } from '@stash-ui/duotone-icons';
 
 import { Button } from '@/components/button';
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from '@/components/command';
+import { DefaultVariant, DetailedVariant, IconCompactVariant, ImageDetailedVariant, MultipleVariant } from './combobox-variants';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/popover';
-import { DetailedVariant, IconCompactVariant, ImageDetailedVariant, DefaultVariant, MultipleVariant } from './combobox-variants';
+import Loader from './components/loader';
 import { cn } from '@/lib/utils';
+import { Typography } from '@/index';
 
 interface Item {
   value: string;
@@ -16,6 +19,7 @@ interface Item {
   leadingElement?: React.ReactNode;
   imageUrl?: string;
   description?: string;
+  items?: Option[];
 }
 
 interface Option {
@@ -39,6 +43,7 @@ interface ComboboxProps {
   onEndReached?: () => void;
   className?: string;
   emptyContentRender?: React.ReactNode;
+  footer?: React.ReactNode;
 }
 
 export function Combobox({
@@ -56,10 +61,12 @@ export function Combobox({
   onSelect,
   onEndReached,
   className,
-  emptyContentRender
+  emptyContentRender,
+  footer
 }: ComboboxProps) {
   const [open, setOpen] = React.useState(false);
   const [selectedItems, setSelectedItems] = React.useState<Item[]>([]);
+  const [selectedStep, setSelectedStep] = React.useState<Item | null>(null);
 
   const multiple = variant === 'multiple';
 
@@ -70,6 +77,9 @@ export function Combobox({
   const isEmpty = options.every((option) => option.items.length === 0);
 
   const lastItemRef = React.useRef<HTMLDivElement>(null);
+
+  const isStepped = options.some((option) => option.items.some((item) => item.items));
+  const hasSelectedStep = !!selectedStep?.items && selectedStep.items.length > 0;
 
   React.useEffect(() => {
     if (!open && !!searchValue && onChangeSearchValue) onChangeSearchValue('');
@@ -140,22 +150,53 @@ export function Combobox({
   };
 
   const handleSelectItem = (item: Item) => {
-    if (multiple) {
-      const isItemSelected = selectedItems.some((i) => i.value === item.value);
-      setSelectedItems((prev) => (isItemSelected ? prev.filter((i) => i.value !== item.value) : [...prev, item]));
-    } else {
-      setSelectedItems([item]);
-    }
+    if (!item.items || hasSelectedStep) {
+      if (multiple) {
+        const isItemSelected = selectedItems.some((i) => i.value === item.value);
+        setSelectedItems((prev) => (isItemSelected ? prev.filter((i) => i.value !== item.value) : [...prev, item]));
+      } else {
+        setSelectedItems([item]);
+      }
 
-    onSelect?.(item);
-    setOpen(false);
+      onSelect?.(item);
+      setOpen(false);
+    } else {
+      setSelectedStep(item);
+    }
+  };
+
+  const renderGroupItems = (items: Item[], heading: string) => {
+    return (
+      <CommandGroup className="py-2" heading={heading}>
+        {items.map((item) => (
+          <CommandItem
+            className="flex items-center justify-between h-full w-full gap-4"
+            key={item.value}
+            value={item.value}
+            onSelect={() => handleSelectItem(item)}
+          >
+            {multiple ? (
+              <DefaultVariant
+                item={item}
+                selected={currentMultipleValue.find((currentValue) => currentValue.value === item.value) !== undefined}
+              />
+            ) : (
+              React.createElement(isStepped ? comboboxVariants.default : comboboxVariants[variant], {
+                item,
+                selected: currentSingleValue?.value === item.value,
+                hasStep: isStepped && !hasSelectedStep
+              })
+            )}
+          </CommandItem>
+        ))}
+      </CommandGroup>
+    );
   };
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <div className="flex flex-col items-start gap-1 w-full">
         {label ? <label className="text-xs font-semibold text-tertiary-foreground">{label}</label> : null}
-
         <PopoverTrigger asChild>
           <Button
             variant="outline"
@@ -164,7 +205,7 @@ export function Combobox({
             size="lg"
             aria-expanded={open}
             suffix={<CaretDownIcon className={cn('ml-2 h-4 w-4 shrink-0 opacity-50 transition-transform', { 'rotate-180': open })} />}
-            className="w-full min-h-[40px] h-auto px-3 py-2 justify-between bg-background-accent hover:bg-background-accent"
+            className="w-full min-h-[40px] h-auto px-3 py-2 !justify-between bg-background-accent hover:bg-background-accent"
           >
             {renderButtonContent()}
           </Button>
@@ -180,67 +221,42 @@ export function Combobox({
         data-testid="comboxbox-popover-content"
       >
         <Command shouldFilter={!onChangeSearchValue} className={className}>
-          <div className="w-full p-4 flex items-center justify-center border-b border-divider">
-            <CommandInput placeholder={searchPlaceholder} className="h-9 w-full" defaultValue={searchValue} onInput={handleSearchInput} />
-          </div>
+          {hasSelectedStep ? (
+            <div className="w-full gap-3 p-3 flex items-center justify-start border-b border-divider">
+              <button onClick={() => setSelectedStep([])}>
+                <ArrowLeftIcon color="#52525B" opacity={0.45} />
+              </button>
+              <Typography size="small" weight="semibold" type="secondary" className="truncate">
+                {selectedStep?.label}
+              </Typography>
+            </div>
+          ) : null}
+          {isStepped && !hasSelectedStep ? null : (
+            <div className="w-full p-4 flex items-center justify-center border-b border-divider">
+              <CommandInput placeholder={searchPlaceholder} className="h-9 w-full" defaultValue={searchValue} onInput={handleSearchInput} />
+            </div>
+          )}
 
           {!emptyContentRender && <CommandEmpty>{emptySearchPlaceholder}</CommandEmpty>}
 
           <div className="max-h-[272px] overflow-y-auto scrollbar-style">
-            {options.map((option, index) => (
-              <div key={index}>
-                <CommandGroup className="py-2" heading={option.heading}>
-                  {option.items.map((item) => (
-                    <CommandItem
-                      className="flex items-center justify-between h-full w-full gap-4"
-                      key={item.value}
-                      value={item.value}
-                      onSelect={() => handleSelectItem(item)}
-                    >
-                      {multiple ? (
-                        <DefaultVariant
-                          item={item}
-                          selected={currentMultipleValue.find((currentValue) => currentValue.value === item.value) !== undefined}
-                        />
-                      ) : (
-                        React.createElement(comboboxVariants[variant], {
-                          item,
-                          selected: currentSingleValue?.value === item.value
-                        })
-                      )}
-                    </CommandItem>
-                  ))}
-                </CommandGroup>
+            {!hasSelectedStep
+              ? options.map((option, index) => (
+                  <div key={index}>
+                    {renderGroupItems(option.items, option.heading || '')}
+                    {index < options.length - 1 && <div className="border-b border-divider" />}
+                  </div>
+                ))
+              : selectedStep?.items?.map((step: Option) => renderGroupItems(step.items, step?.heading || ''))}
 
-                {index < options.length - 1 && <div className="border-b border-divider" />}
-              </div>
-            ))}
-            <div ref={lastItemRef} className="flex w-full" />
+            {!isStepped || (isStepped && hasSelectedStep) ? <div ref={lastItemRef} className="flex w-full" /> : null}
           </div>
 
-          {isLoading ? (
-            <div className="flex items-center justify-center mb-4 h-10" data-testid="combobox-loading">
-              <svg
-                aria-hidden="true"
-                className="w-8 h-8 text-gray-200 animate-spin fill-purple-500"
-                viewBox="0 0 100 101"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
-                  fill="currentColor"
-                />
-                <path
-                  d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
-                  fill="currentFill"
-                />
-              </svg>
-            </div>
-          ) : null}
+          {isLoading && (!isStepped || (isStepped && hasSelectedStep)) && <Loader />}
 
           {!isLoading && isEmpty && emptyContentRender ? <>{emptyContentRender}</> : null}
         </Command>
+        {footer}
       </PopoverContent>
     </Popover>
   );
