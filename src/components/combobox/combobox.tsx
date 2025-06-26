@@ -252,11 +252,11 @@ export function Combobox({
             {!isStepped && hasSelectedStep ? <div ref={lastItemRef} className="flex w-full" /> : null}
           </div>
 
-          <Loader isLoading={(isLoading && !isStepped) || (isStepped && hasSelectedStep)} />
+          {isLoading && (!isStepped || (isStepped && hasSelectedStep)) && <Loader />}
 
           {!isLoading && isEmpty && emptyContentRender ? <>{emptyContentRender}</> : null}
         </Command>
-        {footer && (!isStepped || (isStepped && hasSelectedStep)) ? footer : null}
+        {footer}
       </PopoverContent>
     </Popover>
   );

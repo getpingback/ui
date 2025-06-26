@@ -1,8 +1,6 @@
 import React from 'react';
 
-const Loader = ({ isLoading }: { isLoading: boolean | undefined }) => {
-  if (!isLoading) return null;
-
+const Loader = () => {
   return (
     <div className="flex items-center justify-center mb-4 h-10" data-testid="combobox-loading">
       <svg
