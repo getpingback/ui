@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.459](https://github.com/getpingback/ui/compare/v0.0.458...v0.0.459) (2025-06-26)
+
+
+### Bug Fixes
+
+* add footer on combobox ([0149b71](https://github.com/getpingback/ui/commits/0149b71a1fa1e5ed66c3a2f46657dbda3feff2bc))
+
 ### [0.0.457](https://github.com/getpingback/ui/compare/v0.0.456...v0.0.457) (2025-06-24)
 
 
