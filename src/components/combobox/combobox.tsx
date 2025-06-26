@@ -249,7 +249,7 @@ export function Combobox({
                 ))
               : selectedStep?.items?.map((step: Option) => renderGroupItems(step.items, step?.heading || ''))}
 
-            {!isStepped && hasSelectedStep ? <div ref={lastItemRef} className="flex w-full" /> : null}
+            {!isStepped || (isStepped && hasSelectedStep) ? <div ref={lastItemRef} className="flex w-full" /> : null}
           </div>
 
           {isLoading && (!isStepped || (isStepped && hasSelectedStep)) && <Loader />}
