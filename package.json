@@ -10,8 +10,8 @@
   ],
   "types": "dist/index.d.ts",
   "scripts": {
-    "dev": "yarn storybook",
-    "build": "yarn rollup",
+    "dev": "npm run storybook",
+    "build": "npm run rollup",
     "test": "jest",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
     "test:watch": "jest --watch",
@@ -20,11 +20,11 @@
     "serve-storybook": "serve storybook-static",
     "rollup": "rollup -c",
     "prepare": "husky install",
-    "base-release": "yarn build && git push --follow-tags origin main && yarn publish --access public",
-    "release": "standard-version && yarn base-release",
-    "release:minor": "standard-version --release-as minor && yarn base-release",
-    "release:patch": "standard-version --release-as patch && yarn base-release",
-    "release:major": "standard-version --release-as major && yarn base-release"
+    "base-release": "npm run build && git push --follow-tags origin main && npm publish --access public",
+    "release": "standard-version && npm run base-release",
+    "release:minor": "standard-version --release-as minor && npm run base-release",
+    "release:patch": "standard-version --release-as patch && npm run base-release",
+    "release:major": "standard-version --release-as major && npm run base-release"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.1.2",
