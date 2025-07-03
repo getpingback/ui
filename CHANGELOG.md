@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.467](https://github.com/getpingback/ui/compare/v0.0.465...v0.0.467) (2025-07-03)
+
+
+### Bug Fixes
+
+* add align variant on button ([746d2bc](https://github.com/getpingback/ui/commits/746d2bcab76a74043944c4787fea666bbd7cccde))
+* default state accordion ([6d8fa3d](https://github.com/getpingback/ui/commits/6d8fa3d103dd6e90363c7635560812616a33ae7e))
+* resolved conflicts ([7cb2d45](https://github.com/getpingback/ui/commits/7cb2d4509a0ae25b00b54551bdf951e935522b72))
+
 ### [0.0.464](https://github.com/getpingback/ui/compare/v0.0.463...v0.0.464) (2025-06-26)
 
 
