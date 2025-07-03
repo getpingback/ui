@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.468](https://github.com/getpingback/ui/compare/v0.0.467...v0.0.468) (2025-07-03)
+
+
+### Bug Fixes
+
+* add align on combobox ([a3ff2f8](https://github.com/getpingback/ui/commits/a3ff2f8eef21f94bbf501557466e63ff108c688a))
+
 ### [0.0.467](https://github.com/getpingback/ui/compare/v0.0.465...v0.0.467) (2025-07-03)
 
 
