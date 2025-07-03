@@ -98,6 +98,7 @@ export const Rounded: Story = {
 export const WithPrefix: Story = {
   args: {
     children: 'Button',
+    width: 'full',
     prefix: <HeartIcon data-testid="heart-icon" />
   }
 };

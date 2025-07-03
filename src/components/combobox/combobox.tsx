@@ -204,6 +204,7 @@ export function Combobox({
             rounded="lg"
             size="lg"
             aria-expanded={open}
+            align="between"
             suffix={<CaretDownIcon className={cn('ml-2 h-4 w-4 shrink-0 opacity-50 transition-transform', { 'rotate-180': open })} />}
             className="w-full min-h-[40px] h-auto px-3 py-2 !justify-between bg-background-accent hover:bg-background-accent"
           >
