@@ -6,7 +6,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center whitespace-nowrap text-sm font-medium font-primary transition-colors focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-45 disabled:hover:shadow-none transition-all duration-200 ease-in-out data-[loading=true]:hover:shadow-none data-[loading=true]:pointer-events-none relative',
+  'inline-flex items-center whitespace-nowrap text-sm font-medium font-primary transition-colors focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-45 disabled:hover:shadow-none transition-all duration-200 ease-in-out data-[loading=true]:hover:shadow-none data-[loading=true]:pointer-events-none relative',
   {
     variants: {
       variant: {
@@ -34,13 +34,20 @@ const buttonVariants = cva(
       width: {
         full: 'w-full',
         fit: 'w-fit'
+      },
+      align: {
+        center: '[&>span]:justify-center',
+        between: '[&>span]:justify-between',
+        start: '[&>span]:justify-start',
+        end: '[&>span]:justify-end'
       }
     },
     defaultVariants: {
       variant: 'solid',
       size: 'sm',
       rounded: 'lg',
-      width: 'fit'
+      width: 'fit',
+      align: 'center'
     }
   }
 );
@@ -55,12 +62,17 @@ export interface ButtonProps extends ButtonBaseProps, VariantProps<typeof button
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, rounded, width, asChild = false, children, prefix, suffix, isLoading = false, ...props }, ref) => {
+  ({ className, variant, size, rounded, width, asChild = false, children, prefix, suffix, isLoading = false, align, ...props }, ref) => {
     const Comp = asChild ? Slot : 'button';
 
     return (
-      <Comp className={cn(buttonVariants({ variant, size, rounded, width, className }))} ref={ref} data-loading={isLoading} {...props}>
-        <span className={cn('flex items-center w-full justify-center gap-1 h-full', { 'opacity-0': isLoading })}>
+      <Comp
+        className={cn(buttonVariants({ variant, size, rounded, width, className, align }))}
+        ref={ref}
+        data-loading={isLoading}
+        {...props}
+      >
+        <span className={cn('flex items-center w-full gap-1 h-full', { 'opacity-0': isLoading })}>
           {prefix && <span>{prefix}</span>}
           {children}
           {suffix && <span>{suffix}</span>}
