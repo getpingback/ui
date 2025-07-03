@@ -50,6 +50,7 @@ export function DatePicker({ locale = 'en', label, placeholder, helperText, valu
         <PopoverTrigger asChild>
           <Button
             variant="outline"
+            align="between"
             className={cn(
               'h-10 w-full justify-between text-left font-normal bg-background-accent hover:bg-background-accent',
               !date && 'text-muted-foreground'
