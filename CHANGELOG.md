@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.472](https://github.com/getpingback/ui/compare/v0.0.471...v0.0.472) (2025-07-07)
+
+
+### Bug Fixes
+
+* stepper padding ([a09033a](https://github.com/getpingback/ui/commits/a09033ae9d16e8205e36ed288bb22e03ac1dfd5b))
+
 ### [0.0.471](https://github.com/getpingback/ui/compare/v0.0.470...v0.0.471) (2025-07-07)
 
 
