@@ -5,7 +5,7 @@ import { Badge } from '../badge';
 import { UserAvatarIcon, ChevronRightIcon } from '@stash-ui/light-icons';
 
 const meta = {
-  title: 'SelectList',
+  title: 'Components/SelectList',
   component: SelectList,
   tags: ['autodocs'],
   subcomponents: {

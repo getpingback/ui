@@ -3,7 +3,7 @@ import { StoryObj } from '@storybook/react';
 import { TextArea } from './text-area';
 import { SearchIcon } from '@stash-ui/light-icons';
 const meta = {
-  title: 'TextArea',
+  title: 'Components/TextArea',
   component: TextArea,
   tags: ['autodocs'],
   argTypes: {
