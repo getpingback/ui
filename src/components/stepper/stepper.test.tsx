@@ -121,7 +121,7 @@ describe('Stepper', () => {
     expect(screen.getByText('Only Step')).toBeInTheDocument();
     const itemContainer = screen.getByText('Only Step').closest('div.w-full.flex.items-start.relative');
     if (itemContainer) {
-      expect(itemContainer.querySelector('div.pl-6')).toHaveClass('pt-1');
+      expect(itemContainer.querySelector('div.pl-6')).toHaveClass('pt-[5px]');
     }
     expect(screen.queryByTestId('stepper-line')).not.toBeInTheDocument();
   });

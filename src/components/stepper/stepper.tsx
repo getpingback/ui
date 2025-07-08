@@ -36,7 +36,7 @@ export const Step = ({ label, description, stepName, children, rightElement, sta
         />
       )}
       <span className="flex items-center justify-center z-2">{stepIcons[status]}</span>
-      <div className={cn('w-full flex flex-col gap-3 pl-6 pt-2', isFirst && 'pt-1')}>
+      <div className={cn('w-full flex flex-col gap-3 pl-6 pt-[5px]')}>
         <div className="flex flex-row gap-2 items-center justify-between">
           <div className="flex flex-col gap-1">
             <Typography size="xsmall" type="tertiary" className="opacity-65">

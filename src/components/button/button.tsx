@@ -36,10 +36,10 @@ const buttonVariants = cva(
         fit: 'w-fit'
       },
       align: {
-        center: '[&>span]:justify-center',
-        between: '[&>span]:justify-between',
-        start: '[&>span]:justify-start',
-        end: '[&>span]:justify-end'
+        center: '[&>span]:justify-center justify-center',
+        between: '[&>span]:justify-between justify-between',
+        start: '[&>span]:justify-start justify-start',
+        end: '[&>span]:justify-end justify-end'
       }
     },
     defaultVariants: {
