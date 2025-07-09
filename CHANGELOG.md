@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.473](https://github.com/getpingback/ui/compare/v0.0.472...v0.0.473) (2025-07-09)
+
+
+### Bug Fixes
+
+* add useeffect on counter input ([bc25824](https://github.com/getpingback/ui/commits/bc258244f86dfec9eae27815ee18b6213531808b))
+
 ### [0.0.472](https://github.com/getpingback/ui/compare/v0.0.471...v0.0.472) (2025-07-07)
 
 
