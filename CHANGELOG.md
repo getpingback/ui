@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.474](https://github.com/getpingback/ui/compare/v0.0.473...v0.0.474) (2025-07-11)
+
+
+### Bug Fixes
+
+* change counter input background ([23d9e08](https://github.com/getpingback/ui/commits/23d9e089c1924b1f9f3cec0168411bcada480941))
+
 ### [0.0.473](https://github.com/getpingback/ui/compare/v0.0.472...v0.0.473) (2025-07-09)
 
 
