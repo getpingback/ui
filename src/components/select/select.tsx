@@ -19,13 +19,18 @@ export interface SelectProps {
   required?: boolean;
   options: Option[];
   value?: string;
+  defaultValue?: string;
   onValueChange: (option?: Option) => void;
   disabled?: boolean;
 }
 
-export function Select({ label, helperText, placeholder, options, value, onValueChange, disabled, required }: SelectProps) {
+export function Select({ label, helperText, placeholder, options, value, defaultValue, onValueChange, disabled, required }: SelectProps) {
   const [isOpen, setIsOpen] = React.useState(false);
-  const [selectedValue, setSelectedValue] = React.useState(value);
+  const [selectedValue, setSelectedValue] = React.useState(defaultValue || value);
+
+  React.useEffect(() => {
+    defaultValue && setSelectedValue(defaultValue);
+  }, [defaultValue]);
 
   const handleValueChange = (value: string) => {
     setSelectedValue(value);
