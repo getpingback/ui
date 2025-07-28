@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.475](https://github.com/getpingback/ui/compare/v0.0.474...v0.0.475) (2025-07-28)
+
+
+### Bug Fixes
+
+* onEndReached on combobox ([4585957](https://github.com/getpingback/ui/commits/458595769ac9cb8aa164a393cf89f64876deda97))
+
 ### [0.0.474](https://github.com/getpingback/ui/compare/v0.0.473...v0.0.474) (2025-07-11)
 
 
