@@ -101,7 +101,7 @@ export function Combobox({
     }, 100);
 
     return () => observer.disconnect();
-  }, [open, options, onEndReached]);
+  }, [open, options, onEndReached, isStepped, hasSelectedStep]);
 
   const comboboxVariants = {
     default: DefaultVariant,
