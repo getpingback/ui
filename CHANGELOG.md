@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.481](https://github.com/getpingback/ui/compare/v0.0.480...v0.0.481) (2025-07-30)
+
+
+### Bug Fixes
+
+* add unique layoutId ([224a7a0](https://github.com/getpingback/ui/commits/224a7a04cea0c024085babc0969ff7f5af514ce7))
+
 ### [0.0.480](https://github.com/getpingback/ui/compare/v0.0.479...v0.0.480) (2025-07-30)
 
 
