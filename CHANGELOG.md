@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.477](https://github.com/getpingback/ui/compare/v0.0.476...v0.0.477) (2025-07-30)
+
+
+### Bug Fixes
+
+* add unique key on tabs ([b9bab2e](https://github.com/getpingback/ui/commits/b9bab2e7b78084275962d756c3a369407c250698))
+
 ### [0.0.476](https://github.com/getpingback/ui/compare/v0.0.475...v0.0.476) (2025-07-29)
 
 
