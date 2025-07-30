@@ -37,9 +37,11 @@ const tabListVariants = cva('inline-flex items-center justify-center rounded-md 
 
 export interface TabsTriggerProps
   extends Omit<React.ComponentProps<typeof TabsPrimitive.Trigger>, 'type'>,
-    VariantProps<typeof tabTriggerVariants> {}
+    VariantProps<typeof tabTriggerVariants> {
+  layoutId?: string;
+}
 
-function TabsTrigger({ className, type, key, ...props }: TabsTriggerProps) {
+function TabsTrigger({ className, type, layoutId, ...props }: TabsTriggerProps) {
   const [isActive, setIsActive] = React.useState(false);
   const triggerRef: React.MutableRefObject<HTMLButtonElement | null> = React.useRef(null);
 
@@ -86,7 +88,7 @@ function TabsTrigger({ className, type, key, ...props }: TabsTriggerProps) {
               type === 'purple' && 'inset-0 bg-[#9061F914] outline-none',
               type === 'bottom-line' && 'bg-[#9061F9] h-[2px] left-0 right-0 bottom-0 rounded-none'
             )}
-            layoutId={`${type}-tab-active-indicator-${key || 'default'}`}
+            layoutId={layoutId ? `${layoutId}-${type}-tab-active-indicator` : `${type}-tab-active-indicator`}
             transition={{ type: 'spring', bounce: 0, duration: 0.6 }}
           />
         ) : null}
@@ -98,21 +100,23 @@ function TabsTrigger({ className, type, key, ...props }: TabsTriggerProps) {
 export interface TabWrapperProps {
   type: string;
   children: React.ReactNode;
+  layoutId?: string;
 }
 
-function TabWrapper({ type, children }: TabWrapperProps) {
+function TabWrapper({ type, children, layoutId }: TabWrapperProps) {
   if (React.Children.count(children) !== 1) return;
 
   const child = React.Children.only(children) as React.ReactElement<any>;
-  return React.cloneElement(child, { type });
+  return React.cloneElement(child, { type, layoutId });
 }
 
 export interface TabProps extends Omit<React.ComponentProps<typeof TabsPrimitive.List>, 'type'>, VariantProps<typeof tabTriggerVariants> {
   type: 'purple' | 'clear' | 'bottom-line';
   height: 'medium' | 'full';
+  layoutId?: string;
 }
 
-function TabsList({ className, type = 'purple', height, ...props }: TabProps) {
+function TabsList({ className, type = 'purple', height, layoutId, ...props }: TabProps) {
   return (
     <TabsPrimitive.List
       className={cn(tabListVariants({ height }), 'relative z-[9] outline-none', type === 'bottom-line' && 'bg-transparent', className)}
@@ -120,7 +124,7 @@ function TabsList({ className, type = 'purple', height, ...props }: TabProps) {
       {...props}
     >
       {React.Children.map(props.children, (child, index) => (
-        <TabWrapper key={index} type={type}>
+        <TabWrapper key={index} type={type} layoutId={layoutId}>
           {child}
         </TabWrapper>
       ))}
