@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.480](https://github.com/getpingback/ui/compare/v0.0.479...v0.0.480) (2025-07-30)
+
+
+### Bug Fixes
+
+* merge ([f0b7bae](https://github.com/getpingback/ui/commits/f0b7baeafca49835c6b31c132dc122e804c067dc))
+* **variable-input:** return '\n' ([65a032f](https://github.com/getpingback/ui/commits/65a032fff1cfcb904c9feddaba21f1984fad14cb))
+
 ### [0.0.479](https://github.com/getpingback/ui/compare/v0.0.478...v0.0.479) (2025-07-30)
 
 ### [0.0.478](https://github.com/getpingback/ui/compare/v0.0.477...v0.0.478) (2025-07-30)
