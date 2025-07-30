@@ -129,4 +129,31 @@ describe('VariableInput Component', () => {
       expect(editor.textContent).toBe('Hello world');
     }
   });
+
+  it('should preserve line breaks in onChangeContent', () => {
+    const handleChangeContent = jest.fn();
+    const { container } = render(<VariableInput options={options} onChangeContent={handleChangeContent} />);
+
+    const editor = container.querySelector("[contenteditable='true']");
+    if (editor) {
+      editor.innerHTML = 'Line 1<br>Line 2<br>Line 3';
+
+      fireEvent.input(editor);
+
+      expect(handleChangeContent).toHaveBeenCalledWith('Line 1\nLine 2\nLine 3');
+    }
+  });
+
+  it('should preserve line breaks when initialContent contains newlines', () => {
+    const initialContent = 'Line 1\nLine 2\nLine 3';
+    const { container } = render(<VariableInput options={options} initialContent={initialContent} />);
+
+    const editor = container.querySelector("[contenteditable='true']");
+    if (editor) {
+      expect(editor.innerHTML).toContain('<br>');
+      expect(editor.innerHTML).toContain('Line 1');
+      expect(editor.innerHTML).toContain('Line 2');
+      expect(editor.innerHTML).toContain('Line 3');
+    }
+  });
 });

@@ -8,7 +8,9 @@ import svg from 'rollup-plugin-svg';
 import sourcemaps from 'rollup-plugin-sourcemaps';
 import del from 'rollup-plugin-delete';
 
-import packageJson from './package.json' assert { type: 'json' };
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+const packageJson = require('./package.json');
 
 const rollupConfig = [
   {

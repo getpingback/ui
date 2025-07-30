@@ -39,7 +39,8 @@ const options = [
 export const Default: Story = {
   args: {
     options,
-    onVariablesEndReached: () => console.log('End Reached')
+    onVariablesEndReached: () => console.log('End Reached'),
+    onChangeContent: (content) => console.log('Content changed:', content)
   }
 };
 

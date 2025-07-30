@@ -174,13 +174,26 @@ export function VariableInput({
       span.replaceWith(`{{${variable}}}`);
     });
 
+    // Preservar quebras de linha convertendo <br> e <div> para \n
+    // Substitui <br> por \n
+    tempDiv.innerHTML = tempDiv.innerHTML.replace(/<br\s*\/?>/gi, '\n');
+    
+    // Substitui </div><div> por \n (quando há múltiplas linhas)
+    tempDiv.innerHTML = tempDiv.innerHTML.replace(/<\/div>\s*<div[^>]*>/gi, '\n');
+    
+    // Remove tags div restantes no início e fim
+    tempDiv.innerHTML = tempDiv.innerHTML.replace(/^<div[^>]*>|<\/div>$/gi, '');
+
     return tempDiv.textContent ?? '';
   };
 
   const transformVariablesToSpans = (content: string) => {
     const regex = /{{([^}]+)}}/g;
     const tempDiv = document.createElement('div');
-    tempDiv.textContent = content;
+    
+    // Converter quebras de linha \n para <br> tags antes de processar
+    const contentWithBreaks = content.replace(/\n/g, '<br>');
+    tempDiv.innerHTML = contentWithBreaks;
 
     let match;
     while ((match = regex.exec(content)) !== null) {
