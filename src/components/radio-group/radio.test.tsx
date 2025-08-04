@@ -1,12 +1,12 @@
-import * as React from "react";
+import * as React from 'react';
 
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from '@testing-library/react';
 
-import { RadioGroup, RadioItem } from "./radio-group";
+import { RadioGroup, RadioItem } from './radio-group';
 
-describe("RadioGroup", () => {
-  it("should render component properly", () => {
-    const label = "Option 1";
+describe('RadioGroup', () => {
+  it('should render component properly', () => {
+    const label = 'Option 1';
 
     render(
       <RadioGroup>
@@ -19,7 +19,7 @@ describe("RadioGroup", () => {
     expect(screen.getByText(label)).toBeInTheDocument();
   });
 
-  it("should render horizontal radios", () => {
+  it('should render horizontal radios', () => {
     render(
       <RadioGroup defaultValue="opt-1" direction="horizontal">
         <RadioItem id="1" value="opt-1">
@@ -28,12 +28,12 @@ describe("RadioGroup", () => {
       </RadioGroup>
     );
 
-    const radioGroup = screen.getByRole("radiogroup");
+    const radioGroup = screen.getByRole('radiogroup');
 
-    expect(radioGroup).toHaveClass(/flex-col/);
+    expect(radioGroup).not.toHaveClass(/flex-col/);
   });
 
-  it("should render selected item", () => {
+  it('should render selected item', () => {
     render(
       <RadioGroup defaultValue="opt-1">
         <RadioItem id="1" value="opt-1">
@@ -45,14 +45,14 @@ describe("RadioGroup", () => {
       </RadioGroup>
     );
 
-    const radioItem1 = screen.getAllByRole("radio")[0];
-    const radioItem2 = screen.getAllByRole("radio")[1];
+    const radioItem1 = screen.getAllByRole('radio')[0];
+    const radioItem2 = screen.getAllByRole('radio')[1];
 
     expect(radioItem1).toBeChecked();
     expect(radioItem2).not.toBeChecked();
   });
 
-  it("should render disabled item", () => {
+  it('should render disabled item', () => {
     render(
       <RadioGroup defaultValue="opt-1">
         <RadioItem id="1" value="opt-1" disabled>
@@ -61,12 +61,12 @@ describe("RadioGroup", () => {
       </RadioGroup>
     );
 
-    const radioItem = screen.getByRole("radio");
+    const radioItem = screen.getByRole('radio');
 
     expect(radioItem).toBeDisabled();
   });
 
-  it("should change selected item", () => {
+  it('should change selected item', () => {
     const mockOnChange = jest.fn();
 
     render(
@@ -80,7 +80,7 @@ describe("RadioGroup", () => {
       </RadioGroup>
     );
 
-    const radioItem = screen.getAllByRole("radio")[0];
+    const radioItem = screen.getAllByRole('radio')[0];
 
     fireEvent.click(radioItem);
 
