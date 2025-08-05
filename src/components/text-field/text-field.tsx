@@ -17,10 +17,12 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
   ({ label, placeholder, value, onChange, error, helperText, disabled, className, required, prefix, ...props }, ref) => {
     return (
       <div className={cn('flex flex-col gap-1', className)}>
-        <label className={cn('text-tertiary-foreground text-xs font-semibold leading-4 flex items-center', { 'opacity-85': disabled })}>
-          {label}
-          {required && <AsteriskIcon color="#52525B" width={16} height={16} opacity={0.45} />}
-        </label>
+        {label && (
+          <label className={cn('text-tertiary-foreground text-xs font-semibold leading-4 flex items-center', { 'opacity-85': disabled })}>
+            {label}
+            {required && <AsteriskIcon color="#52525B" width={16} height={16} opacity={0.45} />}
+          </label>
+        )}
         <div className="relative w-full">
           {prefix && <div className={cn('absolute left-2 top-1/2 -translate-y-1/2', { 'opacity-45': disabled })}>{prefix}</div>}
           <input
@@ -45,8 +47,8 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
           />
           {error && <ExclamationCircleIcon className="w-6 h-6 text-red-500 absolute right-2 top-1/2 -translate-y-1/2" />}
         </div>
-        {error && <span className="text-error-foreground text-xs mt-1">{error}</span>}
-        {helperText && !error && <span className="text-secondary-foreground leading-4 text-xs mt-1 opacity-85">{helperText}</span>}
+        {error && <span className="text-error-foreground text-xs">{error}</span>}
+        {helperText && !error && <span className="text-secondary-foreground leading-4 text-xs opacity-85">{helperText}</span>}
       </div>
     );
   }
