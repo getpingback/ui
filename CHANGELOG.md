@@ -2,16 +2,45 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [0.0.477](https://github.com/getpingback/ui/compare/v0.0.476...v0.0.477) (2025-07-30)
-
-### [0.0.476](https://github.com/getpingback/ui/compare/v0.0.475...v0.0.476) (2025-07-30)
-
-### [0.0.475](https://github.com/getpingback/ui/compare/v0.0.474...v0.0.475) (2025-07-30)
+### [0.0.481](https://github.com/getpingback/ui/compare/v0.0.480...v0.0.481) (2025-07-30)
 
 
 ### Bug Fixes
 
+* add unique layoutId ([224a7a0](https://github.com/getpingback/ui/commits/224a7a04cea0c024085babc0969ff7f5af514ce7))
+
+### [0.0.480](https://github.com/getpingback/ui/compare/v0.0.479...v0.0.480) (2025-07-30)
+
+
+### Bug Fixes
+
+* merge ([f0b7bae](https://github.com/getpingback/ui/commits/f0b7baeafca49835c6b31c132dc122e804c067dc))
 * **variable-input:** return '\n' ([65a032f](https://github.com/getpingback/ui/commits/65a032fff1cfcb904c9feddaba21f1984fad14cb))
+
+### [0.0.479](https://github.com/getpingback/ui/compare/v0.0.478...v0.0.479) (2025-07-30)
+
+### [0.0.478](https://github.com/getpingback/ui/compare/v0.0.477...v0.0.478) (2025-07-30)
+
+### [0.0.477](https://github.com/getpingback/ui/compare/v0.0.476...v0.0.477) (2025-07-30)
+
+
+### Bug Fixes
+
+* add unique key on tabs ([b9bab2e](https://github.com/getpingback/ui/commits/b9bab2e7b78084275962d756c3a369407c250698))
+
+### [0.0.476](https://github.com/getpingback/ui/compare/v0.0.475...v0.0.476) (2025-07-29)
+
+
+### Bug Fixes
+
+* onEndReached ([f7c0410](https://github.com/getpingback/ui/commits/f7c0410d8967b6d0521c9ffe6a6c67928376c820))
+
+### [0.0.475](https://github.com/getpingback/ui/compare/v0.0.474...v0.0.475) (2025-07-28)
+
+
+### Bug Fixes
+
+* onEndReached on combobox ([4585957](https://github.com/getpingback/ui/commits/458595769ac9cb8aa164a393cf89f64876deda97))
 
 ### [0.0.474](https://github.com/getpingback/ui/compare/v0.0.473...v0.0.474) (2025-07-11)
 
