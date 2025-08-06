@@ -13,6 +13,10 @@ export interface TimePickerProps {
 export function TimePicker({ label, placeholder, helperText, value, onChange, ...props }: TimePickerProps) {
   const [time, setTime] = React.useState<string>(value || '');
 
+  React.useEffect(() => {
+    setTime(value || '');
+  }, [value]);
+
   const inputRef = React.useRef<HTMLInputElement>(null);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -56,7 +60,7 @@ export function TimePicker({ label, placeholder, helperText, value, onChange, ..
         <input
           id="time-picker"
           ref={inputRef}
-          value={value || time}
+          value={time}
           onChange={handleChange}
           placeholder={placeholder}
           maxLength={5}
