@@ -62,6 +62,7 @@ export function TimePicker({ label, placeholder, helperText, value, onChange, ..
           ref={inputRef}
           value={time}
           onChange={handleChange}
+          onBlur={() => setTime(value || '')}
           placeholder={placeholder}
           maxLength={5}
           className="flex h-10 w-full border-divider border rounded-lg bg-transparent py-2 pr-10 pl-3 text-sm outline-none text-tertiary-foreground placeholder:opacity-85 disabled:cursor-not-allowed disabled:opacity-50 hover:border-[#A1A1AA] focus:border-[#9061F9] focus:[box-shadow:0px_0px_0px_3px_rgba(144,_97,_249,_0.12)] transition-all duration-200 ease-in-out"
