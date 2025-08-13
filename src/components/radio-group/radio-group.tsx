@@ -11,8 +11,8 @@ interface RadioItemProps extends RadioGroupPrimitive.RadioGroupItemProps {
 }
 
 const RadioGroup = React.forwardRef<React.ElementRef<typeof RadioGroupPrimitive.Root>, RadioGroupProps>(
-  ({ children, direction = 'horizontal', ...props }, ref) => (
-    <RadioGroupPrimitive.Root ref={ref} className={cn('flex gap-1', { 'flex-col': direction === 'horizontal' })} {...props}>
+  ({ children, direction = 'vertical', ...props }, ref) => (
+    <RadioGroupPrimitive.Root ref={ref} className={cn('flex gap-1', { 'flex-col': direction === 'vertical' })} {...props}>
       {children}
     </RadioGroupPrimitive.Root>
   )

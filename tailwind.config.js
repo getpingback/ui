@@ -186,9 +186,13 @@ const config = {
           from: { transform: 'translateX(0%)' },
           to: { transform: 'translateX(100%)' }
         },
-        'fade-in': {
-          from: { opacity: 0 },
-          to: { opacity: 1 }
+        fadeIn: {
+          from: { opacity: 0, transform: 'scale(0.3)' },
+          to: { opacity: 1, transform: 'scale(1)' }
+        },
+        fadeOut: {
+          from: { opacity: 1, transform: 'scale(1)' },
+          to: { opacity: 0, transform: 'scale(0.3)' }
         },
         'modal-slide-up': {
           '0%': { transform: 'translateY(100%)' },
@@ -215,6 +219,7 @@ const config = {
         'drawer-slide-in': 'drawerSlideIn 300ms cubic-bezier(0.83, 0, 0.17, 1)',
         'drawer-slide-out': 'drawerSlideOut 300ms cubic-bezier(0.83, 0, 0.17, 1)',
         'fade-in': 'fadeIn 300ms cubic-bezier(0.83, 0, 0.17, 1)',
+        'fade-out': 'fadeOut 300ms cubic-bezier(0.83, 0, 0.17, 1)',
         'modal-slide-up': 'modal-slide-up 250ms ease-out',
         'modal-slide-down': 'modal-slide-down 250ms ease-in',
         'modal-fade-in': 'modal-fade-in 250ms ease-out',

@@ -71,7 +71,7 @@ const CheckboxGroup = ({
   );
 };
 
-const CheckboxItem = ({ disabled, label, value, variant = 'default', rounded, ...props }: CheckboxItemProps) => {
+const CheckboxItem = ({ disabled, label, value, variant = 'default', rounded, className, ...props }: CheckboxItemProps) => {
   const { value: groupValue, onValueChange, variant: groupVariant, rounded: groupRounded } = React.useContext(CheckboxGroupContext);
   const checked = groupValue.includes(value);
 
@@ -84,7 +84,7 @@ const CheckboxItem = ({ disabled, label, value, variant = 'default', rounded, ..
     <CheckboxPrimitive.Root
       checked={checked}
       onCheckedChange={handleCheckedChange}
-      className={cn(checkboxVariants({ variant: groupVariant, rounded: groupRounded }))}
+      className={cn(checkboxVariants({ variant: groupVariant, rounded: groupRounded }), className)}
       data-checked={checked}
       disabled={disabled}
       {...props}
