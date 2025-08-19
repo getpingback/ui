@@ -209,6 +209,11 @@ const config = {
         'modal-fade-out': {
           '0%': { opacity: '1', transform: 'scale(1)' },
           '100%': { opacity: '0', transform: 'scale(0)' }
+        },
+        'progress-filler': {
+          '0%': { width: '0%' },
+          '50%': { width: 'var(--progress-mid-width)' },
+          '100%': { width: 'var(--progress-final-width)' }
         }
       },
       animation: {
@@ -223,7 +228,8 @@ const config = {
         'modal-slide-up': 'modal-slide-up 250ms ease-out',
         'modal-slide-down': 'modal-slide-down 250ms ease-in',
         'modal-fade-in': 'modal-fade-in 250ms ease-out',
-        'modal-fade-out': 'modal-fade-out 250ms ease-in'
+        'modal-fade-out': 'modal-fade-out 250ms ease-in',
+        'progress-bar': 'progress-filler 500ms ease-in'
       },
       colors: {
         success: {
