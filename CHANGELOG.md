@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.492](https://github.com/getpingback/ui/compare/v0.0.491...v0.0.492) (2025-08-19)
+
+
+### Bug Fixes
+
+* add defaultChecked on checkboxGroup ([2f19e53](https://github.com/getpingback/ui/commits/2f19e5394e8b6c82b09aaa8bcb267dcd247f96fb))
+
 ### [0.0.491](https://github.com/getpingback/ui/compare/v0.0.490...v0.0.491) (2025-08-19)
 
 
