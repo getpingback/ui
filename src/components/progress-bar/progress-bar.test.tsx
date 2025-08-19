@@ -22,31 +22,31 @@ describe('ProgressBar Component', () => {
 
   test('renders progress bar with the correct green color', () => {
     render(<ProgressBar percent={60} color="green" />);
-    expect(screen.getByTestId('progress-bar')).toHaveClass('bg-[#96D77C]');
+    expect(screen.getByTestId('progress-bar')).toHaveClass('bg-green-400');
   });
 
   test('renders progress bar with the correct dark green color', () => {
     render(<ProgressBar percent={60} color="dark-green" />);
-    expect(screen.getByTestId('progress-bar')).toHaveClass('bg-[#31C48D]');
+    expect(screen.getByTestId('progress-bar')).toHaveClass('bg-green-500');
   });
 
   test('renders progress bar with the correct red color', () => {
     render(<ProgressBar percent={60} color="red" />);
-    expect(screen.getByTestId('progress-bar')).toHaveClass('bg-[#F05252]');
+    expect(screen.getByTestId('progress-bar')).toHaveClass('bg-red-500');
   });
 
   test('renders progress bar with the correct yellow color', () => {
     render(<ProgressBar percent={60} color="yellow" />);
-    expect(screen.getByTestId('progress-bar')).toHaveClass('bg-[#FCE96A]');
+    expect(screen.getByTestId('progress-bar')).toHaveClass('bg-yellow-200');
   });
 
   test('renders progress bar with the correct gray color', () => {
     render(<ProgressBar percent={60} color="gray" />);
-    expect(screen.getByTestId('progress-bar')).toHaveClass('bg-[#D4D4D840]');
+    expect(screen.getByTestId('progress-bar')).toHaveClass('bg-gray-100');
   });
 
   test('renders progress bar with the correct orange color', () => {
     render(<ProgressBar percent={60} color="orange" />);
-    expect(screen.getByTestId('progress-bar')).toHaveClass('bg-[#F69D5E]');
+    expect(screen.getByTestId('progress-bar')).toHaveClass('bg-orange-400');
   });
 });

@@ -11,13 +11,16 @@ interface ProgressBarProps {
 const ProgressBarFilerVariantProps = cva('h-full rounded-md', {
   variants: {
     color: {
-      green: 'bg-[#96D77C]',
-      'dark-green': 'bg-[#31C48D]',
-      red: 'bg-[#F05252]',
-      yellow: 'bg-[#FCE96A]',
-      gray: 'bg-[#D4D4D840]',
-      orange: 'bg-[#F69D5E]'
+      green: 'bg-green-400',
+      'dark-green': 'bg-green-500',
+      red: 'bg-red-500',
+      yellow: 'bg-yellow-200',
+      gray: 'bg-gray-100',
+      orange: 'bg-orange-400'
     }
+  },
+  defaultVariants: {
+    color: 'green'
   }
 });
 
@@ -33,7 +36,7 @@ export const Progress = ({ children, className }: { children: React.ReactNode; c
   return <div className={`w-full flex items-center gap-3 ${className}`}>{children}</div>;
 };
 
-export const ProgressBar = ({ percent, color = 'green', showAnimation = false }: ProgressBarProps) => {
+export const ProgressBar = ({ percent, color, showAnimation = false }: ProgressBarProps) => {
   const finalPercent = percent > 100 ? 100 : percent;
   const midPercent = percent > 100 ? 50 : percent / 2;
 
