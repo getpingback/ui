@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.490](https://github.com/getpingback/ui/compare/v0.0.481...v0.0.490) (2025-08-19)
+
+
+### Features
+
+* add data-testid to modal component ([96ae12a](https://github.com/getpingback/ui/commits/96ae12a92787b831155369bf7227a0e598432e60))
+* progress bar ([aeb9664](https://github.com/getpingback/ui/commits/aeb9664bd0b875270d15296ce0af3e51a75613af))
+
+
+### Bug Fixes
+
+* add on blur to timepicker ([ad1f68c](https://github.com/getpingback/ui/commits/ad1f68cd62da3f3f79c8826509d4c28c30bc7539))
+* changes progress variables ([d33c7a9](https://github.com/getpingback/ui/commits/d33c7a9592a9af014980e15520b9ef58ba7ddaaf))
+* checkbox class prop ([9318742](https://github.com/getpingback/ui/commits/9318742e1a61e367136bf761d6555fc861d713b0))
+* export popover close ([f9f62c2](https://github.com/getpingback/ui/commits/f9f62c27018d30415c049723e1c310b38c54d489))
+* merge main ([bbb6001](https://github.com/getpingback/ui/commits/bbb6001afba40a204efbe3518f59d71b45703e83))
+* popover animation ([6418674](https://github.com/getpingback/ui/commits/6418674853098adf8e15809845862a05125563e5))
+* radio group direction ([9e2feb1](https://github.com/getpingback/ui/commits/9e2feb14a723b1d5506753ba01eae2484354474f))
+* text field display ([6c976ab](https://github.com/getpingback/ui/commits/6c976ab725dab79a5f688780ce76388fae3d560e))
+* update time picker value ([762e877](https://github.com/getpingback/ui/commits/762e877c1afdaefd04bad7249cfe488d14824f91))
+* value timepicker ([66e9e6e](https://github.com/getpingback/ui/commits/66e9e6e6d50ab55f8c78365b85b6492c1476af97))
+
 ### [0.0.481](https://github.com/getpingback/ui/compare/v0.0.480...v0.0.481) (2025-07-30)
 
 
