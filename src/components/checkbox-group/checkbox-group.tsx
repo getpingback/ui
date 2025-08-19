@@ -71,9 +71,9 @@ const CheckboxGroup = ({
   );
 };
 
-const CheckboxItem = ({ disabled, label, value, variant = 'default', rounded, className, ...props }: CheckboxItemProps) => {
+const CheckboxItem = ({ disabled, label, value, variant = 'default', rounded, className, defaultChecked, ...props }: CheckboxItemProps) => {
   const { value: groupValue, onValueChange, variant: groupVariant, rounded: groupRounded } = React.useContext(CheckboxGroupContext);
-  const checked = groupValue.includes(value);
+  const checked = groupValue.includes(value) || defaultChecked;
 
   const handleCheckedChange = (isChecked: boolean) => {
     const newValue = isChecked ? [...groupValue, value] : groupValue.filter((v) => v !== value);
