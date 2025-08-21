@@ -187,12 +187,12 @@ const config = {
           to: { transform: 'translateX(100%)' }
         },
         fadeIn: {
-          from: { opacity: 0, transform: 'scale(0.3)' },
-          to: { opacity: 1, transform: 'scale(1)' }
+          from: { opacity: 0 },
+          to: { opacity: 1 }
         },
         fadeOut: {
-          from: { opacity: 1, transform: 'scale(1)' },
-          to: { opacity: 0, transform: 'scale(0.3)' }
+          from: { opacity: 1 },
+          to: { opacity: 0 }
         },
         'modal-slide-up': {
           '0%': { transform: 'translateY(100%)' },
