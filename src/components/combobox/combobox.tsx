@@ -39,6 +39,7 @@ interface ComboboxProps {
   defaultValue?: Item | Item[];
   searchValue?: string;
   onSelect?: (item: Item) => void;
+  onRemoveItem?: (item: Item) => void;
   onChangeSearchValue?: (value: string) => void;
   onEndReached?: () => void;
   className?: string;
@@ -59,6 +60,7 @@ export function Combobox({
   searchValue,
   onChangeSearchValue,
   onSelect,
+  onRemoveItem,
   onEndReached,
   className,
   emptyContentRender,
@@ -135,7 +137,10 @@ export function Combobox({
       if (variant === 'multiple') {
         return React.createElement(comboboxVariants[variant], {
           items: currentMultipleValue,
-          handleUnselect: (item) => setSelectedItems((prev) => prev.filter((i) => i.value !== item.value))
+          handleUnselect: (item) => {
+            setSelectedItems((prev) => prev.filter((i) => i.value !== item.value));
+            onRemoveItem?.(item);
+          }
         });
       }
 
@@ -224,7 +229,7 @@ export function Combobox({
         <Command shouldFilter={!onChangeSearchValue} className={className}>
           {hasSelectedStep ? (
             <div className="w-full gap-3 p-3 flex items-center justify-start border-b border-divider">
-              <button onClick={() => setSelectedStep([])}>
+              <button onClick={() => setSelectedStep(null)}>
                 <ArrowLeftIcon color="#52525B" opacity={0.45} />
               </button>
               <Typography size="small" weight="semibold" type="secondary" className="truncate">

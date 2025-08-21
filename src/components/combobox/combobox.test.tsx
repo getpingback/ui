@@ -1,5 +1,5 @@
 import React from 'react';
-import { fireEvent, screen, render, act } from '@testing-library/react';
+import { fireEvent, screen, render, act, within } from '@testing-library/react';
 import { composeStories } from '@storybook/testing-react';
 import * as stories from './combobox.stories';
 
@@ -284,6 +284,38 @@ describe('Combobox Component', () => {
 
       expect(comboboxButton).not.toHaveTextContent('Item 1');
       expect(screen.getAllByTestId('combobox-item')).toHaveLength(1);
+    });
+
+    it('should handle remove item', async () => {
+      const onRemoveItemMock = jest.fn();
+      render(<Multiple onRemoveItem={onRemoveItemMock} />);
+      const comboboxButton = screen.getByRole('combobox');
+
+      fireEvent.click(comboboxButton);
+
+      const item1 = screen.getByText('Item 1');
+
+      fireEvent.click(item1);
+
+      expect(comboboxButton).toHaveTextContent('Item 1');
+
+      fireEvent.click(comboboxButton);
+
+      const item2 = screen.getByText('Item 2');
+
+      fireEvent.click(item2);
+
+      expect(comboboxButton).toHaveTextContent('Item 1Item 2');
+      expect(screen.getAllByTestId('combobox-item')).toHaveLength(2);
+
+      const removeButtons = screen.getAllByTestId('combobox-item').map((item) => within(item).getByRole('button'));
+      expect(removeButtons).toHaveLength(2);
+
+      fireEvent.click(removeButtons[0]);
+      expect(onRemoveItemMock).toHaveBeenCalledWith({
+        label: 'Item 1',
+        value: 'item-1'
+      });
     });
   });
 });
