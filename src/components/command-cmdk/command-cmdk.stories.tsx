@@ -9,7 +9,7 @@ import {
   CommandKGroup,
   CommandKItem,
   CommandKShortcut,
-  CommandKSeparator,
+  CommandKSeparator
 } from './command-cmdk';
 import { Popover, PopoverContent, PopoverTrigger } from '../popover';
 const meta = {
@@ -19,7 +19,7 @@ const meta = {
 
   tags: ['autodocs'],
 
-  argTypes: {},
+  argTypes: {}
 } satisfies Meta<typeof CommandK>;
 
 export default meta;
@@ -32,43 +32,31 @@ export const Default: Story = {
         <PopoverTrigger asChild>
           <button>Open Command</button>
         </PopoverTrigger>
-        <PopoverContent className='w-[600px] p-0'>
+        <PopoverContent className="w-[600px] p-0" align="center">
           <CommandK>
-            <CommandKInput placeholder='Search language...' />
+            <CommandKInput placeholder="Search language..." />
             <CommandKEmpty>not found</CommandKEmpty>
             <CommandKList>
-              <CommandKGroup heading='Fruits'>
-                <CommandKItem
-                  value='apple'
-                  onSelect={() => console.log('apple')}
-                >
+              <CommandKGroup heading="Fruits">
+                <CommandKItem value="apple" onSelect={() => console.log('apple')}>
                   Apple
-                  <CommandKShortcut className='ml-auto'>⌘K</CommandKShortcut>
+                  <CommandKShortcut className="ml-auto">⌘K</CommandKShortcut>
                 </CommandKItem>
-                <CommandKItem
-                  value='apple2'
-                  onSelect={() => console.log('apple2')}
-                >
+                <CommandKItem value="apple2" onSelect={() => console.log('apple2')}>
                   Apple2
-                  <CommandKShortcut className='ml-auto'>⌘K</CommandKShortcut>
+                  <CommandKShortcut className="ml-auto">⌘K</CommandKShortcut>
                 </CommandKItem>
-                <CommandKItem
-                  value='orange'
-                  onSelect={() => console.log('orange')}
-                >
+                <CommandKItem value="orange" onSelect={() => console.log('orange')}>
                   Orange
                 </CommandKItem>
                 <CommandKSeparator />
-                <CommandKItem value='pear' onSelect={() => console.log('pear')}>
+                <CommandKItem value="pear" onSelect={() => console.log('pear')}>
                   Pear
                 </CommandKItem>
-                <CommandKItem
-                  value='blueberry'
-                  onSelect={() => console.log('blueberry')}
-                >
+                <CommandKItem value="blueberry" onSelect={() => console.log('blueberry')}>
                   Blueberry
                 </CommandKItem>
-                <CommandKItem value='fish' onSelect={() => console.log('fish')}>
+                <CommandKItem value="fish" onSelect={() => console.log('fish')}>
                   Fish
                 </CommandKItem>
               </CommandKGroup>
@@ -77,5 +65,5 @@ export const Default: Story = {
         </PopoverContent>
       </Popover>
     </div>
-  ),
+  )
 };

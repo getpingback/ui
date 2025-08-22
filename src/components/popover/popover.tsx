@@ -40,24 +40,22 @@ const PopoverClose = PopoverPrimitive.Close;
 const PopoverContent = React.forwardRef<
   React.ElementRef<typeof PopoverPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Content>
->(({ className, align = 'start', side = 'top', sideOffset = 4, ...props }, ref) => {
-  return (
-    <PopoverPrimitive.Portal>
-      <PopoverPrimitive.Content
-        ref={ref}
-        align={align}
-        side={side}
-        sideOffset={sideOffset}
-        className={cn(
-          popoverVariants({ position: `${side}-${align}` }),
-          'z-50 w-80 rounded-xl border bg-background-accent p-4 text-primary-foreground shadow-md outline-none data-[state=open]:animate-modal-fade-in data-[state=closed]:animate-modal-fade-out',
-          className
-        )}
-        {...props}
-      />
-    </PopoverPrimitive.Portal>
-  );
-});
+>(({ className, align = 'start', side = 'bottom', sideOffset = 4, ...props }, ref) => (
+  <PopoverPrimitive.Portal>
+    <PopoverPrimitive.Content
+      ref={ref}
+      align={align}
+      side={side}
+      sideOffset={sideOffset}
+      className={cn(
+        popoverVariants({ position: `${side}-${align}` }),
+        'z-50 w-80 rounded-xl border bg-background-accent p-4 text-primary-foreground shadow-md outline-none data-[state=open]:animate-modal-fade-in data-[state=closed]:animate-modal-fade-out',
+        className
+      )}
+      {...props}
+    />
+  </PopoverPrimitive.Portal>
+));
 PopoverContent.displayName = PopoverPrimitive.Content.displayName;
 
 export { Popover, PopoverTrigger, PopoverContent, PopoverAnchor, PopoverClose };

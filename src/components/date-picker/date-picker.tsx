@@ -17,10 +17,15 @@ export interface DatePickerProps {
   value?: Date;
   onSelect?: (date?: Date) => void;
   disabled?: Matcher | Matcher[];
+  popoverPosition?: {
+    side?: 'top' | 'right' | 'bottom' | 'left';
+    align?: 'start' | 'center' | 'end';
+  };
 }
 
-export function DatePicker({ locale = 'en', label, placeholder, helperText, value, onSelect, ...props }: DatePickerProps) {
+export function DatePicker({ locale = 'en', label, placeholder, helperText, value, onSelect, popoverPosition, ...props }: DatePickerProps) {
   const [date, setDate] = React.useState<Date | undefined>(value);
+  const { side = 'bottom', align = 'start' } = popoverPosition || {};
 
   const handleSelect = (date?: Date) => {
     onSelect?.(date);
@@ -70,6 +75,8 @@ export function DatePicker({ locale = 'en', label, placeholder, helperText, valu
       </div>
 
       <PopoverContent
+        side={side}
+        align={align}
         className="w-auto p-0 bg-background-accent"
         onWheel={(e) => e.stopPropagation()}
         onTouchMove={(e) => e.stopPropagation()}
