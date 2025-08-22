@@ -60,6 +60,10 @@ export interface RangerPickerProps {
   maxDate?: Date | null;
   minDate?: Date | null;
   inputPosition?: 'bottom' | 'top';
+  popoverPosition?: {
+    side?: 'top' | 'right' | 'bottom' | 'left';
+    align?: 'start' | 'center' | 'end';
+  };
 }
 
 interface MenuProps {
@@ -342,8 +346,11 @@ export function RangePicker({
   initialType = 'this-month',
   maxDate,
   minDate,
-  inputPosition = 'bottom'
+  inputPosition = 'bottom',
+  popoverPosition
 }: RangerPickerProps) {
+  const { side = 'bottom', align = 'start' } = popoverPosition || {};
+
   const commonProps = {
     classNames: RANGE_PICKER_STYLES,
     showOutsideDays: true,
@@ -476,12 +483,13 @@ export function RangePicker({
           )}
         </PopoverTrigger>
         <PopoverContent
+          side={side}
+          align={align}
           onOpenAutoFocus={(e) => e.preventDefault()}
           onWheel={(e) => e.stopPropagation()}
           onTouchMove={(e) => e.stopPropagation()}
           ref={rangeRef}
           className="p-0 flex bg-[#FFFFFF] !w-fit !shadow-dropdown border-none"
-          align={type === 'range' && numberOfMonths > 2 ? 'end' : 'center'}
           data-testid="ranger-content"
         >
           {type === 'range' && !hideMenu && (

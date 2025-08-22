@@ -224,6 +224,7 @@ export function Combobox({
         className="w-full p-0 bg-background-accent"
         onWheel={(e) => e.stopPropagation()}
         onTouchMove={(e) => e.stopPropagation()}
+        align="center"
         data-testid="comboxbox-popover-content"
       >
         <Command shouldFilter={!onChangeSearchValue} className={className}>
