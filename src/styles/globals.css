@@ -1,20 +1,14 @@
+@import '@getpingback/design-tokens/dist/css/globals.css';
+
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; 
 
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
 /** Inter **/
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
-@layer base {
+/* @layer base {
   :root {
     --badge-gray-text: #71717a;
     --badge-gray-bg: #a1a1aa1f;
@@ -235,6 +229,16 @@
     --palette-gradiente-active_menu: linear-gradient(270deg, #ac94fa 0%, #ac94fa00 100%);
 
     --icons-default: #e4e4e7;
+  }
+} */
+
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 
