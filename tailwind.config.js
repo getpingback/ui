@@ -185,204 +185,199 @@ const config = {
     extend: {
       colors: {
         background: {
-          default: 'var(--background-default)',
+          DEFAULT: 'var(--background-default)',
           inverse: 'var(--background-inverse)',
           alt: 'var(--background-alt)',
           surface: {
-            default: 'var(--background-surface-default)',
+            DEFAULT: 'var(--background-surface-default)',
             inverse: 'var(--background-surface-inverse)'
           },
           error: {
-            default: 'var(--background-error-default)',
+            DEFAULT: 'var(--background-error-default)',
             inverse: 'var(--background-error-inverse)'
           },
           warning: {
-            default: 'var(--background-warning-default)',
+            DEFAULT: 'var(--background-warning-default)',
             inverse: 'var(--background-warning-inverse)'
           },
           caution: {
-            default: 'var(--background-caution-default)',
+            DEFAULT: 'var(--background-caution-default)',
             inverse: 'var(--background-caution-inverse)'
           },
           info: {
-            default: 'var(--background-info-default)',
+            DEFAULT: 'var(--background-info-default)',
             inverse: 'var(--background-info-inverse)'
           },
           lime: {
-            default: 'var(--background-lime-default)',
+            DEFAULT: 'var(--background-lime-default)',
             inverse: 'var(--background-lime-inverse)'
           },
           mint: {
-            default: 'var(--background-mint-default)',
+            DEFAULT: 'var(--background-mint-default)',
             inverse: 'var(--background-mint-inverse)'
           },
           teal: {
-            default: 'var(--background-teal-default)',
+            DEFAULT: 'var(--background-teal-default)',
             inverse: 'var(--background-teal-inverse)'
           },
           cyan: {
-            default: 'var(--background-cyan-default)',
+            DEFAULT: 'var(--background-cyan-default)',
             inverse: 'var(--background-cyan-inverse)'
           },
           blue: {
-            default: 'var(--background-blue-default)',
+            DEFAULT: 'var(--background-blue-default)',
             inverse: 'var(--background-blue-inverse)'
           },
           fucshia: {
-            default: 'var(--background-fucshia-default)',
+            DEFAULT: 'var(--background-fucshia-default)',
             inverse: 'var(--background-fucshia-inverse)'
           },
           pink: {
-            default: 'var(--background-pink-default)',
+            DEFAULT: 'var(--background-pink-default)',
             inverse: 'var(--background-pink-inverse)'
           },
           neutral: {
-            default: 'var(--background-neutral-default)',
+            DEFAULT: 'var(--background-neutral-default)',
             inverse: 'var(--background-neutral-inverse)'
           }
         },
         surface: {
-          default: 'var(--surface-default)',
+          DEFAULT: 'var(--surface-default)',
           inverse: 'var(--surface-inverse)'
         },
         text: {
-          default: {
-            primary: 'var(--text-default-primary)',
-            secondary: 'var(--text-default-secondary)',
-            tertiary: 'var(--text-default-tertiary)'
-          },
+          primary: 'var(--text-default-primary)',
+          secondary: 'var(--text-default-secondary)',
+          tertiary: 'var(--text-default-tertiary)',
           inverse: {
             primary: 'var(--text-inverse-primary)',
             secondary: 'var(--text-inverse-secondary)',
             tertiary: 'var(--text-inverse-tertiary)'
           },
           success: {
-            default: 'var(--text-success-default)',
+            DEFAULT: 'var(--text-success-default)',
             inverse: 'var(--text-success-inverse)'
           },
           error: {
-            default: 'var(--text-error-default)',
+            DEFAULT: 'var(--text-error-default)',
             inverse: 'var(--text-error-inverse)'
           },
           warning: {
-            default: 'var(--text-warning-default)',
+            DEFAULT: 'var(--text-warning-default)',
             inverse: 'var(--text-warning-inverse)'
           },
           caution: {
-            default: 'var(--text-caution-default)',
+            DEFAULT: 'var(--text-caution-default)',
             inverse: 'var(--text-caution-inverse)'
           },
           info: {
-            default: 'var(--text-info-default)',
+            DEFAULT: 'var(--text-info-default)',
             inverse: 'var(--text-info-inverse)'
           },
           lime: {
-            default: 'var(--text-lime-default)',
+            DEFAULT: 'var(--text-lime-default)',
             inverse: 'var(--text-lime-inverse)'
           },
           mint: {
-            default: 'var(--text-mint-default)',
+            DEFAULT: 'var(--text-mint-default)',
             inverse: 'var(--text-mint-inverse)'
           },
           teal: {
-            default: 'var(--text-teal-default)',
+            DEFAULT: 'var(--text-teal-default)',
             inverse: 'var(--text-teal-inverse)'
           },
           cyan: {
-            default: 'var(--text-cyan-default)',
+            DEFAULT: 'var(--text-cyan-default)',
             inverse: 'var(--text-cyan-inverse)'
           },
           blue: {
-            default: 'var(--text-blue-default)',
+            DEFAULT: 'var(--text-blue-default)',
             inverse: 'var(--text-blue-inverse)'
           },
           fucshia: {
-            default: 'var(--text-fucshia-default)',
+            DEFAULT: 'var(--text-fucshia-default)',
             inverse: 'var(--text-fucshia-inverse)'
           },
           pink: {
-            default: 'var(--text-pink-default)',
+            DEFAULT: 'var(--text-pink-default)',
             inverse: 'var(--text-pink-inverse)'
           },
           neutral: {
-            default: 'var(--text-neutral-default)',
+            DEFAULT: 'var(--text-neutral-default)',
             inverse: 'var(--text-neutral-inverse)'
           }
         },
         border: {
-          default: 'var(--border-default)',
+          DEFAULT: 'var(--border-default)',
           hover: 'var(--border-hover)',
           invalid: 'var(--border-invalid)',
           valid: 'var(--border-valid)',
           filled: 'var(--border-filled)'
         },
         link: {
-          default: {
-            default: 'var(--link-default-default)',
-            inverse: 'var(--link-default-inverse)'
-          },
+          DEFAULT: 'var(--link-default-default)',
+          inverse: 'var(--link-default-inverse)',
           pressed: {
-            default: 'var(--link-pressed-default)',
+            DEFAULT: 'var(--link-pressed-default)',
             inverse: 'var(--link-pressed-inverse)'
           }
         },
         icon: {
-          default: {
-            primary: 'var(--icon-default-primary)',
-            secondary: 'var(--icon-default-secondary)',
-            tertiary: 'var(--icon-default-tertiary)'
-          },
+          primary: 'var(--icon-default-primary)',
+          secondary: 'var(--icon-default-secondary)',
+          tertiary: 'var(--icon-default-tertiary)',
+
           inverse: {
             primary: 'var(--icon-inverse-primary)',
             secondary: 'var(--icon-inverse-secondary)',
             tertiary: 'var(--icon-inverse-tertiary)'
           },
           success: {
-            default: 'var(--icon-success-default)',
+            DEFAULT: 'var(--icon-success-default)',
             inverse: 'var(--icon-success-inverse)'
           },
           error: {
-            default: 'var(--icon-error-default)',
+            DEFAULT: 'var(--icon-error-default)',
             inverse: 'var(--icon-error-inverse)'
           },
           warning: {
-            default: 'var(--icon-warning-default)',
+            DEFAULT: 'var(--icon-warning-default)',
             inverse: 'var(--icon-warning-inverse)'
           },
           caution: {
-            default: 'var(--icon-caution-default)',
+            DEFAULT: 'var(--icon-caution-default)',
             inverse: 'var(--icon-caution-inverse)'
           },
           info: {
-            default: 'var(--icon-info-default)',
+            DEFAULT: 'var(--icon-info-default)',
             inverse: 'var(--icon-info-inverse)'
           },
           lime: {
-            default: 'var(--icon-lime-default)',
+            DEFAULT: 'var(--icon-lime-default)',
             inverse: 'var(--icon-lime-inverse)'
           },
           mint: {
-            default: 'var(--icon-mint-default)',
+            DEFAULT: 'var(--icon-mint-default)',
             inverse: 'var(--icon-mint-inverse)'
           },
           teal: {
-            default: 'var(--icon-teal-default)',
+            DEFAULT: 'var(--icon-teal-default)',
             inverse: 'var(--icon-teal-inverse)'
           },
           cyan: {
-            default: 'var(--icon-cyan-default)',
+            DEFAULT: 'var(--icon-cyan-default)',
             inverse: 'var(--icon-cyan-inverse)'
           },
           blue: {
-            default: 'var(--icon-blue-default)',
+            DEFAULT: 'var(--icon-blue-default)',
             inverse: 'var(--icon-blue-inverse)'
           },
           fucshia: {
-            default: 'var(--icon-fucshia-default)',
+            DEFAULT: 'var(--icon-fucshia-default)',
             inverse: 'var(--icon-fucshia-inverse)'
           },
           pink: {
-            default: 'var(--icon-pink-default)',
+            DEFAULT: 'var(--icon-pink-default)',
             inverse: 'var(--icon-pink-inverse)'
           }
         },
@@ -399,7 +394,7 @@ const config = {
           'key-background': 'var(--sidebar-key-background)',
           'key-label': 'var(--sidebar-key-label)',
           'key-surface': {
-            default: 'var(--sidebar-key-surface)',
+            DEFAULT: 'var(--sidebar-key-surface)',
             pressed: 'var(--sidebar-key-surface-pressed)',
             border: 'var(--sidebar-key-surface-border)'
           }
