@@ -4,6 +4,7 @@ const config = {
     './src/stories/**/*.{js,ts,jsx,tsx}',
     './node_modules/@getpingback/ui/dist/**/*.{js,ts,jsx,tsx}'
   ],
+  darkMode: 'class',
   theme: {
     screens: {
       sm: '640px',
