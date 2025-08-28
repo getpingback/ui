@@ -39,8 +39,8 @@ const Toaster = ({ position = 'top-right', ...props }: ToasterProps) => {
       {...props}
       position={position}
       toastOptions={{
-        className: '!border !border-gray-100 !p-4 !opacity-85 !rounded-xl !shadow-modal-large !w-full !min-w-[352px] !max-w-full',
-        duration: 10000
+        className: '!border !border-gray-100 !p-4 !opacity-85 !rounded-xl !shadow-modal-large !w-full !min-w-max !max-w-[352px]',
+        duration: 5000
       }}
     >
       {(t) => (

@@ -6,14 +6,11 @@ import { Toaster, toast } from './toast';
 const meta = {
   title: 'Components/Toast',
   component: Toaster,
-  parameters: {
-    layout: 'centered'
-  },
   decorators: [
     (Story) => (
-      <div style={{ minHeight: '200px' }}>
+      <div style={{ minHeight: '200px', width: '100%' }}>
         <Story />
-        <Toaster position="top-center" />
+        <Toaster position="top-right" />
       </div>
     )
   ],
@@ -33,11 +30,9 @@ const ToastDemo = ({ message, variant }: { message: string; variant: 'success' |
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-      <Button variant="outline" onClick={showToast}>
-        {`Show toast ${variant}`}
-      </Button>
-    </div>
+    <Button variant="outline" onClick={showToast}>
+      {`Show toast ${variant}`}
+    </Button>
   );
 };
 
