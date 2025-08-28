@@ -13,7 +13,7 @@ const meta = {
     (Story) => (
       <div style={{ minHeight: '200px' }}>
         <Story />
-        <Toaster position="top-center" richColors />
+        <Toaster position="top-center" />
       </div>
     )
   ],
@@ -23,25 +23,12 @@ const meta = {
 
 export default meta;
 
-const ToastDemo = ({
-  title,
-  description,
-  variant,
-  action
-}: {
-  title: string;
-  description: string;
-  variant: 'success' | 'error' | 'warning';
-  action?: { label: string; onClick: () => void };
-}) => {
+const ToastDemo = ({ message, variant }: { message: string; variant: 'success' | 'error' }) => {
   const showToast = () => {
-    const options = { description, action };
     if (variant === 'success') {
-      toast.success(title, options);
+      toast.success(message);
     } else if (variant === 'error') {
-      toast.error(title, options);
-    } else if (variant === 'warning') {
-      toast.warning(title, options);
+      toast.error(message);
     }
   };
 
@@ -57,13 +44,9 @@ const ToastDemo = ({
 type Story = StoryObj<typeof ToastDemo>;
 
 export const ToastSuccess: Story = {
-  render: () => <ToastDemo title="Copied successfully" description="Text copied to clipboard" variant="success" />
+  render: () => <ToastDemo message="Copied successfully" variant="success" />
 };
 
 export const ToastError: Story = {
-  render: () => <ToastDemo title="Error to copy text" description="Please try again" variant="error" />
-};
-
-export const ToastWarning: Story = {
-  render: () => <ToastDemo title="Warning" description="Please try again" variant="warning" />
+  render: () => <ToastDemo message="Error to copy text" variant="error" />
 };
