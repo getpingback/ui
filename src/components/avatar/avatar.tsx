@@ -86,7 +86,7 @@ export const Avatar = ({
       data-testid="avatar-root"
       className={cn(
         avatarVariants({ size, type, borderSize }),
-        'inline-flex items-center  border-surface justify-center align-middle leading-none tracking-normal overflow-hidden select-none rounded-full'
+        'inline-flex items-center  border-surface-default justify-center align-middle leading-none tracking-normal overflow-hidden select-none rounded-full'
       )}
     >
       <AvatarPrimitive.Image className="w-full h-full object-cover" src={imageUrl} alt="Avatar" data-testid="avatar-image" />

@@ -1,80 +1,12 @@
-@import '@getpingback/design-tokens/dist/css/globals.css';
+@import '@getpingback/design-tokens/dist/css/dark.css';
+@import '@getpingback/design-tokens/dist/css/light.css';
+
+/** Inter **/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities; 
 
 
-/** Inter **/
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-input[type='number']::-webkit-inner-spin-button,
-input[type='number']::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-.scrollbar-style::-webkit-scrollbar {
-  height: 8px;
-  width: 8px;
-}
-
-.scrollbar-style::-webkit-scrollbar-track {
-  background-color: #0000000a;
-}
-
-.scrollbar-style::-webkit-scrollbar-thumb {
-  border-radius: 6px;
-  background-color: #0000001f;
-}
-
-@keyframes rotator {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes dash {
-  0% {
-    stroke-dashoffset: 186;
-  }
-  50% {
-    stroke-dashoffset: 46.75;
-    transform: rotate(135deg);
-  }
-  100% {
-    stroke-dashoffset: 186;
-    transform: rotate(360deg);
-  }
-}
-
-.spin {
-  animation: rotator 1.4s linear infinite;
-}
-
-.spin-dash {
-  animation: dash 1.4s ease-in-out infinite;
-}
-
-[data-sonner-toast] [data-close-button] {
-  background-color: transparent !important;
-  color: #71717a !important;
-}
-
-[data-sonner-toast] [data-close-button]:hover,
-[data-sonner-toast] [data-close-button]:focus {
-  background-color: transparent !important;
-}
