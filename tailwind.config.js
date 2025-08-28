@@ -183,62 +183,334 @@ const config = {
       }
     },
     extend: {
-      boxShadow: {
-        'bottom_sheet-2': 'var(--bottom_sheet-2)',
-        modal: 'var(--modals-shadow)',
-        'modal-large': 'var(--modals-shadow-large)',
-        drawer: 'var(--drawer-shadow)',
-        custom: '0px 0px 0px 1px rgba(0,0,0,0.15)',
-        solid: 'var(--button-hover-solid-color)',
-        outlined: 'var(--button-hover-color)',
-        ghost: 'var(--button-hover-color)',
-        dropdown: 'var(--dropdown-shadow)',
-        switch: 'var(--switch-shadow)',
-        'text-field': 'var(--input-shadow)',
-        'text-field-error': 'var(--input-shadow-error)',
-        'card-active': 'var(--card-shadow)',
-        'select-item': 'var(--select-item-shadow)'
+      colors: {
+        background: {
+          DEFAULT: 'var(--background-default)',
+          inverse: 'var(--background-inverse)',
+          alt: 'var(--background-alt)',
+          surface: {
+            DEFAULT: 'var(--background-surface-default)',
+            inverse: 'var(--background-surface-inverse)'
+          },
+          error: {
+            DEFAULT: 'var(--background-error-default)',
+            inverse: 'var(--background-error-inverse)'
+          },
+          warning: {
+            DEFAULT: 'var(--background-warning-default)',
+            inverse: 'var(--background-warning-inverse)'
+          },
+          caution: {
+            DEFAULT: 'var(--background-caution-default)',
+            inverse: 'var(--background-caution-inverse)'
+          },
+          info: {
+            DEFAULT: 'var(--background-info-default)',
+            inverse: 'var(--background-info-inverse)'
+          },
+          lime: {
+            DEFAULT: 'var(--background-lime-default)',
+            inverse: 'var(--background-lime-inverse)'
+          },
+          mint: {
+            DEFAULT: 'var(--background-mint-default)',
+            inverse: 'var(--background-mint-inverse)'
+          },
+          teal: {
+            DEFAULT: 'var(--background-teal-default)',
+            inverse: 'var(--background-teal-inverse)'
+          },
+          cyan: {
+            DEFAULT: 'var(--background-cyan-default)',
+            inverse: 'var(--background-cyan-inverse)'
+          },
+          blue: {
+            DEFAULT: 'var(--background-blue-default)',
+            inverse: 'var(--background-blue-inverse)'
+          },
+          fucshia: {
+            DEFAULT: 'var(--background-fucshia-default)',
+            inverse: 'var(--background-fucshia-inverse)'
+          },
+          pink: {
+            DEFAULT: 'var(--background-pink-default)',
+            inverse: 'var(--background-pink-inverse)'
+          },
+          neutral: {
+            DEFAULT: 'var(--background-neutral-default)',
+            inverse: 'var(--background-neutral-inverse)'
+          }
+        },
+        surface: {
+          DEFAULT: 'var(--surface-default)',
+          inverse: 'var(--surface-inverse)'
+        },
+        text: {
+          primary: 'var(--text-default-primary)',
+          secondary: 'var(--text-default-secondary)',
+          tertiary: 'var(--text-default-tertiary)',
+          inverse: {
+            primary: 'var(--text-inverse-primary)',
+            secondary: 'var(--text-inverse-secondary)',
+            tertiary: 'var(--text-inverse-tertiary)'
+          },
+          success: {
+            DEFAULT: 'var(--text-success-default)',
+            inverse: 'var(--text-success-inverse)'
+          },
+          error: {
+            DEFAULT: 'var(--text-error-default)',
+            inverse: 'var(--text-error-inverse)'
+          },
+          warning: {
+            DEFAULT: 'var(--text-warning-default)',
+            inverse: 'var(--text-warning-inverse)'
+          },
+          caution: {
+            DEFAULT: 'var(--text-caution-default)',
+            inverse: 'var(--text-caution-inverse)'
+          },
+          info: {
+            DEFAULT: 'var(--text-info-default)',
+            inverse: 'var(--text-info-inverse)'
+          },
+          lime: {
+            DEFAULT: 'var(--text-lime-default)',
+            inverse: 'var(--text-lime-inverse)'
+          },
+          mint: {
+            DEFAULT: 'var(--text-mint-default)',
+            inverse: 'var(--text-mint-inverse)'
+          },
+          teal: {
+            DEFAULT: 'var(--text-teal-default)',
+            inverse: 'var(--text-teal-inverse)'
+          },
+          cyan: {
+            DEFAULT: 'var(--text-cyan-default)',
+            inverse: 'var(--text-cyan-inverse)'
+          },
+          blue: {
+            DEFAULT: 'var(--text-blue-default)',
+            inverse: 'var(--text-blue-inverse)'
+          },
+          fucshia: {
+            DEFAULT: 'var(--text-fucshia-default)',
+            inverse: 'var(--text-fucshia-inverse)'
+          },
+          pink: {
+            DEFAULT: 'var(--text-pink-default)',
+            inverse: 'var(--text-pink-inverse)'
+          },
+          neutral: {
+            DEFAULT: 'var(--text-neutral-default)',
+            inverse: 'var(--text-neutral-inverse)'
+          }
+        },
+        border: {
+          DEFAULT: 'var(--border-default)',
+          hover: 'var(--border-hover)',
+          invalid: 'var(--border-invalid)',
+          valid: 'var(--border-valid)',
+          filled: 'var(--border-filled)'
+        },
+        link: {
+          DEFAULT: 'var(--link-default-default)',
+          inverse: 'var(--link-default-inverse)',
+          pressed: {
+            DEFAULT: 'var(--link-pressed-default)',
+            inverse: 'var(--link-pressed-inverse)'
+          }
+        },
+        icon: {
+          primary: 'var(--icon-default-primary)',
+          secondary: 'var(--icon-default-secondary)',
+          tertiary: 'var(--icon-default-tertiary)',
+
+          inverse: {
+            primary: 'var(--icon-inverse-primary)',
+            secondary: 'var(--icon-inverse-secondary)',
+            tertiary: 'var(--icon-inverse-tertiary)'
+          },
+          success: {
+            DEFAULT: 'var(--icon-success-default)',
+            inverse: 'var(--icon-success-inverse)'
+          },
+          error: {
+            DEFAULT: 'var(--icon-error-default)',
+            inverse: 'var(--icon-error-inverse)'
+          },
+          warning: {
+            DEFAULT: 'var(--icon-warning-default)',
+            inverse: 'var(--icon-warning-inverse)'
+          },
+          caution: {
+            DEFAULT: 'var(--icon-caution-default)',
+            inverse: 'var(--icon-caution-inverse)'
+          },
+          info: {
+            DEFAULT: 'var(--icon-info-default)',
+            inverse: 'var(--icon-info-inverse)'
+          },
+          lime: {
+            DEFAULT: 'var(--icon-lime-default)',
+            inverse: 'var(--icon-lime-inverse)'
+          },
+          mint: {
+            DEFAULT: 'var(--icon-mint-default)',
+            inverse: 'var(--icon-mint-inverse)'
+          },
+          teal: {
+            DEFAULT: 'var(--icon-teal-default)',
+            inverse: 'var(--icon-teal-inverse)'
+          },
+          cyan: {
+            DEFAULT: 'var(--icon-cyan-default)',
+            inverse: 'var(--icon-cyan-inverse)'
+          },
+          blue: {
+            DEFAULT: 'var(--icon-blue-default)',
+            inverse: 'var(--icon-blue-inverse)'
+          },
+          fucshia: {
+            DEFAULT: 'var(--icon-fucshia-default)',
+            inverse: 'var(--icon-fucshia-inverse)'
+          },
+          pink: {
+            DEFAULT: 'var(--icon-pink-default)',
+            inverse: 'var(--icon-pink-inverse)'
+          }
+        },
+        neutral: {
+          black: 'var(--neutral-black)',
+          white: 'var(--neutral-white)'
+        },
+        sidebar: {
+          item: {
+            hover: 'var(--sidebar-item-hover)',
+            pressed: 'var(--sidebar-item-pressed)'
+          },
+          background: 'var(--sidebar-background-default)',
+          'key-background': 'var(--sidebar-key-background)',
+          'key-label': 'var(--sidebar-key-label)',
+          'key-surface': {
+            DEFAULT: 'var(--sidebar-key-surface)',
+            pressed: 'var(--sidebar-key-surface-pressed)',
+            border: 'var(--sidebar-key-surface-border)'
+          }
+        }
       },
-      backgroundImage: {
-        'active-menu': 'var(--palette-gradiente-active_menu)',
-        'line-default': 'var(--background-stepper-line)'
+      thickness: {
+        1: 'var(--thickness-1)',
+        2: 'var(--thickness-2)',
+        4: 'var(--thickness-4)',
+        6: 'var(--thickness-6)',
+        8: 'var(--thickness-8)'
+      },
+      boxShadow: {
+        'shadow-modal': {
+          1: 'var(--modal-1)',
+          2: 'var(--modal-2)',
+          3: 'var(--modal-3)',
+          4: 'var(--modal-4)',
+          5: 'var(--modal-5)',
+          light: {
+            1: 'var(--modal-light-1)',
+            2: 'var(--modal-light-2)',
+            3: 'var(--modal-light-3)',
+            4: 'var(--modal-light-4)',
+            5: 'var(--modal-light-5)'
+          },
+          dark: {
+            1: 'var(--modal-dark-1)',
+            2: 'var(--modal-dark-2)',
+            3: 'var(--modal-dark-3)',
+            4: 'var(--modal-dark-4)',
+            5: 'var(--modal-dark-5)'
+          }
+        },
+        'bottom-sheet': {
+          1: 'var(--bottom-sheet-1)',
+          2: 'var(--bottom-sheet-2)',
+          3: 'var(--bottom-sheet-3)',
+          4: 'var(--bottom-sheet-4)',
+          5: 'var(--bottom-sheet-5)',
+          light: {
+            1: 'var(--bottom-sheet-light-1)',
+            2: 'var(--bottom-sheet-light-2)',
+            3: 'var(--bottom-sheet-light-3)',
+            4: 'var(--bottom-sheet-light-4)',
+            5: 'var(--bottom-sheet-light-5)'
+          },
+          dark: {
+            1: 'var(--bottom-sheet-dark-1)',
+            2: 'var(--bottom-sheet-dark-2)',
+            3: 'var(--bottom-sheet-dark-3)',
+            4: 'var(--bottom-sheet-dark-4)',
+            5: 'var(--bottom-sheet-dark-5)'
+          }
+        }
+      },
+      gradient: {
+        'brand-1': 'var(--gradiente-brand-1)',
+        'brand-2': 'var(--gradiente-brand-2)',
+        'brand-3': 'var(--gradiente-brand-3)',
+        'brand-4': 'var(--gradiente-brand-4)',
+        'brand-5': 'var(--gradiente-brand-5)'
+      },
+      animation: {
+        'slide-up': 'slide-up 300ms cubic-bezier(0.87, 0, 0.13, 1) forwards',
+        'slide-down': 'slide-down 300ms cubic-bezier(0.87, 0, 0.13, 1) forwards',
+        'slide-left': 'slide-left 300ms cubic-bezier(0.83, 0, 0.17, 1)',
+        'slide-right': 'slide-right 300ms cubic-bezier(0.83, 0, 0.17, 1)',
+        'drawer-slide-in': 'drawer-slide-in 300ms cubic-bezier(0.83, 0, 0.17, 1)',
+        'drawer-slide-out': 'drawer-slide-out 300ms cubic-bezier(0.83, 0, 0.17, 1)',
+        'fade-in': 'fade-in 300ms cubic-bezier(0.83, 0, 0.17, 1)',
+        'fade-out': 'fade-out 300ms cubic-bezier(0.83, 0, 0.17, 1)',
+        'modal-slide-up': 'modal-slide-up 250ms ease-out',
+        'modal-slide-down': 'modal-slide-down 250ms ease-in',
+        'modal-fade-in': 'modal-fade-in 250ms ease-out',
+        'modal-fade-out': 'modal-fade-out 250ms ease-in',
+        'progress-bar': 'progress-filler 500ms ease-in',
+        spin: 'spin 1.4s linear infinite',
+        dash: 'dash 1.4s ease-in-out infinite'
       },
       keyframes: {
-        accordionSlideUp: {
+        'slide-up': {
           from: { height: 0 },
           to: { height: 'var(--radix-collapsible-content-height)' }
         },
-        accordionSlideDown: {
+        'slide-down': {
           from: { height: 'var(--radix-collapsible-content-height)' },
           to: { height: 0 }
         },
-        slideLeft: {
+        'slide-left': {
           from: {
             transform: 'translateX(10%)',
             opacity: 0
           },
           to: { transform: 'translateX(0%)', opacity: 1 }
         },
-        slideRight: {
+        'slide-right': {
           from: {
             transform: 'translateX(-10%)',
             opacity: 0
           },
           to: { transform: 'translateX(0%)', opacity: 1 }
         },
-        drawerSlideIn: {
+        'drawer-slide-in': {
           from: { transform: 'translateX(100%)' },
           to: { transform: 'translateX(0%)' }
         },
-        drawerSlideOut: {
+        'drawer-slide-out': {
           from: { transform: 'translateX(0%)' },
           to: { transform: 'translateX(100%)' }
         },
-        fadeIn: {
+        'fade-in': {
           from: { opacity: 0 },
           to: { opacity: 1 }
         },
-        fadeOut: {
+        'fade-out': {
           from: { opacity: 1 },
           to: { opacity: 0 }
         },
@@ -262,228 +534,15 @@ const config = {
           '0%': { width: '0%' },
           '50%': { width: 'var(--progress-mid-width)' },
           '100%': { width: 'var(--progress-final-width)' }
-        }
-      },
-      animation: {
-        'slide-up': 'accordionSlideUp 300ms cubic-bezier(0.87, 0, 0.13, 1) forwards',
-        'slide-down': 'accordionSlideDown 300ms cubic-bezier(0.87, 0, 0.13, 1) forwards',
-        'slide-left': 'slideLeft 300ms cubic-bezier(0.83, 0, 0.17, 1)',
-        'slide-right': 'slideRight 300ms cubic-bezier(0.83, 0, 0.17, 1)',
-        'drawer-slide-in': 'drawerSlideIn 300ms cubic-bezier(0.83, 0, 0.17, 1)',
-        'drawer-slide-out': 'drawerSlideOut 300ms cubic-bezier(0.83, 0, 0.17, 1)',
-        'fade-in': 'fadeIn 300ms cubic-bezier(0.83, 0, 0.17, 1)',
-        'fade-out': 'fadeOut 300ms cubic-bezier(0.83, 0, 0.17, 1)',
-        'modal-slide-up': 'modal-slide-up 250ms ease-out',
-        'modal-slide-down': 'modal-slide-down 250ms ease-in',
-        'modal-fade-in': 'modal-fade-in 250ms ease-out',
-        'modal-fade-out': 'modal-fade-out 250ms ease-in',
-        'progress-bar': 'progress-filler 500ms ease-in'
-      },
-      colors: {
-        success: {
-          foreground: 'var(--text-success)'
         },
-        surface: {
-          DEFAULT: 'var(--surface-default)'
+        spin: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' }
         },
-        caution: {
-          foreground: 'var(--text-caution)'
-        },
-        tertiary: {
-          foreground: 'var(--text-tertiary)'
-        },
-        secondary: {
-          foreground: 'rgb(from var(--text-secondary) r g b / <alpha-value>)'
-        },
-        primary: {
-          foreground: 'var(--text-primary)'
-        },
-        active: {
-          foreground: 'var(--text-active)'
-        },
-        informative: {
-          foreground: 'var(--text-informative_accent)'
-        },
-        highlighted: {
-          foreground: 'var(--text-informative)'
-        },
-        inverse: {
-          foreground: 'var(--text-inverse)'
-        },
-        icons: {
-          foreground: 'var(--icons-default)'
-        },
-        error: {
-          foreground: 'var(--text-error_accent)'
-        },
-        'border-card': 'var(--border-cards-color)',
-        'border-card-light': 'var(--border-card-light)',
-        divider: {
-          DEFAULT: 'var(--border-divider-color)',
-          active: 'var(--divider-color-active)',
-          error: 'var(--border-input_invalid-color)',
-          highlighted: 'var(--border-input_filled-color)',
-          disabled: 'var(--divider-color-disabled)'
-        },
-        'border-card-active': 'var(--border-card-active)',
-        list: {
-          highlighted: {
-            DEFAULT: 'var(--list-hightlight)'
-          },
-          actived: {
-            DEFAULT: 'var(--list-actived)'
-          },
-          hover: {
-            DEFAULT: 'var(--list-hover)'
-          },
-          label: {
-            DEFAULT: 'var(--list-label_default)',
-            active: 'var(--list-label_active)'
-          }
-        },
-        input: {
-          selected: {
-            DEFAULT: 'var(--border-input_filled-color)',
-            label: 'var(--buttons-label_color)',
-            hover: 'var(--background-informative)'
-          },
-          outline: {
-            DEFAULT: 'rgb(from var(--text-tertiary) r g b / <alpha-value>)',
-            hover: 'var(--list-hover)'
-          },
-          hover: 'var(--input-hover-border)',
-          focus: 'var(--input-focus-border)',
-          'focus-shadow': 'var(--input-focus-shadow)'
-        },
-        stepper: {
-          line: 'var(--background-stepper-line-completed)'
-        },
-        badge: {
-          gray: {
-            DEFAULT: 'var(--badge-gray-bg)',
-            foreground: 'var(--badge-gray-text)'
-          },
-          green: {
-            DEFAULT: 'var(--badge-green-bg)',
-            foreground: 'var(--badge-green-text)'
-          },
-          teal: {
-            DEFAULT: 'var(--badge-teal-bg)',
-            foreground: 'var(--badge-teal-text)'
-          },
-          red: {
-            DEFAULT: 'var(--badge-red-bg)',
-            foreground: 'var(--badge-red-text)'
-          },
-          yellow: {
-            DEFAULT: 'var(--badge-yellow-bg)',
-            foreground: 'var(--badge-yellow-text)'
-          },
-          purple: {
-            DEFAULT: 'var(--badge-purple-bg)',
-            foreground: 'var(--badge-purple-text)'
-          },
-          orange: {
-            DEFAULT: 'var(--badge-orange-bg)',
-            foreground: 'var(--badge-orange-text)'
-          }
-        },
-        callout: {
-          primary: {
-            DEFAULT: 'var(--callout-primary-bg)',
-            foreground: 'var(--callout-primary-text)'
-          },
-          info: {
-            DEFAULT: 'var(--callout-info-bg)',
-            foreground: 'var(--callout-info-text)'
-          },
-          success: {
-            DEFAULT: 'var(--callout-success-bg)',
-            foreground: 'var(--callout-success-text)'
-          },
-          warning: {
-            DEFAULT: 'var(--callout-warning-bg)',
-            foreground: 'var(--callout-warning-text)'
-          },
-          error: {
-            DEFAULT: 'var(--callout-error-bg)',
-            foreground: 'var(--callout-error-text)'
-          }
-        },
-        switch: {
-          bg: {
-            DEFAULT: 'var(--switch-bg-default)',
-            hover: 'var(--switch-bg-hover)'
-          },
-          thumb: {
-            DEFAULT: 'var(--switch-thumb-bg)',
-            disabled: 'var(--switch-thumb-disabled)'
-          },
-          checked: {
-            DEFAULT: 'var(--switch-checked-bg)',
-            hover: 'var(--switch-checked-hover)',
-            ring: 'var(--switch-checked-ring)'
-          },
-          highlight: {
-            DEFAULT: 'var(--switch-highlight-bg)',
-            hover: 'var(--switch-highlight-hover)',
-            ring: 'var(--switch-highlight-ring)'
-          }
-        },
-        button: {
-          solid: {
-            DEFAULT: 'var(--buttons-solid_default)',
-            foreground: 'var(--buttons-label_inverse)',
-            hover: 'var(--button-solid-hover)',
-            disabled: 'var(--buttons-disabled)'
-          },
-          ghost: {
-            DEFAULT: 'var(--buttons-ghost_bg)',
-            foreground: 'var(--buttons-label)',
-            hover: 'var(--button-ghost-gray-hover)',
-            disabled: 'var(--buttons-disabled)'
-          },
-          danger: {
-            DEFAULT: 'var(--buttons-danger-bg)',
-            foreground: 'var(--buttons-label_inverse)',
-            hover: 'var(--buttons-danger-bg-hover)',
-            disabled: 'var(--buttons-danger-disabled)'
-          },
-          outlined: {
-            border: 'var(--border-button_outlined-color)',
-            hover: 'var(--button-outlined-hover)'
-          },
-          done: {
-            DEFAULT: 'var(--badge-done-bg)',
-            foreground: 'var(--badge-done-text)'
-          },
-          'page-solid': {
-            DEFAULT: 'var(--buttons-solid_default)'
-          },
-          'page-ghost': {
-            DEFAULT: 'var(--buttons-ghost_bg-color)'
-          },
-          'page-color-solid': {
-            DEFAULT: 'var(--buttons-label_inverse)'
-          },
-          'page-color-clear': {
-            DEFAULT: 'var(--buttons-label)'
-          }
-        },
-        background: {
-          accent: 'var(--background-accent)'
-        },
-        border: {
-          accent: 'rgba(0, 0, 0, 0.04)'
-        }
-      },
-      borderColor: {
-        divider: {
-          DEFAULT: 'var(--border-divider-color)',
-          active: 'var(--divider-color-active)',
-          error: 'var(--divider-color-error)',
-          highlighted: 'var(--divider-color-highlighted)',
-          disabled: 'var(--divider-color-disabled)'
+        dash: {
+          '0%': { strokeDashoffset: '186' },
+          '50%': { strokeDashoffset: '46.75', transform: 'rotate(135deg)' },
+          '100%': { strokeDashoffset: '186', transform: 'rotate(360deg)' }
         }
       }
     },
@@ -493,13 +552,24 @@ const config = {
   },
   plugins: [
     function ({ addUtilities, theme }) {
-      const newUtilities = {
+      const scrollbarStyles = {
         '.no-scrollbar::-webkit-scrollbar': {
           display: 'none'
         },
         '.no-scrollbar': {
           '-ms-overflow-style': 'none',
           'scrollbar-width': 'none'
+        },
+        '.scrollbar-style::-webkit-scrollbar': {
+          height: '8px',
+          width: '8px'
+        },
+        '.scrollbar-style::-webkit-scrollbar-track': {
+          backgroundColor: '#0000000a'
+        },
+        '.scrollbar-style::-webkit-scrollbar-thumb': {
+          borderRadius: '6px',
+          backgroundColor: '#0000001f'
         }
       };
       const colorPickerComponent = {
@@ -534,10 +604,14 @@ const config = {
           'transition-property': 'all',
           'transition-duration': '200ms',
           'transition-timing-function': 'ease-in-out'
+        },
+        'input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button': {
+          '-webkit-appearance': 'none',
+          margin: '0'
         }
       };
 
-      addUtilities({ ...newUtilities, ...colorPickerComponent, ...inputFocusStyles });
+      addUtilities({ ...scrollbarStyles, ...colorPickerComponent, ...inputFocusStyles });
     }
   ]
 };
