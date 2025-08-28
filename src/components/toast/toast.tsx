@@ -1,52 +1,75 @@
 import React from 'react';
-import { Toaster as SonnerToaster, toast } from 'sonner';
+import { toast, Toaster as PrimitiveToaster, ToastBar } from 'react-hot-toast';
 import { CheckIcon } from '@stash-ui/solid-icons';
-import { TimesCircleIcon, ExclamationCircleIcon } from '@stash-ui/regular-icons';
+import { TimesCircleIcon, ExclamationCircleIcon, TimesIcon } from '@stash-ui/regular-icons';
+import { Button } from '../button';
+import { Typography } from '../typography';
+import { cn } from '@/lib/utils';
+import { cva } from 'class-variance-authority';
 
-type ToasterProps = React.ComponentProps<typeof SonnerToaster>;
+type ToasterProps = React.ComponentProps<typeof PrimitiveToaster>;
+
+const messageVariants = cva('text-sm font-medium', {
+  variants: {
+    type: {
+      success: 'text-green-600',
+      error: 'text-red-600',
+      warning: 'text-yellow-500'
+    }
+  }
+});
 
 const BackgroundIcon = ({ icon, bgColor }: { icon: React.ReactNode; bgColor: string }) => {
   return (
-    <div className={`w-8 h-8  flex items-center justify-center rounded-full`} style={{ backgroundColor: bgColor }}>
+    <div className={`min-w-8 h-8 flex items-center justify-center rounded-full`} style={{ backgroundColor: bgColor }}>
       {icon}
     </div>
   );
 };
 
-const Toaster = ({ ...props }: ToasterProps) => {
+const Toaster = ({ position = 'top-right', ...props }: ToasterProps) => {
+  const mapIcons = {
+    success: <BackgroundIcon icon={<CheckIcon color="#0E9F6E" />} bgColor="#31C48D29" />,
+    error: <BackgroundIcon icon={<TimesCircleIcon color="#F05252" />} bgColor="#F052521F" />,
+    warning: <BackgroundIcon icon={<ExclamationCircleIcon color="#C27803" />} bgColor="#FACA1529" />
+  };
+
   return (
-    <SonnerToaster
-      theme="light"
-      className="toaster group"
-      position="top-right"
-      toastOptions={{
-        classNames: {
-          toast:
-            'group !gap-6 group-[.toaster]:opacity-85 !rounded-xl toast group-[.toaster]:!bg-background-accent group-[.toaster]:text-foreground group-[.toaster]:border-border group-[.toaster]:!shadow-modal-large group-[.toaster]:!border-none',
-
-          success: 'group-[.toaster]:text-success-foreground  ',
-
-          error: 'group-[.toaster]:text-error-foreground ',
-
-          warning: 'group-[.toaster]:text-caution-foreground ',
-
-          loading: 'group-[.toaster]:text-gray-900',
-
-          title: 'group-[.toast]:!text-sm group-[.toast]:font-semibold',
-          description: 'group-[.toast]:!text-tertiary-foreground group-[.toast]:!text-xs',
-          actionButton: 'group-[.toast]:bg-primary group-[.toast]:text-primary-foreground',
-          cancelButton: 'group-[.toast]:bg-muted group-[.toast]:text-muted-foreground',
-          closeButton: 'group-[.toast]:!border-divider '
-        }
-      }}
-      icons={{
-        success: <BackgroundIcon icon={<CheckIcon color="#0E9F6E" />} bgColor="#31C48D29" />,
-        error: <BackgroundIcon icon={<TimesCircleIcon color="#F05252" />} bgColor="#F052521F" />,
-        warning: <BackgroundIcon icon={<ExclamationCircleIcon color="#C27803" />} bgColor="#FACA1529" />
-      }}
-      closeButton={true}
+    <PrimitiveToaster
       {...props}
-    />
+      position={position}
+      toastOptions={{
+        className: '!border !border-gray-100 !p-4 !opacity-85 !rounded-xl !shadow-modal-large !w-full !min-w-[352px] !max-w-full',
+        duration: 10000
+      }}
+    >
+      {(t) => (
+        <ToastBar toast={t}>
+          {({ message }) => (
+            <div className="flex items-center justify-between gap-8 w-full">
+              <div className="flex items-center gap-4">
+                {mapIcons[t.type as keyof typeof mapIcons]}
+                <div className="flex flex-col gap-1">
+                  <Typography
+                    className={cn(
+                      '[&>div]:m-0 [&>div]:font-semibold',
+                      messageVariants({ type: t.type as 'success' | 'error' | 'warning' })
+                    )}
+                  >
+                    {message}
+                  </Typography>
+                </div>
+              </div>
+              {!t.dismissed && (
+                <Button variant="clear" className="p-0" rounded="full" onClick={() => toast.dismiss(t.id)}>
+                  <TimesIcon />
+                </Button>
+              )}
+            </div>
+          )}
+        </ToastBar>
+      )}
+    </PrimitiveToaster>
   );
 };
 
