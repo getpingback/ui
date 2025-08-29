@@ -184,136 +184,140 @@ const config = {
       }
     },
     extend: {
-      colors: {
-        background: {
-          DEFAULT: 'var(--background-default)',
-          inverse: 'var(--background-inverse)',
-          alt: 'var(--background-alt)',
-          surface: {
-            DEFAULT: 'var(--background-surface-default)',
-            inverse: 'var(--background-surface-inverse)'
-          },
-          error: {
-            DEFAULT: 'var(--background-error-default)',
-            inverse: 'var(--background-error-inverse)'
-          },
-          warning: {
-            DEFAULT: 'var(--background-warning-default)',
-            inverse: 'var(--background-warning-inverse)'
-          },
-          caution: {
-            DEFAULT: 'var(--background-caution-default)',
-            inverse: 'var(--background-caution-inverse)'
-          },
-          info: {
-            DEFAULT: 'var(--background-info-default)',
-            inverse: 'var(--background-info-inverse)'
-          },
-          lime: {
-            DEFAULT: 'var(--background-lime-default)',
-            inverse: 'var(--background-lime-inverse)'
-          },
-          mint: {
-            DEFAULT: 'var(--background-mint-default)',
-            inverse: 'var(--background-mint-inverse)'
-          },
-          teal: {
-            DEFAULT: 'var(--background-teal-default)',
-            inverse: 'var(--background-teal-inverse)'
-          },
-          cyan: {
-            DEFAULT: 'var(--background-cyan-default)',
-            inverse: 'var(--background-cyan-inverse)'
-          },
-          blue: {
-            DEFAULT: 'var(--background-blue-default)',
-            inverse: 'var(--background-blue-inverse)'
-          },
-          fucshia: {
-            DEFAULT: 'var(--background-fucshia-default)',
-            inverse: 'var(--background-fucshia-inverse)'
-          },
-          pink: {
-            DEFAULT: 'var(--background-pink-default)',
-            inverse: 'var(--background-pink-inverse)'
-          },
-          neutral: {
-            DEFAULT: 'var(--background-neutral-default)',
-            inverse: 'var(--background-neutral-inverse)'
-          }
+      textColor: {
+        primary: 'var(--text-default-primary)',
+        secondary: 'var(--text-default-secondary)',
+        tertiary: 'var(--text-default-tertiary)',
+        inverse: {
+          primary: 'var(--text-inverse-primary)',
+          secondary: 'var(--text-inverse-secondary)',
+          tertiary: 'var(--text-inverse-tertiary)'
         },
+        success: {
+          DEFAULT: 'var(--text-success-default)',
+          inverse: 'var(--text-success-inverse)'
+        },
+        error: {
+          DEFAULT: 'var(--text-error-default)',
+          inverse: 'var(--text-error-inverse)'
+        },
+        warning: {
+          DEFAULT: 'var(--text-warning-default)',
+          inverse: 'var(--text-warning-inverse)'
+        },
+        caution: {
+          DEFAULT: 'var(--text-caution-default)',
+          inverse: 'var(--text-caution-inverse)'
+        },
+        info: {
+          DEFAULT: 'var(--text-info-default)',
+          inverse: 'var(--text-info-inverse)'
+        },
+        lime: {
+          DEFAULT: 'var(--text-lime-default)',
+          inverse: 'var(--text-lime-inverse)'
+        },
+        mint: {
+          DEFAULT: 'var(--text-mint-default)',
+          inverse: 'var(--text-mint-inverse)'
+        },
+        teal: {
+          DEFAULT: 'var(--text-teal-default)',
+          inverse: 'var(--text-teal-inverse)'
+        },
+        cyan: {
+          DEFAULT: 'var(--text-cyan-default)',
+          inverse: 'var(--text-cyan-inverse)'
+        },
+        blue: {
+          DEFAULT: 'var(--text-blue-default)',
+          inverse: 'var(--text-blue-inverse)'
+        },
+        fucshia: {
+          DEFAULT: 'var(--text-fucshia-default)',
+          inverse: 'var(--text-fucshia-inverse)'
+        },
+        pink: {
+          DEFAULT: 'var(--text-pink-default)',
+          inverse: 'var(--text-pink-inverse)'
+        },
+        neutral: {
+          DEFAULT: 'var(--text-neutral-default)',
+          inverse: 'var(--text-neutral-inverse)'
+        }
+      },
+      backgroundColor: {
+        default: 'var(--background-default)',
+        inverse: 'var(--background-inverse)',
+        alt: 'var(--background-alt)',
+        surface: {
+          DEFAULT: 'var(--background-surface-default)',
+          inverse: 'var(--background-surface-inverse)'
+        },
+        success: {
+          DEFAULT: 'var(--background-success-default)',
+          inverse: 'var(--background-success-inverse)'
+        },
+        error: {
+          DEFAULT: 'var(--background-error-default)',
+          inverse: 'var(--background-error-inverse)'
+        },
+        warning: {
+          DEFAULT: 'var(--background-warning-default)',
+          inverse: 'var(--background-warning-inverse)'
+        },
+        caution: {
+          DEFAULT: 'var(--background-caution-default)',
+          inverse: 'var(--background-caution-inverse)'
+        },
+        info: {
+          DEFAULT: 'var(--background-info-default)',
+          inverse: 'var(--background-info-inverse)'
+        },
+        lime: {
+          DEFAULT: 'var(--background-lime-default)',
+          inverse: 'var(--background-lime-inverse)'
+        },
+        mint: {
+          DEFAULT: 'var(--background-mint-default)',
+          inverse: 'var(--background-mint-inverse)'
+        },
+        teal: {
+          DEFAULT: 'var(--background-teal-default)',
+          inverse: 'var(--background-teal-inverse)'
+        },
+        cyan: {
+          DEFAULT: 'var(--background-cyan-default)',
+          inverse: 'var(--background-cyan-inverse)'
+        },
+        blue: {
+          DEFAULT: 'var(--background-blue-default)',
+          inverse: 'var(--background-blue-inverse)'
+        },
+        fucshia: {
+          DEFAULT: 'var(--background-fucshia-default)',
+          inverse: 'var(--background-fucshia-inverse)'
+        },
+        pink: {
+          DEFAULT: 'var(--background-pink-default)',
+          inverse: 'var(--background-pink-inverse)'
+        },
+        neutral: {
+          DEFAULT: 'var(--background-neutral-default)',
+          inverse: 'var(--background-neutral-inverse)'
+        }
+      },
+      borderColor: {
+        default: 'var(--border-default)',
+        hover: 'var(--border-hover)',
+        invalid: 'var(--border-invalid)',
+        valid: 'var(--border-valid)',
+        filled: 'var(--border-filled)'
+      },
+      colors: {
         surface: {
           DEFAULT: 'var(--surface-default)',
           inverse: 'var(--surface-inverse)'
-        },
-        typography: {
-          primary: 'var(--text-default-primary)',
-          secondary: 'var(--text-default-secondary)',
-          tertiary: 'var(--text-default-tertiary)',
-          inverse: {
-            primary: 'var(--text-inverse-primary)',
-            secondary: 'var(--text-inverse-secondary)',
-            tertiary: 'var(--text-inverse-tertiary)'
-          },
-          success: {
-            DEFAULT: 'var(--text-success-default)',
-            inverse: 'var(--text-success-inverse)'
-          },
-          error: {
-            DEFAULT: 'var(--text-error-default)',
-            inverse: 'var(--text-error-inverse)'
-          },
-          warning: {
-            DEFAULT: 'var(--text-warning-default)',
-            inverse: 'var(--text-warning-inverse)'
-          },
-          caution: {
-            DEFAULT: 'var(--text-caution-default)',
-            inverse: 'var(--text-caution-inverse)'
-          },
-          info: {
-            DEFAULT: 'var(--text-info-default)',
-            inverse: 'var(--text-info-inverse)'
-          },
-          lime: {
-            DEFAULT: 'var(--text-lime-default)',
-            inverse: 'var(--text-lime-inverse)'
-          },
-          mint: {
-            DEFAULT: 'var(--text-mint-default)',
-            inverse: 'var(--text-mint-inverse)'
-          },
-          teal: {
-            DEFAULT: 'var(--text-teal-default)',
-            inverse: 'var(--text-teal-inverse)'
-          },
-          cyan: {
-            DEFAULT: 'var(--text-cyan-default)',
-            inverse: 'var(--text-cyan-inverse)'
-          },
-          blue: {
-            DEFAULT: 'var(--text-blue-default)',
-            inverse: 'var(--text-blue-inverse)'
-          },
-          fucshia: {
-            DEFAULT: 'var(--text-fucshia-default)',
-            inverse: 'var(--text-fucshia-inverse)'
-          },
-          pink: {
-            DEFAULT: 'var(--text-pink-default)',
-            inverse: 'var(--text-pink-inverse)'
-          },
-          neutral: {
-            DEFAULT: 'var(--text-neutral-default)',
-            inverse: 'var(--text-neutral-inverse)'
-          }
-        },
-        border: {
-          DEFAULT: 'var(--border-default)',
-          hover: 'var(--border-hover)',
-          invalid: 'var(--border-invalid)',
-          valid: 'var(--border-valid)',
-          filled: 'var(--border-filled)'
         },
         link: {
           DEFAULT: 'var(--link-default-default)',
