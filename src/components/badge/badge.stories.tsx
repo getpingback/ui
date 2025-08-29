@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Badge } from './badge';
+import { BADGE_TYPES, BADGE_VARIANTS } from './constants';
 
 const meta = {
   title: 'Components/Badge',
@@ -11,7 +12,16 @@ const meta = {
 
   tags: ['autodocs'],
 
-  argTypes: {}
+  argTypes: {
+    type: {
+      control: 'select',
+      options: BADGE_TYPES
+    },
+    variant: {
+      control: 'select',
+      options: BADGE_VARIANTS
+    }
+  }
 } satisfies Meta<typeof Badge>;
 
 export default meta;
