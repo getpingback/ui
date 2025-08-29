@@ -3,78 +3,59 @@ import { cva, type VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
 
-const badgeVariants = cva('inline-flex items-center px-2.5 py-0.5 font-semibold w-fit', {
+const badgeTypesOptions = [
+  'gray',
+  'green',
+  'red',
+  'yellow',
+  'orange',
+  'purple',
+  'lime',
+  'mint',
+  'teal',
+  'cyan',
+  'blue',
+  'fuchsia',
+  'pink',
+  'surface'
+];
+const badgeVariantOptions = ['solid', 'ghost', 'outline'];
+
+const toNullMap = <T extends readonly string[]>(arr: T) => Object.fromEntries(arr.map((v) => [v, null])) as Record<T[number], null>;
+
+const badgeVariants = cva('flex items-center rounded-full font-bold text-[10px] leading-[1.75] h-6 px-2 uppercase', {
   variants: {
-    type: {
-      green: 'bg-badge-green text-badge-green-foreground',
-      gray: 'bg-badge-gray text-badge-gray-foreground',
-      teal: 'bg-badge-teal text-badge-teal-foreground',
-      red: 'bg-badge-red text-badge-red-foreground',
-      yellow: 'bg-badge-yellow text-badge-yellow-foreground',
-      purple: 'bg-badge-purple text-badge-purple-foreground',
-      orange: 'bg-badge-orange text-badge-orange-foreground'
-    },
-    variant: {
-      outline: 'bg-transparent',
-      ghost: 'border-none'
-    },
-    radius: {
-      full: 'rounded-full',
-      medium: 'rounded-md'
-    },
-    transform: {
-      uppercase: 'uppercase'
-    },
-    size: {
-      default: 'text-xs',
-      small: 'text-[10px] max-h-[20px]'
-    }
+    type: toNullMap(badgeTypesOptions),
+    variant: toNullMap(badgeVariantOptions)
   },
 
   compoundVariants: [
     {
-      variant: 'outline',
-      type: 'green',
-      className: 'border border-badge-green'
-    },
-    {
-      variant: 'outline',
       type: 'gray',
-      className: 'border border-badge-gray'
+      variant: 'solid',
+      className: 'bg-gray-600 text-gray-50'
     },
     {
-      variant: 'outline',
-      type: 'teal',
-      className: 'border border-badge-teal'
+      type: 'gray',
+      variant: 'ghost',
+      className: 'bg-neutral text-neutral'
     },
     {
+      type: 'gray',
       variant: 'outline',
-      type: 'red',
-      className: 'border border-badge-red'
-    },
-    {
-      variant: 'outline',
-      type: 'yellow',
-      className: 'border border-badge-yellow'
-    },
-    {
-      variant: 'outline',
-      type: 'purple',
-      className: 'border border-badge-purple'
+      className: 'bg-transparent border-2 border-background-neutral text-neutral'
     }
   ],
   defaultVariants: {
-    type: 'purple',
-    radius: 'full',
-    variant: 'ghost',
-    size: 'default'
+    type: 'gray',
+    variant: 'ghost'
   }
 });
 
 export interface BadgeProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof badgeVariants> {}
 
-function Badge({ className, variant, type, radius, transform, size, ...props }: BadgeProps) {
-  return <div className={cn(badgeVariants({ variant, type, radius, transform, size }), className)} {...props} />;
+function Badge({ className, variant, type, ...props }: BadgeProps) {
+  return <div className={cn(badgeVariants({ variant, type }), className)} {...props} />;
 }
 
 export { Badge, badgeVariants };

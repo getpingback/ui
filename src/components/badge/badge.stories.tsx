@@ -23,27 +23,23 @@ export const Default: Story = {
   }
 };
 
-export const Ghost: Story = {
+export const Solid: Story = {
   args: {
-    children: 'Ghost'
+    children: 'Solid',
+    variant: 'solid'
   }
 };
+
+export const Ghost: Story = {
+  args: {
+    children: 'Ghost',
+    variant: 'ghost'
+  }
+};
+
 export const Outline: Story = {
   args: {
     children: 'Outline',
     variant: 'outline'
-  }
-};
-
-export const Medium: Story = {
-  args: {
-    children: 'Medium',
-    radius: 'medium'
-  }
-};
-export const Full: Story = {
-  args: {
-    children: 'Full',
-    radius: 'full'
   }
 };
