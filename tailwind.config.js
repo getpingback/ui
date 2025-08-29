@@ -246,7 +246,7 @@ const config = {
           DEFAULT: 'var(--surface-default)',
           inverse: 'var(--surface-inverse)'
         },
-        text: {
+        typography: {
           primary: 'var(--text-default-primary)',
           secondary: 'var(--text-default-secondary)',
           tertiary: 'var(--text-default-tertiary)',
