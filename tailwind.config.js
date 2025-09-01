@@ -395,6 +395,28 @@ const config = {
           black: 'var(--neutral-black)',
           white: 'var(--neutral-white)'
         },
+        button: {
+          solid: {
+            DEFAULT: 'var(--button-solid-background-default)',
+            hover: 'var(--button-solid-background-hover)',
+            border: 'var(--button-solid-border-default)',
+            label: 'var(--button-solid-label-default)'
+          },
+          outlined: {
+            DEFAULT: 'var(--button-outlined-border-default)',
+            hover: 'var(--button-outlined-border-hover)',
+            pressed: 'var(--button-outlined-border-pressed)',
+            label: 'var(--button-outlined-label-default)'
+          },
+          clear: {
+            label: 'var(--button-clear-label-default)'
+          },
+          ghost: {
+            DEFAULT: 'var(--button-ghost-background-default)',
+            hover: 'var(--button-ghost-background-hover)',
+            pressed: 'var(--button-ghost-background-pressed)'
+          }
+        },
         sidebar: {
           item: {
             hover: 'var(--sidebar-item-hover)',

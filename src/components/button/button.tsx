@@ -10,8 +10,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        outline:
-          'border border-button-outlined-border bg-transparent !text-secondary-foreground text-opacity-10 hover:shadow-[0_0_0_3px_var(--button-hover-color)] data-[loading=true]:!bg-button-ghost data-[loading=true]:!border-none',
+        outline: 'border border-button-outlined bg-transparent text-button-label hover:border-button-outlined-hover',
         ghost:
           'text-secondary-foreground hover:shadow-[0_0_0_3px_var(--button-hover-color)] bg-button-ghost opacity-85 hover:opacity-100 disabled:bg-button-ghost-disabled',
         solid:
@@ -28,7 +27,7 @@ const buttonVariants = cva(
         none: 'rounded-none',
         sm: 'rounded-sm',
         md: 'rounded-md',
-        lg: 'rounded-lg',
+        xl: 'rounded-xl',
         full: 'rounded-full'
       },
       width: {
@@ -45,7 +44,7 @@ const buttonVariants = cva(
     defaultVariants: {
       variant: 'solid',
       size: 'sm',
-      rounded: 'lg',
+      rounded: 'xl',
       width: 'fit',
       align: 'center'
     }

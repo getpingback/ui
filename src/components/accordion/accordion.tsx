@@ -29,10 +29,8 @@ function Accordion({ className, children, label, isInitialStateOpen = false, isO
           {label}
           <ChevronDownIcon className="shrink-0 transition-transform duration-200" />
         </AccordionPrimitive.Trigger>
-        <AccordionPrimitive.Content
-          className={cn('w-full flex flex-col overflow-hidden data-[state=open]:animate-slide-up data-[state=closed]:animate-slide-down')}
-        >
-          {children}
+        <AccordionPrimitive.Content className="w-full overflow-hidden data-[state=open]:animate-slide-up data-[state=closed]:animate-slide-down">
+          <div className="w-full flex flex-col">{children}</div>
         </AccordionPrimitive.Content>
       </AccordionPrimitive.Item>
     </AccordionPrimitive.Root>

@@ -53,12 +53,12 @@ describe('Button Component', () => {
     test('renders outline button', () => {
       render(<Outline />);
       const button = screen.getByRole('button');
-      expect(button.className.includes('border-button-outlined-border')).toBe(true);
+      expect(button.className.includes('border-button-outlined')).toBe(true);
     });
     test('renders disabled outline button', () => {
       render(<DisabledOutline />);
       const button = screen.getByRole('button');
-      expect(button.className.includes('border-button-outlined-border')).toBe(true);
+      expect(button.className.includes('border-button-outlined')).toBe(true);
       expect(button.className.includes('cursor-not-allowed')).toBe(true);
       expect(button.className.includes('opacity-45')).toBe(true);
       expect(button).toHaveAttribute('disabled');
