@@ -250,10 +250,6 @@ const config = {
         default: 'var(--background-default)',
         inverse: 'var(--background-inverse)',
         alt: 'var(--background-alt)',
-        surface: {
-          DEFAULT: 'var(--background-surface-default)',
-          inverse: 'var(--background-surface-inverse)'
-        },
         success: {
           DEFAULT: 'var(--background-success-default)',
           inverse: 'var(--background-success-inverse)'
@@ -386,6 +382,29 @@ const config = {
             inverse: 'var(--icon-pink-inverse)'
           }
         },
+
+        button: {
+          solid: {
+            DEFAULT: 'var(--button-solid-background-default)',
+            hover: 'var(--button-solid-background-hover)',
+            border: 'var(--button-solid-border-default)',
+            label: 'var(--button-solid-label-default)'
+          },
+          outlined: {
+            DEFAULT: 'var(--button-outlined-border-default)',
+            hover: 'var(--button-outlined-border-hover)',
+            pressed: 'var(--button-outlined-border-pressed)',
+            label: 'var(--button-outlined-label-default)'
+          },
+          clear: {
+            label: 'var(--button-clear-label-default)'
+          },
+          ghost: {
+            DEFAULT: 'var(--button-ghost-background-default)',
+            hover: 'var(--button-ghost-background-hover)',
+            pressed: 'var(--button-ghost-background-pressed)'
+          }
+        },
         neutral: {
           black: 'var(--neutral-black)',
           white: 'var(--neutral-white)'
@@ -413,27 +432,21 @@ const config = {
         8: 'var(--thickness-8)'
       },
       boxShadow: {
-        'shadow-modal': {
-          1: 'var(--modal-1)',
-          2: 'var(--modal-2)',
-          3: 'var(--modal-3)',
-          4: 'var(--modal-4)',
-          5: 'var(--modal-5)',
-          light: {
-            1: 'var(--modal-light-1)',
-            2: 'var(--modal-light-2)',
-            3: 'var(--modal-light-3)',
-            4: 'var(--modal-light-4)',
-            5: 'var(--modal-light-5)'
-          },
-          dark: {
-            1: 'var(--modal-dark-1)',
-            2: 'var(--modal-dark-2)',
-            3: 'var(--modal-dark-3)',
-            4: 'var(--modal-dark-4)',
-            5: 'var(--modal-dark-5)'
-          }
-        },
+        'modal-1': 'var(--modal-1)',
+        'modal-2': 'var(--modal-2)',
+        'modal-3': 'var(--modal-3)',
+        'modal-4': 'var(--modal-4)',
+        'modal-5': 'var(--modal-5)',
+        'modal-light-1': 'var(--modal-light-1)',
+        'modal-light-2': 'var(--modal-light-2)',
+        'modal-light-3': 'var(--modal-light-3)',
+        'modal-light-4': 'var(--modal-light-4)',
+        'modal-light-5': 'var(--modal-light-5)',
+        'modal-dark-1': 'var(--modal-dark-1)',
+        'modal-dark-2': 'var(--modal-dark-2)',
+        'modal-dark-3': 'var(--modal-dark-3)',
+        'modal-dark-4': 'var(--modal-dark-4)',
+        'modal-dark-5': 'var(--modal-dark-5)',
         'bottom-sheet': {
           1: 'var(--bottom-sheet-1)',
           2: 'var(--bottom-sheet-2)',

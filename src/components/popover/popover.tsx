@@ -8,7 +8,7 @@ import { cva } from 'class-variance-authority';
 import { POPOVER_POSITIONS } from './constants';
 
 const popoverVariants = cva(
-  'z-50 w-80 origin-top-left rounded-xl border bg-background-accent p-4 text-primary-foreground shadow-md outline-none data-[state=open]:animate-modal-fade-in data-[state=closed]:animate-modal-fade-out',
+  'z-50 w-80 origin-top-left rounded-xl border bg-surface p-4 text-primary shadow-md outline-none data-[state=open]:animate-modal-fade-in data-[state=closed]:animate-modal-fade-out',
   {
     variants: {
       position: {
@@ -49,7 +49,7 @@ const PopoverContent = React.forwardRef<
       sideOffset={sideOffset}
       className={cn(
         popoverVariants({ position: `${side}-${align}` }),
-        'z-50 w-80 rounded-xl border bg-background-accent p-4 text-primary-foreground shadow-md outline-none data-[state=open]:animate-modal-fade-in data-[state=closed]:animate-modal-fade-out',
+        'z-50 w-80 rounded-xl border bg-surface p-4 text-primary shadow-md outline-none data-[state=open]:animate-modal-fade-in data-[state=closed]:animate-modal-fade-out',
         className
       )}
       {...props}
