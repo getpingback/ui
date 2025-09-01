@@ -89,7 +89,7 @@ function SplitButton({ prefixIcon, label, variant, onPrefixClick, menuItems, suf
           data-testid="split-button-menu-content"
           onClick={() => setIsMenuActionsOpen(false)}
           side="bottom"
-          className={`rounded-lg w-[252px] flex-col z-50 min-w-fit overflow-hidden  bg-background-accent shadow-modal py-2 ${className}`}
+          className={`rounded-lg w-[252px] flex-col z-50 min-w-fit overflow-hidden  bg-background-accent shadow-modal-1 py-2 ${className}`}
           sideOffset={4}
           collisionPadding={8}
           align={align || 'end'}

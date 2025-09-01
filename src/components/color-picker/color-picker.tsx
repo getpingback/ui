@@ -92,7 +92,7 @@ export const ColorPicker = ({
       <DropdownMenuPrimitive.Content
         side={side}
         align={align}
-        className={cn('w-[252px] bg-[#FFFFFF] p-4 flex flex-col z-50 rounded-lg shadow-modal', className)}
+        className={cn('w-[252px] bg-surface p-4 flex flex-col z-50 rounded-2xl shadow-modal-5', className)}
         data-testid="color-picker-dialog"
       >
         <div className="custom-color-picker">
@@ -102,14 +102,14 @@ export const ColorPicker = ({
           <div className="flex">
             <input
               type="text"
-              className="w-full border border-gray-500/10 rounded-l-lg rounded-r-none text-gray-600 text-sm py-2 px-3"
+              className="w-full bg-surface border border-default rounded-l-lg rounded-r-none text-gray-600 text-sm py-2 px-3"
               value={color.toUpperCase()}
               onChange={(e) => onChange(e.target.value)}
               onBlur={handleHexInputBlur}
             />
             <input
               type="text"
-              className="w-full max-w-[60px] border border-gray-500/10 rounded-r-lg rounded-l-none border-l-0 text-gray-600 text-sm py-2 px-[11px]"
+              className="w-full max-w-[60px] bg-surface border border-default rounded-r-lg rounded-l-none border-l-0 text-gray-600 text-sm py-2 px-[11px]"
               value={`${Math.round(opacity * 100)}%`}
               onChange={handleChangeOpacity}
               onClick={handleOpacityInputClick}

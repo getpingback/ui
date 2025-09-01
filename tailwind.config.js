@@ -2,10 +2,6 @@ const backgroundColor = {
   default: 'var(--background-default)',
   inverse: 'var(--background-inverse)',
   alt: 'var(--background-alt)',
-  surface: {
-    DEFAULT: 'var(--background-surface-default)',
-    inverse: 'var(--background-surface-inverse)'
-  },
   success: {
     DEFAULT: 'var(--background-success-default)',
     inverse: 'var(--background-success-inverse)'
@@ -422,48 +418,41 @@ const config = {
         8: 'var(--thickness-8)'
       },
       boxShadow: {
-        'shadow-modal': {
-          1: 'var(--modal-1)',
-          2: 'var(--modal-2)',
-          3: 'var(--modal-3)',
-          4: 'var(--modal-4)',
-          5: 'var(--modal-5)',
-          light: {
-            1: 'var(--modal-light-1)',
-            2: 'var(--modal-light-2)',
-            3: 'var(--modal-light-3)',
-            4: 'var(--modal-light-4)',
-            5: 'var(--modal-light-5)'
-          },
-          dark: {
-            1: 'var(--modal-dark-1)',
-            2: 'var(--modal-dark-2)',
-            3: 'var(--modal-dark-3)',
-            4: 'var(--modal-dark-4)',
-            5: 'var(--modal-dark-5)'
-          }
-        },
-        'bottom-sheet': {
-          1: 'var(--bottom-sheet-1)',
-          2: 'var(--bottom-sheet-2)',
-          3: 'var(--bottom-sheet-3)',
-          4: 'var(--bottom-sheet-4)',
-          5: 'var(--bottom-sheet-5)',
-          light: {
-            1: 'var(--bottom-sheet-light-1)',
-            2: 'var(--bottom-sheet-light-2)',
-            3: 'var(--bottom-sheet-light-3)',
-            4: 'var(--bottom-sheet-light-4)',
-            5: 'var(--bottom-sheet-light-5)'
-          },
-          dark: {
-            1: 'var(--bottom-sheet-dark-1)',
-            2: 'var(--bottom-sheet-dark-2)',
-            3: 'var(--bottom-sheet-dark-3)',
-            4: 'var(--bottom-sheet-dark-4)',
-            5: 'var(--bottom-sheet-dark-5)'
-          }
-        }
+        'modal-1': 'var(--modal-1)',
+        'modal-2': 'var(--modal-2)',
+        'modal-3': 'var(--modal-3)',
+        'modal-4': 'var(--modal-4)',
+        'modal-5': 'var(--modal-5)',
+
+        'modal-light-1': 'var(--modal-light-1)',
+        'modal-light-2': 'var(--modal-light-2)',
+        'modal-light-3': 'var(--modal-light-3)',
+        'modal-light-4': 'var(--modal-light-4)',
+        'modal-light-5': 'var(--modal-light-5)',
+
+        'modal-dark-1': 'var(--modal-dark-1)',
+        'modal-dark-2': 'var(--modal-dark-2)',
+        'modal-dark-3': 'var(--modal-dark-3)',
+        'modal-dark-4': 'var(--modal-dark-4)',
+        'modal-dark-5': 'var(--modal-dark-5)',
+
+        'bottom-sheet-1': 'var(--bottom-sheet-1)',
+        'bottom-sheet-2': 'var(--bottom-sheet-2)',
+        'bottom-sheet-3': 'var(--bottom-sheet-3)',
+        'bottom-sheet-4': 'var(--bottom-sheet-4)',
+        'bottom-sheet-5': 'var(--bottom-sheet-5)',
+
+        'bottom-sheet-light-1': 'var(--bottom-sheet-light-1)',
+        'bottom-sheet-light-2': 'var(--bottom-sheet-light-2)',
+        'bottom-sheet-light-3': 'var(--bottom-sheet-light-3)',
+        'bottom-sheet-light-4': 'var(--bottom-sheet-light-4)',
+        'bottom-sheet-light-5': 'var(--bottom-sheet-light-5)',
+
+        'bottom-sheet-dark-1': 'var(--bottom-sheet-dark-1)',
+        'bottom-sheet-dark-2': 'var(--bottom-sheet-dark-2)',
+        'bottom-sheet-dark-3': 'var(--bottom-sheet-dark-3)',
+        'bottom-sheet-dark-4': 'var(--bottom-sheet-dark-4)',
+        'bottom-sheet-dark-5': 'var(--bottom-sheet-dark-5)'
       },
       gradient: {
         'brand-1': 'var(--gradiente-brand-1)',
