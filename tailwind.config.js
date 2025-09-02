@@ -447,6 +447,9 @@ const config = {
         'modal-dark-3': 'var(--modal-dark-3)',
         'modal-dark-4': 'var(--modal-dark-4)',
         'modal-dark-5': 'var(--modal-dark-5)',
+        'input-focus-valid': 'var(--input-focus-valid)',
+        'input-focus-invalid': 'var(--input-focus-invalid)',
+        'input-focus-neutral': 'var(--input-focus-neutral)',
         'bottom-sheet': {
           1: 'var(--bottom-sheet-1)',
           2: 'var(--bottom-sheet-2)',

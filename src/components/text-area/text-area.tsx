@@ -14,22 +14,21 @@ const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
   ({ label, placeholder, value, onChange, error, helperText, disabled, className, defaultHeight = 112, required, ...props }, ref) => {
     return (
       <div className={cn('flex flex-col gap-1', className)}>
-        <label className={cn('text-tertiary-foreground text-xs font-semibold leading-4 flex items-center', { 'opacity-85': disabled })}>
+        <label className="text-tertiary text-xs font-semibold leading-4 flex items-center [&_svg]:text-icon-tertiary">
           {label}
-          {required && <AsteriskIcon color="#52525B" width={16} height={16} opacity={0.45} />}
+          {required && <AsteriskIcon width={16} height={16} opacity={0.45} />}
         </label>
         <div className="relative w-full">
           <textarea
             ref={ref}
             className={cn(
-              'w-full rounded-lg border h-10 px-3 py-2 text-sm leading-5 text-tertiary-foreground font-normal transition-all outline-none',
-              'placeholder:text-tertiary-foreground placeholder:opacity-65 placeholder:font-normal placeholder:text-sm',
-              { 'border-divider-error focus:border-divider-error focus:shadow-[0_0_0_3px_var(--background-error)]': error },
+              'w-full rounded-lg bg-surface border h-10 px-3 py-2 text-sm leading-5 text-tertiary font-normal transition-all outline-none',
+              'placeholder:text-tertiary placeholder:opacity-65 placeholder:font-normal placeholder:text-sm',
+              { 'border-invalid focus:border-invalid focus:shadow-input-focus-invalid': error },
               {
-                'border-divider hover:border-divider-active focus:border-divider-highlighted focus:shadow-[0_0_0_3px_var(--button-hover-solid-color)]':
-                  !error
+                'border-default hover:border-hover focus:border-hover focus:shadow-input-focus-neutral': !error
               },
-              { 'border-divider-disabled hover:border-divider-disabled cursor-not-allowed': disabled },
+              { 'border-none bg-neutral cursor-not-allowed opacity-85': disabled },
               'resize-none'
             )}
             style={{ height: defaultHeight }}
@@ -40,8 +39,8 @@ const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
             {...props}
           />
         </div>
-        {error && <span className="text-error-foreground text-xs ">{error}</span>}
-        {helperText && !error && <span className="text-secondary-foreground leading-4 text-xs opacity-85">{helperText}</span>}
+        {error && <span className="text-error text-xs">{error}</span>}
+        {helperText && !error && <span className="text-tertiary leading-4 text-xs opacity-85">{helperText}</span>}
       </div>
     );
   }
