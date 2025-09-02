@@ -2,15 +2,11 @@ import React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
-const cardVariants = cva('flex flex-col rounded-lg border bg-background-accent', {
+const cardVariants = cva('flex flex-col rounded-lg border border-default bg-surface', {
   variants: {
-    variant: {
-      default: 'border-border-card',
-      active: ' border-border-card-light hover:border-border-card-active transition-all duration-300 hover:shadow-card-active'
-    },
     radius: {
       none: 'rounded-none',
-      rounded: 'rounded-lg'
+      rounded: 'rounded-xl'
     }
   },
 
@@ -21,8 +17,8 @@ const cardVariants = cva('flex flex-col rounded-lg border bg-background-accent',
 
 export interface CardProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof cardVariants> {}
 
-function Card({ className, radius, variant, ...props }: CardProps) {
-  return <div data-testid="card" className={cn(cardVariants({ radius, variant }), className)} {...props} />;
+function Card({ className, radius, ...props }: CardProps) {
+  return <div data-testid="card" className={cn(cardVariants({ radius }), className)} {...props} />;
 }
 
 export interface CardHeaderProps extends React.HTMLAttributes<HTMLDivElement> {}
@@ -34,7 +30,7 @@ function CardHeader({ className, ...props }: CardHeaderProps) {
 export interface CardContentProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 function CardContent({ className, ...props }: CardContentProps) {
-  return <div data-testid="card-content" className={cn('', className)} {...props} />;
+  return <div data-testid="card-content" className={className} {...props} />;
 }
 
 export interface CardFooterProps extends React.HTMLAttributes<HTMLDivElement> {}

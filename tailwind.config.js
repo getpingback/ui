@@ -2,10 +2,6 @@ const backgroundColor = {
   default: 'var(--background-default)',
   inverse: 'var(--background-inverse)',
   alt: 'var(--background-alt)',
-  surface: {
-    DEFAULT: 'var(--background-surface-default)',
-    inverse: 'var(--background-surface-inverse)'
-  },
   success: {
     DEFAULT: 'var(--background-success-default)',
     inverse: 'var(--background-success-inverse)'
@@ -324,6 +320,13 @@ const config = {
         background: backgroundColor,
         typography: textColor,
         border: borderColor,
+        gradient: {
+          'brand-1': 'var(--gradiente-brand-1)',
+          'brand-2': 'var(--gradiente-brand-2)',
+          'brand-3': 'var(--gradiente-brand-3)',
+          'brand-4': 'var(--gradiente-brand-4)',
+          'brand-5': 'var(--gradiente-brand-5)'
+        },
         surface: {
           DEFAULT: 'var(--surface-default)',
           inverse: 'var(--surface-inverse)'
@@ -399,6 +402,28 @@ const config = {
           black: 'var(--neutral-black)',
           white: 'var(--neutral-white)'
         },
+        button: {
+          solid: {
+            DEFAULT: 'var(--button-solid-background-default)',
+            hover: 'var(--button-solid-background-hover)',
+            border: 'var(--button-solid-border-default)',
+            label: 'var(--button-solid-label-default)'
+          },
+          outlined: {
+            DEFAULT: 'var(--button-outlined-border-default)',
+            hover: 'var(--button-outlined-border-hover)',
+            pressed: 'var(--button-outlined-border-pressed)',
+            label: 'var(--button-outlined-label-default)'
+          },
+          clear: {
+            label: 'var(--button-clear-label-default)'
+          },
+          ghost: {
+            DEFAULT: 'var(--button-ghost-background-default)',
+            hover: 'var(--button-ghost-background-hover)',
+            pressed: 'var(--button-ghost-background-pressed)'
+          }
+        },
         sidebar: {
           item: {
             hover: 'var(--sidebar-item-hover)',
@@ -422,57 +447,48 @@ const config = {
         8: 'var(--thickness-8)'
       },
       boxShadow: {
-        'shadow-modal': {
-          1: 'var(--modal-1)',
-          2: 'var(--modal-2)',
-          3: 'var(--modal-3)',
-          4: 'var(--modal-4)',
-          5: 'var(--modal-5)',
-          light: {
-            1: 'var(--modal-light-1)',
-            2: 'var(--modal-light-2)',
-            3: 'var(--modal-light-3)',
-            4: 'var(--modal-light-4)',
-            5: 'var(--modal-light-5)'
-          },
-          dark: {
-            1: 'var(--modal-dark-1)',
-            2: 'var(--modal-dark-2)',
-            3: 'var(--modal-dark-3)',
-            4: 'var(--modal-dark-4)',
-            5: 'var(--modal-dark-5)'
-          }
-        },
-        'bottom-sheet': {
-          1: 'var(--bottom-sheet-1)',
-          2: 'var(--bottom-sheet-2)',
-          3: 'var(--bottom-sheet-3)',
-          4: 'var(--bottom-sheet-4)',
-          5: 'var(--bottom-sheet-5)',
-          light: {
-            1: 'var(--bottom-sheet-light-1)',
-            2: 'var(--bottom-sheet-light-2)',
-            3: 'var(--bottom-sheet-light-3)',
-            4: 'var(--bottom-sheet-light-4)',
-            5: 'var(--bottom-sheet-light-5)'
-          },
-          dark: {
-            1: 'var(--bottom-sheet-dark-1)',
-            2: 'var(--bottom-sheet-dark-2)',
-            3: 'var(--bottom-sheet-dark-3)',
-            4: 'var(--bottom-sheet-dark-4)',
-            5: 'var(--bottom-sheet-dark-5)'
-          }
-        }
-      },
-      gradient: {
-        'brand-1': 'var(--gradiente-brand-1)',
-        'brand-2': 'var(--gradiente-brand-2)',
-        'brand-3': 'var(--gradiente-brand-3)',
-        'brand-4': 'var(--gradiente-brand-4)',
-        'brand-5': 'var(--gradiente-brand-5)'
+        'modal-1': 'var(--modal-1)',
+        'modal-2': 'var(--modal-2)',
+        'modal-3': 'var(--modal-3)',
+        'modal-4': 'var(--modal-4)',
+        'modal-5': 'var(--modal-5)',
+
+        'modal-light-1': 'var(--modal-light-1)',
+        'modal-light-2': 'var(--modal-light-2)',
+        'modal-light-3': 'var(--modal-light-3)',
+        'modal-light-4': 'var(--modal-light-4)',
+        'modal-light-5': 'var(--modal-light-5)',
+
+        'modal-dark-1': 'var(--modal-dark-1)',
+        'modal-dark-2': 'var(--modal-dark-2)',
+        'modal-dark-3': 'var(--modal-dark-3)',
+        'modal-dark-4': 'var(--modal-dark-4)',
+        'modal-dark-5': 'var(--modal-dark-5)',
+
+        'bottom-sheet-1': 'var(--bottom-sheet-1)',
+        'bottom-sheet-2': 'var(--bottom-sheet-2)',
+        'bottom-sheet-3': 'var(--bottom-sheet-3)',
+        'bottom-sheet-4': 'var(--bottom-sheet-4)',
+        'bottom-sheet-5': 'var(--bottom-sheet-5)',
+
+        'bottom-sheet-light-1': 'var(--bottom-sheet-light-1)',
+        'bottom-sheet-light-2': 'var(--bottom-sheet-light-2)',
+        'bottom-sheet-light-3': 'var(--bottom-sheet-light-3)',
+        'bottom-sheet-light-4': 'var(--bottom-sheet-light-4)',
+        'bottom-sheet-light-5': 'var(--bottom-sheet-light-5)',
+
+        'bottom-sheet-dark-1': 'var(--bottom-sheet-dark-1)',
+        'bottom-sheet-dark-2': 'var(--bottom-sheet-dark-2)',
+        'bottom-sheet-dark-3': 'var(--bottom-sheet-dark-3)',
+        'bottom-sheet-dark-4': 'var(--bottom-sheet-dark-4)',
+        'bottom-sheet-dark-5': 'var(--bottom-sheet-dark-5)',
+
+        solid: 'var(--button-solid-hover)',
+        outlined: 'var(--button-outlined-hover)',
+        ghost: 'var(--button-ghost-hover)'
       },
       animation: {
+        'brand-gradient': 'brand-gradient 6s ease-in-out infinite',
         'slide-up': 'slide-up 300ms cubic-bezier(0.87, 0, 0.13, 1) forwards',
         'slide-down': 'slide-down 300ms cubic-bezier(0.87, 0, 0.13, 1) forwards',
         'slide-left': 'slide-left 300ms cubic-bezier(0.83, 0, 0.17, 1)',
@@ -490,6 +506,14 @@ const config = {
         dash: 'dash 1.4s ease-in-out infinite'
       },
       keyframes: {
+        'brand-gradient': {
+          '0%': { backgroundImage: 'var(--gradiente-brand-1)', backgroundPosition: '0% 50%', backgroundSize: '150% 150%' },
+          '20%': { backgroundImage: 'var(--gradiente-brand-1)', backgroundPosition: '25% 50%', backgroundSize: '150% 150%' },
+          '40%': { backgroundImage: 'var(--gradiente-brand-1)', backgroundPosition: '50% 50%', backgroundSize: '150% 150%' },
+          '60%': { backgroundImage: 'var(--gradiente-brand-1)', backgroundPosition: '75% 50%', backgroundSize: '150% 150%' },
+          '80%': { backgroundImage: 'var(--gradiente-brand-1)', backgroundPosition: '100% 50%', backgroundSize: '150% 150%' },
+          '100%': { backgroundImage: 'var(--gradiente-brand-1)', backgroundPosition: '0% 50%', backgroundSize: '150% 150%' }
+        },
         'slide-up': {
           from: { height: 0 },
           to: { height: 'var(--radix-collapsible-content-height)' }
