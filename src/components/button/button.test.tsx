@@ -6,6 +6,7 @@ import * as stories from './button.stories';
 
 const {
   Default,
+  Primary,
   Solid,
   DisabledSolid,
   Outline,
@@ -33,6 +34,29 @@ describe('Button Component', () => {
       expect(button.className.includes('w-fit')).toBe(true);
     });
   });
+  describe('Primary', () => {
+    test('renders primary button', () => {
+      render(<Primary />);
+      const button = screen.getByRole('button');
+
+      expect(button).not.toBeNull();
+      expect(button.className.includes('animate-brand-gradient')).toBe(true);
+      expect(button.className.includes('h-8')).toBe(true);
+      expect(button.className.includes('p-[2px]')).toBe(true);
+    });
+
+    test('renders primary button with correct inner content styling', () => {
+      render(<Primary />);
+      const button = screen.getByRole('button');
+      const innerDiv = button.querySelector('div');
+
+      expect(innerDiv).not.toBeNull();
+      expect(innerDiv?.className.includes('px-3')).toBe(true);
+      expect(innerDiv?.className.includes('!h-full')).toBe(true);
+      expect(innerDiv?.className.includes('!rounded-[10px]')).toBe(true);
+      expect(innerDiv?.className.includes('bg-button-solid')).toBe(true);
+    });
+  });
   describe('Solid', () => {
     test('renders solid button', () => {
       render(<Solid />);
@@ -43,7 +67,6 @@ describe('Button Component', () => {
     test('renders disabled solid button', () => {
       render(<DisabledSolid />);
       const button = screen.getByRole('button');
-      expect(button.className.includes('disabled:bg-button-solid-disabled')).toBe(true);
       expect(button.className.includes('cursor-not-allowed')).toBe(true);
       expect(button.className.includes('opacity-45')).toBe(true);
       expect(button).toHaveAttribute('disabled');
@@ -69,12 +92,11 @@ describe('Button Component', () => {
       render(<Ghost />);
       const button = screen.getByRole('button');
       expect(button.className.includes('bg-button-ghost')).toBe(true);
-      expect(button.className.includes('text-secondary-foreground ')).toBe(true);
+      expect(button.className.includes('text-button-outlined-label')).toBe(true);
     });
     test('renders disabled ghost button', () => {
       render(<DisabledGhost />);
       const button = screen.getByRole('button');
-      expect(button.className.includes('disabled:bg-button-ghost-disabled')).toBe(true);
       expect(button.className.includes('cursor-not-allowed')).toBe(true);
       expect(button.className.includes('opacity-45')).toBe(true);
       expect(button).toHaveAttribute('disabled');
@@ -84,12 +106,11 @@ describe('Button Component', () => {
     test('renders clear button', () => {
       render(<Clear />);
       const button = screen.getByRole('button');
-      expect(button.className.includes('bg-transparent')).toBe(true);
+      expect(button.className.includes('text-button-clear-label')).toBe(true);
     });
     test('renders disabled clear button', () => {
       render(<DisabledClear />);
       const button = screen.getByRole('button');
-      expect(button.className.includes('bg-transparent')).toBe(true);
       expect(button.className.includes('cursor-not-allowed')).toBe(true);
       expect(button.className.includes('opacity-45')).toBe(true);
       expect(button).toHaveAttribute('disabled');
@@ -136,7 +157,8 @@ describe('Button Component', () => {
     test('renders danger button', () => {
       render(<Danger />);
       const button = screen.getByRole('button');
-      expect(button.className.includes('bg-button-danger')).toBe(true);
+      expect(button.className.includes('bg-red-500')).toBe(true);
+      expect(button.className.includes('text-button-solid-label')).toBe(true);
     });
   });
 });

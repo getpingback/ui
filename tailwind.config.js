@@ -320,6 +320,13 @@ const config = {
         background: backgroundColor,
         typography: textColor,
         border: borderColor,
+        gradient: {
+          'brand-1': 'var(--gradiente-brand-1)',
+          'brand-2': 'var(--gradiente-brand-2)',
+          'brand-3': 'var(--gradiente-brand-3)',
+          'brand-4': 'var(--gradiente-brand-4)',
+          'brand-5': 'var(--gradiente-brand-5)'
+        },
         surface: {
           DEFAULT: 'var(--surface-default)',
           inverse: 'var(--surface-inverse)'
@@ -474,16 +481,14 @@ const config = {
         'bottom-sheet-dark-2': 'var(--bottom-sheet-dark-2)',
         'bottom-sheet-dark-3': 'var(--bottom-sheet-dark-3)',
         'bottom-sheet-dark-4': 'var(--bottom-sheet-dark-4)',
-        'bottom-sheet-dark-5': 'var(--bottom-sheet-dark-5)'
-      },
-      gradient: {
-        'brand-1': 'var(--gradiente-brand-1)',
-        'brand-2': 'var(--gradiente-brand-2)',
-        'brand-3': 'var(--gradiente-brand-3)',
-        'brand-4': 'var(--gradiente-brand-4)',
-        'brand-5': 'var(--gradiente-brand-5)'
+        'bottom-sheet-dark-5': 'var(--bottom-sheet-dark-5)',
+
+        solid: 'var(--button-solid-hover)',
+        outlined: 'var(--button-outlined-hover)',
+        ghost: 'var(--button-ghost-hover)'
       },
       animation: {
+        'brand-gradient': 'brand-gradient 6s ease-in-out infinite',
         'slide-up': 'slide-up 300ms cubic-bezier(0.87, 0, 0.13, 1) forwards',
         'slide-down': 'slide-down 300ms cubic-bezier(0.87, 0, 0.13, 1) forwards',
         'slide-left': 'slide-left 300ms cubic-bezier(0.83, 0, 0.17, 1)',
@@ -501,6 +506,14 @@ const config = {
         dash: 'dash 1.4s ease-in-out infinite'
       },
       keyframes: {
+        'brand-gradient': {
+          '0%': { backgroundImage: 'var(--gradiente-brand-1)', backgroundPosition: '0% 50%', backgroundSize: '150% 150%' },
+          '20%': { backgroundImage: 'var(--gradiente-brand-1)', backgroundPosition: '25% 50%', backgroundSize: '150% 150%' },
+          '40%': { backgroundImage: 'var(--gradiente-brand-1)', backgroundPosition: '50% 50%', backgroundSize: '150% 150%' },
+          '60%': { backgroundImage: 'var(--gradiente-brand-1)', backgroundPosition: '75% 50%', backgroundSize: '150% 150%' },
+          '80%': { backgroundImage: 'var(--gradiente-brand-1)', backgroundPosition: '100% 50%', backgroundSize: '150% 150%' },
+          '100%': { backgroundImage: 'var(--gradiente-brand-1)', backgroundPosition: '0% 50%', backgroundSize: '150% 150%' }
+        },
         'slide-up': {
           from: { height: 0 },
           to: { height: 'var(--radix-collapsible-content-height)' }
