@@ -40,3 +40,4 @@ export * from './stepper';
 export * from './node-flow';
 export * from './callout';
 export * from './progress-bar';
+export * from './breadcrumb';

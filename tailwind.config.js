@@ -1,3 +1,132 @@
+const backgroundColor = {
+  default: 'var(--background-default)',
+  inverse: 'var(--background-inverse)',
+  alt: 'var(--background-alt)',
+  success: {
+    DEFAULT: 'var(--background-success-default)',
+    inverse: 'var(--background-success-inverse)'
+  },
+  error: {
+    DEFAULT: 'var(--background-error-default)',
+    inverse: 'var(--background-error-inverse)'
+  },
+  warning: {
+    DEFAULT: 'var(--background-warning-default)',
+    inverse: 'var(--background-warning-inverse)'
+  },
+  caution: {
+    DEFAULT: 'var(--background-caution-default)',
+    inverse: 'var(--background-caution-inverse)'
+  },
+  info: {
+    DEFAULT: 'var(--background-info-default)',
+    inverse: 'var(--background-info-inverse)'
+  },
+  lime: {
+    DEFAULT: 'var(--background-lime-default)',
+    inverse: 'var(--background-lime-inverse)'
+  },
+  mint: {
+    DEFAULT: 'var(--background-mint-default)',
+    inverse: 'var(--background-mint-inverse)'
+  },
+  teal: {
+    DEFAULT: 'var(--background-teal-default)',
+    inverse: 'var(--background-teal-inverse)'
+  },
+  cyan: {
+    DEFAULT: 'var(--background-cyan-default)',
+    inverse: 'var(--background-cyan-inverse)'
+  },
+  blue: {
+    DEFAULT: 'var(--background-blue-default)',
+    inverse: 'var(--background-blue-inverse)'
+  },
+  fucshia: {
+    DEFAULT: 'var(--background-fucshia-default)',
+    inverse: 'var(--background-fucshia-inverse)'
+  },
+  pink: {
+    DEFAULT: 'var(--background-pink-default)',
+    inverse: 'var(--background-pink-inverse)'
+  },
+  neutral: {
+    DEFAULT: 'var(--background-neutral-default)',
+    inverse: 'var(--background-neutral-inverse)'
+  }
+};
+
+const textColor = {
+  primary: 'var(--text-default-primary)',
+  secondary: 'var(--text-default-secondary)',
+  tertiary: 'var(--text-default-tertiary)',
+  inverse: {
+    primary: 'var(--text-inverse-primary)',
+    secondary: 'var(--text-inverse-secondary)',
+    tertiary: 'var(--text-inverse-tertiary)'
+  },
+  success: {
+    DEFAULT: 'var(--text-success-default)',
+    inverse: 'var(--text-success-inverse)'
+  },
+  error: {
+    DEFAULT: 'var(--text-error-default)',
+    inverse: 'var(--text-error-inverse)'
+  },
+  warning: {
+    DEFAULT: 'var(--text-warning-default)',
+    inverse: 'var(--text-warning-inverse)'
+  },
+  caution: {
+    DEFAULT: 'var(--text-caution-default)',
+    inverse: 'var(--text-caution-inverse)'
+  },
+  info: {
+    DEFAULT: 'var(--text-info-default)',
+    inverse: 'var(--text-info-inverse)'
+  },
+  lime: {
+    DEFAULT: 'var(--text-lime-default)',
+    inverse: 'var(--text-lime-inverse)'
+  },
+  mint: {
+    DEFAULT: 'var(--text-mint-default)',
+    inverse: 'var(--text-mint-inverse)'
+  },
+  teal: {
+    DEFAULT: 'var(--text-teal-default)',
+    inverse: 'var(--text-teal-inverse)'
+  },
+  cyan: {
+    DEFAULT: 'var(--text-cyan-default)',
+    inverse: 'var(--text-cyan-inverse)'
+  },
+  blue: {
+    DEFAULT: 'var(--text-blue-default)',
+    inverse: 'var(--text-blue-inverse)'
+  },
+  fucshia: {
+    DEFAULT: 'var(--text-fucshia-default)',
+    inverse: 'var(--text-fucshia-inverse)'
+  },
+  pink: {
+    DEFAULT: 'var(--text-pink-default)',
+    inverse: 'var(--text-pink-inverse)'
+  },
+  neutral: {
+    DEFAULT: 'var(--text-neutral-default)',
+    inverse: 'var(--text-neutral-inverse)'
+  }
+};
+
+const borderColor = {
+  default: 'var(--border-default)',
+  hover: 'var(--border-hover)',
+  invalid: 'var(--border-invalid)',
+  valid: 'var(--border-valid)',
+  filled: 'var(--border-filled)'
+};
+
 const config = {
   content: [
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -184,133 +313,20 @@ const config = {
       }
     },
     extend: {
-      textColor: {
-        primary: 'var(--text-default-primary)',
-        secondary: 'var(--text-default-secondary)',
-        tertiary: 'var(--text-default-tertiary)',
-        inverse: {
-          primary: 'var(--text-inverse-primary)',
-          secondary: 'var(--text-inverse-secondary)',
-          tertiary: 'var(--text-inverse-tertiary)'
-        },
-        success: {
-          DEFAULT: 'var(--text-success-default)',
-          inverse: 'var(--text-success-inverse)'
-        },
-        error: {
-          DEFAULT: 'var(--text-error-default)',
-          inverse: 'var(--text-error-inverse)'
-        },
-        warning: {
-          DEFAULT: 'var(--text-warning-default)',
-          inverse: 'var(--text-warning-inverse)'
-        },
-        caution: {
-          DEFAULT: 'var(--text-caution-default)',
-          inverse: 'var(--text-caution-inverse)'
-        },
-        info: {
-          DEFAULT: 'var(--text-info-default)',
-          inverse: 'var(--text-info-inverse)'
-        },
-        lime: {
-          DEFAULT: 'var(--text-lime-default)',
-          inverse: 'var(--text-lime-inverse)'
-        },
-        mint: {
-          DEFAULT: 'var(--text-mint-default)',
-          inverse: 'var(--text-mint-inverse)'
-        },
-        teal: {
-          DEFAULT: 'var(--text-teal-default)',
-          inverse: 'var(--text-teal-inverse)'
-        },
-        cyan: {
-          DEFAULT: 'var(--text-cyan-default)',
-          inverse: 'var(--text-cyan-inverse)'
-        },
-        blue: {
-          DEFAULT: 'var(--text-blue-default)',
-          inverse: 'var(--text-blue-inverse)'
-        },
-        fucshia: {
-          DEFAULT: 'var(--text-fucshia-default)',
-          inverse: 'var(--text-fucshia-inverse)'
-        },
-        pink: {
-          DEFAULT: 'var(--text-pink-default)',
-          inverse: 'var(--text-pink-inverse)'
-        },
-        neutral: {
-          DEFAULT: 'var(--text-neutral-default)',
-          inverse: 'var(--text-neutral-inverse)'
-        }
-      },
-      backgroundColor: {
-        default: 'var(--background-default)',
-        inverse: 'var(--background-inverse)',
-        alt: 'var(--background-alt)',
-        success: {
-          DEFAULT: 'var(--background-success-default)',
-          inverse: 'var(--background-success-inverse)'
-        },
-        error: {
-          DEFAULT: 'var(--background-error-default)',
-          inverse: 'var(--background-error-inverse)'
-        },
-        warning: {
-          DEFAULT: 'var(--background-warning-default)',
-          inverse: 'var(--background-warning-inverse)'
-        },
-        caution: {
-          DEFAULT: 'var(--background-caution-default)',
-          inverse: 'var(--background-caution-inverse)'
-        },
-        info: {
-          DEFAULT: 'var(--background-info-default)',
-          inverse: 'var(--background-info-inverse)'
-        },
-        lime: {
-          DEFAULT: 'var(--background-lime-default)',
-          inverse: 'var(--background-lime-inverse)'
-        },
-        mint: {
-          DEFAULT: 'var(--background-mint-default)',
-          inverse: 'var(--background-mint-inverse)'
-        },
-        teal: {
-          DEFAULT: 'var(--background-teal-default)',
-          inverse: 'var(--background-teal-inverse)'
-        },
-        cyan: {
-          DEFAULT: 'var(--background-cyan-default)',
-          inverse: 'var(--background-cyan-inverse)'
-        },
-        blue: {
-          DEFAULT: 'var(--background-blue-default)',
-          inverse: 'var(--background-blue-inverse)'
-        },
-        fucshia: {
-          DEFAULT: 'var(--background-fucshia-default)',
-          inverse: 'var(--background-fucshia-inverse)'
-        },
-        pink: {
-          DEFAULT: 'var(--background-pink-default)',
-          inverse: 'var(--background-pink-inverse)'
-        },
-        neutral: {
-          DEFAULT: 'var(--background-neutral-default)',
-          inverse: 'var(--background-neutral-inverse)'
-        }
-      },
-      borderColor: {
-        default: 'var(--border-default)',
-        hover: 'var(--border-hover)',
-        invalid: 'var(--border-invalid)',
-        valid: 'var(--border-valid)',
-        filled: 'var(--border-filled)'
-      },
+      textColor,
+      backgroundColor,
+      borderColor,
       colors: {
+        background: backgroundColor,
+        typography: textColor,
+        border: borderColor,
+        gradient: {
+          'brand-1': 'var(--gradiente-brand-1)',
+          'brand-2': 'var(--gradiente-brand-2)',
+          'brand-3': 'var(--gradiente-brand-3)',
+          'brand-4': 'var(--gradiente-brand-4)',
+          'brand-5': 'var(--gradiente-brand-5)'
+        },
         surface: {
           DEFAULT: 'var(--surface-default)',
           inverse: 'var(--surface-inverse)'
@@ -382,7 +398,10 @@ const config = {
             inverse: 'var(--icon-pink-inverse)'
           }
         },
-
+        neutral: {
+          black: 'var(--neutral-black)',
+          white: 'var(--neutral-white)'
+        },
         button: {
           solid: {
             DEFAULT: 'var(--button-solid-background-default)',
@@ -404,10 +423,6 @@ const config = {
             hover: 'var(--button-ghost-background-hover)',
             pressed: 'var(--button-ghost-background-pressed)'
           }
-        },
-        neutral: {
-          black: 'var(--neutral-black)',
-          white: 'var(--neutral-white)'
         },
         sidebar: {
           item: {
@@ -447,39 +462,34 @@ const config = {
         'modal-dark-3': 'var(--modal-dark-3)',
         'modal-dark-4': 'var(--modal-dark-4)',
         'modal-dark-5': 'var(--modal-dark-5)',
+
+        'bottom-sheet-1': 'var(--bottom-sheet-1)',
+        'bottom-sheet-2': 'var(--bottom-sheet-2)',
+        'bottom-sheet-3': 'var(--bottom-sheet-3)',
+        'bottom-sheet-4': 'var(--bottom-sheet-4)',
+        'bottom-sheet-5': 'var(--bottom-sheet-5)',
+
+        'bottom-sheet-light-1': 'var(--bottom-sheet-light-1)',
+        'bottom-sheet-light-2': 'var(--bottom-sheet-light-2)',
+        'bottom-sheet-light-3': 'var(--bottom-sheet-light-3)',
+        'bottom-sheet-light-4': 'var(--bottom-sheet-light-4)',
+        'bottom-sheet-light-5': 'var(--bottom-sheet-light-5)',
+
+        'bottom-sheet-dark-1': 'var(--bottom-sheet-dark-1)',
+        'bottom-sheet-dark-2': 'var(--bottom-sheet-dark-2)',
+        'bottom-sheet-dark-3': 'var(--bottom-sheet-dark-3)',
+        'bottom-sheet-dark-4': 'var(--bottom-sheet-dark-4)',
+        'bottom-sheet-dark-5': 'var(--bottom-sheet-dark-5)',
+
+        solid: 'var(--button-solid-hover)',
+        outlined: 'var(--button-outlined-hover)',
+        ghost: 'var(--button-ghost-hover)',
         'input-focus-valid': 'var(--input-focus-valid)',
         'input-focus-invalid': 'var(--input-focus-invalid)',
-        'input-focus-neutral': 'var(--input-focus-neutral)',
-        'bottom-sheet': {
-          1: 'var(--bottom-sheet-1)',
-          2: 'var(--bottom-sheet-2)',
-          3: 'var(--bottom-sheet-3)',
-          4: 'var(--bottom-sheet-4)',
-          5: 'var(--bottom-sheet-5)',
-          light: {
-            1: 'var(--bottom-sheet-light-1)',
-            2: 'var(--bottom-sheet-light-2)',
-            3: 'var(--bottom-sheet-light-3)',
-            4: 'var(--bottom-sheet-light-4)',
-            5: 'var(--bottom-sheet-light-5)'
-          },
-          dark: {
-            1: 'var(--bottom-sheet-dark-1)',
-            2: 'var(--bottom-sheet-dark-2)',
-            3: 'var(--bottom-sheet-dark-3)',
-            4: 'var(--bottom-sheet-dark-4)',
-            5: 'var(--bottom-sheet-dark-5)'
-          }
-        }
-      },
-      gradient: {
-        'brand-1': 'var(--gradiente-brand-1)',
-        'brand-2': 'var(--gradiente-brand-2)',
-        'brand-3': 'var(--gradiente-brand-3)',
-        'brand-4': 'var(--gradiente-brand-4)',
-        'brand-5': 'var(--gradiente-brand-5)'
+        'input-focus-neutral': 'var(--input-focus-neutral)'
       },
       animation: {
+        'brand-gradient': 'brand-gradient 6s ease-in-out infinite',
         'slide-up': 'slide-up 300ms cubic-bezier(0.87, 0, 0.13, 1) forwards',
         'slide-down': 'slide-down 300ms cubic-bezier(0.87, 0, 0.13, 1) forwards',
         'slide-left': 'slide-left 300ms cubic-bezier(0.83, 0, 0.17, 1)',
@@ -497,6 +507,14 @@ const config = {
         dash: 'dash 1.4s ease-in-out infinite'
       },
       keyframes: {
+        'brand-gradient': {
+          '0%': { backgroundImage: 'var(--gradiente-brand-1)', backgroundPosition: '0% 50%', backgroundSize: '150% 150%' },
+          '20%': { backgroundImage: 'var(--gradiente-brand-1)', backgroundPosition: '25% 50%', backgroundSize: '150% 150%' },
+          '40%': { backgroundImage: 'var(--gradiente-brand-1)', backgroundPosition: '50% 50%', backgroundSize: '150% 150%' },
+          '60%': { backgroundImage: 'var(--gradiente-brand-1)', backgroundPosition: '75% 50%', backgroundSize: '150% 150%' },
+          '80%': { backgroundImage: 'var(--gradiente-brand-1)', backgroundPosition: '100% 50%', backgroundSize: '150% 150%' },
+          '100%': { backgroundImage: 'var(--gradiente-brand-1)', backgroundPosition: '0% 50%', backgroundSize: '150% 150%' }
+        },
         'slide-up': {
           from: { height: 0 },
           to: { height: 'var(--radix-collapsible-content-height)' }

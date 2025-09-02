@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Badge } from './badge';
+import { BADGE_TYPES, BADGE_VARIANTS } from './constants';
 
 const meta = {
   title: 'Components/Badge',
@@ -11,7 +12,16 @@ const meta = {
 
   tags: ['autodocs'],
 
-  argTypes: {}
+  argTypes: {
+    type: {
+      control: 'select',
+      options: BADGE_TYPES
+    },
+    variant: {
+      control: 'select',
+      options: BADGE_VARIANTS
+    }
+  }
 } satisfies Meta<typeof Badge>;
 
 export default meta;
@@ -23,27 +33,23 @@ export const Default: Story = {
   }
 };
 
-export const Ghost: Story = {
+export const Solid: Story = {
   args: {
-    children: 'Ghost'
+    children: 'Solid',
+    variant: 'solid'
   }
 };
+
+export const Ghost: Story = {
+  args: {
+    children: 'Ghost',
+    variant: 'ghost'
+  }
+};
+
 export const Outline: Story = {
   args: {
     children: 'Outline',
     variant: 'outline'
-  }
-};
-
-export const Medium: Story = {
-  args: {
-    children: 'Medium',
-    radius: 'medium'
-  }
-};
-export const Full: Story = {
-  args: {
-    children: 'Full',
-    radius: 'full'
   }
 };

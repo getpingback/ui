@@ -72,7 +72,7 @@ export function Select({ label, helperText, placeholder, options, value, default
           </RadixSelect.Icon>
         </RadixSelect.Trigger>
 
-        <RadixSelect.Content className="w-full z-[9999999999] bg-background-accent border-divider rounded-lg shadow-modal overflow-hidden">
+        <RadixSelect.Content className="w-full z-[9999999999] bg-background-accent border-divider rounded-lg shadow-modal-1 overflow-hidden">
           <RadixSelect.Viewport className="w-full">
             {options.map((option) => (
               <RadixSelect.Item
