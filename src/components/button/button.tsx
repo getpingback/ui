@@ -110,7 +110,7 @@ const ButtonContent = React.forwardRef<
 >(({ children, isLoading, prefix, suffix }, ref) => {
   return (
     <>
-      <span ref={ref} className={cn('flex items-center w-full gap-1 h-full', { 'opacity-0': isLoading })}>
+      <span ref={ref} className={cn('flex items-center w-full gap-1 h-full [&>span]:h-full', { 'opacity-0': isLoading })}>
         {prefix && <span>{prefix}</span>}
         {children}
         {suffix && <span>{suffix}</span>}
