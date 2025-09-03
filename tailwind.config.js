@@ -52,7 +52,12 @@ const backgroundColor = {
   },
   neutral: {
     DEFAULT: 'var(--background-neutral-default)',
-    inverse: 'var(--background-neutral-inverse)'
+    inverse: 'var(--background-neutral-inverse)',
+    hover: 'var(--background-neutral-hover)',
+    active: {
+      DEFAULT: 'var(--background-neutral-active)',
+      hover: 'var(--background-neutral-active-hover)'
+    }
   }
 };
 
