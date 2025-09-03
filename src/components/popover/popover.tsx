@@ -8,7 +8,7 @@ import { cva } from 'class-variance-authority';
 import { POPOVER_POSITIONS } from './constants';
 
 const popoverVariants = cva(
-  'z-50 w-80 rounded-xl bg-surface p-4 text-primary shadow-modal-2 outline-none data-[state=open]:animate-modal-fade-in data-[state=closed]:animate-modal-fade-out',
+  'z-50 w-80 rounded-2xl bg-surface p-4 text-primary shadow-modal-1 outline-none data-[state=open]:animate-modal-fade-in data-[state=closed]:animate-modal-fade-out',
   {
     variants: {
       position: {

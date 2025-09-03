@@ -621,12 +621,12 @@ const config = {
           height: '152px'
         },
         '.custom-color-picker .react-colorful__saturation': {
-          borderTopLeftRadius: '4px',
-          borderTopRightRadius: '4px'
+          borderTopLeftRadius: '12px',
+          borderTopRightRadius: '12px'
         },
         '.custom-color-picker .react-colorful__last-control': {
-          borderBottomLeftRadius: '4px',
-          borderBottomRightRadius: '4px'
+          borderBottomLeftRadius: '12px',
+          borderBottomRightRadius: '12px'
         },
         '.custom-color-picker .react-colorful__pointer': {
           width: '0.5rem',
