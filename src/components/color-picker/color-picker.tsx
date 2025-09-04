@@ -2,12 +2,12 @@ import * as React from 'react';
 
 import { cn } from '@/lib/utils';
 import { HexColorPicker } from 'react-colorful';
-import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
 import { Button } from '../button';
 import { getInitialOpacity, opacityToHex } from './utils';
 import { THEME_COLORS } from './constants';
 import { Popover, PopoverContent, PopoverTrigger } from '../popover';
+import { CheckIcon } from '@stash-ui/regular-icons';
 
 interface ColorPickerProps {
   color: string;
@@ -98,14 +98,14 @@ export const ColorPicker = ({
           <div className="flex">
             <input
               type="text"
-              className="w-full bg-surface border border-default rounded-l-lg rounded-r-none text-gray-600 text-sm py-2 px-3"
+              className="w-full bg-surface outline-none border border-default rounded-l-xl rounded-r-none text-tertiary text-sm py-2 px-3 placeholder:text-tertiary"
               value={color.toUpperCase()}
               onChange={(e) => onChange(e.target.value)}
               onBlur={handleHexInputBlur}
             />
             <input
               type="text"
-              className="w-full max-w-[60px] bg-surface border border-default rounded-r-lg rounded-l-none border-l-0 text-gray-600 text-sm py-2 px-[11px]"
+              className="w-full max-w-[60px] bg-surface outline-none border border-default rounded-r-xl rounded-l-none border-l-0 text-tertiary text-sm py-2 px-[11px] placeholder:text-tertiary"
               value={`${Math.round(opacity * 100)}%`}
               onChange={handleChangeOpacity}
               onClick={handleOpacityInputClick}
@@ -117,9 +117,11 @@ export const ColorPicker = ({
                 key={themeColor}
                 data-testid="theme-color"
                 style={{ backgroundColor: themeColor }}
-                className="w-4 h-4 rounded-[4px] cursor-pointer"
+                className="w-4 h-4 rounded-[4px] hover:scale-105 hover:shadow-outlined transition-all duration-200 ease-in-out cursor-pointer"
                 onClick={() => handleChangeHexColor(themeColor)}
-              />
+              >
+                {themeColor === color && <CheckIcon className="w-4 h-4 text-neutral-white" />}
+              </div>
             ))}
           </div>
           <div className="flex gap-3">
