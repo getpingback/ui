@@ -49,7 +49,7 @@ const PopoverContent = React.forwardRef<
       sideOffset={sideOffset}
       className={cn(
         popoverVariants({ position: `${side}-${align}` }),
-        'z-50 w-80 rounded-xl border bg-surface p-4 text-primary shadow-md outline-none data-[state=open]:animate-modal-fade-in data-[state=closed]:animate-modal-fade-out',
+        'z-50 w-80 border border-default rounded-2xl bg-surface p-4 text-primary shadow-modal-5 outline-none data-[state=open]:animate-modal-fade-in data-[state=closed]:animate-modal-fade-out',
         className
       )}
       {...props}

@@ -52,7 +52,10 @@ const backgroundColor = {
   },
   neutral: {
     DEFAULT: 'var(--background-neutral-default)',
-    inverse: 'var(--background-neutral-inverse)'
+    inverse: 'var(--background-neutral-inverse)',
+    hover: 'var(--background-neutral-hover)',
+    active: 'var(--background-neutral-active)',
+    'active-hover': 'var(--background-neutral-active-hover)'
   }
 };
 
@@ -486,7 +489,12 @@ const config = {
         ghost: 'var(--button-ghost-hover)',
         'input-focus-valid': 'var(--input-focus-valid)',
         'input-focus-invalid': 'var(--input-focus-invalid)',
-        'input-focus-neutral': 'var(--input-focus-neutral)'
+        'input-focus-neutral': 'var(--input-focus-neutral)',
+        'selection-hover': 'var(--selection-hover)',
+        'selection-active-hover': 'var(--selection-active-hover)',
+        'toggle-hover': 'var(--toggle-hover)',
+        'toggle-active-hover': 'var(--toggle-active-hover)',
+        'toggle-indicator': 'var(--toggle-indicator)'
       },
       animation: {
         'brand-gradient': 'brand-gradient 6s ease-in-out infinite',
@@ -574,6 +582,14 @@ const config = {
           '50%': { width: 'var(--progress-mid-width)' },
           '100%': { width: 'var(--progress-final-width)' }
         },
+        'switch-hover': {
+          '0%': { transform: 'translateX(0px)' },
+          '100%': { transform: 'translateX(24px)' }
+        },
+        'switch-active-hover': {
+          '0%': { transform: 'translateX(24px)' },
+          '100%': { transform: 'translateX(0px)' }
+        },
         spin: {
           '0%': { transform: 'rotate(0deg)' },
           '100%': { transform: 'rotate(360deg)' }
@@ -647,10 +663,26 @@ const config = {
         'input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button': {
           '-webkit-appearance': 'none',
           margin: '0'
+        },
+
+        'input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active': {
+          '-webkit-background-clip': 'text',
+          '-webkit-text-fill-color': 'var(--text-default-tertiary)',
+          transition: 'background-color 5000s ease-in-out 0s'
+        }
+      };
+      const rangePickerStyles = {
+        '.rdp-today:not(.rdp-outside)': {
+          color: 'var(--button-outlined-label-default)',
+          border: '2px solid var(--button-outlined-border-default)',
+          borderRadius: '50%'
+        },
+        '.rdp-today:not(.rdp-outside)[aria-selected="true"]': {
+          borderRadius: '12px'
         }
       };
 
-      addUtilities({ ...scrollbarStyles, ...colorPickerComponent, ...inputFocusStyles });
+      addUtilities({ ...scrollbarStyles, ...colorPickerComponent, ...inputFocusStyles, ...rangePickerStyles });
     }
   ]
 };

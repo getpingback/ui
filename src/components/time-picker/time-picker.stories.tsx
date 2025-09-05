@@ -1,29 +1,40 @@
-import * as React from "react";
-import type { Meta, StoryObj } from "@storybook/react";
+import * as React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 
-import { TimePicker } from "./time-picker";
+import { TimePicker } from './time-picker';
 
 const meta = {
-  title: "Components/TimePicker",
+  title: 'Components/TimePicker',
   component: TimePicker,
   parameters: {},
 
-  tags: ["autodocs"],
+  tags: ['autodocs'],
 
-  argTypes: {},
+  argTypes: {}
 } satisfies Meta<typeof TimePicker>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  args: {},
+  render: ({ label, placeholder, helperText, value, onChange }) => {
+    const [time, setTime] = React.useState<string>(value || '');
+
+    console.log('Default time ===>', time);
+
+    const handleChange = (time: string | undefined) => {
+      setTime(time || '');
+      onChange?.(time);
+    };
+
+    return <TimePicker label={label} placeholder={placeholder} helperText={helperText} value={time} onChange={handleChange} />;
+  }
 };
 
 export const WithInputProps: Story = {
   args: {
-    label: "Time",
-    placeholder: "00:00",
-    helperText: "Choose a time from the date above",
-  },
+    label: 'Time',
+    placeholder: '00:00',
+    helperText: 'Choose a time from the date above'
+  }
 };

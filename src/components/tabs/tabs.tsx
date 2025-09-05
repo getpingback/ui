@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as TabsPrimitive from '@radix-ui/react-tabs';
+import { buttonVariants } from '@/components/button';
 import { motion } from 'framer-motion';
 
 import { cn } from '@/lib/utils';
@@ -40,10 +41,8 @@ function TabsTrigger({ className, layoutId, ...props }: TabsTriggerProps) {
       <TabsPrimitive.Trigger
         ref={triggerRef}
         className={cn(
-          `relative w-full h-full !outline-none rounded-[80px] font-semibold text-xs transition-all duration-300 ease-in-out ${
-            isActive
-              ? 'bg-transparent text-button-solid-label'
-              : 'bg-button-ghost text-tertiary hover:text-secondary hover:bg-button-ghost-hover'
+          `relative !h-full !px-3 !outline-none rounded-[80px] font-semibold text-xs transition-all duration-300 ease-in-out ${
+            isActive ? 'bg-transparent text-button-solid-label' : buttonVariants({ variant: 'ghost' })
           }`,
           className
         )}
@@ -53,12 +52,12 @@ function TabsTrigger({ className, layoutId, ...props }: TabsTriggerProps) {
         data-testid="tabs-trigger"
         {...props}
       >
-        {props.children}
+        <span className="relative z-10">{props.children}</span>
 
         {isActive && (
           <motion.span
             layoutId={`${layoutId}-tab-active-indicator`}
-            className="absolute rounded-[80px] flex items-center justify-center inset-0 z-10 bg-button-solid mix-blend-difference"
+            className="absolute rounded-[80px] flex items-center text-button-solid-label justify-center inset-0 bg-button-solid mix-blend-exclusion"
             transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
           />
         )}
