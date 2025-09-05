@@ -29,7 +29,7 @@ describe('TextArea', () => {
     render(<TextArea error="Error message" />);
 
     expect(screen.getByText('Error message')).toBeInTheDocument();
-    expect(screen.getByRole('textbox')).toHaveClass('border-divider-error');
+    expect(screen.getByRole('textbox')).toHaveClass('border-invalid');
   });
 
   it('should display helper text when no error', () => {
@@ -42,7 +42,7 @@ describe('TextArea', () => {
     render(<TextArea disabled />);
 
     expect(screen.getByRole('textbox')).toBeDisabled();
-    expect(screen.getByRole('textbox')).toHaveClass('border-divider-disabled');
+    expect(screen.getByRole('textbox')).toHaveClass('border-none');
   });
 
   it('should display error message instead of helper text when both are present', () => {
@@ -50,6 +50,6 @@ describe('TextArea', () => {
 
     expect(screen.getByText('Error message')).toBeInTheDocument();
     expect(screen.queryByText('Helper text')).not.toBeInTheDocument();
-    expect(screen.getByRole('textbox')).toHaveClass('border-divider-error');
+    expect(screen.getByRole('textbox')).toHaveClass('border-invalid');
   });
 });

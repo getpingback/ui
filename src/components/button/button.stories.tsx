@@ -22,6 +22,13 @@ export const Default: Story = {
   }
 };
 
+export const Primary: Story = {
+  args: {
+    children: 'Primary Action',
+    variant: 'primary'
+  }
+};
+
 export const Solid: Story = {
   args: {
     children: 'Button',

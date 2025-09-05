@@ -7,9 +7,10 @@ import { HeartIcon } from '@stash-ui/regular-icons';
 const meta = {
   title: 'Components/SplitButton',
   component: SplitButton,
-
   tags: ['autodocs'],
-
+  parameters: {
+    layout: 'centered'
+  },
   argTypes: {}
 } satisfies Meta<typeof SplitButton>;
 
@@ -19,7 +20,7 @@ type Story = StoryObj<typeof meta>;
 export const Solid: Story = {
   args: {
     prefixIcon: <HeartIcon />,
-    variant: 'solid',
+    variant: 'primary',
     label: 'Button label',
     onPrefixClick: () => {},
     menuItems: [
@@ -36,19 +37,5 @@ export const Solid: Story = {
         onClick: () => console.log('delete')
       }
     ]
-  }
-};
-
-export const Outlined: Story = {
-  args: {
-    ...Solid.args,
-    variant: 'outlined'
-  }
-};
-
-export const Ghost: Story = {
-  args: {
-    ...Solid.args,
-    variant: 'ghost'
   }
 };

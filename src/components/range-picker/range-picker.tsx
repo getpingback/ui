@@ -24,12 +24,12 @@ import useClickOutside from '@/hooks/useClickOutside';
 const DATE_NOW = new Date();
 
 const menuVariants = cva(
-  'h-[32px] inline-flex items-center text-xs font-primary cursor-pointer opacity-85 px-3 rounded-lg hover:bg-[#9061F914] hover:text-[#9061F9] transition-all duration-200 ease-in-out',
+  'h-[32px] inline-flex items-center text-xs cursor-pointer opacity-85 px-3 hover:bg-sidebar-item-hover transition-all duration-200 ease-in-out',
   {
     variants: {
       variant: {
-        default: 'bg-transparent text-[#3F3F46]',
-        selected: 'text-[#3F3F46] text-[#9061F9] bg-active-menu font-semibold'
+        default: 'bg-transparent text-tertiary',
+        selected: ' text-primary bg-sidebar-item-pressed font-semibold'
       }
     },
     defaultVariants: {
@@ -151,7 +151,7 @@ export function TriggerRangeDate({ rangeDate, type, locale = 'en', hideMenu }: T
   return (
     <div
       id="date"
-      className="w-full border border-solid border-[#D4D4D8] h-[32px] px-3  rounded-lg flex items-center justify-start text-left text-sm font-semibold "
+      className="w-full border border-solid border-default h-[32px] px-3  rounded-lg flex items-center justify-start text-left text-sm font-semibold "
     >
       <CalendarIcon className="w-4 h-4 mr-1 min-w-4 opacity-85" color="#71717A" />
       {rangeDate && renderLabel(rangeDate)}
@@ -201,7 +201,7 @@ const RangePickerMenu = ({ locale = 'en', onDateChange, onSelectType, rangeType,
   };
 
   return (
-    <ul className="w-[130px] flex flex-col gap-1 pt-[20px] px-3 border-r border-[#71717A14] font-primary">
+    <ul className="w-fit min-w-[100px] flex flex-col gap-1 pt-[20px] border-r border-default font-primary">
       {DATA_PERIODS?.map((period) => (
         <li
           key={period.id}
@@ -288,9 +288,9 @@ const CalendarInputs = ({ onDateChange, selectedDate, locale, hideInputs, maxDat
 
   return (
     <div className="w-full flex justify-between">
-      <div className="flex items-center py-4 px-4 gap-2">
+      <div className="w-full flex items-center py-4 px-4 gap-2">
         {!hideInputs && (
-          <>
+          <div className="w-full h-[40px] pl-3 flex items-center gap-2 rounded-2xl bg-surface focus:border-hover focus:shadow-input-focus-neutral  border border-default hover:border-hover">
             <input
               type="text"
               id="initial-date"
@@ -300,9 +300,9 @@ const CalendarInputs = ({ onDateChange, selectedDate, locale, hideInputs, maxDat
               value={startInputValue}
               onChange={handleDateChange}
               onBlur={handleBlur}
-              className="flex h-[32px] w-full max-w-[102px] min-w-[102px] border-divider border rounded-lg bg-transparent py-2 px-2 text-sm outline-none text-tertiary-foreground placeholder:opacity-85 disabled:cursor-not-allowed disabled:opacity-50 hover:border-[#A1A1AA] focus:border-[#9061F9] focus:[box-shadow:0px_0px_0px_3px_rgba(144,_97,_249,_0.12)] transition-all duration-200 ease-in-out"
+              className="flex h-[32px] rounded-2xl w-full max-w-[90px] min-w-[90px] border-none bg-surface !text-sm outline-none !text-tertiary opacity-65 placeholder:opacity-85"
             />
-            <ArrowRightIcon opacity={0.45} color="#52525B" />
+            <ArrowRightIcon opacity={0.45} className="w-4 h-4 icon-tertiary mr-2" />
             <input
               type="text"
               id="end-date"
@@ -312,9 +312,9 @@ const CalendarInputs = ({ onDateChange, selectedDate, locale, hideInputs, maxDat
               value={endInputValue}
               placeholder={LOCALE_DATE_FORMAT[locale]}
               onChange={handleDateChange}
-              className="flex h-[32px] w-full max-w-[102px] min-w-[102px] border-divider border rounded-lg bg-transparent py-2 px-2 text-sm outline-none text-tertiary-foreground placeholder:opacity-85 disabled:cursor-not-allowed disabled:opacity-50 hover:border-[#A1A1AA] focus:border-[#9061F9] focus:[box-shadow:0px_0px_0px_3px_rgba(144,_97,_249,_0.12)] transition-all duration-200 ease-in-out"
+              className="flex h-[32px] rounded-2xl  w-full max-w-[90px] min-w-[90px] border-none bg-surface !text-sm outline-none !text-tertiary opacity-65 placeholder:opacity-85"
             />
-          </>
+          </div>
         )}
       </div>
     </div>
@@ -362,9 +362,8 @@ export function RangePicker({
       }
     },
     modifiersClassNames: {
-      single_day: '!rounded-md'
+      today: 'rounded-full rdp-today'
     },
-
     locale: LOCALE[locale],
     numberOfMonths: type === 'range' ? 2 : 1,
     defaultMonth: type === 'range' ? initialRangeDate?.from : initialSingleDate || new Date(),
@@ -452,20 +451,22 @@ export function RangePicker({
     />
   );
 
-  const renderCalendarButtons = () => (
-    <div
-      className={`flex py-4 px-6 ${inputPosition === 'top' || hideInputs ? 'justify-between' : 'justify-end'} ${
-        inputPosition === 'top' || hideInputs ? 'w-full' : 'w-fit'
-      }`}
-    >
-      <Button variant="clear" size="sm" onClick={() => setIsOpen(false)} data-testid="ranger-cancel">
-        {BUTTONS_ACTIONS_LABEL.cancel[locale]}
-      </Button>
-      <Button variant="solid" size="sm" onClick={handleAppy} data-testid="ranger-apply">
-        {BUTTONS_ACTIONS_LABEL.apply[locale]}
-      </Button>
-    </div>
-  );
+  const renderCalendarButtons = () => {
+    return (
+      <div
+        className={`flex items-center p-3 gap-2 ${inputPosition === 'top' || hideInputs ? 'justify-end' : 'justify-end'} ${
+          inputPosition === 'top' || hideInputs ? 'w-full' : 'w-fit'
+        }`}
+      >
+        <Button variant="outline" size="sm" onClick={() => setIsOpen(false)} data-testid="ranger-cancel">
+          {BUTTONS_ACTIONS_LABEL.cancel[locale]}
+        </Button>
+        <Button variant="solid" size="sm" onClick={handleAppy} data-testid="ranger-apply">
+          {BUTTONS_ACTIONS_LABEL.apply[locale]}
+        </Button>
+      </div>
+    );
+  };
 
   return (
     <div className={cn('w-fit grid gap-2 ')} data-testid="ranger">
@@ -489,7 +490,7 @@ export function RangePicker({
           onWheel={(e) => e.stopPropagation()}
           onTouchMove={(e) => e.stopPropagation()}
           ref={rangeRef}
-          className="p-0 flex bg-[#FFFFFF] !w-fit !shadow-dropdown border-none"
+          className="p-0 flex !w-fit !shadow-modal-5 border-none"
           data-testid="ranger-content"
         >
           {type === 'range' && !hideMenu && (
@@ -504,9 +505,7 @@ export function RangePicker({
 
           <div className="flex flex-col">
             {type === 'range' && inputPosition === 'top' && (
-              <div className="w-full flex justify-between border-b-[1px] border-[#71717A14]">
-                {!hideInputs ? renderCalendarInputs() : null}
-              </div>
+              <div className="w-full flex justify-between border-b-[1px] border-default">{!hideInputs ? renderCalendarInputs() : null}</div>
             )}
 
             <div className="w-full flex items-center justify-center">
@@ -533,10 +532,14 @@ export function RangePicker({
               )}
             </div>
 
-            <div className="w-full flex justify-between border-t-[1px] border-[#71717A14]">
-              {!hideInputs && type === 'range' && inputPosition === 'bottom' ? renderCalendarInputs() : null}
-              {type === 'range' ? renderCalendarButtons() : null}
-            </div>
+            {type !== 'single' && (
+              <div className="w-full flex justify-between border-t-[1px] border-default">
+                {!hideInputs && type === 'range' && inputPosition === 'bottom' ? (
+                  <span className="w-fit">{renderCalendarInputs()}</span>
+                ) : null}
+                {type === 'range' ? renderCalendarButtons() : null}
+              </div>
+            )}
           </div>
         </PopoverContent>
       </Popover>

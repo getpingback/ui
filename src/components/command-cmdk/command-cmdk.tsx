@@ -2,20 +2,16 @@ import * as React from 'react';
 import { Command as CommandPrimitive } from 'cmdk';
 import { cn } from '@/lib/utils';
 
-const CommandK = React.forwardRef<
-  React.ElementRef<typeof CommandPrimitive>,
-  React.ComponentPropsWithoutRef<typeof CommandPrimitive>
->(({ className, ...props }, ref) => (
-  <CommandPrimitive
-    ref={ref}
-    className={cn(
-      'flex h-full w-full z-50 flex-col overflow-hidden rounded-md bg-[#ffffffc2] text-popover-foreground shadow-[0px_0px_1px_1px_#0000000A]',
-      className
-    )}
-    data-testid='command'
-    {...props}
-  />
-));
+const CommandK = React.forwardRef<React.ElementRef<typeof CommandPrimitive>, React.ComponentPropsWithoutRef<typeof CommandPrimitive>>(
+  ({ className, ...props }, ref) => (
+    <CommandPrimitive
+      ref={ref}
+      className={cn('flex h-full w-full z-50 flex-col overflow-hidden rounded-xl bg-surface text-popover-foreground', className)}
+      data-testid="command"
+      {...props}
+    />
+  )
+);
 
 CommandK.displayName = CommandPrimitive.displayName;
 
@@ -23,10 +19,7 @@ const CommandKInput = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.Input>,
   React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input>
 >(({ className, ...props }, ref) => (
-  <div
-    className='flex items-center relative w-full p-3 border-b border-[#71717A14]'
-    cmdk-input-wrapper=''
-  >
+  <div className="flex items-center relative w-full p-3 border-b border-default rounded-t-xl" cmdk-input-wrapper="">
     <CommandPrimitive.Input
       ref={ref}
       className={cn(
@@ -46,10 +39,7 @@ const CommandKList = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <CommandPrimitive.List
     ref={ref}
-    className={cn(
-      'max-h-[300px] pb-1 overflow-y-auto scrollbar-style overflow-x-hidden px-3',
-      className
-    )}
+    className={cn('max-h-[300px] pb-1 overflow-y-auto scrollbar-style overflow-x-hidden px-3', className)}
     {...props}
   />
 ));
@@ -59,13 +49,7 @@ CommandKList.displayName = CommandPrimitive.List.displayName;
 const CommandKEmpty = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.Empty>,
   React.ComponentPropsWithoutRef<typeof CommandPrimitive.Empty>
->((props, ref) => (
-  <CommandPrimitive.Empty
-    ref={ref}
-    className='py-6 text-center text-sm text-tertiary-foreground'
-    {...props}
-  />
-));
+>((props, ref) => <CommandPrimitive.Empty ref={ref} className="py-6 text-center text-sm text-tertiary-foreground" {...props} />);
 
 CommandKEmpty.displayName = CommandPrimitive.Empty.displayName;
 
@@ -88,13 +72,7 @@ CommandKGroup.displayName = CommandPrimitive.Group.displayName;
 const CommandKSeparator = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.Separator>,
   React.ComponentPropsWithoutRef<typeof CommandPrimitive.Separator>
->(({ className, ...props }, ref) => (
-  <CommandPrimitive.Separator
-    ref={ref}
-    className={cn('-mx-1 h-px bg-border', className)}
-    {...props}
-  />
-));
+>(({ className, ...props }, ref) => <CommandPrimitive.Separator ref={ref} className={cn('-mx-1 h-px bg-border', className)} {...props} />);
 CommandKSeparator.displayName = CommandPrimitive.Separator.displayName;
 
 const CommandKItem = React.forwardRef<
@@ -113,29 +91,9 @@ const CommandKItem = React.forwardRef<
 
 CommandKItem.displayName = CommandPrimitive.Item.displayName;
 
-const CommandKShortcut = ({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLSpanElement>) => {
-  return (
-    <span
-      className={cn(
-        'ml-auto text-xs tracking-widest text-muted-foreground',
-        className
-      )}
-      {...props}
-    />
-  );
+const CommandKShortcut = ({ className, ...props }: React.HTMLAttributes<HTMLSpanElement>) => {
+  return <span className={cn('ml-auto text-xs tracking-widest text-muted-foreground', className)} {...props} />;
 };
 CommandKShortcut.displayName = 'CommandShortcut';
 
-export {
-  CommandK,
-  CommandKInput,
-  CommandKList,
-  CommandKEmpty,
-  CommandKGroup,
-  CommandKItem,
-  CommandKShortcut,
-  CommandKSeparator,
-};
+export { CommandK, CommandKInput, CommandKList, CommandKEmpty, CommandKGroup, CommandKItem, CommandKShortcut, CommandKSeparator };

@@ -16,22 +16,22 @@ interface CalloutProps {
 const calloutVariants = cva('flex gap-4 justify-between rounded-lg p-4', {
   variants: {
     variant: {
-      info: 'bg-callout-info text-callout-info-foreground',
-      primary: 'bg-callout-primary text-callout-primary-foreground',
-      success: 'bg-callout-success text-callout-success-foreground',
-      warning: 'bg-callout-warning text-callout-warning-foreground',
-      error: 'bg-callout-error text-callout-error-foreground'
+      info: 'bg-info text-info',
+      primary: 'bg-neutral text-neutral',
+      success: 'bg-success text-success',
+      warning: 'bg-warning text-warning',
+      error: 'bg-error text-error'
     }
   }
 });
 
-const Callout = ({ title, description, onClose, variant = 'info', className }: CalloutProps) => {
+const Callout = ({ title, description, onClose, variant = 'primary', className }: CalloutProps) => {
   const iconColor = {
-    info: 'text-callout-info-foreground',
-    primary: 'text-callout-primary-foreground',
-    success: 'text-callout-success-foreground',
-    warning: 'text-callout-warning-foreground',
-    error: 'text-callout-error-foreground'
+    info: 'text-info',
+    primary: 'text-neutral',
+    success: 'text-success',
+    warning: 'text-warning',
+    error: 'text-error'
   };
 
   const currentTextColor = iconColor[variant];

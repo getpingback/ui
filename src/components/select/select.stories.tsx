@@ -20,6 +20,7 @@ export const Default: Story = {
   args: {
     label: 'Select',
     placeholder: 'Select an option',
+    helperText: 'Escolha um intervalo ou data para agendar o envio do email.',
     required: true,
     options: [
       { value: '1', label: 'Intervalo' },
