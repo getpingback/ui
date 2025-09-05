@@ -17,18 +17,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  render: ({ label, placeholder, helperText, value, onChange }) => {
-    const [time, setTime] = React.useState<string>(value || '');
-
-    console.log('Default time ===>', time);
-
-    const handleChange = (time: string | undefined) => {
-      setTime(time || '');
-      onChange?.(time);
-    };
-
-    return <TimePicker label={label} placeholder={placeholder} helperText={helperText} value={time} onChange={handleChange} />;
-  }
+  args: {}
 };
 
 export const WithInputProps: Story = {
