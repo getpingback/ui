@@ -52,7 +52,10 @@ const backgroundColor = {
   },
   neutral: {
     DEFAULT: 'var(--background-neutral-default)',
-    inverse: 'var(--background-neutral-inverse)'
+    inverse: 'var(--background-neutral-inverse)',
+    hover: 'var(--background-neutral-hover)',
+    active: 'var(--background-neutral-active)',
+    'active-hover': 'var(--background-neutral-active-hover)'
   }
 };
 
@@ -452,13 +455,11 @@ const config = {
         'modal-3': 'var(--modal-3)',
         'modal-4': 'var(--modal-4)',
         'modal-5': 'var(--modal-5)',
-
         'modal-light-1': 'var(--modal-light-1)',
         'modal-light-2': 'var(--modal-light-2)',
         'modal-light-3': 'var(--modal-light-3)',
         'modal-light-4': 'var(--modal-light-4)',
         'modal-light-5': 'var(--modal-light-5)',
-
         'modal-dark-1': 'var(--modal-dark-1)',
         'modal-dark-2': 'var(--modal-dark-2)',
         'modal-dark-3': 'var(--modal-dark-3)',
@@ -485,7 +486,15 @@ const config = {
 
         solid: 'var(--button-solid-hover)',
         outlined: 'var(--button-outlined-hover)',
-        ghost: 'var(--button-ghost-hover)'
+        ghost: 'var(--button-ghost-hover)',
+        'input-focus-valid': 'var(--input-focus-valid)',
+        'input-focus-invalid': 'var(--input-focus-invalid)',
+        'input-focus-neutral': 'var(--input-focus-neutral)',
+        'selection-hover': 'var(--selection-hover)',
+        'selection-active-hover': 'var(--selection-active-hover)',
+        'toggle-hover': 'var(--toggle-hover)',
+        'toggle-active-hover': 'var(--toggle-active-hover)',
+        'toggle-indicator': 'var(--toggle-indicator)'
       },
       animation: {
         'brand-gradient': 'brand-gradient 6s ease-in-out infinite',
@@ -573,6 +582,14 @@ const config = {
           '50%': { width: 'var(--progress-mid-width)' },
           '100%': { width: 'var(--progress-final-width)' }
         },
+        'switch-hover': {
+          '0%': { transform: 'translateX(0px)' },
+          '100%': { transform: 'translateX(24px)' }
+        },
+        'switch-active-hover': {
+          '0%': { transform: 'translateX(24px)' },
+          '100%': { transform: 'translateX(0px)' }
+        },
         spin: {
           '0%': { transform: 'rotate(0deg)' },
           '100%': { transform: 'rotate(360deg)' }
@@ -646,10 +663,26 @@ const config = {
         'input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button': {
           '-webkit-appearance': 'none',
           margin: '0'
+        },
+
+        'input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active': {
+          '-webkit-background-clip': 'text',
+          '-webkit-text-fill-color': 'var(--text-default-tertiary)',
+          transition: 'background-color 5000s ease-in-out 0s'
+        }
+      };
+      const rangePickerStyles = {
+        '.rdp-today:not(.rdp-outside)': {
+          color: 'var(--button-outlined-label-default)',
+          border: '2px solid var(--button-outlined-border-default)',
+          borderRadius: '50%'
+        },
+        '.rdp-today:not(.rdp-outside)[aria-selected="true"]': {
+          borderRadius: '12px'
         }
       };
 
-      addUtilities({ ...scrollbarStyles, ...colorPickerComponent, ...inputFocusStyles });
+      addUtilities({ ...scrollbarStyles, ...colorPickerComponent, ...inputFocusStyles, ...rangePickerStyles });
     }
   ]
 };
