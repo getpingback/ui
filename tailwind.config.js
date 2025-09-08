@@ -490,7 +490,10 @@ const config = {
 
         solid: 'var(--button-solid-hover)',
         outlined: 'var(--button-outlined-hover)',
-        ghost: 'var(--button-ghost-hover)'
+        ghost: 'var(--button-ghost-hover)',
+
+        'selection-hover': 'var(--selection-hover)',
+        'selection-active-hover': 'var(--selection-active-hover)'
       },
       animation: {
         'brand-gradient': 'brand-gradient 6s ease-in-out infinite',
