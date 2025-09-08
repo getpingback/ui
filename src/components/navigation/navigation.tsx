@@ -7,22 +7,18 @@ import { ChevronDownIcon } from '@stash-ui/regular-icons';
 import { cn } from '@/lib/utils';
 
 const navigationVariants = cva(
-  'h-[40px] font-primary inline-flex  items-center justify-between hover:no-underline w-full p-[12px] rounded-lg cursor-pointer text-sm font-normal',
+  'h-[40px] font-primary inline-flex items-center justify-between hover:no-underline w-full p-3 rounded-xl cursor-pointer text-sm font-normal',
   {
     variants: {
       variant: {
-        highlighted:
-          'shadow shadow-[0px_0px_0px_3px_rgba(14,159,110,0.12)] hover:bg-list-highlighted hover:text-success-foreground text-success-foreground',
-        default:
-          'text-tertiary-foreground hover:text-active-foreground hover:bg-list-actived',
-        disabled: 'text-tertiary-foreground opacity-[0.45] cursor-not-allowed',
-        active:
-          'bg-active-menu text-active-foreground  font-semibold hover:text-active-foreground',
-      },
+        default: 'text-tertiary hover:text-secondary hover:bg-sidebar-item-hover',
+        disabled: 'text-tertiary opacity-[0.45] cursor-not-allowed',
+        active: 'bg-sidebar-item-pressed text-primary font-semibold'
+      }
     },
     defaultVariants: {
-      variant: 'default',
-    },
+      variant: 'default'
+    }
   }
 );
 
@@ -32,26 +28,16 @@ export interface NavigationLinkProps
   isActive?: boolean;
 }
 
-function NavigationLink({
-  className,
-  variant,
-  isActive,
-  ...props
-}: NavigationLinkProps) {
+function NavigationLink({ className, variant, isActive, ...props }: NavigationLinkProps) {
   return (
     <NavigationMenuPrimitive.Root className={cn('w-full', className)}>
       <NavigationMenuPrimitive.Link
-        data-testid='navigation-link'
+        data-testid="navigation-link"
         className={cn(
           navigationVariants({ variant }),
           className,
           'justify-start hover:no-underline',
-          isActive &&
-            variant === 'highlighted' &&
-            'text-success-foreground bg-list-highlighted font-semibold',
-          isActive &&
-            variant !== 'highlighted' &&
-            'hover:text-active-foreground text-active-foreground bg-active-menu font-semibold'
+          isActive && 'hover:text-primary text-primary bg-sidebar-item-pressed font-semibold'
         )}
         {...props}
       />
@@ -65,73 +51,38 @@ export interface NavigationItemProps
   isActive?: boolean;
 }
 
-function NavigationItem({
-  className,
-  variant,
-  isActive,
-  ...props
-}: NavigationItemProps) {
+function NavigationItem({ className, variant, isActive, ...props }: NavigationItemProps) {
   return (
     <NavigationMenuPrimitive.Root>
       <NavigationMenuPrimitive.Item
-        data-testid='navigation-item'
-        className={cn(
-          navigationVariants({ variant }),
-          isActive &&
-            variant === 'highlighted' &&
-            'text-success-foreground bg-list-highlighted font-semibold',
-          isActive &&
-            variant !== 'highlighted' &&
-            'hover:text-active-foreground text-active-foreground bg-active-menu font-semibold'
-        )}
+        data-testid="navigation-item"
+        className={cn(navigationVariants({ variant }), isActive && 'hover:text-primary text-primary bg-sidebar-item-pressed font-semibold')}
         {...props}
       />
     </NavigationMenuPrimitive.Root>
   );
 }
 
-export interface NavigationSubItemProps
-  extends React.ComponentProps<typeof NavigationMenuPrimitive.Link> {
+export interface NavigationSubItemProps extends React.ComponentProps<typeof NavigationMenuPrimitive.Link> {
   position?: 'first' | 'middle' | 'last' | 'only';
   activeItem?: boolean;
 }
 
-function NavigationSubItem({
-  className,
-  position,
-  activeItem,
-  ...props
-}: NavigationSubItemProps) {
+function NavigationSubItem({ className, position, activeItem, ...props }: NavigationSubItemProps) {
   const renderLeftIconPosition = (position: string) => {
     const baseClasses = 'relative w-6 h-8 flex items-center justify-center';
-    const dotClasses =
-      'absolute left-1/2 transform -translate-x-1/2 w-[6px] h-[6px] rounded-full z-10 top-3.5';
-    const activeDotClasses = activeItem
-      ? 'bg-[#9061F9] shadow-custom border-2 border-solid	border-[#9061F93D]'
-      : 'bg-[#A1A1AA] opacity-60';
+    const dotClasses = 'absolute left-1/2 transform -translate-x-1/2 w-[6px] h-[6px] rounded-full z-10 top-3.5';
+    const activeDotClasses = activeItem ? 'bg-border-filled shadow-modal-1 border-2	border-filled' : 'bg-border-hover opacity-60';
     const lineClasses = 'absolute left-1/2 transform -translate-x-1/2 w-px';
 
-    const topLineClasses =
-      position === 'only' || position === 'first'
-        ? 'bg-transparent'
-        : 'bg-gray-400/25';
-    const bottomLineClasses =
-      position === 'only' || position === 'last'
-        ? 'bg-transparent'
-        : 'bg-gray-400/25';
+    const topLineClasses = position === 'only' || position === 'first' ? 'bg-transparent' : 'bg-border-hover';
+    const bottomLineClasses = position === 'only' || position === 'last' ? 'bg-transparent' : 'bg-border-hover';
 
     return (
       <div className={baseClasses}>
-        <div
-          className={`${lineClasses} ${topLineClasses} ${'top-[-4px] h-[18px]'}`}
-        ></div>
-        <div
-          className={`${dotClasses} ${activeDotClasses}`}
-          data-testid={position}
-        ></div>
-        <div
-          className={`${lineClasses} ${bottomLineClasses} ${'bottom-[-4px] h-[16px]'}`}
-        ></div>
+        <div className={`${lineClasses} ${topLineClasses} ${'top-[-4px] h-[18px]'}`}></div>
+        <div className={`${dotClasses} ${activeDotClasses}`} data-testid={position}></div>
+        <div className={`${lineClasses} ${bottomLineClasses} ${'bottom-[-4px] h-[16px]'}`}></div>
       </div>
     );
   };
@@ -139,16 +90,16 @@ function NavigationSubItem({
   return (
     <NavigationMenuPrimitive.Root>
       <NavigationMenuPrimitive.Link
-        data-testid='navigation-sub-item'
+        data-testid="navigation-sub-item"
         className={cn(
-          'h-[40px] font-primary flex items-center hover:no-underline flex-start w-full px-3 cursor-pointer text-xs font-normal text-primary hover:bg-list-hover transition duration-300 ease-in-out',
+          'h-[40px] font-primary flex items-center hover:no-underline flex-start w-full px-3 rounded-xl cursor-pointer text-xs font-normal text-primary hover:bg-sidebar-item-hover transition duration-300 ease-in-out',
           className
         )}
         {...props}
       >
         <div
           className={cn(
-            'h-[40px] w-full text-xs flex items-center text-tertiary-foreground flex-start z-9',
+            'h-[40px] w-full text-xs flex items-center text-tertiary flex-start z-9',
             activeItem ? 'font-semibold' : 'font-normal'
           )}
         >
@@ -160,21 +111,13 @@ function NavigationSubItem({
   );
 }
 
-interface NavigationTriggerProps
-  extends Omit<AccordionPrimitive.AccordionItemProps, 'value'> {
+interface NavigationTriggerProps extends Omit<AccordionPrimitive.AccordionItemProps, 'value'> {
   items: { label: string; href: string; value: string | number }[];
   onClickItem: (item: { label: string; href: string }) => void;
   activeItem?: string | number;
 }
 
-function NavigationTrigger({
-  className,
-  items,
-  children,
-  onClickItem,
-  activeItem = '',
-  ...props
-}: NavigationTriggerProps) {
+function NavigationTrigger({ className, items, children, onClickItem, activeItem = '', ...props }: NavigationTriggerProps) {
   const handlePosition = (itemIndex: number, itemsLength: number) => {
     if (itemsLength === 1) return 'only';
     else if (itemIndex === 0 && itemsLength > 1) return 'first';
@@ -191,25 +134,18 @@ function NavigationTrigger({
     onClickItem(item);
   };
   return (
-    <AccordionPrimitive.Root
-      type='single'
-      collapsible
-      data-testid='navigation-trigger'
-      className='w-full'
-    >
-      <AccordionPrimitive.Item {...props} value='accordion'>
+    <AccordionPrimitive.Root type="single" collapsible data-testid="navigation-trigger" className="w-full">
+      <AccordionPrimitive.Item {...props} value="accordion">
         <AccordionPrimitive.Trigger
           className={cn(
-            'w-full font-primary h-[40px] inline-flex items-center justify-between cursor-pointer text-sm font-normal text-tertiary-foreground  p-[12px] rounded-lg  hover:text-active-foreground [&[data-state=open]>svg]:rotate-180 [&[data-state=open]]:bg-active-menu [&[data-state=open]]:text-active-foreground [&[data-state=open]]:font-semibold hover:text-opacity-100 hover:bg-list-actived transition duration-400 ease-in-out'
+            'w-full font-primary h-[40px] inline-flex items-center justify-between cursor-pointer text-sm font-normal text-tertiary  p-3 rounded-xl  hover:text-primary [&[data-state=open]>svg]:rotate-180 [&[data-state=open]]:bg-sidebar-item-pressed [&[data-state=open]]:text-primary [&[data-state=open]]:font-semibold hover:bg-sidebar-item-hover transition duration-400 ease-in-out'
           )}
         >
           {children}
-          <ChevronDownIcon className='shrink-0 transition-transform duration-200' />
+          <ChevronDownIcon className="shrink-0 transition-transform duration-200" />
         </AccordionPrimitive.Trigger>
         <AccordionPrimitive.Content
-          className={cn(
-            'w-full overflow-hidden data-[state=open]:animate-slide-up data-[state=closed]:animate-slide-down'
-          )}
+          className={cn('w-full overflow-hidden data-[state=open]:animate-slide-up data-[state=closed]:animate-slide-down')}
         >
           {items.map((item, index) => (
             <NavigationSubItem
@@ -229,27 +165,14 @@ function NavigationTrigger({
   );
 }
 
-export interface NavigationListProps
-  extends React.ComponentProps<typeof NavigationMenuPrimitive.List> {}
+export interface NavigationListProps extends React.ComponentProps<typeof NavigationMenuPrimitive.List> {}
 
 function NavigationList({ ...props }: NavigationListProps) {
   return (
     <NavigationMenuPrimitive.Root className={cn('w-full')}>
-      <NavigationMenuPrimitive.List
-        className={cn(
-          'group font-primary flex list-none flex-col gap-1 w-full overflow-hidden gap-0'
-        )}
-        {...props}
-      />
+      <NavigationMenuPrimitive.List className={cn('group font-primary flex list-none flex-col gap-1 w-full overflow-hidden')} {...props} />
     </NavigationMenuPrimitive.Root>
   );
 }
 
-export {
-  NavigationLink,
-  navigationVariants,
-  NavigationItem,
-  NavigationTrigger,
-  NavigationSubItem,
-  NavigationList,
-};
+export { NavigationLink, navigationVariants, NavigationItem, NavigationTrigger, NavigationSubItem, NavigationList };
