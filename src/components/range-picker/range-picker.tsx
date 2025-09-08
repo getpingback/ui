@@ -3,13 +3,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { format, subDays, startOfWeek, startOfMonth, isValid, parse, differenceInDays } from 'date-fns';
 
-import { DayPicker, DateRange } from 'react-day-picker';
+import { DayPicker, DateRange, IconLeft } from 'react-day-picker';
 import { cn } from '@/lib/utils';
 import { cva } from 'class-variance-authority';
 import { Button } from '@/components/button';
 import { ChevronLeftIcon, ChevronRightIcon, ArrowRightIcon } from '@stash-ui/regular-icons';
 import { CalendarIcon } from '@stash-ui/solid-icons';
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/popover';
+import { Popover, PopoverContent, PopoverTrigger, PopoverClose } from '@/components/popover';
 import {
   DEFAULT_PERIODS,
   DATA_PERIODS,
@@ -80,7 +80,6 @@ interface FooterProps {
   selectedDate: DateRange;
   locale: 'en' | 'pt-br' | 'es';
   onApply: () => void;
-  onCancel: () => void;
   hideInputs: boolean;
   maxDate?: Date | null;
   minDate?: Date | null;
@@ -373,7 +372,6 @@ export function RangePicker({
     }
   };
 
-  const [isOpen, setIsOpen] = useState(false);
   const [rangeType, setRangeType] = useState<PeriodKeys>('today');
   const [isCustom, setIsCustom] = useState(false);
   const [selectedDate, setSelectedDate] = useState<DateRange>({
@@ -392,7 +390,6 @@ export function RangePicker({
   const rangeRef = useRef<HTMLDivElement>(null);
 
   useClickOutside(rangeRef, () => {
-    setIsOpen(false);
     setIsCustom(false);
   });
 
@@ -435,7 +432,6 @@ export function RangePicker({
       to: to ? setEndOfDay(to) : undefined,
       type: !hideMenu ? rangeType : null
     });
-    setIsOpen(false);
     setIsCustom(false);
   };
   const renderCalendarInputs = () => (
@@ -444,7 +440,6 @@ export function RangePicker({
       locale={locale}
       selectedDate={selectedDate}
       onApply={() => handleAppy()}
-      onCancel={() => setIsOpen(false)}
       hideInputs={hideInputs}
       maxDate={maxDate}
       minDate={minDate}
@@ -458,25 +453,24 @@ export function RangePicker({
           inputPosition === 'top' || hideInputs ? 'w-full' : 'w-fit'
         }`}
       >
-        <Button variant="outline" size="sm" onClick={() => setIsOpen(false)} data-testid="ranger-cancel">
-          {BUTTONS_ACTIONS_LABEL.cancel[locale]}
-        </Button>
-        <Button variant="solid" size="sm" onClick={handleAppy} data-testid="ranger-apply">
-          {BUTTONS_ACTIONS_LABEL.apply[locale]}
-        </Button>
+        <PopoverClose asChild>
+          <Button variant="outline" size="sm" data-testid="ranger-cancel">
+            {BUTTONS_ACTIONS_LABEL.cancel[locale]}
+          </Button>
+        </PopoverClose>
+        <PopoverClose asChild>
+          <Button variant="solid" size="sm" onClick={handleAppy} data-testid="ranger-apply">
+            {BUTTONS_ACTIONS_LABEL.apply[locale]}
+          </Button>
+        </PopoverClose>
       </div>
     );
   };
 
   return (
     <div className={cn('w-fit grid gap-2 ')} data-testid="ranger">
-      <Popover open={isOpen}>
-        <PopoverTrigger
-          data-testid="ranger-trigger"
-          className="w-full max-w-full cursor-pointer"
-          onClick={() => setIsOpen(!isOpen)}
-          type="submit"
-        >
+      <Popover>
+        <PopoverTrigger data-testid="ranger-trigger" className="w-full max-w-full cursor-pointer" type="submit">
           {trigger ? (
             trigger
           ) : (
