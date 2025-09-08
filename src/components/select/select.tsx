@@ -40,12 +40,12 @@ export function Select({ label, helperText, placeholder, options, value, default
 
   return (
     <div className="flex flex-col items-start gap-1 w-full">
-      {label ? (
-        <label className="flex items-center text-xs font-semibold text-tertiary-foreground">
+      {label && (
+        <label className="text-tertiary text-xs font-semibold leading-4 flex items-center [&_svg]:text-icon-tertiary">
           {label}
-          {required && <AsteriskIcon color="#52525B" width={16} height={16} opacity={0.45} />}
+          {required && <AsteriskIcon width={16} height={16} opacity={0.45} />}
         </label>
-      ) : null}
+      )}
 
       <RadixSelect.Root
         value={selectedValue}
@@ -57,39 +57,34 @@ export function Select({ label, helperText, placeholder, options, value, default
         <RadixSelect.Trigger
           aria-label={label}
           className={cn(
-            buttonVariants({
-              variant: 'outline',
-              size: 'lg',
-              className:
-                'bg-background-accent hover:bg-background-accent w-full justify-between data-[state=open]:border-[#9061F9] data-[state=open]:[box-shadow:0px_0px_0px_3px_rgba(144,_97,_249,_0.12)] data-[placeholder]:text-tertiary-foreground data-[placeholder]:opacity-60 data-[placeholder]:font-normal'
-            })
+            'w-full flex justify-between items-center rounded-2xl bg-surface border h-10 px-3 py-2 text-sm leading-none text-tertiary font-normal transition-all outline-none'
           )}
           data-testid="select-trigger"
         >
           <RadixSelect.Value placeholder={placeholder} />
-          <RadixSelect.Icon>
-            {isOpen ? <CaretUpIcon className="h-4 w-4 shrink-0 opacity-50" /> : <CaretDownIcon className="h-4 w-4 shrink-0 opacity-50" />}
+          <RadixSelect.Icon className=" flex items-center justify-center [&_svg_path]:fill-icon-tertiary">
+            {isOpen ? <CaretUpIcon className="h-4 w-4 shrink-0 opacity-50" /> : <CaretDownIcon className="h-4 w-4  shrink-0 opacity-50" />}
           </RadixSelect.Icon>
         </RadixSelect.Trigger>
 
-        <RadixSelect.Content className="w-full z-[9999999999] bg-background-accent border-divider rounded-lg shadow-modal-1 overflow-hidden">
+        <RadixSelect.Content className="w-full z-[9999999999] bg-surface border-default rounded-2xl shadow-modal-5 overflow-hidden">
           <RadixSelect.Viewport className="w-full">
             {options.map((option) => (
               <RadixSelect.Item
                 key={option.value}
                 value={option.value}
                 disabled={option.isDisabled}
-                className={`w-full relative flex items-center justify-between p-3 min-h-[48px] hover:outline-none data-[highlighted]:outline-none data-[highlighted]:text-primary-foreground data-[highlighted]:bg-list-hover ${
+                className={`w-full relative flex items-center justify-between p-3 min-h-[48px] hover:outline-none data-[highlighted]:outline-none data-[highlighted]:text-tertiary data-[highlighted]:bg-list-hover ${
                   option.isDisabled ? 'opacity-50 cursor-not-allowed' : ''
                 }`}
               >
                 <div className="w-full flex flex-col">
                   <RadixSelect.ItemText>
-                    <span className="text-secondary-foreground text-sm font-medium">{option.label}</span>
+                    <span className="text-tertiary text-sm font-normal">{option.label}</span>
                   </RadixSelect.ItemText>
 
                   {option.description ? (
-                    <span className="text-tertiary-foreground text-xs font-normal mt-1">{option.description}</span>
+                    <span className="text-tertiary text-xs font-normal mt-1 opacity-65">{option.description}</span>
                   ) : null}
                 </div>
 
@@ -103,7 +98,7 @@ export function Select({ label, helperText, placeholder, options, value, default
         </RadixSelect.Content>
       </RadixSelect.Root>
 
-      {helperText ? <span className="text-xs font-normal text-tertiary-foreground mt-1">{helperText}</span> : null}
+      {helperText ? <span className="text-tertiary leading-4 text-xs opacity-85">{helperText}</span> : null}
     </div>
   );
 }

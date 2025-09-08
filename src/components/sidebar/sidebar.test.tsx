@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  fireEvent,
-  getAllByText,
-  render,
-  screen,
-} from '@testing-library/react';
+import { fireEvent, getAllByText, render, screen } from '@testing-library/react';
 import { composeStories } from '@storybook/testing-react';
 import * as stories from './sidebar.stories';
 
@@ -28,12 +23,8 @@ describe('Sidebar Component', () => {
     const sidebarContainer = getByTestId('sidebar');
     const button = screen.getByRole('button');
     fireEvent.click(button);
-    expect(sidebarContainer.className.includes('bg-background-accent')).toBe(
-      true
-    );
-    expect(sidebarContainer.className.includes('shadow-bottom_sheet-2')).toBe(
-      true
-    );
+    expect(sidebarContainer.className.includes('bg-sidebar-background')).toBe(true);
+    expect(sidebarContainer.className.includes('shadow-modal-2')).toBe(true);
   });
   test('should render the correct header layout', () => {
     const { getByTestId } = render(<Default />);

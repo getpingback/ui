@@ -122,9 +122,10 @@ export const BUTTONS_ACTIONS_LABEL = {
 
 export const RANGE_PICKER_STYLES = {
   months: 'flex flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0',
-  month: 'space-y-4',
-  caption: 'flex justify-center gap-2 pt-4 pb-3 relative items-center text-[#52525B] opacity-85 capitalize ',
-  caption_end: 'border-l-[1px] border-[#71717A14] pr-3 pb-3 pl-3 ',
+  month: 'space-y-4 text-primary',
+  multiple_months: '[&>div>div:last-child]:border-l-[1px] [&>div>div:last-child]:border-default',
+  caption: 'flex justify-center gap-2 pt-4 pb-3 relative items-center text-tertiary opacity-85 capitalize ',
+  caption_end: 'pr-3 pb-3 pl-3  ',
   caption_start: 'pl-3 pb-3 [&:first-child>div]:flex-row-reverse',
   caption_label: 'text-sm font-semibold',
   nav: ' flex items-center',
@@ -135,16 +136,16 @@ export const RANGE_PICKER_STYLES = {
   head_row: 'flex',
   head_cell: 'text-button-ghost-foreground rounded-md w-9  text-[12px] opacity-65 font-semibold capitalize ',
   row: 'flex w-full mt-0',
-  cell: 'h-9 w-9 text-center text-sm p-0 relative [&:has([aria-selected].day-range-end)]:rounded-r-md [&:has([aria-selected].day-outside)]:bg-background-accent/50 [&:has([aria-selected])]:bg-background-accent first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md focus-within:relative focus-within:z-20',
-  day: cn(buttonVariants({ variant: 'clear' }), 'h-9 w-9 p-0 font-normal aria-selected:opacity-100 opacity-85 color-[#3F3F46]'),
-  day_range_end: '!bg-button-solid rounded-s-sm',
-  day_range_start: '!bg-button-solid rounded-e-sm ',
+  cell: 'h-9 w-9 text-center text-sm p-0 relative [&:has([aria-selected].day-range-end)]:rounded-r-md  first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md focus-within:relative focus-within:z-20',
+  day: cn(buttonVariants({ variant: 'clear' }), 'h-9 w-9 p-0 font-normal aria-selected:opacity-100 opacity-85'),
+  day_range_end: '!bg-button-solid !border-none aria-selected:!rounded-s-sm',
+  day_range_start: '!bg-button-solid !border-none aria-selected:!rounded-e-sm ',
+  day_range: '!text-red-500',
   day_selected:
-    '!text-button-solid-foreground  hover:bg-button-solid hover:text-button-ghost-foreground focus:bg-button-solid focus:text-button-solid-foreground !font-medium',
-  day_today: 'bg-button-ghost text-button-ghost-foreground pb-current-day',
+    '!text-button-solid-label !border-none rounded-lg hover:bg-button-solid hover:text-button-ghost-foreground focus:bg-button-solid focus:text-button-solid-foreground !font-medium',
   day_outside:
-    'day-outside text-button-ghost-foreground opacity-50 aria-selected:bg-[#9061F914] aria-selected:text-button-ghost-foreground',
+    'day-outside text-button-ghost-foreground opacity-50 aria-selected:bg-button-solid aria-selected:text-button-ghost-foreground',
   day_disabled: 'text-button-ghost-foreground opacity-50',
-  day_range_middle: 'aria-selected:!bg-[#9061F914] aria-selected:!rounded-none aria-selected:!text-informative-foreground ',
+  day_range_middle: 'aria-selected:!bg-button-ghost !border-none aria-selected:!rounded-none aria-selected:!text-button-outlined-label ',
   day_hidden: 'invisible'
 };

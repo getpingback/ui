@@ -12,7 +12,7 @@ interface RadioItemProps extends RadioGroupPrimitive.RadioGroupItemProps {
 
 const RadioGroup = React.forwardRef<React.ElementRef<typeof RadioGroupPrimitive.Root>, RadioGroupProps>(
   ({ children, direction = 'vertical', ...props }, ref) => (
-    <RadioGroupPrimitive.Root ref={ref} className={cn('flex gap-1', { 'flex-col': direction === 'vertical' })} {...props}>
+    <RadioGroupPrimitive.Root ref={ref} className={cn('w-full flex gap-1', { 'flex-col': direction === 'vertical' })} {...props}>
       {children}
     </RadioGroupPrimitive.Root>
   )
@@ -21,24 +21,29 @@ const RadioGroup = React.forwardRef<React.ElementRef<typeof RadioGroupPrimitive.
 RadioGroup.displayName = RadioGroupPrimitive.Root.displayName;
 
 const RadioItem = ({ id, value, children, disabled, ...props }: RadioItemProps) => (
-  <div className="flex items-center gap-2 h-8 rounded-lg w-fit transition duration-200 py-1 px-2">
+  <RadioGroupPrimitive.Item
+    value={value}
+    className="w-full flex items-center gap-2 h-8 rounded-lg w-fit transition duration-200 py-1 px-2 aria-checked:bg-neutral-active enabled:hover:bg-neutral-hover aria-checked:hover:bg-neutral-active-hover disabled:opacity-65"
+    disabled={disabled}
+    {...props}
+  >
     <RadioGroupPrimitive.Item
       value={value}
       id={id}
       disabled={disabled}
-      className="peer border border-solid border-input-outline w-4 h-4 rounded-full enabled:hover:ring-8 enabled:hover:ring-input-outline-hover aria-checked:ring-input-selected-hover aria-checked:border-4 enabled:aria-checked:border-input-selected transition duration-200 enabled:hover:cursor-pointer disabled:border-input-outline/45 disabled:hover:cursor-not-allowed"
+      className="peer border border-solid enabled:hover:shadow-selection-hover border-icon-tertiary w-4 h-4 rounded-full shadow-sm aria-checked:ring-icon-primary aria-checked:border-4 aria-checked:border-icon-primary transition duration-200 enabled:hover:cursor-pointer  disabled:hover:cursor-not-allowed"
       {...props}
     >
       <RadioGroupPrimitive.Indicator />
     </RadioGroupPrimitive.Item>
 
     <label
-      className="text-secondary-foreground text-sm peer-hover:cursor-pointer peer-disabled:hover:cursor-not-allowed peer-focus:underline duration-200 transition peer-enabled:peer-aria-checked:text-input-selected-label peer-enabled:peer-aria-checked:decoration-input-selected peer-disabled:text-secondary-foreground/45"
+      className="text-tertiary font-semibold text-sm peer-hover:cursor-pointer peer-enabled:hover:text-secondary peer-enabled:peer-aria-checked:text-primary duration-200 transition peer-enabled:peer-aria-checked:text-primary peer-enabled:peer-aria-checked:decoration-input-selected"
       htmlFor={id}
     >
       {children}
     </label>
-  </div>
+  </RadioGroupPrimitive.Item>
 );
 
 export { RadioGroup, RadioItem };

@@ -111,9 +111,9 @@ const ButtonContent = React.forwardRef<
   return (
     <>
       <span ref={ref} className={cn('flex items-center w-full gap-1 h-full [&>span]:h-full', { 'opacity-0': isLoading })}>
-        {prefix && <span>{prefix}</span>}
+        {prefix && <span className="flex items-center">{prefix}</span>}
         {children}
-        {suffix && <span>{suffix}</span>}
+        {suffix && <span className="flex items-center">{suffix}</span>}
       </span>
 
       {isLoading && (
