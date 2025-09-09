@@ -2,11 +2,12 @@ import * as React from 'react';
 
 import { cn } from '@/lib/utils';
 import { HexColorPicker } from 'react-colorful';
-import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
 import { Button } from '../button';
 import { getInitialOpacity, opacityToHex } from './utils';
 import { THEME_COLORS } from './constants';
+import { Popover, PopoverContent, PopoverTrigger } from '../popover';
+import { CheckIcon } from '@stash-ui/regular-icons';
 
 interface ColorPickerProps {
   color: string;
@@ -28,7 +29,7 @@ export const ColorPicker = ({
   cancelText = 'Cancel',
   saveText = 'Save',
   side = 'bottom',
-  align = 'end',
+  align = 'start',
   className
 }: ColorPickerProps) => {
   const initialOpacity = getInitialOpacity(color);
@@ -81,20 +82,15 @@ export const ColorPicker = ({
   };
 
   return (
-    <DropdownMenuPrimitive.Root open={isOpen} onOpenChange={setIsOpen}>
-      <DropdownMenuPrimitive.Trigger asChild>
+    <Popover open={isOpen} onOpenChange={setIsOpen}>
+      <PopoverTrigger asChild>
         <button
           style={{ backgroundColor: hasHash ? color : `#${color}` }}
           className="w-6 h-6 rounded-md shadow-[0px_0px_0px_1.33px_#00000014_inset] cursor-pointer"
           onClick={() => setIsOpen(true)}
         />
-      </DropdownMenuPrimitive.Trigger>
-      <DropdownMenuPrimitive.Content
-        side={side}
-        align={align}
-        className={cn('w-[252px] bg-surface p-4 flex flex-col z-50 rounded-2xl shadow-modal-5', className)}
-        data-testid="color-picker-dialog"
-      >
+      </PopoverTrigger>
+      <PopoverContent side={side} align={align} className={cn('w-[252px] flex flex-col', className)} data-testid="color-picker-dialog">
         <div className="custom-color-picker">
           <HexColorPicker color={color} onChange={handleChangeHexColor} />
         </div>
@@ -102,14 +98,14 @@ export const ColorPicker = ({
           <div className="flex">
             <input
               type="text"
-              className="w-full bg-surface border border-default rounded-l-lg rounded-r-none text-gray-600 text-sm py-2 px-3"
+              className="w-full bg-surface outline-none border border-default rounded-l-xl rounded-r-none text-tertiary text-sm py-2 px-3 placeholder:text-tertiary"
               value={color.toUpperCase()}
               onChange={(e) => onChange(e.target.value)}
               onBlur={handleHexInputBlur}
             />
             <input
               type="text"
-              className="w-full max-w-[60px] bg-surface border border-default rounded-r-lg rounded-l-none border-l-0 text-gray-600 text-sm py-2 px-[11px]"
+              className="w-full max-w-[60px] bg-surface outline-none border border-default rounded-r-xl rounded-l-none border-l-0 text-tertiary text-sm py-2 px-[11px] placeholder:text-tertiary"
               value={`${Math.round(opacity * 100)}%`}
               onChange={handleChangeOpacity}
               onClick={handleOpacityInputClick}
@@ -121,21 +117,23 @@ export const ColorPicker = ({
                 key={themeColor}
                 data-testid="theme-color"
                 style={{ backgroundColor: themeColor }}
-                className="w-[13px] h-[13px] rounded-sm cursor-pointer"
+                className="w-4 h-4 rounded-[4px] hover:scale-105 hover:shadow-outlined transition-all duration-200 ease-in-out cursor-pointer"
                 onClick={() => handleChangeHexColor(themeColor)}
-              />
+              >
+                {themeColor === color && <CheckIcon className="w-4 h-4 text-neutral-white" />}
+              </div>
             ))}
           </div>
           <div className="flex gap-3">
-            <Button variant="ghost" width="full" onClick={handleCancel}>
-              <span className="w-full text-center">{cancelText}</span>
+            <Button variant="clear" width="full" onClick={handleCancel}>
+              {cancelText}
             </Button>
             <Button variant="outline" width="full" onClick={handleSave}>
-              <span className="w-full text-center">{saveText}</span>
+              {saveText}
             </Button>
           </div>
         </div>
-      </DropdownMenuPrimitive.Content>
-    </DropdownMenuPrimitive.Root>
+      </PopoverContent>
+    </Popover>
   );
 };

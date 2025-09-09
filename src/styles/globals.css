@@ -8,10 +8,12 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
+html,
+.sbdocs-preview {
   background-color: var(--brown-50);
 }
 
-html.dark {
+html.dark,
+html.dark .sbdocs-preview {
   background-color: var(--gray-900);
 }

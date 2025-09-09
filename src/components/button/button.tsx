@@ -16,7 +16,7 @@ const buttonVariants = cva(
           'bg-button-ghost text-button-outlined-label hover:bg-button-ghost-hover focus:bg-button-ghost-pressed active:bg-button-ghost-pressed',
         outline:
           'border border-button-outlined bg-transparent text-button-outlined-label hover:border-button-outlined-hover hover:shadow-outlined disabled:hover:border-button-outlined focus:shadow-none active:shadow-none focus:border-button-outlined-pressed active:border-button-outlined-pressed',
-        danger: 'bg-red-500 text-button-solid-label hover:bg-red-600',
+        danger: 'bg-red-500 text-gray-50 hover:bg-red-600',
         clear: 'text-button-clear-label'
       },
       size: {
@@ -111,9 +111,9 @@ const ButtonContent = React.forwardRef<
   return (
     <>
       <span ref={ref} className={cn('flex items-center w-full gap-1 h-full [&>span]:h-full', { 'opacity-0': isLoading })}>
-        {prefix && <span>{prefix}</span>}
+        {prefix && <span className="flex items-center">{prefix}</span>}
         {children}
-        {suffix && <span>{suffix}</span>}
+        {suffix && <span className="flex items-center">{suffix}</span>}
       </span>
 
       {isLoading && (

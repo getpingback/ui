@@ -15,7 +15,7 @@ function PaginationItem({ children, isActive, isRounded, disabled, className, ..
     <Button
       {...props}
       variant={isActive ? 'solid' : 'outline'}
-      rounded={isRounded ? 'full' : 'lg'}
+      rounded={isRounded ? 'full' : 'xl'}
       disabled={disabled}
       className={cn('h-8 w-8 p-0', className)}
     >

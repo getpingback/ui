@@ -11,11 +11,11 @@ interface ModalProps extends Dialog.DialogProps {
 const Modal = ({ children, className, ...props }: ModalProps) => (
   <Dialog.Root {...props}>
     <Dialog.Portal>
-      <Dialog.Overlay className="z-50 grid md:place-items-center place-items-end grid-cols-1 fixed inset-0 bg-[#FFFFFF]/70 w-screen h-screen backdrop-blur-[8px] animate-fade-in">
+      <Dialog.Overlay className="z-50 grid lg:place-items-center place-items-end grid-cols-1 fixed inset-0 bg-background-neutral w-screen h-screen backdrop-blur-[8px] animate-fade-in">
         <Dialog.Content
           data-testid={props['data-testid']}
           className={cn(
-            'flex flex-col bg-[#FFFFFF] h-fit shadow-modal-5 md:rounded-xl rounded-t-xl w-full md:w-auto md:max-w-xl p-4 data-[state=open]:animate-modal-slide-up md:data-[state=open]:animate-modal-fade-in data-[state=closed]:animate-modal-slide-down md:data-[state=closed]:animate-modal-fade-out',
+            'flex flex-col bg-surface h-fit border border-default shadow-modal-5 rounded-t-3xl p-6 lg:rounded-[32px] w-full lg:w-fit lg:min-w-80 lg:max-w-xl lg:p-8 data-[state=open]:animate-modal-slide-up lg:data-[state=open]:animate-modal-fade-in data-[state=closed]:animate-modal-slide-down lg:data-[state=closed]:animate-modal-fade-out',
             className
           )}
         >

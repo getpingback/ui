@@ -54,8 +54,10 @@ const backgroundColor = {
     DEFAULT: 'var(--background-neutral-default)',
     inverse: 'var(--background-neutral-inverse)',
     hover: 'var(--background-neutral-hover)',
-    active: 'var(--background-neutral-active)',
-    'active-hover': 'var(--background-neutral-active-hover)'
+    active: {
+      DEFAULT: 'var(--background-neutral-active)',
+      hover: 'var(--background-neutral-active-hover)'
+    }
   }
 };
 
@@ -487,6 +489,7 @@ const config = {
         solid: 'var(--button-solid-hover)',
         outlined: 'var(--button-outlined-hover)',
         ghost: 'var(--button-ghost-hover)',
+        
         'input-focus-valid': 'var(--input-focus-valid)',
         'input-focus-invalid': 'var(--input-focus-invalid)',
         'input-focus-neutral': 'var(--input-focus-neutral)',
@@ -633,12 +636,12 @@ const config = {
           height: '152px'
         },
         '.custom-color-picker .react-colorful__saturation': {
-          borderTopLeftRadius: '4px',
-          borderTopRightRadius: '4px'
+          borderTopLeftRadius: '12px',
+          borderTopRightRadius: '12px'
         },
         '.custom-color-picker .react-colorful__last-control': {
-          borderBottomLeftRadius: '4px',
-          borderBottomRightRadius: '4px'
+          borderBottomLeftRadius: '12px',
+          borderBottomRightRadius: '12px'
         },
         '.custom-color-picker .react-colorful__pointer': {
           width: '0.5rem',
