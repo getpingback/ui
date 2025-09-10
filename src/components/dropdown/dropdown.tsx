@@ -31,7 +31,7 @@ export interface DropdownItemProps extends React.ComponentProps<typeof DropdownM
   icon?: JSX.Element;
 }
 
-function DropdownItem({ className, ...props }: DropdownItemProps) {
+function DropdownItem({ className, onClick, ...props }: DropdownItemProps) {
   return (
     <DropdownMenuPrimitive.Item
       className={cn(
@@ -39,6 +39,10 @@ function DropdownItem({ className, ...props }: DropdownItemProps) {
         className
       )}
       data-testid="dropdown-item"
+      onClick={(e) => {
+        e.stopPropagation();
+        onClick?.(e);
+      }}
       {...props}
     >
       {props.icon && props.icon}

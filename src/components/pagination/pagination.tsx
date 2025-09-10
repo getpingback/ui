@@ -17,7 +17,7 @@ function PaginationItem({ children, isActive, isRounded, disabled, className, ..
       variant={isActive ? 'solid' : 'outline'}
       rounded={isRounded ? 'full' : 'xl'}
       disabled={disabled}
-      className={cn('h-8 w-8 p-0', className)}
+      className={cn('h-8 w-8 lg:w-10 p-0', className)}
     >
       <span className="w-full flex items-center justify-center font-semibold">{children}</span>
     </Button>
@@ -51,67 +51,70 @@ const Pagination = ({ totalPages, onPageChange, page, round = false, className, 
     <nav
       role="navigation"
       aria-label="pagination"
-      className={cn('mx-auto flex w-full justify-center gap-2', className)}
+      className={cn('flex w-full justify-between gap-2', className)}
       data-testid="pagination"
       {...props}
     >
-      <PaginationItem
-        onClick={() => handleSetActivePage(1)}
-        disabled={currentPage === 1}
-        data-testid="pagination-first"
-        isRounded={round}
-        className="hidden xl:block"
-      >
-        <ChevronDoubleLeftIcon color="#71717A" width={16} height={16} />
-      </PaginationItem>
-      <PaginationItem
-        onClick={() => handleSetActivePage(currentPage - 1)}
-        disabled={currentPage === 1}
-        data-testid="pagination-previous"
-        isRounded={round}
-      >
-        <ChevronLeftIcon color="#71717A" width={16} height={16} />
-      </PaginationItem>
+      <div className="flex items-center gap-2">
+        {paginationRange?.map((page, index) => {
+          const formattedPage = page as number;
+          if (page === DOTS) {
+            return (
+              <PaginationItem key={index} disabled data-testid="pagination-dots" isRounded={round}>
+                &hellip;
+              </PaginationItem>
+            );
+          }
 
-      {paginationRange?.map((page, index) => {
-        const formattedPage = page as number;
-        if (page === DOTS) {
           return (
-            <PaginationItem key={index} disabled data-testid="pagination-dots" isRounded={round}>
-              &hellip;
+            <PaginationItem
+              key={index}
+              isActive={formattedPage === currentPage}
+              isRounded={round}
+              onClick={() => handleSetActivePage(formattedPage)}
+            >
+              {page}
             </PaginationItem>
           );
-        }
+        })}
+      </div>
 
-        return (
-          <PaginationItem
-            key={index}
-            isActive={formattedPage === currentPage}
-            isRounded={round}
-            onClick={() => handleSetActivePage(formattedPage)}
-          >
-            {page}
-          </PaginationItem>
-        );
-      })}
-
-      <PaginationItem
-        onClick={() => handleSetActivePage(currentPage + 1)}
-        disabled={currentPage === totalPages}
-        data-testid="pagination-next"
-        isRounded={round}
-      >
-        <ChevronRightIcon color="#71717A" width={16} height={16} />
-      </PaginationItem>
-      <PaginationItem
-        onClick={() => handleSetActivePage(totalPages)}
-        disabled={currentPage === totalPages}
-        data-testid="pagination-last"
-        isRounded={round}
-        className="hidden xl:block"
-      >
-        <ChevronDoubleRightIcon color="#71717A" width={16} height={16} />
-      </PaginationItem>
+      <div className="flex items-center gap-2">
+        <PaginationItem
+          onClick={() => handleSetActivePage(1)}
+          disabled={currentPage === 1}
+          data-testid="pagination-first"
+          isRounded={round}
+          className="hidden lg:block"
+        >
+          <ChevronDoubleLeftIcon className="text-icon-tertiary" width={16} height={16} />
+        </PaginationItem>
+        <PaginationItem
+          onClick={() => handleSetActivePage(currentPage - 1)}
+          disabled={currentPage === 1}
+          data-testid="pagination-previous"
+          isRounded={round}
+        >
+          <ChevronLeftIcon className="text-icon-tertiary" width={16} height={16} />
+        </PaginationItem>
+        <PaginationItem
+          onClick={() => handleSetActivePage(currentPage + 1)}
+          disabled={currentPage === totalPages}
+          data-testid="pagination-next"
+          isRounded={round}
+        >
+          <ChevronRightIcon className="text-icon-tertiary" width={16} height={16} />
+        </PaginationItem>
+        <PaginationItem
+          onClick={() => handleSetActivePage(totalPages)}
+          disabled={currentPage === totalPages}
+          data-testid="pagination-last"
+          isRounded={round}
+          className="hidden lg:block"
+        >
+          <ChevronDoubleRightIcon className="text-icon-tertiary" width={16} height={16} />
+        </PaginationItem>
+      </div>
     </nav>
   );
 };
