@@ -41,7 +41,7 @@ function TabsTrigger({ className, layoutId, ...props }: TabsTriggerProps) {
       <TabsPrimitive.Trigger
         ref={triggerRef}
         className={cn(
-          `relative !h-full !px-3 !outline-none rounded-[80px] font-semibold text-xs transition-all duration-300 ease-in-out ${
+          `relative w-fit !h-full !px-3 !outline-none rounded-[80px] font-semibold text-xs transition-all duration-300 ease-in-out ${
             isActive ? 'bg-transparent text-button-solid-label' : buttonVariants({ variant: 'ghost' })
           }`,
           className

@@ -96,7 +96,9 @@ function Dropdown({
 }: DropdownProps) {
   return (
     <DropdownMenuPrimitive.Root modal={false}>
-      <DropdownMenuPrimitive.Trigger asChild={triggerAsChild}>{trigger}</DropdownMenuPrimitive.Trigger>
+      <DropdownMenuPrimitive.Trigger asChild={triggerAsChild} onClick={(e) => e.stopPropagation()}>
+        {trigger}
+      </DropdownMenuPrimitive.Trigger>
 
       <DropdownMenuPrimitive.Portal>
         <DropdownMenuPrimitive.Content

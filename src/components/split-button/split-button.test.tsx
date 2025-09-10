@@ -74,4 +74,14 @@ describe('SplitButton Component', () => {
 
     expect(onClickMock).toHaveBeenCalledWith('primary action');
   });
+
+  it('should not call onPrefixClick when clicking the dropdown trigger', () => {
+    const onPrefixClickMock = jest.fn();
+    render(<Solid {...{ onPrefixClick: onPrefixClickMock }} />);
+
+    const menuTrigger = screen.getByTestId('split-button-menu-trigger');
+    fireEvent.pointerDown(menuTrigger);
+
+    expect(onPrefixClickMock).not.toHaveBeenCalled();
+  });
 });

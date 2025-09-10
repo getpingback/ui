@@ -22,7 +22,7 @@ export const Solid: Story = {
     prefixIcon: <HeartIcon />,
     variant: 'primary',
     label: 'Button label',
-    onPrefixClick: () => {},
+    onPrefixClick: () => console.log('prefix click'),
     menuItems: [
       {
         key: 'add',

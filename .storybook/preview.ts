@@ -2,6 +2,8 @@ import type { Preview } from '@storybook/react';
 import { ThemeDecorator } from './theme-decorator';
 
 import '../src/styles/globals.css';
+import '@getpingback/design-tokens/css/light.css';
+import '@getpingback/design-tokens/css/dark.css';
 
 const preview: Preview = {
   decorators: [ThemeDecorator],

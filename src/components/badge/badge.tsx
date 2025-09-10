@@ -7,7 +7,7 @@ import { BADGE_TYPES, BADGE_VARIANTS } from './constants';
 
 const toNullMap = <T extends readonly string[]>(arr: T) => Object.fromEntries(arr.map((v) => [v, null])) as Record<T[number], null>;
 
-const badgeVariants = cva('flex items-center rounded-full font-bold text-[10px] leading-[1.75] h-6 px-2 uppercase', {
+const badgeVariants = cva('flex w-fit items-center rounded-full font-bold text-[10px] leading-[1.75] h-6 px-2 uppercase', {
   variants: {
     type: toNullMap(BADGE_TYPES),
     variant: toNullMap(BADGE_VARIANTS)

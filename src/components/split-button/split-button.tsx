@@ -16,6 +16,13 @@ const dropdownTriggerVariants = cva('border-l border-default h-full ml-2 w-8 fle
   }
 });
 
+type MenuItem = {
+  key: string;
+  icon: JSX.Element | undefined;
+  text: string;
+  onClick: () => void;
+};
+
 interface SplitButtonProps {
   prefixIcon: React.ReactNode;
   label: string;
@@ -25,12 +32,7 @@ interface SplitButtonProps {
   sufixIcon?: React.ReactNode;
   className?: string;
   align?: 'start' | 'center' | 'end';
-  menuItems: {
-    key: string;
-    icon: JSX.Element | undefined;
-    text: string;
-    onClick: () => void;
-  }[];
+  menuItems: MenuItem[];
 }
 
 function SplitButton({
@@ -44,11 +46,16 @@ function SplitButton({
   align = 'end',
   customMenu
 }: SplitButtonProps) {
+  const handlePrefixClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    onPrefixClick();
+  };
+
   return (
     <Button
       variant={variant}
       className={cn('[&>div]:pr-0', variant !== 'primary' && 'pr-0', className)}
-      onClick={onPrefixClick}
+      onClick={handlePrefixClick}
       suffix={
         <Dropdown
           trigger={
