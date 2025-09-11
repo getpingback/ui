@@ -19,10 +19,3 @@ export const Default: Story = {
     size: 'medium'
   }
 };
-
-export const Gradient: Story = {
-  args: {
-    size: 'large',
-    variant: 'purpleGradient'
-  }
-};
