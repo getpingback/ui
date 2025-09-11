@@ -158,11 +158,11 @@ const Swiper = ({ children, settings = DEFAULT_SETTINGS, className }: SwiperProp
       <button
         onClick={handlePrev}
         className={cn(
-          'overflow-hidden transition-all duration-300 hover:bg-purple-500/5 rounded-full',
+          'overflow-hidden transition-all duration-300 hover:bg-neutral-hover rounded-full',
           shouldHidePrevNavButton ? 'w-0' : 'w-10 min-w-10 mr-6'
         )}
       >
-        <ChevronLeftIcon className="w-10 h-10 text-purple-500" />
+        <ChevronLeftIcon className="w-10 h-10 text-icon-tertiary group-hover:text-icon-primary" />
       </button>
       <div
         className="w-full overflow-hidden cursor-grab"
@@ -187,11 +187,11 @@ const Swiper = ({ children, settings = DEFAULT_SETTINGS, className }: SwiperProp
       <button
         onClick={handleNext}
         className={cn(
-          'overflow-hidden transition-all duration-300 hover:bg-purple-500/5 rounded-full',
+          'group overflow-hidden transition-all duration-300 hover:bg-neutral-hover rounded-full',
           shouldHideNextNavButton ? 'w-0' : 'w-10 min-w-10 ml-6'
         )}
       >
-        <ChevronRightIcon className="w-10 h-10 text-purple-500" />
+        <ChevronRightIcon className="w-10 h-10 text-icon-tertiary group-hover:text-icon-primary" />
       </button>
     </div>
   );
