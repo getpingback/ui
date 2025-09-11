@@ -306,7 +306,7 @@ export function VariableInput({
       <PopoverContent
         side={side}
         align={align}
-        className="w-full p-0 bg-background-accent"
+        className="w-full p-0 max-w-[236px]"
         onWheel={(e) => e.stopPropagation()}
         onTouchMove={(e) => e.stopPropagation()}
         data-testid="comboxbox-popover-content"
