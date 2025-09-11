@@ -325,12 +325,12 @@ const config = {
         background: backgroundColor,
         typography: textColor,
         border: borderColor,
-        gradient: {
-          'brand-1': 'var(--gradiente-brand-1)',
-          'brand-2': 'var(--gradiente-brand-2)',
-          'brand-3': 'var(--gradiente-brand-3)',
-          'brand-4': 'var(--gradiente-brand-4)',
-          'brand-5': 'var(--gradiente-brand-5)'
+        backgroundImage: {
+          'gradient-brand-1': 'var(--gradiente-brand-1)',
+          'gradient-brand-2': 'var(--gradiente-brand-2)',
+          'gradient-brand-3': 'var(--gradiente-brand-3)',
+          'gradient-brand-4': 'var(--gradiente-brand-4)',
+          'gradient-brand-5': 'var(--gradiente-brand-5)'
         },
         surface: {
           DEFAULT: 'var(--surface-default)',
@@ -489,7 +489,7 @@ const config = {
         solid: 'var(--button-solid-hover)',
         outlined: 'var(--button-outlined-hover)',
         ghost: 'var(--button-ghost-hover)',
-        
+
         'input-focus-valid': 'var(--input-focus-valid)',
         'input-focus-invalid': 'var(--input-focus-invalid)',
         'input-focus-neutral': 'var(--input-focus-neutral)',
