@@ -41,7 +41,7 @@ function TabsTrigger({ className, layoutId, ...props }: TabsTriggerProps) {
       <TabsPrimitive.Trigger
         ref={triggerRef}
         className={cn(
-          `relative w-fit !h-full !px-3 !outline-none rounded-[80px] font-semibold text-xs transition-all duration-300 ease-in-out ${
+          `relative w-fit !h-full !px-3 !outline-none rounded-full font-semibold text-xs transition-all duration-300 ease-in-out ${
             isActive ? 'bg-transparent text-button-solid-label' : buttonVariants({ variant: 'ghost' })
           }`,
           className
@@ -57,7 +57,7 @@ function TabsTrigger({ className, layoutId, ...props }: TabsTriggerProps) {
         {isActive && (
           <motion.span
             layoutId={`${layoutId}-tab-active-indicator`}
-            className="absolute rounded-[80px] flex items-center text-button-solid-label justify-center inset-0 bg-button-solid mix-blend-exclusion"
+            className="absolute rounded-full flex items-center text-button-solid-label justify-center inset-0 bg-button-solid mix-blend-exclusion"
             transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
           />
         )}

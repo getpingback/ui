@@ -7,9 +7,7 @@ const meta = {
   title: 'Components/Navigation',
   component: NavigationList,
 
-  tags: ['autodocs'],
-
-  argTypes: {}
+  tags: ['autodocs']
 } satisfies Meta<typeof NavigationList>;
 
 export default meta;
@@ -61,7 +59,11 @@ export const NavigationDemo: Story = {
 };
 
 export const Item: Story = {
-  render: () => <NavigationItem> NavigationItem </NavigationItem>
+  render: () => <NavigationItem>NavigationItem</NavigationItem>
+};
+
+export const ItemActive: Story = {
+  render: () => <NavigationItem variant="active">NavigationItem</NavigationItem>
 };
 
 export const SubItem: Story = {

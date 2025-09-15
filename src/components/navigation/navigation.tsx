@@ -13,7 +13,7 @@ const navigationVariants = cva(
       variant: {
         default: 'text-tertiary hover:text-secondary hover:bg-sidebar-item-hover',
         disabled: 'text-tertiary opacity-[0.45] cursor-not-allowed',
-        active: 'bg-sidebar-item-pressed text-primary font-semibold'
+        active: 'bg-gradient-to-r from-sidebar-item-pressed to-background-default text-primary font-semibold'
       }
     },
     defaultVariants: {
@@ -24,21 +24,14 @@ const navigationVariants = cva(
 
 export interface NavigationLinkProps
   extends React.ComponentProps<typeof NavigationMenuPrimitive.Link>,
-    VariantProps<typeof navigationVariants> {
-  isActive?: boolean;
-}
+    VariantProps<typeof navigationVariants> {}
 
-function NavigationLink({ className, variant, isActive, ...props }: NavigationLinkProps) {
+function NavigationLink({ className, variant, ...props }: NavigationLinkProps) {
   return (
     <NavigationMenuPrimitive.Root className={cn('w-full', className)}>
       <NavigationMenuPrimitive.Link
         data-testid="navigation-link"
-        className={cn(
-          navigationVariants({ variant }),
-          className,
-          'justify-start hover:no-underline',
-          isActive && 'hover:text-primary text-primary bg-sidebar-item-pressed font-semibold'
-        )}
+        className={cn(navigationVariants({ variant }), className, 'justify-start hover:no-underline')}
         {...props}
       />
     </NavigationMenuPrimitive.Root>
@@ -47,18 +40,12 @@ function NavigationLink({ className, variant, isActive, ...props }: NavigationLi
 
 export interface NavigationItemProps
   extends React.ComponentProps<typeof NavigationMenuPrimitive.Item>,
-    VariantProps<typeof navigationVariants> {
-  isActive?: boolean;
-}
+    VariantProps<typeof navigationVariants> {}
 
-function NavigationItem({ className, variant, isActive, ...props }: NavigationItemProps) {
+function NavigationItem({ className, variant, ...props }: NavigationItemProps) {
   return (
     <NavigationMenuPrimitive.Root>
-      <NavigationMenuPrimitive.Item
-        data-testid="navigation-item"
-        className={cn(navigationVariants({ variant }), isActive && 'hover:text-primary text-primary bg-sidebar-item-pressed font-semibold')}
-        {...props}
-      />
+      <NavigationMenuPrimitive.Item data-testid="navigation-item" className={cn(navigationVariants({ variant }))} {...props} />
     </NavigationMenuPrimitive.Root>
   );
 }
