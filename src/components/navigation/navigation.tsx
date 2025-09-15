@@ -13,7 +13,7 @@ const navigationVariants = cva(
       variant: {
         default: 'text-tertiary hover:text-secondary hover:bg-sidebar-item-hover',
         disabled: 'text-tertiary opacity-[0.45] cursor-not-allowed',
-        active: 'bg-gradient-to-r from-sidebar-item-pressed to-background-default text-primary font-semibold'
+        active: 'bg-gradient-to-r from-sidebar-item-pressed to-transparent text-primary font-semibold hover:text-primary'
       }
     },
     defaultVariants: {
