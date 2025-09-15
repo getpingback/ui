@@ -53,7 +53,6 @@ describe('Button Component', () => {
       expect(innerDiv).not.toBeNull();
       expect(innerDiv?.className.includes('px-3')).toBe(true);
       expect(innerDiv?.className.includes('!h-full')).toBe(true);
-      expect(innerDiv?.className.includes('!rounded-[10px]')).toBe(true);
       expect(innerDiv?.className.includes('bg-button-solid')).toBe(true);
     });
   });

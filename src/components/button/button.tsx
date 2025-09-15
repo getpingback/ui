@@ -51,7 +51,11 @@ const buttonVariants = cva(
         variant: 'primary',
         size: 'lg',
         className: 'h-10 p-[2px]'
-      }
+      },
+      { variant: 'primary', rounded: 'sm', className: '[&>div]:rounded-sm' },
+      { variant: 'primary', rounded: 'md', className: '[&>div]:rounded-[4px]' },
+      { variant: 'primary', rounded: 'xl', className: '[&>div]:rounded-[10px]' },
+      { variant: 'primary', rounded: 'full', className: '[&>div]:rounded-full' }
     ],
     defaultVariants: {
       variant: 'solid',
@@ -86,8 +90,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {variant === 'primary' ? (
           <div
             className={cn(
-              'px-3 !h-full !rounded-[10px] transition-all duration-200 ease-in-out hover:translate-y-[-2px] focus:translate-y-[2px] active:translate-y-[2px]',
-              buttonVariants({ variant: 'solid' })
+              'px-3 !h-full transition-all duration-200 ease-in-out hover:translate-y-[-2px] focus:translate-y-[2px] active:translate-y-[2px]',
+              buttonVariants({ variant: 'solid', width, align, rounded })
             )}
           >
             <ButtonContent isLoading={isLoading} prefix={prefix} suffix={suffix}>
