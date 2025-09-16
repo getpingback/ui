@@ -1,50 +1,51 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import {
-  Sidebar,
-  SideBarHeader,
-  SideBarFooter,
-  SideBarContent,
-} from './sidebar';
+import { Sidebar, SideBarHeader, SideBarFooter, SideBarContent } from './sidebar';
 
 const meta = {
   title: 'Components/Sidebar',
   component: Sidebar,
   parameters: {
-    layout: 'centered',
+    layout: 'fullscreen'
   },
-
   tags: ['autodocs'],
 
-  argTypes: {},
+  argTypes: {}
 } satisfies Meta<typeof Sidebar>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = () => {
-  const [isOpen, setIsOpen] = useState(false);
+export const Default: Story = {
+  args: {
+    isOpen: false
+  },
+  render: (args) => {
+    const [isOpen, setIsOpen] = useState(false);
 
-  return (
-    <div className='flex justify-center'>
-      <Sidebar isOpen={isOpen} onClose={() => setIsOpen(false)}>
-        <SideBarContent>
-          <SideBarHeader>Header</SideBarHeader>
-          <div className='h-[40px]'>Dashboard</div>
-          <div className='h-[40px]'>Seetings</div>
-          <div className='h-[40px]'>Create</div>
-          <div className='h-[40px]'>Measure</div>
-        </SideBarContent>
+    useEffect(() => {
+      setIsOpen(args.isOpen);
+    }, [args.isOpen]);
 
-        <SideBarFooter>Footer</SideBarFooter>
-      </Sidebar>
-      <button
-        className='p-2 border rounded-lg'
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        Click me
-      </button>
-    </div>
-  );
+    return (
+      <div className="flex justify-between h-screen">
+        <Sidebar isOpen={isOpen}>
+          <SideBarHeader isOpen={isOpen} onOpenChange={() => setIsOpen(!isOpen)}>
+            Header
+          </SideBarHeader>
+          <SideBarContent>
+            <div className="h-[40px]">Dashboard</div>
+            <div className="h-[40px]">Seetings</div>
+            <div className="h-[40px]">Create</div>
+            <div className="h-[40px]">Measure</div>
+          </SideBarContent>
+          <SideBarFooter>Footer</SideBarFooter>
+        </Sidebar>
+        <button className="p-2 border rounded-lg h-fit mt-3 mr-3" onClick={() => setIsOpen(!isOpen)}>
+          Click me
+        </button>
+      </div>
+    );
+  }
 };
