@@ -10,7 +10,7 @@ function Sidebar({ className, isOpen, ...props }: SidebarProps) {
     <div
       data-testid="sidebar"
       className={cn(
-        'flex flex-col h-screen bg-sidebar-background shadow-modal-2 pt-6 fixed top-0 left-0 z-40 lg:relative lg:h-full transition-all duration-300 ease-in-out',
+        'flex flex-col h-screen bg-sidebar-background shadow-modal-2 pt-6 fixed top-0 left-0 z-50 lg:z-40 lg:relative lg:h-full transition-all duration-300 ease-in-out',
         isOpen && 'translate-x-0 w-[225px]',
         !isOpen && '-translate-x-[calc(100%+32px)] w-[225px] lg:translate-x-0 lg:w-16',
         className
