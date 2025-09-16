@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.498](https://github.com/getpingback/ui/compare/v0.0.492...v0.0.498) (2025-09-16)
+
+
+### Bug Fixes
+
+* add on remove item at combobox ([9492de0](https://github.com/getpingback/ui/commits/9492de0b2ca3882c95c56f96829eed0dfe7afaa2))
+* add popoverPosition as prop ([0b3f103](https://github.com/getpingback/ui/commits/0b3f103bfc135f48c36f1ba65c0fa021eb23f861))
+* color picker trigger ([9a0efa3](https://github.com/getpingback/ui/commits/9a0efa3be5bbb34e811b8c7cbd2403bbd3811dc1))
+* modal overlay animation ([621fad1](https://github.com/getpingback/ui/commits/621fad114cb8c22ead9749228fc34829edb31c8d))
+* popover position animation ([6549dfb](https://github.com/getpingback/ui/commits/6549dfbc3458fd4d0df69019d2d9a90aef65eea8))
+* toast test ([64574f9](https://github.com/getpingback/ui/commits/64574f9eaca3d2a278e07f19992dec3e7c6a37cc))
+* toast width ([e061ac2](https://github.com/getpingback/ui/commits/e061ac2e1aea18375ebfe5c943a8d5576b7abd68))
+
 ### [0.0.492](https://github.com/getpingback/ui/compare/v0.0.491...v0.0.492) (2025-08-19)
 
 
