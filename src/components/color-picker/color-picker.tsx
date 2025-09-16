@@ -18,6 +18,10 @@ interface ColorPickerProps {
   className?: string;
   side?: 'top' | 'bottom' | 'left' | 'right';
   align?: 'start' | 'center' | 'end';
+  triggerConfig?: {
+    showColorName?: boolean;
+    className?: string;
+  };
 }
 
 export const ColorPicker = ({
@@ -29,6 +33,7 @@ export const ColorPicker = ({
   saveText = 'Save',
   side = 'bottom',
   align = 'end',
+  triggerConfig,
   className
 }: ColorPickerProps) => {
   const initialOpacity = getInitialOpacity(color);
@@ -84,10 +89,18 @@ export const ColorPicker = ({
     <DropdownMenuPrimitive.Root open={isOpen} onOpenChange={setIsOpen}>
       <DropdownMenuPrimitive.Trigger asChild>
         <button
-          style={{ backgroundColor: hasHash ? color : `#${color}` }}
-          className="w-6 h-6 rounded-md shadow-[0px_0px_0px_1.33px_#00000014_inset] cursor-pointer"
+          className={cn(
+            `flex items-center gap-2 h-6 cursor-pointer ${triggerConfig?.showColorName ? 'w-full' : 'w-6'} ${triggerConfig?.className}`
+          )}
           onClick={() => setIsOpen(true)}
-        />
+        >
+          <span
+            data-testid="color-picker-trigger"
+            style={{ backgroundColor: hasHash ? color : `#${color}` }}
+            className="w-6 h-6 rounded-md shadow-[0px_0px_0px_1.33px_#00000014_inset] cursor-pointer"
+          />
+          {triggerConfig?.showColorName && <span className="text-sm text-secondary-foreground opacity-85">{color}</span>}
+        </button>
       </DropdownMenuPrimitive.Trigger>
       <DropdownMenuPrimitive.Content
         side={side}
