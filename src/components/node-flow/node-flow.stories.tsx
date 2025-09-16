@@ -7,7 +7,7 @@ import { NodeFlow, NodeLine, NodeParent } from './node-flow';
 const meta = {
   title: 'Components/NodeFlow',
   component: NodeFlow,
-
+  args: { children: null },
   tags: ['autodocs']
 } satisfies Meta<typeof NodeFlow>;
 
@@ -15,6 +15,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
+  args: { children: null },
   render: () => {
     return (
       <NodeFlow status="active">
@@ -27,7 +28,7 @@ export const Default: Story = {
             </AccordionPrimitive.Trigger>
             <AccordionPrimitive.Content className="data-[state=open]:animate-slide-up data-[state=closed]:animate-slide-down">
               <NodeLine conectionHeight={20}>
-                <div className="bg-gray-100 w-full text-xs h-16 rounded-md p-4 opacity-65">
+                <div className="bg-info w-full text-xs text-secondary h-16 rounded-md p-4 opacity-65">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis error quam nam deserunt nemo commodi saepe ullam quaerat
                   odio repellendus tenetur, omnis assumenda rerum, nulla, voluptatum consequuntur pariatur reprehenderit culpa?
                 </div>
@@ -44,14 +45,14 @@ export const Default: Story = {
                       </AccordionPrimitive.Trigger>
                       <AccordionPrimitive.Content className="data-[state=open]:animate-slide-up data-[state=closed]:animate-slide-down">
                         <NodeLine>
-                          <div className="bg-gray-100 w-full text-xs h-16 rounded-md p-4 opacity-65">
+                          <div className="bg-info w-full text-xs text-secondary h-16 rounded-md p-4 opacity-65">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis error quam nam deserunt nemo commodi saepe ullam
                             quaerat odio repellendus tenetur, omnis assumenda rerum, nulla, voluptatum consequuntur pariatur reprehenderit
                             culpa?
                           </div>
                         </NodeLine>
                         <NodeLine>
-                          <div className="bg-gray-100 w-full text-xs h-16 rounded-md p-4 opacity-65">
+                          <div className="bg-info w-full text-xs text-secondary h-16 rounded-md p-4 opacity-65">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis error quam nam deserunt nemo commodi saepe ullam
                             quaerat odio repellendus tenetur, omnis assumenda rerum, nulla, voluptatum consequuntur pariatur reprehenderit
                             culpa?
@@ -63,7 +64,7 @@ export const Default: Story = {
                 </NodeFlow>
               </NodeLine>
               <NodeLine>
-                <div className="bg-gray-100 w-full text-xs h-16 rounded-md p-4 opacity-65">
+                <div className="bg-info w-full text-xs text-secondary h-16 rounded-md p-4 opacity-65">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis error quam nam deserunt nemo commodi saepe ullam quaerat
                   odio repellendus tenetur, omnis assumenda rerum, nulla, voluptatum consequuntur pariatur reprehenderit culpa?
                 </div>
@@ -77,6 +78,7 @@ export const Default: Story = {
 };
 
 export const OnlyOneNode: Story = {
+  args: { children: null },
   render: () => {
     return (
       <NodeFlow>
@@ -84,7 +86,7 @@ export const OnlyOneNode: Story = {
           <Button variant="outline">NodeFlow</Button>
         </NodeParent>
         <NodeLine>
-          <div className="bg-gray-100 w-full text-xs h-16 rounded-md p-4 opacity-65">
+          <div className="bg-info w-full text-xs h-16 rounded-md p-4 opacity-65">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis error quam nam deserunt nemo commodi saepe ullam quaerat odio
             repellendus tenetur, omnis assumenda rerum, nulla, voluptatum consequuntur pariatur reprehenderit culpa?
           </div>

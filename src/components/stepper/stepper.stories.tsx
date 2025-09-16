@@ -11,9 +11,7 @@ const meta = {
   parameters: {
     layout: 'fullscreen'
   },
-
   tags: ['autodocs'],
-
   argTypes: {}
 } satisfies Meta<typeof Stepper>;
 
@@ -33,14 +31,19 @@ export const Default: Story = {
           rightElement={<Button>Add</Button>}
         >
           <div className="flex flex-col gap-2">
-            <Accordion label="Add your registered domain name below">Content example</Accordion>
-            <Accordion label="Add your registered domain name below">Content example</Accordion>
-            <Accordion label="Add your registered domain name below">Content example</Accordion>
-            <Accordion label="Add your registered domain name below">Content example</Accordion>
+            <Accordion label="Add your registered domain name below">
+              <span className="text-sm text-secondary">Content example</span>
+            </Accordion>
+            <Accordion label="Add your registered domain name below">
+              <span className="text-sm text-secondary">Content example</span>
+            </Accordion>
+            <Accordion label="Add your registered domain name below">
+              <span className="text-sm text-secondary">Content example</span>
+            </Accordion>
           </div>
         </Step>
         <Step label="Registro DNS" description="Add your registered domain name below" stepName="Step 2" status="completed">
-          Content example
+          <span className="text-sm text-secondary">Content example</span>
         </Step>
         <Step
           label="Registro DNS"
@@ -49,12 +52,16 @@ export const Default: Story = {
           status="current"
           rightElement={<Button>Logar com a Cloudflare</Button>}
         >
-          Content example
+          <span className="text-sm text-secondary">Content example</span>
         </Step>
         <Step label="Registro DNS" description="Add your registered domain name below" stepName="Step 2" status="pending">
           <div className="flex flex-col gap-2">
-            <Accordion label="Add your registered domain name below">Content example</Accordion>
-            <Accordion label="Add your registered domain name below">Content example</Accordion>
+            <Accordion label="Add your registered domain name below">
+              <span className="text-sm text-secondary">Content example</span>
+            </Accordion>
+            <Accordion label="Add your registered domain name below">
+              <span className="text-sm text-secondary">Content example</span>
+            </Accordion>
           </div>
         </Step>
       </Stepper>
@@ -75,7 +82,9 @@ export const OnlyOne: Story = {
           rightElement={<Button>Add</Button>}
         >
           <div className="flex flex-col gap-2">
-            <Accordion label="Add your registered domain name below">Content example</Accordion>
+            <Accordion label="Add your registered domain name below">
+              <span className="text-sm text-secondary">Content example</span>
+            </Accordion>
           </div>
         </Step>
       </Stepper>

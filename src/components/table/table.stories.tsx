@@ -32,7 +32,7 @@ export const Default: Story = {
         </TableHeader>
         <TableBody>
           <TableRow>
-            <TableCell className="w-[499px] font-semibold text-secondary-foreground">
+            <TableCell className="w-[499px] font-semibold text-secondary">
               Algoritmos como uma fábrica de bolos parte 1 - Como fazer um bolo?
             </TableCell>
             <TableCell className="opacity-[.65]">35%</TableCell>
@@ -40,7 +40,7 @@ export const Default: Story = {
             <TableCell className="opacity-[.65]">22/06</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell className="w-[499px] font-semibold text-secondary-foreground">
+            <TableCell className="w-[499px] font-semibold text-secondary">
               Algoritmos como uma fábrica de bolos parte 2 - Como fazer um bolo?
             </TableCell>
             <TableCell className="opacity-[.65]">35%</TableCell>
@@ -48,7 +48,7 @@ export const Default: Story = {
             <TableCell className="opacity-[.65]">22/06</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell className="w-[499px] font-semibold text-secondary-foreground">
+            <TableCell className="w-[499px] font-semibold text-secondary">
               Algoritmos como uma fábrica de bolos parte 3 - Como fazer um bolo?
             </TableCell>
             <TableCell className="opacity-[.65]">35%</TableCell>

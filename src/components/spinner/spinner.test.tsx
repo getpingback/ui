@@ -36,23 +36,10 @@ describe('Spinner Component', () => {
   });
 
   describe('Variants', () => {
-    test('should render spinner with purple variant', () => {
-      render(<Spinner />);
-      const spinner = screen.getByTestId('spinner');
-      expect(spinner.className.includes('text-purple-500')).toBe(true);
-    });
-
     test('should render spinner with gray variant', () => {
       render(<Spinner variant="gray" />);
       const spinner = screen.getByTestId('spinner');
-      expect(spinner.className.includes('text-gray-500')).toBe(true);
-    });
-
-    test('should render spinner with purple gradient variant', () => {
-      render(<Spinner variant="purpleGradient" />);
-      const spinner = screen.getByTestId('spinner');
-      expect(spinner.className.includes('[&_#gradient-circle]:stroke-[url(#gradient)]')).toBe(true);
-      expect(spinner.className.includes('[&_#circle]:stroke-[#71717A14]')).toBe(true);
+      expect(spinner.className.includes('text-icon-secondary')).toBe(true);
     });
   });
 
@@ -60,19 +47,19 @@ describe('Spinner Component', () => {
     test('should render with small stroke size', () => {
       render(<Spinner />);
       const circle = screen.getByTestId('spinner').querySelector('circle');
-      expect(circle).toHaveAttribute('stroke-width', '3.6');
+      expect(circle).toHaveAttribute('stroke-width', '4');
     });
 
     test('should render with medium stroke size', () => {
       render(<Spinner strokeSize="medium" />);
       const circle = screen.getByTestId('spinner').querySelector('circle');
-      expect(circle).toHaveAttribute('stroke-width', '5');
+      expect(circle).toHaveAttribute('stroke-width', '7');
     });
 
     test('should render with large stroke size', () => {
       render(<Spinner strokeSize="large" />);
       const circle = screen.getByTestId('spinner').querySelector('circle');
-      expect(circle).toHaveAttribute('stroke-width', '7');
+      expect(circle).toHaveAttribute('stroke-width', '9');
     });
   });
 });

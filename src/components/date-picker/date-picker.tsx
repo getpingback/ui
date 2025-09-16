@@ -77,7 +77,7 @@ export function DatePicker({ locale = 'en', label, placeholder, helperText, valu
       <PopoverContent
         side={side}
         align={align}
-        className="w-auto p-0 bg-background-accent"
+        className="w-auto p-0"
         onWheel={(e) => e.stopPropagation()}
         onTouchMove={(e) => e.stopPropagation()}
         data-testid="date-picker-popover-content"

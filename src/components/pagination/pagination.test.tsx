@@ -35,10 +35,10 @@ describe('Pagination Component', () => {
       const activePage = screen.getAllByRole('button');
       const nextPage = screen.getByText('3');
 
-      expect(activePage[4].className.includes('bg-button-solid')).toBe(false);
+      expect(activePage[2].className.includes('bg-button-solid')).toBe(false);
 
       fireEvent.click(nextPage);
-      expect(activePage[4].className.includes('bg-button-solid')).toBe(true);
+      expect(activePage[2].className.includes('bg-button-solid')).toBe(true);
       expect(activePage[5].className.includes('bg-button-solid')).toBe(false);
       expect(activePage[3].className.includes('bg-button-solid')).toBe(false);
     });

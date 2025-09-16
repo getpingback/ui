@@ -23,16 +23,14 @@ function Accordion({ className, children, label, isInitialStateOpen = false, isO
       <AccordionPrimitive.Item {...props} value="accordion">
         <AccordionPrimitive.Trigger
           className={cn(
-            'w-full h-[40px] inline-flex items-center justify-between cursor-pointer opacity-80 text-sm p-[12px] rounded-lg text-secondary-foreground [&[data-state=open]>svg]:rotate-180 [&[data-state=open]]:bg-list-actived [&[data-state=open]]:text-active-foreground font-semibold bg-[#D4D4D840]  transition duration-400 ease-in-out'
+            'w-full h-[40px] inline-flex items-center justify-between cursor-pointer hover:bg-neutral-hover bg-neutral text-secondary py-2 px-4 rounded-xl text-sm font-semibold [&[data-state=open]>svg]:rotate-180 [&[data-state=open]]:bg-neutral-active [&[data-state=open]]:hover:bg-neutral-active-hover transition duration-300 ease-in-out'
           )}
         >
           {label}
           <ChevronDownIcon className="shrink-0 transition-transform duration-200" />
         </AccordionPrimitive.Trigger>
-        <AccordionPrimitive.Content
-          className={cn('w-full flex flex-col overflow-hidden data-[state=open]:animate-slide-up data-[state=closed]:animate-slide-down')}
-        >
-          {children}
+        <AccordionPrimitive.Content className="w-full overflow-hidden data-[state=open]:animate-slide-up data-[state=closed]:animate-slide-down">
+          <div className="w-full flex flex-col">{children}</div>
         </AccordionPrimitive.Content>
       </AccordionPrimitive.Item>
     </AccordionPrimitive.Root>

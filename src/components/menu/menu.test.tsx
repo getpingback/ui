@@ -9,8 +9,8 @@ describe('Menu Component', () => {
   test('renders correctly MenuItem styles', async () => {
     const { getAllByTestId } = render(<Default />);
     const item = getAllByTestId(/menu-item/i);
-    expect(item[0].className.includes('text-list-label')).toBe(true);
-    expect(item[0].className.includes('hover:bg-list-hover')).toBe(true);
+    expect(item[0].className.includes('text-tertiary')).toBe(true);
+    expect(item[0].className.includes('hover:bg-neutral-hover')).toBe(true);
   });
   test('Render all items correctly', async () => {
     const { getAllByTestId } = render(<Default />);
@@ -28,10 +28,7 @@ describe('Menu Component', () => {
   test('Render divider correctly', async () => {
     const { getByTestId } = render(<Default />);
     const item = getByTestId('menu-divider');
-    expect(item).toHaveAttribute(
-      'class',
-      'w-full h-[1px] bg-list-hover my-[8px]'
-    );
+    expect(item).toHaveAttribute('class', 'w-full h-[1px] bg-border-default my-2');
   });
   test('Render Sub correctly', async () => {
     const { getAllByTestId } = render(<Default />);

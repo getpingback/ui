@@ -3,7 +3,8 @@ import { fireEvent, render, act, waitFor } from '@testing-library/react';
 import { composeStories } from '@storybook/testing-react';
 import * as stories from './dropzone.stories';
 
-const { Default, ImageUploaded } = composeStories(stories);
+const { Default, ImageUploaded, Loading } = composeStories(stories);
+
 describe('Dropzone Component', () => {
   beforeAll(() => {
     global.URL.createObjectURL = jest.fn(() => 'http://localhost/mock-url');
@@ -23,12 +24,8 @@ describe('Dropzone Component', () => {
     expect(dropzone).toContainElement(imagePreview);
 
     const image = getByTestId('image');
-    expect(image).toHaveStyle(
-      `background-image: url(https://picsum.photos/200)`
-    );
-    expect(image).toHaveStyle(`width: 132px`);
-    expect(image).toHaveStyle(`height: 132px`);
-    expect(image).toHaveStyle(`border-radius: 8px`);
+    expect(image).toHaveStyle(`background-image: url(https://picsum.photos/200)`);
+    expect(image).toHaveClass('w-32', 'h-32', 'rounded-2xl');
   });
   test('When the image is removed it should return to the dropImage state', async () => {
     const { getByTestId } = render(<ImageUploaded />);
@@ -49,5 +46,9 @@ describe('Dropzone Component', () => {
     });
 
     expect(getByTestId('image-preview')).toBeInTheDocument();
+  });
+  test('renders spinner when loading', async () => {
+    const { getByTestId } = render(<Loading />);
+    expect(getByTestId('spinner')).toBeInTheDocument();
   });
 });

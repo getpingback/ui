@@ -83,7 +83,7 @@ describe('SelectList', () => {
     );
 
     const item1Button = screen.getByText('Item 1').closest('button');
-    expect(item1Button).toHaveClass('bg-purple-500/5');
+    expect(item1Button).toHaveClass('bg-neutral');
   });
 
   it('should render with default values in multiple mode', () => {
@@ -99,9 +99,9 @@ describe('SelectList', () => {
     const item2Button = screen.getByText('Item 2').closest('button');
     const item3Button = screen.getByText('Item 3').closest('button');
 
-    expect(item1Button).toHaveClass('bg-purple-500/5');
-    expect(item2Button).toHaveClass('bg-purple-500/5');
-    expect(item3Button).not.toHaveClass('bg-purple-500/5');
+    expect(item1Button).toHaveClass('bg-neutral');
+    expect(item2Button).toHaveClass('bg-neutral');
+    expect(item3Button).not.toHaveClass('bg-neutral');
   });
 
   it('should call onClick on SelectItem when provided', () => {

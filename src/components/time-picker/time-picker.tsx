@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import { ClockIcon } from '@stash-ui/light-icons';
+import { TextField } from '@/components/text-field';
 
 export interface TimePickerProps {
   label?: string;
@@ -50,30 +51,22 @@ export function TimePicker({ label, placeholder, helperText, value, onChange, ..
 
   return (
     <div className="flex flex-col items-start gap-1">
-      {label ? (
-        <label className="text-xs font-semibold text-tertiary-foreground" htmlFor="time-picker">
-          {label}
-        </label>
-      ) : null}
-
       <div className="relative w-full">
-        <input
+        <TextField
           id="time-picker"
           ref={inputRef}
+          maxLength={5}
+          label={label}
+          placeholder={placeholder}
+          helperText={helperText}
           value={time}
           onChange={handleChange}
           onBlur={() => setTime(value || '')}
-          placeholder={placeholder}
-          maxLength={5}
-          className="flex h-10 w-full border-divider border rounded-lg bg-transparent py-2 pr-10 pl-3 text-sm outline-none text-tertiary-foreground placeholder:opacity-85 disabled:cursor-not-allowed disabled:opacity-50 hover:border-[#A1A1AA] focus:border-[#9061F9] focus:[box-shadow:0px_0px_0px_3px_rgba(144,_97,_249,_0.12)] transition-all duration-200 ease-in-out"
           data-testid="time-picker"
-          {...props}
         />
 
-        <ClockIcon className="h-5 w-5 absolute top-[10px] right-[12px]" color="#52525B" />
+        <ClockIcon className="w-6 h-6 text-icon-tertiary absolute right-2 top-1/2 -translate-y-1/2" />
       </div>
-
-      {helperText ? <span className="text-xs font-normal text-tertiary-foreground mt-1">{helperText}</span> : null}
     </div>
   );
 }

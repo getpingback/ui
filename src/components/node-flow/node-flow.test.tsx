@@ -33,11 +33,11 @@ describe('NodeFlow Component', () => {
     const childDivider = screen.getAllByTestId('node-line-divider');
     const childCorner = screen.getAllByTestId('node-line-corner');
 
-    expect(childDivider[0]).toHaveClass('bg-divider-highlighted');
-    expect(childCorner[0]).toHaveClass('border-divider-highlighted');
+    expect(childDivider[0]).toHaveClass('bg-border-filled');
+    expect(childCorner[0]).toHaveClass('border-filled');
 
-    expect(childDivider[1]).toHaveClass('bg-divider-highlighted');
-    expect(childCorner[1]).toHaveClass('border-divider-highlighted');
+    expect(childDivider[1]).toHaveClass('bg-border-filled');
+    expect(childCorner[1]).toHaveClass('border-filled');
 
     expect(childDivider[1]).toHaveClass('!hidden');
   });
@@ -56,11 +56,11 @@ describe('NodeFlow Component', () => {
     const childDivider = screen.getAllByTestId('node-line-divider');
     const childCorner = screen.getAllByTestId('node-line-corner');
 
-    expect(childDivider[0]).toHaveClass('bg-divider');
-    expect(childCorner[0]).toHaveClass('border-divider');
+    expect(childDivider[0]).toHaveClass('bg-border-default');
+    expect(childCorner[0]).toHaveClass('border-default');
 
-    expect(childDivider[1]).toHaveClass('bg-divider');
-    expect(childCorner[1]).toHaveClass('border-divider');
+    expect(childDivider[1]).toHaveClass('bg-border-default');
+    expect(childCorner[1]).toHaveClass('border-default');
 
     expect(childDivider[1]).toHaveClass('!hidden');
   });

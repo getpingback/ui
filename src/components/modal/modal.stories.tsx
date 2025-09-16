@@ -25,7 +25,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     open: true,
-    children: <h1>Modal</h1>
+    children: <h1 className="text-primary">Modal</h1>
   }
 };
 
@@ -39,7 +39,7 @@ export const Behavior: Story = {
           Open Modal
         </Button>
         <Modal {...args} open={open} onOpenChange={setOpen}>
-          <h1>Modal</h1>
+          <h1 className="text-primary">Modal</h1>
         </Modal>
       </>
     );

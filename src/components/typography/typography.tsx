@@ -20,9 +20,9 @@ const typographyVariants = cva('', {
       right: 'text-right'
     },
     type: {
-      primary: 'text-primary-foreground',
-      secondary: 'text-secondary-foreground',
-      tertiary: 'text-tertiary-foreground'
+      primary: 'text-primary',
+      secondary: 'text-secondary',
+      tertiary: 'text-tertiary'
     },
     weight: {
       normal: 'font-normal',

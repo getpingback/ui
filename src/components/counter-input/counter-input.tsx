@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Button } from '../button';
 import { MinusIcon, PlusIcon } from '@stash-ui/regular-icons';
+import { TextField } from '../text-field';
 
 interface Props {
   label?: string;
@@ -54,43 +55,34 @@ export function CounterInput({ label, placeholder, helperText, value, onChange, 
   return (
     <div className="flex flex-col items-start gap-1">
       {label ? (
-        <label className="text-xs font-semibold text-tertiary-foreground" htmlFor="counter-input">
+        <label className="text-xs font-semibold text-tertiary" htmlFor="counter-input">
           {label}
         </label>
       ) : null}
 
-      <div className="relative w-full max-w-[280px] flex items-center gap-3">
-        <input
+      <div className="w-full max-w-[405px] flex gap-2">
+        <TextField
           type="number"
           id="counter-input"
           value={number}
           onChange={handleChange}
           placeholder={placeholder}
-          className="flex h-10 w-full max-w-[280px] border-divider border rounded-lg bg-[#FFFFFF] py-2 px-3 text-sm outline-none text-tertiary-foreground placeholder:opacity-85 disabled:cursor-not-allowed disabled:opacity-50 hover:border-[#A1A1AA] focus:border-[#9061F9] focus:[box-shadow:0px_0px_0px_3px_rgba(144,_97,_249,_0.12)] transition-all duration-200 ease-in-out"
           data-testid="counter-input"
+          className="w-full"
+          helperText={helperText}
           {...props}
         />
 
-        <div className="flex items-center gap-2">
-          <Button
-            onClick={handleDecrement}
-            className="h-10 rounded-lg bg-[#52525B14] hover:[box-shadow:0px_0px_0px_3px_rgba(113,_113,_122,_0.12)] focus:[box-shadow:0px_0px_0px_3px_rgba(113,_113,_122,_0.12)] active:bg-[#52525B1F]"
-            data-testid="counter-input-decrement-button"
-          >
-            <MinusIcon color="#71717A" />
+        <div className="flex gap-2">
+          <Button onClick={handleDecrement} variant="ghost" size="lg" data-testid="counter-input-decrement-button">
+            <MinusIcon className="text-icon-tertiary w-5 h-5" />
           </Button>
 
-          <Button
-            onClick={handleIncrement}
-            className="h-10 rounded-lg bg-[#52525B14] hover:[box-shadow:0px_0px_0px_3px_rgba(113,_113,_122,_0.12)] focus:[box-shadow:0px_0px_0px_3px_rgba(113,_113,_122,_0.12)] active:bg-[#52525B1F]"
-            data-testid="counter-input-increment-button"
-          >
-            <PlusIcon color="#71717A" />
+          <Button onClick={handleIncrement} variant="ghost" size="lg" data-testid="counter-input-increment-button">
+            <PlusIcon className="text-icon-tertiary w-5 h-5" />
           </Button>
         </div>
       </div>
-
-      {helperText ? <span className="text-xs font-normal text-tertiary-foreground mt-1">{helperText}</span> : null}
     </div>
   );
 }

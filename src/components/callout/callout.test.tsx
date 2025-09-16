@@ -15,21 +15,21 @@ describe('Callout', () => {
 
     expect(screen.getByText('Test Title')).toBeInTheDocument();
     expect(screen.getByText('Test Description')).toBeInTheDocument();
-    expect(screen.getByRole('heading', { level: 6 })).toHaveClass('text-callout-info-foreground');
+    expect(screen.getByRole('heading', { level: 6 })).toHaveClass('text-neutral');
   });
 
   it('renders with different variants', () => {
-    const { rerender } = render(<Callout {...defaultProps} variant="primary" />);
-    expect(screen.getByRole('heading', { level: 6 })).toHaveClass('text-callout-primary-foreground');
+    const { rerender } = render(<Callout {...defaultProps} variant="info" />);
+    expect(screen.getByRole('heading', { level: 6 })).toHaveClass('text-info');
 
     rerender(<Callout {...defaultProps} variant="success" />);
-    expect(screen.getByRole('heading', { level: 6 })).toHaveClass('text-callout-success-foreground');
+    expect(screen.getByRole('heading', { level: 6 })).toHaveClass('text-success');
 
     rerender(<Callout {...defaultProps} variant="warning" />);
-    expect(screen.getByRole('heading', { level: 6 })).toHaveClass('text-callout-warning-foreground');
+    expect(screen.getByRole('heading', { level: 6 })).toHaveClass('text-warning');
 
     rerender(<Callout {...defaultProps} variant="error" />);
-    expect(screen.getByRole('heading', { level: 6 })).toHaveClass('text-callout-error-foreground');
+    expect(screen.getByRole('heading', { level: 6 })).toHaveClass('text-error');
   });
 
   it('renders with React node as description', () => {
