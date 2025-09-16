@@ -1,13 +1,32 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
 import { BurgerArrowLeftIcon, BurgerArrowRightIcon } from '@stash-ui/light-icons';
+import { useDevice } from '@/hooks/useDevice';
 
 export interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {
   isOpen: boolean;
+  onOpenChange: (isOpen: boolean) => void;
 }
-function Sidebar({ className, isOpen, ...props }: SidebarProps) {
+function Sidebar({ className, isOpen, onOpenChange, ...props }: SidebarProps) {
+  const isMobile = useDevice();
+  const sidebarRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+      if (isMobile && isOpen && sidebarRef.current && !sidebarRef.current.contains(event?.target as Node)) {
+        onOpenChange(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isMobile, isOpen, onOpenChange]);
+
   return (
     <div
+      ref={sidebarRef}
       data-testid="sidebar"
       className={cn(
         'flex flex-col h-screen bg-sidebar-background shadow-modal-2 pt-6 fixed top-0 left-0 z-50 lg:z-40 lg:relative lg:h-full transition-all duration-300 ease-in-out',

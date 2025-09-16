@@ -19,7 +19,8 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    isOpen: false
+    isOpen: false,
+    onOpenChange: () => {}
   },
   render: (args) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -30,7 +31,7 @@ export const Default: Story = {
 
     return (
       <div className="flex justify-between h-screen">
-        <Sidebar isOpen={isOpen}>
+        <Sidebar isOpen={isOpen} onOpenChange={() => setIsOpen(!isOpen)}>
           <SideBarHeader isOpen={isOpen} onOpenChange={() => setIsOpen(!isOpen)}>
             Header
           </SideBarHeader>
@@ -42,7 +43,7 @@ export const Default: Story = {
           </SideBarContent>
           <SideBarFooter>Footer</SideBarFooter>
         </Sidebar>
-        <button className="p-2 border rounded-lg h-fit mt-3 mr-3" onClick={() => setIsOpen(!isOpen)}>
+        <button className="p-2 border rounded-lg h-fit mt-3 mr-3" onClick={() => setIsOpen(true)}>
           Click me
         </button>
       </div>
