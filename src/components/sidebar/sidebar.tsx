@@ -8,7 +8,8 @@ export interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {
   onOpenChange: (isOpen: boolean) => void;
 }
 function Sidebar({ className, isOpen, onOpenChange, ...props }: SidebarProps) {
-  const isMobile = useDevice();
+  const device = useDevice();
+  const isMobile = device === 'md';
   const sidebarRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

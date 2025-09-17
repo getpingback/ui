@@ -24,12 +24,12 @@ const DRAG_THRESHOLD = 5;
 
 const getCurrentItemWidth = (itemWidth: number | number[], device: string) => {
   if (typeof itemWidth === 'number') return itemWidth;
-  return itemWidth[device === 'sm' ? 0 : 1];
+  return itemWidth[device === 'md' ? 0 : 1];
 };
 
 const getCurrentSpaceBetween = (spaceBetween: number | number[], device: string) => {
   if (typeof spaceBetween === 'number') return spaceBetween;
-  return spaceBetween[device === 'sm' ? 0 : 1];
+  return spaceBetween[device === 'md' ? 0 : 1];
 };
 
 const Swiper = ({ children, settings = DEFAULT_SETTINGS, className }: SwiperProps) => {

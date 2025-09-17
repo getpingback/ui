@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 const BREAKPOINTS = [
   {
-    name: 'sm',
+    name: 'md',
     width: 768
   },
   {
@@ -19,7 +19,7 @@ export const useDevice = (breakpoints = BREAKPOINTS) => {
       const width = window.innerWidth;
       const sortedBreakpoints = [...breakpoints].sort((a, b) => b.width - a.width);
       const device = sortedBreakpoints.find((b) => width >= b.width);
-      setDevice(device?.name || 'sm');
+      setDevice(device?.name || 'md');
     };
 
     handleResize();
