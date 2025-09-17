@@ -48,9 +48,9 @@ function SideBarHeader({ className, children, isOpen, onOpenChange, ...props }: 
   return (
     <div data-testid="sidebar-header" className={cn('w-full relative px-3', className)} {...props}>
       {children}
-      <div aria-hidden className="pointer-events-none absolute inset-y-0 -right-px w-px h-8 bg-sidebar-background z-10" />
+      <div aria-hidden className="pointer-events-none absolute -top-px -right-px w-[10px] h-[34px] bg-sidebar-background z-10" />
       <button
-        className="absolute top-0 -right-[29px] w-7 h-8 pr-2 pl-1 flex items-center bg-surface rounded-r-full text-icon-tertiary shadow-modal-5 z-0"
+        className="absolute top-0 -right-[24px] w-8 h-8 p-2 flex items-center bg-surface rounded-r-full text-icon-tertiary shadow-modal-5 z-0"
         onClick={() => onOpenChange()}
       >
         {isOpen ? <BurgerArrowLeftIcon width={16} height={16} /> : <BurgerArrowRightIcon width={16} height={16} />}
