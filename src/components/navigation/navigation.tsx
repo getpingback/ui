@@ -155,10 +155,13 @@ function NavigationTrigger({ className, items, children, onClickItem, activeItem
 
 export interface NavigationListProps extends React.ComponentProps<typeof NavigationMenuPrimitive.List> {}
 
-function NavigationList({ ...props }: NavigationListProps) {
+function NavigationList({ className, ...props }: NavigationListProps) {
   return (
-    <NavigationMenuPrimitive.Root className={cn('w-full')}>
-      <NavigationMenuPrimitive.List className={cn('group font-primary flex list-none flex-col gap-1 w-full overflow-hidden')} {...props} />
+    <NavigationMenuPrimitive.Root className="w-full">
+      <NavigationMenuPrimitive.List
+        className={cn('group font-primary flex list-none flex-col gap-1 w-full overflow-hidden', className)}
+        {...props}
+      />
     </NavigationMenuPrimitive.Root>
   );
 }
