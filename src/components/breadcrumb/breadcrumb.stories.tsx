@@ -1,5 +1,5 @@
 import React from 'react';
-import { Breadcrumb, BreadCrumbItem, BreadCrumbSeparator } from './breadcrumb';
+import { Breadcrumb, BreadCrumbItem, BreadCrumbSeparator, BreadCrumbLink } from './breadcrumb';
 import { Button } from '../button';
 import { ArrowLeftIcon, PeopleGroupIcon } from '@stash-ui/light-icons';
 
@@ -11,17 +11,15 @@ export default {
 
 export const Default = () => (
   <Breadcrumb>
-    <BreadCrumbItem>
+    <BreadCrumbItem asChild>
       <Button variant="outline" prefix={<ArrowLeftIcon />}>
         Back
       </Button>
     </BreadCrumbItem>
-    <BreadCrumbItem asChild>
-      <a href="#" className="flex gap-1 items-center">
-        <PeopleGroupIcon width={20} height={20} />
-        <span>Audience</span>
-      </a>
-    </BreadCrumbItem>
+    <BreadCrumbLink>
+      <PeopleGroupIcon width={20} height={20} />
+      <span>Audience</span>
+    </BreadCrumbLink>
     <BreadCrumbSeparator />
     <BreadCrumbItem>Contacts</BreadCrumbItem>
   </Breadcrumb>

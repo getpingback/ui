@@ -53,7 +53,7 @@ describe('Breadcrumb Component', () => {
 
     test('renders three breadcrumb items', () => {
       const { container } = render(<TestDefault />);
-      const crumbItems = container.querySelectorAll('div.text-sm.font-semibold');
+      const crumbItems = container.querySelectorAll('.text-sm.font-semibold');
       expect(crumbItems.length).toBe(3);
     });
   });
