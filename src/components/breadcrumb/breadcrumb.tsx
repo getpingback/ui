@@ -23,7 +23,7 @@ const BreadCrumbItem = ({ asChild, children }: BreadcrumbItemProps) => {
 const BreadCrumbLink = ({ asChild, children }: BreadcrumbItemProps) => {
   const Comp = asChild ? Slot : 'a';
   return (
-    <Comp className="[&>button]:mr-2 font-normal [&>svg]:text-icon-secondary hover:text-primary flex items-center gap-1 text-secondary text-sm cursor-pointer transition-colors duration-200 ease-in-out">
+    <Comp className="[&>button]:mr-2 font-normal [&>svg]:text-icon-secondary [&:is(a):hover]:text-primary flex items-center gap-1 text-secondary text-sm cursor-pointer transition-colors duration-200 ease-in-out">
       {children}
     </Comp>
   );
