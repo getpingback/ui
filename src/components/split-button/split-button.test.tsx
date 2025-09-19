@@ -42,16 +42,20 @@ describe('SplitButton Component', () => {
         {...{
           menuItems: [
             {
-              key: 'add',
-              icon: <PlusIcon />,
-              text: 'Add',
-              onClick: () => onClickMock('add')
-            },
-            {
-              key: 'delete',
-              icon: <TrashCanIcon />,
-              text: 'Delete',
-              onClick: () => onClickMock('delete')
+              items: [
+                {
+                  key: 'add',
+                  icon: <PlusIcon />,
+                  label: 'Add',
+                  onClick: () => onClickMock('add')
+                },
+                {
+                  key: 'delete',
+                  icon: <TrashCanIcon />,
+                  label: 'Delete',
+                  onClick: () => onClickMock('delete')
+                }
+              ]
             }
           ]
         }}

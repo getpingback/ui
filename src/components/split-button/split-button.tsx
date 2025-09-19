@@ -4,6 +4,7 @@ import { Dropdown, DropdownItem } from '../dropdown';
 import { Button } from '../button';
 import { cn } from '@/lib/utils';
 import { cva } from 'class-variance-authority';
+import { Typography } from '../typography';
 
 const dropdownTriggerVariants = cva('border-l border-default h-full ml-2 w-8 flex items-center justify-center rounded-e-[11px]', {
   variants: {
@@ -17,9 +18,14 @@ const dropdownTriggerVariants = cva('border-l border-default h-full ml-2 w-8 fle
 });
 
 type MenuItem = {
+  title?: string;
+  items: Item[];
+};
+
+type Item = {
   key: string;
   icon: JSX.Element | undefined;
-  text: string;
+  label: string;
   onClick: () => void;
 };
 
@@ -27,7 +33,6 @@ interface SplitButtonProps {
   prefixIcon: React.ReactNode;
   label: string;
   variant?: 'primary' | 'solid' | 'outline' | 'ghost';
-  customMenu?: React.ReactNode;
   onPrefixClick: () => void;
   sufixIcon?: React.ReactNode;
   className?: string;
@@ -43,8 +48,7 @@ function SplitButton({
   menuItems,
   sufixIcon,
   className,
-  align = 'end',
-  customMenu
+  align = 'end'
 }: SplitButtonProps) {
   const handlePrefixClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
@@ -69,13 +73,22 @@ function SplitButton({
           sideOffset={variant !== 'primary' ? 4 : 8}
           className="w-60"
         >
-          {customMenu
-            ? customMenu
-            : menuItems.map((item, index) => (
+          {menuItems.map((group, index) => (
+            <div key={index}>
+              {group.title && (
+                <div className="px-4 py-2">
+                  <Typography type="tertiary" size="caption" weight="bold" className="uppercase text-gray-400">
+                    {group.title}
+                  </Typography>
+                </div>
+              )}
+              {group.items.map((item, index) => (
                 <DropdownItem icon={item?.icon} key={index} onClick={item.onClick} data-testid="split-button-menu-item">
-                  {item.text}
+                  {item.label}
                 </DropdownItem>
               ))}
+            </div>
+          ))}
         </Dropdown>
       }
     >

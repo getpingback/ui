@@ -25,16 +25,49 @@ export const Solid: Story = {
     onPrefixClick: () => console.log('prefix click'),
     menuItems: [
       {
-        key: 'add',
-        icon: <PlusIcon />,
-        text: 'Add',
-        onClick: () => console.log('add')
+        items: [
+          {
+            key: 'add',
+            icon: <PlusIcon />,
+            label: 'Add',
+            onClick: () => console.log('add')
+          }
+        ]
       },
       {
-        key: 'delete',
-        icon: <TrashCanIcon />,
-        text: 'Delete',
-        onClick: () => console.log('delete')
+        items: [
+          {
+            key: 'delete',
+            icon: <TrashCanIcon />,
+            label: 'Delete',
+            onClick: () => console.log('delete')
+          }
+        ]
+      },
+      {
+        items: [
+          {
+            key: 'delete',
+            icon: <TrashCanIcon />,
+            label: 'Delete',
+            onClick: () => console.log('delete')
+          }
+        ]
+      }
+    ]
+  }
+};
+
+export const WithTitle: Story = {
+  args: {
+    prefixIcon: <HeartIcon />,
+    variant: 'primary',
+    label: 'Button label',
+    onPrefixClick: () => console.log('prefix click'),
+    menuItems: [
+      {
+        title: 'Actions',
+        items: [{ key: 'add', icon: <PlusIcon />, label: 'Add', onClick: () => console.log('add') }]
       }
     ]
   }
