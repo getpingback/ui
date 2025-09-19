@@ -76,7 +76,7 @@ function SplitButton({
           {menuItems.map((group, index) => (
             <div key={index}>
               {group.title && (
-                <div className="px-4 py-2">
+                <div className="px-4 h-7 flex items-center">
                   <Typography type="tertiary" size="caption" weight="bold" className="uppercase text-gray-400">
                     {group.title}
                   </Typography>
