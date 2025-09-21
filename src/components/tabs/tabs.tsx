@@ -74,7 +74,9 @@ export interface TabWrapperProps {
 function TabWrapper({ children, layoutId }: TabWrapperProps) {
   if (React.Children.count(children) !== 1) return;
 
-  const child = React.Children.only(children) as React.ReactElement<any>;
+  const child = React.Children.only(children) as React.ReactElement<
+    React.ComponentProps<typeof TabsPrimitive.Trigger> & { layoutId?: string }
+  >;
   return React.cloneElement(child, { layoutId });
 }
 
@@ -85,7 +87,7 @@ export interface TabProps extends Omit<React.ComponentProps<typeof TabsPrimitive
 function TabsList({ className, layoutId, ...props }: TabProps) {
   return (
     <TabsPrimitive.List
-      className={cn('relative z-[9] h-[28px] outline-none inline-flex gap-2 items-center justify-center', className)}
+      className={cn('relative z-[9] h-[28px] outline-none inline-flex gap-2 items-center', className)}
       data-testid="tabs-list"
       {...props}
     >
