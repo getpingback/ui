@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Modal } from './modal';
+import { Modal, ModalClose, ModalTitle } from './modal';
 import { Button } from '../button/button';
 
 const meta = {
@@ -25,7 +25,13 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     open: true,
-    children: <h1 className="text-primary">Modal</h1>
+    children: (
+      <>
+        <ModalClose />
+        <ModalTitle>Modal</ModalTitle>
+        <span className="text-sm text-tertiary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</span>
+      </>
+    )
   }
 };
 
@@ -39,7 +45,9 @@ export const Behavior: Story = {
           Open Modal
         </Button>
         <Modal {...args} open={open} onOpenChange={setOpen}>
-          <h1 className="text-primary">Modal</h1>
+          <ModalClose />
+          <ModalTitle>Modal</ModalTitle>
+          <span className="text-sm text-tertiary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</span>
         </Modal>
       </>
     );

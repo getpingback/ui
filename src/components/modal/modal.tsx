@@ -1,6 +1,7 @@
 import React from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
 import { cn } from '@/lib/utils';
+import { TimesIcon } from '@stash-ui/light-icons';
 
 interface ModalProps extends Dialog.DialogProps {
   children?: React.ReactNode;
@@ -11,19 +12,31 @@ interface ModalProps extends Dialog.DialogProps {
 const Modal = ({ children, className, ...props }: ModalProps) => (
   <Dialog.Root {...props}>
     <Dialog.Portal>
-      <Dialog.Overlay className="z-50 grid lg:place-items-center place-items-end grid-cols-1 fixed inset-0 bg-background-neutral w-screen h-screen backdrop-blur-[8px] animate-fade-in">
-        <Dialog.Content
-          data-testid={props['data-testid']}
-          className={cn(
-            'flex flex-col bg-surface h-fit border border-default shadow-modal-5 rounded-t-3xl p-6 lg:rounded-[32px] w-full lg:w-fit lg:min-w-80 lg:max-w-xl lg:p-8 data-[state=open]:animate-modal-slide-up lg:data-[state=open]:animate-modal-fade-in data-[state=closed]:animate-modal-slide-down lg:data-[state=closed]:animate-modal-fade-out',
-            className
-          )}
-        >
-          {children}
-        </Dialog.Content>
-      </Dialog.Overlay>
+      <Dialog.Overlay
+        className="z-[45] fixed inset-0 bg-background-neutral w-screen h-screen backdrop-blur-[1px] animate-fade-in"
+        data-testid="modal-overlay"
+      />
+      <Dialog.Content
+        data-testid={props['data-testid']}
+        className={cn(
+          'z-50 fixed lg:inset-0 lg:m-auto bottom-0 left-0 flex flex-col gap-4 bg-surface h-fit border border-default shadow-modal-5 rounded-t-3xl p-6 lg:rounded-[32px] w-full lg:w-fit lg:min-w-80 lg:max-w-xl lg:p-8 data-[state=open]:animate-modal-slide-up lg:data-[state=open]:animate-modal-fade-in data-[state=closed]:animate-modal-slide-down lg:data-[state=closed]:animate-modal-fade-out',
+          className
+        )}
+      >
+        {children}
+      </Dialog.Content>
     </Dialog.Portal>
   </Dialog.Root>
 );
 
-export { Modal };
+const ModalTitle = ({ children, className }: { children: React.ReactNode; className?: string }) => (
+  <Dialog.Title className={cn('text-lg font-semibold leading-none text-primary', className)}>{children}</Dialog.Title>
+);
+
+const ModalClose = ({ className, onClick }: { className?: string; onClick?: () => void }) => (
+  <Dialog.Close className={cn('w-8 h-8 items-center justify-center absolute right-4 top-4 lg:flex hidden', className)} onClick={onClick}>
+    <TimesIcon className="text-icon-tertiary w-8 h-8" />
+  </Dialog.Close>
+);
+
+export { Modal, ModalTitle, ModalClose };

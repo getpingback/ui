@@ -34,7 +34,7 @@ describe('Modal', () => {
       </Modal>
     );
 
-    const overlay = document.querySelector('.backdrop-blur-\\[8px\\]');
+    const overlay = screen.getByTestId('modal-overlay');
     expect(overlay).toBeInTheDocument();
   });
 });
