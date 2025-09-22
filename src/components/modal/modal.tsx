@@ -19,7 +19,7 @@ const Modal = ({ children, className, ...props }: ModalProps) => (
       <Dialog.Content
         data-testid={props['data-testid']}
         className={cn(
-          'z-50 fixed lg:inset-0 lg:m-auto bottom-0 left-0 flex flex-col gap-6 bg-surface h-fit border border-default shadow-modal-5 rounded-t-3xl p-6 lg:rounded-[32px] w-full lg:w-fit lg:min-w-80 lg:max-w-xl lg:p-8 data-[state=open]:animate-modal-slide-up lg:data-[state=open]:animate-modal-fade-in data-[state=closed]:animate-modal-slide-down lg:data-[state=closed]:animate-modal-fade-out',
+          'z-50 fixed max-h-[80vh] overflow-y-auto lg:inset-0 lg:m-auto bottom-0 left-0 flex flex-col gap-6 bg-surface h-fit border border-default shadow-modal-5 rounded-t-3xl p-6 lg:rounded-[32px] w-full lg:w-fit lg:min-w-80 lg:max-w-xl lg:p-8 data-[state=open]:animate-modal-slide-up lg:data-[state=open]:animate-modal-fade-in data-[state=closed]:animate-modal-slide-down lg:data-[state=closed]:animate-modal-fade-out',
           className
         )}
       >
@@ -30,7 +30,7 @@ const Modal = ({ children, className, ...props }: ModalProps) => (
 );
 
 const ModalTitle = ({ children, className }: { children: React.ReactNode; className?: string }) => (
-  <Dialog.Title className={cn('text-lg font-semibold leading-none text-primary', className)}>{children}</Dialog.Title>
+  <Dialog.Title className={cn('text-lg font-semibold leading-none text-secondary', className)}>{children}</Dialog.Title>
 );
 
 const ModalClose = ({ className, onClick }: { className?: string; onClick?: () => void }) => (
