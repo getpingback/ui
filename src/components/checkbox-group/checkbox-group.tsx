@@ -37,16 +37,16 @@ interface CheckboxItemProps extends Omit<CheckboxPrimitive.CheckboxProps, 'onChe
 const CheckboxGroupContext = React.createContext<{
   value: string[];
   onValueChange: (value: string[]) => void;
-  variant: 'default' | 'outsideList';
+  variant?: 'default' | 'outsideList';
 }>({
   value: [],
   onValueChange: () => {},
-  variant: 'default'
+  variant: undefined
 });
 
 const CheckboxGroup = ({ children, className, value, onValueChange, variant = 'default', ...props }: CheckboxGroupProps) => {
   return (
-    <CheckboxGroupContext.Provider value={{ value: value, onValueChange: onValueChange, variant: variant }}>
+    <CheckboxGroupContext.Provider value={{ value: value, onValueChange: onValueChange, variant }}>
       <div className={cn('flex flex-col gap-1', className)} {...props}>
         {children}
       </div>
@@ -54,9 +54,9 @@ const CheckboxGroup = ({ children, className, value, onValueChange, variant = 'd
   );
 };
 
-const CheckboxItem = ({ disabled, label, value, id, variant = 'default', className, defaultChecked, ...props }: CheckboxItemProps) => {
+const CheckboxItem = ({ disabled, label, value, id, variant, className, defaultChecked, ...props }: CheckboxItemProps) => {
   const { value: groupValue, onValueChange, variant: groupVariant } = React.useContext(CheckboxGroupContext);
-  const checked = groupValue.includes(value);
+  const checked = groupValue.includes(value) || props.checked;
 
   const initialChecked = groupValue.includes(value) || defaultChecked;
 
@@ -66,7 +66,10 @@ const CheckboxItem = ({ disabled, label, value, id, variant = 'default', classNa
   };
 
   return (
-    <div data-state={checked ? 'checked' : 'unchecked'} className={cn(checkboxVariants({ variant: groupVariant }), className)}>
+    <div
+      data-state={checked ? 'checked' : 'unchecked'}
+      className={cn(checkboxVariants({ variant: variant || groupVariant || 'outsideList' }), className)}
+    >
       <div className="flex items-center justify-center w-6 h-6 p-2">
         <CheckboxPrimitive.Root
           defaultChecked={initialChecked}

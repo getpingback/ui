@@ -5,7 +5,7 @@ import { composeStories } from '@storybook/testing-react';
 import * as stories from './checkbox-group.stories';
 import { CheckboxGroup, CheckboxItem } from './checkbox-group';
 
-const { Default, OutsideList } = composeStories(stories);
+const { Default, OutsideList, CheckedItem } = composeStories(stories);
 
 describe('Checkbox Component', () => {
   test('renders correct number of checkboxes', () => {
@@ -85,5 +85,10 @@ describe('Checkbox Component', () => {
     render(<Default />);
     const wrapper = screen.getByLabelText('Option 1').closest('div[data-state]');
     expect(wrapper).toHaveClass('data-[state=unchecked]:hover:bg-neutral-hover');
+  });
+
+  test('renders checked item', () => {
+    render(<CheckedItem />);
+    expect(screen.getByLabelText('Option 1')).toHaveAttribute('aria-checked', 'true');
   });
 });

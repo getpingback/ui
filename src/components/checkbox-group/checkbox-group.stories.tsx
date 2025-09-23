@@ -41,3 +41,8 @@ export const OutsideList: Story = {
     );
   }
 };
+
+export const CheckedItem: Story = {
+  args: { children: null, value: [], onValueChange: () => {} },
+  render: () => <CheckboxItem label="Option 1" id="opt-1" value="crm" checked />
+};
