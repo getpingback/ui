@@ -208,11 +208,11 @@ export function Combobox({
           <Button
             variant="outline"
             role="combobox"
-            rounded="xl"
             size="lg"
             width="full"
             aria-expanded={open}
             align="between"
+            className="rounded-2xl border-default"
             suffix={<CaretDownIcon className={cn('h-5 w-5 transition-transform text-icon-tertiary', { 'rotate-180': open })} />}
           >
             {renderButtonContent()}
