@@ -54,7 +54,7 @@ const CheckboxGroup = ({ children, className, value, onValueChange, variant = 'd
   );
 };
 
-const CheckboxItem = ({ disabled, label, value, id, variant, className, defaultChecked, ...props }: CheckboxItemProps) => {
+const CheckboxItem = ({ disabled, value, id, variant, className, defaultChecked, children, ...props }: CheckboxItemProps) => {
   const { value: groupValue, onValueChange, variant: groupVariant } = React.useContext(CheckboxGroupContext);
   const checked = groupValue.includes(value) || props.checked;
 
@@ -92,15 +92,17 @@ const CheckboxItem = ({ disabled, label, value, id, variant, className, defaultC
         </CheckboxPrimitive.Root>
       </div>
 
-      <label
-        className={cn('w-full font-primary flex items-start text-tertiary text-sm', {
-          'text-primary': checked,
-          'opacity-65 cursor-not-allowed': disabled
-        })}
-        htmlFor={value}
-      >
-        {label}
-      </label>
+      {children && (
+        <label
+          className={cn('w-full font-primary flex items-start text-tertiary text-sm', {
+            'text-primary': checked,
+            'opacity-65 cursor-not-allowed': disabled
+          })}
+          htmlFor={value}
+        >
+          {children}
+        </label>
+      )}
     </div>
   );
 };

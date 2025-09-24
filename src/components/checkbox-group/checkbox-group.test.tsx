@@ -48,8 +48,12 @@ describe('Checkbox Component', () => {
 
     const { rerender } = render(
       <CheckboxGroup value={[]} onValueChange={onValueChange}>
-        <CheckboxItem id="1" value="opt-1" label="Option 1" />
-        <CheckboxItem id="2" value="opt-2" label="Option 2" />
+        <CheckboxItem id="1" value="opt-1">
+          Option 1
+        </CheckboxItem>
+        <CheckboxItem id="2" value="opt-2">
+          Option 2
+        </CheckboxItem>
       </CheckboxGroup>
     );
 
@@ -64,8 +68,12 @@ describe('Checkbox Component', () => {
 
     rerender(
       <CheckboxGroup value={currentValue} onValueChange={onValueChange}>
-        <CheckboxItem id="1" value="opt-1" label="Option 1" />
-        <CheckboxItem id="2" value="opt-2" label="Option 2" />
+        <CheckboxItem id="1" value="opt-1">
+          Option 1
+        </CheckboxItem>
+        <CheckboxItem id="2" value="opt-2">
+          Option 2
+        </CheckboxItem>
       </CheckboxGroup>
     );
 
