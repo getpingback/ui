@@ -29,19 +29,17 @@ function TableRow({ className, ...props }: TableRowProps) {
 export interface TableHeadProps extends React.HTMLAttributes<HTMLTableCellElement> {}
 function TableHead({ className, ...props }: TableHeadProps) {
   return (
-    <th data-testid="table-head" className={cn('h-12 text-left align-middle text-xs font-semibold text-tertiary', className)} {...props} />
+    <th
+      data-testid="table-head"
+      className={cn('h-12 text-left align-middle text-xs font-semibold text-tertiary px-2', className)}
+      {...props}
+    />
   );
 }
 
 export interface TableCellProps extends React.HTMLAttributes<HTMLTableCellElement> {}
 function TableCell({ className, ...props }: TableCellProps) {
-  return (
-    <td
-      data-testid="table-cell"
-      className={cn('pr-[24px] py-[12px] align-middle font-normal text-sm text-tertiary ', className)}
-      {...props}
-    />
-  );
+  return <td data-testid="table-cell" className={cn('px-2 py-3 align-middle font-normal text-sm text-tertiary', className)} {...props} />;
 }
 
 export { Table, TableHeader, TableBody, TableRow, TableCell, TableHead };
