@@ -13,7 +13,7 @@ const Modal = ({ children, className, ...props }: ModalProps) => (
   <Dialog.Root {...props}>
     <Dialog.Portal>
       <Dialog.Overlay
-        className="z-[45] fixed inset-0 bg-background-neutral w-screen h-screen backdrop-blur-[1px] animate-fade-in"
+        className="z-[45] fixed inset-0 bg-background-neutral w-screen h-screen backdrop-blur-sm animate-fade-in"
         data-testid="modal-overlay"
         onClick={(e) => e.stopPropagation()}
       />

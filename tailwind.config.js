@@ -605,7 +605,8 @@ const config = {
       }
     },
     fontFamily: {
-      primary: ['Inter', 'sans-serif']
+      primary: ['Inter', 'sans-serif'],
+      secondary: ['Monigue', 'sans-serif']
     }
   },
   plugins: [
