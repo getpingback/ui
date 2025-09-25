@@ -321,17 +321,17 @@ const config = {
       textColor,
       backgroundColor,
       borderColor,
+      backgroundImage: {
+        'gradient-brand-1': 'var(--gradiente-brand-1)',
+        'gradient-brand-2': 'var(--gradiente-brand-2)',
+        'gradient-brand-3': 'var(--gradiente-brand-3)',
+        'gradient-brand-4': 'var(--gradiente-brand-4)',
+        'gradient-brand-5': 'var(--gradiente-brand-5)'
+      },
       colors: {
         background: backgroundColor,
         typography: textColor,
         border: borderColor,
-        backgroundImage: {
-          'gradient-brand-1': 'var(--gradiente-brand-1)',
-          'gradient-brand-2': 'var(--gradiente-brand-2)',
-          'gradient-brand-3': 'var(--gradiente-brand-3)',
-          'gradient-brand-4': 'var(--gradiente-brand-4)',
-          'gradient-brand-5': 'var(--gradiente-brand-5)'
-        },
         surface: {
           DEFAULT: 'var(--surface-default)',
           inverse: 'var(--surface-inverse)'
