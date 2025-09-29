@@ -2,6 +2,58 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0](https://github.com/getpingback/ui/compare/v0.0.492...v1.0.0) (2025-09-29)
+
+
+### Features
+
+* add theme decorator ([e092a5a](https://github.com/getpingback/ui/commits/e092a5aaf54c29fb73ed066bb6180ecb66afdf5f))
+* all badge colors works ([6c2e916](https://github.com/getpingback/ui/commits/6c2e916a0e7d7b2a7d557175dc0a8707bebd8b1c))
+* breadcrumb ([87a1eec](https://github.com/getpingback/ui/commits/87a1eecb44b694c871b9d1ffea2086f5547e5743))
+* checkbox label prop removed and children added ([0a33976](https://github.com/getpingback/ui/commits/0a33976a6a88f87c82a570255e029f011fc50cd9))
+* dark mode at docs ([ecba2da](https://github.com/getpingback/ui/commits/ecba2da19be787a43ea1478fb384898e7668248d))
+* flatten colors ([8f265ca](https://github.com/getpingback/ui/commits/8f265cade8d0536fd5dcd32aa7b593697dbacdca))
+* merge with epic ([142983d](https://github.com/getpingback/ui/commits/142983d474dc26535bf3315b3a9a94d828f25210))
+* new primary button ([484cf4f](https://github.com/getpingback/ui/commits/484cf4ffcf8c7a5ad6ad71d002f618ab1fcc5b9b))
+
+
+### Bug Fixes
+
+* active navigation ([dbd516e](https://github.com/getpingback/ui/commits/dbd516e0d0aa20b3b0ea92034dd5c5e86aaf4bcd))
+* add on remove item at combobox ([9492de0](https://github.com/getpingback/ui/commits/9492de0b2ca3882c95c56f96829eed0dfe7afaa2))
+* add popoverPosition as prop ([0b3f103](https://github.com/getpingback/ui/commits/0b3f103bfc135f48c36f1ba65c0fa021eb23f861))
+* avatar component ([d8b425c](https://github.com/getpingback/ui/commits/d8b425c3322d38e3b7a365efc1e16dc64cdda61e))
+* breadcrumb hover ([3ea972e](https://github.com/getpingback/ui/commits/3ea972ef80c99f3330282740b4986da9ca50c242))
+* change tailwind.config ([7930cea](https://github.com/getpingback/ui/commits/7930cea877f5f8ca550a919533c9688c3e32e84d))
+* changed components tokens ([e23960f](https://github.com/getpingback/ui/commits/e23960f51944abce51b5458cfcf8b42d3082ac5b))
+* changes requested ([0898c07](https://github.com/getpingback/ui/commits/0898c07485f0446c42bd2459b9b464c94187ff75))
+* changes tokens from sidebar, tabs,switch, typography ([9e4a68e](https://github.com/getpingback/ui/commits/9e4a68ed85ae3eca74a5d022982eb7c0abff1c60))
+* checked state checkbox ([5000f44](https://github.com/getpingback/ui/commits/5000f44e15f5284613ea7ab5ce0c48c2ac91b043))
+* combobox style ([52295d4](https://github.com/getpingback/ui/commits/52295d4ba620e1eaa282044dbde5ebf7a59272a3))
+* dark mode selector ([f14f67f](https://github.com/getpingback/ui/commits/f14f67f4ded87a912abd891dc7fd06f19943eabf))
+* globlas.css ([bf9c9e5](https://github.com/getpingback/ui/commits/bf9c9e56b6b5e9d5c08bf37ae40151d346f284f0))
+* html background with theme ([71ea237](https://github.com/getpingback/ui/commits/71ea237f8aa999792e14d64e5b45bb545296a1c7))
+* menu items title height ([6d038c7](https://github.com/getpingback/ui/commits/6d038c7be8ee55fca4de945e38612ffe91d3ef5d))
+* merge ([259ea48](https://github.com/getpingback/ui/commits/259ea48cdbc4681b493fb3495b2e21c67026f7c5))
+* merge epic ([bda58d9](https://github.com/getpingback/ui/commits/bda58d9bd2d4c2815c01d1d9bc207f6813ab5cbc))
+* modal overlay animation ([621fad1](https://github.com/getpingback/ui/commits/621fad114cb8c22ead9749228fc34829edb31c8d))
+* modal prevent default ([68ad9a3](https://github.com/getpingback/ui/commits/68ad9a342d68fc52cc69512392a6b0416ab7525f))
+* navigation active gradient ([5b2b6e8](https://github.com/getpingback/ui/commits/5b2b6e82b1373c61ccf01f805ed7456a80651f2d))
+* navigation list classname ([ba4c6a4](https://github.com/getpingback/ui/commits/ba4c6a4fd767c7eafbf7c14481762706fe4a4b74))
+* navigation trigger classname ([5c3f25b](https://github.com/getpingback/ui/commits/5c3f25b55d066089ba89070bd73569eb2224b9f8))
+* popover position animation ([6549dfb](https://github.com/getpingback/ui/commits/6549dfbc3458fd4d0df69019d2d9a90aef65eea8))
+* removed console ([dd679fa](https://github.com/getpingback/ui/commits/dd679fae25de2e9581624c2057f811dcfcc80fa0))
+* rounded primary button ([e15f540](https://github.com/getpingback/ui/commits/e15f5402b9d0e2f5257eff6e900ad776075f9149))
+* rounded tab ([03b61ba](https://github.com/getpingback/ui/commits/03b61ba7ea62c358adcbea3e17597791a9efebdd))
+* split button prefix click and update token version ([e8c7a19](https://github.com/getpingback/ui/commits/e8c7a1977f0940999c8d3267b55d680bb35c7786))
+* tabs trigger unecessary justify center ([670a9ab](https://github.com/getpingback/ui/commits/670a9ab8847a0bb82b4dad301560aa208b7486d9))
+* tailwind.config ([2528ae6](https://github.com/getpingback/ui/commits/2528ae6f5158cd9bf51ac3d79f8d2d923c3dd492))
+* textfield and textarea ([824466e](https://github.com/getpingback/ui/commits/824466e9d9897c641f969a410986f80c9947fba4))
+* textfield and textarea ([cff4c93](https://github.com/getpingback/ui/commits/cff4c9378b31993cac55bf04a6b578e5ec5dc561))
+* toast test ([64574f9](https://github.com/getpingback/ui/commits/64574f9eaca3d2a278e07f19992dec3e7c6a37cc))
+* toast width ([e061ac2](https://github.com/getpingback/ui/commits/e061ac2e1aea18375ebfe5c943a8d5576b7abd68))
+* z index sidebar ([f552c4f](https://github.com/getpingback/ui/commits/f552c4f1022db8e437389b07e41a7944b617e1fd))
+
 ### [0.0.492](https://github.com/getpingback/ui/compare/v0.0.491...v0.0.492) (2025-08-19)
 
 
