@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { Swiper } from './swiper';
+import { SwiperProvider, SwiperContent, SwiperControl } from './swiper';
 
 describe('Swiper', () => {
   const mockGetBoundingClientRect = jest.fn();
@@ -10,11 +10,14 @@ describe('Swiper', () => {
 
   test('renders all swiper items', () => {
     render(
-      <Swiper>
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-      </Swiper>
+      <SwiperProvider>
+        <SwiperControl />
+        <SwiperContent>
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+        </SwiperContent>
+      </SwiperProvider>
     );
 
     expect(screen.getByText('1')).toBeInTheDocument();
@@ -24,37 +27,51 @@ describe('Swiper', () => {
 
   test('hides navigation buttons when hideNavigationButtons is true', () => {
     render(
-      <Swiper settings={{ itemWidth: 224, spaceBetween: 24, hideNavigationButtons: true }}>
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-      </Swiper>
+      <SwiperProvider settings={{ itemWidth: 224, spaceBetween: 24, hideNavigationButtons: true }}>
+        <SwiperControl />
+        <SwiperContent>
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+        </SwiperContent>
+      </SwiperProvider>
     );
 
-    const buttons = screen.queryAllByRole('button');
-    expect(buttons).toHaveLength(2);
+    const buttons = screen.queryAllByTestId('swiper-control');
     buttons.forEach((button) => {
-      expect(button).toHaveClass('w-0');
+      expect(button).toHaveClass('hidden');
     });
   });
 
   test('shows navigation buttons by default', () => {
     render(
-      <Swiper>
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-      </Swiper>
+      <SwiperProvider>
+        <SwiperControl />
+        <SwiperContent>
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+        </SwiperContent>
+      </SwiperProvider>
     );
 
-    const buttons = screen.queryAllByRole('button');
-    expect(buttons).toHaveLength(2);
-    expect(buttons[0]).toHaveClass('w-0');
-    expect(buttons[1]).toHaveClass('w-10');
+    const buttons = screen.queryByTestId('swiper-control');
+    const prevButton = screen.queryByTestId('prev-control');
+    const nextButton = screen.queryByTestId('next-control');
+
+    expect(buttons).toHaveClass('w-fit flex items-center gap-1');
+    expect(prevButton).toHaveClass('w-6');
+    expect(nextButton).toHaveClass('w-6');
   });
 
   test('renders nothing when there are no children', () => {
-    const { container } = render(<Swiper />);
-    expect(container.firstChild).toBeNull();
+    render(
+      <SwiperProvider>
+        <SwiperControl />
+        <SwiperContent />
+      </SwiperProvider>
+    );
+    const swiperContent = screen.queryByTestId('swiper-content');
+    expect(swiperContent).toBeNull();
   });
 });

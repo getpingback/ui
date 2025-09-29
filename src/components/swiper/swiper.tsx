@@ -1,16 +1,45 @@
-import React, { useState, Children, useRef, useEffect } from 'react';
+import React, { useState, Children, useRef, useEffect, createContext, useContext, useCallback, useMemo } from 'react';
 
-import { ChevronLeftIcon, ChevronRightIcon } from '@stash-ui/light-icons/dist';
+import { ChevronLeftIcon, ChevronRightIcon } from '@stash-ui/regular-icons/dist';
 import { cn } from '@/lib/utils';
 import { useDevice } from '@/hooks/useDevice';
+
+interface SwiperContextType {
+  next: (() => void) | null;
+  prev: (() => void) | null;
+  registerNavigation: (next: () => void, prev: () => void) => void;
+  configSettings?:
+    | {
+        itemWidth?: number | number[];
+        spaceBetween?: number | number[];
+        hideNavigationButtons?: boolean;
+      }
+    | undefined;
+}
+
+interface SwiperProviderProps {
+  children: React.ReactNode;
+  settings?: SwiperContextType['configSettings'];
+}
+
+const SwiperContext = createContext<SwiperContextType>({
+  next: null,
+  prev: null,
+  registerNavigation: () => {},
+  configSettings: undefined
+});
+
+export const useSwiperContext = () => {
+  const context = useContext(SwiperContext);
+  if (!context) {
+    throw new Error('useSwiperContext must be used within a SwiperProvider');
+  }
+  return context;
+};
+
 interface SwiperProps {
   children: React.ReactNode;
   className?: string;
-  settings?: {
-    itemWidth?: number | number[];
-    spaceBetween?: number | number[];
-    hideNavigationButtons?: boolean;
-  };
 }
 
 const DEFAULT_SETTINGS = {
@@ -32,11 +61,12 @@ const getCurrentSpaceBetween = (spaceBetween: number | number[], device: string)
   return spaceBetween[device === 'md' ? 0 : 1];
 };
 
-const Swiper = ({ children, settings = DEFAULT_SETTINGS, className }: SwiperProps) => {
-  const initialSettings = { ...DEFAULT_SETTINGS, ...settings };
-  const { hideNavigationButtons, itemWidth, spaceBetween } = initialSettings;
+const SwiperContent = ({ children, className }: SwiperProps) => {
+  const { configSettings } = useSwiperContext();
+  const { itemWidth, spaceBetween } = configSettings;
 
   const device = useDevice();
+  const { registerNavigation } = useSwiperContext();
 
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
@@ -54,50 +84,53 @@ const Swiper = ({ children, settings = DEFAULT_SETTINGS, className }: SwiperProp
   const itemsPerPage = Math.max(1, Math.floor((pageWidth || 0) / (currentItemWidth + currentSpaceBetween)));
 
   const totalPages = Math.ceil(totalItems / itemsPerPage) || 1;
-  const maxScrollPosition = totalItems * (currentItemWidth + currentSpaceBetween) - pageWidth;
 
   const isFirstPage = currentPage === 1;
   const isLastPage = currentPage === totalPages;
-  const isAtStart = currentPosition <= 0;
-  const isAtEnd = currentPosition >= maxScrollPosition;
-
-  const shouldHideNextNavButton = (isAtEnd && !isDragging) || hideNavigationButtons;
-  const shouldHidePrevNavButton = (isAtStart && !isDragging) || hideNavigationButtons;
 
   useEffect(() => {
     if (sliderRef.current) {
       const currentWidth = sliderRef.current.clientWidth;
       setPageWidth(currentWidth);
     }
-  }, [sliderRef.current]);
+  }, []);
+
+  const handleNext = useCallback(() => {
+    if (sliderRef.current) {
+      const itemScrollWidth = currentItemWidth + currentSpaceBetween;
+      const newPosition = currentPosition + itemScrollWidth;
+
+      const maxPosition = Math.max(0, totalItems * itemScrollWidth - pageWidth);
+      const finalPosition = Math.min(newPosition, maxPosition);
+
+      setCurrentPosition(finalPosition);
+      sliderRef.current.scrollTo({
+        left: finalPosition,
+        behavior: 'smooth'
+      });
+    }
+  }, [currentItemWidth, currentSpaceBetween, currentPosition, totalItems, pageWidth]);
+
+  const handlePrev = useCallback(() => {
+    if (sliderRef.current) {
+      const itemScrollWidth = currentItemWidth + currentSpaceBetween;
+      const newPosition = currentPosition - itemScrollWidth;
+
+      const finalPosition = Math.max(0, newPosition);
+
+      setCurrentPosition(finalPosition);
+      sliderRef.current.scrollTo({
+        left: finalPosition,
+        behavior: 'smooth'
+      });
+    }
+  }, [currentItemWidth, currentSpaceBetween, currentPosition]);
+
+  useEffect(() => {
+    registerNavigation(handleNext, handlePrev);
+  }, [registerNavigation, handleNext, handlePrev]);
 
   if (!children) return null;
-
-  const handleNext = () => {
-    if (sliderRef.current) {
-      if (currentPage < totalPages) setCurrentPage(currentPage + 1);
-
-      const widthToScroll = isFirstPage || isLastPage ? pageWidth - BUTTON__CONTROLL_SIZE : pageWidth;
-      setCurrentPosition(widthToScroll * currentPage);
-      sliderRef.current.scrollTo({
-        left: widthToScroll * currentPage,
-        behavior: 'smooth'
-      });
-    }
-  };
-
-  const handlePrev = () => {
-    if (sliderRef.current) {
-      if (currentPage > 1) setCurrentPage(currentPage - 1);
-
-      const widthToScroll = isFirstPage || isLastPage ? pageWidth - BUTTON__CONTROLL_SIZE : pageWidth;
-      setCurrentPosition(widthToScroll * (currentPage - 2));
-      sliderRef.current.scrollTo({
-        left: widthToScroll * (currentPage - 2),
-        behavior: 'smooth'
-      });
-    }
-  };
 
   const handleMove = (x: number) => {
     if (!isDragging || !sliderRef.current) return;
@@ -154,16 +187,7 @@ const Swiper = ({ children, settings = DEFAULT_SETTINGS, className }: SwiperProp
   };
 
   return (
-    <div className={cn('flex items-center', className)}>
-      <button
-        onClick={handlePrev}
-        className={cn(
-          'overflow-hidden transition-all duration-300 hover:bg-neutral-hover rounded-full',
-          shouldHidePrevNavButton ? 'w-0' : 'w-10 min-w-10 mr-6'
-        )}
-      >
-        <ChevronLeftIcon className="w-10 h-10 text-icon-tertiary group-hover:text-icon-primary" />
-      </button>
+    <div className={cn('flex items-center', className)} data-testid="swiper-content">
       <div
         className="w-full overflow-hidden cursor-grab"
         ref={sliderRef}
@@ -184,17 +208,68 @@ const Swiper = ({ children, settings = DEFAULT_SETTINGS, className }: SwiperProp
           ))}
         </div>
       </div>
+    </div>
+  );
+};
+
+const SwiperProvider = ({ children, settings }: SwiperProviderProps) => {
+  const configSettings = { ...DEFAULT_SETTINGS, ...settings };
+  const [navigationFunctions, setNavigationFunctions] = useState<{
+    next: (() => void) | null;
+    prev: (() => void) | null;
+  }>({
+    next: null,
+    prev: null
+  });
+
+  const registerNavigation = useCallback((next: () => void, prev: () => void) => {
+    setNavigationFunctions({ next, prev });
+  }, []);
+
+  const contextValue: SwiperContextType = useMemo(
+    () => ({
+      next: navigationFunctions.next,
+      prev: navigationFunctions.prev,
+      registerNavigation,
+      configSettings
+    }),
+    [navigationFunctions.next, navigationFunctions.prev, registerNavigation, configSettings]
+  );
+
+  return (
+    <SwiperContext.Provider value={contextValue}>
+      <div className="flex flex-col gap-4">{children}</div>
+    </SwiperContext.Provider>
+  );
+};
+
+const SwiperControl = () => {
+  const { next, prev, configSettings } = useSwiperContext();
+
+  return (
+    <div data-testid="swiper-control" className={cn('w-fit flex items-center gap-1', { hidden: configSettings?.hideNavigationButtons })}>
       <button
-        onClick={handleNext}
-        className={cn(
-          'group overflow-hidden transition-all duration-300 hover:bg-neutral-hover rounded-full',
-          shouldHideNextNavButton ? 'w-0' : 'w-10 min-w-10 ml-6'
-        )}
+        data-testid="prev-control"
+        onClick={prev || undefined}
+        disabled={!prev}
+        className={cn('w-6 h-6 overflow-hidden transition-all duration-300 hover:bg-neutral-hover rounded-full', {
+          'opacity-50 cursor-not-allowed': !prev
+        })}
       >
-        <ChevronRightIcon className="w-10 h-10 text-icon-tertiary group-hover:text-icon-primary" />
+        <ChevronLeftIcon className="text-icon-tertiary group-hover:text-icon-primary" />
+      </button>
+      <button
+        data-testid="next-control"
+        onClick={next || undefined}
+        disabled={!next}
+        className={cn('group w-6 h-6 overflow-hidden transition-all duration-300 hover:bg-neutral-hover rounded-full', {
+          'opacity-50 cursor-not-allowed': !next
+        })}
+      >
+        <ChevronRightIcon className=" text-icon-tertiary group-hover:text-icon-primary" />
       </button>
     </div>
   );
 };
 
-export { Swiper };
+export { SwiperProvider, SwiperContent, SwiperControl };
