@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { SwiperProvider, SwiperContent, SwiperControl } from './swiper';
+import { Swiper, SwiperContent, SwiperControl } from './swiper';
 
 describe('Swiper', () => {
   const mockGetBoundingClientRect = jest.fn();
@@ -10,14 +10,14 @@ describe('Swiper', () => {
 
   test('renders all swiper items', () => {
     render(
-      <SwiperProvider>
+      <Swiper>
         <SwiperControl />
         <SwiperContent>
           <div>1</div>
           <div>2</div>
           <div>3</div>
         </SwiperContent>
-      </SwiperProvider>
+      </Swiper>
     );
 
     expect(screen.getByText('1')).toBeInTheDocument();
@@ -27,14 +27,14 @@ describe('Swiper', () => {
 
   test('hides navigation buttons when hideNavigationButtons is true', () => {
     render(
-      <SwiperProvider settings={{ itemWidth: 224, spaceBetween: 24, hideNavigationButtons: true }}>
+      <Swiper settings={{ itemWidth: 224, spaceBetween: 24, hideNavigationButtons: true }}>
         <SwiperControl />
         <SwiperContent>
           <div>1</div>
           <div>2</div>
           <div>3</div>
         </SwiperContent>
-      </SwiperProvider>
+      </Swiper>
     );
 
     const buttons = screen.queryAllByTestId('swiper-control');
@@ -45,14 +45,14 @@ describe('Swiper', () => {
 
   test('shows navigation buttons by default', () => {
     render(
-      <SwiperProvider>
+      <Swiper>
         <SwiperControl />
         <SwiperContent>
           <div>1</div>
           <div>2</div>
           <div>3</div>
         </SwiperContent>
-      </SwiperProvider>
+      </Swiper>
     );
 
     const buttons = screen.queryByTestId('swiper-control');
@@ -66,10 +66,10 @@ describe('Swiper', () => {
 
   test('renders nothing when there are no children', () => {
     render(
-      <SwiperProvider>
+      <Swiper>
         <SwiperControl />
         <SwiperContent />
-      </SwiperProvider>
+      </Swiper>
     );
     const swiperContent = screen.queryByTestId('swiper-content');
     expect(swiperContent).toBeNull();

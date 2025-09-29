@@ -5,13 +5,21 @@ import { cn } from '@/lib/utils';
 import { useDevice } from '@/hooks/useDevice';
 
 interface SwiperContextType {
-  configSettings?:
-    | {
-        itemWidth?: number | number[];
-        spaceBetween?: number | number[];
-        hideNavigationButtons?: boolean;
-      }
-    | undefined;
+  configSettings: {
+    itemWidth: number | number[];
+    spaceBetween: number | number[];
+    hideNavigationButtons: boolean;
+  };
+  sliderRef: React.RefObject<HTMLDivElement> | null;
+  onNext: () => void;
+  onPrev: () => void;
+  setCurrentPosition: (position: number) => void;
+  currentPosition: number;
+  isDragging: boolean;
+  setIsDragging: (isDragging: boolean) => void;
+  shouldHideControls: boolean;
+  shouldHideNextNavButton: boolean;
+  shouldHidePrevNavButton: boolean;
 }
 
 interface SwiperProviderProps {
@@ -20,7 +28,21 @@ interface SwiperProviderProps {
 }
 
 const SwiperContext = createContext<SwiperContextType>({
-  configSettings: undefined
+  configSettings: {
+    itemWidth: 224,
+    spaceBetween: 24,
+    hideNavigationButtons: false
+  },
+  sliderRef: null,
+  onNext: () => {},
+  onPrev: () => {},
+  setCurrentPosition: () => {},
+  currentPosition: 0,
+  isDragging: false,
+  setIsDragging: () => {},
+  shouldHideControls: false,
+  shouldHideNextNavButton: false,
+  shouldHidePrevNavButton: false
 });
 
 export const useSwiperContext = () => {
@@ -82,8 +104,8 @@ const SwiperContent = ({ children, className }: SwiperProps) => {
   const isLastPage = currentPage === totalPages;
 
   useEffect(() => {
-    if (sliderRef.current) {
-      const currentWidth = sliderRef.current.clientWidth;
+    if (sliderRef?.current) {
+      const currentWidth = sliderRef?.current.clientWidth;
       setPageWidth(currentWidth);
     }
   }, []);
@@ -91,7 +113,7 @@ const SwiperContent = ({ children, className }: SwiperProps) => {
   if (!children) return null;
 
   const handleMove = (x: number) => {
-    if (!isDragging || !sliderRef.current) return;
+    if (!isDragging || !sliderRef?.current) return;
 
     const diff = x - startX;
     if (Math.abs(diff) > DRAG_THRESHOLD) wasDraggingRef.current = true;
@@ -118,14 +140,14 @@ const SwiperContent = ({ children, className }: SwiperProps) => {
     wasDraggingRef.current = false;
     setIsDragging(true);
     setStartX(e.touches[0].pageX);
-    setScrollLeft(sliderRef.current?.scrollLeft || 0);
+    setScrollLeft(sliderRef?.current?.scrollLeft || 0);
   };
 
   const handleMouseDown = (e: React.MouseEvent) => {
     wasDraggingRef.current = false;
     setIsDragging(true);
     setStartX(e.pageX);
-    setScrollLeft(sliderRef.current?.scrollLeft || 0);
+    setScrollLeft(sliderRef?.current?.scrollLeft || 0);
   };
 
   const handleMouseMove = (e: React.MouseEvent) => {
@@ -177,8 +199,10 @@ const SwiperProvider = ({ children, settings }: SwiperProviderProps) => {
   const [totalItems, setTotalItems] = useState(0);
   const [pageWidth, setPageWidth] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
+  const device = useDevice();
 
-  const itemScrollWidth = configSettings?.itemWidth + configSettings?.spaceBetween;
+  const itemScrollWidth =
+    getCurrentItemWidth(configSettings?.itemWidth, device) + getCurrentSpaceBetween(configSettings?.spaceBetween, device);
 
   useEffect(() => {
     if (sliderRef?.current) {
@@ -228,7 +252,7 @@ const SwiperProvider = ({ children, settings }: SwiperProviderProps) => {
     }
   }, [configSettings?.itemWidth, configSettings?.spaceBetween, currentPosition]);
 
-  const contextValue: SwiperContextType = useMemo(
+  const contextValue = useMemo(
     () => ({
       configSettings,
       sliderRef,
@@ -264,6 +288,8 @@ const SwiperProvider = ({ children, settings }: SwiperProviderProps) => {
   );
 };
 
+const Swiper = SwiperProvider;
+
 const SwiperControl = () => {
   const { onNext, onPrev, shouldHideNextNavButton, shouldHidePrevNavButton, shouldHideControls } = useSwiperContext();
 
@@ -293,4 +319,4 @@ const SwiperControl = () => {
   );
 };
 
-export { SwiperProvider, SwiperContent, SwiperControl };
+export { Swiper, SwiperContent, SwiperControl };

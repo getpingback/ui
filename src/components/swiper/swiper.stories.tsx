@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { SwiperContent, SwiperControl, SwiperProvider } from './swiper';
+import { SwiperContent, SwiperControl, Swiper } from './swiper';
 import type { Meta, StoryObj } from '@storybook/react';
 
-const meta: Meta<typeof SwiperProvider> = {
+const meta: Meta<typeof Swiper> = {
   title: 'Components/Swiper',
-  component: SwiperProvider,
+  component: Swiper,
   tags: ['autodocs'],
   argTypes: {
     settings: {
@@ -30,7 +30,7 @@ const meta: Meta<typeof SwiperProvider> = {
       }
     }
   }
-} satisfies Meta<typeof SwiperProvider>;
+} satisfies Meta<typeof Swiper>;
 
 export default meta;
 
@@ -43,7 +43,7 @@ const Card = ({ color, number }: { color: string; number: number }) => (
 export const Default: Story = {
   args: {},
   render: (args) => (
-    <SwiperProvider {...args}>
+    <Swiper {...args}>
       <div className="flex items-center justify-between">
         <span className=" text-sm font-medium text-secondary">Section Title</span>
         <SwiperControl />
@@ -59,7 +59,7 @@ export const Default: Story = {
         <Card color="bg-blue-500" number={7} />
         <Card color="bg-green-500" number={8} />
       </SwiperContent>
-    </SwiperProvider>
+    </Swiper>
   )
 };
 
@@ -72,7 +72,7 @@ export const Mobile: Story = {
     }
   },
   render: (args) => (
-    <SwiperProvider {...args}>
+    <Swiper {...args}>
       <div className="flex items-center justify-between">
         <span className=" text-sm font-medium text-secondary">Section Title</span>
         <SwiperControl />
@@ -87,6 +87,6 @@ export const Mobile: Story = {
         <Card color="bg-blue-500" number={7} />
         <Card color="bg-green-500" number={8} />
       </SwiperContent>
-    </SwiperProvider>
+    </Swiper>
   )
 };
