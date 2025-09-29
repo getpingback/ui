@@ -10,7 +10,7 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/popover';
 import { Matcher } from 'react-day-picker';
 
 export interface DatePickerProps {
-  label?: string;
+  label?: React.ReactNode | string;
   helperText?: string;
   placeholder?: string;
   locale?: 'en' | 'pt' | 'es';
@@ -65,7 +65,7 @@ export function DatePicker({ locale = 'en', label, placeholder, helperText, valu
             {date ? (
               format(date, 'PPP', { locale: getLocale() })
             ) : (
-              <span className="flex items-center text-tertiary text-sm opacity-60">{placeholder}</span>
+              <span className="flex items-center text-tertiary text-sm opacity-85">{placeholder}</span>
             )}
             <CalendarIcon height={20} width={20} className="text-icon-tertiary" />
           </Button>

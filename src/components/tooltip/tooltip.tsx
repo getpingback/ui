@@ -15,8 +15,8 @@ function Tooltip({ className, sideOffset = 4, trigger, showArrow, ...props }: To
   return (
     <TooltipPrimitive.Provider delayDuration={200}>
       <TooltipPrimitive.Root delayDuration={200} onOpenChange={setOpen} open={open}>
-        <TooltipPrimitive.Trigger asChild onClick={() => setOpen(!open)}>
-          {trigger ? trigger : <InfoCircleIcon className="text-icon-tertiary" width={16} height={16} data-testid="tooltip-trigger" />}
+        <TooltipPrimitive.Trigger asChild onClick={() => setOpen(!open)} data-testid="tooltip-trigger">
+          {trigger ? trigger : <InfoCircleIcon className="text-icon-tertiary" width={16} height={16} />}
         </TooltipPrimitive.Trigger>
         <TooltipPrimitive.Content
           sideOffset={sideOffset}

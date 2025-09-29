@@ -9,7 +9,14 @@ const meta = {
   component: Combobox,
   parameters: {},
   tags: ['autodocs'],
-  argTypes: {},
+  argTypes: {
+    label: {
+      control: 'text'
+    },
+    tooltipText: {
+      control: 'text'
+    }
+  },
   args: {
     onChangeSearchValue: undefined
   }

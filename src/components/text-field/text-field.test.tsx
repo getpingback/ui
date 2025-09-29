@@ -42,7 +42,7 @@ describe('TextField', () => {
     render(<TextField disabled />);
 
     expect(screen.getByRole('textbox')).toBeDisabled();
-    expect(screen.getByRole('textbox')).toHaveClass('border-none');
+    expect(screen.getByRole('textbox')).toHaveClass('opacity-85');
   });
 
   it('should display error message instead of helper text when both are present', () => {

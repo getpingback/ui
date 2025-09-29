@@ -1,21 +1,27 @@
 import React, { TextareaHTMLAttributes, forwardRef } from 'react';
 import { AsteriskIcon } from '@stash-ui/solid-icons';
 import { cn } from '@/lib/utils';
+import { Tooltip } from '../tooltip';
 
 interface TextAreaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
-  label?: string;
+  label?: React.ReactNode | string;
   error?: string;
   helperText?: string;
   defaultHeight?: number;
+  tooltipText?: string;
   onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
 const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
-  ({ label, placeholder, value, onChange, error, helperText, disabled, className, defaultHeight = 112, required, ...props }, ref) => {
+  (
+    { label, placeholder, value, onChange, error, helperText, disabled, className, defaultHeight = 112, tooltipText, required, ...props },
+    ref
+  ) => {
     return (
       <div className={cn('flex flex-col gap-1', className)}>
-        <label className="text-tertiary text-xs font-semibold leading-4 flex items-center [&_svg]:text-icon-tertiary">
+        <label className="text-tertiary text-xs font-semibold leading-4 flex items-center [&_svg]:text-icon-tertiary [&_[data-testid='tooltip-trigger']]:ml-1">
           {label}
+          {tooltipText && <Tooltip>{tooltipText}</Tooltip>}
           {required && <AsteriskIcon width={16} height={16} opacity={0.45} />}
         </label>
         <div className="relative w-full">
@@ -28,7 +34,7 @@ const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
               {
                 'border-default hover:border-hover focus:border-hover focus:shadow-input-focus-neutral': !error
               },
-              { 'border-none bg-neutral cursor-not-allowed opacity-85': disabled },
+              { 'bg-neutral cursor-not-allowed opacity-85 hover:border-default': disabled },
               'resize-none'
             )}
             style={{ height: defaultHeight }}

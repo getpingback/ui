@@ -55,7 +55,7 @@ const DrawerHeader = ({ title, description, prefixIcon, className }: DrawerHeade
         </div>
       </div>
       <Dialog.Close className="h-fit">
-        <TimesIcon />
+        <TimesIcon className="text-icon-primary" />
       </Dialog.Close>
     </div>
   );

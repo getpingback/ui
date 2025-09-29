@@ -11,6 +11,7 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/popover';
 import Loader from './components/loader';
 import { cn } from '@/lib/utils';
 import { Typography } from '@/index';
+import { Tooltip } from '@/components/tooltip';
 
 interface Item {
   value: string;
@@ -29,7 +30,7 @@ interface Option {
 
 interface ComboboxProps {
   isLoading?: boolean;
-  label?: string;
+  label?: React.ReactNode | string;
   helperText?: string;
   options: Option[];
   placeholder?: string;
@@ -45,6 +46,7 @@ interface ComboboxProps {
   className?: string;
   emptyContentRender?: React.ReactNode;
   footer?: React.ReactNode;
+  tooltipText?: string;
 }
 
 export function Combobox({
@@ -64,7 +66,8 @@ export function Combobox({
   onEndReached,
   className,
   emptyContentRender,
-  footer
+  footer,
+  tooltipText
 }: ComboboxProps) {
   const [open, setOpen] = React.useState(false);
   const [selectedItems, setSelectedItems] = React.useState<Item[]>([]);
@@ -203,7 +206,12 @@ export function Combobox({
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <div className="flex flex-col items-start gap-1 w-full">
-        {label ? <label className="text-xs font-semibold text-tertiary">{label}</label> : null}
+        {label ? (
+          <label className="text-xs font-semibold text-tertiary flex items-center gap-1">
+            {label}
+            {tooltipText && <Tooltip>{tooltipText}</Tooltip>}
+          </label>
+        ) : null}
         <PopoverTrigger asChild>
           <Button
             variant="outline"

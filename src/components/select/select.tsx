@@ -2,8 +2,8 @@ import * as React from 'react';
 import * as RadixSelect from '@radix-ui/react-select';
 import { CaretDownIcon, CaretUpIcon, CheckIcon } from '@stash-ui/regular-icons';
 import { AsteriskIcon } from '@stash-ui/solid-icons';
-import { buttonVariants } from '../button';
 import { cn } from '@/lib/utils';
+import { Tooltip } from '../tooltip';
 
 interface Option {
   value: string;
@@ -13,18 +13,30 @@ interface Option {
 }
 
 export interface SelectProps {
-  label?: string;
+  label?: React.ReactNode | string;
   helperText?: string;
   placeholder?: string;
   required?: boolean;
   options: Option[];
   value?: string;
   defaultValue?: string;
+  tooltipText?: string;
   onValueChange: (option?: Option) => void;
   disabled?: boolean;
 }
 
-export function Select({ label, helperText, placeholder, options, value, defaultValue, onValueChange, disabled, required }: SelectProps) {
+export function Select({
+  label,
+  helperText,
+  placeholder,
+  options,
+  value,
+  defaultValue,
+  onValueChange,
+  disabled,
+  required,
+  tooltipText
+}: SelectProps) {
   const [isOpen, setIsOpen] = React.useState(false);
   const [selectedValue, setSelectedValue] = React.useState(defaultValue || value);
 
@@ -41,8 +53,9 @@ export function Select({ label, helperText, placeholder, options, value, default
   return (
     <div className="flex flex-col items-start gap-1 w-full">
       {label && (
-        <label className="text-tertiary text-xs font-semibold leading-4 flex items-center [&_svg]:text-icon-tertiary">
+        <label className="text-tertiary text-xs font-semibold leading-4 flex items-center [&_svg]:text-icon-tertiary [&_[data-testid='tooltip-trigger']]:ml-1">
           {label}
+          {tooltipText && <Tooltip>{tooltipText}</Tooltip>}
           {required && <AsteriskIcon width={16} height={16} opacity={0.45} />}
         </label>
       )}
@@ -55,7 +68,7 @@ export function Select({ label, helperText, placeholder, options, value, default
         required={required}
       >
         <RadixSelect.Trigger
-          aria-label={label}
+          aria-label={label as string}
           className={cn(
             'w-full flex justify-between items-center rounded-2xl bg-surface border h-10 px-3 py-2 text-sm leading-none text-tertiary font-normal transition-all outline-none'
           )}
@@ -89,7 +102,7 @@ export function Select({ label, helperText, placeholder, options, value, default
                 </div>
 
                 <RadixSelect.ItemIndicator>
-                  <CheckIcon />
+                  <CheckIcon className="text-icon-tertiary" />
                 </RadixSelect.ItemIndicator>
               </RadixSelect.Item>
             ))}
