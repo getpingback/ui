@@ -5,9 +5,6 @@ import { cn } from '@/lib/utils';
 import { useDevice } from '@/hooks/useDevice';
 
 interface SwiperContextType {
-  next: (() => void) | null;
-  prev: (() => void) | null;
-  registerNavigation: (next: () => void, prev: () => void) => void;
   configSettings?:
     | {
         itemWidth?: number | number[];
@@ -23,9 +20,6 @@ interface SwiperProviderProps {
 }
 
 const SwiperContext = createContext<SwiperContextType>({
-  next: null,
-  prev: null,
-  registerNavigation: () => {},
   configSettings: undefined
 });
 
@@ -66,15 +60,14 @@ const SwiperContent = ({ children, className }: SwiperProps) => {
   const { itemWidth, spaceBetween } = configSettings;
 
   const device = useDevice();
-  const { registerNavigation } = useSwiperContext();
+  const { sliderRef, setCurrentPosition, setIsDragging, isDragging } = useSwiperContext();
 
-  const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
-  const [currentPosition, setCurrentPosition] = useState(0);
+
   const [currentPage, setCurrentPage] = useState(1);
   const [pageWidth, setPageWidth] = useState(0);
-  const sliderRef = useRef<HTMLDivElement>(null);
+
   const wasDraggingRef = useRef(false);
 
   const currentItemWidth = getCurrentItemWidth(itemWidth, device);
@@ -94,41 +87,6 @@ const SwiperContent = ({ children, className }: SwiperProps) => {
       setPageWidth(currentWidth);
     }
   }, []);
-
-  const handleNext = useCallback(() => {
-    if (sliderRef.current) {
-      const itemScrollWidth = currentItemWidth + currentSpaceBetween;
-      const newPosition = currentPosition + itemScrollWidth;
-
-      const maxPosition = Math.max(0, totalItems * itemScrollWidth - pageWidth);
-      const finalPosition = Math.min(newPosition, maxPosition);
-
-      setCurrentPosition(finalPosition);
-      sliderRef.current.scrollTo({
-        left: finalPosition,
-        behavior: 'smooth'
-      });
-    }
-  }, [currentItemWidth, currentSpaceBetween, currentPosition, totalItems, pageWidth]);
-
-  const handlePrev = useCallback(() => {
-    if (sliderRef.current) {
-      const itemScrollWidth = currentItemWidth + currentSpaceBetween;
-      const newPosition = currentPosition - itemScrollWidth;
-
-      const finalPosition = Math.max(0, newPosition);
-
-      setCurrentPosition(finalPosition);
-      sliderRef.current.scrollTo({
-        left: finalPosition,
-        behavior: 'smooth'
-      });
-    }
-  }, [currentItemWidth, currentSpaceBetween, currentPosition]);
-
-  useEffect(() => {
-    registerNavigation(handleNext, handlePrev);
-  }, [registerNavigation, handleNext, handlePrev]);
 
   if (!children) return null;
 
@@ -214,26 +172,89 @@ const SwiperContent = ({ children, className }: SwiperProps) => {
 
 const SwiperProvider = ({ children, settings }: SwiperProviderProps) => {
   const configSettings = { ...DEFAULT_SETTINGS, ...settings };
-  const [navigationFunctions, setNavigationFunctions] = useState<{
-    next: (() => void) | null;
-    prev: (() => void) | null;
-  }>({
-    next: null,
-    prev: null
-  });
+  const sliderRef = useRef<HTMLDivElement>(null);
+  const [currentPosition, setCurrentPosition] = useState(0);
+  const [totalItems, setTotalItems] = useState(0);
+  const [pageWidth, setPageWidth] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
 
-  const registerNavigation = useCallback((next: () => void, prev: () => void) => {
-    setNavigationFunctions({ next, prev });
-  }, []);
+  const itemScrollWidth = configSettings?.itemWidth + configSettings?.spaceBetween;
+
+  useEffect(() => {
+    if (sliderRef?.current) {
+      const totalItems = sliderRef?.current.children[0].children.length;
+      const pageWidth = sliderRef?.current?.clientWidth;
+      setTotalItems(totalItems);
+      setPageWidth(pageWidth);
+    }
+  }, [sliderRef]);
+
+  const maxScrollPosition = totalItems * itemScrollWidth - pageWidth;
+
+  const isAtStart = currentPosition <= 0;
+  const isAtEnd = currentPosition >= maxScrollPosition;
+
+  const shouldHideNextNavButton = isAtEnd && !isDragging;
+  const shouldHidePrevNavButton = isAtStart && !isDragging;
+
+  const shouldHideControls = totalItems * itemScrollWidth <= pageWidth || configSettings?.hideNavigationButtons;
+
+  const onNext = useCallback(() => {
+    if (sliderRef.current) {
+      const newPosition = currentPosition + itemScrollWidth;
+
+      const maxPosition = Math.max(0, totalItems * itemScrollWidth - pageWidth);
+      const finalPosition = Math.min(newPosition, maxPosition);
+
+      setCurrentPosition(finalPosition);
+      sliderRef?.current?.scrollTo({
+        left: finalPosition,
+        behavior: 'smooth'
+      });
+    }
+  }, [configSettings?.itemWidth, configSettings?.spaceBetween, currentPosition, totalItems, pageWidth]);
+
+  const onPrev = useCallback(() => {
+    if (sliderRef.current) {
+      const newPosition = currentPosition - itemScrollWidth;
+
+      const finalPosition = Math.max(0, newPosition);
+
+      setCurrentPosition(finalPosition);
+      sliderRef.current.scrollTo({
+        left: finalPosition,
+        behavior: 'smooth'
+      });
+    }
+  }, [configSettings?.itemWidth, configSettings?.spaceBetween, currentPosition]);
 
   const contextValue: SwiperContextType = useMemo(
     () => ({
-      next: navigationFunctions.next,
-      prev: navigationFunctions.prev,
-      registerNavigation,
-      configSettings
+      configSettings,
+      sliderRef,
+      onNext,
+      onPrev,
+      setCurrentPosition,
+      currentPosition,
+      isDragging,
+      setIsDragging,
+      shouldHideControls,
+      shouldHideNextNavButton,
+      shouldHidePrevNavButton
     }),
-    [navigationFunctions.next, navigationFunctions.prev, registerNavigation, configSettings]
+    [
+      configSettings,
+      sliderRef,
+      onNext,
+      onPrev,
+      setCurrentPosition,
+      currentPosition,
+      isDragging,
+      setIsDragging,
+      shouldHideNextNavButton,
+      shouldHidePrevNavButton,
+      shouldHideControls
+    ]
   );
 
   return (
@@ -244,26 +265,26 @@ const SwiperProvider = ({ children, settings }: SwiperProviderProps) => {
 };
 
 const SwiperControl = () => {
-  const { next, prev, configSettings } = useSwiperContext();
+  const { onNext, onPrev, shouldHideNextNavButton, shouldHidePrevNavButton, shouldHideControls } = useSwiperContext();
 
   return (
-    <div data-testid="swiper-control" className={cn('w-fit flex items-center gap-1', { hidden: configSettings?.hideNavigationButtons })}>
+    <div data-testid="swiper-control" className={cn('w-fit flex items-center gap-1', { hidden: shouldHideControls })}>
       <button
         data-testid="prev-control"
-        onClick={prev || undefined}
-        disabled={!prev}
+        onClick={onPrev || undefined}
+        disabled={shouldHidePrevNavButton}
         className={cn('w-6 h-6 overflow-hidden transition-all duration-300 hover:bg-neutral-hover rounded-full', {
-          'opacity-50 cursor-not-allowed': !prev
+          'opacity-50 cursor-not-allowed': shouldHidePrevNavButton
         })}
       >
         <ChevronLeftIcon className="text-icon-tertiary group-hover:text-icon-primary" />
       </button>
       <button
         data-testid="next-control"
-        onClick={next || undefined}
-        disabled={!next}
+        onClick={onNext || undefined}
+        disabled={shouldHideNextNavButton}
         className={cn('group w-6 h-6 overflow-hidden transition-all duration-300 hover:bg-neutral-hover rounded-full', {
-          'opacity-50 cursor-not-allowed': !next
+          'opacity-50 cursor-not-allowed': shouldHideNextNavButton
         })}
       >
         <ChevronRightIcon className=" text-icon-tertiary group-hover:text-icon-primary" />
