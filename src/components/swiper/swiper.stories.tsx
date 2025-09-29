@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { Swiper } from './swiper';
+import { SwiperContent, SwiperControl, SwiperProvider } from './swiper';
 import type { Meta, StoryObj } from '@storybook/react';
 
-const meta: Meta<typeof Swiper> = {
+const meta: Meta<typeof SwiperProvider> = {
   title: 'Components/Swiper',
-  component: Swiper,
+  component: SwiperProvider,
   tags: ['autodocs'],
   argTypes: {
     settings: {
@@ -30,7 +30,7 @@ const meta: Meta<typeof Swiper> = {
       }
     }
   }
-} satisfies Meta<typeof Swiper>;
+} satisfies Meta<typeof SwiperProvider>;
 
 export default meta;
 
@@ -41,24 +41,25 @@ const Card = ({ color, number }: { color: string; number: number }) => (
 );
 
 export const Default: Story = {
-  args: {
-    settings: {
-      itemWidth: 224,
-      spaceBetween: 24,
-      hideNavigationButtons: false
-    }
-  },
+  args: {},
   render: (args) => (
-    <Swiper {...args}>
-      <Card color="bg-red-500" number={1} />
-      <Card color="bg-blue-500" number={2} />
-      <Card color="bg-green-500" number={3} />
-      <Card color="bg-yellow-500" number={4} />
-      <Card color="bg-purple-500" number={5} />
-      <Card color="bg-red-500" number={6} />
-      <Card color="bg-blue-500" number={7} />
-      <Card color="bg-green-500" number={8} />
-    </Swiper>
+    <SwiperProvider {...args}>
+      <div className="flex items-center justify-between">
+        <span className=" text-sm font-medium text-secondary">Section Title</span>
+        <SwiperControl />
+      </div>
+
+      <SwiperContent>
+        <Card color="bg-red-500" number={1} />
+        <Card color="bg-blue-500" number={2} />
+        <Card color="bg-green-500" number={3} />
+        <Card color="bg-yellow-500" number={4} />
+        <Card color="bg-purple-500" number={5} />
+        <Card color="bg-red-500" number={6} />
+        <Card color="bg-blue-500" number={7} />
+        <Card color="bg-green-500" number={8} />
+      </SwiperContent>
+    </SwiperProvider>
   )
 };
 
@@ -66,19 +67,26 @@ export const Mobile: Story = {
   args: {
     settings: {
       itemWidth: [120, 224],
-      spaceBetween: [12, 24]
+      spaceBetween: [12, 24],
+      hideNavigationButtons: true
     }
   },
   render: (args) => (
-    <Swiper {...args}>
-      <Card color="bg-red-500" number={1} />
-      <Card color="bg-blue-500" number={2} />
-      <Card color="bg-green-500" number={3} />
-      <Card color="bg-yellow-500" number={4} />
-      <Card color="bg-purple-500" number={5} />
-      <Card color="bg-red-500" number={6} />
-      <Card color="bg-blue-500" number={7} />
-      <Card color="bg-green-500" number={8} />
-    </Swiper>
+    <SwiperProvider {...args}>
+      <div className="flex items-center justify-between">
+        <span className=" text-sm font-medium text-secondary">Section Title</span>
+        <SwiperControl />
+      </div>
+      <SwiperContent {...args}>
+        <Card color="bg-red-500" number={1} />
+        <Card color="bg-blue-500" number={2} />
+        <Card color="bg-green-500" number={3} />
+        <Card color="bg-yellow-500" number={4} />
+        <Card color="bg-purple-500" number={5} />
+        <Card color="bg-red-500" number={6} />
+        <Card color="bg-blue-500" number={7} />
+        <Card color="bg-green-500" number={8} />
+      </SwiperContent>
+    </SwiperProvider>
   )
 };

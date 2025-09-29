@@ -212,7 +212,7 @@ export function Combobox({
             width="full"
             aria-expanded={open}
             align="between"
-            className="rounded-2xl border-default"
+            className="rounded-2xl border-default !bg-surface hover:border-hover"
             suffix={<CaretDownIcon className={cn('h-5 w-5 transition-transform text-icon-tertiary', { 'rotate-180': open })} />}
           >
             {renderButtonContent()}

@@ -47,7 +47,7 @@ export function DatePicker({ locale = 'en', label, placeholder, helperText, valu
     <Popover>
       <div className="flex flex-col items-start gap-1">
         {label ? (
-          <label className="text-xs font-semibold text-tertiary-foreground" htmlFor="date-picker">
+          <label className="text-xs font-semibold text-tertiary" htmlFor="date-picker">
             {label}
           </label>
         ) : null}
@@ -57,7 +57,7 @@ export function DatePicker({ locale = 'en', label, placeholder, helperText, valu
             variant="outline"
             align="between"
             className={cn(
-              'h-10 w-full justify-between text-left font-normal bg-background-accent hover:bg-background-accent',
+              'h-10 w-full justify-between  text-left rounded-2xl font-normal bg-surface border-default hover:border-hover',
               !date && 'text-muted-foreground'
             )}
             data-testid="date-picker-button-popover-trigger"
@@ -65,13 +65,13 @@ export function DatePicker({ locale = 'en', label, placeholder, helperText, valu
             {date ? (
               format(date, 'PPP', { locale: getLocale() })
             ) : (
-              <span className="text-tertiary-foreground text-sm opacity-60">{placeholder}</span>
+              <span className="flex items-center text-tertiary text-sm opacity-60">{placeholder}</span>
             )}
-            <CalendarIcon height={20} width={20} color="#52525B" />
+            <CalendarIcon height={20} width={20} className="text-icon-tertiary" />
           </Button>
         </PopoverTrigger>
 
-        {helperText ? <span className="text-xs font-normal text-tertiary-foreground mt-1">{helperText}</span> : null}
+        {helperText ? <span className="text-xs font-normal text-tertiary mt-1">{helperText}</span> : null}
       </div>
 
       <PopoverContent
