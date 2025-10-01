@@ -6,6 +6,7 @@ export interface SelectListProps {
   className?: string;
   type: 'single' | 'multiple';
   defaultValue?: string | string[];
+  value?: string | string[];
   onChangeValue: (value: string | string[]) => void;
   children: React.ReactNode;
 }
@@ -33,12 +34,14 @@ const SelectListContext = createContext<SelectListContextType>({
   type: 'single'
 });
 
-const SelectList = ({ className, type, defaultValue = '', onChangeValue, children }: SelectListProps) => {
+const SelectList = ({ className, type, value, defaultValue = '', onChangeValue, children }: SelectListProps) => {
   const [selectedItem, setSelectedItem] = useState<string | string[] | null>(defaultValue);
+
+  const currentValue = value || selectedItem;
 
   const onSelectItem = (value: string) => {
     if (type === 'multiple') {
-      if (!selectedItem?.includes(value)) return setSelectedItem((prev) => (Array.isArray(prev) ? [...prev, value] : [value]));
+      if (!currentValue?.includes(value)) return setSelectedItem((prev) => (Array.isArray(prev) ? [...prev, value] : [value]));
 
       return setSelectedItem((prev) => (Array.isArray(prev) ? prev.filter((item) => item !== value) : null));
     }
