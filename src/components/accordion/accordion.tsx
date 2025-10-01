@@ -11,6 +11,29 @@ interface AccordionProps extends Omit<AccordionPrimitive.AccordionItemProps, 'va
 }
 
 function Accordion({ className, children, label, isInitialStateOpen = false, isOpen = false, ...props }: AccordionProps) {
+  const ref = React.useRef<HTMLDivElement>(null);
+  const contentRef = React.useRef<HTMLDivElement>(null);
+
+  // Radix Accordion doesnt update height when children updates.
+  // We need to manualy add a resize observer on children of the Content component
+  // to update the CSS variable height of the content.
+
+  React.useEffect(() => {
+    const content = contentRef.current;
+
+    if (!ref.current || !content) return;
+
+    const resizeObserver = new ResizeObserver(() => {
+      const currentHeight = ref?.current?.clientHeight;
+
+      content.style.cssText = `--radix-accordion-content-height: ${currentHeight}px;`;
+    });
+
+    resizeObserver.observe(ref.current);
+
+    return () => resizeObserver.disconnect(); // clean up
+  }, []);
+
   return (
     <AccordionPrimitive.Root
       type="single"
@@ -29,8 +52,13 @@ function Accordion({ className, children, label, isInitialStateOpen = false, isO
           {label}
           <ChevronDownIcon className="shrink-0 transition-transform duration-200" />
         </AccordionPrimitive.Trigger>
-        <AccordionPrimitive.Content className="w-full overflow-hidden data-[state=open]:animate-slide-up data-[state=closed]:animate-slide-down">
-          <div className="w-full flex flex-col">{children}</div>
+        <AccordionPrimitive.Content
+          ref={contentRef}
+          className="w-full overflow-hidden data-[state=open]:animate-slide-up data-[state=closed]:animate-slide-down"
+        >
+          <div className="w-full flex flex-col" ref={ref}>
+            {children}
+          </div>
         </AccordionPrimitive.Content>
       </AccordionPrimitive.Item>
     </AccordionPrimitive.Root>

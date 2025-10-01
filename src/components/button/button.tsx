@@ -10,7 +10,8 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        primary: 'animate-brand-gradient',
+        primary:
+          'animate-brand-gradient [&>div]:hover:translate-y-[-2px] [&>div]:focus:translate-y-[-2px] [&>div]:active:translate-y-[2px]',
         solid: 'bg-button-solid text-button-solid-label hover:bg-button-solid-hover',
         ghost:
           'bg-button-ghost text-button-outlined-label hover:bg-button-ghost-hover focus:bg-button-ghost-pressed active:bg-button-ghost-pressed',
@@ -90,7 +91,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {variant === 'primary' ? (
           <div
             className={cn(
-              'px-3 !h-full transition-all duration-200 ease-in-out hover:translate-y-[-2px] focus:translate-y-[2px] active:translate-y-[2px]',
+              'px-3 !h-full transition-all duration-200 ease-in-out',
               buttonVariants({ variant: 'solid', width, align, rounded })
             )}
           >

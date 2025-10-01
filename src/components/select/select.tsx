@@ -70,7 +70,7 @@ export function Select({
         <RadixSelect.Trigger
           aria-label={label as string}
           className={cn(
-            'w-full flex justify-between items-center rounded-2xl bg-surface border h-10 px-3 py-2 text-sm leading-none text-tertiary font-normal transition-all outline-none'
+            'w-full flex justify-between items-center rounded-2xl bg-surface border border-default h-10 px-3 py-2 text-sm leading-none text-tertiary font-normal hover:border-hover focus:border-hover transition-all duration-300 outline-none'
           )}
           data-testid="select-trigger"
         >

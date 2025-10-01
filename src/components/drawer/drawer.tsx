@@ -33,7 +33,7 @@ const DrawerRoot = ({ children, className, ...props }: DrawerRootProps) => {
         <Dialog.Overlay className="z-[45] fixed inset-0 bg-background-neutral w-screen h-screen backdrop-blur-sm animate-fade-in" />
         <Dialog.Content
           className={cn(
-            'z-50 flex flex-col bg-surface shadow-modal-3 rounded-2xl max-w-[calc(100%-48px)] w-[400px] border border-default fixed right-6 top-6 h-[calc(100vh-48px)] data-[state=open]:animate-drawer-slide-in data-[state=closed]:animate-drawer-slide-out',
+            'z-50 flex flex-col bg-surface shadow-modal-3 rounded-2xl max-w-[calc(100%-48px)] w-[436px] border border-default fixed right-6 top-6 h-[calc(100vh-48px)] data-[state=open]:animate-drawer-slide-in data-[state=closed]:animate-drawer-slide-out',
             className
           )}
         >
