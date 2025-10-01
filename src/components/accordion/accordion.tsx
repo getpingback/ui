@@ -14,10 +14,6 @@ function Accordion({ className, children, label, isInitialStateOpen = false, isO
   const ref = React.useRef<HTMLDivElement>(null);
   const contentRef = React.useRef<HTMLDivElement>(null);
 
-  // Radix Accordion doesnt update height when children updates.
-  // We need to manualy add a resize observer on children of the Content component
-  // to update the CSS variable height of the content.
-
   React.useEffect(() => {
     const content = contentRef.current;
 
@@ -31,8 +27,8 @@ function Accordion({ className, children, label, isInitialStateOpen = false, isO
 
     resizeObserver.observe(ref.current);
 
-    return () => resizeObserver.disconnect(); // clean up
-  }, []);
+    return () => resizeObserver.disconnect();
+  }, [children]);
 
   return (
     <AccordionPrimitive.Root
