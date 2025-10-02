@@ -17,6 +17,7 @@ export interface SelectItemProps {
   description?: string;
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
+  selected?: boolean;
   tag?: React.ReactNode;
   onClick?: () => void;
 }
@@ -58,7 +59,7 @@ const SelectList = ({ className, type, defaultValue = '', onChangeValue, childre
   );
 };
 
-const SelectItem = ({ className, onClick, value, label, description, prefix, suffix, tag }: SelectItemProps) => {
+const SelectItem = ({ className, onClick, value, label, description, prefix, suffix, tag, selected }: SelectItemProps) => {
   const { selectedItem, setSelectedItem, type } = useContext(SelectListContext);
 
   const handleClick = () => {
@@ -66,7 +67,7 @@ const SelectItem = ({ className, onClick, value, label, description, prefix, suf
     onClick?.();
   };
 
-  const isSelected = type === 'single' ? selectedItem === value : (selectedItem as string[]).includes(value);
+  const isSelected = selected || (type === 'single' ? selectedItem === value : (selectedItem as string[]).includes(value));
 
   return (
     <div className="w-full">
