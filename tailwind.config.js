@@ -129,7 +129,8 @@ const borderColor = {
   hover: 'var(--border-hover)',
   invalid: 'var(--border-invalid)',
   valid: 'var(--border-valid)',
-  filled: 'var(--border-filled)'
+  filled: 'var(--border-filled)',
+  inverse: 'var(--border-default-inverse)'
 };
 
 const config = {
