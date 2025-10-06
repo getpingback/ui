@@ -94,7 +94,7 @@ const CheckboxItem = ({ disabled, value, id, variant, className, defaultChecked,
 
       {children && (
         <label
-          className={cn('w-full font-primary flex items-start text-tertiary text-sm', {
+          className={cn('w-full font-primary flex items-start text-tertiary text-xs', {
             'text-primary': checked,
             'opacity-65 cursor-not-allowed': disabled
           })}

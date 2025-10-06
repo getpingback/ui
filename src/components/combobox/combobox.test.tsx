@@ -133,7 +133,7 @@ describe('Combobox Component', () => {
       expect(screen.getByText('8 métricas essenciais para acompanhar no seu blog post')).toBeInTheDocument();
       const image = screen.getByAltText('8 métricas essenciais para acompanhar no seu blog post');
       expect(image).toBeInTheDocument();
-      expect(image).toHaveAttribute('src', expect.stringContaining('https://source.unsplash.com/100x100/?blog'));
+      expect(image).toHaveAttribute('src', expect.stringContaining('https://picsum.photos/200/30'));
     });
 
     it('should open dropdown and display image items correctly', async () => {
@@ -165,7 +165,7 @@ describe('Combobox Component', () => {
       });
 
       expect(onSelectMock).toHaveBeenCalledWith({
-        imageUrl: 'https://source.unsplash.com/100x100/?blog',
+        imageUrl: 'https://picsum.photos/200/300',
         label: '8 métricas essenciais para acompanhar no seu blog post',
         value: '8 métricas essenciais para acompanhar no seu blog post'
       });

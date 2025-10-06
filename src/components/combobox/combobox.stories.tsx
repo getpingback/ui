@@ -190,17 +190,17 @@ export const ImageDetailed: Story = {
         items: [
           {
             label: '8 métricas essenciais para acompanhar no seu blog post',
-            imageUrl: 'https://source.unsplash.com/100x100/?blog',
+            imageUrl: 'https://picsum.photos/200/300',
             value: '8 métricas essenciais para acompanhar no seu blog post'
           },
           {
             label: 'Dicas para criar emails de final de ano que brilham',
-            imageUrl: 'https://source.unsplash.com/100x100/?blog',
+            imageUrl: 'https://picsum.photos/200/300',
             value: 'dicas para criar emails de final de ano que brilham'
           },
           {
             label: 'O que é KPI? Tudo sobre os indicadores chaves',
-            imageUrl: 'https://source.unsplash.com/100x100/?blog',
+            imageUrl: 'https://picsum.photos/200/300',
             value: 'o que é kpi? tudo sobre os indicadores chaves'
           },
           {
