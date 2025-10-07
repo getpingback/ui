@@ -271,7 +271,7 @@ export function VariableInput({
     <Popover open={open} onOpenChange={setOpen}>
       <div className="flex flex-col items-start gap-1">
         {label ? (
-          <label className="text-xs font-semibold text-tertiary-foreground" htmlFor="counter-input">
+          <label className="text-xs font-semibold text-tertiary" htmlFor="counter-input">
             {label}
           </label>
         ) : null}
@@ -300,7 +300,7 @@ export function VariableInput({
           </PopoverTrigger>
         </div>
 
-        {helperText ? <span className="text-xs font-normal text-tertiary-foreground opacity-65">{helperText}</span> : null}
+        {helperText ? <span className="text-xs font-normal text-tertiary opacity-85">{helperText}</span> : null}
       </div>
 
       <PopoverContent
