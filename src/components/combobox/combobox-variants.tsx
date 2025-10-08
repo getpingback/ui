@@ -75,12 +75,16 @@ const ImageDetailedVariant = ({ item, selected, isButtonLabel }: { item: Item; s
   <>
     <div className="w-full flex items-center gap-4 h-full">
       {item.imageUrl ? (
-        <img src={item.imageUrl} alt={item.label} className="w-16 h-12 max-h-[80%] rounded-xl object-cover" />
+        <img
+          src={item.imageUrl}
+          alt={item.label}
+          className={cn('w-16 h-12 min-w-16 rounded-xl object-cover', isButtonLabel && 'w-8 min-w-8 h-6 rounded-[4px]')}
+        />
       ) : (
-        <div className="w-16 h-12 max-h-[80%] object-cover rounded-xl bg-gray-200" />
+        <div className={cn('w-16 h-12 min-w-16 object-cover rounded-xl bg-gray-200', isButtonLabel && 'w-8 min-w-8 h-6 rounded-[4px]')} />
       )}
       <div className="flex flex-col gap-1 min-w-0">
-        <span className={`line-clamp-2 text-secondary font-medium text-sm ${isButtonLabel ? 'truncate max-w-[80%]' : ''}`}>
+        <span className={cn('text-secondary font-medium text-sm line-clamp-2', isButtonLabel && 'line-clamp-1 text-wrap')}>
           {item.label}
         </span>
         <div className="text-xs text-tertiary">{item.description}</div>

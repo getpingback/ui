@@ -231,13 +231,13 @@ export function Combobox({
       </div>
 
       <PopoverContent
-        className="w-full p-0"
+        className={cn('w-[--radix-popover-trigger-width] p-0', className)}
         onWheel={(e) => e.stopPropagation()}
         onTouchMove={(e) => e.stopPropagation()}
         align="center"
         data-testid="comboxbox-popover-content"
       >
-        <Command shouldFilter={!onChangeSearchValue} className={className}>
+        <Command shouldFilter={!onChangeSearchValue} className="w-full">
           {hasSelectedStep ? (
             <div className="w-full gap-3 p-3 flex items-center justify-start border-b border-default">
               <button onClick={() => setSelectedStep(null)}>

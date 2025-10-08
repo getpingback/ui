@@ -55,11 +55,12 @@ export function DatePicker({ locale = 'en', label, placeholder, helperText, valu
         <PopoverTrigger asChild>
           <Button
             variant="outline"
-            align="between"
+            align="start"
             className={cn(
               'h-10 w-full justify-between  text-left rounded-2xl font-normal bg-surface border-default hover:border-hover',
-              !date && 'text-muted-foreground'
+              !date && 'text-tertiary opacity-85'
             )}
+            prefix={<CalendarIcon height={20} width={20} className="text-icon-tertiary" />}
             data-testid="date-picker-button-popover-trigger"
           >
             {date ? (
@@ -67,7 +68,6 @@ export function DatePicker({ locale = 'en', label, placeholder, helperText, valu
             ) : (
               <span className="flex items-center text-tertiary text-sm opacity-85">{placeholder}</span>
             )}
-            <CalendarIcon height={20} width={20} className="text-icon-tertiary" />
           </Button>
         </PopoverTrigger>
 

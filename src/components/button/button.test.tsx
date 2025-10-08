@@ -156,8 +156,8 @@ describe('Button Component', () => {
     test('renders danger button', () => {
       render(<Danger />);
       const button = screen.getByRole('button');
-      expect(button.className.includes('bg-red-500')).toBe(true);
-      expect(button.className.includes('text-gray-50')).toBe(true);
+      expect(button.className.includes('bg-icon-error')).toBe(true);
+      expect(button.className.includes('text-button-solid-label')).toBe(true);
     });
   });
 });

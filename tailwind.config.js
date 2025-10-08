@@ -8,7 +8,8 @@ const backgroundColor = {
   },
   error: {
     DEFAULT: 'var(--background-error-default)',
-    inverse: 'var(--background-error-inverse)'
+    inverse: 'var(--background-error-inverse)',
+    hover: 'var(--background-error-hover)'
   },
   warning: {
     DEFAULT: 'var(--background-warning-default)',
@@ -361,7 +362,8 @@ const config = {
           },
           error: {
             DEFAULT: 'var(--icon-error-default)',
-            inverse: 'var(--icon-error-inverse)'
+            inverse: 'var(--icon-error-inverse)',
+            hover: 'var(--icon-error-hover)'
           },
           warning: {
             DEFAULT: 'var(--icon-warning-default)',

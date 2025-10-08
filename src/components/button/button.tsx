@@ -17,7 +17,7 @@ const buttonVariants = cva(
           'bg-button-ghost text-button-outlined-label hover:bg-button-ghost-hover focus:bg-button-ghost-pressed active:bg-button-ghost-pressed',
         outline:
           'border border-button-outlined bg-transparent text-button-outlined-label hover:border-button-outlined-hover hover:shadow-outlined disabled:hover:border-button-outlined focus:shadow-none active:shadow-none focus:border-button-outlined-pressed active:border-button-outlined-pressed',
-        danger: 'bg-red-500 text-gray-50 hover:bg-red-600',
+        danger: 'bg-icon-error text-button-solid-label hover:bg-icon-error-hover',
         clear: 'text-button-clear-label'
       },
       size: {
