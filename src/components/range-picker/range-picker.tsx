@@ -118,9 +118,11 @@ export function TriggerRangeDate({ rangeDate, type, locale = 'en', hideMenu }: T
           })
         : null;
 
+      console.log(rangeDate.type);
+
       return (
         <div className="w-full flex items-center gap-1">
-          {rangeDate.type && !hideMenu ? (
+          {rangeDate.type && !hideMenu && rangeDate.type !== 'custom' ? (
             <span className="text-tertiary text-nowrap">{DATA_PERIODS_LABEL[rangeDate.type][locale]}:</span>
           ) : null}
           <span className="flex items-center text-tertiary ">
