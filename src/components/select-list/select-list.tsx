@@ -19,6 +19,7 @@ export interface SelectItemProps {
   suffix?: React.ReactNode;
   selected?: boolean;
   tag?: React.ReactNode;
+  'data-testid'?: string;
   onClick?: () => void;
 }
 
@@ -59,7 +60,18 @@ const SelectList = ({ className, type, defaultValue = '', onChangeValue, childre
   );
 };
 
-const SelectItem = ({ className, onClick, value, label, description, prefix, suffix, tag, selected }: SelectItemProps) => {
+const SelectItem = ({
+  className,
+  onClick,
+  value,
+  label,
+  description,
+  prefix,
+  suffix,
+  tag,
+  selected,
+  'data-testid': dataTestId
+}: SelectItemProps) => {
   const { selectedItem, setSelectedItem, type } = useContext(SelectListContext);
 
   const handleClick = () => {
@@ -80,6 +92,7 @@ const SelectItem = ({ className, onClick, value, label, description, prefix, suf
         )}
         onClick={handleClick}
         tabIndex={1}
+        data-testid={dataTestId}
       >
         <div className={cn('flex gap-4', !description && 'items-center')}>
           {prefix && (
