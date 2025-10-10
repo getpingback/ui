@@ -38,6 +38,7 @@ interface SplitButtonProps {
   className?: string;
   align?: 'start' | 'center' | 'end';
   menuItems: MenuItem[];
+  'data-testid'?: string;
 }
 
 function SplitButton({
@@ -48,7 +49,8 @@ function SplitButton({
   menuItems,
   sufixIcon,
   className,
-  align = 'end'
+  align = 'end',
+  'data-testid': dataTestId
 }: SplitButtonProps) {
   const handlePrefixClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
@@ -60,6 +62,7 @@ function SplitButton({
       variant={variant}
       className={cn('[&>div]:pr-0', variant !== 'primary' && 'pr-0', className)}
       onClick={handlePrefixClick}
+      data-testid={dataTestId}
       suffix={
         <Dropdown
           trigger={
