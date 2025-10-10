@@ -8,106 +8,98 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [1.0.0](https://github.com/getpingback/ui/compare/v0.0.492...v1.0.0) (2025-09-29)
 
-
 ### Features
 
-* add theme decorator ([e092a5a](https://github.com/getpingback/ui/commits/e092a5aaf54c29fb73ed066bb6180ecb66afdf5f))
-* all badge colors works ([6c2e916](https://github.com/getpingback/ui/commits/6c2e916a0e7d7b2a7d557175dc0a8707bebd8b1c))
-* breadcrumb ([87a1eec](https://github.com/getpingback/ui/commits/87a1eecb44b694c871b9d1ffea2086f5547e5743))
-* checkbox label prop removed and children added ([0a33976](https://github.com/getpingback/ui/commits/0a33976a6a88f87c82a570255e029f011fc50cd9))
-* dark mode at docs ([ecba2da](https://github.com/getpingback/ui/commits/ecba2da19be787a43ea1478fb384898e7668248d))
-* flatten colors ([8f265ca](https://github.com/getpingback/ui/commits/8f265cade8d0536fd5dcd32aa7b593697dbacdca))
-* merge with epic ([142983d](https://github.com/getpingback/ui/commits/142983d474dc26535bf3315b3a9a94d828f25210))
-* new primary button ([484cf4f](https://github.com/getpingback/ui/commits/484cf4ffcf8c7a5ad6ad71d002f618ab1fcc5b9b))
-
+- add theme decorator ([e092a5a](https://github.com/getpingback/ui/commits/e092a5aaf54c29fb73ed066bb6180ecb66afdf5f))
+- all badge colors works ([6c2e916](https://github.com/getpingback/ui/commits/6c2e916a0e7d7b2a7d557175dc0a8707bebd8b1c))
+- breadcrumb ([87a1eec](https://github.com/getpingback/ui/commits/87a1eecb44b694c871b9d1ffea2086f5547e5743))
+- checkbox label prop removed and children added ([0a33976](https://github.com/getpingback/ui/commits/0a33976a6a88f87c82a570255e029f011fc50cd9))
+- dark mode at docs ([ecba2da](https://github.com/getpingback/ui/commits/ecba2da19be787a43ea1478fb384898e7668248d))
+- flatten colors ([8f265ca](https://github.com/getpingback/ui/commits/8f265cade8d0536fd5dcd32aa7b593697dbacdca))
+- merge with epic ([142983d](https://github.com/getpingback/ui/commits/142983d474dc26535bf3315b3a9a94d828f25210))
+- new primary button ([484cf4f](https://github.com/getpingback/ui/commits/484cf4ffcf8c7a5ad6ad71d002f618ab1fcc5b9b))
 
 ### Bug Fixes
 
-* active navigation ([dbd516e](https://github.com/getpingback/ui/commits/dbd516e0d0aa20b3b0ea92034dd5c5e86aaf4bcd))
-* add on remove item at combobox ([9492de0](https://github.com/getpingback/ui/commits/9492de0b2ca3882c95c56f96829eed0dfe7afaa2))
-* add popoverPosition as prop ([0b3f103](https://github.com/getpingback/ui/commits/0b3f103bfc135f48c36f1ba65c0fa021eb23f861))
-* avatar component ([d8b425c](https://github.com/getpingback/ui/commits/d8b425c3322d38e3b7a365efc1e16dc64cdda61e))
-* breadcrumb hover ([3ea972e](https://github.com/getpingback/ui/commits/3ea972ef80c99f3330282740b4986da9ca50c242))
-* change tailwind.config ([7930cea](https://github.com/getpingback/ui/commits/7930cea877f5f8ca550a919533c9688c3e32e84d))
-* changed components tokens ([e23960f](https://github.com/getpingback/ui/commits/e23960f51944abce51b5458cfcf8b42d3082ac5b))
-* changes requested ([0898c07](https://github.com/getpingback/ui/commits/0898c07485f0446c42bd2459b9b464c94187ff75))
-* changes tokens from sidebar, tabs,switch, typography ([9e4a68e](https://github.com/getpingback/ui/commits/9e4a68ed85ae3eca74a5d022982eb7c0abff1c60))
-* checked state checkbox ([5000f44](https://github.com/getpingback/ui/commits/5000f44e15f5284613ea7ab5ce0c48c2ac91b043))
-* combobox style ([52295d4](https://github.com/getpingback/ui/commits/52295d4ba620e1eaa282044dbde5ebf7a59272a3))
-* dark mode selector ([f14f67f](https://github.com/getpingback/ui/commits/f14f67f4ded87a912abd891dc7fd06f19943eabf))
-* globlas.css ([bf9c9e5](https://github.com/getpingback/ui/commits/bf9c9e56b6b5e9d5c08bf37ae40151d346f284f0))
-* html background with theme ([71ea237](https://github.com/getpingback/ui/commits/71ea237f8aa999792e14d64e5b45bb545296a1c7))
-* menu items title height ([6d038c7](https://github.com/getpingback/ui/commits/6d038c7be8ee55fca4de945e38612ffe91d3ef5d))
-* merge ([259ea48](https://github.com/getpingback/ui/commits/259ea48cdbc4681b493fb3495b2e21c67026f7c5))
-* merge epic ([bda58d9](https://github.com/getpingback/ui/commits/bda58d9bd2d4c2815c01d1d9bc207f6813ab5cbc))
-* modal overlay animation ([621fad1](https://github.com/getpingback/ui/commits/621fad114cb8c22ead9749228fc34829edb31c8d))
-* modal prevent default ([68ad9a3](https://github.com/getpingback/ui/commits/68ad9a342d68fc52cc69512392a6b0416ab7525f))
-* navigation active gradient ([5b2b6e8](https://github.com/getpingback/ui/commits/5b2b6e82b1373c61ccf01f805ed7456a80651f2d))
-* navigation list classname ([ba4c6a4](https://github.com/getpingback/ui/commits/ba4c6a4fd767c7eafbf7c14481762706fe4a4b74))
-* navigation trigger classname ([5c3f25b](https://github.com/getpingback/ui/commits/5c3f25b55d066089ba89070bd73569eb2224b9f8))
-* popover position animation ([6549dfb](https://github.com/getpingback/ui/commits/6549dfbc3458fd4d0df69019d2d9a90aef65eea8))
-* removed console ([dd679fa](https://github.com/getpingback/ui/commits/dd679fae25de2e9581624c2057f811dcfcc80fa0))
-* rounded primary button ([e15f540](https://github.com/getpingback/ui/commits/e15f5402b9d0e2f5257eff6e900ad776075f9149))
-* rounded tab ([03b61ba](https://github.com/getpingback/ui/commits/03b61ba7ea62c358adcbea3e17597791a9efebdd))
-* split button prefix click and update token version ([e8c7a19](https://github.com/getpingback/ui/commits/e8c7a1977f0940999c8d3267b55d680bb35c7786))
-* tabs trigger unecessary justify center ([670a9ab](https://github.com/getpingback/ui/commits/670a9ab8847a0bb82b4dad301560aa208b7486d9))
-* tailwind.config ([2528ae6](https://github.com/getpingback/ui/commits/2528ae6f5158cd9bf51ac3d79f8d2d923c3dd492))
-* textfield and textarea ([824466e](https://github.com/getpingback/ui/commits/824466e9d9897c641f969a410986f80c9947fba4))
-* textfield and textarea ([cff4c93](https://github.com/getpingback/ui/commits/cff4c9378b31993cac55bf04a6b578e5ec5dc561))
-* toast test ([64574f9](https://github.com/getpingback/ui/commits/64574f9eaca3d2a278e07f19992dec3e7c6a37cc))
-* toast width ([e061ac2](https://github.com/getpingback/ui/commits/e061ac2e1aea18375ebfe5c943a8d5576b7abd68))
-* z index sidebar ([f552c4f](https://github.com/getpingback/ui/commits/f552c4f1022db8e437389b07e41a7944b617e1fd))
+- active navigation ([dbd516e](https://github.com/getpingback/ui/commits/dbd516e0d0aa20b3b0ea92034dd5c5e86aaf4bcd))
+- add on remove item at combobox ([9492de0](https://github.com/getpingback/ui/commits/9492de0b2ca3882c95c56f96829eed0dfe7afaa2))
+- add popoverPosition as prop ([0b3f103](https://github.com/getpingback/ui/commits/0b3f103bfc135f48c36f1ba65c0fa021eb23f861))
+- avatar component ([d8b425c](https://github.com/getpingback/ui/commits/d8b425c3322d38e3b7a365efc1e16dc64cdda61e))
+- breadcrumb hover ([3ea972e](https://github.com/getpingback/ui/commits/3ea972ef80c99f3330282740b4986da9ca50c242))
+- change tailwind.config ([7930cea](https://github.com/getpingback/ui/commits/7930cea877f5f8ca550a919533c9688c3e32e84d))
+- changed components tokens ([e23960f](https://github.com/getpingback/ui/commits/e23960f51944abce51b5458cfcf8b42d3082ac5b))
+- changes requested ([0898c07](https://github.com/getpingback/ui/commits/0898c07485f0446c42bd2459b9b464c94187ff75))
+- changes tokens from sidebar, tabs,switch, typography ([9e4a68e](https://github.com/getpingback/ui/commits/9e4a68ed85ae3eca74a5d022982eb7c0abff1c60))
+- checked state checkbox ([5000f44](https://github.com/getpingback/ui/commits/5000f44e15f5284613ea7ab5ce0c48c2ac91b043))
+- combobox style ([52295d4](https://github.com/getpingback/ui/commits/52295d4ba620e1eaa282044dbde5ebf7a59272a3))
+- dark mode selector ([f14f67f](https://github.com/getpingback/ui/commits/f14f67f4ded87a912abd891dc7fd06f19943eabf))
+- globlas.css ([bf9c9e5](https://github.com/getpingback/ui/commits/bf9c9e56b6b5e9d5c08bf37ae40151d346f284f0))
+- html background with theme ([71ea237](https://github.com/getpingback/ui/commits/71ea237f8aa999792e14d64e5b45bb545296a1c7))
+- menu items title height ([6d038c7](https://github.com/getpingback/ui/commits/6d038c7be8ee55fca4de945e38612ffe91d3ef5d))
+- merge ([259ea48](https://github.com/getpingback/ui/commits/259ea48cdbc4681b493fb3495b2e21c67026f7c5))
+- merge epic ([bda58d9](https://github.com/getpingback/ui/commits/bda58d9bd2d4c2815c01d1d9bc207f6813ab5cbc))
+- modal overlay animation ([621fad1](https://github.com/getpingback/ui/commits/621fad114cb8c22ead9749228fc34829edb31c8d))
+- modal prevent default ([68ad9a3](https://github.com/getpingback/ui/commits/68ad9a342d68fc52cc69512392a6b0416ab7525f))
+- navigation active gradient ([5b2b6e8](https://github.com/getpingback/ui/commits/5b2b6e82b1373c61ccf01f805ed7456a80651f2d))
+- navigation list classname ([ba4c6a4](https://github.com/getpingback/ui/commits/ba4c6a4fd767c7eafbf7c14481762706fe4a4b74))
+- navigation trigger classname ([5c3f25b](https://github.com/getpingback/ui/commits/5c3f25b55d066089ba89070bd73569eb2224b9f8))
+- popover position animation ([6549dfb](https://github.com/getpingback/ui/commits/6549dfbc3458fd4d0df69019d2d9a90aef65eea8))
+- removed console ([dd679fa](https://github.com/getpingback/ui/commits/dd679fae25de2e9581624c2057f811dcfcc80fa0))
+- rounded primary button ([e15f540](https://github.com/getpingback/ui/commits/e15f5402b9d0e2f5257eff6e900ad776075f9149))
+- rounded tab ([03b61ba](https://github.com/getpingback/ui/commits/03b61ba7ea62c358adcbea3e17597791a9efebdd))
+- split button prefix click and update token version ([e8c7a19](https://github.com/getpingback/ui/commits/e8c7a1977f0940999c8d3267b55d680bb35c7786))
+- tabs trigger unecessary justify center ([670a9ab](https://github.com/getpingback/ui/commits/670a9ab8847a0bb82b4dad301560aa208b7486d9))
+- tailwind.config ([2528ae6](https://github.com/getpingback/ui/commits/2528ae6f5158cd9bf51ac3d79f8d2d923c3dd492))
+- textfield and textarea ([824466e](https://github.com/getpingback/ui/commits/824466e9d9897c641f969a410986f80c9947fba4))
+- textfield and textarea ([cff4c93](https://github.com/getpingback/ui/commits/cff4c9378b31993cac55bf04a6b578e5ec5dc561))
+- toast test ([64574f9](https://github.com/getpingback/ui/commits/64574f9eaca3d2a278e07f19992dec3e7c6a37cc))
+- toast width ([e061ac2](https://github.com/getpingback/ui/commits/e061ac2e1aea18375ebfe5c943a8d5576b7abd68))
+- z index sidebar ([f552c4f](https://github.com/getpingback/ui/commits/f552c4f1022db8e437389b07e41a7944b617e1fd))
 
 ### [0.0.492](https://github.com/getpingback/ui/compare/v0.0.491...v0.0.492) (2025-08-19)
 
-
 ### Bug Fixes
 
-* add defaultChecked on checkboxGroup ([2f19e53](https://github.com/getpingback/ui/commits/2f19e5394e8b6c82b09aaa8bcb267dcd247f96fb))
+- add defaultChecked on checkboxGroup ([2f19e53](https://github.com/getpingback/ui/commits/2f19e5394e8b6c82b09aaa8bcb267dcd247f96fb))
 
 ### [0.0.491](https://github.com/getpingback/ui/compare/v0.0.490...v0.0.491) (2025-08-19)
 
-
 ### Bug Fixes
 
-* export progress bar ([8898113](https://github.com/getpingback/ui/commits/889811301cf23fc72ce19c0afa5f236fa7fdd172))
+- export progress bar ([8898113](https://github.com/getpingback/ui/commits/889811301cf23fc72ce19c0afa5f236fa7fdd172))
 
 ### [0.0.490](https://github.com/getpingback/ui/compare/v0.0.481...v0.0.490) (2025-08-19)
 
-
 ### Features
 
-* add data-testid to modal component ([96ae12a](https://github.com/getpingback/ui/commits/96ae12a92787b831155369bf7227a0e598432e60))
-* progress bar ([aeb9664](https://github.com/getpingback/ui/commits/aeb9664bd0b875270d15296ce0af3e51a75613af))
-
+- add data-testid to modal component ([96ae12a](https://github.com/getpingback/ui/commits/96ae12a92787b831155369bf7227a0e598432e60))
+- progress bar ([aeb9664](https://github.com/getpingback/ui/commits/aeb9664bd0b875270d15296ce0af3e51a75613af))
 
 ### Bug Fixes
 
-* add on blur to timepicker ([ad1f68c](https://github.com/getpingback/ui/commits/ad1f68cd62da3f3f79c8826509d4c28c30bc7539))
-* changes progress variables ([d33c7a9](https://github.com/getpingback/ui/commits/d33c7a9592a9af014980e15520b9ef58ba7ddaaf))
-* checkbox class prop ([9318742](https://github.com/getpingback/ui/commits/9318742e1a61e367136bf761d6555fc861d713b0))
-* export popover close ([f9f62c2](https://github.com/getpingback/ui/commits/f9f62c27018d30415c049723e1c310b38c54d489))
-* merge main ([bbb6001](https://github.com/getpingback/ui/commits/bbb6001afba40a204efbe3518f59d71b45703e83))
-* popover animation ([6418674](https://github.com/getpingback/ui/commits/6418674853098adf8e15809845862a05125563e5))
-* radio group direction ([9e2feb1](https://github.com/getpingback/ui/commits/9e2feb14a723b1d5506753ba01eae2484354474f))
-* text field display ([6c976ab](https://github.com/getpingback/ui/commits/6c976ab725dab79a5f688780ce76388fae3d560e))
-* update time picker value ([762e877](https://github.com/getpingback/ui/commits/762e877c1afdaefd04bad7249cfe488d14824f91))
-* value timepicker ([66e9e6e](https://github.com/getpingback/ui/commits/66e9e6e6d50ab55f8c78365b85b6492c1476af97))
+- add on blur to timepicker ([ad1f68c](https://github.com/getpingback/ui/commits/ad1f68cd62da3f3f79c8826509d4c28c30bc7539))
+- changes progress variables ([d33c7a9](https://github.com/getpingback/ui/commits/d33c7a9592a9af014980e15520b9ef58ba7ddaaf))
+- checkbox class prop ([9318742](https://github.com/getpingback/ui/commits/9318742e1a61e367136bf761d6555fc861d713b0))
+- export popover close ([f9f62c2](https://github.com/getpingback/ui/commits/f9f62c27018d30415c049723e1c310b38c54d489))
+- merge main ([bbb6001](https://github.com/getpingback/ui/commits/bbb6001afba40a204efbe3518f59d71b45703e83))
+- popover animation ([6418674](https://github.com/getpingback/ui/commits/6418674853098adf8e15809845862a05125563e5))
+- radio group direction ([9e2feb1](https://github.com/getpingback/ui/commits/9e2feb14a723b1d5506753ba01eae2484354474f))
+- text field display ([6c976ab](https://github.com/getpingback/ui/commits/6c976ab725dab79a5f688780ce76388fae3d560e))
+- update time picker value ([762e877](https://github.com/getpingback/ui/commits/762e877c1afdaefd04bad7249cfe488d14824f91))
+- value timepicker ([66e9e6e](https://github.com/getpingback/ui/commits/66e9e6e6d50ab55f8c78365b85b6492c1476af97))
 
 ### [0.0.481](https://github.com/getpingback/ui/compare/v0.0.480...v0.0.481) (2025-07-30)
 
-
 ### Bug Fixes
 
-* add unique layoutId ([224a7a0](https://github.com/getpingback/ui/commits/224a7a04cea0c024085babc0969ff7f5af514ce7))
+- add unique layoutId ([224a7a0](https://github.com/getpingback/ui/commits/224a7a04cea0c024085babc0969ff7f5af514ce7))
 
 ### [0.0.480](https://github.com/getpingback/ui/compare/v0.0.479...v0.0.480) (2025-07-30)
 
-
 ### Bug Fixes
 
-* merge ([f0b7bae](https://github.com/getpingback/ui/commits/f0b7baeafca49835c6b31c132dc122e804c067dc))
-* **variable-input:** return '\n' ([65a032f](https://github.com/getpingback/ui/commits/65a032fff1cfcb904c9feddaba21f1984fad14cb))
+- merge ([f0b7bae](https://github.com/getpingback/ui/commits/f0b7baeafca49835c6b31c132dc122e804c067dc))
+- **variable-input:** return '\n' ([65a032f](https://github.com/getpingback/ui/commits/65a032fff1cfcb904c9feddaba21f1984fad14cb))
 
 ### [0.0.479](https://github.com/getpingback/ui/compare/v0.0.478...v0.0.479) (2025-07-30)
 
@@ -115,321 +107,281 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [0.0.477](https://github.com/getpingback/ui/compare/v0.0.476...v0.0.477) (2025-07-30)
 
-
 ### Bug Fixes
 
-* add unique key on tabs ([b9bab2e](https://github.com/getpingback/ui/commits/b9bab2e7b78084275962d756c3a369407c250698))
+- add unique key on tabs ([b9bab2e](https://github.com/getpingback/ui/commits/b9bab2e7b78084275962d756c3a369407c250698))
 
 ### [0.0.476](https://github.com/getpingback/ui/compare/v0.0.475...v0.0.476) (2025-07-29)
 
-
 ### Bug Fixes
 
-* onEndReached ([f7c0410](https://github.com/getpingback/ui/commits/f7c0410d8967b6d0521c9ffe6a6c67928376c820))
+- onEndReached ([f7c0410](https://github.com/getpingback/ui/commits/f7c0410d8967b6d0521c9ffe6a6c67928376c820))
 
 ### [0.0.475](https://github.com/getpingback/ui/compare/v0.0.474...v0.0.475) (2025-07-28)
 
-
 ### Bug Fixes
 
-* onEndReached on combobox ([4585957](https://github.com/getpingback/ui/commits/458595769ac9cb8aa164a393cf89f64876deda97))
+- onEndReached on combobox ([4585957](https://github.com/getpingback/ui/commits/458595769ac9cb8aa164a393cf89f64876deda97))
 
 ### [0.0.474](https://github.com/getpingback/ui/compare/v0.0.473...v0.0.474) (2025-07-11)
 
-
 ### Bug Fixes
 
-* change counter input background ([23d9e08](https://github.com/getpingback/ui/commits/23d9e089c1924b1f9f3cec0168411bcada480941))
+- change counter input background ([23d9e08](https://github.com/getpingback/ui/commits/23d9e089c1924b1f9f3cec0168411bcada480941))
 
 ### [0.0.473](https://github.com/getpingback/ui/compare/v0.0.472...v0.0.473) (2025-07-09)
 
-
 ### Bug Fixes
 
-* add useeffect on counter input ([bc25824](https://github.com/getpingback/ui/commits/bc258244f86dfec9eae27815ee18b6213531808b))
+- add useeffect on counter input ([bc25824](https://github.com/getpingback/ui/commits/bc258244f86dfec9eae27815ee18b6213531808b))
 
 ### [0.0.472](https://github.com/getpingback/ui/compare/v0.0.471...v0.0.472) (2025-07-07)
 
-
 ### Bug Fixes
 
-* stepper padding ([a09033a](https://github.com/getpingback/ui/commits/a09033ae9d16e8205e36ed288bb22e03ac1dfd5b))
+- stepper padding ([a09033a](https://github.com/getpingback/ui/commits/a09033ae9d16e8205e36ed288bb22e03ac1dfd5b))
 
 ### [0.0.471](https://github.com/getpingback/ui/compare/v0.0.470...v0.0.471) (2025-07-07)
 
-
 ### Bug Fixes
 
-* stepper padding ([ddcc156](https://github.com/getpingback/ui/commits/ddcc156fc47c70a16f2481968b151a1b68addf4b))
+- stepper padding ([ddcc156](https://github.com/getpingback/ui/commits/ddcc156fc47c70a16f2481968b151a1b68addf4b))
 
 ### [0.0.470](https://github.com/getpingback/ui/compare/v0.0.469...v0.0.470) (2025-07-03)
 
-
 ### Bug Fixes
 
-* date picker align buttons ([0b3929a](https://github.com/getpingback/ui/commits/0b3929a8166e680dec7822584f18d98fe9b08f8f))
+- date picker align buttons ([0b3929a](https://github.com/getpingback/ui/commits/0b3929a8166e680dec7822584f18d98fe9b08f8f))
 
 ### [0.0.468](https://github.com/getpingback/ui/compare/v0.0.467...v0.0.468) (2025-07-03)
 
-
 ### Bug Fixes
 
-* add align on combobox ([a3ff2f8](https://github.com/getpingback/ui/commits/a3ff2f8eef21f94bbf501557466e63ff108c688a))
+- add align on combobox ([a3ff2f8](https://github.com/getpingback/ui/commits/a3ff2f8eef21f94bbf501557466e63ff108c688a))
 
 ### [0.0.467](https://github.com/getpingback/ui/compare/v0.0.465...v0.0.467) (2025-07-03)
 
-
 ### Bug Fixes
 
-* add align variant on button ([746d2bc](https://github.com/getpingback/ui/commits/746d2bcab76a74043944c4787fea666bbd7cccde))
-* default state accordion ([6d8fa3d](https://github.com/getpingback/ui/commits/6d8fa3d103dd6e90363c7635560812616a33ae7e))
-* resolved conflicts ([7cb2d45](https://github.com/getpingback/ui/commits/7cb2d4509a0ae25b00b54551bdf951e935522b72))
+- add align variant on button ([746d2bc](https://github.com/getpingback/ui/commits/746d2bcab76a74043944c4787fea666bbd7cccde))
+- default state accordion ([6d8fa3d](https://github.com/getpingback/ui/commits/6d8fa3d103dd6e90363c7635560812616a33ae7e))
+- resolved conflicts ([7cb2d45](https://github.com/getpingback/ui/commits/7cb2d4509a0ae25b00b54551bdf951e935522b72))
 
 ### [0.0.464](https://github.com/getpingback/ui/compare/v0.0.463...v0.0.464) (2025-06-26)
 
-
 ### Bug Fixes
 
-* onEndReached on combobox ([4ee4708](https://github.com/getpingback/ui/commits/4ee4708f283e345b50d41b8845d53c4819585791))
+- onEndReached on combobox ([4ee4708](https://github.com/getpingback/ui/commits/4ee4708f283e345b50d41b8845d53c4819585791))
 
 ### [0.0.462](https://github.com/getpingback/ui/compare/v0.0.461...v0.0.462) (2025-06-26)
 
-
 ### Bug Fixes
 
-* loading on combobox ([d276624](https://github.com/getpingback/ui/commits/d2766247cdb12b3a95dc913fb6fabe650c0dd268))
+- loading on combobox ([d276624](https://github.com/getpingback/ui/commits/d2766247cdb12b3a95dc913fb6fabe650c0dd268))
 
 ### [0.0.460](https://github.com/getpingback/ui/compare/v0.0.459...v0.0.460) (2025-06-26)
 
-
 ### Bug Fixes
 
-* checkbox checked prop on checkbox item ([c354a48](https://github.com/getpingback/ui/commits/c354a48b3acab3208ba18bb477e6fd825f55c430))
-* version ([07dd4b2](https://github.com/getpingback/ui/commits/07dd4b2d60f53520874b0d83c42479770688f1fa))
+- checkbox checked prop on checkbox item ([c354a48](https://github.com/getpingback/ui/commits/c354a48b3acab3208ba18bb477e6fd825f55c430))
+- version ([07dd4b2](https://github.com/getpingback/ui/commits/07dd4b2d60f53520874b0d83c42479770688f1fa))
 
 ### [0.0.459](https://github.com/getpingback/ui/compare/v0.0.458...v0.0.459) (2025-06-26)
 
-
 ### Bug Fixes
 
-* add footer on combobox ([0149b71](https://github.com/getpingback/ui/commits/0149b71a1fa1e5ed66c3a2f46657dbda3feff2bc))
+- add footer on combobox ([0149b71](https://github.com/getpingback/ui/commits/0149b71a1fa1e5ed66c3a2f46657dbda3feff2bc))
 
 ### [0.0.457](https://github.com/getpingback/ui/compare/v0.0.456...v0.0.457) (2025-06-24)
 
-
 ### Bug Fixes
 
-* merge ([0b8692d](https://github.com/getpingback/ui/commits/0b8692d822ee1928905dfc56ee91e0d0e3559049))
-* select list typography ([9477e64](https://github.com/getpingback/ui/commits/9477e64658b941b7e7206decf8028059140c1cf5))
+- merge ([0b8692d](https://github.com/getpingback/ui/commits/0b8692d822ee1928905dfc56ee91e0d0e3559049))
+- select list typography ([9477e64](https://github.com/getpingback/ui/commits/9477e64658b941b7e7206decf8028059140c1cf5))
 
 ### [0.0.456](https://github.com/getpingback/ui/compare/v0.0.455...v0.0.456) (2025-06-24)
 
-
 ### Bug Fixes
 
-* combobox label ([c893eee](https://github.com/getpingback/ui/commits/c893eeeb5edb0e1e286ddfe742c3d46376619be2))
+- combobox label ([c893eee](https://github.com/getpingback/ui/commits/c893eeeb5edb0e1e286ddfe742c3d46376619be2))
 
 ### [0.0.454](https://github.com/getpingback/ui/compare/v0.0.452...v0.0.454) (2025-06-23)
 
-
 ### Bug Fixes
 
-* update version ([acd7b7e](https://github.com/getpingback/ui/commits/acd7b7ec7ee2034a46871d96c42a117a359e1b7c))
+- update version ([acd7b7e](https://github.com/getpingback/ui/commits/acd7b7ec7ee2034a46871d96c42a117a359e1b7c))
 
 ### [0.0.452](https://github.com/getpingback/ui/compare/v0.0.451...v0.0.452) (2025-06-23)
 
-
 ### Bug Fixes
 
-* merge ([0da15d9](https://github.com/getpingback/ui/commits/0da15d922bf62054ae3b7bf31a356cecf43ce48a))
+- merge ([0da15d9](https://github.com/getpingback/ui/commits/0da15d922bf62054ae3b7bf31a356cecf43ce48a))
 
 ### [0.0.451](https://github.com/getpingback/ui/compare/v0.0.450...v0.0.451) (2025-06-23)
 
 ### [0.0.450](https://github.com/getpingback/ui/compare/v0.0.444...v0.0.450) (2025-06-23)
 
-
 ### Features
 
-* add callout component ([1ac9fe9](https://github.com/getpingback/ui/commits/1ac9fe9fa90ada85f1ef30ed0d66a8fd20fe5884))
-* add danger button ([c0e904b](https://github.com/getpingback/ui/commits/c0e904bf3f1ec3f8086e17d0bc749bff08f0c929))
-* export callout ([bf754ad](https://github.com/getpingback/ui/commits/bf754adee5c49257bff37955fbc0f6a0c11b178f))
-
+- add callout component ([1ac9fe9](https://github.com/getpingback/ui/commits/1ac9fe9fa90ada85f1ef30ed0d66a8fd20fe5884))
+- add danger button ([c0e904b](https://github.com/getpingback/ui/commits/c0e904bf3f1ec3f8086e17d0bc749bff08f0c929))
+- export callout ([bf754ad](https://github.com/getpingback/ui/commits/bf754adee5c49257bff37955fbc0f6a0c11b178f))
 
 ### Bug Fixes
 
-* add step on combobox ([f9898c7](https://github.com/getpingback/ui/commits/f9898c7a84a9c85c1ac672e95b8b4e61eb8c0f83))
-* callout title ([2c75baf](https://github.com/getpingback/ui/commits/2c75baf6c79c0896506b92c78cec740dfffb021b))
-* textarea line-height ([b8b0389](https://github.com/getpingback/ui/commits/b8b0389187b06e72fdecf685ab41da9516bbb3c5))
+- add step on combobox ([f9898c7](https://github.com/getpingback/ui/commits/f9898c7a84a9c85c1ac672e95b8b4e61eb8c0f83))
+- callout title ([2c75baf](https://github.com/getpingback/ui/commits/2c75baf6c79c0896506b92c78cec740dfffb021b))
+- textarea line-height ([b8b0389](https://github.com/getpingback/ui/commits/b8b0389187b06e72fdecf685ab41da9516bbb3c5))
 
 ### [0.0.443](https://github.com/getpingback/ui/compare/v0.0.442...v0.0.443) (2025-06-09)
 
-
 ### Bug Fixes
 
-* merge main ([18706c5](https://github.com/getpingback/ui/commits/18706c57c84a54e30054dbfdbe83b659b81f24ab))
-* overlay z-index ([d68687e](https://github.com/getpingback/ui/commits/d68687ef361442750ff277d72c6c16d441da6bae))
+- merge main ([18706c5](https://github.com/getpingback/ui/commits/18706c57c84a54e30054dbfdbe83b659b81f24ab))
+- overlay z-index ([d68687e](https://github.com/getpingback/ui/commits/d68687ef361442750ff277d72c6c16d441da6bae))
 
 ### [0.0.441](https://github.com/getpingback/ui/compare/v0.0.440...v0.0.441) (2025-06-06)
 
-
 ### Bug Fixes
 
-* animation ([605b7c0](https://github.com/getpingback/ui/commits/605b7c0463980906f16d36056db9e12c1f31c3d7))
-* conflicts ([6fa223f](https://github.com/getpingback/ui/commits/6fa223fbaeb0187eabe159ffb4130f91ce361c94))
+- animation ([605b7c0](https://github.com/getpingback/ui/commits/605b7c0463980906f16d36056db9e12c1f31c3d7))
+- conflicts ([6fa223f](https://github.com/getpingback/ui/commits/6fa223fbaeb0187eabe159ffb4130f91ce361c94))
 
 ### [0.0.436](https://github.com/getpingback/ui/compare/v0.0.435...v0.0.436) (2025-06-03)
 
 ### [0.0.435](https://github.com/getpingback/ui/compare/v0.0.434...v0.0.435) (2025-06-03)
 
-
 ### Bug Fixes
 
-* range picker nav button position ([a7907a9](https://github.com/getpingback/ui/commits/a7907a9ec27313fde66c9b2de4090c7742f8e16c))
+- range picker nav button position ([a7907a9](https://github.com/getpingback/ui/commits/a7907a9ec27313fde66c9b2de4090c7742f8e16c))
 
 ### [0.0.434](https://github.com/getpingback/ui/compare/v0.0.433...v0.0.434) (2025-06-03)
 
 ### [0.0.433](https://github.com/getpingback/ui/compare/v0.0.432...v0.0.433) (2025-06-03)
 
-
 ### Bug Fixes
 
-* range picker start and end date ([bbf5218](https://github.com/getpingback/ui/commits/bbf52189ccb642b5deb71f4caad0d3c96b5f4b5a))
+- range picker start and end date ([bbf5218](https://github.com/getpingback/ui/commits/bbf52189ccb642b5deb71f4caad0d3c96b5f4b5a))
 
 ### [0.0.432](https://github.com/getpingback/ui/compare/v0.0.431...v0.0.432) (2025-06-03)
 
 ### [0.0.431](https://github.com/getpingback/ui/compare/v0.0.427...v0.0.431) (2025-06-03)
 
-
 ### Bug Fixes
 
-* range picker nav ([a1a3ecc](https://github.com/getpingback/ui/commits/a1a3ecc1000bf5b546e20636ad3994ee8fa2859d))
+- range picker nav ([a1a3ecc](https://github.com/getpingback/ui/commits/a1a3ecc1000bf5b546e20636ad3994ee8fa2859d))
 
 ### [0.0.439](https://github.com/getpingback/ui/compare/v0.0.438...v0.0.439) (2025-06-06)
 
-
 ### Bug Fixes
 
-* add required on select ([8b91a6c](https://github.com/getpingback/ui/commits/8b91a6c25845eaf0e620fa9912856e205e47af98))
-* modal position ([6005008](https://github.com/getpingback/ui/commits/6005008a57b21946c14ebf34b1ca8ba5768ecadd))
+- add required on select ([8b91a6c](https://github.com/getpingback/ui/commits/8b91a6c25845eaf0e620fa9912856e205e47af98))
+- modal position ([6005008](https://github.com/getpingback/ui/commits/6005008a57b21946c14ebf34b1ca8ba5768ecadd))
 
 ### [0.0.437](https://github.com/getpingback/ui/compare/v0.0.427...v0.0.437) (2025-06-06)
 
-
 ### Features
 
-* merge with main ([b65d0d9](https://github.com/getpingback/ui/commits/b65d0d9b081b76dbc8b44c474ff30a312666b92f))
-* nodeFlow component and tests ([c04855c](https://github.com/getpingback/ui/commits/c04855c0d2faa81d5ae05c4eee97ad158d1f3df2))
-
+- merge with main ([b65d0d9](https://github.com/getpingback/ui/commits/b65d0d9b081b76dbc8b44c474ff30a312666b92f))
+- nodeFlow component and tests ([c04855c](https://github.com/getpingback/ui/commits/c04855c0d2faa81d5ae05c4eee97ad158d1f3df2))
 
 ### Bug Fixes
 
-* cascade flow initial structure ([def901e](https://github.com/getpingback/ui/commits/def901ec0d06737b211034633b864b7d88dc57a1))
-* combobox selected ([30b1a9e](https://github.com/getpingback/ui/commits/30b1a9e167d83a7cc2a78e7be8561618fbc6b183))
-* conflict between modal content and select ([f0914ae](https://github.com/getpingback/ui/commits/f0914aecc70f9b80e92129563179031a3d0b1e2b))
-* dont call onHandleSearch cb when open is false ([ff6fd68](https://github.com/getpingback/ui/commits/ff6fd68f049c2ff8bbb2dfce6fdc46acaa34a104))
-* export nodeflow ([9459332](https://github.com/getpingback/ui/commits/9459332e5c5db8534afd7294e64ee32488fedbe7))
+- cascade flow initial structure ([def901e](https://github.com/getpingback/ui/commits/def901ec0d06737b211034633b864b7d88dc57a1))
+- combobox selected ([30b1a9e](https://github.com/getpingback/ui/commits/30b1a9e167d83a7cc2a78e7be8561618fbc6b183))
+- conflict between modal content and select ([f0914ae](https://github.com/getpingback/ui/commits/f0914aecc70f9b80e92129563179031a3d0b1e2b))
+- dont call onHandleSearch cb when open is false ([ff6fd68](https://github.com/getpingback/ui/commits/ff6fd68f049c2ff8bbb2dfce6fdc46acaa34a104))
+- export nodeflow ([9459332](https://github.com/getpingback/ui/commits/9459332e5c5db8534afd7294e64ee32488fedbe7))
 
 ### [0.0.436](https://github.com/getpingback/ui/compare/v0.0.427...v0.0.436) (2025-06-06)
 
-
 ### Features
 
-* merge with main ([b65d0d9](https://github.com/getpingback/ui/commits/b65d0d9b081b76dbc8b44c474ff30a312666b92f))
-* nodeFlow component and tests ([c04855c](https://github.com/getpingback/ui/commits/c04855c0d2faa81d5ae05c4eee97ad158d1f3df2))
-
+- merge with main ([b65d0d9](https://github.com/getpingback/ui/commits/b65d0d9b081b76dbc8b44c474ff30a312666b92f))
+- nodeFlow component and tests ([c04855c](https://github.com/getpingback/ui/commits/c04855c0d2faa81d5ae05c4eee97ad158d1f3df2))
 
 ### Bug Fixes
 
-* cascade flow initial structure ([def901e](https://github.com/getpingback/ui/commits/def901ec0d06737b211034633b864b7d88dc57a1))
-* combobox selected ([30b1a9e](https://github.com/getpingback/ui/commits/30b1a9e167d83a7cc2a78e7be8561618fbc6b183))
-* conflict between modal content and select ([f0914ae](https://github.com/getpingback/ui/commits/f0914aecc70f9b80e92129563179031a3d0b1e2b))
-* dont call onHandleSearch cb when open is false ([ff6fd68](https://github.com/getpingback/ui/commits/ff6fd68f049c2ff8bbb2dfce6fdc46acaa34a104))
-* export nodeflow ([9459332](https://github.com/getpingback/ui/commits/9459332e5c5db8534afd7294e64ee32488fedbe7))
+- cascade flow initial structure ([def901e](https://github.com/getpingback/ui/commits/def901ec0d06737b211034633b864b7d88dc57a1))
+- combobox selected ([30b1a9e](https://github.com/getpingback/ui/commits/30b1a9e167d83a7cc2a78e7be8561618fbc6b183))
+- conflict between modal content and select ([f0914ae](https://github.com/getpingback/ui/commits/f0914aecc70f9b80e92129563179031a3d0b1e2b))
+- dont call onHandleSearch cb when open is false ([ff6fd68](https://github.com/getpingback/ui/commits/ff6fd68f049c2ff8bbb2dfce6fdc46acaa34a104))
+- export nodeflow ([9459332](https://github.com/getpingback/ui/commits/9459332e5c5db8534afd7294e64ee32488fedbe7))
 
 ### [0.0.435](https://github.com/getpingback/ui/compare/v0.0.427...v0.0.435) (2025-06-06)
 
-
 ### Features
 
-* merge with main ([b65d0d9](https://github.com/getpingback/ui/commits/b65d0d9b081b76dbc8b44c474ff30a312666b92f))
-* nodeFlow component and tests ([c04855c](https://github.com/getpingback/ui/commits/c04855c0d2faa81d5ae05c4eee97ad158d1f3df2))
-
+- merge with main ([b65d0d9](https://github.com/getpingback/ui/commits/b65d0d9b081b76dbc8b44c474ff30a312666b92f))
+- nodeFlow component and tests ([c04855c](https://github.com/getpingback/ui/commits/c04855c0d2faa81d5ae05c4eee97ad158d1f3df2))
 
 ### Bug Fixes
 
-* cascade flow initial structure ([def901e](https://github.com/getpingback/ui/commits/def901ec0d06737b211034633b864b7d88dc57a1))
-* combobox selected ([30b1a9e](https://github.com/getpingback/ui/commits/30b1a9e167d83a7cc2a78e7be8561618fbc6b183))
-* conflict between modal content and select ([f0914ae](https://github.com/getpingback/ui/commits/f0914aecc70f9b80e92129563179031a3d0b1e2b))
-* dont call onHandleSearch cb when open is false ([ff6fd68](https://github.com/getpingback/ui/commits/ff6fd68f049c2ff8bbb2dfce6fdc46acaa34a104))
-* export nodeflow ([9459332](https://github.com/getpingback/ui/commits/9459332e5c5db8534afd7294e64ee32488fedbe7))
+- cascade flow initial structure ([def901e](https://github.com/getpingback/ui/commits/def901ec0d06737b211034633b864b7d88dc57a1))
+- combobox selected ([30b1a9e](https://github.com/getpingback/ui/commits/30b1a9e167d83a7cc2a78e7be8561618fbc6b183))
+- conflict between modal content and select ([f0914ae](https://github.com/getpingback/ui/commits/f0914aecc70f9b80e92129563179031a3d0b1e2b))
+- dont call onHandleSearch cb when open is false ([ff6fd68](https://github.com/getpingback/ui/commits/ff6fd68f049c2ff8bbb2dfce6fdc46acaa34a104))
+- export nodeflow ([9459332](https://github.com/getpingback/ui/commits/9459332e5c5db8534afd7294e64ee32488fedbe7))
 
 ### [0.0.434](https://github.com/getpingback/ui/compare/v0.0.427...v0.0.434) (2025-06-06)
 
-
 ### Features
 
-* merge with main ([b65d0d9](https://github.com/getpingback/ui/commits/b65d0d9b081b76dbc8b44c474ff30a312666b92f))
-* nodeFlow component and tests ([c04855c](https://github.com/getpingback/ui/commits/c04855c0d2faa81d5ae05c4eee97ad158d1f3df2))
-
+- merge with main ([b65d0d9](https://github.com/getpingback/ui/commits/b65d0d9b081b76dbc8b44c474ff30a312666b92f))
+- nodeFlow component and tests ([c04855c](https://github.com/getpingback/ui/commits/c04855c0d2faa81d5ae05c4eee97ad158d1f3df2))
 
 ### Bug Fixes
 
-* cascade flow initial structure ([def901e](https://github.com/getpingback/ui/commits/def901ec0d06737b211034633b864b7d88dc57a1))
-* combobox selected ([30b1a9e](https://github.com/getpingback/ui/commits/30b1a9e167d83a7cc2a78e7be8561618fbc6b183))
-* conflict between modal content and select ([f0914ae](https://github.com/getpingback/ui/commits/f0914aecc70f9b80e92129563179031a3d0b1e2b))
-* dont call onHandleSearch cb when open is false ([ff6fd68](https://github.com/getpingback/ui/commits/ff6fd68f049c2ff8bbb2dfce6fdc46acaa34a104))
-* export nodeflow ([9459332](https://github.com/getpingback/ui/commits/9459332e5c5db8534afd7294e64ee32488fedbe7))
+- cascade flow initial structure ([def901e](https://github.com/getpingback/ui/commits/def901ec0d06737b211034633b864b7d88dc57a1))
+- combobox selected ([30b1a9e](https://github.com/getpingback/ui/commits/30b1a9e167d83a7cc2a78e7be8561618fbc6b183))
+- conflict between modal content and select ([f0914ae](https://github.com/getpingback/ui/commits/f0914aecc70f9b80e92129563179031a3d0b1e2b))
+- dont call onHandleSearch cb when open is false ([ff6fd68](https://github.com/getpingback/ui/commits/ff6fd68f049c2ff8bbb2dfce6fdc46acaa34a104))
+- export nodeflow ([9459332](https://github.com/getpingback/ui/commits/9459332e5c5db8534afd7294e64ee32488fedbe7))
 
 ### [0.0.433](https://github.com/getpingback/ui/compare/v0.0.427...v0.0.433) (2025-06-06)
 
-
 ### Features
 
-* merge with main ([b65d0d9](https://github.com/getpingback/ui/commits/b65d0d9b081b76dbc8b44c474ff30a312666b92f))
-* nodeFlow component and tests ([c04855c](https://github.com/getpingback/ui/commits/c04855c0d2faa81d5ae05c4eee97ad158d1f3df2))
-
+- merge with main ([b65d0d9](https://github.com/getpingback/ui/commits/b65d0d9b081b76dbc8b44c474ff30a312666b92f))
+- nodeFlow component and tests ([c04855c](https://github.com/getpingback/ui/commits/c04855c0d2faa81d5ae05c4eee97ad158d1f3df2))
 
 ### Bug Fixes
 
-* cascade flow initial structure ([def901e](https://github.com/getpingback/ui/commits/def901ec0d06737b211034633b864b7d88dc57a1))
-* combobox selected ([30b1a9e](https://github.com/getpingback/ui/commits/30b1a9e167d83a7cc2a78e7be8561618fbc6b183))
-* conflict between modal content and select ([f0914ae](https://github.com/getpingback/ui/commits/f0914aecc70f9b80e92129563179031a3d0b1e2b))
-* dont call onHandleSearch cb when open is false ([ff6fd68](https://github.com/getpingback/ui/commits/ff6fd68f049c2ff8bbb2dfce6fdc46acaa34a104))
-* export nodeflow ([9459332](https://github.com/getpingback/ui/commits/9459332e5c5db8534afd7294e64ee32488fedbe7))
+- cascade flow initial structure ([def901e](https://github.com/getpingback/ui/commits/def901ec0d06737b211034633b864b7d88dc57a1))
+- combobox selected ([30b1a9e](https://github.com/getpingback/ui/commits/30b1a9e167d83a7cc2a78e7be8561618fbc6b183))
+- conflict between modal content and select ([f0914ae](https://github.com/getpingback/ui/commits/f0914aecc70f9b80e92129563179031a3d0b1e2b))
+- dont call onHandleSearch cb when open is false ([ff6fd68](https://github.com/getpingback/ui/commits/ff6fd68f049c2ff8bbb2dfce6fdc46acaa34a104))
+- export nodeflow ([9459332](https://github.com/getpingback/ui/commits/9459332e5c5db8534afd7294e64ee32488fedbe7))
 
 ### [0.0.432](https://github.com/getpingback/ui/compare/v0.0.427...v0.0.432) (2025-06-06)
 
-
 ### Features
 
-* merge with main ([b65d0d9](https://github.com/getpingback/ui/commits/b65d0d9b081b76dbc8b44c474ff30a312666b92f))
-* nodeFlow component and tests ([c04855c](https://github.com/getpingback/ui/commits/c04855c0d2faa81d5ae05c4eee97ad158d1f3df2))
-
+- merge with main ([b65d0d9](https://github.com/getpingback/ui/commits/b65d0d9b081b76dbc8b44c474ff30a312666b92f))
+- nodeFlow component and tests ([c04855c](https://github.com/getpingback/ui/commits/c04855c0d2faa81d5ae05c4eee97ad158d1f3df2))
 
 ### Bug Fixes
 
-* cascade flow initial structure ([def901e](https://github.com/getpingback/ui/commits/def901ec0d06737b211034633b864b7d88dc57a1))
-* combobox selected ([30b1a9e](https://github.com/getpingback/ui/commits/30b1a9e167d83a7cc2a78e7be8561618fbc6b183))
-* conflict between modal content and select ([f0914ae](https://github.com/getpingback/ui/commits/f0914aecc70f9b80e92129563179031a3d0b1e2b))
-* dont call onHandleSearch cb when open is false ([ff6fd68](https://github.com/getpingback/ui/commits/ff6fd68f049c2ff8bbb2dfce6fdc46acaa34a104))
-* export nodeflow ([9459332](https://github.com/getpingback/ui/commits/9459332e5c5db8534afd7294e64ee32488fedbe7))
+- cascade flow initial structure ([def901e](https://github.com/getpingback/ui/commits/def901ec0d06737b211034633b864b7d88dc57a1))
+- combobox selected ([30b1a9e](https://github.com/getpingback/ui/commits/30b1a9e167d83a7cc2a78e7be8561618fbc6b183))
+- conflict between modal content and select ([f0914ae](https://github.com/getpingback/ui/commits/f0914aecc70f9b80e92129563179031a3d0b1e2b))
+- dont call onHandleSearch cb when open is false ([ff6fd68](https://github.com/getpingback/ui/commits/ff6fd68f049c2ff8bbb2dfce6fdc46acaa34a104))
+- export nodeflow ([9459332](https://github.com/getpingback/ui/commits/9459332e5c5db8534afd7294e64ee32488fedbe7))
 
 ### [0.0.431](https://github.com/getpingback/ui/compare/v0.0.427...v0.0.431) (2025-06-06)
 
-
 ### Features
 
-* merge with main ([b65d0d9](https://github.com/getpingback/ui/commits/b65d0d9b081b76dbc8b44c474ff30a312666b92f))
-* nodeFlow component and tests ([c04855c](https://github.com/getpingback/ui/commits/c04855c0d2faa81d5ae05c4eee97ad158d1f3df2))
-
+- merge with main ([b65d0d9](https://github.com/getpingback/ui/commits/b65d0d9b081b76dbc8b44c474ff30a312666b92f))
+- nodeFlow component and tests ([c04855c](https://github.com/getpingback/ui/commits/c04855c0d2faa81d5ae05c4eee97ad158d1f3df2))
 
 ### Bug Fixes
 
-* cascade flow initial structure ([def901e](https://github.com/getpingback/ui/commits/def901ec0d06737b211034633b864b7d88dc57a1))
-* combobox selected ([30b1a9e](https://github.com/getpingback/ui/commits/30b1a9e167d83a7cc2a78e7be8561618fbc6b183))
-* conflict between modal content and select ([f0914ae](https://github.com/getpingback/ui/commits/f0914aecc70f9b80e92129563179031a3d0b1e2b))
-* dont call onHandleSearch cb when open is false ([ff6fd68](https://github.com/getpingback/ui/commits/ff6fd68f049c2ff8bbb2dfce6fdc46acaa34a104))
-* export nodeflow ([9459332](https://github.com/getpingback/ui/commits/9459332e5c5db8534afd7294e64ee32488fedbe7))
+- cascade flow initial structure ([def901e](https://github.com/getpingback/ui/commits/def901ec0d06737b211034633b864b7d88dc57a1))
+- combobox selected ([30b1a9e](https://github.com/getpingback/ui/commits/30b1a9e167d83a7cc2a78e7be8561618fbc6b183))
+- conflict between modal content and select ([f0914ae](https://github.com/getpingback/ui/commits/f0914aecc70f9b80e92129563179031a3d0b1e2b))
+- dont call onHandleSearch cb when open is false ([ff6fd68](https://github.com/getpingback/ui/commits/ff6fd68f049c2ff8bbb2dfce6fdc46acaa34a104))
+- export nodeflow ([9459332](https://github.com/getpingback/ui/commits/9459332e5c5db8534afd7294e64ee32488fedbe7))
 
 ### [0.0.426](https://github.com/getpingback/ui/compare/v0.0.425...v0.0.426) (2025-05-30)
 
@@ -437,10 +389,9 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [0.0.422](https://github.com/getpingback/ui/compare/v0.0.420...v0.0.422) (2025-05-30)
 
-
 ### Bug Fixes
 
-* merge ([81f85a3](https://github.com/getpingback/ui/commits/81f85a310475dd786226b4c5a4bf7e38d27851db))
+- merge ([81f85a3](https://github.com/getpingback/ui/commits/81f85a310475dd786226b4c5a4bf7e38d27851db))
 
 ### [0.0.418](https://github.com/getpingback/ui/compare/v0.0.417...v0.0.418) (2025-05-30)
 
@@ -448,10 +399,9 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [0.0.415](https://github.com/getpingback/ui/compare/v0.0.411...v0.0.415) (2025-05-30)
 
-
 ### Bug Fixes
 
-* add pb tokens on button and input ([a43fb5f](https://github.com/getpingback/ui/commits/a43fb5f6ce9c6435eb7410438d55a2cb95daea7c))
+- add pb tokens on button and input ([a43fb5f](https://github.com/getpingback/ui/commits/a43fb5f6ce9c6435eb7410438d55a2cb95daea7c))
 
 ### [0.0.421](https://github.com/getpingback/ui/compare/v0.0.418...v0.0.421) (2025-05-30)
 
@@ -461,312 +411,275 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [0.0.416](https://github.com/getpingback/ui/compare/v0.0.411...v0.0.416) (2025-05-30)
 
-
 ### Features
 
-* create select list structure ([c770a4d](https://github.com/getpingback/ui/commits/c770a4dee6c6edd564777e94399fe0bfebfed766))
-* finishing select list behavior and adding tests ([8c655dc](https://github.com/getpingback/ui/commits/8c655dc57bd5aa6d56a2c699aa8b4d346247386e))
-* merge with main (conflicts solved) ([0ec68d6](https://github.com/getpingback/ui/commits/0ec68d63374bf03742a0cd11d357d116511e26a9))
-* stepper component ([f85d601](https://github.com/getpingback/ui/commits/f85d601765b85f6b96ad10babce28ff0156f3975))
-* update with main ([d738c35](https://github.com/getpingback/ui/commits/d738c35567fa974d549531f0f048600240a85e01))
-
+- create select list structure ([c770a4d](https://github.com/getpingback/ui/commits/c770a4dee6c6edd564777e94399fe0bfebfed766))
+- finishing select list behavior and adding tests ([8c655dc](https://github.com/getpingback/ui/commits/8c655dc57bd5aa6d56a2c699aa8b4d346247386e))
+- merge with main (conflicts solved) ([0ec68d6](https://github.com/getpingback/ui/commits/0ec68d63374bf03742a0cd11d357d116511e26a9))
+- stepper component ([f85d601](https://github.com/getpingback/ui/commits/f85d601765b85f6b96ad10babce28ff0156f3975))
+- update with main ([d738c35](https://github.com/getpingback/ui/commits/d738c35567fa974d549531f0f048600240a85e01))
 
 ### Bug Fixes
 
-* card border and shadow ([b2df07c](https://github.com/getpingback/ui/commits/b2df07c974f50b190643fe1ec7fb2ada1615d82d))
-* export stepper component ([b4c5043](https://github.com/getpingback/ui/commits/b4c50430dd93f1b0493ffcd9736d24c65446a202))
-* status name ([27c9e75](https://github.com/getpingback/ui/commits/27c9e758150cd3efc6982e10564f84e2dd4ddc79))
-* swiper click and layout pagination ([01fae0d](https://github.com/getpingback/ui/commits/01fae0de48ef05791d38ca871262eb10d31cb0e7))
+- card border and shadow ([b2df07c](https://github.com/getpingback/ui/commits/b2df07c974f50b190643fe1ec7fb2ada1615d82d))
+- export stepper component ([b4c5043](https://github.com/getpingback/ui/commits/b4c50430dd93f1b0493ffcd9736d24c65446a202))
+- status name ([27c9e75](https://github.com/getpingback/ui/commits/27c9e758150cd3efc6982e10564f84e2dd4ddc79))
+- swiper click and layout pagination ([01fae0d](https://github.com/getpingback/ui/commits/01fae0de48ef05791d38ca871262eb10d31cb0e7))
 
 ### [0.0.415](https://github.com/getpingback/ui/compare/v0.0.411...v0.0.415) (2025-05-30)
 
-
 ### Features
 
-* create select list structure ([c770a4d](https://github.com/getpingback/ui/commits/c770a4dee6c6edd564777e94399fe0bfebfed766))
-* finishing select list behavior and adding tests ([8c655dc](https://github.com/getpingback/ui/commits/8c655dc57bd5aa6d56a2c699aa8b4d346247386e))
-* merge with main (conflicts solved) ([0ec68d6](https://github.com/getpingback/ui/commits/0ec68d63374bf03742a0cd11d357d116511e26a9))
-* stepper component ([f85d601](https://github.com/getpingback/ui/commits/f85d601765b85f6b96ad10babce28ff0156f3975))
-* update with main ([d738c35](https://github.com/getpingback/ui/commits/d738c35567fa974d549531f0f048600240a85e01))
-
+- create select list structure ([c770a4d](https://github.com/getpingback/ui/commits/c770a4dee6c6edd564777e94399fe0bfebfed766))
+- finishing select list behavior and adding tests ([8c655dc](https://github.com/getpingback/ui/commits/8c655dc57bd5aa6d56a2c699aa8b4d346247386e))
+- merge with main (conflicts solved) ([0ec68d6](https://github.com/getpingback/ui/commits/0ec68d63374bf03742a0cd11d357d116511e26a9))
+- stepper component ([f85d601](https://github.com/getpingback/ui/commits/f85d601765b85f6b96ad10babce28ff0156f3975))
+- update with main ([d738c35](https://github.com/getpingback/ui/commits/d738c35567fa974d549531f0f048600240a85e01))
 
 ### Bug Fixes
 
-* card border and shadow ([b2df07c](https://github.com/getpingback/ui/commits/b2df07c974f50b190643fe1ec7fb2ada1615d82d))
-* export stepper component ([b4c5043](https://github.com/getpingback/ui/commits/b4c50430dd93f1b0493ffcd9736d24c65446a202))
-* status name ([27c9e75](https://github.com/getpingback/ui/commits/27c9e758150cd3efc6982e10564f84e2dd4ddc79))
-* swiper click and layout pagination ([01fae0d](https://github.com/getpingback/ui/commits/01fae0de48ef05791d38ca871262eb10d31cb0e7))
+- card border and shadow ([b2df07c](https://github.com/getpingback/ui/commits/b2df07c974f50b190643fe1ec7fb2ada1615d82d))
+- export stepper component ([b4c5043](https://github.com/getpingback/ui/commits/b4c50430dd93f1b0493ffcd9736d24c65446a202))
+- status name ([27c9e75](https://github.com/getpingback/ui/commits/27c9e758150cd3efc6982e10564f84e2dd4ddc79))
+- swiper click and layout pagination ([01fae0d](https://github.com/getpingback/ui/commits/01fae0de48ef05791d38ca871262eb10d31cb0e7))
 
 ### [0.0.410](https://github.com/getpingback/ui/compare/v0.0.409...v0.0.410) (2025-05-14)
 
-
 ### Features
 
-* sort breakpoints ([b26880f](https://github.com/getpingback/ui/commits/b26880fa23a88742a05a69b771c0a2aeb28d0bd3))
-* swiper mobile width ([ad84a00](https://github.com/getpingback/ui/commits/ad84a0070adc0e68324565fe86d7c30c216a86a3))
+- sort breakpoints ([b26880f](https://github.com/getpingback/ui/commits/b26880fa23a88742a05a69b771c0a2aeb28d0bd3))
+- swiper mobile width ([ad84a00](https://github.com/getpingback/ui/commits/ad84a0070adc0e68324565fe86d7c30c216a86a3))
 
 ### [0.0.408](https://github.com/getpingback/ui/compare/v0.0.407...v0.0.408) (2025-05-08)
 
-
 ### Bug Fixes
 
-* swiper click and layout pagination ([1c85a0c](https://github.com/getpingback/ui/commits/1c85a0cc03d55c8360a3bc0ee08b19eebaaf151c))
+- swiper click and layout pagination ([1c85a0c](https://github.com/getpingback/ui/commits/1c85a0cc03d55c8360a3bc0ee08b19eebaaf151c))
 
 ### [0.0.406](https://github.com/getpingback/ui/compare/v0.0.405...v0.0.406) (2025-05-07)
 
-
 ### Bug Fixes
 
-* merge ([454060d](https://github.com/getpingback/ui/commits/454060d49ebe0d77268b925d679cfd1d1957e680))
-* toast layout ([6233e4f](https://github.com/getpingback/ui/commits/6233e4f390d3af6ba7e419bd5bc2f9e7d3dae2f9))
+- merge ([454060d](https://github.com/getpingback/ui/commits/454060d49ebe0d77268b925d679cfd1d1957e680))
+- toast layout ([6233e4f](https://github.com/getpingback/ui/commits/6233e4f390d3af6ba7e419bd5bc2f9e7d3dae2f9))
 
 ### [0.0.404](https://github.com/getpingback/ui/compare/v0.0.400...v0.0.404) (2025-05-05)
 
-
 ### Bug Fixes
 
-* add custom styles on toast ([0c5ee77](https://github.com/getpingback/ui/commits/0c5ee779fe79396124a4d5377936e9aa37e05e99))
-* export toast ([b80a1e8](https://github.com/getpingback/ui/commits/b80a1e8f515b32646bd5aa0803ae5369f39c3751))
-* on click children ([970bc4d](https://github.com/getpingback/ui/commits/970bc4d4567a2ec4efac172628b13ab543ad9f0c))
-* removed yarn.lock ([052e8be](https://github.com/getpingback/ui/commits/052e8beebf4a6229dc23a895de215fdb5ecdad5f))
+- add custom styles on toast ([0c5ee77](https://github.com/getpingback/ui/commits/0c5ee779fe79396124a4d5377936e9aa37e05e99))
+- export toast ([b80a1e8](https://github.com/getpingback/ui/commits/b80a1e8f515b32646bd5aa0803ae5369f39c3751))
+- on click children ([970bc4d](https://github.com/getpingback/ui/commits/970bc4d4567a2ec4efac172628b13ab543ad9f0c))
+- removed yarn.lock ([052e8be](https://github.com/getpingback/ui/commits/052e8beebf4a6229dc23a895de215fdb5ecdad5f))
 
 ### [0.0.403](https://github.com/getpingback/ui/compare/v0.0.400...v0.0.403) (2025-05-05)
 
-
 ### Bug Fixes
 
-* add custom styles on toast ([0c5ee77](https://github.com/getpingback/ui/commits/0c5ee779fe79396124a4d5377936e9aa37e05e99))
-* export toast ([b80a1e8](https://github.com/getpingback/ui/commits/b80a1e8f515b32646bd5aa0803ae5369f39c3751))
-* on click children ([970bc4d](https://github.com/getpingback/ui/commits/970bc4d4567a2ec4efac172628b13ab543ad9f0c))
-* removed yarn.lock ([052e8be](https://github.com/getpingback/ui/commits/052e8beebf4a6229dc23a895de215fdb5ecdad5f))
+- add custom styles on toast ([0c5ee77](https://github.com/getpingback/ui/commits/0c5ee779fe79396124a4d5377936e9aa37e05e99))
+- export toast ([b80a1e8](https://github.com/getpingback/ui/commits/b80a1e8f515b32646bd5aa0803ae5369f39c3751))
+- on click children ([970bc4d](https://github.com/getpingback/ui/commits/970bc4d4567a2ec4efac172628b13ab543ad9f0c))
+- removed yarn.lock ([052e8be](https://github.com/getpingback/ui/commits/052e8beebf4a6229dc23a895de215fdb5ecdad5f))
 
 ### [0.0.402](https://github.com/getpingback/ui/compare/v0.0.400...v0.0.402) (2025-05-05)
 
-
 ### Bug Fixes
 
-* add custom styles on toast ([0c5ee77](https://github.com/getpingback/ui/commits/0c5ee779fe79396124a4d5377936e9aa37e05e99))
-* export toast ([b80a1e8](https://github.com/getpingback/ui/commits/b80a1e8f515b32646bd5aa0803ae5369f39c3751))
-* on click children ([970bc4d](https://github.com/getpingback/ui/commits/970bc4d4567a2ec4efac172628b13ab543ad9f0c))
-* removed yarn.lock ([052e8be](https://github.com/getpingback/ui/commits/052e8beebf4a6229dc23a895de215fdb5ecdad5f))
+- add custom styles on toast ([0c5ee77](https://github.com/getpingback/ui/commits/0c5ee779fe79396124a4d5377936e9aa37e05e99))
+- export toast ([b80a1e8](https://github.com/getpingback/ui/commits/b80a1e8f515b32646bd5aa0803ae5369f39c3751))
+- on click children ([970bc4d](https://github.com/getpingback/ui/commits/970bc4d4567a2ec4efac172628b13ab543ad9f0c))
+- removed yarn.lock ([052e8be](https://github.com/getpingback/ui/commits/052e8beebf4a6229dc23a895de215fdb5ecdad5f))
 
 ### [0.0.401](https://github.com/getpingback/ui/compare/v0.0.400...v0.0.401) (2025-05-05)
 
-
 ### Bug Fixes
 
-* add custom styles on toast ([0c5ee77](https://github.com/getpingback/ui/commits/0c5ee779fe79396124a4d5377936e9aa37e05e99))
-* export toast ([b80a1e8](https://github.com/getpingback/ui/commits/b80a1e8f515b32646bd5aa0803ae5369f39c3751))
-* on click children ([970bc4d](https://github.com/getpingback/ui/commits/970bc4d4567a2ec4efac172628b13ab543ad9f0c))
-* removed yarn.lock ([052e8be](https://github.com/getpingback/ui/commits/052e8beebf4a6229dc23a895de215fdb5ecdad5f))
+- add custom styles on toast ([0c5ee77](https://github.com/getpingback/ui/commits/0c5ee779fe79396124a4d5377936e9aa37e05e99))
+- export toast ([b80a1e8](https://github.com/getpingback/ui/commits/b80a1e8f515b32646bd5aa0803ae5369f39c3751))
+- on click children ([970bc4d](https://github.com/getpingback/ui/commits/970bc4d4567a2ec4efac172628b13ab543ad9f0c))
+- removed yarn.lock ([052e8be](https://github.com/getpingback/ui/commits/052e8beebf4a6229dc23a895de215fdb5ecdad5f))
 
 ### [0.0.399](https://github.com/getpingback/ui/compare/v0.0.398...v0.0.399) (2025-04-30)
 
-
 ### Features
 
-* add settings prop ([dfc945f](https://github.com/getpingback/ui/commits/dfc945f304c81d73348ac7ad9101cb0c87104e9d))
-* carousel works(not properly) ([ffefe0e](https://github.com/getpingback/ui/commits/ffefe0e4f15b7f4b929c27e8d8adf9ce9aea4a52))
-* change carousel name to swiper ([19965e1](https://github.com/getpingback/ui/commits/19965e1cc59b89889d61d4caeb2b265222f82a0c))
-* create carousel slider component ([48f6c4a](https://github.com/getpingback/ui/commits/48f6c4a30137d463e2c7d646502fb17c539b77cd))
-* merge with main ([80384a7](https://github.com/getpingback/ui/commits/80384a748c94bd3f5b0e387a8c5953307e7ea4ff))
-* navigation works ([3ddaa74](https://github.com/getpingback/ui/commits/3ddaa7486e6283ac1a7fb2dda48b977a4a9a6cd4))
-* next and prev button works in all devices ([19432ef](https://github.com/getpingback/ui/commits/19432ef1e849f998fc7c27acf72cc1da3c23091b))
-* swiper at start and at end ([6577184](https://github.com/getpingback/ui/commits/65771847209f76a9435ac58d21c19af73ea25f2f))
-
+- add settings prop ([dfc945f](https://github.com/getpingback/ui/commits/dfc945f304c81d73348ac7ad9101cb0c87104e9d))
+- carousel works(not properly) ([ffefe0e](https://github.com/getpingback/ui/commits/ffefe0e4f15b7f4b929c27e8d8adf9ce9aea4a52))
+- change carousel name to swiper ([19965e1](https://github.com/getpingback/ui/commits/19965e1cc59b89889d61d4caeb2b265222f82a0c))
+- create carousel slider component ([48f6c4a](https://github.com/getpingback/ui/commits/48f6c4a30137d463e2c7d646502fb17c539b77cd))
+- merge with main ([80384a7](https://github.com/getpingback/ui/commits/80384a748c94bd3f5b0e387a8c5953307e7ea4ff))
+- navigation works ([3ddaa74](https://github.com/getpingback/ui/commits/3ddaa7486e6283ac1a7fb2dda48b977a4a9a6cd4))
+- next and prev button works in all devices ([19432ef](https://github.com/getpingback/ui/commits/19432ef1e849f998fc7c27acf72cc1da3c23091b))
+- swiper at start and at end ([6577184](https://github.com/getpingback/ui/commits/65771847209f76a9435ac58d21c19af73ea25f2f))
 
 ### Bug Fixes
 
-* add ref to textfield and textarea ([dc8f725](https://github.com/getpingback/ui/commits/dc8f725b2947f931f856a957df7b56c3725ea2d6))
+- add ref to textfield and textarea ([dc8f725](https://github.com/getpingback/ui/commits/dc8f725b2947f931f856a957df7b56c3725ea2d6))
 
 ### [0.0.397](https://github.com/getpingback/ui/compare/v0.0.396...v0.0.397) (2025-04-29)
 
-
 ### Bug Fixes
 
-* textarea ([68f231a](https://github.com/getpingback/ui/commits/68f231a43dacab7e7d80e39a7b0b4802069cee29))
+- textarea ([68f231a](https://github.com/getpingback/ui/commits/68f231a43dacab7e7d80e39a7b0b4802069cee29))
 
 ### [0.0.395](https://github.com/getpingback/ui/compare/v0.0.394...v0.0.395) (2025-04-29)
 
-
 ### Features
 
-* create a textarea component ([bbca311](https://github.com/getpingback/ui/commits/bbca311b41de9fca167033a417fbda0156efdec3))
-
+- create a textarea component ([bbca311](https://github.com/getpingback/ui/commits/bbca311b41de9fca167033a417fbda0156efdec3))
 
 ### Bug Fixes
 
-* tests ([48d912a](https://github.com/getpingback/ui/commits/48d912ae4ed3df1760cf3608d645f7fb28820fc2))
+- tests ([48d912a](https://github.com/getpingback/ui/commits/48d912ae4ed3df1760cf3608d645f7fb28820fc2))
 
 ### [0.0.393](https://github.com/getpingback/ui/compare/v0.0.392...v0.0.393) (2025-04-24)
 
 ### [0.0.391](https://github.com/getpingback/ui/compare/v0.0.389...v0.0.391) (2025-04-24)
 
-
 ### Bug Fixes
 
-* add prefix element on textfield component ([947444a](https://github.com/getpingback/ui/commits/947444aa41d314fe15200f4156b0b77a779ddf8e))
+- add prefix element on textfield component ([947444a](https://github.com/getpingback/ui/commits/947444aa41d314fe15200f4156b0b77a779ddf8e))
 
 ### [0.0.389](https://github.com/getpingback/ui/compare/v0.0.386...v0.0.389) (2025-04-23)
 
-
 ### Bug Fixes
 
-* add select all controll on checkbox ([261f696](https://github.com/getpingback/ui/commits/261f6968c5edc05b442f17ae47e0e77cc457a0a0))
-* merge ([3def20e](https://github.com/getpingback/ui/commits/3def20ee1ca251a8c1566a3c11aba422e3770371))
-* tests ([baf07e4](https://github.com/getpingback/ui/commits/baf07e4ae494c37e12e2db930a95895c4db9cd2c))
+- add select all controll on checkbox ([261f696](https://github.com/getpingback/ui/commits/261f6968c5edc05b442f17ae47e0e77cc457a0a0))
+- merge ([3def20e](https://github.com/getpingback/ui/commits/3def20ee1ca251a8c1566a3c11aba422e3770371))
+- tests ([baf07e4](https://github.com/getpingback/ui/commits/baf07e4ae494c37e12e2db930a95895c4db9cd2c))
 
 ### [0.0.382](https://github.com/getpingback/ui/compare/v0.0.380...v0.0.382) (2025-04-15)
 
-
 ### Bug Fixes
 
-* range picker button and split button padding ([53c63cd](https://github.com/getpingback/ui/commits/53c63cd791f1cae0f0213696e37a0e9ea6efa6f2))
-* range picker tests ([82bfb3d](https://github.com/getpingback/ui/commits/82bfb3d25a0aee3f28ad7913794169044846bc90))
+- range picker button and split button padding ([53c63cd](https://github.com/getpingback/ui/commits/53c63cd791f1cae0f0213696e37a0e9ea6efa6f2))
+- range picker tests ([82bfb3d](https://github.com/getpingback/ui/commits/82bfb3d25a0aee3f28ad7913794169044846bc90))
 
 ### [0.0.387](https://github.com/getpingback/ui/compare/v0.0.386...v0.0.387) (2025-04-22)
 
-
 ### Bug Fixes
 
-* add select all controll on checkbox ([261f696](https://github.com/getpingback/ui/commits/261f6968c5edc05b442f17ae47e0e77cc457a0a0))
+- add select all controll on checkbox ([261f696](https://github.com/getpingback/ui/commits/261f6968c5edc05b442f17ae47e0e77cc457a0a0))
 
 ### [0.0.385](https://github.com/getpingback/ui/compare/v0.0.384...v0.0.385) (2025-04-17)
 
-
 ### Bug Fixes
 
-* button span height ([8171cb6](https://github.com/getpingback/ui/commits/8171cb6493ad0d64c102cc88dcc24f96873a570c))
+- button span height ([8171cb6](https://github.com/getpingback/ui/commits/8171cb6493ad0d64c102cc88dcc24f96873a570c))
 
 ### [0.0.383](https://github.com/getpingback/ui/compare/v0.0.380...v0.0.383) (2025-04-17)
 
-
 ### Bug Fixes
 
-* combobox display ([860c01a](https://github.com/getpingback/ui/commits/860c01a199ef0dbec849e9aece22a8908a07d028))
+- combobox display ([860c01a](https://github.com/getpingback/ui/commits/860c01a199ef0dbec849e9aece22a8908a07d028))
 
 ### [0.0.381](https://github.com/getpingback/ui/compare/v0.0.380...v0.0.381) (2025-04-16)
 
 ### [0.0.379](https://github.com/getpingback/ui/compare/v0.0.377...v0.0.379) (2025-04-15)
 
-
 ### Features
 
-* slip test ([ab59564](https://github.com/getpingback/ui/commits/ab595645378e4bd22258d9e8026420259e8e6462))
-
+- slip test ([ab59564](https://github.com/getpingback/ui/commits/ab595645378e4bd22258d9e8026420259e8e6462))
 
 ### Bug Fixes
 
-* delete multiselect ([b3a7a9c](https://github.com/getpingback/ui/commits/b3a7a9c3fe0215867647b006782c8611b5cf9513))
-* multiselector as a variant ([52bfd9a](https://github.com/getpingback/ui/commits/52bfd9a923b01d04af15db6ba33b747e2a2255ed))
-* select and combobox height ([078cf56](https://github.com/getpingback/ui/commits/078cf56a4a1527fffe72a83c6432c816b550aea6))
+- delete multiselect ([b3a7a9c](https://github.com/getpingback/ui/commits/b3a7a9c3fe0215867647b006782c8611b5cf9513))
+- multiselector as a variant ([52bfd9a](https://github.com/getpingback/ui/commits/52bfd9a923b01d04af15db6ba33b747e2a2255ed))
+- select and combobox height ([078cf56](https://github.com/getpingback/ui/commits/078cf56a4a1527fffe72a83c6432c816b550aea6))
 
 ### [0.0.378](https://github.com/getpingback/ui/compare/v0.0.377...v0.0.378) (2025-04-15)
 
-
 ### Bug Fixes
 
-* delete multiselect ([b3a7a9c](https://github.com/getpingback/ui/commits/b3a7a9c3fe0215867647b006782c8611b5cf9513))
-* multiselector as a variant ([52bfd9a](https://github.com/getpingback/ui/commits/52bfd9a923b01d04af15db6ba33b747e2a2255ed))
-* select and combobox height ([078cf56](https://github.com/getpingback/ui/commits/078cf56a4a1527fffe72a83c6432c816b550aea6))
+- delete multiselect ([b3a7a9c](https://github.com/getpingback/ui/commits/b3a7a9c3fe0215867647b006782c8611b5cf9513))
+- multiselector as a variant ([52bfd9a](https://github.com/getpingback/ui/commits/52bfd9a923b01d04af15db6ba33b747e2a2255ed))
+- select and combobox height ([078cf56](https://github.com/getpingback/ui/commits/078cf56a4a1527fffe72a83c6432c816b550aea6))
 
 ### [0.0.376](https://github.com/getpingback/ui/compare/v0.0.374...v0.0.376) (2025-04-09)
 
-
 ### Features
 
-* base text field component ([7a0afbb](https://github.com/getpingback/ui/commits/7a0afbb4ba32b161f6cdcc78ba898db9e38a17b5))
-* create text field ([c621111](https://github.com/getpingback/ui/commits/c621111ac6611fcd9a3d274ae149f7cf9e1e25d2))
-* solving conflicts ([ff4ad85](https://github.com/getpingback/ui/commits/ff4ad853f18d0ba850ab382eab795e410a28c256))
-
+- base text field component ([7a0afbb](https://github.com/getpingback/ui/commits/7a0afbb4ba32b161f6cdcc78ba898db9e38a17b5))
+- create text field ([c621111](https://github.com/getpingback/ui/commits/c621111ac6611fcd9a3d274ae149f7cf9e1e25d2))
+- solving conflicts ([ff4ad85](https://github.com/getpingback/ui/commits/ff4ad853f18d0ba850ab382eab795e410a28c256))
 
 ### Bug Fixes
 
-* export button ([5e8ada8](https://github.com/getpingback/ui/commits/5e8ada806e20563fb080a3f6d923b83561849dac))
-* export button ([d307278](https://github.com/getpingback/ui/commits/d30727802829dee1d0ce2f7ac81ceaa2acfc2da8))
+- export button ([5e8ada8](https://github.com/getpingback/ui/commits/5e8ada806e20563fb080a3f6d923b83561849dac))
+- export button ([d307278](https://github.com/getpingback/ui/commits/d30727802829dee1d0ce2f7ac81ceaa2acfc2da8))
 
 ### [0.0.374](https://github.com/getpingback/ui/compare/v0.0.373...v0.0.374) (2025-04-08)
 
-
 ### Features
 
-* base text field component ([7a0afbb](https://github.com/getpingback/ui/commits/7a0afbb4ba32b161f6cdcc78ba898db9e38a17b5))
-* create text field ([c621111](https://github.com/getpingback/ui/commits/c621111ac6611fcd9a3d274ae149f7cf9e1e25d2))
-* solving conflicts ([ff4ad85](https://github.com/getpingback/ui/commits/ff4ad853f18d0ba850ab382eab795e410a28c256))
+- base text field component ([7a0afbb](https://github.com/getpingback/ui/commits/7a0afbb4ba32b161f6cdcc78ba898db9e38a17b5))
+- create text field ([c621111](https://github.com/getpingback/ui/commits/c621111ac6611fcd9a3d274ae149f7cf9e1e25d2))
+- solving conflicts ([ff4ad85](https://github.com/getpingback/ui/commits/ff4ad853f18d0ba850ab382eab795e410a28c256))
 
 ### [0.0.373](https://github.com/getpingback/ui/compare/v0.0.372...v0.0.373) (2025-04-07)
 
-
 ### Features
 
-* add variant to card component ([7988e8a](https://github.com/getpingback/ui/commits/7988e8a06d8af36c11c3d7bd8394485c8f2a1bcb))
-* apply size variants ([6f2c60b](https://github.com/getpingback/ui/commits/6f2c60bfa326baa8d7b2594342f464992d583ee3))
-* button ([581af8d](https://github.com/getpingback/ui/commits/581af8db24f145b212d7cbd45016d531cf1d3ba3))
-* checkbox group and tests ([ae0d4da](https://github.com/getpingback/ui/commits/ae0d4da7606bdc222d43ecf1c7aab30b3719f394))
-* create typography component ([4663f58](https://github.com/getpingback/ui/commits/4663f58617324c26b6f169107cda89106cacc3fb))
-* disabled button tests ([b0bac23](https://github.com/getpingback/ui/commits/b0bac237bf75e983e5c5b177d42754194e084f91))
-* export typography component ([aa346ac](https://github.com/getpingback/ui/commits/aa346ac4d75340ca87ef3cf5d8c1079143a3d9bb))
-* full width props ([08189e8](https://github.com/getpingback/ui/commits/08189e8595f1e375b64b35fe996f734e80b907f2))
-* spinner component ([19abd71](https://github.com/getpingback/ui/commits/19abd71aa8860e3275f3b0a02ab7819656de0de4))
+- add variant to card component ([7988e8a](https://github.com/getpingback/ui/commits/7988e8a06d8af36c11c3d7bd8394485c8f2a1bcb))
+- apply size variants ([6f2c60b](https://github.com/getpingback/ui/commits/6f2c60bfa326baa8d7b2594342f464992d583ee3))
+- button ([581af8d](https://github.com/getpingback/ui/commits/581af8db24f145b212d7cbd45016d531cf1d3ba3))
+- checkbox group and tests ([ae0d4da](https://github.com/getpingback/ui/commits/ae0d4da7606bdc222d43ecf1c7aab30b3719f394))
+- create typography component ([4663f58](https://github.com/getpingback/ui/commits/4663f58617324c26b6f169107cda89106cacc3fb))
+- disabled button tests ([b0bac23](https://github.com/getpingback/ui/commits/b0bac237bf75e983e5c5b177d42754194e084f91))
+- export typography component ([aa346ac](https://github.com/getpingback/ui/commits/aa346ac4d75340ca87ef3cf5d8c1079143a3d9bb))
+- full width props ([08189e8](https://github.com/getpingback/ui/commits/08189e8595f1e375b64b35fe996f734e80b907f2))
+- spinner component ([19abd71](https://github.com/getpingback/ui/commits/19abd71aa8860e3275f3b0a02ab7819656de0de4))
 
 ### [0.0.371](https://github.com/getpingback/ui/compare/v0.0.370...v0.0.371) (2025-04-03)
 
-
 ### Bug Fixes
 
-* empty component ([6c2d098](https://github.com/getpingback/ui/commits/6c2d098053ac634f7afa758ebe623b6e8a53f2b3))
+- empty component ([6c2d098](https://github.com/getpingback/ui/commits/6c2d098053ac634f7afa758ebe623b6e8a53f2b3))
 
 ### [0.0.368](https://github.com/getpingback/ui/compare/v0.0.367...v0.0.368) (2025-04-03)
 
 ### [0.0.366](https://github.com/getpingback/ui/compare/v0.0.365...v0.0.366) (2025-03-31)
 
-
 ### Bug Fixes
 
-* removed unnecessary code ([0006799](https://github.com/getpingback/ui/commits/000679909e9f50c4eb014e707404a0a6bd0cfce9))
-* removed unnecessary code ([7933bcb](https://github.com/getpingback/ui/commits/7933bcb6abe617cecf8395edb14d7c61e8bc285d))
+- removed unnecessary code ([0006799](https://github.com/getpingback/ui/commits/000679909e9f50c4eb014e707404a0a6bd0cfce9))
+- removed unnecessary code ([7933bcb](https://github.com/getpingback/ui/commits/7933bcb6abe617cecf8395edb14d7c61e8bc285d))
 
 ### [0.0.364](https://github.com/getpingback/ui/compare/v0.0.363...v0.0.364) (2025-03-31)
 
-
 ### Bug Fixes
 
-* selected value on combobox ([64f0929](https://github.com/getpingback/ui/commits/64f092957545e7d0cb7264e8fd7d56436540c3ce))
+- selected value on combobox ([64f0929](https://github.com/getpingback/ui/commits/64f092957545e7d0cb7264e8fd7d56436540c3ce))
 
 ### [0.0.362](https://github.com/getpingback/ui/compare/v0.0.361...v0.0.362) (2025-03-31)
 
-
 ### Bug Fixes
 
-* remove consoles ([82eeeb4](https://github.com/getpingback/ui/commits/82eeeb48162fbd5a2aab2fa373f3c7440878fea7))
+- remove consoles ([82eeeb4](https://github.com/getpingback/ui/commits/82eeeb48162fbd5a2aab2fa373f3c7440878fea7))
 
 ### [0.0.360](https://github.com/getpingback/ui/compare/v0.0.359...v0.0.360) (2025-03-31)
 
-
 ### Bug Fixes
 
-* add consoles ([8d07534](https://github.com/getpingback/ui/commits/8d075349c9c374819940d8e379963e06f2af6081))
+- add consoles ([8d07534](https://github.com/getpingback/ui/commits/8d075349c9c374819940d8e379963e06f2af6081))
 
 ### [0.0.358](https://github.com/getpingback/ui/compare/v0.0.357...v0.0.358) (2025-03-31)
 
-
 ### Bug Fixes
 
-* add consoles ([5a1fcab](https://github.com/getpingback/ui/commits/5a1fcab1513cb938de1e4499507908478e30b9f0))
+- add consoles ([5a1fcab](https://github.com/getpingback/ui/commits/5a1fcab1513cb938de1e4499507908478e30b9f0))
 
 ### [0.0.356](https://github.com/getpingback/ui/compare/v0.0.355...v0.0.356) (2025-03-31)
 
-
 ### Bug Fixes
 
-* still trying to fix ([dbabc1c](https://github.com/getpingback/ui/commits/dbabc1c15f88115e848ee61a4a85a8507c7f9b82))
+- still trying to fix ([dbabc1c](https://github.com/getpingback/ui/commits/dbabc1c15f88115e848ee61a4a85a8507c7f9b82))
 
 ### [0.0.354](https://github.com/getpingback/ui/compare/v0.0.353...v0.0.354) (2025-03-28)
 
-
 ### Bug Fixes
 
-* lastItem on combobox ([6ead0d7](https://github.com/getpingback/ui/commits/6ead0d7d6365f587d66212846ded3bd71813ea7c))
+- lastItem on combobox ([6ead0d7](https://github.com/getpingback/ui/commits/6ead0d7d6365f587d66212846ded3bd71813ea7c))
 
 ### [0.0.352](https://github.com/getpingback/ui/compare/v0.0.350...v0.0.352) (2025-03-28)
 
@@ -774,192 +687,167 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [0.0.349](https://github.com/getpingback/ui/compare/v0.0.348...v0.0.349) (2025-03-28)
 
-
 ### Bug Fixes
 
-* trying to fix bug on onendreached function ([083f244](https://github.com/getpingback/ui/commits/083f24437bbfd8682ba9dfeace8ad3cbabb4ceb0))
+- trying to fix bug on onendreached function ([083f244](https://github.com/getpingback/ui/commits/083f24437bbfd8682ba9dfeace8ad3cbabb4ceb0))
 
 ### [0.0.347](https://github.com/getpingback/ui/compare/v0.0.346...v0.0.347) (2025-03-13)
 
-
 ### Bug Fixes
 
-* set hexColors on blur ([47e9f92](https://github.com/getpingback/ui/commits/47e9f923b2dac9925561b7548a96e34d7660eb6a))
-* update color picker opacity with 100% and add validate onBlur ([21454a4](https://github.com/getpingback/ui/commits/21454a4a3642ae414e98ee961680721dd15fc044))
+- set hexColors on blur ([47e9f92](https://github.com/getpingback/ui/commits/47e9f923b2dac9925561b7548a96e34d7660eb6a))
+- update color picker opacity with 100% and add validate onBlur ([21454a4](https://github.com/getpingback/ui/commits/21454a4a3642ae414e98ee961680721dd15fc044))
 
 ### [0.0.345](https://github.com/getpingback/ui/compare/v0.0.344...v0.0.345) (2025-02-26)
 
-
 ### Bug Fixes
 
-* add custom content on split button ([bd8464e](https://github.com/getpingback/ui/commits/bd8464e7cdcf4c7e8901bb6058e701f19ddbdf3a))
+- add custom content on split button ([bd8464e](https://github.com/getpingback/ui/commits/bd8464e7cdcf4c7e8901bb6058e701f19ddbdf3a))
 
 ### [0.0.343](https://github.com/getpingback/ui/compare/v0.0.342...v0.0.343) (2025-02-21)
 
-
 ### Bug Fixes
 
-* color sr-only ([f4af890](https://github.com/getpingback/ui/commits/f4af890fff4f3b4da1bde463e2d3eb23435bf263))
+- color sr-only ([f4af890](https://github.com/getpingback/ui/commits/f4af890fff4f3b4da1bde463e2d3eb23435bf263))
 
 ### [0.0.341](https://github.com/getpingback/ui/compare/v0.0.340...v0.0.341) (2025-02-19)
 
-
 ### Bug Fixes
 
-* add size props to badge component ([cc5fe2b](https://github.com/getpingback/ui/commits/cc5fe2b5237552f85d518228aa5e8e0ddbf6f008))
+- add size props to badge component ([cc5fe2b](https://github.com/getpingback/ui/commits/cc5fe2b5237552f85d518228aa5e8e0ddbf6f008))
 
 ### [0.0.338](https://github.com/getpingback/ui/compare/v0.0.337...v0.0.338) (2025-02-10)
 
-
 ### Bug Fixes
 
-* color picker bg color and remove unecessary opacity prop ([c0c9725](https://github.com/getpingback/ui/commits/c0c9725858f74fbe61eaa39244bae007cec4d977))
+- color picker bg color and remove unecessary opacity prop ([c0c9725](https://github.com/getpingback/ui/commits/c0c9725858f74fbe61eaa39244bae007cec4d977))
 
 ### [0.0.336](https://github.com/getpingback/ui/compare/v0.0.335...v0.0.336) (2025-02-05)
 
-
 ### Features
 
-* concat hex color with opacity ([3d043f3](https://github.com/getpingback/ui/commits/3d043f3b85405041659a77a0f10bd4cd37bab4d0))
-* create color picker component ([954cb0e](https://github.com/getpingback/ui/commits/954cb0e7469360294f7b8e6a5cfd95d58ee68ff4))
-* remove log ([cb65753](https://github.com/getpingback/ui/commits/cb657531f7e01eb926fda5c3e2d68f8574fba447))
+- concat hex color with opacity ([3d043f3](https://github.com/getpingback/ui/commits/3d043f3b85405041659a77a0f10bd4cd37bab4d0))
+- create color picker component ([954cb0e](https://github.com/getpingback/ui/commits/954cb0e7469360294f7b8e6a5cfd95d58ee68ff4))
+- remove log ([cb65753](https://github.com/getpingback/ui/commits/cb657531f7e01eb926fda5c3e2d68f8574fba447))
 
 ### [0.0.334](https://github.com/getpingback/ui/compare/v0.0.333...v0.0.334) (2025-01-28)
 
-
 ### Bug Fixes
 
-* drawer overlay index ([16576b3](https://github.com/getpingback/ui/commits/16576b35192c519314cd60906957af35e5bef4a9))
+- drawer overlay index ([16576b3](https://github.com/getpingback/ui/commits/16576b35192c519314cd60906957af35e5bef4a9))
 
 ### [0.0.332](https://github.com/getpingback/ui/compare/v0.0.331...v0.0.332) (2025-01-28)
 
-
 ### Bug Fixes
 
-* merge main ([6639541](https://github.com/getpingback/ui/commits/6639541d5c154430056660a5ab96964d5c2c39ee))
+- merge main ([6639541](https://github.com/getpingback/ui/commits/6639541d5c154430056660a5ab96964d5c2c39ee))
 
 ### [0.0.329](https://github.com/getpingback/ui/compare/v0.0.328...v0.0.329) (2025-01-24)
 
 ### [0.0.328](https://github.com/getpingback/ui/compare/v0.0.327...v0.0.328) (2025-01-24)
 
-
 ### Bug Fixes
 
-* splitbutton font size ([84d4ea8](https://github.com/getpingback/ui/commits/84d4ea83255448c9d1e5eeb20fa7e1deb4ea285c))
+- splitbutton font size ([84d4ea8](https://github.com/getpingback/ui/commits/84d4ea83255448c9d1e5eeb20fa7e1deb4ea285c))
 
 ### [0.0.327](https://github.com/getpingback/ui/compare/v0.0.326...v0.0.327) (2025-01-24)
 
 ### [0.0.326](https://github.com/getpingback/ui/compare/v0.0.325...v0.0.326) (2025-01-24)
 
-
 ### Bug Fixes
 
-* trigger alignment ([8253a9c](https://github.com/getpingback/ui/commits/8253a9c7372e1cd1fb1a288d854046c273ccdeaf))
+- trigger alignment ([8253a9c](https://github.com/getpingback/ui/commits/8253a9c7372e1cd1fb1a288d854046c273ccdeaf))
 
 ### [0.0.325](https://github.com/getpingback/ui/compare/v0.0.324...v0.0.325) (2025-01-23)
 
 ### [0.0.324](https://github.com/getpingback/ui/compare/v0.0.323...v0.0.324) (2025-01-23)
 
-
 ### Bug Fixes
 
-* add props side to splitbutton menu ([1f5fc17](https://github.com/getpingback/ui/commits/1f5fc175313ffaf02fa69b56515c272894d49902))
+- add props side to splitbutton menu ([1f5fc17](https://github.com/getpingback/ui/commits/1f5fc175313ffaf02fa69b56515c272894d49902))
 
 ### [0.0.330](https://github.com/getpingback/ui/compare/v0.0.323...v0.0.330) (2025-01-27)
 
-
 ### Bug Fixes
 
-* drawer max width ([98f165d](https://github.com/getpingback/ui/commits/98f165d33cda7c419f70ae7656ba9269bba81ec3))
+- drawer max width ([98f165d](https://github.com/getpingback/ui/commits/98f165d33cda7c419f70ae7656ba9269bba81ec3))
 
 ### [0.0.329](https://github.com/getpingback/ui/compare/v0.0.323...v0.0.329) (2025-01-27)
 
-
 ### Bug Fixes
 
-* drawer max width ([98f165d](https://github.com/getpingback/ui/commits/98f165d33cda7c419f70ae7656ba9269bba81ec3))
+- drawer max width ([98f165d](https://github.com/getpingback/ui/commits/98f165d33cda7c419f70ae7656ba9269bba81ec3))
 
 ### [0.0.328](https://github.com/getpingback/ui/compare/v0.0.323...v0.0.328) (2025-01-27)
 
-
 ### Bug Fixes
 
-* drawer max width ([98f165d](https://github.com/getpingback/ui/commits/98f165d33cda7c419f70ae7656ba9269bba81ec3))
+- drawer max width ([98f165d](https://github.com/getpingback/ui/commits/98f165d33cda7c419f70ae7656ba9269bba81ec3))
 
 ### [0.0.327](https://github.com/getpingback/ui/compare/v0.0.323...v0.0.327) (2025-01-27)
 
-
 ### Bug Fixes
 
-* drawer max width ([98f165d](https://github.com/getpingback/ui/commits/98f165d33cda7c419f70ae7656ba9269bba81ec3))
+- drawer max width ([98f165d](https://github.com/getpingback/ui/commits/98f165d33cda7c419f70ae7656ba9269bba81ec3))
 
 ### [0.0.326](https://github.com/getpingback/ui/compare/v0.0.323...v0.0.326) (2025-01-27)
 
-
 ### Bug Fixes
 
-* drawer max width ([98f165d](https://github.com/getpingback/ui/commits/98f165d33cda7c419f70ae7656ba9269bba81ec3))
+- drawer max width ([98f165d](https://github.com/getpingback/ui/commits/98f165d33cda7c419f70ae7656ba9269bba81ec3))
 
 ### [0.0.325](https://github.com/getpingback/ui/compare/v0.0.323...v0.0.325) (2025-01-27)
 
-
 ### Bug Fixes
 
-* drawer max width ([98f165d](https://github.com/getpingback/ui/commits/98f165d33cda7c419f70ae7656ba9269bba81ec3))
+- drawer max width ([98f165d](https://github.com/getpingback/ui/commits/98f165d33cda7c419f70ae7656ba9269bba81ec3))
 
 ### [0.0.324](https://github.com/getpingback/ui/compare/v0.0.323...v0.0.324) (2025-01-27)
 
-
 ### Bug Fixes
 
-* drawer max width ([98f165d](https://github.com/getpingback/ui/commits/98f165d33cda7c419f70ae7656ba9269bba81ec3))
+- drawer max width ([98f165d](https://github.com/getpingback/ui/commits/98f165d33cda7c419f70ae7656ba9269bba81ec3))
 
 ### [0.0.322](https://github.com/getpingback/ui/compare/v0.0.321...v0.0.322) (2025-01-22)
 
-
 ### Features
 
-* add modal component ([80a2e60](https://github.com/getpingback/ui/commits/80a2e6034f335e70bb048d16337f24a28505feb0))
-* export modal ([2f92180](https://github.com/getpingback/ui/commits/2f921807ca5f38be08dfd8217eddaedd682f64c5))
+- add modal component ([80a2e60](https://github.com/getpingback/ui/commits/80a2e6034f335e70bb048d16337f24a28505feb0))
+- export modal ([2f92180](https://github.com/getpingback/ui/commits/2f921807ca5f38be08dfd8217eddaedd682f64c5))
 
 ### [0.0.320](https://github.com/getpingback/ui/compare/v0.0.319...v0.0.320) (2025-01-21)
 
-
 ### Bug Fixes
 
-* initial date on range picker ([3421670](https://github.com/getpingback/ui/commits/3421670f34f339bf4afb2f459031b634f0179105))
+- initial date on range picker ([3421670](https://github.com/getpingback/ui/commits/3421670f34f339bf4afb2f459031b634f0179105))
 
 ### [0.0.318](https://github.com/getpingback/ui/compare/v0.0.317...v0.0.318) (2025-01-13)
 
 ### [0.0.317](https://github.com/getpingback/ui/compare/v0.0.316...v0.0.317) (2025-01-13)
 
-
 ### Features
 
-* add className prop in drawer ([ba3dcda](https://github.com/getpingback/ui/commits/ba3dcdaa214e9840929f35fef495a893087d5b55))
-* add className prop in drawer ([cccc169](https://github.com/getpingback/ui/commits/cccc16964eba2cc2f16fd4cf6e4d352d36a266c2))
-* merge main ([7d39fa7](https://github.com/getpingback/ui/commits/7d39fa729668bd8aabb156454321c582b194d65e))
-* merge with main ([78ae828](https://github.com/getpingback/ui/commits/78ae8289a7b78e79789275dc1e3a562b37281c41))
-* merge with main ([e42fed7](https://github.com/getpingback/ui/commits/e42fed7d0ac7eb1784fdeff62167d9bd5fc204e7))
-
+- add className prop in drawer ([ba3dcda](https://github.com/getpingback/ui/commits/ba3dcdaa214e9840929f35fef495a893087d5b55))
+- add className prop in drawer ([cccc169](https://github.com/getpingback/ui/commits/cccc16964eba2cc2f16fd4cf6e4d352d36a266c2))
+- merge main ([7d39fa7](https://github.com/getpingback/ui/commits/7d39fa729668bd8aabb156454321c582b194d65e))
+- merge with main ([78ae828](https://github.com/getpingback/ui/commits/78ae8289a7b78e79789275dc1e3a562b37281c41))
+- merge with main ([e42fed7](https://github.com/getpingback/ui/commits/e42fed7d0ac7eb1784fdeff62167d9bd5fc204e7))
 
 ### Bug Fixes
 
-* drawer in mobile devices ([2e189db](https://github.com/getpingback/ui/commits/2e189db7dfdf466fa9c65f6e4f2c70022653b0a4))
+- drawer in mobile devices ([2e189db](https://github.com/getpingback/ui/commits/2e189db7dfdf466fa9c65f6e4f2c70022653b0a4))
 
 ### [0.0.304](https://github.com/getpingback/ui/compare/v0.0.302...v0.0.304) (2024-12-18)
 
-
 ### Bug Fixes
 
-* range picker month ([0e320b2](https://github.com/getpingback/ui/commits/0e320b23e1dbab8331ffac8a514a96638d008b86))
+- range picker month ([0e320b2](https://github.com/getpingback/ui/commits/0e320b23e1dbab8331ffac8a514a96638d008b86))
 
 ### [0.0.302](https://github.com/getpingback/ui/compare/v0.0.300...v0.0.302) (2024-12-18)
 
-
 ### Bug Fixes
 
-* merge ([0440a09](https://github.com/getpingback/ui/commits/0440a09b58e776ffc3d965130a60bbb78289236e))
+- merge ([0440a09](https://github.com/getpingback/ui/commits/0440a09b58e776ffc3d965130a60bbb78289236e))
 
 ### [0.0.296](https://github.com/getpingback/ui/compare/v0.0.295...v0.0.296) (2024-12-17)
 
@@ -967,101 +855,92 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [0.0.293](https://github.com/getpingback/ui/compare/v0.0.292...v0.0.293) (2024-12-17)
 
-
 ### Bug Fixes
 
-* select content width ([01303f4](https://github.com/getpingback/ui/commits/01303f48190edcb59d9d2995bf7b0c9adfd8166f))
+- select content width ([01303f4](https://github.com/getpingback/ui/commits/01303f48190edcb59d9d2995bf7b0c9adfd8166f))
 
 ### [0.0.292](https://github.com/getpingback/ui/compare/v0.0.291...v0.0.292) (2024-12-11)
 
 ### [0.0.291](https://github.com/getpingback/ui/compare/v0.0.290...v0.0.291) (2024-12-11)
 
-
 ### Bug Fixes
 
-* add variante orange on badge ([c8cc3e0](https://github.com/getpingback/ui/commits/c8cc3e0e35cc83d34c1663796652ed91925ece4a))
+- add variante orange on badge ([c8cc3e0](https://github.com/getpingback/ui/commits/c8cc3e0e35cc83d34c1663796652ed91925ece4a))
 
 ### [0.0.290](https://github.com/getpingback/ui/compare/v0.0.289...v0.0.290) (2024-12-11)
 
 ### [0.0.289](https://github.com/getpingback/ui/compare/v0.0.288...v0.0.289) (2024-12-11)
 
-
 ### Bug Fixes
 
-* range picker type single ([264dda9](https://github.com/getpingback/ui/commits/264dda93ddbbf5639574026059ccb17084763a4f))
+- range picker type single ([264dda9](https://github.com/getpingback/ui/commits/264dda93ddbbf5639574026059ccb17084763a4f))
 
 ### [0.0.315](https://github.com/getpingback/ui/compare/v0.0.258...v0.0.315) (2025-01-10)
 
-
 ### Features
 
-* create a splitbutton and tests ([ed2e45c](https://github.com/getpingback/ui/commits/ed2e45c04755bedf8e0d657e69d3a3901f63bea6))
-* create drawer component ([e9758ef](https://github.com/getpingback/ui/commits/e9758eff7d06499a4d99da1d1281f463f7b76640))
-* create highlight prop ([e51a5ea](https://github.com/getpingback/ui/commits/e51a5eaa4387c7513535efda09d5ac137fbc0919))
-* create switch button with checked and disabled states ([cf5f965](https://github.com/getpingback/ui/commits/cf5f96529dde0c8092fececa0af8ad331fc37127))
-* export drawer component ([65892df](https://github.com/getpingback/ui/commits/65892df8bfc508e3e22e67760247b798b8e16604))
-* export splitbutton ([e3cdfe3](https://github.com/getpingback/ui/commits/e3cdfe3f5075f3fffe2dd57cbc75744f03ada978))
-* use argtypes and default global values ([a8d4012](https://github.com/getpingback/ui/commits/a8d40123c144a5eb41a5b4adc46367dbb3bbc8a1))
-* **variable-input:** add custom fields and combobox ([3e89a07](https://github.com/getpingback/ui/commits/3e89a07602d029ad5a8ee5490631503a52706c9a))
-
+- create a splitbutton and tests ([ed2e45c](https://github.com/getpingback/ui/commits/ed2e45c04755bedf8e0d657e69d3a3901f63bea6))
+- create drawer component ([e9758ef](https://github.com/getpingback/ui/commits/e9758eff7d06499a4d99da1d1281f463f7b76640))
+- create highlight prop ([e51a5ea](https://github.com/getpingback/ui/commits/e51a5eaa4387c7513535efda09d5ac137fbc0919))
+- create switch button with checked and disabled states ([cf5f965](https://github.com/getpingback/ui/commits/cf5f96529dde0c8092fececa0af8ad331fc37127))
+- export drawer component ([65892df](https://github.com/getpingback/ui/commits/65892df8bfc508e3e22e67760247b798b8e16604))
+- export splitbutton ([e3cdfe3](https://github.com/getpingback/ui/commits/e3cdfe3f5075f3fffe2dd57cbc75744f03ada978))
+- use argtypes and default global values ([a8d4012](https://github.com/getpingback/ui/commits/a8d40123c144a5eb41a5b4adc46367dbb3bbc8a1))
+- **variable-input:** add custom fields and combobox ([3e89a07](https://github.com/getpingback/ui/commits/3e89a07602d029ad5a8ee5490631503a52706c9a))
 
 ### Bug Fixes
 
-* add disabled props on select ([f1834f0](https://github.com/getpingback/ui/commits/f1834f098984ee0028784eeddb5acc9f59246ffe))
-* add disabled props on select ([1004862](https://github.com/getpingback/ui/commits/100486293b6fcccabe7ca7aac382f8beb2c4b994))
-* add stop propagation when popover scrolls inside a dialog ([c23d6da](https://github.com/getpingback/ui/commits/c23d6da497a891612735fec6c301dc28f98b7c44))
-* change selection scope ([ec3c5b3](https://github.com/getpingback/ui/commits/ec3c5b31c39522303b26f2ca136d96c819806c8b))
-* changes requested ([65f9c2d](https://github.com/getpingback/ui/commits/65f9c2d25bb8e39dc57c581a8893af148244d337))
-* current page change ([940b482](https://github.com/getpingback/ui/commits/940b482b0974fb48e0600d7db71d8f07defe25ea))
-* export switch component ([1b4d904](https://github.com/getpingback/ui/commits/1b4d904917775735a7b6e5d898e54780601b51c7))
-* merge ([a3a5bcb](https://github.com/getpingback/ui/commits/a3a5bcbc6e473aae9aed27159e272482a8e975b4))
-* merge main ([1f461b1](https://github.com/getpingback/ui/commits/1f461b18af69f797cbb0dcfed4ec1b0f98b318b7))
-* onVariablesEndReached ([e68bacf](https://github.com/getpingback/ui/commits/e68bacf78b152eb94ffa2e3e51dbee7cbb571808))
-* overlay ([b245b1c](https://github.com/getpingback/ui/commits/b245b1cc02eb08b39467b63bc57e37eaae09d849))
-* prefix sintaxe ([d35b94c](https://github.com/getpingback/ui/commits/d35b94c1d704d875017727063c9d5cb5779b4bb4))
-* range picker nav ([651396d](https://github.com/getpingback/ui/commits/651396dc05ea3a6f2f4e4bbe502dd16e60e89c19))
-* remove props ([ffb5e79](https://github.com/getpingback/ui/commits/ffb5e791a33540d37baade5e9fcb9bf5d4b0436c))
-* splitbutton font style ([5052395](https://github.com/getpingback/ui/commits/505239574bf2c634e648531a3a409e710674cd06))
-* splitbutton styles ([75d1224](https://github.com/getpingback/ui/commits/75d1224157950f57c9420945bf4c5925c7d03d54))
-* switch theme export ([d345298](https://github.com/getpingback/ui/commits/d345298817809cf7a2f6dea4f852f76d6040fef3))
-* tooltip trigger ([9185dec](https://github.com/getpingback/ui/commits/9185dec0c9b9c019318b11a94afca7f6c2ab018e))
-* types ([6c072ff](https://github.com/getpingback/ui/commits/6c072ff427ccdf0d42081621005a3010d9e0fb0e))
-* use button-label-variable ([c7f6681](https://github.com/getpingback/ui/commits/c7f6681ff4807a69e0ebfbf96ada991cb24264b9))
-* **variable-input:** initalContent over placeholder ([e127035](https://github.com/getpingback/ui/commits/e1270356c341f3edb42c6cd8e6104d078befe007))
-* **variable-input:** initial content ([9a44ec0](https://github.com/getpingback/ui/commits/9a44ec0db6bc2e8e47056ec24e8939eb21c5b897))
-* **variable-input:** remove unused components ([844a5db](https://github.com/getpingback/ui/commits/844a5db2bd55b9fbdebd73dfcc14c1786cc3ae1a))
-* **variable-input:** reset search on close ([ff0075e](https://github.com/getpingback/ui/commits/ff0075e17bd53aac5ceca5a8f7ea73cb5f85684f))
+- add disabled props on select ([f1834f0](https://github.com/getpingback/ui/commits/f1834f098984ee0028784eeddb5acc9f59246ffe))
+- add disabled props on select ([1004862](https://github.com/getpingback/ui/commits/100486293b6fcccabe7ca7aac382f8beb2c4b994))
+- add stop propagation when popover scrolls inside a dialog ([c23d6da](https://github.com/getpingback/ui/commits/c23d6da497a891612735fec6c301dc28f98b7c44))
+- change selection scope ([ec3c5b3](https://github.com/getpingback/ui/commits/ec3c5b31c39522303b26f2ca136d96c819806c8b))
+- changes requested ([65f9c2d](https://github.com/getpingback/ui/commits/65f9c2d25bb8e39dc57c581a8893af148244d337))
+- current page change ([940b482](https://github.com/getpingback/ui/commits/940b482b0974fb48e0600d7db71d8f07defe25ea))
+- export switch component ([1b4d904](https://github.com/getpingback/ui/commits/1b4d904917775735a7b6e5d898e54780601b51c7))
+- merge ([a3a5bcb](https://github.com/getpingback/ui/commits/a3a5bcbc6e473aae9aed27159e272482a8e975b4))
+- merge main ([1f461b1](https://github.com/getpingback/ui/commits/1f461b18af69f797cbb0dcfed4ec1b0f98b318b7))
+- onVariablesEndReached ([e68bacf](https://github.com/getpingback/ui/commits/e68bacf78b152eb94ffa2e3e51dbee7cbb571808))
+- overlay ([b245b1c](https://github.com/getpingback/ui/commits/b245b1cc02eb08b39467b63bc57e37eaae09d849))
+- prefix sintaxe ([d35b94c](https://github.com/getpingback/ui/commits/d35b94c1d704d875017727063c9d5cb5779b4bb4))
+- range picker nav ([651396d](https://github.com/getpingback/ui/commits/651396dc05ea3a6f2f4e4bbe502dd16e60e89c19))
+- remove props ([ffb5e79](https://github.com/getpingback/ui/commits/ffb5e791a33540d37baade5e9fcb9bf5d4b0436c))
+- splitbutton font style ([5052395](https://github.com/getpingback/ui/commits/505239574bf2c634e648531a3a409e710674cd06))
+- splitbutton styles ([75d1224](https://github.com/getpingback/ui/commits/75d1224157950f57c9420945bf4c5925c7d03d54))
+- switch theme export ([d345298](https://github.com/getpingback/ui/commits/d345298817809cf7a2f6dea4f852f76d6040fef3))
+- tooltip trigger ([9185dec](https://github.com/getpingback/ui/commits/9185dec0c9b9c019318b11a94afca7f6c2ab018e))
+- types ([6c072ff](https://github.com/getpingback/ui/commits/6c072ff427ccdf0d42081621005a3010d9e0fb0e))
+- use button-label-variable ([c7f6681](https://github.com/getpingback/ui/commits/c7f6681ff4807a69e0ebfbf96ada991cb24264b9))
+- **variable-input:** initalContent over placeholder ([e127035](https://github.com/getpingback/ui/commits/e1270356c341f3edb42c6cd8e6104d078befe007))
+- **variable-input:** initial content ([9a44ec0](https://github.com/getpingback/ui/commits/9a44ec0db6bc2e8e47056ec24e8939eb21c5b897))
+- **variable-input:** remove unused components ([844a5db](https://github.com/getpingback/ui/commits/844a5db2bd55b9fbdebd73dfcc14c1786cc3ae1a))
+- **variable-input:** reset search on close ([ff0075e](https://github.com/getpingback/ui/commits/ff0075e17bd53aac5ceca5a8f7ea73cb5f85684f))
 
 ### [0.0.313](https://github.com/getpingback/ui/compare/v0.0.312...v0.0.313) (2025-01-07)
 
-
 ### Bug Fixes
 
-* changes requested ([65f9c2d](https://github.com/getpingback/ui/commits/65f9c2d25bb8e39dc57c581a8893af148244d337))
-* remove props ([ffb5e79](https://github.com/getpingback/ui/commits/ffb5e791a33540d37baade5e9fcb9bf5d4b0436c))
-* types ([6c072ff](https://github.com/getpingback/ui/commits/6c072ff427ccdf0d42081621005a3010d9e0fb0e))
+- changes requested ([65f9c2d](https://github.com/getpingback/ui/commits/65f9c2d25bb8e39dc57c581a8893af148244d337))
+- remove props ([ffb5e79](https://github.com/getpingback/ui/commits/ffb5e791a33540d37baade5e9fcb9bf5d4b0436c))
+- types ([6c072ff](https://github.com/getpingback/ui/commits/6c072ff427ccdf0d42081621005a3010d9e0fb0e))
 
 ### [0.0.311](https://github.com/getpingback/ui/compare/v0.0.310...v0.0.311) (2025-01-06)
 
-
 ### Bug Fixes
 
-* splitbutton font style ([5052395](https://github.com/getpingback/ui/commits/505239574bf2c634e648531a3a409e710674cd06))
+- splitbutton font style ([5052395](https://github.com/getpingback/ui/commits/505239574bf2c634e648531a3a409e710674cd06))
 
 ### [0.0.309](https://github.com/getpingback/ui/compare/v0.0.308...v0.0.309) (2025-01-06)
 
-
 ### Bug Fixes
 
-* splitbutton styles ([75d1224](https://github.com/getpingback/ui/commits/75d1224157950f57c9420945bf4c5925c7d03d54))
+- splitbutton styles ([75d1224](https://github.com/getpingback/ui/commits/75d1224157950f57c9420945bf4c5925c7d03d54))
 
 ### [0.0.307](https://github.com/getpingback/ui/compare/v0.0.305...v0.0.307) (2025-01-06)
 
-
 ### Features
 
-* create a splitbutton and tests ([ed2e45c](https://github.com/getpingback/ui/commits/ed2e45c04755bedf8e0d657e69d3a3901f63bea6))
-* export splitbutton ([e3cdfe3](https://github.com/getpingback/ui/commits/e3cdfe3f5075f3fffe2dd57cbc75744f03ada978))
+- create a splitbutton and tests ([ed2e45c](https://github.com/getpingback/ui/commits/ed2e45c04755bedf8e0d657e69d3a3901f63bea6))
+- export splitbutton ([e3cdfe3](https://github.com/getpingback/ui/commits/e3cdfe3f5075f3fffe2dd57cbc75744f03ada978))
 
 ### [0.0.305](https://github.com/getpingback/ui/compare/v0.0.303...v0.0.305) (2025-01-02)
 
@@ -1069,219 +948,191 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [0.0.301](https://github.com/getpingback/ui/compare/v0.0.300...v0.0.301) (2025-01-02)
 
-
 ### Features
 
-* create drawer component ([e9758ef](https://github.com/getpingback/ui/commits/e9758eff7d06499a4d99da1d1281f463f7b76640))
-* export drawer component ([65892df](https://github.com/getpingback/ui/commits/65892df8bfc508e3e22e67760247b798b8e16604))
-
+- create drawer component ([e9758ef](https://github.com/getpingback/ui/commits/e9758eff7d06499a4d99da1d1281f463f7b76640))
+- export drawer component ([65892df](https://github.com/getpingback/ui/commits/65892df8bfc508e3e22e67760247b798b8e16604))
 
 ### Bug Fixes
 
-* overlay ([b245b1c](https://github.com/getpingback/ui/commits/b245b1cc02eb08b39467b63bc57e37eaae09d849))
-* prefix sintaxe ([d35b94c](https://github.com/getpingback/ui/commits/d35b94c1d704d875017727063c9d5cb5779b4bb4))
-* switch theme export ([d345298](https://github.com/getpingback/ui/commits/d345298817809cf7a2f6dea4f852f76d6040fef3))
+- overlay ([b245b1c](https://github.com/getpingback/ui/commits/b245b1cc02eb08b39467b63bc57e37eaae09d849))
+- prefix sintaxe ([d35b94c](https://github.com/getpingback/ui/commits/d35b94c1d704d875017727063c9d5cb5779b4bb4))
+- switch theme export ([d345298](https://github.com/getpingback/ui/commits/d345298817809cf7a2f6dea4f852f76d6040fef3))
 
 ### [0.0.299](https://github.com/getpingback/ui/compare/v0.0.298...v0.0.299) (2024-12-18)
-
 
 ### Bug Fixes
 
 <<<<<<< HEAD
-* select content width ([01303f4](https://github.com/getpingback/ui/commits/01303f48190edcb59d9d2995bf7b0c9adfd8166f))
+
+- select content width ([01303f4](https://github.com/getpingback/ui/commits/01303f48190edcb59d9d2995bf7b0c9adfd8166f))
 
 ### [0.0.291](https://github.com/getpingback/ui/compare/v0.0.290...v0.0.291) (2024-12-11)
 
-
 ### [0.0.294](https://github.com/getpingback/ui/compare/v0.0.288...v0.0.294) (2024-12-18)
-
 
 ### Features
 
-* create highlight prop ([e51a5ea](https://github.com/getpingback/ui/commits/e51a5eaa4387c7513535efda09d5ac137fbc0919))
-* create switch button with checked and disabled states ([cf5f965](https://github.com/getpingback/ui/commits/cf5f96529dde0c8092fececa0af8ad331fc37127))
-* use argtypes and default global values ([a8d4012](https://github.com/getpingback/ui/commits/a8d40123c144a5eb41a5b4adc46367dbb3bbc8a1))
+- create highlight prop ([e51a5ea](https://github.com/getpingback/ui/commits/e51a5eaa4387c7513535efda09d5ac137fbc0919))
+- create switch button with checked and disabled states ([cf5f965](https://github.com/getpingback/ui/commits/cf5f96529dde0c8092fececa0af8ad331fc37127))
+- use argtypes and default global values ([a8d4012](https://github.com/getpingback/ui/commits/a8d40123c144a5eb41a5b4adc46367dbb3bbc8a1))
 
 ### [0.0.293](https://github.com/getpingback/ui/compare/v0.0.288...v0.0.293) (2024-12-18)
 
-
 ### Features
 
-* create highlight prop ([e51a5ea](https://github.com/getpingback/ui/commits/e51a5eaa4387c7513535efda09d5ac137fbc0919))
-* create switch button with checked and disabled states ([cf5f965](https://github.com/getpingback/ui/commits/cf5f96529dde0c8092fececa0af8ad331fc37127))
-* use argtypes and default global values ([a8d4012](https://github.com/getpingback/ui/commits/a8d40123c144a5eb41a5b4adc46367dbb3bbc8a1))
+- create highlight prop ([e51a5ea](https://github.com/getpingback/ui/commits/e51a5eaa4387c7513535efda09d5ac137fbc0919))
+- create switch button with checked and disabled states ([cf5f965](https://github.com/getpingback/ui/commits/cf5f96529dde0c8092fececa0af8ad331fc37127))
+- use argtypes and default global values ([a8d4012](https://github.com/getpingback/ui/commits/a8d40123c144a5eb41a5b4adc46367dbb3bbc8a1))
 
 ### [0.0.292](https://github.com/getpingback/ui/compare/v0.0.288...v0.0.292) (2024-12-18)
 
-
 ### Features
 
-* create highlight prop ([e51a5ea](https://github.com/getpingback/ui/commits/e51a5eaa4387c7513535efda09d5ac137fbc0919))
-* create switch button with checked and disabled states ([cf5f965](https://github.com/getpingback/ui/commits/cf5f96529dde0c8092fececa0af8ad331fc37127))
-* use argtypes and default global values ([a8d4012](https://github.com/getpingback/ui/commits/a8d40123c144a5eb41a5b4adc46367dbb3bbc8a1))
+- create highlight prop ([e51a5ea](https://github.com/getpingback/ui/commits/e51a5eaa4387c7513535efda09d5ac137fbc0919))
+- create switch button with checked and disabled states ([cf5f965](https://github.com/getpingback/ui/commits/cf5f96529dde0c8092fececa0af8ad331fc37127))
+- use argtypes and default global values ([a8d4012](https://github.com/getpingback/ui/commits/a8d40123c144a5eb41a5b4adc46367dbb3bbc8a1))
 
 ### [0.0.291](https://github.com/getpingback/ui/compare/v0.0.288...v0.0.291) (2024-12-18)
 
-
 ### Features
 
-* create highlight prop ([e51a5ea](https://github.com/getpingback/ui/commits/e51a5eaa4387c7513535efda09d5ac137fbc0919))
-* create switch button with checked and disabled states ([cf5f965](https://github.com/getpingback/ui/commits/cf5f96529dde0c8092fececa0af8ad331fc37127))
-* use argtypes and default global values ([a8d4012](https://github.com/getpingback/ui/commits/a8d40123c144a5eb41a5b4adc46367dbb3bbc8a1))
+- create highlight prop ([e51a5ea](https://github.com/getpingback/ui/commits/e51a5eaa4387c7513535efda09d5ac137fbc0919))
+- create switch button with checked and disabled states ([cf5f965](https://github.com/getpingback/ui/commits/cf5f96529dde0c8092fececa0af8ad331fc37127))
+- use argtypes and default global values ([a8d4012](https://github.com/getpingback/ui/commits/a8d40123c144a5eb41a5b4adc46367dbb3bbc8a1))
 
 ### [0.0.290](https://github.com/getpingback/ui/compare/v0.0.288...v0.0.290) (2024-12-18)
 
-
 ### Features
 
-* create highlight prop ([e51a5ea](https://github.com/getpingback/ui/commits/e51a5eaa4387c7513535efda09d5ac137fbc0919))
-* create switch button with checked and disabled states ([cf5f965](https://github.com/getpingback/ui/commits/cf5f96529dde0c8092fececa0af8ad331fc37127))
-* use argtypes and default global values ([a8d4012](https://github.com/getpingback/ui/commits/a8d40123c144a5eb41a5b4adc46367dbb3bbc8a1))
+- create highlight prop ([e51a5ea](https://github.com/getpingback/ui/commits/e51a5eaa4387c7513535efda09d5ac137fbc0919))
+- create switch button with checked and disabled states ([cf5f965](https://github.com/getpingback/ui/commits/cf5f96529dde0c8092fececa0af8ad331fc37127))
+- use argtypes and default global values ([a8d4012](https://github.com/getpingback/ui/commits/a8d40123c144a5eb41a5b4adc46367dbb3bbc8a1))
 
 ### [0.0.289](https://github.com/getpingback/ui/compare/v0.0.288...v0.0.289) (2024-12-18)
 
-
 ### Features
 
-* create highlight prop ([e51a5ea](https://github.com/getpingback/ui/commits/e51a5eaa4387c7513535efda09d5ac137fbc0919))
-* create switch button with checked and disabled states ([cf5f965](https://github.com/getpingback/ui/commits/cf5f96529dde0c8092fececa0af8ad331fc37127))
-* use argtypes and default global values ([a8d4012](https://github.com/getpingback/ui/commits/a8d40123c144a5eb41a5b4adc46367dbb3bbc8a1))
->>>>>>> main
+- create highlight prop ([e51a5ea](https://github.com/getpingback/ui/commits/e51a5eaa4387c7513535efda09d5ac137fbc0919))
+- create switch button with checked and disabled states ([cf5f965](https://github.com/getpingback/ui/commits/cf5f96529dde0c8092fececa0af8ad331fc37127))
+- use argtypes and default global values ([a8d4012](https://github.com/getpingback/ui/commits/a8d40123c144a5eb41a5b4adc46367dbb3bbc8a1))
+  > > > > > > > main
 
 ### [0.0.287](https://github.com/getpingback/ui/compare/v0.0.284...v0.0.287) (2024-12-11)
 
 ### [0.0.286](https://github.com/getpingback/ui/compare/v0.0.284...v0.0.286) (2024-12-11)
 
-
 ### [0.0.283](https://github.com/getpingback/ui/compare/v0.0.282...v0.0.283) (2024-12-11)
-
 
 ### Bug Fixes
 
-* add disabled props on select ([f1834f0](https://github.com/getpingback/ui/commits/f1834f098984ee0028784eeddb5acc9f59246ffe))
+- add disabled props on select ([f1834f0](https://github.com/getpingback/ui/commits/f1834f098984ee0028784eeddb5acc9f59246ffe))
 
 ### [0.0.281](https://github.com/getpingback/ui/compare/v0.0.280...v0.0.281) (2024-12-11)
 
-
 ### Bug Fixes
 
-* add disabled props on select ([1004862](https://github.com/getpingback/ui/commits/100486293b6fcccabe7ca7aac382f8beb2c4b994))
+- add disabled props on select ([1004862](https://github.com/getpingback/ui/commits/100486293b6fcccabe7ca7aac382f8beb2c4b994))
 
 ### [0.0.279](https://github.com/getpingback/ui/compare/v0.0.276...v0.0.279) (2024-12-04)
 
-
 ### Bug Fixes
 
-* onVariablesEndReached ([e68bacf](https://github.com/getpingback/ui/commits/e68bacf78b152eb94ffa2e3e51dbee7cbb571808))
+- onVariablesEndReached ([e68bacf](https://github.com/getpingback/ui/commits/e68bacf78b152eb94ffa2e3e51dbee7cbb571808))
 
 ### [0.0.278](https://github.com/getpingback/ui/compare/v0.0.276...v0.0.278) (2024-12-04)
 
-
 ### Bug Fixes
 
-* onVariablesEndReached ([e68bacf](https://github.com/getpingback/ui/commits/e68bacf78b152eb94ffa2e3e51dbee7cbb571808))
+- onVariablesEndReached ([e68bacf](https://github.com/getpingback/ui/commits/e68bacf78b152eb94ffa2e3e51dbee7cbb571808))
 
 ### [0.0.277](https://github.com/getpingback/ui/compare/v0.0.276...v0.0.277) (2024-12-04)
 
-
 ### Bug Fixes
 
-* onVariablesEndReached ([e68bacf](https://github.com/getpingback/ui/commits/e68bacf78b152eb94ffa2e3e51dbee7cbb571808))
+- onVariablesEndReached ([e68bacf](https://github.com/getpingback/ui/commits/e68bacf78b152eb94ffa2e3e51dbee7cbb571808))
 
 ### [0.0.275](https://github.com/getpingback/ui/compare/v0.0.274...v0.0.275) (2024-12-03)
 
-
 ### Bug Fixes
 
-* merge main ([1f461b1](https://github.com/getpingback/ui/commits/1f461b18af69f797cbb0dcfed4ec1b0f98b318b7))
+- merge main ([1f461b1](https://github.com/getpingback/ui/commits/1f461b18af69f797cbb0dcfed4ec1b0f98b318b7))
 
 ### [0.0.259](https://github.com/getpingback/ui/compare/v0.0.258...v0.0.259) (2024-11-26)
 
 ### [0.0.258](https://github.com/getpingback/ui/compare/v0.0.257...v0.0.258) (2024-11-26)
 
-
 ### Bug Fixes
 
-* tooltip trigger ([9185dec](https://github.com/getpingback/ui/commits/9185dec0c9b9c019318b11a94afca7f6c2ab018e))
+- tooltip trigger ([9185dec](https://github.com/getpingback/ui/commits/9185dec0c9b9c019318b11a94afca7f6c2ab018e))
 
 ### [0.0.273](https://github.com/getpingback/ui/compare/v0.0.272...v0.0.273) (2024-12-02)
 
-
 ### Bug Fixes
 
-* current page change ([940b482](https://github.com/getpingback/ui/commits/940b482b0974fb48e0600d7db71d8f07defe25ea))
+- current page change ([940b482](https://github.com/getpingback/ui/commits/940b482b0974fb48e0600d7db71d8f07defe25ea))
 
 ### [0.0.271](https://github.com/getpingback/ui/compare/v0.0.269...v0.0.271) (2024-12-02)
 
-
 ### Bug Fixes
 
-* merge ([a3a5bcb](https://github.com/getpingback/ui/commits/a3a5bcbc6e473aae9aed27159e272482a8e975b4))
-* range picker nav ([651396d](https://github.com/getpingback/ui/commits/651396dc05ea3a6f2f4e4bbe502dd16e60e89c19))
+- merge ([a3a5bcb](https://github.com/getpingback/ui/commits/a3a5bcbc6e473aae9aed27159e272482a8e975b4))
+- range picker nav ([651396d](https://github.com/getpingback/ui/commits/651396dc05ea3a6f2f4e4bbe502dd16e60e89c19))
 
 ### [0.0.261](https://github.com/getpingback/ui/compare/v0.0.260...v0.0.261) (2024-11-27)
 
 ### [0.0.269](https://github.com/getpingback/ui/compare/v0.0.268...v0.0.269) (2024-11-28)
 
-
 ### Bug Fixes
 
-* use button-label-variable ([c7f6681](https://github.com/getpingback/ui/commits/c7f6681ff4807a69e0ebfbf96ada991cb24264b9))
+- use button-label-variable ([c7f6681](https://github.com/getpingback/ui/commits/c7f6681ff4807a69e0ebfbf96ada991cb24264b9))
 
 ### [0.0.267](https://github.com/getpingback/ui/compare/v0.0.266...v0.0.267) (2024-11-28)
 
-
 ### Bug Fixes
 
-* **variable-input:** initalContent over placeholder ([e127035](https://github.com/getpingback/ui/commits/e1270356c341f3edb42c6cd8e6104d078befe007))
+- **variable-input:** initalContent over placeholder ([e127035](https://github.com/getpingback/ui/commits/e1270356c341f3edb42c6cd8e6104d078befe007))
 
 ### [0.0.265](https://github.com/getpingback/ui/compare/v0.0.264...v0.0.265) (2024-11-27)
 
-
 ### Bug Fixes
 
-* **variable-input:** initial content ([9a44ec0](https://github.com/getpingback/ui/commits/9a44ec0db6bc2e8e47056ec24e8939eb21c5b897))
+- **variable-input:** initial content ([9a44ec0](https://github.com/getpingback/ui/commits/9a44ec0db6bc2e8e47056ec24e8939eb21c5b897))
 
 ### [0.0.263](https://github.com/getpingback/ui/compare/v0.0.262...v0.0.263) (2024-11-27)
 
-
 ### Bug Fixes
 
-* **variable-input:** reset search on close ([ff0075e](https://github.com/getpingback/ui/commits/ff0075e17bd53aac5ceca5a8f7ea73cb5f85684f))
+- **variable-input:** reset search on close ([ff0075e](https://github.com/getpingback/ui/commits/ff0075e17bd53aac5ceca5a8f7ea73cb5f85684f))
 
 ### [0.0.261](https://github.com/getpingback/ui/compare/v0.0.260...v0.0.261) (2024-11-27)
 
-
 ### Features
 
-* **variable-input:** add custom fields and combobox ([3e89a07](https://github.com/getpingback/ui/commits/3e89a07602d029ad5a8ee5490631503a52706c9a))
-
+- **variable-input:** add custom fields and combobox ([3e89a07](https://github.com/getpingback/ui/commits/3e89a07602d029ad5a8ee5490631503a52706c9a))
 
 ### Bug Fixes
 
-* change selection scope ([ec3c5b3](https://github.com/getpingback/ui/commits/ec3c5b31c39522303b26f2ca136d96c819806c8b))
-* **variable-input:** remove unused components ([844a5db](https://github.com/getpingback/ui/commits/844a5db2bd55b9fbdebd73dfcc14c1786cc3ae1a))
+- change selection scope ([ec3c5b3](https://github.com/getpingback/ui/commits/ec3c5b31c39522303b26f2ca136d96c819806c8b))
+- **variable-input:** remove unused components ([844a5db](https://github.com/getpingback/ui/commits/844a5db2bd55b9fbdebd73dfcc14c1786cc3ae1a))
 
 ### [0.0.260](https://github.com/getpingback/ui/compare/v0.0.257...v0.0.260) (2024-11-27)
 
-
 ### Bug Fixes
 
-* radio colors ([978f8b0](https://github.com/getpingback/ui/commits/978f8b09fdde4d140475965e3e8c2bac87c1b09a))
+- radio colors ([978f8b0](https://github.com/getpingback/ui/commits/978f8b09fdde4d140475965e3e8c2bac87c1b09a))
 
 ### [0.0.259](https://github.com/getpingback/ui/compare/v0.0.257...v0.0.259) (2024-11-27)
 
-
 ### Bug Fixes
 
-* radio colors ([978f8b0](https://github.com/getpingback/ui/commits/978f8b09fdde4d140475965e3e8c2bac87c1b09a))
+- radio colors ([978f8b0](https://github.com/getpingback/ui/commits/978f8b09fdde4d140475965e3e8c2bac87c1b09a))
 
 ### [0.0.258](https://github.com/getpingback/ui/compare/v0.0.254...v0.0.258) (2024-11-26)
 
-
 ### Bug Fixes
 
-* radio colors ([978f8b0](https://github.com/getpingback/ui/commits/978f8b09fdde4d140475965e3e8c2bac87c1b09a))
+- radio colors ([978f8b0](https://github.com/getpingback/ui/commits/978f8b09fdde4d140475965e3e8c2bac87c1b09a))
 
 ### [0.0.256](https://github.com/getpingback/ui/compare/v0.0.254...v0.0.256) (2024-11-26)
 
@@ -1289,31 +1140,28 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [0.0.254](https://github.com/getpingback/ui/compare/v0.0.246...v0.0.254) (2024-11-26)
 
-
 ### Features
 
-* change pre setted colors to custom ([22bcde1](https://github.com/getpingback/ui/commits/22bcde146212b86baf79a77a9fe90206ef660bf8))
-* create radio input global colors ([e120b5a](https://github.com/getpingback/ui/commits/e120b5ae16f081a01ff9fb08c8be11028021594a))
-* update version in package ([0223c19](https://github.com/getpingback/ui/commits/0223c19acd855e55b29b63395993df252735aa09))
-
+- change pre setted colors to custom ([22bcde1](https://github.com/getpingback/ui/commits/22bcde146212b86baf79a77a9fe90206ef660bf8))
+- create radio input global colors ([e120b5a](https://github.com/getpingback/ui/commits/e120b5ae16f081a01ff9fb08c8be11028021594a))
+- update version in package ([0223c19](https://github.com/getpingback/ui/commits/0223c19acd855e55b29b63395993df252735aa09))
 
 ### Bug Fixes
 
-* add input on top rangepicker ([4d7b05c](https://github.com/getpingback/ui/commits/4d7b05c3576180d7fd21b0d37865a48ad7d5e9c1))
-* default month on range picker ([a1ba7e6](https://github.com/getpingback/ui/commits/a1ba7e6c656e229bd397ace70723948de1519ff2))
-* default month on range picker ([f399862](https://github.com/getpingback/ui/commits/f39986255fcfe28dedc7d327388c782537f0affe))
-* export radio group ([400ec7c](https://github.com/getpingback/ui/commits/400ec7c8e5225f0328bed19de5b4c7df30e50145))
-* remove autofocus from rangePicker input ([002b0de](https://github.com/getpingback/ui/commits/002b0de8322d945565d593eb0679de0fdb3de6ac))
-* remove focus on rangepicker input ([ca51029](https://github.com/getpingback/ui/commits/ca51029f505c07b005e0c71b6ca951b3aa08c0f5))
-* remove last updates ([d039f51](https://github.com/getpingback/ui/commits/d039f51ddecb1fb68a4bffc5aa7675e5b683e640))
+- add input on top rangepicker ([4d7b05c](https://github.com/getpingback/ui/commits/4d7b05c3576180d7fd21b0d37865a48ad7d5e9c1))
+- default month on range picker ([a1ba7e6](https://github.com/getpingback/ui/commits/a1ba7e6c656e229bd397ace70723948de1519ff2))
+- default month on range picker ([f399862](https://github.com/getpingback/ui/commits/f39986255fcfe28dedc7d327388c782537f0affe))
+- export radio group ([400ec7c](https://github.com/getpingback/ui/commits/400ec7c8e5225f0328bed19de5b4c7df30e50145))
+- remove autofocus from rangePicker input ([002b0de](https://github.com/getpingback/ui/commits/002b0de8322d945565d593eb0679de0fdb3de6ac))
+- remove focus on rangepicker input ([ca51029](https://github.com/getpingback/ui/commits/ca51029f505c07b005e0c71b6ca951b3aa08c0f5))
+- remove last updates ([d039f51](https://github.com/getpingback/ui/commits/d039f51ddecb1fb68a4bffc5aa7675e5b683e640))
 
 ### [0.0.242](https://github.com/getpingback/ui/compare/v0.0.241...v0.0.242) (2024-11-19)
 
-
 ### Bug Fixes
 
-* **range-picker:** setUTC hours ([351d2aa](https://github.com/getpingback/ui/commits/351d2aafd2a3105996cb04e610e086a4ca43dd7d))
-* remove changes from last version ([616b267](https://github.com/getpingback/ui/commits/616b2676301afc54ed0192bc1c95291d970ce03c))
+- **range-picker:** setUTC hours ([351d2aa](https://github.com/getpingback/ui/commits/351d2aafd2a3105996cb04e610e086a4ca43dd7d))
+- remove changes from last version ([616b267](https://github.com/getpingback/ui/commits/616b2676301afc54ed0192bc1c95291d970ce03c))
 
 ### [0.0.251](https://github.com/getpingback/ui/compare/v0.0.250...v0.0.251) (2024-11-25)
 

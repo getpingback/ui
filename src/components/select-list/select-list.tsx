@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Typography } from '../typography';
 
@@ -6,6 +6,7 @@ export interface SelectListProps {
   className?: string;
   type: 'single' | 'multiple';
   defaultValue?: string | string[];
+  value?: string | string[];
   onChangeValue: (value: string | string[]) => void;
   children: React.ReactNode;
 }
@@ -37,6 +38,10 @@ const SelectListContext = createContext<SelectListContextType>({
 
 const SelectList = ({ className, type, defaultValue = '', onChangeValue, children }: SelectListProps) => {
   const [selectedItem, setSelectedItem] = useState<string | string[] | null>(defaultValue);
+
+  useEffect(() => {
+    setSelectedItem(defaultValue);
+  }, [defaultValue]);
 
   const onSelectItem = (value: string) => {
     if (type === 'multiple') {
