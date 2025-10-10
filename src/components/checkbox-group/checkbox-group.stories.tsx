@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Button } from '../button/button';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { CheckboxGroup, CheckboxItem } from './checkbox-group';
@@ -21,26 +20,41 @@ export const Default: Story = {
     return (
       <div className="flex flex-col gap-4">
         <CheckboxGroup value={value} onValueChange={setValue}>
-          <CheckboxItem label="Option 1" id="opt-1" value="crm" />
-          <CheckboxItem label="Option 2" id="opt-2" value="marketing" />
-          <CheckboxItem label="Option 3" id="opt-3" value="sales" disabled />
+          <CheckboxItem id="opt-1" value="crm">
+            Option 1
+          </CheckboxItem>
+          <CheckboxItem id="opt-2" value="marketing">
+            Option 2
+          </CheckboxItem>
+          <CheckboxItem id="opt-3" value="sales" disabled>
+            Option 3
+          </CheckboxItem>
         </CheckboxGroup>
       </div>
     );
   }
 };
 
-export const Highlight: Story = {
+export const OutsideList: Story = {
   args: { children: null, value: [], onValueChange: () => {} },
   render: () => {
     const [value, setValue] = useState<string[]>([]);
 
     return (
-      <CheckboxGroup value={value} onValueChange={setValue} variant="highlight">
-        <CheckboxItem label="Option 1" id="opt-1" value="crm" defaultChecked />
-        <CheckboxItem label="Option 2" id="opt-2" value="marketing" />
-        <CheckboxItem label="Option 3" id="opt-3" value="sales" disabled />
+      <CheckboxGroup value={value} onValueChange={setValue} variant="outsideList">
+        <CheckboxItem id="opt-1" value="crm">
+          Option 1
+        </CheckboxItem>
       </CheckboxGroup>
     );
   }
+};
+
+export const CheckedItem: Story = {
+  args: { children: null, value: [], onValueChange: () => {} },
+  render: () => (
+    <CheckboxItem id="opt-1" value="crm" checked>
+      Option 1
+    </CheckboxItem>
+  )
 };

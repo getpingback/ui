@@ -1,3 +1,4 @@
+export * from './avatar';
 export * from './badge';
 export * from './drawer';
 export * from './navigation';
@@ -39,3 +40,4 @@ export * from './stepper';
 export * from './node-flow';
 export * from './callout';
 export * from './progress-bar';
+export * from './breadcrumb';

@@ -36,16 +36,18 @@ describe('Step', () => {
     );
     const line = screen.getByTestId('stepper-line');
     expect(line).toBeInTheDocument();
-    expect(line).toHaveClass('bg-stepper-line');
+    expect(line).toHaveClass('bg-border-default');
   });
 
-  test('does not render the line when isLast is true', () => {
+  test('renders transparent line when isLast is true', () => {
     render(
       <Step label="Test" description="Test" stepName="Step" status="completed" isLast={true}>
         Child
       </Step>
     );
-    expect(screen.queryByTestId('stepper-line')).not.toBeInTheDocument();
+    const line = screen.getByTestId('stepper-line');
+    expect(line).toBeInTheDocument();
+    expect(line).toHaveClass('bg-transparent');
   });
 
   test('applies correct line class for non-completed status when not isLast', () => {
@@ -56,12 +58,12 @@ describe('Step', () => {
     );
     const line = screen.getByTestId('stepper-line');
     expect(line).toBeInTheDocument();
-    expect(line).toHaveClass('bg-line-default');
+    expect(line).toHaveClass('bg-border-default');
   });
 });
 
 describe('Stepper', () => {
-  test('renders all Step children with status completed or current', () => {
+  test('renders all Step children regardless of status', () => {
     render(
       <Stepper>
         <Step label="Step 1" description="Desc 1" stepName="1" status="completed">
@@ -79,7 +81,8 @@ describe('Stepper', () => {
     expect(screen.getByText('Content 1')).toBeInTheDocument();
     expect(screen.getByText('Step 2')).toBeInTheDocument();
     expect(screen.getByText('Content 2')).toBeInTheDocument();
-    expect(screen.queryByText('Step 3')).not.toBeInTheDocument();
+    expect(screen.getByText('Step 3')).toBeInTheDocument();
+    expect(screen.getByText('Content 3')).toBeInTheDocument();
   });
 
   test('Passes isFirst and isLast props correctly to Step children', () => {
@@ -107,10 +110,12 @@ describe('Stepper', () => {
 
     const lastItemContainer = screen.getByText('Last Content').closest('div.w-full.flex.items-start.relative');
     expect(lastItemContainer).toBeInTheDocument();
-    expect(within(lastItemContainer as HTMLElement).queryByTestId('stepper-line')).not.toBeInTheDocument();
+    const lastLine = within(lastItemContainer as HTMLElement).getByTestId('stepper-line');
+    expect(lastLine).toBeInTheDocument();
+    expect(lastLine).toHaveClass('bg-transparent');
   });
 
-  test('renders only one item correctly with isFirst and isLast true', () => {
+  test('renders only one item correctly with isLast true', () => {
     render(
       <Stepper>
         <Step label="Only Step" description="Desc" stepName="1" status="current">
@@ -123,6 +128,10 @@ describe('Stepper', () => {
     if (itemContainer) {
       expect(itemContainer.querySelector('div.pl-6')).toHaveClass('pt-[5px]');
     }
-    expect(screen.queryByTestId('stepper-line')).not.toBeInTheDocument();
+    const line = within(itemContainer as HTMLElement).getByTestId('stepper-line');
+    expect(line).toBeInTheDocument();
+    expect(line).toHaveClass('bg-gradient-to-b');
+    expect(line).toHaveClass('from-border-default');
+    expect(line).toHaveClass('to-background-default');
   });
 });

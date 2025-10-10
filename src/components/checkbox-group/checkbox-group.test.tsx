@@ -5,39 +5,39 @@ import { composeStories } from '@storybook/testing-react';
 import * as stories from './checkbox-group.stories';
 import { CheckboxGroup, CheckboxItem } from './checkbox-group';
 
-const { Default, Highlight } = composeStories(stories);
+const { Default, OutsideList, CheckedItem } = composeStories(stories);
 
 describe('Checkbox Component', () => {
   test('renders correct number of checkboxes', () => {
     render(<Default />);
     expect(screen.getAllByRole('checkbox')).toHaveLength(3);
-    expect(screen.getAllByRole('checkbox')[0]).toHaveTextContent('Option 1');
-    expect(screen.getAllByRole('checkbox')[1]).toHaveTextContent('Option 2');
-    expect(screen.getAllByRole('checkbox')[2]).toHaveTextContent('Option 3');
+    expect(screen.getByText('Option 1')).toBeInTheDocument();
+    expect(screen.getByText('Option 2')).toBeInTheDocument();
+    expect(screen.getByText('Option 3')).toBeInTheDocument();
   });
 
   test('renders disabled checkbox', () => {
     render(<Default />);
-    expect(screen.getAllByRole('checkbox')[2]).toHaveAttribute('disabled');
-    expect(screen.getAllByRole('checkbox')[0]).not.toHaveAttribute('disabled');
-    expect(screen.getAllByRole('checkbox')[1]).not.toHaveAttribute('disabled');
+    expect(screen.getByLabelText('Option 3')).toBeDisabled();
+    expect(screen.getByLabelText('Option 1')).not.toBeDisabled();
+    expect(screen.getByLabelText('Option 2')).not.toBeDisabled();
   });
 
   test('renders default checked option', () => {
     render(<Default />);
-    expect(screen.getAllByRole('checkbox')[0]).toHaveAttribute('data-state', 'checked');
-    expect(screen.getAllByRole('checkbox')[1]).toHaveAttribute('data-state', 'unchecked');
-    expect(screen.getAllByRole('checkbox')[2]).toHaveAttribute('data-state', 'unchecked');
+    expect(screen.getByLabelText('Option 1')).toHaveAttribute('aria-checked', 'true');
+    expect(screen.getByLabelText('Option 2')).toHaveAttribute('aria-checked', 'false');
+    expect(screen.getByLabelText('Option 3')).toHaveAttribute('aria-checked', 'false');
   });
 
   test('should change checked state', () => {
     render(<Default />);
-    const firstCheckbox = screen.getAllByRole('checkbox')[0];
+    const firstCheckbox = screen.getByLabelText('Option 1');
     fireEvent.click(firstCheckbox);
-    expect(firstCheckbox).toHaveAttribute('data-state', 'unchecked');
-    const secondCheckbox = screen.getAllByRole('checkbox')[1];
+    expect(firstCheckbox).toHaveAttribute('aria-checked', 'false');
+    const secondCheckbox = screen.getByLabelText('Option 2');
     fireEvent.click(secondCheckbox);
-    expect(secondCheckbox).toHaveAttribute('data-state', 'checked');
+    expect(secondCheckbox).toHaveAttribute('aria-checked', 'true');
   });
 
   test('should reflect controlled value changes and call onValueChange', () => {
@@ -57,11 +57,11 @@ describe('Checkbox Component', () => {
       </CheckboxGroup>
     );
 
-    const firstCheckbox = screen.getAllByRole('checkbox')[0];
-    const secondCheckbox = screen.getAllByRole('checkbox')[1];
+    const firstCheckbox = screen.getByLabelText('Option 1');
+    const secondCheckbox = screen.getByLabelText('Option 2');
 
-    expect(firstCheckbox).toHaveAttribute('data-state', 'unchecked');
-    expect(secondCheckbox).toHaveAttribute('data-state', 'unchecked');
+    expect(firstCheckbox).toHaveAttribute('aria-checked', 'false');
+    expect(secondCheckbox).toHaveAttribute('aria-checked', 'false');
 
     fireEvent.click(firstCheckbox);
     expect(onValueChange).toHaveBeenCalledWith(['opt-1']);
@@ -77,21 +77,26 @@ describe('Checkbox Component', () => {
       </CheckboxGroup>
     );
 
-    expect(screen.getAllByRole('checkbox')[0]).toHaveAttribute('data-state', 'checked');
-    expect(screen.getAllByRole('checkbox')[1]).toHaveAttribute('data-state', 'unchecked');
+    expect(screen.getByLabelText('Option 1')).toHaveAttribute('aria-checked', 'true');
+    expect(screen.getByLabelText('Option 2')).toHaveAttribute('aria-checked', 'false');
   });
 
-  test('renders highlight checkbox', () => {
-    render(<Highlight />);
-    expect(screen.getAllByRole('checkbox')).toHaveLength(3);
-    expect(screen.getAllByRole('checkbox')[0]).toHaveTextContent('Option 1');
-    expect(screen.getAllByRole('checkbox')[0]).toHaveAttribute('data-state', 'checked');
-    expect(screen.getAllByRole('checkbox')[0]).toHaveClass('data-[state=checked]:bg-list-actived');
+  test('renders outsideList variant', () => {
+    render(<OutsideList />);
+    expect(screen.getAllByRole('checkbox')).toHaveLength(1);
+    expect(screen.getByLabelText('Option 1')).toHaveAttribute('aria-checked', 'false');
+    const wrapper = screen.getByLabelText('Option 1').closest('div[data-state]');
+    expect(wrapper).not.toHaveClass('data-[state=unchecked]:hover:bg-neutral-hover');
+  });
 
-    expect(screen.getAllByRole('checkbox')[1]).toHaveTextContent('Option 2');
-    expect(screen.getAllByRole('checkbox')[1]).toHaveAttribute('data-state', 'unchecked');
+  test('default variant includes hover background class', () => {
+    render(<Default />);
+    const wrapper = screen.getByLabelText('Option 1').closest('div[data-state]');
+    expect(wrapper).toHaveClass('data-[state=unchecked]:hover:bg-neutral-hover');
+  });
 
-    expect(screen.getAllByRole('checkbox')[2]).toHaveTextContent('Option 3');
-    expect(screen.getAllByRole('checkbox')[2]).toHaveAttribute('data-state', 'unchecked');
+  test('renders checked item', () => {
+    render(<CheckedItem />);
+    expect(screen.getByLabelText('Option 1')).toHaveAttribute('aria-checked', 'true');
   });
 });

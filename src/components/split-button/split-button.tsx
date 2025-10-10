@@ -1,109 +1,103 @@
-import React, { useState } from 'react';
-import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
+import React from 'react';
 import { CaretDownIcon } from '@stash-ui/light-icons';
+import { Dropdown, DropdownItem } from '../dropdown';
+import { Button } from '../button';
+import { cn } from '@/lib/utils';
 import { cva } from 'class-variance-authority';
-import { DropdownItem } from '../dropdown';
+import { Typography } from '../typography';
 
-const containerVariants = cva('flex items-center font-primary max-w-fit h-[32px] text-xs rounded-lg ', {
+const dropdownTriggerVariants = cva('border-l border-default h-full ml-2 w-8 flex items-center justify-center rounded-e-[11px]', {
   variants: {
-    type: {
-      solid:
-        'bg-button-solid text-button-solid-foreground  hover:shadow-[0_0_0_3px_var(--button-hover-solid-color)] transition-all duration-200 ease-in-out',
-      outlined:
-        'bg-button-outlined text-secondary-foreground border border-button-outlined-border hover:shadow-[0_0_0_3px_var(--button-hover-color)] transition-all duration-200 ease-in-out',
-      ghost:
-        'bg-button-ghost text-button-ghost-foreground text-secondary-foreground hover:shadow-[0_0_0_3px_var(--button-hover-color)] transition-all duration-200 ease-in-out'
+    variant: {
+      primary: 'bg-button-solid hover:bg-button-solid-hover',
+      solid: 'bg-button-solid hover:bg-button-solid-hover',
+      ghost: 'bg-button-ghost/10',
+      outline: ''
     }
-  },
-  defaultVariants: {
-    type: 'solid'
   }
 });
 
-const leftButtonVariants = cva(
-  'h-full w-full flex items-center text-xs gap-1 pl-2 pr-3 rounded-l-lg rounded-r-none transition-all duration-200 ease-in-out font-semibold',
-  {
-    variants: {
-      type: {
-        solid: 'hover:bg-button-solid-hover',
-        outlined: 'hover:bg-button-outlined-hover opacity-85 hover:opacity-100',
-        ghost: 'hover:bg-button-ghost opacity-85 hover:opacity-100'
-      }
-    }
-  }
-);
+type MenuItem = {
+  title?: string;
+  items: Item[];
+};
 
-const menuTriggerVariants = cva(
-  'h-full w-full min-w-[32px] max-w-[32px] mr-[2px] border-l flex items-center justify-center rounded-r-lg rounded-l-none border-solid transition-all duration-200 ease-in-out',
-  {
-    variants: {
-      type: {
-        solid: 'hover:bg-button-solid-hover border-[#282C2F1F]',
-        outlined: 'hover:bg-button-outlined-hover opacity-85 hover:opacity-100 border-[#282C2F1F]',
-        ghost: 'hover:bg-button-ghost border-[#282C2F1F]'
-      }
-    }
-  }
-);
+type Item = {
+  key: string;
+  icon: JSX.Element | undefined;
+  label: string;
+  onClick: () => void;
+};
 
 interface SplitButtonProps {
   prefixIcon: React.ReactNode;
   label: string;
-  variant?: 'solid' | 'outlined' | 'ghost';
-  customMenu?: React.ReactNode;
+  variant?: 'primary' | 'solid' | 'outline' | 'ghost';
   onPrefixClick: () => void;
   sufixIcon?: React.ReactNode;
   className?: string;
   align?: 'start' | 'center' | 'end';
-  menuItems: {
-    key: string;
-    icon: JSX.Element | undefined;
-    text: string;
-    onClick: () => void;
-  }[];
+  menuItems: MenuItem[];
+  'data-testid'?: string;
 }
 
-function SplitButton({ prefixIcon, label, variant, onPrefixClick, menuItems, sufixIcon, className, align, customMenu }: SplitButtonProps) {
-  const [isMenuActionsOpen, setIsMenuActionsOpen] = useState(false);
+function SplitButton({
+  prefixIcon,
+  label,
+  variant = 'primary',
+  onPrefixClick,
+  menuItems,
+  sufixIcon,
+  className,
+  align = 'end',
+  'data-testid': dataTestId
+}: SplitButtonProps) {
+  const handlePrefixClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    onPrefixClick();
+  };
 
   return (
-    <DropdownMenu.Root open={isMenuActionsOpen} modal={false} onOpenChange={(open) => !open && setIsMenuActionsOpen(false)}>
-      <DropdownMenu.Trigger asChild>
-        <div className={containerVariants({ type: variant })} data-testid="split-button">
-          <button className={leftButtonVariants({ type: variant })} onClick={onPrefixClick} data-testid="split-button-primary">
-            {prefixIcon}
-            {label}
-          </button>
-          <button
-            onClick={() => setIsMenuActionsOpen(!isMenuActionsOpen)}
-            className={menuTriggerVariants({ type: variant })}
-            data-testid="split-button-menu-trigger"
-          >
-            {sufixIcon ? sufixIcon : <CaretDownIcon width={20} height={20} />}
-          </button>
-        </div>
-      </DropdownMenu.Trigger>
-
-      <DropdownMenu.Portal>
-        <DropdownMenu.Content
-          data-testid="split-button-menu-content"
-          onClick={() => setIsMenuActionsOpen(false)}
+    <Button
+      variant={variant}
+      className={cn('[&>div]:pr-0', variant !== 'primary' && 'pr-0', className)}
+      onClick={handlePrefixClick}
+      data-testid={dataTestId}
+      suffix={
+        <Dropdown
+          trigger={
+            <div className={dropdownTriggerVariants({ variant })} data-testid="split-button-menu-trigger">
+              {sufixIcon || <CaretDownIcon />}
+            </div>
+          }
+          triggerAsChild
           side="bottom"
-          className={`rounded-lg w-[252px] flex-col z-50 min-w-fit overflow-hidden  bg-background-accent shadow-modal py-2 ${className}`}
-          sideOffset={4}
-          collisionPadding={8}
-          align={align || 'end'}
+          align={align}
+          sideOffset={variant !== 'primary' ? 4 : 8}
+          className="w-60"
         >
-          {customMenu
-            ? customMenu
-            : menuItems.map((item, index) => (
+          {menuItems.map((group, index) => (
+            <div key={index}>
+              {group.title && (
+                <div className="px-4 h-7 flex items-center">
+                  <Typography type="tertiary" size="caption" weight="bold" className="uppercase text-gray-400">
+                    {group.title}
+                  </Typography>
+                </div>
+              )}
+              {group.items.map((item, index) => (
                 <DropdownItem icon={item?.icon} key={index} onClick={item.onClick} data-testid="split-button-menu-item">
-                  {item.text}
+                  {item.label}
                 </DropdownItem>
               ))}
-        </DropdownMenu.Content>
-      </DropdownMenu.Portal>
-    </DropdownMenu.Root>
+            </div>
+          ))}
+        </Dropdown>
+      }
+    >
+      {prefixIcon}
+      {label}
+    </Button>
   );
 }
 

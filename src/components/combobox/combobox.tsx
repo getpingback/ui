@@ -5,12 +5,13 @@ import { CaretDownIcon } from '@stash-ui/regular-icons';
 import { ArrowLeftIcon } from '@stash-ui/duotone-icons';
 
 import { Button } from '@/components/button';
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from '@/components/command';
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/components/command';
 import { DefaultVariant, DetailedVariant, IconCompactVariant, ImageDetailedVariant, MultipleVariant } from './combobox-variants';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/popover';
 import Loader from './components/loader';
 import { cn } from '@/lib/utils';
 import { Typography } from '@/index';
+import { Tooltip } from '@/components/tooltip';
 
 interface Item {
   value: string;
@@ -29,7 +30,7 @@ interface Option {
 
 interface ComboboxProps {
   isLoading?: boolean;
-  label?: string;
+  label?: React.ReactNode | string;
   helperText?: string;
   options: Option[];
   placeholder?: string;
@@ -45,6 +46,7 @@ interface ComboboxProps {
   className?: string;
   emptyContentRender?: React.ReactNode;
   footer?: React.ReactNode;
+  tooltipText?: string;
 }
 
 export function Combobox({
@@ -64,7 +66,8 @@ export function Combobox({
   onEndReached,
   className,
   emptyContentRender,
-  footer
+  footer,
+  tooltipText
 }: ComboboxProps) {
   const [open, setOpen] = React.useState(false);
   const [selectedItems, setSelectedItems] = React.useState<Item[]>([]);
@@ -151,7 +154,7 @@ export function Combobox({
       });
     }
 
-    return <span className="text-tertiary-foreground text-sm opacity-60 font-normal">{placeholder}</span>;
+    return <span className="flex items-center text-tertiary text-sm font-normal">{placeholder}</span>;
   };
 
   const handleSelectItem = (item: Item) => {
@@ -172,66 +175,73 @@ export function Combobox({
 
   const renderGroupItems = (items: Item[], heading: string) => {
     return (
-      <CommandGroup className="py-2" heading={heading}>
-        {items.map((item) => (
-          <CommandItem
-            className="flex items-center justify-between h-full w-full gap-4"
-            key={item.value}
-            value={item.value}
-            onSelect={() => handleSelectItem(item)}
-          >
-            {multiple ? (
-              <DefaultVariant
-                item={item}
-                selected={currentMultipleValue.find((currentValue) => currentValue.value === item.value) !== undefined}
-              />
-            ) : (
-              React.createElement(isStepped ? comboboxVariants.default : comboboxVariants[variant], {
-                item,
-                selected: currentSingleValue?.value === item.value,
-                hasStep: isStepped && !hasSelectedStep
-              })
-            )}
-          </CommandItem>
-        ))}
-      </CommandGroup>
+      <CommandList>
+        <CommandGroup className="py-2" heading={heading}>
+          {items.map((item) => (
+            <CommandItem
+              className="flex items-center justify-between h-full w-full gap-4"
+              key={item.value}
+              value={item.value}
+              onSelect={() => handleSelectItem(item)}
+            >
+              {multiple ? (
+                <DefaultVariant
+                  item={item}
+                  selected={currentMultipleValue.find((currentValue) => currentValue.value === item.value) !== undefined}
+                />
+              ) : (
+                React.createElement(isStepped ? comboboxVariants.default : comboboxVariants[variant], {
+                  item,
+                  selected: currentSingleValue?.value === item.value,
+                  hasStep: isStepped && !hasSelectedStep
+                })
+              )}
+            </CommandItem>
+          ))}
+        </CommandGroup>
+      </CommandList>
     );
   };
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <div className="flex flex-col items-start gap-1 w-full">
-        {label ? <label className="text-xs font-semibold text-tertiary-foreground">{label}</label> : null}
+        {label ? (
+          <label className="text-xs font-semibold text-tertiary flex items-center gap-1">
+            {label}
+            {tooltipText && <Tooltip>{tooltipText}</Tooltip>}
+          </label>
+        ) : null}
         <PopoverTrigger asChild>
           <Button
             variant="outline"
             role="combobox"
-            rounded="lg"
             size="lg"
+            width="full"
             aria-expanded={open}
             align="between"
-            suffix={<CaretDownIcon className={cn('ml-2 h-4 w-4 shrink-0 opacity-50 transition-transform', { 'rotate-180': open })} />}
-            className="w-full min-h-[40px] h-auto px-3 py-2 !justify-between bg-background-accent hover:bg-background-accent"
+            className="rounded-2xl border-default !bg-surface hover:border-hover"
+            suffix={<CaretDownIcon className={cn('h-5 w-5 transition-transform text-icon-tertiary', { 'rotate-180': open })} />}
           >
             {renderButtonContent()}
           </Button>
         </PopoverTrigger>
 
-        {helperText ? <span className="text-xs font-normal text-tertiary-foreground mt-1">{helperText}</span> : null}
+        {helperText ? <span className="text-xs font-normal text-tertiary mt-1">{helperText}</span> : null}
       </div>
 
       <PopoverContent
-        className="w-full p-0 bg-background-accent"
+        className={cn('w-[--radix-popover-trigger-width] p-0', className)}
         onWheel={(e) => e.stopPropagation()}
         onTouchMove={(e) => e.stopPropagation()}
         align="center"
         data-testid="comboxbox-popover-content"
       >
-        <Command shouldFilter={!onChangeSearchValue} className={className}>
+        <Command shouldFilter={!onChangeSearchValue} className="w-full">
           {hasSelectedStep ? (
-            <div className="w-full gap-3 p-3 flex items-center justify-start border-b border-divider">
+            <div className="w-full gap-3 p-3 flex items-center justify-start border-b border-default">
               <button onClick={() => setSelectedStep(null)}>
-                <ArrowLeftIcon color="#52525B" opacity={0.45} />
+                <ArrowLeftIcon className="text-icon-tertiary" />
               </button>
               <Typography size="small" weight="semibold" type="secondary" className="truncate">
                 {selectedStep?.label}
@@ -239,25 +249,21 @@ export function Combobox({
             </div>
           ) : null}
           {isStepped && !hasSelectedStep ? null : (
-            <div className="w-full p-4 flex items-center justify-center border-b border-divider">
-              <CommandInput placeholder={searchPlaceholder} className="h-9 w-full" defaultValue={searchValue} onInput={handleSearchInput} />
-            </div>
+            <CommandInput placeholder={searchPlaceholder} defaultValue={searchValue} onInput={handleSearchInput} />
           )}
 
           {!emptyContentRender && <CommandEmpty>{emptySearchPlaceholder}</CommandEmpty>}
 
-          <div className="max-h-[272px] overflow-y-auto scrollbar-style">
-            {!hasSelectedStep
-              ? options.map((option, index) => (
-                  <div key={index}>
-                    {renderGroupItems(option.items, option.heading || '')}
-                    {index < options.length - 1 && <div className="border-b border-divider" />}
-                  </div>
-                ))
-              : selectedStep?.items?.map((step: Option) => renderGroupItems(step.items, step?.heading || ''))}
+          {!hasSelectedStep
+            ? options.map((option, index) => (
+                <div key={index}>
+                  {renderGroupItems(option.items, option.heading || '')}
+                  {index < options.length - 1 && <div className="border-b border-divider" />}
+                </div>
+              ))
+            : selectedStep?.items?.map((step: Option) => renderGroupItems(step.items, step?.heading || ''))}
 
-            {!isStepped || (isStepped && hasSelectedStep) ? <div ref={lastItemRef} className="flex w-full" /> : null}
-          </div>
+          {!isStepped || (isStepped && hasSelectedStep) ? <div ref={lastItemRef} className="flex w-full" /> : null}
 
           {isLoading && (!isStepped || (isStepped && hasSelectedStep)) && <Loader />}
 

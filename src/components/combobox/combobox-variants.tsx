@@ -28,12 +28,14 @@ const DefaultVariant = ({
 }) => (
   <>
     <span
-      className={`line-clamp-1 ${isButtonLabel ? 'w-full h-full min-h-[20px] flex items-center' : ''} ${selected ? 'text-visible' : ''}`}
+      className={`line-clamp-1 ${isButtonLabel ? 'w-full h-full min-h-5 text-primary flex items-center' : ''} ${
+        selected ? 'text-visible' : ''
+      }`}
     >
       {item.label}
     </span>
-    {hasStep && <ChevronRightIcon color="#A1A1AA" width={20} height={20} />}
-    {selected && <CheckIcon className="min-w-6 min-h-6" />}
+    {hasStep && <ChevronRightIcon className="text-icon-tertiary" width={20} height={20} />}
+    {selected && <CheckIcon className="min-w-6 min-h-6 text-icon-primary" />}
   </>
 );
 
@@ -43,10 +45,14 @@ const DetailedVariant = ({ item, selected, isButtonLabel }: { item: Item; select
       {item.leadingElement && !isButtonLabel ? <>{item.leadingElement}</> : null}
 
       <div className="flex flex-col items-start w-full">
-        <div className={`line-clamp-1 text-sm font-medium${isButtonLabel ? ' max-w-[100%]' : ''} ${selected ? 'text-visible' : ''}`}>
+        <div
+          className={`line-clamp-1 text-sm text-secondary font-medium${isButtonLabel ? ' max-w-[100%]' : ''} ${
+            selected ? 'text-visible' : ''
+          }`}
+        >
           {item.label}
         </div>
-        {!isButtonLabel ? <div className="text-xs text-gray-500">{item.description}</div> : null}
+        {!isButtonLabel ? <div className="text-xs text-tertiary">{item.description}</div> : null}
       </div>
     </div>
 
@@ -57,7 +63,7 @@ const DetailedVariant = ({ item, selected, isButtonLabel }: { item: Item; select
 const IconCompactVariant = ({ item, selected }: { item: Item; selected: boolean }) => (
   <>
     <div className="flex items-center gap-2 h-full">
-      <div className="flex items-center justify-center w-6 h-6 rounded-md">{item.icon || null}</div>
+      <div className="flex items-center justify-center w-6 h-6 rounded-lg">{item.icon || null}</div>
       <div className="text-sm font-medium line-clamp-1">{item.label}</div>
     </div>
 
@@ -69,15 +75,19 @@ const ImageDetailedVariant = ({ item, selected, isButtonLabel }: { item: Item; s
   <>
     <div className="w-full flex items-center gap-4 h-full">
       {item.imageUrl ? (
-        <img src={item.imageUrl} alt={item.label} className="w-[64px] h-[48px] rounded-md object-cover" />
+        <img
+          src={item.imageUrl}
+          alt={item.label}
+          className={cn('w-16 h-12 min-w-16 rounded-xl object-cover', isButtonLabel && 'w-8 min-w-8 h-6 rounded-[4px]')}
+        />
       ) : (
-        <div className="w-[64px] h-[48px] rounded-md bg-gray-200" />
+        <div className={cn('w-16 h-12 min-w-16 object-cover rounded-xl bg-gray-200', isButtonLabel && 'w-8 min-w-8 h-6 rounded-[4px]')} />
       )}
-      <div className="flex flex-col gap-1">
-        <div className={`line-clamp-2 text-sm${isButtonLabel ? ' max-w-[151px] w-full truncate h-full flex items-center' : ''}`}>
+      <div className="flex flex-col gap-1 min-w-0">
+        <span className={cn('text-secondary font-medium text-sm line-clamp-2', isButtonLabel && 'line-clamp-1 text-wrap')}>
           {item.label}
-        </div>
-        <div className="text-xs text-gray-500">{item.description}</div>
+        </span>
+        <div className="text-xs text-tertiary">{item.description}</div>
       </div>
     </div>
 
@@ -101,7 +111,7 @@ const MultipleVariant = ({ items, handleUnselect }: { items: Item[]; handleUnsel
         {item.label}
         <div
           role="button"
-          className="ml-1 ring-offset-background rounded-full outline-none hover:[box-shadow:0px_0px_0px_3px_rgba(240,_82,_82,_0.12)] focus:[box-shadow:0px_0px_0px_3px_rgba(240,_82,_82,_0.12)]"
+          className="ml-1 rounded-full outline-none hover:[box-shadow:0px_0px_0px_3px_rgba(240,_82,_82,_0.12)] focus:[box-shadow:0px_0px_0px_3px_rgba(240,_82,_82,_0.12)]"
           onKeyDown={(e) => {
             if (e.key === 'Enter') handleUnselect(item);
           }}

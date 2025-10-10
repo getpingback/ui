@@ -2,13 +2,13 @@ import * as React from 'react';
 
 import { render, screen } from '@testing-library/react';
 
-import { Modal } from './modal';
+import { Modal, ModalTitle } from './modal';
 
 describe('Modal', () => {
   it('should render Modal component with children', () => {
     render(
       <Modal open>
-        <h1>Conteúdo do Modal</h1>
+        <ModalTitle>Conteúdo do Modal</ModalTitle>
       </Modal>
     );
 
@@ -19,7 +19,7 @@ describe('Modal', () => {
     const customClass = 'custom-class';
     render(
       <Modal open className={customClass}>
-        <h1>Conteúdo do Modal</h1>
+        <ModalTitle>Conteúdo do Modal</ModalTitle>
       </Modal>
     );
 
@@ -30,11 +30,11 @@ describe('Modal', () => {
   it('should render modal overlay', () => {
     render(
       <Modal open>
-        <h1>Conteúdo do Modal</h1>
+        <ModalTitle>Conteúdo do Modal</ModalTitle>
       </Modal>
     );
 
-    const overlay = document.querySelector('.backdrop-blur-\\[8px\\]');
+    const overlay = screen.getByTestId('modal-overlay');
     expect(overlay).toBeInTheDocument();
   });
 });

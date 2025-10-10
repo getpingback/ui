@@ -1,47 +1,15 @@
 import * as React from 'react';
 import * as TabsPrimitive from '@radix-ui/react-tabs';
-import { cva, type VariantProps } from 'class-variance-authority';
-import { motion } from 'framer-motion';
+import { buttonVariants } from '@/components/button';
+import { motion, LayoutGroup } from 'framer-motion';
 
 import { cn } from '@/lib/utils';
 
 const Tabs = TabsPrimitive.Root;
 
-const tabTriggerVariants = cva(
-  'relative w-full h-full !outline-none rounded-md [&[data-state=active]]:opacity-100 font-semibold text-secondary-foreground text-xs opacity-45 hover:opacity-100 transition-all duration-200 ease-in-out',
-  {
-    variants: {
-      type: {
-        clear: '[&[data-state=active]]:text-[#9061F9] hover:text-[#9061F9]',
-        purple: '[&[data-state=active]]:text-[#7E3AF2] hover:text-[#7E3AF2]',
-        'bottom-line': '[&[data-state=active]]:text-[#7E3AF2] hover:text-[#7E3AF2] bg-transparent'
-      }
-    },
-    defaultVariants: {
-      type: 'purple'
-    }
-  }
-);
+export interface TabsTriggerProps extends Omit<React.ComponentProps<typeof TabsPrimitive.Trigger>, 'type'> {}
 
-const tabListVariants = cva('inline-flex items-center justify-center rounded-md text-muted-foreground bg-[#71717A0A]', {
-  variants: {
-    height: {
-      medium: 'h-[32px]',
-      full: 'h-[40px] p-1'
-    }
-  },
-  defaultVariants: {
-    height: 'medium'
-  }
-});
-
-export interface TabsTriggerProps
-  extends Omit<React.ComponentProps<typeof TabsPrimitive.Trigger>, 'type'>,
-    VariantProps<typeof tabTriggerVariants> {
-  layoutId?: string;
-}
-
-function TabsTrigger({ className, type, layoutId, ...props }: TabsTriggerProps) {
+function TabsTrigger({ className, ...props }: TabsTriggerProps) {
   const [isActive, setIsActive] = React.useState(false);
   const triggerRef: React.MutableRefObject<HTMLButtonElement | null> = React.useRef(null);
 
@@ -70,65 +38,49 @@ function TabsTrigger({ className, type, layoutId, ...props }: TabsTriggerProps) 
     <>
       <TabsPrimitive.Trigger
         ref={triggerRef}
-        className={cn(tabTriggerVariants({ type }), 'relative', className)}
+        className={cn(
+          `relative w-fit !h-full !px-3 !outline-none font-semibold text-xs transition-all duration-300 ease-in-out ${
+            isActive ? 'bg-transparent text-button-solid-label' : buttonVariants({ variant: 'ghost', rounded: 'full' })
+          }`,
+          className
+        )}
         style={{
           WebkitTapHighlightColor: 'transparent'
         }}
         data-testid="tabs-trigger"
         {...props}
       >
-        <div className="relative z-30">{props.children}</div>
+        <span className="relative z-10">{props.children}</span>
 
-        {isActive ? (
-          <motion.div
-            key={props.value}
-            className={cn(
-              'absolute rounded-md z-20 debug-border',
-              type === 'clear' && 'inset-0 z-[-1] bg-[#FFFFFF] [box-shadow:0px_0px_1px_1px_rgba(0,_0,_0,_0.04)] opacity-100',
-              type === 'purple' && 'inset-0 bg-[#9061F914] outline-none',
-              type === 'bottom-line' && 'bg-[#9061F9] h-[2px] left-0 right-0 bottom-0 rounded-none'
-            )}
-            layoutId={layoutId ? `${layoutId}-${type}-tab-active-indicator` : `${type}-tab-active-indicator`}
-            transition={{ type: 'spring', bounce: 0, duration: 0.6 }}
+        {isActive && (
+          <motion.span
+            layoutId={'tab-active-indicator'}
+            className="absolute rounded-full flex items-center text-button-solid-label justify-center inset-0 bg-button-solid mix-blend-exclusion"
+            transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
           />
-        ) : null}
+        )}
       </TabsPrimitive.Trigger>
     </>
   );
 }
 
-export interface TabWrapperProps {
-  type: string;
+export interface TabProps extends Omit<React.ComponentProps<typeof TabsPrimitive.List>, 'type'> {
   children: React.ReactNode;
-  layoutId?: string;
 }
 
-function TabWrapper({ type, children, layoutId }: TabWrapperProps) {
-  if (React.Children.count(children) !== 1) return;
+function TabsList({ className, children, ...props }: TabProps) {
+  const layoutGroupId = React.useId();
 
-  const child = React.Children.only(children) as React.ReactElement<any>;
-  return React.cloneElement(child, { type, layoutId });
-}
-
-export interface TabProps extends Omit<React.ComponentProps<typeof TabsPrimitive.List>, 'type'>, VariantProps<typeof tabTriggerVariants> {
-  type: 'purple' | 'clear' | 'bottom-line';
-  height: 'medium' | 'full';
-  layoutId?: string;
-}
-
-function TabsList({ className, type = 'purple', height, layoutId, ...props }: TabProps) {
   return (
-    <TabsPrimitive.List
-      className={cn(tabListVariants({ height }), 'relative z-[9] outline-none', type === 'bottom-line' && 'bg-transparent', className)}
-      data-testid="tabs-list"
-      {...props}
-    >
-      {React.Children.map(props.children, (child, index) => (
-        <TabWrapper key={index} type={type} layoutId={layoutId}>
-          {child}
-        </TabWrapper>
-      ))}
-    </TabsPrimitive.List>
+    <LayoutGroup id={layoutGroupId}>
+      <TabsPrimitive.List
+        className={cn('relative z-[9] h-[28px] outline-none inline-flex gap-2 items-center', className)}
+        data-testid="tabs-list"
+        {...props}
+      >
+        {children}
+      </TabsPrimitive.List>
+    </LayoutGroup>
   );
 }
 

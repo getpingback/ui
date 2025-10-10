@@ -7,9 +7,10 @@ import { HeartIcon } from '@stash-ui/regular-icons';
 const meta = {
   title: 'Components/SplitButton',
   component: SplitButton,
-
   tags: ['autodocs'],
-
+  parameters: {
+    layout: 'centered'
+  },
   argTypes: {}
 } satisfies Meta<typeof SplitButton>;
 
@@ -19,36 +20,55 @@ type Story = StoryObj<typeof meta>;
 export const Solid: Story = {
   args: {
     prefixIcon: <HeartIcon />,
-    variant: 'solid',
+    variant: 'primary',
     label: 'Button label',
-    onPrefixClick: () => {},
+    onPrefixClick: () => console.log('prefix click'),
     menuItems: [
       {
-        key: 'add',
-        icon: <PlusIcon />,
-        text: 'Add',
-        onClick: () => console.log('add')
+        items: [
+          {
+            key: 'add',
+            icon: <PlusIcon />,
+            label: 'Add',
+            onClick: () => console.log('add')
+          }
+        ]
       },
       {
-        key: 'delete',
-        icon: <TrashCanIcon />,
-        text: 'Delete',
-        onClick: () => console.log('delete')
+        items: [
+          {
+            key: 'delete',
+            icon: <TrashCanIcon />,
+            label: 'Delete',
+            onClick: () => console.log('delete')
+          }
+        ]
+      },
+      {
+        items: [
+          {
+            key: 'delete',
+            icon: <TrashCanIcon />,
+            label: 'Delete',
+            onClick: () => console.log('delete')
+          }
+        ]
       }
     ]
   }
 };
 
-export const Outlined: Story = {
+export const WithTitle: Story = {
   args: {
-    ...Solid.args,
-    variant: 'outlined'
-  }
-};
-
-export const Ghost: Story = {
-  args: {
-    ...Solid.args,
-    variant: 'ghost'
+    prefixIcon: <HeartIcon />,
+    variant: 'primary',
+    label: 'Button label',
+    onPrefixClick: () => console.log('prefix click'),
+    menuItems: [
+      {
+        title: 'Actions',
+        items: [{ key: 'add', icon: <PlusIcon />, label: 'Add', onClick: () => console.log('add') }]
+      }
+    ]
   }
 };

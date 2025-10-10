@@ -24,14 +24,14 @@ export const NodeLine = ({ children, isLast, conectionHeight, status, className 
         className={cn(
           'absolute left-[20px] top-0 bottom-0 w-px',
           isLast && '!hidden',
-          status !== 'active' ? 'bg-divider' : 'bg-divider-highlighted '
+          status !== 'active' ? 'bg-border-default' : 'bg-border-filled'
         )}
         data-testid="node-line-divider"
       />
       <div
         className={cn(
-          'absolute left-[20px] top-0 w-[12px] border-b border-l border-divider-highlighted rounded-bl-[10px]',
-          status !== 'active' ? 'border-divider' : 'border-divider-highlighted '
+          'absolute left-[20px] top-0 w-[12px] border-b border-l border-filled rounded-bl-[10px]',
+          status !== 'active' ? 'border-default' : 'border-filled '
         )}
         style={{
           height: conectionHeight ? `${conectionHeight}px` : '50%'

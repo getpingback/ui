@@ -5,7 +5,7 @@ import { CaretDownIcon, CaretUpIcon } from '@stash-ui/light-icons';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/button';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/popover';
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from '@/components/command';
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/components/command';
 
 interface Item {
   value: string;
@@ -271,7 +271,7 @@ export function VariableInput({
     <Popover open={open} onOpenChange={setOpen}>
       <div className="flex flex-col items-start gap-1">
         {label ? (
-          <label className="text-xs font-semibold text-tertiary-foreground" htmlFor="counter-input">
+          <label className="text-xs font-semibold text-tertiary" htmlFor="counter-input">
             {label}
           </label>
         ) : null}
@@ -280,7 +280,7 @@ export function VariableInput({
           <div
             ref={editorRef}
             className={cn(
-              'min-h-[40px] w-full border-divider border rounded-lg bg-transparent py-2 px-3 text-sm outline-none text-tertiary-foreground placeholder:opacity-85 disabled:cursor-not-allowed disabled:opacity-50 hover:border-[#A1A1AA] focus:border-[#9061F9] focus:[box-shadow:0px_0px_0px_3px_rgba(144,_97,_249,_0.12)] transition-all duration-200 ease-in-out',
+              'min-h-[40px] w-full border border-default rounded-2xl bg-surface py-2 px-3 text-sm outline-none text-tertiary disabled:cursor-not-allowed disabled:opacity-50 hover:border-hover focus:border-hover focus:shadow-input-focus-neutral transition-all duration-200 ease-in-out',
               className
             )}
             contentEditable
@@ -293,38 +293,35 @@ export function VariableInput({
           />
 
           <PopoverTrigger asChild onClick={handleDropdownTrigger}>
-            <Button variant="outline" className="h-10 outline-none" data-testid="variable-input-trigger">
+            <Button variant="outline" size="lg" rounded="xl" data-testid="variable-input-trigger">
               <VariableIcon color="#71717A" height={20} width={20} />
               {open ? <CaretUpIcon width={16} height={16} color="#71717A" /> : <CaretDownIcon width={16} height={16} color="#71717A" />}
             </Button>
           </PopoverTrigger>
         </div>
 
-        {helperText ? <span className="text-xs font-normal text-tertiary-foreground opacity-65">{helperText}</span> : null}
+        {helperText ? <span className="text-xs font-normal text-tertiary opacity-85">{helperText}</span> : null}
       </div>
 
       <PopoverContent
         side={side}
         align={align}
-        className="w-full p-0 bg-background-accent"
+        className="w-full p-0 max-w-[236px]"
         onWheel={(e) => e.stopPropagation()}
         onTouchMove={(e) => e.stopPropagation()}
         data-testid="comboxbox-popover-content"
       >
         <Command shouldFilter={variablesShouldFilter} className={className}>
-          <div className="w-full p-4 flex items-center justify-center border-b border-divider">
-            <CommandInput
-              placeholder={variablesSearchPlaceholder}
-              className="h-9 w-full"
-              defaultValue={variablesSearchValue}
-              onInput={handleSearchInput}
-              data-testid="variable-input-search-input"
-            />
-          </div>
+          <CommandInput
+            placeholder={variablesSearchPlaceholder}
+            defaultValue={variablesSearchValue}
+            onInput={handleSearchInput}
+            data-testid="variable-input-search-input"
+          />
 
           <CommandEmpty>{variablesEmptySearchPlaceholder}</CommandEmpty>
 
-          <div className="max-h-[272px] overflow-y-auto scrollbar-style">
+          <CommandList>
             {options.map((option, index) => (
               <>
                 <CommandGroup key={index} className="py-2" heading={option.heading}>
@@ -344,7 +341,7 @@ export function VariableInput({
                   ))}
                 </CommandGroup>
 
-                {index < options.length - 1 && <div className="border-b border-divider" />}
+                {index < options.length - 1 && <div className="border-b border-default" />}
               </>
             ))}
 
@@ -352,7 +349,7 @@ export function VariableInput({
               ref={lastItemRef}
               style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 4, width: '100%' }}
             />
-          </div>
+          </CommandList>
 
           {isLoadingVariables ? (
             <div className="flex items-center justify-center mb-4 h-10">

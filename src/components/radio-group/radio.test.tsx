@@ -45,8 +45,8 @@ describe('RadioGroup', () => {
       </RadioGroup>
     );
 
-    const radioItem1 = screen.getAllByRole('radio')[0];
-    const radioItem2 = screen.getAllByRole('radio')[1];
+    const radioItem1 = screen.getAllByRole('radio')[1];
+    const radioItem2 = screen.getAllByRole('radio')[2];
 
     expect(radioItem1).toBeChecked();
     expect(radioItem2).not.toBeChecked();
@@ -61,7 +61,7 @@ describe('RadioGroup', () => {
       </RadioGroup>
     );
 
-    const radioItem = screen.getByRole('radio');
+    const radioItem = screen.getAllByRole('radio')[1];
 
     expect(radioItem).toBeDisabled();
   });

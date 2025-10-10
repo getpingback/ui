@@ -10,7 +10,7 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/popover';
 import { Matcher } from 'react-day-picker';
 
 export interface DatePickerProps {
-  label?: string;
+  label?: React.ReactNode | string;
   helperText?: string;
   placeholder?: string;
   locale?: 'en' | 'pt' | 'es';
@@ -47,7 +47,7 @@ export function DatePicker({ locale = 'en', label, placeholder, helperText, valu
     <Popover>
       <div className="flex flex-col items-start gap-1">
         {label ? (
-          <label className="text-xs font-semibold text-tertiary-foreground" htmlFor="date-picker">
+          <label className="text-xs font-semibold text-tertiary" htmlFor="date-picker">
             {label}
           </label>
         ) : null}
@@ -55,29 +55,29 @@ export function DatePicker({ locale = 'en', label, placeholder, helperText, valu
         <PopoverTrigger asChild>
           <Button
             variant="outline"
-            align="between"
+            align="start"
             className={cn(
-              'h-10 w-full justify-between text-left font-normal bg-background-accent hover:bg-background-accent',
-              !date && 'text-muted-foreground'
+              'h-10 w-full justify-between  text-left rounded-2xl font-normal bg-surface border-default hover:border-hover',
+              !date && 'text-tertiary opacity-85'
             )}
+            prefix={<CalendarIcon height={20} width={20} className="text-icon-tertiary" />}
             data-testid="date-picker-button-popover-trigger"
           >
             {date ? (
               format(date, 'PPP', { locale: getLocale() })
             ) : (
-              <span className="text-tertiary-foreground text-sm opacity-60">{placeholder}</span>
+              <span className="flex items-center text-tertiary text-sm opacity-85">{placeholder}</span>
             )}
-            <CalendarIcon height={20} width={20} color="#52525B" />
           </Button>
         </PopoverTrigger>
 
-        {helperText ? <span className="text-xs font-normal text-tertiary-foreground mt-1">{helperText}</span> : null}
+        {helperText ? <span className="text-xs font-normal text-tertiary mt-1">{helperText}</span> : null}
       </div>
 
       <PopoverContent
         side={side}
         align={align}
-        className="w-auto p-0 bg-background-accent"
+        className="w-auto p-0"
         onWheel={(e) => e.stopPropagation()}
         onTouchMove={(e) => e.stopPropagation()}
         data-testid="date-picker-popover-content"

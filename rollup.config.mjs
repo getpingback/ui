@@ -19,13 +19,13 @@ const rollupConfig = [
       {
         file: packageJson.main,
         format: 'cjs',
-        sourcemap: false,
+        sourcemap: false
       },
       {
         file: packageJson.module,
         format: 'esm',
-        sourcemap: false,
-      },
+        sourcemap: false
+      }
     ],
     plugins: [
       svg(),
@@ -33,40 +33,36 @@ const rollupConfig = [
       commonjs(),
       postcss({
         config: {
-          path: './postcss.config.js',
+          path: './postcss.config.js'
         },
         extensions: ['.css'],
         minimize: true,
         inject: {
-          insertAt: 'top',
-        },
+          insertAt: 'top'
+        }
       }),
       copy({
         targets: [
           {
             src: './tailwind.config.js',
-            dest: './dist',
-          },
-          {
-            src: './src/styles/globals.css',
-            dest: './dist',
-          },
-        ],
+            dest: './dist'
+          }
+        ]
       }),
       typescript({
         sourceMap: false,
         inlineSources: false,
-        tsconfig: './tsconfig.json',
+        tsconfig: './tsconfig.json'
       }),
-      sourcemaps(),
+      sourcemaps()
     ],
-    external: ['react', 'react-dom'],
+    external: ['react', 'react-dom']
   },
   {
     input: 'dist/esm/types/index.d.ts',
     output: [{ file: 'dist/index.d.ts', format: 'es' }],
-    plugins: [dts(), del({ targets: 'dist/types', hook: 'buildEnd' })],
-  },
+    plugins: [dts(), del({ targets: 'dist/types', hook: 'buildEnd' })]
+  }
 ];
 
 export default rollupConfig;

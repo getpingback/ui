@@ -9,9 +9,11 @@ import {
   CommandKGroup,
   CommandKItem,
   CommandKShortcut,
-  CommandKSeparator
+  CommandKSeparator,
+  CommandKFooter
 } from './command-cmdk';
-import { Popover, PopoverContent, PopoverTrigger } from '../popover';
+import { Modal } from '../modal';
+
 const meta = {
   title: 'Components/CommandK',
   component: CommandK,
@@ -28,42 +30,48 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-      <Popover>
-        <PopoverTrigger asChild>
-          <button>Open Command</button>
-        </PopoverTrigger>
-        <PopoverContent className="w-[600px] p-0" align="center">
-          <CommandK>
-            <CommandKInput placeholder="Search language..." />
-            <CommandKEmpty>not found</CommandKEmpty>
-            <CommandKList>
-              <CommandKGroup heading="Fruits">
-                <CommandKItem value="apple" onSelect={() => console.log('apple')}>
-                  Apple
-                  <CommandKShortcut className="ml-auto">⌘K</CommandKShortcut>
-                </CommandKItem>
-                <CommandKItem value="apple2" onSelect={() => console.log('apple2')}>
-                  Apple2
-                  <CommandKShortcut className="ml-auto">⌘K</CommandKShortcut>
-                </CommandKItem>
-                <CommandKItem value="orange" onSelect={() => console.log('orange')}>
-                  Orange
-                </CommandKItem>
-                <CommandKSeparator />
-                <CommandKItem value="pear" onSelect={() => console.log('pear')}>
-                  Pear
-                </CommandKItem>
-                <CommandKItem value="blueberry" onSelect={() => console.log('blueberry')}>
-                  Blueberry
-                </CommandKItem>
-                <CommandKItem value="fish" onSelect={() => console.log('fish')}>
-                  Fish
-                </CommandKItem>
-              </CommandKGroup>
-            </CommandKList>
-          </CommandK>
-        </PopoverContent>
-      </Popover>
+      <Modal open className="!p-0 lg:!rounded-2xl !rounded-t-2xl">
+        <CommandK>
+          <CommandKInput placeholder="Search language..." />
+          <CommandKEmpty>not found</CommandKEmpty>
+          <CommandKList>
+            <CommandKGroup heading="Fruits">
+              <CommandKItem value="apple" onSelect={() => console.log('apple')}>
+                Apple
+                <div className="flex gap-1">
+                  <CommandKShortcut>⌘</CommandKShortcut>
+                  <CommandKShortcut>K</CommandKShortcut>
+                </div>
+              </CommandKItem>
+              <CommandKItem value="apple2" onSelect={() => console.log('apple2')}>
+                Apple2
+                <div className="ml-auto flex gap-1">
+                  <CommandKShortcut>⌘</CommandKShortcut>
+                  <CommandKShortcut>K</CommandKShortcut>
+                </div>
+              </CommandKItem>
+              <CommandKItem value="orange" onSelect={() => console.log('orange')}>
+                Orange
+              </CommandKItem>
+
+              <CommandKItem value="pear" onSelect={() => console.log('pear')}>
+                Pear
+              </CommandKItem>
+              <CommandKItem value="blueberry" onSelect={() => console.log('blueberry')}>
+                Blueberry
+              </CommandKItem>
+              <CommandKItem value="fish" onSelect={() => console.log('fish')}>
+                Fish
+              </CommandKItem>
+            </CommandKGroup>
+          </CommandKList>
+          <CommandKSeparator />
+          <CommandKFooter>
+            <span>Open Command</span>
+            <span>⌘K</span>
+          </CommandKFooter>
+        </CommandK>
+      </Modal>
     </div>
   )
 };

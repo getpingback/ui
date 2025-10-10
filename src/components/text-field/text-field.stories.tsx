@@ -34,9 +34,35 @@ export const Default: Story = {
   args: {
     label: 'TextField',
     placeholder: 'Placeholder',
+    required: true,
+    helperText: 'Helper text',
+    prefix: <SearchIcon />
+  }
+};
+
+export const Error: Story = {
+  args: {
+    label: 'TextField',
+    placeholder: 'Placeholder',
     error: 'Error',
     required: true,
     helperText: 'Helper text',
     prefix: <SearchIcon />
+  }
+};
+
+export const Success: Story = {
+  args: {
+    label: 'TextField',
+    placeholder: 'Placeholder',
+    success: true,
+    helperText: 'Helper text'
+  }
+};
+export const Disabled: Story = {
+  args: {
+    label: 'TextField',
+    placeholder: 'Placeholder',
+    disabled: true
   }
 };
