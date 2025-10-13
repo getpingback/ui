@@ -15,7 +15,7 @@ describe('ColorPicker', () => {
   it('renders correctly with default props', () => {
     render(<ColorPicker {...defaultProps} />);
 
-    const trigger = screen.getByRole('button');
+    const trigger = screen.getByTestId('color-picker-trigger');
     expect(trigger).toHaveStyle({ backgroundColor: '#000000' });
   });
 
