@@ -406,6 +406,8 @@ export function RangePicker({
     const fromDate = date?.from ? setStartOfDay(date.from) : undefined;
     const toDate = date?.to ? setEndOfDay(date.to) : undefined;
 
+    const isInputHidden = !hideInputs && type === 'range' && inputPosition === 'bottom';
+
     if (fromDate === undefined) {
       setSelectedDate({ from: toDate, to: toDate });
     } else if (toDate === undefined) {
@@ -469,6 +471,8 @@ export function RangePicker({
     );
   };
 
+  const isMobileLayout = !hideInputs && type === 'range' && inputPosition === 'bottom';
+
   return (
     <div className={cn('w-fit grid gap-2 ')} data-testid="ranger">
       <Popover>
@@ -529,8 +533,8 @@ export function RangePicker({
             </div>
 
             {type !== 'single' && (
-              <div className="w-full grid grid-cols-2 border-t border-default">
-                {!hideInputs && type === 'range' && inputPosition === 'bottom' ? renderCalendarInputs() : null}
+              <div className={cn(`w-full grid  border-t border-default ${!isMobileLayout ? 'grid-cols-1' : 'grid-cols-2'}`)}>
+                {isMobileLayout ? renderCalendarInputs() : null}
                 {type === 'range' ? renderCalendarButtons() : null}
               </div>
             )}
