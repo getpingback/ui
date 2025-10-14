@@ -35,7 +35,7 @@ function DropdownItem({ className, onClick, ...props }: DropdownItemProps) {
   return (
     <DropdownMenuPrimitive.Item
       className={cn(
-        'h-[40px] flex items-center font-normal text-secondary text-sm px-4 rounded-xl select-none outline-none hover:bg-sidebar-item-hover transition duration-300 ease-in-out [&>svg]:mr-2',
+        'h-[40px] flex items-center font-normal text-secondary text-sm px-3 rounded-xl select-none outline-none hover:bg-sidebar-item-hover transition duration-300 ease-in-out [&>svg]:mr-2',
         className
       )}
       data-testid="dropdown-item"
@@ -61,7 +61,7 @@ function DropdownRadioItem({ className, isChecked, setIsChecked, ...props }: Dro
   return (
     <DropdownMenuPrimitive.CheckboxItem
       className={cn(
-        'flex justify-between h-[40px] items-center font-normal text-secondary text-sm px-4 rounded-xl select-none outline-none hover:bg-sidebar-item-hover transition duration-300 ease-in-out',
+        'flex justify-between h-[40px] items-center font-normal text-secondary text-sm px-3 rounded-xl select-none outline-none hover:bg-sidebar-item-hover transition duration-300 ease-in-out',
         className
       )}
       checked={isChecked}

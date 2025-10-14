@@ -5,7 +5,7 @@ import { cva } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
 const itemVariants = cva(
-  'h-[40px] flex items-center no-underline select-none no-focus:bg-neutral-hover flex-start w-full px-[16px] cursor-pointer text-sm font-normal text-tertiary hover:text-primary hover:bg-neutral-hover transition duration-300 ease-in-out [&>svg>path]:opacity-[.45] [&>svg]:mr-2 [&>svg]:text-icon-primary'
+  'h-[40px] flex items-center no-underline select-none no-focus:bg-neutral-hover flex-start w-full px-3 cursor-pointer text-sm font-normal text-tertiary hover:text-primary hover:bg-neutral-hover transition duration-300 ease-in-out [&>svg>path]:opacity-[.45] [&>svg]:mr-2 [&>svg]:text-icon-primary'
 );
 export interface MenuDividerProps extends React.HtmlHTMLAttributes<HTMLSpanElement> {}
 function MenuDivider(props: MenuDividerProps) {
