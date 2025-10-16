@@ -231,7 +231,8 @@ export function Combobox({
       </div>
 
       <PopoverContent
-        className={cn('w-[--radix-popover-trigger-width] p-0', className)}
+        className={cn('p-0', className)}
+        style={{ width: 'var(--radix-popover-trigger-width)' }}
         onWheel={(e) => e.stopPropagation()}
         onTouchMove={(e) => e.stopPropagation()}
         align="center"
