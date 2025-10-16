@@ -24,27 +24,26 @@ const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
           {tooltipText && <Tooltip>{tooltipText}</Tooltip>}
           {required && <AsteriskIcon width={16} height={16} opacity={0.45} />}
         </label>
-        <div className="relative w-full">
-          <textarea
-            ref={ref}
-            className={cn(
-              'w-full rounded-2xl bg-surface border h-10 px-3 py-2 text-sm leading-5 text-tertiary font-normal transition-all outline-none',
-              'placeholder:text-tertiary placeholder:opacity-65 placeholder:font-normal placeholder:text-sm',
-              { 'border-invalid focus:border-invalid focus:shadow-input-focus-invalid': error },
-              {
-                'border-default hover:border-hover focus:border-hover focus:shadow-input-focus-neutral': !error
-              },
-              { 'bg-neutral cursor-not-allowed opacity-85 hover:border-default': disabled },
-              'resize-none'
-            )}
-            style={{ height: defaultHeight }}
-            placeholder={placeholder}
-            value={value}
-            onChange={onChange}
-            disabled={disabled}
-            {...props}
-          />
-        </div>
+
+        <textarea
+          ref={ref}
+          className={cn(
+            'w-full rounded-2xl bg-surface border h-10 px-3 py-2 text-sm leading-5 text-tertiary font-normal transition-all outline-none',
+            'placeholder:text-tertiary placeholder:opacity-65 placeholder:font-normal placeholder:text-sm',
+            { 'border-invalid focus:border-invalid focus:shadow-input-focus-invalid': error },
+            {
+              'border-default hover:border-hover focus:border-hover focus:shadow-input-focus-neutral': !error
+            },
+            { 'bg-neutral cursor-not-allowed opacity-85 hover:border-default': disabled },
+            'resize-none'
+          )}
+          style={{ height: defaultHeight }}
+          placeholder={placeholder}
+          value={value}
+          onChange={onChange}
+          disabled={disabled}
+          {...props}
+        />
         {error && <span className="text-error text-xs">{error}</span>}
         {helperText && !error && <span className="text-tertiary leading-4 text-xs opacity-85">{helperText}</span>}
       </div>
