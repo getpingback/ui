@@ -4,7 +4,8 @@ const backgroundColor = {
   alt: 'var(--background-alt)',
   success: {
     DEFAULT: 'var(--background-success-default)',
-    inverse: 'var(--background-success-inverse)'
+    inverse: 'var(--background-success-inverse)',
+    hover: 'var(--background-success-hover)'
   },
   error: {
     DEFAULT: 'var(--background-error-default)',
@@ -358,7 +359,8 @@ const config = {
           },
           success: {
             DEFAULT: 'var(--icon-success-default)',
-            inverse: 'var(--icon-success-inverse)'
+            inverse: 'var(--icon-success-inverse)',
+            hover: 'var(--icon-success-hover)'
           },
           error: {
             DEFAULT: 'var(--icon-error-default)',
