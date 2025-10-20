@@ -17,10 +17,7 @@ interface TextFieldProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'pr
 }
 
 const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
-  (
-    { label, placeholder, value, onChange, error, success, helperText, disabled, className, required, prefix, tooltipText, ...props },
-    ref
-  ) => {
+  ({ label, error, success, helperText, className, required, prefix, tooltipText, disabled, ...props }, ref) => {
     return (
       <div className={cn('flex flex-col gap-1', className)}>
         {label && (
@@ -47,10 +44,6 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
               { 'bg-neutral hover:border-default cursor-not-allowed opacity-85': disabled },
               { 'pl-10': prefix }
             )}
-            type="text"
-            placeholder={placeholder}
-            value={value}
-            onChange={onChange}
             disabled={disabled}
             {...props}
           />
