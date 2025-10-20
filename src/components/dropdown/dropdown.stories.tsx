@@ -1,23 +1,18 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import {
-  UserCheckIcon,
-  SlidersVIcon,
-  SignoutAltIcon,
-  GlobeIcon,
-} from '@stash-ui/regular-icons';
+import { UserCheckIcon, SlidersVIcon, SignoutAltIcon, GlobeIcon } from '@stash-ui/regular-icons';
 import { Dropdown, DropdownItem, DropdownRadioItem } from './dropdown';
 
 const meta = {
   title: 'Components/DropdownMenu',
   component: Dropdown,
   parameters: {
-    layout: 'centered',
+    layout: 'centered'
   },
 
   tags: ['autodocs'],
 
-  argTypes: {},
+  argTypes: {}
 } satisfies Meta<typeof Dropdown>;
 
 export default meta;
@@ -33,12 +28,8 @@ export const Default: Story = {
         <DropdownItem icon={<UserCheckIcon />}>Logout </DropdownItem>
       </>
     ),
-    trigger: (
-      <button className='bg-active-foreground p-2 rounded-lg text-inverse-foreground'>
-        Click here
-      </button>
-    ),
-  },
+    trigger: <button className="bg-neutral p-2 rounded-lg text-inverse">Click here</button>
+  }
 };
 
 export const Left: Story = {
@@ -51,13 +42,9 @@ export const Left: Story = {
         <DropdownItem>Logout </DropdownItem>
       </>
     ),
-    trigger: (
-      <button className='bg-active-foreground p-2 rounded-lg text-inverse-foreground'>
-        Click here
-      </button>
-    ),
-    side: 'left',
-  },
+    trigger: <button className="bg-neutral p-2 rounded-lg text-inverse">Click here</button>,
+    side: 'left'
+  }
 };
 
 export const Right: Story = {
@@ -70,13 +57,9 @@ export const Right: Story = {
         <DropdownItem>Logout </DropdownItem>
       </>
     ),
-    trigger: (
-      <button className='bg-active-foreground p-2 rounded-lg text-inverse-foreground'>
-        Click here
-      </button>
-    ),
-    side: 'right',
-  },
+    trigger: <button className="bg-neutral p-2 rounded-lg text-inverse">Click here</button>,
+    side: 'right'
+  }
 };
 
 export const Bottom: Story = {
@@ -89,13 +72,9 @@ export const Bottom: Story = {
         <DropdownItem>Logout </DropdownItem>
       </>
     ),
-    trigger: (
-      <button className='bg-active-foreground p-2 rounded-lg text-inverse-foreground'>
-        Click here
-      </button>
-    ),
-    side: 'bottom',
-  },
+    trigger: <button className="bg-neutral p-2 rounded-lg text-inverse">Click here</button>,
+    side: 'bottom'
+  }
 };
 
 export const Radio: Story = {
@@ -110,10 +89,18 @@ export const Radio: Story = {
         </DropdownRadioItem>
       </>
     ),
-    trigger: (
-      <button className='bg-active-foreground p-2 rounded-lg text-inverse-foreground'>
-        Click here
-      </button>
+    trigger: <button className="bg-neutral-foreground p-2 rounded-lg text-inverse-foreground">Click here</button>
+  }
+};
+
+export const Error: Story = {
+  args: {
+    children: (
+      <>
+        <DropdownItem>Edit my profile</DropdownItem>
+        <DropdownItem error>Delete account</DropdownItem>
+      </>
     ),
-  },
+    trigger: <button className="bg-neutral-foreground p-2 rounded-lg text-inverse">Click here</button>
+  }
 };

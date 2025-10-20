@@ -29,13 +29,15 @@ const positionVariants = cva(
 
 export interface DropdownItemProps extends React.ComponentProps<typeof DropdownMenuPrimitive.Item> {
   icon?: JSX.Element;
+  error?: boolean;
 }
 
-function DropdownItem({ className, onClick, ...props }: DropdownItemProps) {
+function DropdownItem({ className, onClick, error, ...props }: DropdownItemProps) {
   return (
     <DropdownMenuPrimitive.Item
       className={cn(
         'h-[40px] flex items-center font-normal text-secondary text-sm px-3 rounded-xl select-none outline-none hover:bg-sidebar-item-hover transition duration-300 ease-in-out [&>svg]:mr-2',
+        error && 'text-error [&>svg]:text-icon-error hover:text-error-hover',
         className
       )}
       data-testid="dropdown-item"

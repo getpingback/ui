@@ -7,7 +7,7 @@ beforeAll(() => {
   window.PointerEvent = MouseEvent as typeof PointerEvent;
 });
 
-const { Left, Right, Default, Bottom, Radio } = composeStories(stories);
+const { Left, Right, Default, Bottom, Radio, Error } = composeStories(stories);
 describe('Dropdown Component', () => {
   test('renders correctly DropdownItem styles', () => {
     render(<Default />);
@@ -60,5 +60,12 @@ describe('Dropdown Component', () => {
     expect(item[1]).toHaveAttribute('aria-checked', 'false');
     expect(item[0]).toContainHTML('<svg');
     expect(item[1]).toContainHTML('<svg');
+  });
+  test('Render Error correctly', async () => {
+    render(<Error />);
+    fireEvent.pointerDown(screen.getByText('Click here'));
+    const item = screen.getAllByTestId(/dropdown-item/i);
+    expect(item[0]).toHaveClass('text-secondary');
+    expect(item[1]).toHaveClass('text-error');
   });
 });
