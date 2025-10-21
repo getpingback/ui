@@ -59,10 +59,11 @@ export const Avatar = ({
   fallback,
   size,
   type,
-  borderSize
+  borderSize,
+  className
 }: {
   imageUrl: string;
-  fallback: string;
+  fallback: string | React.ReactNode;
   size: 'default' | 'small' | 'medium';
   type:
     | 'gray'
@@ -80,13 +81,15 @@ export const Avatar = ({
     | 'fuchsia'
     | 'pink';
   borderSize?: 'none' | 'small' | 'medium';
+  className?: string;
 }) => {
   return (
     <AvatarPrimitive.Root
       data-testid="avatar-root"
       className={cn(
         avatarVariants({ size, type, borderSize }),
-        'inline-flex items-center  border-surface justify-center align-middle leading-none tracking-normal overflow-hidden select-none rounded-full'
+        'inline-flex items-center shrink-0 border-surface justify-center align-middle leading-none tracking-normal overflow-hidden select-none rounded-full',
+        className
       )}
     >
       <AvatarPrimitive.Image className="w-full h-full object-cover" src={imageUrl} alt="Avatar" data-testid="avatar-image" />
