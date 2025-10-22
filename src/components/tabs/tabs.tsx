@@ -68,8 +68,8 @@ function TabsTrigger({ className, ...props }: TabsTriggerProps) {
     };
   }, []);
 
-  const activeTriggerStyles = !isSecondary ? 'bg-transparent text-button-solid-label' : 'text-button-ghost-label';
-  const inactiveTriggerStyles = !isSecondary ? buttonVariants({ variant: 'ghost', rounded: 'full' }) : '';
+  const activeTriggerStyles = !isSecondary ? 'bg-transparent text-button-solid-label' : 'text-primary';
+  const inactiveTriggerStyles = !isSecondary ? buttonVariants({ variant: 'ghost', rounded: 'full' }) : 'text-primary';
 
   return (
     <>
