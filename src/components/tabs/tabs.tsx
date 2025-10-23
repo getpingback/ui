@@ -3,7 +3,38 @@ import * as TabsPrimitive from '@radix-ui/react-tabs';
 import { buttonVariants } from '@/components/button';
 import { motion, LayoutGroup } from 'framer-motion';
 
+import { cva } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
+import { createContext, useContext } from 'react';
+
+export type TabsVariant = 'primary' | 'secondary';
+export interface TabsContextType {
+  variant: TabsVariant;
+}
+
+export const TabsListContext = createContext<TabsContextType>({
+  variant: 'primary'
+});
+
+export const useTabsListContext = () => {
+  const context = useContext(TabsListContext);
+  if (!context) {
+    throw new Error('useTabsListContext must be used within a TabsListProvider');
+  }
+  return context;
+};
+
+const tabsTriggerVariants = cva('absolute rounded-full flex items-center  justify-center inset-0  mix-blend-exclusion', {
+  variants: {
+    variant: {
+      primary: 'bg-button-solid text-button-solid-label',
+      secondary: 'bg-surface border-[2px] border-default '
+    }
+  },
+  defaultVariants: {
+    variant: 'primary'
+  }
+});
 
 const Tabs = TabsPrimitive.Root;
 
@@ -12,6 +43,9 @@ export interface TabsTriggerProps extends Omit<React.ComponentProps<typeof TabsP
 function TabsTrigger({ className, ...props }: TabsTriggerProps) {
   const [isActive, setIsActive] = React.useState(false);
   const triggerRef: React.MutableRefObject<HTMLButtonElement | null> = React.useRef(null);
+  const { variant } = useTabsListContext();
+
+  const isSecondary = variant === 'secondary';
 
   React.useEffect(() => {
     const handleStateChange = () => {
@@ -34,13 +68,16 @@ function TabsTrigger({ className, ...props }: TabsTriggerProps) {
     };
   }, []);
 
+  const activeTriggerStyles = !isSecondary ? 'bg-transparent text-button-solid-label' : 'text-primary';
+  const inactiveTriggerStyles = !isSecondary ? buttonVariants({ variant: 'ghost', rounded: 'full' }) : 'text-primary';
+
   return (
     <>
       <TabsPrimitive.Trigger
         ref={triggerRef}
         className={cn(
           `relative w-fit !h-full !px-3 !outline-none font-semibold text-xs transition-all duration-300 ease-in-out ${
-            isActive ? 'bg-transparent text-button-solid-label' : buttonVariants({ variant: 'ghost', rounded: 'full' })
+            isActive ? activeTriggerStyles : inactiveTriggerStyles
           }`,
           className
         )}
@@ -55,7 +92,7 @@ function TabsTrigger({ className, ...props }: TabsTriggerProps) {
         {isActive && (
           <motion.span
             layoutId={'tab-active-indicator'}
-            className="absolute rounded-full flex items-center text-button-solid-label justify-center inset-0 bg-button-solid mix-blend-exclusion"
+            className={cn(tabsTriggerVariants({ variant }))}
             transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
           />
         )}
@@ -66,20 +103,27 @@ function TabsTrigger({ className, ...props }: TabsTriggerProps) {
 
 export interface TabProps extends Omit<React.ComponentProps<typeof TabsPrimitive.List>, 'type'> {
   children: React.ReactNode;
+  variant?: 'primary' | 'secondary';
 }
 
-function TabsList({ className, children, ...props }: TabProps) {
+function TabsList({ className, children, variant = 'primary', ...props }: TabProps) {
   const layoutGroupId = React.useId();
 
   return (
     <LayoutGroup id={layoutGroupId}>
-      <TabsPrimitive.List
-        className={cn('relative z-[9] h-[28px] outline-none inline-flex gap-2 items-center', className)}
-        data-testid="tabs-list"
-        {...props}
-      >
-        {children}
-      </TabsPrimitive.List>
+      <TabsListContext.Provider value={{ variant }}>
+        <TabsPrimitive.List
+          className={cn(
+            'max-w-fit relative z-[9] h-[28px] outline-none inline-flex gap-2 items-center',
+            className,
+            variant === 'secondary' && 'bg-neutral rounded-full text-secondary-inverse'
+          )}
+          data-testid="tabs-list"
+          {...props}
+        >
+          {children}
+        </TabsPrimitive.List>
+      </TabsListContext.Provider>
     </LayoutGroup>
   );
 }

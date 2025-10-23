@@ -118,8 +118,6 @@ export function TriggerRangeDate({ rangeDate, type, locale = 'en', hideMenu }: T
           })
         : null;
 
-      console.log(rangeDate.type);
-
       return (
         <div className="w-full flex items-center gap-1">
           {rangeDate.type && !hideMenu && rangeDate.type !== 'custom' ? (
@@ -154,7 +152,7 @@ export function TriggerRangeDate({ rangeDate, type, locale = 'en', hideMenu }: T
       variant="outline"
       align="start"
       className={cn(
-        'h-10 w-full justify-between  text-left rounded-2xl font-normal bg-surface border-default hover:border-hover',
+        'h-8 w-full justify-between  text-left rounded-2xl font-normal bg-surface border-default hover:border-hover',
         !rangeDate && 'text-tertiary opacity-85'
       )}
       prefix={<CalendarIcon height={20} width={20} className="text-icon-tertiary" />}
