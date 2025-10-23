@@ -175,7 +175,7 @@ export function Combobox({
 
   const renderGroupItems = (items: Item[], heading: string) => {
     return (
-      <CommandList>
+      <CommandList className="max-h-full">
         <CommandGroup className="py-2" heading={heading}>
           {items.map((item) => (
             <CommandItem
@@ -255,20 +255,22 @@ export function Combobox({
 
           {!emptyContentRender && <CommandEmpty>{emptySearchPlaceholder}</CommandEmpty>}
 
-          {!hasSelectedStep
-            ? options.map((option, index) => (
-                <div key={index}>
-                  {renderGroupItems(option.items, option.heading || '')}
-                  {index < options.length - 1 && <div className="border-b border-divider" />}
-                </div>
-              ))
-            : selectedStep?.items?.map((step: Option) => renderGroupItems(step.items, step?.heading || ''))}
+          <div className="max-h-[300px] overflow-y-auto">
+            {!hasSelectedStep
+              ? options.map((option, index) => (
+                  <div key={index}>
+                    {renderGroupItems(option.items, option.heading || '')}
+                    {index < options.length - 1 && <div className="border-b border-divider" />}
+                  </div>
+                ))
+              : selectedStep?.items?.map((step: Option) => renderGroupItems(step.items, step?.heading || ''))}
 
-          {!isStepped || (isStepped && hasSelectedStep) ? <div ref={lastItemRef} className="flex w-full" /> : null}
+            {!isStepped || (isStepped && hasSelectedStep) ? <div ref={lastItemRef} className="flex w-full" /> : null}
 
-          {isLoading && (!isStepped || (isStepped && hasSelectedStep)) && <Loader />}
+            {isLoading && (!isStepped || (isStepped && hasSelectedStep)) && <Loader />}
 
-          {!isLoading && isEmpty && emptyContentRender ? <>{emptyContentRender}</> : null}
+            {!isLoading && isEmpty && emptyContentRender ? <>{emptyContentRender}</> : null}
+          </div>
         </Command>
         {footer}
       </PopoverContent>
