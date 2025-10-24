@@ -3,7 +3,7 @@ import { fireEvent, screen, render, act, within } from '@testing-library/react';
 import { composeStories } from '@storybook/testing-react';
 import * as stories from './combobox.stories';
 
-const { Default, Detailed, IconCompact, ImageDetailed, EmptyContentRender, ScrollToEnd, ShouldFilterFalse, Multiple } =
+const { Default, Detailed, IconCompact, ImageDetailed, EmptyContentRender, ScrollToEnd, ShouldFilterFalse, Multiple, ErrorMessage } =
   composeStories(stories);
 
 describe('Combobox Component', () => {
@@ -316,6 +316,25 @@ describe('Combobox Component', () => {
         label: 'Item 1',
         value: 'item-1'
       });
+    });
+  });
+
+  describe('Error state', () => {
+    it('should render error message and apply invalid styles', () => {
+      render(<ErrorMessage />);
+      const comboboxButton = screen.getByRole('combobox');
+      expect(comboboxButton).toBeInTheDocument();
+      expect(comboboxButton).toHaveClass('border-invalid');
+
+      expect(screen.getByText('Erro ao carregar as listas')).toBeInTheDocument();
+      expect(screen.getByText('Erro ao carregar as listas')).toHaveClass('text-error');
+    });
+
+    it('should still open dropdown when clicked', () => {
+      render(<ErrorMessage />);
+      const comboboxButton = screen.getByRole('combobox');
+      fireEvent.click(comboboxButton);
+      expect(screen.getByTestId('comboxbox-popover-content')).toBeVisible();
     });
   });
 });

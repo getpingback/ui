@@ -543,3 +543,14 @@ export const Multiple: Story = {
     ]
   }
 };
+
+export const ErrorMessage: Story = {
+  args: {
+    errorMessage: 'Erro ao carregar as listas',
+    options: [
+      {
+        items: []
+      }
+    ]
+  }
+};

@@ -28,7 +28,7 @@ const DefaultVariant = ({
 }) => (
   <>
     <span
-      className={`line-clamp-1 ${isButtonLabel ? 'w-full h-full min-h-5 text-primary flex items-center' : ''} ${
+      className={`line-clamp-1 ${isButtonLabel ? 'w-full h-full min-h-5 text-secondary text-sm font-medium flex items-center' : ''} ${
         selected ? 'text-visible' : ''
       }`}
     >
@@ -46,7 +46,7 @@ const DetailedVariant = ({ item, selected, isButtonLabel }: { item: Item; select
 
       <div className="flex flex-col items-start w-full">
         <div
-          className={`line-clamp-1 text-sm text-secondary font-medium${isButtonLabel ? ' max-w-[100%]' : ''} ${
+          className={`line-clamp-1 text-sm text-secondary font-medium ${isButtonLabel ? 'max-w-[100%]' : ''} ${
             selected ? 'text-visible' : ''
           }`}
         >
@@ -64,7 +64,7 @@ const IconCompactVariant = ({ item, selected }: { item: Item; selected: boolean 
   <>
     <div className="flex items-center gap-2 h-full">
       <div className="flex items-center justify-center w-6 h-6 rounded-lg">{item.icon || null}</div>
-      <div className="text-sm font-medium line-clamp-1">{item.label}</div>
+      <div className="text-sm font-medium text-secondary line-clamp-1">{item.label}</div>
     </div>
 
     {selected && <CheckIcon height={20} width={20} />}

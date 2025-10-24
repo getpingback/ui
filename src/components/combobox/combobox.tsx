@@ -37,6 +37,7 @@ interface ComboboxProps {
   searchPlaceholder?: string;
   emptySearchPlaceholder?: string;
   variant?: 'default' | 'detailed' | 'icon-compact' | 'image-detailed' | 'multiple';
+  errorMessage?: string;
   defaultValue?: Item | Item[];
   searchValue?: string;
   onSelect?: (item: Item) => void;
@@ -67,7 +68,8 @@ export function Combobox({
   className,
   emptyContentRender,
   footer,
-  tooltipText
+  tooltipText,
+  errorMessage
 }: ComboboxProps) {
   const [open, setOpen] = React.useState(false);
   const [selectedItems, setSelectedItems] = React.useState<Item[]>([]);
@@ -220,14 +222,18 @@ export function Combobox({
             width="full"
             aria-expanded={open}
             align="between"
-            className="rounded-2xl border-default !bg-surface hover:border-hover"
+            className={cn(
+              'rounded-2xl border-default !bg-surface hover:border-hover',
+              errorMessage && 'border-invalid focus:border-invalid focus:shadow-input-focus-invalid'
+            )}
             suffix={<CaretDownIcon className={cn('h-5 w-5 transition-transform text-icon-tertiary', { 'rotate-180': open })} />}
           >
             {renderButtonContent()}
           </Button>
         </PopoverTrigger>
 
-        {helperText ? <span className="text-xs font-normal text-tertiary mt-1">{helperText}</span> : null}
+        {helperText && !errorMessage ? <span className="text-xs font-normal text-tertiary">{helperText}</span> : null}
+        {errorMessage ? <span className="text-xs font-normal text-error">{errorMessage}</span> : null}
       </div>
 
       <PopoverContent
