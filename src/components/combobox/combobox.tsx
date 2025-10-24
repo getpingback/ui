@@ -224,7 +224,8 @@ export function Combobox({
             align="between"
             className={cn(
               'rounded-2xl border-default !bg-surface hover:border-hover',
-              errorMessage && 'border-invalid focus:border-invalid focus:shadow-input-focus-invalid'
+              errorMessage &&
+                'border-invalid hover:border-invalid hover:shadow-input-focus-invalid focus:border-invalid focus:shadow-input-focus-invalid'
             )}
             suffix={<CaretDownIcon className={cn('h-5 w-5 transition-transform text-icon-tertiary', { 'rotate-180': open })} />}
           >

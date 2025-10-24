@@ -280,7 +280,7 @@ export function VariableInput({
           <div
             ref={editorRef}
             className={cn(
-              'min-h-[40px] w-full border border-default rounded-2xl bg-surface py-2 px-3 text-sm outline-none text-tertiary disabled:cursor-not-allowed disabled:opacity-50 hover:border-hover focus:border-hover focus:shadow-input-focus-neutral transition-all duration-200 ease-in-out',
+              'min-h-[40px] w-full overflow-auto border border-default rounded-2xl bg-surface py-2 px-3 text-sm break-normal outline-none text-tertiary disabled:cursor-not-allowed disabled:opacity-50 hover:border-hover focus:border-hover focus:shadow-input-focus-neutral transition-all duration-200 ease-in-out',
               className
             )}
             contentEditable
