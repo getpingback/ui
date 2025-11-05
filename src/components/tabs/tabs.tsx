@@ -28,7 +28,7 @@ const tabsTriggerVariants = cva('absolute rounded-full flex items-center  justif
   variants: {
     variant: {
       primary: 'bg-button-solid text-button-solid-label',
-      secondary: 'bg-surface border-[2px] border-default '
+      secondary: 'bg-surface border-[2px] border-default'
     }
   },
   defaultVariants: {
@@ -79,6 +79,7 @@ function TabsTrigger({ className, ...props }: TabsTriggerProps) {
           `relative w-fit !h-full !px-3 !outline-none font-semibold text-xs transition-all duration-300 ease-in-out ${
             isActive ? activeTriggerStyles : inactiveTriggerStyles
           }`,
+          isSecondary && '!h-8',
           className
         )}
         style={{
@@ -116,7 +117,7 @@ function TabsList({ className, children, variant = 'primary', ...props }: TabPro
           className={cn(
             'max-w-fit relative z-[9] h-[28px] outline-none inline-flex gap-2 items-center',
             className,
-            variant === 'secondary' && 'bg-neutral rounded-full text-secondary-inverse'
+            variant === 'secondary' && 'bg-neutral rounded-full text-secondary-inverse gap-0'
           )}
           data-testid="tabs-list"
           {...props}
