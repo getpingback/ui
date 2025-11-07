@@ -15,6 +15,7 @@ export interface DatePickerProps {
   placeholder?: string;
   locale?: 'en' | 'pt' | 'es';
   value?: Date;
+  defaultValue?: Date;
   onSelect?: (date?: Date) => void;
   disabled?: Matcher | Matcher[];
   popoverPosition?: {
@@ -23,13 +24,25 @@ export interface DatePickerProps {
   };
 }
 
-export function DatePicker({ locale = 'en', label, placeholder, helperText, value, onSelect, popoverPosition, ...props }: DatePickerProps) {
-  const [date, setDate] = React.useState<Date | undefined>(value);
+export function DatePicker({
+  locale = 'en',
+  label,
+  placeholder,
+  helperText,
+  value,
+  onSelect,
+  popoverPosition,
+  defaultValue,
+  ...props
+}: DatePickerProps) {
+  const [currentDate, setCurrentDate] = React.useState<Date | undefined>(value);
   const { side = 'bottom', align = 'start' } = popoverPosition || {};
+
+  const date = currentDate || defaultValue;
 
   const handleSelect = (date?: Date) => {
     onSelect?.(date);
-    setDate(date);
+    setCurrentDate(date);
   };
 
   const getLocale = () => {
