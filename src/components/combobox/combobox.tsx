@@ -48,6 +48,7 @@ interface ComboboxProps {
   emptyContentRender?: React.ReactNode;
   footer?: React.ReactNode;
   tooltipText?: string;
+  disabled?: boolean;
 }
 
 export function Combobox({
@@ -69,7 +70,8 @@ export function Combobox({
   emptyContentRender,
   footer,
   tooltipText,
-  errorMessage
+  errorMessage,
+  disabled
 }: ComboboxProps) {
   const [open, setOpen] = React.useState(false);
   const [selectedItems, setSelectedItems] = React.useState<Item[]>([]);
@@ -221,6 +223,7 @@ export function Combobox({
             size="lg"
             width="full"
             aria-expanded={open}
+            disabled={disabled}
             align="between"
             className={cn(
               'rounded-2xl border-default !bg-surface hover:border-hover',
