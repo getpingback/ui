@@ -80,10 +80,10 @@ export function Combobox({
   const multiple = variant === 'multiple';
 
   React.useEffect(() => {
-    if (defaultValue) {
+    if (defaultValue && !selectedItems.length) {
       setSelectedItems(Array.isArray(defaultValue) ? defaultValue : [defaultValue]);
     }
-  }, [defaultValue]);
+  }, [defaultValue, selectedItems.length]);
 
   const currentSingleValue = selectedItems[0];
   const currentMultipleValue = selectedItems;
