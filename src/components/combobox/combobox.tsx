@@ -79,9 +79,14 @@ export function Combobox({
 
   const multiple = variant === 'multiple';
 
-  const currentSingleValue = selectedItems[0] || defaultValue;
+  React.useEffect(() => {
+    if (defaultValue) {
+      setSelectedItems(Array.isArray(defaultValue) ? defaultValue : [defaultValue]);
+    }
+  }, [defaultValue]);
 
-  const currentMultipleValue = selectedItems || defaultValue;
+  const currentSingleValue = selectedItems[0];
+  const currentMultipleValue = selectedItems;
 
   const isEmpty = options.every((option) => option.items.length === 0);
 
@@ -226,7 +231,7 @@ export function Combobox({
             disabled={disabled}
             align="between"
             className={cn(
-              'rounded-2xl border-default !bg-surface hover:border-hover',
+              'rounded-2xl border-default !bg-surface hover:border-hover min-h-10 !h-auto',
               errorMessage &&
                 'border-invalid hover:border-invalid hover:shadow-input-focus-invalid focus:border-invalid focus:shadow-input-focus-invalid'
             )}
@@ -248,7 +253,7 @@ export function Combobox({
         align="center"
         data-testid="comboxbox-popover-content"
       >
-        <Command shouldFilter={!onChangeSearchValue} className="w-full">
+        <Command shouldFilter={!onChangeSearchValue} className={cn('w-full', footer && 'rounded-b-none')}>
           {hasSelectedStep ? (
             <div className="w-full gap-3 p-3 flex items-center justify-start border-b border-default">
               <button onClick={() => setSelectedStep(null)}>
@@ -270,7 +275,7 @@ export function Combobox({
               ? options.map((option, index) => (
                   <div key={index}>
                     {renderGroupItems(option.items, option.heading || '')}
-                    {index < options.length - 1 && <div className="border-b border-divider" />}
+                    {index < options.length - 1 && <div className="border-b border-default" />}
                   </div>
                 ))
               : selectedStep?.items?.map((step: Option) => renderGroupItems(step.items, step?.heading || ''))}

@@ -96,7 +96,7 @@ const ImageDetailedVariant = ({ item, selected, isButtonLabel }: { item: Item; s
 );
 
 const MultipleVariant = ({ items, handleUnselect }: { items: Item[]; handleUnselect: (item: Item) => void }) => (
-  <div className="flex gap-1 flex-wrap max-h-[56px] overflow-y-auto">
+  <div className="flex gap-1 flex-wrap max-h-[56px] overflow-y-auto py-[6px]">
     {items.map((item) => (
       <Badge
         data-testid="combobox-item"

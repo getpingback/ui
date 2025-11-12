@@ -351,6 +351,7 @@ export const GroupHeading: Story = {
     placeholder: 'Selecione a lista',
     searchPlaceholder: 'Pesquise por uma lista...',
     emptySearchPlaceholder: 'Nenhum resultado encontrado.',
+    footer: <div className="h-8 w-full flex items-center justify-center border-t border-default">teste</div>,
     options: [
       {
         heading: 'Listas inteligentes',
