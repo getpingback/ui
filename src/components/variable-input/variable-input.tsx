@@ -280,7 +280,7 @@ export function VariableInput({
           </label>
         ) : null}
 
-        <div className={cn('relative w-full flex items-start gap-2', direction === 'vertical' && 'flex-col')}>
+        <div className={cn('relative w-full flex items-start gap-3', direction === 'vertical' && 'flex-col')}>
           <div
             ref={editorRef}
             className={cn(
@@ -296,9 +296,9 @@ export function VariableInput({
             {...props}
           />
 
-          <div className={cn('flex items-center justify-between gap-2', direction === 'vertical' && 'w-full')}>
+          <div className={cn('flex items-center justify-between gap-3', direction === 'vertical' && 'w-full')}>
             <PopoverTrigger asChild onClick={handleDropdownTrigger}>
-              <Button variant="outline" size="lg" rounded="xl" data-testid="variable-input-trigger">
+              <Button variant="outline" size={direction === 'vertical' ? 'sm' : 'lg'} rounded="xl" data-testid="variable-input-trigger">
                 <VariableIcon color="#71717A" height={20} width={20} />
                 {open ? <CaretUpIcon width={16} height={16} color="#71717A" /> : <CaretDownIcon width={16} height={16} color="#71717A" />}
               </Button>
