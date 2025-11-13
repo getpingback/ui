@@ -296,7 +296,7 @@ export function VariableInput({
             {...props}
           />
 
-          <div className="flex items-center justify-between gap-2">
+          <div className={cn('flex items-center justify-between gap-2', direction === 'vertical' && 'w-full')}>
             <PopoverTrigger asChild onClick={handleDropdownTrigger}>
               <Button variant="outline" size="lg" rounded="xl" data-testid="variable-input-trigger">
                 <VariableIcon color="#71717A" height={20} width={20} />
