@@ -156,4 +156,31 @@ describe('VariableInput Component', () => {
       expect(editor.innerHTML).toContain('Line 3');
     }
   });
+
+  it('should render with horizontal direction (default)', () => {
+    const { container } = render(<VariableInput options={options} />);
+
+    const editor = container.querySelector("[contenteditable='true']");
+    expect(editor).toBeInTheDocument();
+
+    const wrapper = editor?.parentElement;
+    expect(wrapper).toBeInTheDocument();
+
+    expect(wrapper?.className).not.toContain('flex-col');
+  });
+
+  it('should render the preview button when provided', () => {
+    const { getByTestId } = render(
+      <VariableInput
+        options={options}
+        previewButton={
+          <button type="button" data-testid="preview-btn">
+            Preview
+          </button>
+        }
+      />
+    );
+
+    expect(getByTestId('preview-btn')).toBeInTheDocument();
+  });
 });

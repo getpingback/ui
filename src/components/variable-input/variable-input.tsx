@@ -32,6 +32,8 @@ interface Props {
   onSelectVariable?: (selectedVariable: string) => void;
   onChangeVariablesSearchValue?: (variablesSearchValue: string) => void;
   onVariablesEndReached?: () => void;
+  direction?: 'vertical' | 'horizontal';
+  previewButton?: React.ReactNode;
   popoverPosition?: {
     side?: 'top' | 'right' | 'bottom' | 'left';
     align?: 'start' | 'center' | 'end';
@@ -50,6 +52,7 @@ export function VariableInput({
   className,
   variablesSearchValue,
   variablesShouldFilter = true,
+  direction = 'horizontal',
   variablesSearchPlaceholder = 'Search...',
   variablesEmptySearchPlaceholder = 'No results found',
   onChangeContent,
@@ -57,6 +60,7 @@ export function VariableInput({
   onChangeVariablesSearchValue,
   onVariablesEndReached,
   popoverPosition,
+  previewButton,
   ...props
 }: VariableInputProps) {
   const [open, setOpen] = React.useState(false);
@@ -276,7 +280,7 @@ export function VariableInput({
           </label>
         ) : null}
 
-        <div className="relative w-full flex items-start gap-3">
+        <div className={cn('relative w-full flex items-start gap-2', direction === 'vertical' && 'flex-col')}>
           <div
             ref={editorRef}
             className={cn(
@@ -292,12 +296,16 @@ export function VariableInput({
             {...props}
           />
 
-          <PopoverTrigger asChild onClick={handleDropdownTrigger}>
-            <Button variant="outline" size="lg" rounded="xl" data-testid="variable-input-trigger">
-              <VariableIcon color="#71717A" height={20} width={20} />
-              {open ? <CaretUpIcon width={16} height={16} color="#71717A" /> : <CaretDownIcon width={16} height={16} color="#71717A" />}
-            </Button>
-          </PopoverTrigger>
+          <div className="flex items-center justify-between gap-2">
+            <PopoverTrigger asChild onClick={handleDropdownTrigger}>
+              <Button variant="outline" size="lg" rounded="xl" data-testid="variable-input-trigger">
+                <VariableIcon color="#71717A" height={20} width={20} />
+                {open ? <CaretUpIcon width={16} height={16} color="#71717A" /> : <CaretDownIcon width={16} height={16} color="#71717A" />}
+              </Button>
+            </PopoverTrigger>
+
+            {previewButton}
+          </div>
         </div>
 
         {helperText ? <span className="text-xs font-normal text-tertiary opacity-85">{helperText}</span> : null}
