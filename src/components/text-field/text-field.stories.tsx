@@ -66,3 +66,11 @@ export const Disabled: Story = {
     disabled: true
   }
 };
+
+export const Password: Story = {
+  args: {
+    label: 'TextField',
+    placeholder: 'Placeholder',
+    type: 'password'
+  }
+};
