@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils';
 import { CheckCircleIcon, TimesCircleIcon } from '@stash-ui/solid-icons';
 import { AsteriskIcon } from '@stash-ui/solid-icons';
 import { Tooltip } from '../tooltip';
+import { EyeClosedIcon, EyeOpenedIcon } from '@stash-ui/light-icons';
 
 interface TextFieldProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'prefix'> {
   label?: React.ReactNode | string;
@@ -14,10 +15,17 @@ interface TextFieldProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'pr
   tooltipText?: string;
   prefix?: React.ReactNode;
   required?: boolean;
+  isPasswordVisible?: boolean;
 }
 
 const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
-  ({ label, error, success, helperText, className, required, prefix, tooltipText, disabled, ...props }, ref) => {
+  (
+    { label, error, success, helperText, className, required, prefix, tooltipText, disabled, type = 'text', isPasswordVisible, ...props },
+    ref
+  ) => {
+    const [showPassword, setShowPassword] = React.useState(isPasswordVisible);
+    const isPassword = type === 'password';
+
     return (
       <div className={cn('flex flex-col gap-1', className)}>
         {label && (
@@ -42,11 +50,22 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
               { 'border-default hover:border-hover focus:border-hover focus:shadow-input-focus-neutral': !error },
               { 'border-valid hover:border-valid focus:shadow-input-focus-valid': success },
               { 'bg-neutral hover:border-default cursor-not-allowed opacity-85': disabled },
-              { 'pl-10': prefix }
+              { 'pl-10': prefix },
+              { 'pr-10': isPassword }
             )}
             disabled={disabled}
+            type={isPassword && showPassword ? 'text' : type}
             {...props}
           />
+          {isPassword && (
+            <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-1/2 -translate-y-1/2 ">
+              {showPassword ? (
+                <EyeOpenedIcon className="w-5 h-5 text-icon-tertiary" />
+              ) : (
+                <EyeClosedIcon className="w-5 h-5 text-icon-tertiary" />
+              )}
+            </button>
+          )}
           {error && <TimesCircleIcon className="w-6 h-6 text-error absolute right-2 top-1/2 -translate-y-1/2" />}
           {success && <CheckCircleIcon className="w-6 h-6 text-success absolute right-2 top-1/2 -translate-y-1/2" />}
         </div>

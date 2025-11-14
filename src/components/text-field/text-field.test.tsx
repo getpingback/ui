@@ -1,4 +1,5 @@
 import React from 'react';
+import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { TextField } from './text-field';
@@ -51,5 +52,20 @@ describe('TextField', () => {
     expect(screen.getByText('Error message')).toBeInTheDocument();
     expect(screen.queryByText('Helper text')).not.toBeInTheDocument();
     expect(screen.getByRole('textbox')).toHaveClass('border-invalid');
+  });
+
+  it('should render password input and toggle visibility', async () => {
+    render(<TextField type="password" placeholder="Senha" />);
+
+    const input = screen.getByPlaceholderText('Senha');
+    expect(input).toHaveAttribute('type', 'password');
+    expect(input).toHaveClass('pr-10');
+
+    const toggleButton = screen.getByRole('button');
+    await userEvent.click(toggleButton);
+    expect(input).toHaveAttribute('type', 'text');
+
+    await userEvent.click(toggleButton);
+    expect(input).toHaveAttribute('type', 'password');
   });
 });
