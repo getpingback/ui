@@ -37,6 +37,8 @@ interface ComboboxProps {
   searchPlaceholder?: string;
   emptySearchPlaceholder?: string;
   variant?: 'default' | 'detailed' | 'icon-compact' | 'image-detailed' | 'multiple';
+  side?: 'top' | 'right' | 'bottom' | 'left';
+  align?: 'start' | 'center' | 'end';
   errorMessage?: string;
   defaultValue?: Item | Item[];
   searchValue?: string;
@@ -70,6 +72,8 @@ export function Combobox({
   emptyContentRender,
   footer,
   tooltipText,
+  side = 'top',
+  align = 'center',
   errorMessage,
   disabled
 }: ComboboxProps) {
@@ -250,7 +254,8 @@ export function Combobox({
         style={{ width: 'var(--radix-popover-trigger-width)' }}
         onWheel={(e) => e.stopPropagation()}
         onTouchMove={(e) => e.stopPropagation()}
-        align="center"
+        align={align}
+        side={side}
         data-testid="comboxbox-popover-content"
       >
         <Command shouldFilter={!onChangeSearchValue} className={cn('w-full', footer && 'rounded-b-none')}>
