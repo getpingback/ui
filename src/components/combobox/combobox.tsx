@@ -72,7 +72,7 @@ export function Combobox({
   emptyContentRender,
   footer,
   tooltipText,
-  side = 'top',
+  side = 'bottom',
   align = 'center',
   errorMessage,
   disabled
