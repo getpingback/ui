@@ -42,7 +42,7 @@ interface ComboboxProps {
   errorMessage?: string;
   defaultValue?: Item | Item[];
   searchValue?: string;
-  onSelect?: (item: Item) => void;
+  onSelect?: (item: Item, setSelectedItems: (items: Item[]) => void) => void;
   onRemoveItem?: (item: Item) => void;
   onChangeSearchValue?: (value: string) => void;
   onEndReached?: () => void;
@@ -179,7 +179,7 @@ export function Combobox({
         setSelectedItems([item]);
       }
 
-      onSelect?.(item);
+      onSelect?.(item, setSelectedItems);
       setOpen(false);
     } else {
       setSelectedStep(item);

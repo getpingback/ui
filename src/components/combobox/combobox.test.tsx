@@ -41,10 +41,13 @@ describe('Combobox Component', () => {
         fireEvent.click(item);
       });
 
-      expect(onSelectMock).toHaveBeenCalledWith({
-        label: 'https://pt.semrush.com/blog/bounce-rate-taxa-de-rejeicao/',
-        value: 'https://pt.semrush.com/blog/bounce-rate-taxa-de-rejeicao/'
-      });
+      expect(onSelectMock).toHaveBeenCalledWith(
+        {
+          label: 'https://pt.semrush.com/blog/bounce-rate-taxa-de-rejeicao/',
+          value: 'https://pt.semrush.com/blog/bounce-rate-taxa-de-rejeicao/'
+        },
+        expect.any(Function)
+      );
       expect(comboboxButton).toHaveTextContent('https://pt.semrush.com/blog/bounce-rate-taxa-de-rejeicao/');
     });
   });
@@ -77,11 +80,14 @@ describe('Combobox Component', () => {
         fireEvent.click(item);
       });
 
-      expect(onSelectMock).toHaveBeenCalledWith({
-        description: '117 membros',
-        label: 'Comunidades inativas',
-        value: 'comunidades inativas'
-      });
+      expect(onSelectMock).toHaveBeenCalledWith(
+        {
+          description: '117 membros',
+          label: 'Comunidades inativas',
+          value: 'comunidades inativas'
+        },
+        expect.any(Function)
+      );
       expect(comboboxButton).toHaveTextContent('Comunidades inativas');
     });
   });
@@ -164,11 +170,14 @@ describe('Combobox Component', () => {
         fireEvent.click(item);
       });
 
-      expect(onSelectMock).toHaveBeenCalledWith({
-        imageUrl: 'https://picsum.photos/200/300',
-        label: '8 métricas essenciais para acompanhar no seu blog post',
-        value: '8 métricas essenciais para acompanhar no seu blog post'
-      });
+      expect(onSelectMock).toHaveBeenCalledWith(
+        {
+          imageUrl: 'https://picsum.photos/200/300',
+          label: '8 métricas essenciais para acompanhar no seu blog post',
+          value: '8 métricas essenciais para acompanhar no seu blog post'
+        },
+        expect.any(Function)
+      );
       expect(comboboxButton).toHaveTextContent('8 métricas essenciais para acompanhar no seu blog post');
       const imageInButton = screen.getByAltText('8 métricas essenciais para acompanhar no seu blog post');
       expect(imageInButton).toBeInTheDocument();
@@ -211,10 +220,13 @@ describe('Combobox Component', () => {
         fireEvent.click(item);
       });
 
-      expect(onSelectMock).toHaveBeenCalledWith({
-        label: 'https://pingback.com/juliano-fabbro',
-        value: 'https://pingback.com/juliano-fabbro'
-      });
+      expect(onSelectMock).toHaveBeenCalledWith(
+        {
+          label: 'https://pingback.com/juliano-fabbro',
+          value: 'https://pingback.com/juliano-fabbro'
+        },
+        expect.any(Function)
+      );
       expect(comboboxButton).toHaveTextContent('https://pingback.com/juliano-fabbro');
     });
   });
