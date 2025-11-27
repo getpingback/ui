@@ -18,7 +18,6 @@ const Modal = ({ children, className, ...props }: ModalProps) => {
         <Dialog.Overlay
           className="z-[45] fixed inset-0 bg-background-neutral w-screen h-screen backdrop-blur-sm animate-fade-in"
           data-testid="modal-overlay"
-          onClick={(e) => e.stopPropagation()}
         />
         <Dialog.Content
           ref={contentRef}
@@ -29,7 +28,7 @@ const Modal = ({ children, className, ...props }: ModalProps) => {
           }}
           data-testid={props['data-testid']}
           className={cn(
-            'z-50 fixed max-h[80vh] overflow-y-auto lg:inset-0 lg:m-auto bottom-0 left-0 flex flex-col gap-6 bg-surface h-fit border border-default shadow-modal-5 rounded-t-3xl p-6 lg:rounded-[32px] w-full lg:w-fit lg:min-w-[504px] lg:max-w-xl lg:p-8 data-[state=open]:animate-modal-slide-up lg:data-[state=open]:animate-modal-fade-in data-[state=closed]:animate-modal-slide-down lg:data-[state=closed]:animate-modal-fade-out',
+            'z-50 fixed max-h-[80vh] overflow-y-auto lg:inset-0 lg:m-auto bottom-0 left-0 flex flex-col gap-6 bg-surface h-fit border border-default shadow-modal-5 rounded-t-3xl p-6 lg:rounded-[32px] w-full lg:w-fit lg:min-w-[504px] lg:max-w-xl lg:p-8 data-[state=open]:animate-modal-slide-up lg:data-[state=open]:animate-modal-fade-in data-[state=closed]:animate-modal-slide-down lg:data-[state=closed]:animate-modal-fade-out',
             className
           )}
         >
