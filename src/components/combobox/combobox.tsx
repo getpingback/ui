@@ -40,7 +40,7 @@ interface ComboboxProps {
   side?: 'top' | 'right' | 'bottom' | 'left';
   align?: 'start' | 'center' | 'end';
   errorMessage?: string;
-  value?: Item | Item[];
+  value?: Item | Item[] | null;
   defaultValue?: Item | Item[];
   searchValue?: string;
   onSelect?: (item: Item) => void;
@@ -91,7 +91,9 @@ export function Combobox({
     }
   }, [defaultValue, selectedItems.length]);
 
-  const currentSingleValue = Array.isArray(value) ? value[0] : value || selectedItems[0];
+  const singleValue = Array.isArray(value) ? value[0] : value;
+
+  const currentSingleValue = singleValue || singleValue === null ? singleValue : selectedItems[0];
   const currentMultipleValue = (value as Item[]) || selectedItems;
 
   const isEmpty = options.every((option) => option.items.length === 0);
