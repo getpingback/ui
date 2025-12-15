@@ -514,6 +514,10 @@ const config = {
         'drawer-slide-out': 'drawer-slide-out 300ms cubic-bezier(0.83, 0, 0.17, 1)',
         'fade-in': 'fade-in 300ms cubic-bezier(0.83, 0, 0.17, 1)',
         'fade-out': 'fade-out 300ms cubic-bezier(0.83, 0, 0.17, 1)',
+        'toast-enter-top': 'toast-enter-top 350ms cubic-bezier(0.21, 1.02, 0.73, 1)',
+        'toast-leave-top': 'toast-leave-top 400ms cubic-bezier(0.06, 0.71, 0.55, 1) forwards',
+        'toast-enter-bottom': 'toast-enter-bottom 350ms cubic-bezier(0.21, 1.02, 0.73, 1)',
+        'toast-leave-bottom': 'toast-leave-bottom 400ms cubic-bezier(0.06, 0.71, 0.55, 1) forwards',
         'modal-slide-up': 'modal-slide-up 250ms ease-out',
         'modal-slide-down': 'modal-slide-down 250ms ease-in',
         'modal-fade-in': 'modal-fade-in 250ms ease-out',
@@ -568,6 +572,22 @@ const config = {
         'fade-out': {
           from: { opacity: 1 },
           to: { opacity: 0 }
+        },
+        'toast-enter-top': {
+          from: { opacity: 0, transform: 'translate3d(0, -100%, 0)' },
+          to: { opacity: 1, transform: 'translate3d(0, 0, 0)' }
+        },
+        'toast-leave-top': {
+          from: { opacity: 1, transform: 'translate3d(0, 0, 0)' },
+          to: { opacity: 0, transform: 'translate3d(0, -100%, 0)' }
+        },
+        'toast-enter-bottom': {
+          from: { opacity: 0, transform: 'translate3d(0, 100%, 0)' },
+          to: { opacity: 1, transform: 'translate3d(0, 0, 0)' }
+        },
+        'toast-leave-bottom': {
+          from: { opacity: 1, transform: 'translate3d(0, 0, 0)' },
+          to: { opacity: 0, transform: 'translate3d(0, 100%, 0)' }
         },
         'modal-slide-up': {
           '0%': { transform: 'translateY(100%)' },

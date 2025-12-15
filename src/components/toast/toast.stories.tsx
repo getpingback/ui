@@ -10,7 +10,7 @@ const meta = {
     (Story) => (
       <div style={{ minHeight: '200px', width: '100%' }}>
         <Story />
-        <Toaster position="top-right" />
+        <Toaster />
       </div>
     )
   ],
