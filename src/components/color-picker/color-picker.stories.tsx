@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { ColorPicker } from './color-picker';
+import { Button } from '../button';
 
 const meta: Meta<typeof ColorPicker> = {
   title: 'Components/ColorPicker',
@@ -21,5 +22,30 @@ export const Default: Story = {
     const [color, setColor] = useState(defaultColor);
 
     return <ColorPicker {...args} color={color} onChange={setColor} />;
+  }
+};
+
+export const CustomTrigger: Story = {
+  args: {
+    color: '#7C3AED',
+    saveText: 'Save',
+    cancelText: 'Cancel',
+    onSave: () => undefined
+  },
+  render: ({ color: defaultColor, ...args }) => {
+    const [color, setColor] = useState(defaultColor);
+
+    return (
+      <ColorPicker
+        {...args}
+        color={color}
+        onChange={setColor}
+        trigger={
+          <Button variant="outline" size="sm">
+            Custom trigger
+          </Button>
+        }
+      />
+    );
   }
 };

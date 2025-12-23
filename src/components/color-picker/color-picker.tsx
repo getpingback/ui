@@ -16,6 +16,7 @@ interface ColorPickerProps {
   onCancel?: () => void;
   cancelText?: string;
   saveText?: string;
+  trigger?: React.ReactNode;
   className?: string;
   side?: 'top' | 'bottom' | 'left' | 'right';
   align?: 'start' | 'center' | 'end';
@@ -34,6 +35,7 @@ export const ColorPicker = ({
   saveText = 'Save',
   side = 'bottom',
   align = 'start',
+  trigger,
   triggerConfig,
   className
 }: ColorPickerProps) => {
@@ -89,19 +91,23 @@ export const ColorPicker = ({
   return (
     <Popover open={isOpen} onOpenChange={setIsOpen}>
       <PopoverTrigger asChild>
-        <button
-          className={cn(
-            `flex items-center gap-2 h-6 cursor-pointer ${triggerConfig?.showColorName ? 'w-full' : 'w-6'} ${triggerConfig?.className}`
-          )}
-          onClick={() => setIsOpen(true)}
-        >
-          <span
-            data-testid="color-picker-trigger"
-            style={{ backgroundColor: hasHash ? color : `#${color}` }}
-            className="w-6 h-6 rounded-md shadow-[0px_0px_0px_1.33px_#00000014_inset] cursor-pointer"
-          />
-          {triggerConfig?.showColorName && <span className="text-sm text-secondary-foreground opacity-85">{color}</span>}
-        </button>
+        {trigger ? (
+          trigger
+        ) : (
+          <button
+            className={cn(
+              `flex items-center gap-2 h-6 cursor-pointer ${triggerConfig?.showColorName ? 'w-full' : 'w-6'} ${triggerConfig?.className}`
+            )}
+            onClick={() => setIsOpen(true)}
+          >
+            <span
+              data-testid="color-picker-trigger"
+              style={{ backgroundColor: hasHash ? color : `#${color}` }}
+              className="w-6 h-6 rounded-md shadow-[0px_0px_0px_1.33px_#00000014_inset] cursor-pointer"
+            />
+            {triggerConfig?.showColorName && <span className="text-sm text-secondary-foreground opacity-85">{color}</span>}
+          </button>
+        )}
       </PopoverTrigger>
       <PopoverContent side={side} align={align} className={cn('w-[252px] flex flex-col', className)} data-testid="color-picker-dialog">
         <div className="custom-color-picker">
@@ -137,14 +143,16 @@ export const ColorPicker = ({
               </div>
             ))}
           </div>
-          <div className="flex gap-3">
-            <Button variant="clear" width="full" onClick={handleCancel}>
-              {cancelText}
-            </Button>
-            <Button variant="outline" width="full" onClick={handleSave}>
-              {saveText}
-            </Button>
-          </div>
+          {onSave && (
+            <div className="flex gap-3">
+              <Button variant="clear" width="full" onClick={handleCancel}>
+                {cancelText}
+              </Button>
+              <Button variant="outline" width="full" onClick={handleSave}>
+                {saveText}
+              </Button>
+            </div>
+          )}
         </div>
       </PopoverContent>
     </Popover>

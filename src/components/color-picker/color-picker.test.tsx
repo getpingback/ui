@@ -77,7 +77,8 @@ describe('ColorPicker', () => {
 
   it('calls onCancel when cancel button is clicked', () => {
     const onCancel = jest.fn();
-    render(<ColorPicker {...defaultProps} onCancel={onCancel} />);
+    const onSave = jest.fn();
+    render(<ColorPicker {...defaultProps} onCancel={onCancel} onSave={onSave} />);
 
     const trigger = screen.getByRole('button');
     fireEvent.click(trigger);
@@ -86,6 +87,24 @@ describe('ColorPicker', () => {
     fireEvent.click(cancelButton);
 
     expect(onCancel).toHaveBeenCalled();
+  });
+
+  it('opens color picker dropdown when a custom trigger is clicked', () => {
+    render(<ColorPicker {...defaultProps} trigger={<button data-testid="custom-trigger">Open</button>} />);
+
+    fireEvent.click(screen.getByTestId('custom-trigger'));
+
+    expect(screen.getByTestId('color-picker-dialog')).toBeInTheDocument();
+  });
+
+  it('hide footer when onSave is not provided', () => {
+    render(<ColorPicker {...defaultProps} />);
+
+    const trigger = screen.getByRole('button');
+    fireEvent.click(trigger);
+
+    expect(screen.queryByText('Save')).not.toBeInTheDocument();
+    expect(screen.queryByText('Cancel')).not.toBeInTheDocument();
   });
 
   it('updates color when theme color is clicked', () => {
