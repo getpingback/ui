@@ -90,6 +90,7 @@ export interface DropdownProps extends React.HTMLAttributes<HTMLDivElement> {
   sideOffset?: number;
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
+  modal?: boolean;
 }
 
 function Dropdown({
@@ -101,11 +102,12 @@ function Dropdown({
   sideOffset = 4,
   children,
   open,
+  modal = false,
   onOpenChange,
   ...props
 }: DropdownProps) {
   return (
-    <DropdownMenuPrimitive.Root modal={false} open={open} onOpenChange={onOpenChange}>
+    <DropdownMenuPrimitive.Root modal={true} open={open} onOpenChange={onOpenChange}>
       <DropdownMenuPrimitive.Trigger asChild={triggerAsChild} onClick={(e) => e.stopPropagation()}>
         {trigger}
       </DropdownMenuPrimitive.Trigger>

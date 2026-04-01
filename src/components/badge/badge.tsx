@@ -193,7 +193,7 @@ const badgeVariants = cva('flex w-fit items-center rounded-full font-bold text-[
     {
       type: 'fuchsia',
       variant: 'outline',
-      className: 'bg-transparent border-2 border-background-fuchsia text-fuchsia'
+      className: 'bg-transparent border-2 border-background-fucshia text-fucshia'
     },
     {
       type: 'pink',
