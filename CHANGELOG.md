@@ -2,6 +2,76 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.37](https://github.com/getpingback/ui/compare/v1.1.0...v1.0.37) (2026-04-01)
+
+
+### Features
+
+* add error state dropdown icon ([27a070b](https://github.com/getpingback/ui/commits/27a070baf55be3f70bdd95d7c596bccef061e5ae))
+* add icon success hover color ([8fa4d6f](https://github.com/getpingback/ui/commits/8fa4d6f2e842498581b5b7bb59834cf96c76563b))
+* add password textfield ([efb85b0](https://github.com/getpingback/ui/commits/efb85b00276bd9af00cfb3764b9cbcc6d9157194))
+* add secondary variant to tab ([90ef9b6](https://github.com/getpingback/ui/commits/90ef9b6265c0e0534122c7ad5402707e4225e9c2))
+* add secondary variant to tab ([c309b8a](https://github.com/getpingback/ui/commits/c309b8a3898bd402b4c240b8cbe2774a23482c5c))
+* change sidebar header button top position ([cc24618](https://github.com/getpingback/ui/commits/cc246189738388464517492a7d80267a26217e33))
+* custom trigger at colorpicker ([666f054](https://github.com/getpingback/ui/commits/666f054a6c3f1e58f40cd02a2f24ad044a20fb83))
+* horizontal prop at variable input ([47f0a17](https://github.com/getpingback/ui/commits/47f0a17737f874191515bc8b42bf73b4f9d4ce68))
+* merge with main ([8ee672a](https://github.com/getpingback/ui/commits/8ee672aceeb0c1ca2f55f1fcb643c20f0274eedd))
+* merge with main ([1b3394b](https://github.com/getpingback/ui/commits/1b3394be63613a5dcbf4ad50d155921a465017f3))
+* merge with main ([5cb5c17](https://github.com/getpingback/ui/commits/5cb5c1780d2af81e568e281c4c55690035d18b3d))
+* range picker on mobile layout ([d071233](https://github.com/getpingback/ui/commits/d071233131aa72a1f4243f2d43a62afea5f124a9))
+
+
+### Bug Fixes
+
+* ad disabled to combobox ([ba9acb0](https://github.com/getpingback/ui/commits/ba9acb0500b04158852b0130af9bc7c7baf81d2e))
+* add align popover at combobox ([3ed027f](https://github.com/getpingback/ui/commits/3ed027f4be49367158dfb96788aaa638ac03a74b))
+* add tests to new tab variant ([4eda8d1](https://github.com/getpingback/ui/commits/4eda8d10f5b8a5839c1826e7a2e6bd38b5962523))
+* avatar classname prop ([a448f07](https://github.com/getpingback/ui/commits/a448f07652e3fb960559fe6f24d0931dde9047f3))
+* bottom toast animation ([03e7e35](https://github.com/getpingback/ui/commits/03e7e351e153c67d8a421f23b898f1770353d947))
+* changes requested ([4a91094](https://github.com/getpingback/ui/commits/4a9109418a4fc2cfc3150a2e469957f58876125e))
+* checked state checkbox ([25bab02](https://github.com/getpingback/ui/commits/25bab02fb97304cff6665226808cc6569cfe06f0))
+* children passed as array dependency in accordion ([c33442a](https://github.com/getpingback/ui/commits/c33442adf969121703f60619c8d11771838a2870))
+* click outside modal on mobile device ([ea0ca7c](https://github.com/getpingback/ui/commits/ea0ca7c305885360cca06d5a14baea99c83d1766))
+* combobox control state ([02a4531](https://github.com/getpingback/ui/commits/02a45319d8e1f0c03527d342c239f9bf68117791))
+* combobox overflow-y ([94c731b](https://github.com/getpingback/ui/commits/94c731b7b747bcda5a175368e9291b529d62c873))
+* combobox width ([63b19e3](https://github.com/getpingback/ui/commits/63b19e30899bf31a8e3780439216a71520e59df6))
+* combobx ([314d24e](https://github.com/getpingback/ui/commits/314d24efb3d9578157b5b47f5221c53020b3dcdd))
+* controlled open state optional in dropdown component ([8172f50](https://github.com/getpingback/ui/commits/8172f50cc7cd571c0b5bf15773c196db813c686d))
+* default value datepicker ([44c77aa](https://github.com/getpingback/ui/commits/44c77aa16f5fbf3e1d6c62b158af02c7edaeb74b))
+* dropdown scroll ([4b91c64](https://github.com/getpingback/ui/commits/4b91c6417ff76694a0e1807076fe5b949bbbd926))
+* dropdown scroll ([c969355](https://github.com/getpingback/ui/commits/c96935598d6df96636b4808278c0c08415122e7d))
+* error message in combobox ([b7428ef](https://github.com/getpingback/ui/commits/b7428ef4eeadbf277f883332a7f19444fd9ff252))
+* label variable input color text ([fcefac8](https://github.com/getpingback/ui/commits/fcefac8c9cded0a40e54ffeecd7b2caa32a7634f))
+* merge main ([b23a651](https://github.com/getpingback/ui/commits/b23a6511dc54f00723253e9a10067b242d46dc60))
+* modal and drawer size / accordion height ([32206f2](https://github.com/getpingback/ui/commits/32206f2b663f6e6aafd7a5765e16e1bcd81950c1))
+* modal auto focus ([635f0df](https://github.com/getpingback/ui/commits/635f0dff14daf0cb6c69c3b62d6cbbb837a85feb))
+* overflow variable input ([841b3f2](https://github.com/getpingback/ui/commits/841b3f24531b1747dfc7abd25329de17dbed4d1f))
+* pass data test id to select list ([bc193e6](https://github.com/getpingback/ui/commits/bc193e637b9de6ad92d49560071e3597cd4ca8a8))
+* radius on range picker trigger ([2a14dc9](https://github.com/getpingback/ui/commits/2a14dc9b4c14ed080363b39e73361f402a18f192))
+* range picker ([2101f61](https://github.com/getpingback/ui/commits/2101f61ec8e790f55f3ddabe1567e2fe7cb78baf))
+* remove unecessary div at textarea component ([894b54a](https://github.com/getpingback/ui/commits/894b54afdb62f91129b7f9837d2ebf0eaeabe026))
+* secondary tab ([2942e35](https://github.com/getpingback/ui/commits/2942e357f92b573b3984e76841793bbaf1fc4d8d))
+* select list ([eaa35bc](https://github.com/getpingback/ui/commits/eaa35bc6ea8831ed3d0c6cb2d75a90427b2c48f0))
+* select list default value ([8427a88](https://github.com/getpingback/ui/commits/8427a888d7e4fa8b48fb0a6ea617f45d36c600a1))
+* split button ([ef21c6d](https://github.com/getpingback/ui/commits/ef21c6d982e1f03ad0e12351779014191d3e85d0))
+* swiper ([9ad3617](https://github.com/getpingback/ui/commits/9ad3617f7ec2343e1fe95ed86099ef8b36dc3f64))
+* swiper typescript errors ([efc92a8](https://github.com/getpingback/ui/commits/efc92a8dc8bae4cc8b0273cf1b4126efcfd337d1))
+* tab text ([16188b4](https://github.com/getpingback/ui/commits/16188b44b4d62ff7406d0d47591206d38e48834a))
+* text field with react hook form ([9e2c39a](https://github.com/getpingback/ui/commits/9e2c39a360a5dbdc463a9a13e36f0f91e1fbd382))
+* text-field tests ([06eae4b](https://github.com/getpingback/ui/commits/06eae4b341e276cfc253bb2472a3baffebb149e5))
+* version ([499a3f3](https://github.com/getpingback/ui/commits/499a3f3d5d26933cd28e43606729f17488d7b086))
+* version ([7d40ec4](https://github.com/getpingback/ui/commits/7d40ec4958f124aa34c1a7f485c41d82972c724d))
+* workflow components(button, range picker and combobox) ([15b1849](https://github.com/getpingback/ui/commits/15b18494ae1067ecccc22de238c776d189574e39))
+
+### [0.0.499](https://github.com/getpingback/ui/compare/v0.0.498...v0.0.499) (2025-09-16)
+
+### [0.0.498](https://github.com/getpingback/ui/compare/v0.0.492...v0.0.498) (2025-09-16)
+
+
+### Bug Fixes
+
+* color picker trigger ([9a0efa3](https://github.com/getpingback/ui/commits/9a0efa3be5bbb34e811b8c7cbd2403bbd3811dc1))
+
 ## [1.0.0](https://github.com/getpingback/ui/compare/v1.1.0...v1.0.0) (2025-09-29)
 
 ## [1.1.0](https://github.com/getpingback/ui/compare/v1.0.0...v1.1.0) (2025-09-29)
