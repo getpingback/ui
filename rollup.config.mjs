@@ -12,6 +12,14 @@ import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
 const packageJson = require('./package.json');
 
+const externalPackages = [
+  ...Object.keys(packageJson.dependencies || {}),
+  ...Object.keys(packageJson.peerDependencies || {})
+];
+
+const isExternal = (id) =>
+  externalPackages.some((pkg) => id === pkg || id.startsWith(`${pkg}/`));
+
 const rollupConfig = [
   {
     input: 'src/index.ts',
@@ -56,12 +64,13 @@ const rollupConfig = [
       }),
       sourcemaps()
     ],
-    external: ['react', 'react-dom']
+    external: isExternal
   },
   {
     input: 'dist/esm/types/index.d.ts',
     output: [{ file: 'dist/index.d.ts', format: 'es' }],
-    plugins: [dts(), del({ targets: 'dist/types', hook: 'buildEnd' })]
+    plugins: [dts(), del({ targets: 'dist/types', hook: 'buildEnd' })],
+    external: isExternal
   }
 ];
 
